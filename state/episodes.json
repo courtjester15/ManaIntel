@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.3.0",
-  "updated_at": "2026-07-24T12:00:37Z",
+  "updated_at": "2026-07-24T21:20:56Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -1301,27 +1301,51 @@
         {
           "status": "failed",
           "timestamp": "2026-07-23T21:22:03Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-24T21:20:35Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-07-24T21:20:35Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-07-24T21:20:37Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-07-24T21:20:37Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-07-24T21:20:53Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-07-24T21:20:56Z"
         }
       ],
       "title": "MTG Fast Finance Ep 525: Secret Lair Chaos Vault Experiments",
       "episode_number": 525,
       "published_at": "2026-06-11T17:20:24Z",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/3 failed after 4.8s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "message": "Gemini transcription chunk 1/3 failed after 1.9s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "category": "transient_provider",
         "synthetic": false,
-        "retryable": true,
+        "retryable": false,
         "provider_wide": true,
-        "attempt": 2,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-07-24T03:22:03Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-07-23T21:22:03Z",
+      "updated_at": "2026-07-24T21:20:56Z",
       "output_directory": "episodes/0525-secret-lair-chaos-vault-experiments"
     },
     "tag:soundcloud,2010:tracks/2337004664": {
