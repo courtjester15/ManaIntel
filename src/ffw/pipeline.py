@@ -270,7 +270,9 @@ class Pipeline:
             self.state.transition(episode.guid, "transcribing")
             transcript = self.transcriber.transcribe(episode, prepared_files)
             self.state.transition(episode.guid, "transcribed", transcription={
-                "provider": transcript.get("provider", "mock"), "model": self.transcriber.model_name,
+                "provider": transcript.get("provider", "mock"),
+                "model": transcript.get("model", self.transcriber.model_name),
+                "models": transcript.get("models", [transcript.get("model", self.transcriber.model_name)]),
                 "chunk_count": transcript.get("chunk_count", len(prepared_files)),
                 "duration_seconds": transcript.get("duration_seconds", episode.duration_seconds),
                 "usage": transcript.get("usage"),
@@ -379,7 +381,7 @@ class Pipeline:
             "review_reason": state_record.get("review_reason") or episode.fixture.get("review_reason"),
             "pipeline_version": PIPELINE_VERSION,
             "schema_version": SCHEMA_VERSION,
-            "transcription_model": self.transcriber.model_name,
+            "transcription_model": (state_record.get("transcription") or {}).get("model", self.transcriber.model_name),
             "extraction_model": self.extractor.model_name,
             "prompt_version": PROMPT_VERSION,
             "processed_at": state_record.get("updated_at") or utc_now(),

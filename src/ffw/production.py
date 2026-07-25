@@ -281,6 +281,15 @@ def _is_gemini_schema_error(exc: Exception) -> bool:
     return any(token in text for token in ("schema", "response_json_schema", "response_schema", "json", "invalid_argument"))
 
 
+def _is_transient_gemini_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return any(token in text for token in (
+        "408", "429", "500", "502", "503", "504", "connection reset",
+        "deadline_exceeded", "rate limit", "resource_exhausted", "server disconnected",
+        "temporarily unavailable", "timed out", "timeout",
+    ))
+
+
 def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list[Any], schema: dict[str, Any]) -> dict[str, Any]:
     attempts = [
         {"response_mime_type": "application/json", "response_json_schema": schema},
@@ -310,9 +319,51 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
 
 
 class GeminiTranscriber:
-    def __init__(self, model_name: str, chunk_seconds: int) -> None:
+    def __init__(
+        self,
+        model_name: str,
+        chunk_seconds: int,
+        fallback_model_name: str | None = None,
+        transient_retries: int = 1,
+        retry_delay_seconds: float = 2.0,
+    ) -> None:
         self.model_name = model_name
         self.chunk_seconds = chunk_seconds
+        self.fallback_model_name = fallback_model_name if fallback_model_name != model_name else None
+        self.transient_retries = max(0, transient_retries)
+        self.retry_delay_seconds = max(0.0, retry_delay_seconds)
+
+    def _transcribe_chunk(
+        self,
+        client: Any,
+        types: Any,
+        contents: list[Any],
+    ) -> tuple[dict[str, Any], str]:
+        models = [self.model_name]
+        if self.fallback_model_name:
+            models.append(self.fallback_model_name)
+        transient_errors: list[str] = []
+        last_error: Exception | None = None
+        for model_index, model in enumerate(models):
+            attempts = 1 + self.transient_retries if model_index == 0 else 1
+            for attempt in range(attempts):
+                try:
+                    return _gemini_generate_json(
+                        client,
+                        types,
+                        model=model,
+                        contents=contents,
+                        schema=TRANSCRIPT_SCHEMA,
+                    ), model
+                except Exception as exc:
+                    if not _is_transient_gemini_error(exc):
+                        raise
+                    last_error = exc
+                    transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
+                    if attempt + 1 < attempts and self.retry_delay_seconds:
+                        time.sleep(self.retry_delay_seconds)
+        details = "; ".join(transient_errors)
+        raise RuntimeError(f"Gemini transcription models exhausted after transient errors: {details}") from last_error
 
     def transcribe(self, episode: EpisodeCandidate, audio_files: list[Path]) -> dict[str, Any]:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
@@ -325,6 +376,7 @@ class GeminiTranscriber:
         segments: list[dict[str, Any]] = []
         texts: list[str] = []
         usage: list[dict[str, Any]] = []
+        used_models: list[str] = []
         prompt = (
             "Transcribe this MTG Fast Finance podcast audio chunk. Return JSON only. "
             "Use seconds relative to the start of this chunk for start and end. "
@@ -334,15 +386,13 @@ class GeminiTranscriber:
         for index, path in enumerate(audio_files):
             started = time.monotonic()
             try:
-                payload = _gemini_generate_json(
+                payload, used_model = self._transcribe_chunk(
                     client,
                     types,
-                    model=self.model_name,
                     contents=[
                         prompt,
                         types.Part.from_bytes(data=path.read_bytes(), mime_type="audio/mpeg"),
                     ],
-                    schema=TRANSCRIPT_SCHEMA,
                 )
             except Exception as exc:
                 elapsed = time.monotonic() - started
@@ -351,9 +401,11 @@ class GeminiTranscriber:
                     f"after {elapsed:.1f}s: {type(exc).__name__}: {exc}"
                 ) from exc
             chunk_usage = payload.pop("_usage", None)
+            used_models.append(used_model)
             usage.append({
                 "chunk": index + 1,
                 "chunk_count": len(audio_files),
+                "model": used_model,
                 "audio_seconds": min(
                     self.chunk_seconds,
                     max(0, (episode.duration_seconds or len(audio_files) * self.chunk_seconds) - index * self.chunk_seconds),
@@ -371,10 +423,12 @@ class GeminiTranscriber:
                     segment["speaker"] = str(segment["speaker"])
                 segments.append(segment)
         segments.sort(key=lambda item: item["start"])
+        distinct_models = list(dict.fromkeys(used_models))
         return {
             "synthetic": False,
             "provider": "Gemini",
-            "model": self.model_name,
+            "model": " + ".join(distinct_models),
+            "models": distinct_models,
             "text": "\n".join(texts),
             "segments": segments,
             "chunk_count": len(audio_files),
@@ -497,7 +551,13 @@ def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:
     transcriber: Any
     extractor: Any
     if provider == "gemini":
-        transcriber = GeminiTranscriber(settings.transcription_model, settings.audio_chunk_seconds)
+        transcriber = GeminiTranscriber(
+            settings.transcription_model,
+            settings.audio_chunk_seconds,
+            settings.transcription_fallback_model,
+            settings.gemini_transient_retries,
+            settings.gemini_retry_delay_seconds,
+        )
         extractor = GeminiExtractor(settings.extraction_model, settings.card_glossary)
     else:
         transcriber = OpenAITranscriber(settings.transcription_model, settings.audio_chunk_seconds)

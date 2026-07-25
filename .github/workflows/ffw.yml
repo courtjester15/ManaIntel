@@ -45,6 +45,9 @@ env:
   FFW_MODE: live
   FFW_AI_PROVIDER: gemini
   FFW_TRANSCRIPTION_MODEL: gemini-3.5-flash
+  FFW_TRANSCRIPTION_FALLBACK_MODEL: gemini-3.5-flash-lite
+  FFW_GEMINI_TRANSIENT_RETRIES: "1"
+  FFW_GEMINI_RETRY_DELAY_SECONDS: "2"
   FFW_EXTRACTION_MODEL: gemini-3.5-flash
   FFW_MAX_LIVE_BATCH: "20"
   FFW_MAX_EPISODE_ATTEMPTS: "3"
@@ -89,6 +92,7 @@ jobs:
         run: |
           echo "Provider: $FFW_AI_PROVIDER"
           echo "Transcription model: $FFW_TRANSCRIPTION_MODEL"
+          echo "Transcription fallback model: $FFW_TRANSCRIPTION_FALLBACK_MODEL"
           echo "Extraction model: $FFW_EXTRACTION_MODEL"
           if [[ "$FFW_AI_PROVIDER" == "gemini" && -z "$GEMINI_API_KEY" ]]; then
             echo "::error::GEMINI_API_KEY repository secret is missing or empty."

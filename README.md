@@ -53,7 +53,7 @@ For development without installing the package, set `PYTHONPATH=src` before invo
 | `python -m ffw render` | Re-render Markdown from JSON and rebuild `index.json` and `cards.json`. |
 | `python -m ffw serve` | Serve the repository and local archive on port 8765. |
 
-Live batch and failed-only runs require a positive limit no greater than 20. Limits count eligible selected episodes, not RSS entries inspected. `complete` and `needs_review` records are skipped before download or provider calls; failed records are selected only by `retry-failed` or an exact GUID override. Automatic retries use a six-hour cooldown and stop after three total attempts. A no-op does not rewrite catalogs or state.
+Live batch and failed-only runs require a positive limit no greater than 20. Limits count eligible selected episodes, not RSS entries inspected. `complete` and `needs_review` records are skipped before download or provider calls; failed records are selected only by `retry-failed` or an exact GUID override. Gemini transcription transiently retries the primary model once, then uses the configured same-key fallback before consuming an episode attempt. Automatic episode retries use a six-hour cooldown and stop after three total attempts. A no-op does not rewrite catalogs or state.
 
 Run the tests with:
 

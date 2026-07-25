@@ -166,6 +166,8 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("batch_size must be a positive integer", workflow)
         self.assertIn("exceeds the safety cap", workflow)
         self.assertIn("gemini-3.5-flash", workflow)
+        self.assertIn("gemini-3.5-flash-lite", workflow)
+        self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "1"', workflow)
         self.assertIn('cron: "17 20 * * *"', workflow)
         self.assertIn('INPUT_MODE="retry_failed"', workflow)
         self.assertIn('FFW_MAX_EPISODE_ATTEMPTS: "3"', workflow)
@@ -190,15 +192,75 @@ class ProductionPipelineTests(unittest.TestCase):
             "mode": "live",
         }
         with patch.dict(os.environ, {"GEMINI_API_KEY": "test"}, clear=False):
-            settings = Settings(**base, ai_provider="gemini", transcription_model="gemini-t", extraction_model="gemini-e")
+            settings = Settings(
+                **base,
+                ai_provider="gemini",
+                transcription_model="gemini-t",
+                transcription_fallback_model="gemini-t-fallback",
+                extraction_model="gemini-e",
+            )
             _, _, _, transcriber, extractor = production_adapters(settings)
             self.assertIsInstance(transcriber, GeminiTranscriber)
             self.assertIsInstance(extractor, GeminiExtractor)
             self.assertEqual(("gemini-t", "gemini-e"), (transcriber.model_name, extractor.model_name))
+            self.assertEqual("gemini-t-fallback", transcriber.fallback_model_name)
         settings = Settings(**base, ai_provider="openai", transcription_model="openai-t", extraction_model="openai-e")
         _, _, _, transcriber, extractor = production_adapters(settings)
         self.assertIsInstance(transcriber, OpenAITranscriber)
         self.assertIsInstance(extractor, OpenAIExtractor)
+
+    def test_gemini_transcription_retries_then_uses_configured_fallback(self) -> None:
+        transcriber = GeminiTranscriber(
+            "gemini-primary",
+            1200,
+            fallback_model_name="gemini-fallback",
+            transient_retries=1,
+            retry_delay_seconds=0,
+        )
+        success = {"text": "Cards to Watch", "segments": [], "_usage": None}
+        with patch(
+            "ffw.production._gemini_generate_json",
+            side_effect=[RuntimeError("503 UNAVAILABLE"), RuntimeError("503 UNAVAILABLE"), success],
+        ) as generate:
+            payload, model = transcriber._transcribe_chunk(object(), object(), ["audio"])
+
+        self.assertEqual(success, payload)
+        self.assertEqual("gemini-fallback", model)
+        self.assertEqual(
+            ["gemini-primary", "gemini-primary", "gemini-fallback"],
+            [item.kwargs["model"] for item in generate.call_args_list],
+        )
+
+    def test_gemini_transcription_does_not_hide_permanent_primary_failure(self) -> None:
+        transcriber = GeminiTranscriber(
+            "gemini-primary",
+            1200,
+            fallback_model_name="gemini-fallback",
+            retry_delay_seconds=0,
+        )
+        with patch(
+            "ffw.production._gemini_generate_json",
+            side_effect=RuntimeError("404 NOT_FOUND model unavailable"),
+        ) as generate:
+            with self.assertRaisesRegex(RuntimeError, "404 NOT_FOUND"):
+                transcriber._transcribe_chunk(object(), object(), ["audio"])
+        self.assertEqual(1, generate.call_count)
+
+    def test_gemini_transcription_exhaustion_remains_retryable(self) -> None:
+        transcriber = GeminiTranscriber(
+            "gemini-primary",
+            1200,
+            fallback_model_name="gemini-fallback",
+            transient_retries=0,
+            retry_delay_seconds=0,
+        )
+        with patch(
+            "ffw.production._gemini_generate_json",
+            side_effect=[RuntimeError("503 UNAVAILABLE"), RuntimeError("503 UNAVAILABLE")],
+        ):
+            with self.assertRaisesRegex(RuntimeError, "models exhausted") as raised:
+                transcriber._transcribe_chunk(object(), object(), ["audio"])
+        self.assertEqual(("transient_provider", True, True), classify_failure(str(raised.exception)))
 
     def test_live_run_requires_positive_limit(self) -> None:
         root = workspace_temp()

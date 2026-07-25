@@ -142,9 +142,9 @@
 
 ## ADR-024 — Production provider is configurable; workflow default is Gemini
 
-**Decision:** Retain both Gemini and OpenAI adapters. The checked-in GitHub workflow pins stable `gemini-3.5-flash` for transcription and extraction; model/provider values remain environment configuration rather than product architecture.
+**Decision:** Retain both Gemini and OpenAI adapters. The checked-in GitHub workflow pins `gemini-3.5-flash` for transcription and extraction. Transient transcription failures receive one short primary retry and then one same-key request to `gemini-3.5-flash-lite`; model/provider values remain environment configuration rather than product architecture.
 
-**Reason:** Provider availability and cost change. Operational documentation must describe the checked-in default without coupling the archive contract to it.
+**Reason:** Provider availability and cost change. A bounded same-provider fallback prevents temporary capacity trouble from consuming a full episode attempt while avoiding new credentials or an unbounded provider carousel. Operational documentation must describe the checked-in default without coupling the archive contract to it.
 
 ## ADR-025 — Fresh backfill and failed recovery use separate bounded schedules
 
