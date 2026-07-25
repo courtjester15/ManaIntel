@@ -16,15 +16,15 @@
     "description": "Your favorite cardboard finance team gets you caught on all the Magic the Gathering card price action of the week, including meta updates, cards to watch and a deep dive on the top SOS Commanders.\n\nIntro/Outro Music by Skylarka"
   },
   "processing": {
-    "status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "pipeline_version": "0.3.0",
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Section start found, but no explicit end marker was detected.",
+    "pipeline_version": "0.3.1",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "cards-to-watch-v2",
-    "processed_at": "2026-07-23T12:05:01Z",
+    "processed_at": "2026-07-25T21:12:26Z",
     "history": [
       {
         "status": "detected",
@@ -57,26 +57,144 @@
       {
         "status": "failed",
         "timestamp": "2026-07-23T12:05:01Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-25T21:08:58Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-07-25T21:08:58Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-07-25T21:09:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-07-25T21:09:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-07-25T21:09:12Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-07-25T21:11:49Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-07-25T21:11:49Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-07-25T21:12:26Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-07-25T21:12:26Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-07-25T21:12:26Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-07-25T21:12:26Z"
       }
     ],
-    "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 1/2 failed after 83.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-07-23T18:05:01Z",
-      "quarantined": false
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 2,
+      "duration_seconds": 2030,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 2,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 1200,
+          "request_seconds": 79.656,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12440,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 30050,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 51
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 29999
+              }
+            ],
+            "thoughts_token_count": 4750,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47240,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 2,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 830,
+          "request_seconds": 76.446,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8612,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 20809,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 20758
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 51
+              }
+            ],
+            "thoughts_token_count": 9195,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38616,
+            "traffic_type": null
+          }
+        }
+      ]
     },
-    "transcription": null,
-    "extraction_usage": null
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1659,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 11157,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 11157
+        }
+      ],
+      "thoughts_token_count": 5359,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 18175,
+      "traffic_type": null
+    }
   },
   "outputs": {
     "metadata": "episodes/0523-top-sos-commanders/metadata.json",
-    "summary_json": null,
-    "summary_markdown": null
+    "summary_json": "episodes/0523-top-sos-commanders/summary.json",
+    "summary_markdown": "episodes/0523-top-sos-commanders/summary.md"
   }
 }
