@@ -1,0 +1,418 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2311672805",
+    "episode_number": 521,
+    "title": "MTG Fast Finance Ep 521: SOS Previews Pt 2",
+    "published_at": "2026-04-30T00:00:11Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2311672805-user-519789566-mtg-fast-finance-ep-521-sos.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-521-sos",
+    "duration_seconds": 3386,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys get you updated on all the Magic the Gathering card price action of the week, including meta updates, cards to watch and the 2nd part of their discussion of their favorite SOS preview cards.\n\nIntro/Outro Music by Skylarka"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Section start found, but no explicit end marker was detected.",
+    "pipeline_version": "0.3.1",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "cards-to-watch-v2",
+    "processed_at": "2026-07-26T11:43:09Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-07-26T11:36:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-26T11:36:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-26T11:36:44Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-07-26T11:36:44Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-07-26T11:36:46Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-07-26T11:36:46Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-07-26T11:37:07Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-07-26T11:42:33Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-07-26T11:42:33Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-07-26T11:43:09Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-07-26T11:43:09Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-07-26T11:43:09Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-07-26T11:43:09Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 3386,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 1200,
+          "request_seconds": 84.283,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13013,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 30050,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 51
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 29999
+              }
+            ],
+            "thoughts_token_count": 6996,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 50059,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 1200,
+          "request_seconds": 107.15,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13498,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 30050,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 29999
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 51
+              }
+            ],
+            "thoughts_token_count": 11392,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 54940,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 986,
+          "request_seconds": 133.087,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11335,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 24705,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 51
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 24654
+              }
+            ],
+            "thoughts_token_count": 16698,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 52738,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1838,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 20761,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 20761
+        }
+      ],
+      "thoughts_token_count": 5935,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 28534,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 125,
+    "end_seconds": 3382,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Section start found, but no explicit end marker was detected."
+  },
+  "recommendations": [
+    {
+      "card": "Sword of the Animist",
+      "printing": "Final Fantasy Premium Commander Deck",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "about $12",
+      "entry_target": {
+        "raw": "about $12",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 12.0
+      },
+      "hold": "midterm",
+      "exit_target": {
+        "raw": "mid-20s and beyond",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Aerith art from Final Fantasy Premium Commander decks",
+        "Extremely high commander play count on EDHREC with over 364k decks",
+        "Strong price ramp forming up as supply dries out"
+      ],
+      "caveats": [
+        "Appeared in some precons which skews EDHREC data slightly"
+      ],
+      "confidence": "high",
+      "start_seconds": 754,
+      "end_seconds": 913,
+      "evidence_excerpt": "Sword of the Animist... currently at about $12, but a pretty solid ramp is forming up into the mid-20s and beyond",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-deb6d3441068dfc8",
+      "timestamp": "00:12:34",
+      "listen_url": "https://feeds.soundcloud.com/stream/2311672805-user-519789566-mtg-fast-finance-ep-521-sos.mp3#t=754"
+    },
+    {
+      "card": "Walking Ballista",
+      "printing": "Final Fantasy Premium Commander Deck",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "15 to 30",
+      "entry_target": {
+        "raw": "15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "hold": "long-term",
+      "exit_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Surge foil version from Final Fantasy Premium Commander decks",
+        "Highly played card with multi-format applications",
+        "Low supply with few sellers remaining"
+      ],
+      "caveats": [
+        "Less EDHREC representation than Sword of the Animist"
+      ],
+      "confidence": "high",
+      "start_seconds": 808,
+      "end_seconds": 913,
+      "evidence_excerpt": "Walking Ballista surge foil, may as well handle both at once, going 15 to 30, probably pushes a little higher",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1340c77a6aed7599",
+      "timestamp": "00:13:28",
+      "listen_url": "https://feeds.soundcloud.com/stream/2311672805-user-519789566-mtg-fast-finance-ep-521-sos.mp3#t=808"
+    },
+    {
+      "card": "Doppelgang",
+      "printing": "Extended Art",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "about $4",
+      "entry_target": {
+        "raw": "about $4",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Not reprinted in the Secrets of Strixhaven Commander decks",
+        "Strong synergy with X-spells and Simic commanders",
+        "Foil extended art version is cheap and has low vendor count"
+      ],
+      "caveats": [
+        "Might end up in upcoming Strixhaven Secret Lairs"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1185,
+      "end_seconds": 1382,
+      "evidence_excerpt": "foil extended arts for about $4 and I think in the next 6 months that makes it all the way up to 10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7a7beec6284fa79b",
+      "timestamp": "00:19:45",
+      "listen_url": "https://feeds.soundcloud.com/stream/2311672805-user-519789566-mtg-fast-finance-ep-521-sos.mp3#t=1185"
+    },
+    {
+      "card": "Scaled Nurturer",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle",
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "about $5",
+      "entry_target": {
+        "raw": "about $5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$12",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 12.0
+      },
+      "reasoning": [
+        "Borderless foil from Whispers in the Candlekeep Secret Lair drop",
+        "Highly efficient in Ur-Dragon decks",
+        "Currently at maximum supply and lowest price"
+      ],
+      "caveats": [
+        "Risk of unexpected future reprints, though less likely after a Secret Lair treatment"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1382,
+      "end_seconds": 1534,
+      "evidence_excerpt": "It's come down to about $5 in foil... is going to end up being a a $12 foil. Next 6 to 12 months or so.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a4dcc50260501e32",
+      "timestamp": "00:23:02",
+      "listen_url": "https://feeds.soundcloud.com/stream/2311672805-user-519789566-mtg-fast-finance-ep-521-sos.mp3#t=1382"
+    },
+    {
+      "card": "Command Tower",
+      "printing": "Strixhaven Book Promo",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "20",
+      "entry_target": {
+        "raw": "20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "40",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Unique Strixhaven-specific art only available in the first printing of the hardcover book on Amazon",
+        "Book promos historically command high value"
+      ],
+      "caveats": [
+        "Poorly packed shipments from Amazon may result in damaged cards",
+        "Risk of bad actors stealing cards and returning the books"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3115,
+      "end_seconds": 3297,
+      "evidence_excerpt": "try to sell them for 40 when we got them for 20 might be the play there.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-dc3e5e8cb7b8f130",
+      "timestamp": "00:51:55",
+      "listen_url": "https://feeds.soundcloud.com/stream/2311672805-user-519789566-mtg-fast-finance-ep-521-sos.mp3#t=3115"
+    }
+  ]
+}
