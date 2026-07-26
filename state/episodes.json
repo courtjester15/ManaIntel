@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.3.1",
-  "updated_at": "2026-07-26T11:43:09Z",
+  "updated_at": "2026-07-26T21:19:53Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -1793,28 +1793,207 @@
         {
           "status": "failed",
           "timestamp": "2026-07-24T12:00:37Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-26T21:11:50Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-07-26T21:11:50Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-07-26T21:11:53Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-07-26T21:11:53Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-07-26T21:12:20Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-07-26T21:18:59Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-07-26T21:18:59Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-07-26T21:19:53Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-07-26T21:19:53Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-07-26T21:19:53Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-07-26T21:19:53Z"
         }
       ],
       "title": "MTG Fast Finance Ep 522: SOS Brick Targets",
       "episode_number": 522,
       "published_at": "2026-05-21T01:37:13Z",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 225.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-07-24T18:00:37Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 4,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-07-26T21:19:53Z",
+      "output_directory": "episodes/0522-sos-brick-targets",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 4271,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 1200,
+            "request_seconds": 74.106,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11797,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 30050,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 51
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 29999
+                }
+              ],
+              "thoughts_token_count": 5991,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47838,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 1200,
+            "request_seconds": 92.353,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13671,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 30050,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 29999
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 51
+                }
+              ],
+              "thoughts_token_count": 8419,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 52140,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 1200,
+            "request_seconds": 195.983,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14426,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 30050,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 51
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 29999
+                }
+              ],
+              "thoughts_token_count": 207,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44683,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 671,
+            "request_seconds": 35.593,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": null,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 16826,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 51
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 16775
+                }
+              ],
+              "thoughts_token_count": 256,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 17082,
+              "traffic_type": null
+            }
+          }
+        ]
       },
-      "status": "failed",
-      "updated_at": "2026-07-24T12:00:37Z",
-      "output_directory": "episodes/0522-sos-brick-targets"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1484,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 21874,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 21874
+          }
+        ],
+        "thoughts_token_count": 10123,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 33481,
+        "traffic_type": null
+      },
+      "review_reason": "Section start found, but no explicit end marker was detected."
     },
     "tag:soundcloud,2010:tracks/2311672805": {
       "guid": "tag:soundcloud,2010:tracks/2311672805",

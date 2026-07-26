@@ -6,29 +6,29 @@
     "project": "FFW",
     "pipeline_version": "0.3.1",
     "schema_version": "1.1.0",
-    "generated_at": "2026-07-26T11:43:09Z",
-    "latest_successful_run_at": "2026-07-26T11:43:09Z",
+    "generated_at": "2026-07-26T21:19:53Z",
+    "latest_successful_run_at": "2026-07-26T21:19:53Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
       "name": "MTG Fast Finance"
     },
     "real_episode_count": 10,
-    "real_pick_count": 37,
+    "real_pick_count": 41,
     "last_discovered_episode_date": "2026-07-05T21:41:20Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
     "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml"
   },
   "counts": {
     "episodes": 10,
-    "picks": 37,
-    "needs_review": 8,
-    "failed": 2,
+    "picks": 41,
+    "needs_review": 9,
+    "failed": 1,
     "completed": 0
   },
   "status_counts": {
-    "needs_review": 8,
-    "failed": 2
+    "needs_review": 9,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2353638380",
@@ -583,29 +583,18 @@
         "MTG Fast Finance"
       ],
       "description": "The guys get you updated on all the Magic the Gathering card price action of the week, including meta updates, cards to watch and a call by call on the best SOS singles to target as speculative bricks.\n\nIntro/Outro Music by Skylarka",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Section start found, but no explicit end marker was detected.",
+      "pick_count": 4,
       "directory": "episodes/0522-sos-brick-targets",
       "outputs": {
         "metadata": "episodes/0522-sos-brick-targets/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null
+        "summary_json": "episodes/0522-sos-brick-targets/summary.json",
+        "summary_markdown": "episodes/0522-sos-brick-targets/summary.md"
       },
-      "processed_at": "2026-07-24T12:00:37Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 225.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-07-24T18:00:37Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-07-26T21:19:53Z",
+      "error": null,
       "synthetic": false
     },
     {
