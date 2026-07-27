@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.3.1",
-  "updated_at": "2026-07-26T21:19:53Z",
+  "pipeline_version": "0.4.0",
+  "updated_at": "2026-07-27T13:27:59Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2177,6 +2177,65 @@
         "traffic_type": null
       },
       "review_reason": "Section start found, but no explicit end marker was detected."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=28574": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=28574",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-07-27T13:22:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-27T13:22:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-27T13:22:10Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-07-27T13:22:10Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-07-27T13:22:11Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-07-27T13:22:11Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-07-27T13:22:36Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-07-27T13:27:59Z"
+        }
+      ],
+      "title": "The Die in Diarrhea | Brainstorm Brewery #710 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-07-24T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 2/4 failed after 252.6s: JSONDecodeError: Expecting property name enclosed in double quotes: line 5938 column 6 (char 179743)",
+        "category": "unknown",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-07-27T19:27:59Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-07-27T13:27:59Z",
+      "output_directory": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235"
     }
   }
 }

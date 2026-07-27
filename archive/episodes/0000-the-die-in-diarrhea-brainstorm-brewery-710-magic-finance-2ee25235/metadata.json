@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=28574",
+    "episode_number": 0,
+    "title": "The Die in Diarrhea | Brainstorm Brewery #710 | Magic Finance",
+    "published_at": "2026-07-24T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_710_The_Die_in_Diarrhea.mp3",
+    "episode_url": "https://brainstormbrewery.com/the-die-in-diarrhea-brainstorm-brewery-710-magic-finance/",
+    "duration_seconds": 4755,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler) is still resting in peace again while Liz&#160; (@devotedDruid) and DJ (@CardgardenMTG)&#160; breakdown movies, Pro Tour and more. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.4.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v1",
+    "processed_at": "2026-07-27T13:27:59Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-07-27T13:22:10Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-27T13:22:10Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-27T13:22:10Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-07-27T13:22:10Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-07-27T13:22:11Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-07-27T13:22:11Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-07-27T13:22:36Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-07-27T13:27:59Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 2/4 failed after 252.6s: JSONDecodeError: Expecting property name enclosed in double quotes: line 5938 column 6 (char 179743)",
+      "category": "unknown",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-07-27T19:27:59Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
