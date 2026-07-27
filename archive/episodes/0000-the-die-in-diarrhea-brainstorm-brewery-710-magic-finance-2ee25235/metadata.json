@@ -31,7 +31,7 @@
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v1",
-    "processed_at": "2026-07-27T13:27:59Z",
+    "processed_at": "2026-07-27T21:35:14Z",
     "history": [
       {
         "status": "detected",
@@ -64,18 +64,42 @@
       {
         "status": "failed",
         "timestamp": "2026-07-27T13:27:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-27T21:29:55Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-07-27T21:29:55Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-07-27T21:29:58Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-07-27T21:29:58Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-07-27T21:30:23Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-07-27T21:35:14Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Gemini transcription chunk 2/4 failed after 252.6s: JSONDecodeError: Expecting property name enclosed in double quotes: line 5938 column 6 (char 179743)",
+      "message": "Gemini transcription chunk 1/4 failed after 289.8s: JSONDecodeError: Expecting property name enclosed in double quotes: line 5802 column 24 (char 179398)",
       "category": "unknown",
       "synthetic": false,
       "retryable": true,
       "provider_wide": false,
-      "attempt": 1,
+      "attempt": 2,
       "max_attempts": 3,
-      "next_retry_at": "2026-07-27T19:27:59Z",
+      "next_retry_at": "2026-07-28T03:35:14Z",
       "quarantined": false
     },
     "transcription": null,
