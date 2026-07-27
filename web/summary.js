@@ -110,12 +110,13 @@ async function loadSummary() {
     const processing = summary.processing || {};
     const picks = summary.recommendations || [];
 
-    document.title = `FFW · ${episode.title || "Episode Summary"}`;
+    document.title = `${episode.source_name || "ManaIntel"} · ${episode.title || "Episode Summary"}`;
     title.textContent = episode.title || "Episode Summary";
     meta.innerHTML = [
       episode.episode_number ? `Episode ${escapeHtml(episode.episode_number)}` : null,
       formatDate(episode.published_at, true),
-      `${picks.length} Cards to Watch`,
+      episode.source_name || "MTG Fast Finance",
+      `${picks.length} recommendations`,
       processing.status ? label(processing.status) : null,
     ].filter(Boolean).join(" · ");
     actions.innerHTML = `<a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a><a class="button secondary" href="${escapeHtml(markdownUrl)}" target="_blank">Raw Markdown</a>`;
@@ -132,7 +133,7 @@ async function loadSummary() {
         <article class="metric"><p>Duration</p><strong>${timestamp(episode.duration_seconds) || "—"}</strong><small>source audio</small></article>
       </section>
       <section class="summary-picks">
-        ${picks.length ? picks.map((pick, index) => pickCard(episode, pick, index)).join("") : `<div class="empty-state"><strong>No Cards to Watch found</strong><p>The pipeline did not publish structured picks for this episode.</p></div>`}
+        ${picks.length ? picks.map((pick, index) => pickCard(episode, pick, index)).join("") : `<div class="empty-state"><strong>No recommendations found</strong><p>The pipeline did not publish structured picks for this episode.</p></div>`}
       </section>
       <section class="panel prose summary-source"><div class="panel-body"><p class="eyebrow">Source description</p><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div></section>
     `;

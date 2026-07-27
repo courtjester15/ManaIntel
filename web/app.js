@@ -43,6 +43,7 @@ function display(value, fallback = "Not stated") {
 }
 
 function target(value) { return value ? escapeHtml(value.raw) : "Not stated"; }
+function sourceName(item) { return item?.source_name || item?.episode?.source_name || "MTG Fast Finance"; }
 function label(value) { return String(value ?? "unknown").replaceAll("_", " "); }
 function badge(value, kind = "status") { return `<span class="${kind} ${escapeHtml(value ?? "unknown")}">${escapeHtml(label(value))}</span>`; }
 function episodeSummaryUrl(episode) { return `summary.html?episode=${encodeURIComponent(episode.directory.replace(/^episodes\//, ""))}`; }
@@ -61,7 +62,7 @@ function pickCard(pick, compact = false) {
   return `<article class="pick-card ${compact ? "compact" : ""}" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0">
     <div class="pick-card-head">
       <div>
-        <p class="eyebrow">Episode ${escapeHtml(pick.episode.episode_number)} · ${display(pick.timestamp)}</p>
+        <p class="eyebrow">${escapeHtml(sourceName(pick))} · Episode ${escapeHtml(pick.episode.episode_number || "?")} · ${display(pick.timestamp)}</p>
         <h3>${escapeHtml(pick.card)}</h3>
         <p class="pick-meta">${pickMeta(pick)}</p>
       </div>
@@ -151,7 +152,7 @@ function renderDashboard() {
         <div class="panel-head"><h2>Latest episode</h2><a href="#episodes">View archive →</a></div>
         <div class="panel-body latest">${latest ? `
           <div>${badge(latest.processing_status)} ${latest.review_state === "needs_review" ? badge("needs_review") : ""}</div>
-          <div><p class="eyebrow">Episode ${latest.episode_number} · ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
+          <div><p class="eyebrow">${escapeHtml(sourceName(latest))} · Episode ${latest.episode_number} · ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
           <div class="latest-meta"><span>${latest.pick_count} picks</span><span>${escapeHtml(latest.hosts.join(" · "))}</span><span>GUID ${escapeHtml(latest.guid)}</span></div>
           ${latest.error ? `<div class="failure-note">${failureReason(latest.error)}</div>` : ""}
           <div class="latest-actions"><a class="button" href="${safeUrl(latest.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${episodeAction(latest)}</div>
@@ -179,11 +180,11 @@ function renderEpisodes() {
 function episodeRows() {
   const query = state.query.toLowerCase();
   const episodes = state.index.episodes.filter((episode) => {
-    const haystack = `${episode.episode_number} ${episode.title} ${episode.hosts.join(" ")}`.toLowerCase();
+    const haystack = `${sourceName(episode)} ${episode.episode_number} ${episode.title} ${episode.hosts.join(" ")}`.toLowerCase();
     return haystack.includes(query) && (state.status === "all" || episode.processing_status === state.status);
   });
   if (!episodes.length) return `<tr><td colspan="8">No matching episodes.</td></tr>`;
-  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number}</strong></td><td>${formatDate(episode.published_at)}</td><td><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
+  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
 }
 
 function renderPicks() {
@@ -195,7 +196,7 @@ function renderPicks() {
 function filteredPicks() {
   const query = state.query.toLowerCase();
   return state.cards.filter((pick) => {
-    const haystack = `${pick.card} ${pick.printing ?? ""} ${pick.hosts.join(" ")} ${pick.recommendation} ${pick.episode.title}`.toLowerCase();
+    const haystack = `${sourceName(pick)} ${pick.card} ${pick.printing ?? ""} ${pick.hosts.join(" ")} ${pick.recommendation} ${pick.episode.title}`.toLowerCase();
     return haystack.includes(query) && (state.status === "all" || pick.review_status === state.status);
   });
 }
@@ -260,7 +261,7 @@ function renderDashboard() {
           <div class="panel-head"><h2>Latest</h2></div>
           <div class="panel-body latest compact">${latest ? `
             <div>${badge(latest.processing_status)} ${latest.review_state === "needs_review" ? badge("needs_review") : ""}</div>
-            <div><p class="eyebrow">Episode ${latest.episode_number} - ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
+            <div><p class="eyebrow">${escapeHtml(sourceName(latest))} · Episode ${latest.episode_number} - ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
             <div class="latest-meta"><span>${latest.pick_count} picks</span><span>${escapeHtml(latest.hosts.join(" / "))}</span></div>
             ${latest.error ? `<div class="failure-note">${failureReason(latest.error)}</div>` : ""}
             <div class="latest-actions"><a class="button" href="${safeUrl(latest.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${episodeAction(latest)}</div>
@@ -283,7 +284,7 @@ function metric(name, value, note) {
 function dashboardEpisodeRows() {
   const episodes = state.index.episodes.slice(0, 10);
   if (!episodes.length) return `<tr><td colspan="7">No episodes have been published yet.</td></tr>`;
-  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
+  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
 }
 
 function bindPageEvents() {
@@ -333,16 +334,23 @@ function showEpisode(guid) {
   const error = episode.error || {};
   const summaryLink = canOpenSummary(episode) ? `<a class="button secondary" href="${episodeSummaryUrl(episode)}" target="_blank">Open summary</a>` : "";
   const episodePicks = state.cards.filter((pick) => pick.episode.guid === episode.guid);
+  const workflowUrl = safeUrl(state.index.metadata.workflow_url);
+  const retryControls = episode.error ? `<div class="detail-section"><h3>Retry this exact episode</h3><p>Copy the GUID, open Actions, choose <strong>Run workflow</strong>, leave mode at <strong>next</strong>, and paste it into <strong>force_guid</strong>. Exact retry bypasses cooldown and quarantine.</p><div class="latest-actions"><button class="button secondary" type="button" data-copy-guid="${escapeHtml(episode.guid)}">Copy retry GUID</button><a class="button secondary" href="${workflowUrl}" target="_blank" rel="noreferrer">Open retry workflow</a></div></div>` : "";
   const picksSection = episodePicks.length
     ? `<div class="detail-section"><h3>Cards to Watch</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
     : `<div class="detail-section"><h3>Cards to Watch</h3><p>No structured picks were published for this episode.</p></div>`;
-  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>Failure details</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Processed</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
+  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>Failure details</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Processed</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
   dialog.showModal();
 }
 
 document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 dialogContent.addEventListener("click", (event) => {
+  const copyButton = event.target.closest("[data-copy-guid]");
+  if (copyButton) {
+    navigator.clipboard.writeText(copyButton.dataset.copyGuid).then(() => { copyButton.textContent = "GUID copied"; });
+    return;
+  }
   const pickElement = event.target.closest("[data-pick-id]");
   if (pickElement) showPick(pickElement.dataset.pickId);
 });

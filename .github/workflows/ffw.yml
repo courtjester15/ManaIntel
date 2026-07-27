@@ -22,6 +22,12 @@ on:
         description: Eligible episodes to process (1-20)
         required: true
         default: "1"
+      source:
+        description: Podcast source (all uses newest across both)
+        required: true
+        type: choice
+        options: [all, mtg-fast-finance, brainstorm-brewery]
+        default: all
       force_guid:
         description: Optional exact episode GUID to force
         required: false
@@ -52,6 +58,7 @@ env:
   FFW_MAX_LIVE_BATCH: "20"
   FFW_MAX_EPISODE_ATTEMPTS: "3"
   FFW_RETRY_COOLDOWN_HOURS: "6"
+  FFW_ENABLED_SOURCES: "mtg-fast-finance,brainstorm-brewery"
   PYTHONUNBUFFERED: "1"
 
 jobs:
@@ -112,6 +119,7 @@ jobs:
           INPUT_MODE: ${{ inputs.mode || 'next' }}
           INPUT_LIMIT: ${{ inputs.batch_size || '1' }}
           INPUT_GUID: ${{ inputs.force_guid || '' }}
+          INPUT_SOURCE: ${{ inputs.source || 'all' }}
           EVENT_SCHEDULE: ${{ github.event.schedule || '' }}
         shell: bash
         run: |
@@ -139,6 +147,7 @@ jobs:
             *) echo "::error::Unsupported processing mode: $INPUT_MODE"; exit 2 ;;
           esac
           if [[ -n "$INPUT_GUID" ]]; then args=(run --live --force-guid "$INPUT_GUID"); fi
+          if [[ -z "$INPUT_GUID" && "$INPUT_SOURCE" != "all" ]]; then args+=(--source "$INPUT_SOURCE"); fi
           args+=(--report-json "$FFW_REPORT_PATH")
           set +e
           python -m ffw "${args[@]}"
@@ -193,6 +202,7 @@ jobs:
         run: |
           echo "## FFW production run" >> "$GITHUB_STEP_SUMMARY"
           echo "- Mode: ${{ steps.pipeline.outputs.mode || inputs.mode || 'next' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Source: ${{ inputs.source || 'all (newest across enabled sources)' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Pipeline exit: ${{ steps.pipeline.outputs.exit_code || 'not-run' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Durable outputs changed: ${{ steps.persist.outputs.changed || 'unknown' }}" >> "$GITHUB_STEP_SUMMARY"
           if [[ -f "$FFW_REPORT_PATH" ]]; then

@@ -4,10 +4,10 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-VERSION = "0.3.1"
-PIPELINE_VERSION = "0.3.1"
+VERSION = "0.4.0"
+PIPELINE_VERSION = "0.4.0"
 SCHEMA_VERSION = "1.1.0"
-PROMPT_VERSION = "cards-to-watch-v2"
+PROMPT_VERSION = "source-recommendations-v1"
 MOCK_TRANSCRIPTION_MODEL = "mock-transcriber-v1"
 MOCK_EXTRACTION_MODEL = "mock-extractor-v1"
 MAX_LIVE_BATCH = 20
@@ -31,6 +31,8 @@ class Settings:
     ai_provider: str = "openai"
     feed_url: str = "https://feeds.soundcloud.com/users/soundcloud:users:201003125/sounds.rss"
     feed_name: str = "MTG Fast Finance"
+    brainstorm_feed_url: str = "https://feeds.feedburner.com/brainstormbrewerypodcast"
+    enabled_sources: tuple[str, ...] = ("mtg-fast-finance",)
     max_audio_bytes: int = 250_000_000
     download_timeout_seconds: int = 120
     audio_chunk_seconds: int = 1200
@@ -59,6 +61,12 @@ class Settings:
             ai_provider=os.getenv("FFW_AI_PROVIDER", "openai").lower(),
             feed_url=os.getenv("FFW_FEED_URL", "https://feeds.soundcloud.com/users/soundcloud:users:201003125/sounds.rss"),
             feed_name=os.getenv("FFW_FEED_NAME", "MTG Fast Finance"),
+            brainstorm_feed_url=os.getenv("FFW_BRAINSTORM_FEED_URL", "https://feeds.feedburner.com/brainstormbrewerypodcast"),
+            enabled_sources=tuple(
+                source.strip()
+                for source in os.getenv("FFW_ENABLED_SOURCES", "mtg-fast-finance").split(",")
+                if source.strip()
+            ),
             max_audio_bytes=int(os.getenv("FFW_MAX_AUDIO_BYTES", "250000000")),
             download_timeout_seconds=int(os.getenv("FFW_DOWNLOAD_TIMEOUT_SECONDS", "120")),
             audio_chunk_seconds=int(os.getenv("FFW_AUDIO_CHUNK_SECONDS", "1200")),

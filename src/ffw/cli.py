@@ -23,21 +23,25 @@ def _parser() -> argparse.ArgumentParser:
     run.add_argument("--limit", type=int, help="Process the newest N eligible episodes (legacy backfill alias)")
     run.add_argument("--retry-failed", action="store_true", help="Select failed live episodes only")
     run.add_argument("--force-guid", help="Process only this episode GUID")
+    run.add_argument("--source", choices=("mtg-fast-finance", "brainstorm-brewery"), help="Limit discovery to one podcast source")
     run.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
     subparsers.add_parser("validate", help="Validate state, episode outputs, and archive catalogs")
     subparsers.add_parser("render", help="Regenerate Markdown and archive catalogs from JSON")
     next_episode = subparsers.add_parser("process-next", help="Process the newest eligible unprocessed episode")
     next_episode.add_argument("--live", action="store_true", help="Use the live feed and configured production adapters")
     next_episode.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
+    next_episode.add_argument("--source", choices=("mtg-fast-finance", "brainstorm-brewery"))
     backfill = subparsers.add_parser("backfill", help="Process the newest eligible unprocessed episodes")
     backfill.add_argument("--force", action="store_true", default=True, help=argparse.SUPPRESS)
     backfill.add_argument("--live", action="store_true", help="Backfill the live feed")
     backfill.add_argument("--limit", type=int, default=1, help="Eligible live episodes to attempt (1-20)")
     backfill.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
+    backfill.add_argument("--source", choices=("mtg-fast-finance", "brainstorm-brewery"))
     retry = subparsers.add_parser("retry-failed", help="Retry failed live episodes")
     retry.add_argument("--live", action="store_true", help="Use the live feed and configured production adapters")
     retry.add_argument("--limit", type=int, default=1, help="Failed live episodes to retry (1-20)")
     retry.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
+    retry.add_argument("--source", choices=("mtg-fast-finance", "brainstorm-brewery"))
     subparsers.add_parser("process-latest", help="Process only the latest synthetic fixture")
     serve = subparsers.add_parser("serve", help="Serve the repository for the local archive application")
     serve.add_argument("--host", default="127.0.0.1")
@@ -89,16 +93,16 @@ def main(argv: list[str] | None = None) -> int:
         settings = Settings(**{**settings.__dict__, "mode": "live"})
     if args.command == "run":
         policy = "exact_guid" if args.force_guid else "failed_only" if args.retry_failed else "backfill" if args.limit is not None else "next" if args.live else "backfill"
-        _, exit_code = _run_pipeline(settings, report_json=args.report_json, force=args.force or bool(args.force_guid), limit=args.limit, force_guid=args.force_guid, selection_policy=policy)
+        _, exit_code = _run_pipeline(settings, report_json=args.report_json, force=args.force or bool(args.force_guid), limit=args.limit, force_guid=args.force_guid, selection_policy=policy, source_id=args.source)
         return exit_code
     if args.command == "process-next":
-        _, exit_code = _run_pipeline(settings, report_json=args.report_json, selection_policy="next")
+        _, exit_code = _run_pipeline(settings, report_json=args.report_json, selection_policy="next", source_id=args.source)
         return exit_code
     if args.command == "backfill":
-        _, exit_code = _run_pipeline(settings, report_json=args.report_json, force=not args.live, limit=args.limit if args.live else None, selection_policy="backfill")
+        _, exit_code = _run_pipeline(settings, report_json=args.report_json, force=not args.live, limit=args.limit if args.live else None, selection_policy="backfill", source_id=args.source)
         return exit_code
     if args.command == "retry-failed":
-        _, exit_code = _run_pipeline(settings, report_json=args.report_json, limit=args.limit, selection_policy="failed_only")
+        _, exit_code = _run_pipeline(settings, report_json=args.report_json, limit=args.limit, selection_policy="failed_only", source_id=args.source)
         return exit_code
     if args.command == "process-latest":
         _, exit_code = _run_pipeline(settings, selection_policy="next")

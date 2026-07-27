@@ -2,9 +2,11 @@
 
 ## Automated service
 
-GitHub Actions runs `.github/workflows/ffw.yml` at 10:17 UTC for fresh backfill and at 20:17 UTC for bounded failed recovery. It reads the official MTG Fast Finance feed:
+GitHub Actions runs `.github/workflows/ffw.yml` at 10:17 UTC for fresh backfill and at 20:17 UTC for bounded failed recovery. It reads both public podcast feeds:
 
 `https://feeds.soundcloud.com/users/soundcloud:users:201003125/sounds.rss`
+
+`https://feeds.feedburner.com/brainstormbrewerypodcast`
 
 The production stages are feed discovery, eligibility-first selection, durable queueing, streamed temporary download, ffmpeg normalization/splitting, provider transcription, Cards to Watch boundary detection, schema-constrained extraction, validation, bot commit, and Pages deployment. The checked-in workflow selects Gemini `gemini-3.5-flash` for transcription and extraction. Transcription retries one transient primary-model failure after two seconds, then uses `gemini-3.5-flash-lite` as a same-key fallback. OpenAI remains an environment-selectable adapter.
 
@@ -19,7 +21,7 @@ One concurrency group serializes all writers. The 10:17 UTC `next` run scans new
 
 ## Controlled live validation
 
-Manual live runs are intentionally capped. For the first historical episode, use `backfill`, `batch_size=1`, leave `force_guid` blank, and set `deploy=true`. The workflow rejects zero, blank, negative, and over-cap batch sizes so a manual run cannot accidentally process the full RSS feed. The limit counts eligible episodes after durable-state filtering, not the newest feed positions.
+Manual live runs are intentionally capped. For one Brainstorm Brewery episode, use `next`, `source=brainstorm-brewery`, `batch_size=1`, leave `force_guid` blank, and set `deploy=true`. The workflow rejects zero, blank, negative, and over-cap batch sizes so a manual run cannot accidentally process the full RSS feed. The limit counts eligible episodes after durable-state filtering, not the newest feed positions.
 
 The first Gemini validation attempt used `gemini-2.5-flash`, which returned `404 NOT_FOUND` for this key because that model was not available to new users. That run also demonstrated why provider-wide failures must stop the batch: the old `episode_limit=0` default meant "all episodes" and published roughly 500 failed live records. The archive/state cleanup commit removes those generated failure records and keeps the synthetic fixture archive only.
 
@@ -43,6 +45,7 @@ The job attempts all three sequentially, validates the production-only catalog, 
 ## Recovery
 
 - Process one next eligible episode: dispatch `next` with `batch_size=1`.
+- Process one source only: dispatch `next`, choose `mtg-fast-finance` or `brainstorm-brewery` in `source`, and keep `batch_size=1`.
 - Process a controlled eligible batch: dispatch `backfill` with `batch_size` from 1 through 20.
 - Retry failed episodes only: the later daily schedule automatically attempts one due failure, or manually dispatch `retry_failed` with a `batch_size` from 1 through 20. Cooldowns and the three-attempt cap still apply.
 - Force one episode: choose any processing mode and provide its exact RSS GUID in `force_guid`; the override searches the full fetched feed and bypasses batch position limits.
@@ -89,7 +92,7 @@ The exact-episode backend is already available:
 python -m ffw run --live --force-guid <rss-guid>
 ```
 
-In GitHub Actions, choose a normal processing mode, enter the exact RSS GUID in `force_guid`, keep `batch_size=1`, and dispatch. Exact GUID selection searches the full fetched feed and processes only that episode. The final-pass UI may add a copy button for this command/input, but it must not contain a token or trigger an authenticated write from Pages.
+In GitHub Actions, choose a normal processing mode, enter the exact canonical GUID in `force_guid`, keep `batch_size=1`, and dispatch. Exact GUID selection searches the full fetched feed and processes only that episode, even when it is quarantined. Failed episode details in the static UI provide **Copy retry GUID** and **Open retry workflow** buttons. The UI intentionally contains no GitHub token and cannot dispatch an authenticated run itself.
 
 ## Retention and cost
 

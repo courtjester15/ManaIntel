@@ -1,10 +1,10 @@
 # FFW — ManaIntel Proof of Concept
 
-FFW automatically checks the MTG Fast Finance podcast, extracts Cards to Watch recommendations, and publishes them to a static archive.
+FFW automatically checks MTG Fast Finance and Brainstorm Brewery, extracts their explicit recommendation segments, and publishes them to a static archive.
 
-FFW is the working implementation of **ManaIntel**, a deliberately small archive for MTG Fast Finance Cards to Watch recommendations. ManaIntel's goal is to show who recommended what, when, and why; it is not a price tracker, portfolio manager, automated financial analyst, or active multi-source platform effort.
+FFW is the working implementation of **ManaIntel**, a deliberately small podcast recommendation archive. ManaIntel's goal is to show who recommended what, when, and why; it is not a price tracker, portfolio manager, or automated financial analyst.
 
-The current implementation remains deliberately scoped to MTG Fast Finance and is composed of two decoupled parts:
+The implementation supports two podcast adapters and is composed of two decoupled parts:
 
 1. A Python automation pipeline that turns podcast episodes into validated, versioned JSON and Markdown.
 2. A static vanilla JavaScript archive that reads only the generated JSON.
@@ -13,7 +13,7 @@ Version 0.2 retains a fully runnable credential-free mock mode and adds live RSS
 
 ## Normal user workflow
 
-Open <https://courtjester15.github.io/mtgff-cards-to-watch/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode. A new release takes priority automatically; otherwise the workflow continues backward through historical episodes one per day. At 20:17 UTC, a separate bounded run retries at most one due transient failure without consuming the next day's fresh-backfill slot.
+Open <https://courtjester15.github.io/mtgff-cards-to-watch/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history one per day. At 20:17 UTC, a separate bounded run retries at most one due transient failure without consuming the next day's fresh-backfill slot.
 
 The repository starts with synthetic fixtures. The deployed production catalog excludes those fixtures and shows only live records after the first successful backfill.
 
@@ -44,6 +44,7 @@ For development without installing the package, set `PYTHONPATH=src` before invo
 |---|---|
 | `python -m ffw run` | Process unprocessed mock episodes and skip terminal records idempotently. |
 | `python -m ffw process-next --live` | Process the newest eligible live episode, at most one. |
+| `python -m ffw process-next --live --source brainstorm-brewery` | Process only the newest eligible Brainstorm Brewery episode. |
 | `python -m ffw backfill --live --limit N` | Process the newest N eligible unprocessed live episodes. |
 | `python -m ffw retry-failed --live --limit N` | Retry only the newest N failed live episodes. |
 | `python -m ffw run --live --force-guid GUID` | Force one exact feed GUID regardless of feed position or terminal state. |
@@ -90,7 +91,7 @@ Structural validation can prove that evidence exists; it cannot prove that an AI
 
 ## Production operation
 
-The official feed is `https://feeds.soundcloud.com/users/soundcloud:users:201003125/sounds.rss`. The workflow is [`.github/workflows/ffw.yml`](.github/workflows/ffw.yml), supports `next`, `backfill`, `retry_failed`, and `deploy_only` manual modes, serializes writers, commits only `archive/` and `state/`, and deploys a clean Pages artifact. Audio, chunks, and full transcripts remain inside ignored/disposable `.ffw-work/` storage.
+The feeds are MTG Fast Finance's SoundCloud RSS and Brainstorm Brewery's public FeedBurner RSS. The workflow is [`.github/workflows/ffw.yml`](.github/workflows/ffw.yml), supports `next`, `backfill`, `retry_failed`, and `deploy_only` manual modes plus an optional source selector, serializes writers, commits only `archive/` and `state/`, and deploys a clean Pages artifact. Audio, chunks, and full transcripts remain inside ignored/disposable `.ffw-work/` storage.
 
 Required repository setup and recovery procedures are documented in [Production Runbook](docs/RUNBOOK.md).
 
@@ -106,7 +107,7 @@ Implemented foundation:
 
 Still intentionally outside the product:
 
-- Additional sources, generic source-item records, cross-source search, notifications, databases, price tracking, analytics, and ManaSpec integration.
+- Additional source types beyond the two podcast adapters, generic source-item records, notifications, databases, price tracking, analytics, and ManaSpec integration.
 
 ManaIntel is entering maintenance mode after one bounded final functional pass of approximately five hours. That pass is limited to durable review overrides, in-page timestamp playback, clearer status/failure presentation, a copyable exact-episode retry path, and a deployment-level no-op guard. Multi-source normalization and expansion are deferred indefinitely. Afterward, portfolio attention moves to ManaSpec adoption and GalleyFlow; ManaIntel reopens only for production-breaking defects or very small maintenance fixes.
 

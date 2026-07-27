@@ -17,7 +17,7 @@ from typing import Any, Callable
 from urllib.parse import urlparse
 
 from .config import Settings
-from .detection import locate_cards_to_watch
+from .detection import locate_recommendation_section
 from .models import EpisodeCandidate
 
 USER_AGENT = "FFW/0.2 (+https://github.com/courtjester15/mtgff-cards-to-watch)"
@@ -50,7 +50,11 @@ def _duration(value: str | None) -> int | None:
     return numbers[0] if numbers else None
 
 
-def parse_rss(xml_bytes: bytes) -> list[EpisodeCandidate]:
+def parse_rss(
+    xml_bytes: bytes, *, source_id: str = "mtg-fast-finance", source_name: str = "MTG Fast Finance",
+    source_url: str = "https://www.mtgfastfinance.com/", extraction_profile: str = "cards_to_watch",
+    namespace_guid: bool = False,
+) -> list[EpisodeCandidate]:
     root = ET.fromstring(xml_bytes)
     episodes: list[EpisodeCandidate] = []
     for item in root.findall("./channel/item"):
@@ -79,8 +83,9 @@ def parse_rss(xml_bytes: bytes) -> list[EpisodeCandidate]:
         creator = value("{http://purl.org/dc/elements/1.1/}creator") or value("{http://www.itunes.com/dtds/podcast-1.0.dtd}author")
         hosts = [part.strip() for part in re.split(r"\s*(?:,|&| and )\s*", creator) if part.strip()]
         duration = _duration(value("{http://www.itunes.com/dtds/podcast-1.0.dtd}duration"))
+        canonical_guid = f"{source_id}:{guid}" if namespace_guid else guid
         episodes.append(EpisodeCandidate(
-            guid=guid,
+            guid=canonical_guid,
             episode_number=parse_episode_number(title, description),
             title=title,
             published_at=published_at,
@@ -95,17 +100,31 @@ def parse_rss(xml_bytes: bytes) -> list[EpisodeCandidate]:
                 "enclosure_type": enclosure.get("type") if enclosure is not None else None,
                 "enclosure_length": enclosure.get("length") if enclosure is not None else None,
             },
+            source_id=source_id,
+            source_name=source_name,
+            source_url=source_url,
+            extraction_profile=extraction_profile,
         ))
     unique = {episode.guid: episode for episode in episodes}
     return sorted(unique.values(), key=lambda episode: (episode.published_at, episode.guid))
 
 
 class LiveFeedSource:
-    def __init__(self, feed_url: str, timeout: int = 30, max_bytes: int = 2_000_000, opener: Callable[..., Any] = urllib.request.urlopen) -> None:
+    def __init__(
+        self, feed_url: str, timeout: int = 30, max_bytes: int = 2_000_000,
+        opener: Callable[..., Any] = urllib.request.urlopen, *, source_id: str = "mtg-fast-finance",
+        source_name: str = "MTG Fast Finance", source_url: str = "https://www.mtgfastfinance.com/",
+        extraction_profile: str = "cards_to_watch", namespace_guid: bool = False,
+    ) -> None:
         self.feed_url = feed_url
         self.timeout = timeout
         self.max_bytes = max_bytes
         self.opener = opener
+        self.source_id = source_id
+        self.source_name = source_name
+        self.source_url = source_url
+        self.extraction_profile = extraction_profile
+        self.namespace_guid = namespace_guid
 
     def episodes(self) -> list[EpisodeCandidate]:
         if urlparse(self.feed_url).scheme != "https":
@@ -115,7 +134,36 @@ class LiveFeedSource:
             payload = response.read(self.max_bytes + 1)
             if len(payload) > self.max_bytes:
                 raise ValueError("Podcast RSS exceeds the configured safety limit.")
-            return parse_rss(payload)
+            return parse_rss(
+                payload, source_id=self.source_id, source_name=self.source_name,
+                source_url=self.source_url, extraction_profile=self.extraction_profile,
+                namespace_guid=self.namespace_guid,
+            )
+
+
+class CombinedFeedSource:
+    def __init__(self, sources: list[LiveFeedSource]) -> None:
+        self.sources = sources
+
+    def episodes(self) -> list[EpisodeCandidate]:
+        episodes: list[EpisodeCandidate] = []
+        errors: list[str] = []
+        for source in self.sources:
+            try:
+                episodes.extend(source.episodes())
+            except Exception as exc:
+                errors.append(f"{source.source_name}: {type(exc).__name__}: {exc}")
+        if not episodes and errors:
+            raise RuntimeError("All configured podcast feeds failed: " + "; ".join(errors))
+        if errors:
+            print("Feed warning: " + "; ".join(errors))
+        return sorted(episodes, key=lambda episode: (episode.published_at, episode.guid))
+
+    def episodes_for(self, source_id: str) -> list[EpisodeCandidate]:
+        for source in self.sources:
+            if source.source_id == source_id:
+                return source.episodes()
+        raise ValueError(f"Source {source_id!r} is not configured.")
 
 
 class StreamingDownloader:
@@ -378,7 +426,7 @@ class GeminiTranscriber:
         usage: list[dict[str, Any]] = []
         used_models: list[str] = []
         prompt = (
-            "Transcribe this MTG Fast Finance podcast audio chunk. Return JSON only. "
+            f"Transcribe this {episode.source_name} Magic: The Gathering podcast audio chunk. Return JSON only. "
             "Use seconds relative to the start of this chunk for start and end. "
             "Include speaker labels when they are obvious; otherwise use null. "
             "Keep card names and price phrases as spoken."
@@ -477,14 +525,14 @@ class OpenAIExtractor:
     def extract(self, episode: EpisodeCandidate, transcript: dict[str, Any]) -> dict[str, Any]:
         if not os.getenv("OPENAI_API_KEY"):
             raise RuntimeError("OPENAI_API_KEY is required for live extraction.")
-        section = locate_cards_to_watch(transcript.get("segments", []))
+        section = locate_recommendation_section(transcript.get("segments", []), episode.extraction_profile)
         if not section["located"]:
             return {"section": {key: value for key, value in section.items() if key != "segments"}, "recommendations": [], "review_reason": section["review_reason"]}
         from openai import OpenAI
         client = OpenAI()
         evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
         instructions = (
-            "Extract only explicit MTG Fast Finance Cards to Watch recommendations from the supplied timestamped section. "
+            f"Extract only explicit {episode.source_name} recommendations from the supplied timestamped {section['label']} section. "
             "Never add finance opinions or infer unsupported cards, printings, speakers, prices, targets, foil status, or confidence. "
             "Unknown values must be null. Preserve original price wording in target.raw. Every pick needs a timestamp and a short evidence excerpt (max 30 words). "
             "Merge duplicate discussion of the same card unless distinct printings are clearly recommended. Mark ambiguity needs_review."
@@ -514,7 +562,7 @@ class GeminiExtractor:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not api_key:
             raise RuntimeError("GEMINI_API_KEY is required for Gemini live extraction.")
-        section = locate_cards_to_watch(transcript.get("segments", []))
+        section = locate_recommendation_section(transcript.get("segments", []), episode.extraction_profile)
         if not section["located"]:
             return {"section": {key: value for key, value in section.items() if key != "segments"}, "recommendations": [], "review_reason": section["review_reason"]}
         from google import genai
@@ -523,7 +571,7 @@ class GeminiExtractor:
         client = genai.Client(api_key=api_key)
         evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
         instructions = (
-            "Extract only explicit MTG Fast Finance Cards to Watch recommendations from the supplied timestamped section. "
+            f"Extract only explicit {episode.source_name} recommendations from the supplied timestamped {section['label']} section. "
             "Never add finance opinions or infer unsupported cards, printings, speakers, prices, targets, foil status, or confidence. "
             "Unknown values must be null. Preserve original price wording in target.raw. Every pick needs a timestamp and a short evidence excerpt of 30 words or fewer. "
             "Merge duplicate discussion of the same card unless distinct printings are clearly recommended. Mark ambiguity needs_review. "
@@ -562,8 +610,20 @@ def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:
     else:
         transcriber = OpenAITranscriber(settings.transcription_model, settings.audio_chunk_seconds)
         extractor = OpenAIExtractor(settings.extraction_model, settings.card_glossary)
+    sources: list[LiveFeedSource] = []
+    if "mtg-fast-finance" in settings.enabled_sources:
+        sources.append(LiveFeedSource(settings.feed_url))
+    if "brainstorm-brewery" in settings.enabled_sources:
+        sources.append(LiveFeedSource(
+            settings.brainstorm_feed_url,
+            source_id="brainstorm-brewery", source_name="Brainstorm Brewery",
+            source_url="https://brainstormbrewery.com/", extraction_profile="brainstorm_brewery",
+            namespace_guid=True,
+        ))
+    if not sources:
+        raise ValueError("FFW_ENABLED_SOURCES must contain mtg-fast-finance and/or brainstorm-brewery.")
     return (
-        LiveFeedSource(settings.feed_url),
+        CombinedFeedSource(sources),
         StreamingDownloader(settings.max_audio_bytes, settings.download_timeout_seconds),
         FfmpegAudioProcessor(settings.audio_chunk_seconds),
         transcriber,

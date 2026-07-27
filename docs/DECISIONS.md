@@ -152,6 +152,18 @@
 
 **Reason:** A broken episode must not stall historical progress, but transient network, capacity, and quota failures should recover without manual dispatch. Separate schedules preserve a guaranteed fresh-work slot, spread free-tier requests across the day, and cap wasted provider calls when an episode is genuinely bad.
 
+## ADR-026 — Add Brainstorm Brewery through a compatibility-first podcast adapter
+
+**Decision:** Enable Brainstorm Brewery beside MTG Fast Finance, preserve every existing FFW GUID, namespace new Brainstorm Brewery GUIDs, and merge candidates newest-first. Normal schedules choose the newest eligible episode across enabled sources; manual runs may filter to one source. Each source owns its recommendation-section profile, while archive projections remain backward compatible.
+
+**Reason:** The second source adds useful coverage without requiring a disruptive schema rewrite. Namespaced new identities prevent cross-feed collisions, source-specific section detection limits false picks, and source filtering makes controlled testing and backfill possible.
+
+## ADR-027 — Exact retries remain token-free on static Pages
+
+**Decision:** Failed episode details copy the canonical GUID and link to the workflow dispatch page. The operator pastes that GUID into `force_guid`; exact selection bypasses cooldown and quarantine. Pages does not store a GitHub token or dispatch authenticated workflow writes.
+
+**Reason:** This removes GUID hunting while preserving the static site's security boundary. A true one-click retry would require an authenticated backend or GitHub App and is not justified for the current volume.
+
 ## Known risks
 
 - The manual validator implements project invariants but does not execute the full JSON Schema vocabulary because no JSON Schema package was downloaded.

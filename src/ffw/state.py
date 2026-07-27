@@ -54,6 +54,8 @@ class JsonStateStore:
             title=episode.title,
             episode_number=episode.episode_number,
             published_at=episode.published_at,
+            source_id=episode.source_id,
+            source_name=episode.source_name,
             attempt_count=0,
             pick_count=0,
             error=None,

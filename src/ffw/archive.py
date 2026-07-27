@@ -56,6 +56,8 @@ def rebuild_catalog(
                             "published_at": metadata["episode"]["published_at"],
                             "episode_url": metadata["episode"]["episode_url"],
                             "audio_url": metadata["episode"]["audio_url"],
+                            "source_id": metadata["episode"].get("source_id", "mtg-fast-finance"),
+                            "source_name": metadata["episode"].get("source_name", feed_name),
                         },
                         "processing_status": metadata["processing"]["status"],
                     }
@@ -76,6 +78,10 @@ def rebuild_catalog(
     generated_at = utc_now()
     is_synthetic = not production
     successful = [episode for episode in episode_records if episode["processing_status"] in {"complete", "needs_review"}]
+    sources = sorted({
+        (episode.get("source_id", "mtg-fast-finance"), episode.get("source_name", feed_name), episode.get("source_url"))
+        for episode in episode_records
+    })
     index = {
         "schema_version": SCHEMA_VERSION,
         "synthetic": is_synthetic,
@@ -88,7 +94,8 @@ def rebuild_catalog(
             "latest_successful_run_at": max((item.get("processed_at") or "" for item in successful), default=None),
             "generated_from": "synthetic-fixtures" if is_synthetic else "live-feed",
             "production_mode": production,
-            "source": {"name": feed_name},
+            "source": {"name": feed_name if len(sources) < 2 else "MTG Fast Finance + Brainstorm Brewery"},
+            "sources": [{"id": item[0], "name": item[1], "url": item[2]} for item in sources],
             "real_episode_count": 0 if is_synthetic else len(episode_records),
             "real_pick_count": 0 if is_synthetic else len(cards),
             "last_discovered_episode_date": episode_records[0]["published_at"] if episode_records else None,

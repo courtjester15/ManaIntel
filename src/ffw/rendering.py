@@ -28,7 +28,7 @@ def render_episode_markdown(summary: dict[str, Any]) -> str:
         f"- Processing status: {processing['status'].replace('_', ' ').title()}",
         f"- Episode source: {episode['episode_url']}",
         "",
-        "## Cards to Watch",
+        f"## {summary.get('section', {}).get('label', 'Recommendations')}",
         "",
     ])
     if not summary["recommendations"]:

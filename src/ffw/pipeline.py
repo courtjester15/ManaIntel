@@ -130,16 +130,22 @@ class Pipeline:
     def run(
         self, *, force: bool = False, limit: int | None = None,
         force_guid: str | None = None, selection_policy: str | None = None,
+        source_id: str | None = None,
     ) -> list[PipelineResult]:
         policy = selection_policy or ("exact_guid" if force_guid else "backfill")
         self._validate_live_scope(policy=policy, limit=limit, force_guid=force_guid)
-        candidates = self.feed.episodes()
+        candidates = (
+            self.feed.episodes_for(source_id)
+            if source_id and hasattr(self.feed, "episodes_for")
+            else self.feed.episodes()
+        )
         self.last_selection = self.select_candidates(
             candidates,
             policy=policy,
             limit=limit,
             force_guid=force_guid,
             include_completed=force,
+            source_id=source_id,
         )
         results: list[PipelineResult] = []
         for episode in self.last_selection.selected:
@@ -169,10 +175,14 @@ class Pipeline:
         limit: int | None = None,
         force_guid: str | None = None,
         include_completed: bool = False,
+        source_id: str | None = None,
     ) -> SelectionReport:
         if policy not in {"next", "backfill", "failed_only", "exact_guid"}:
             raise ValueError(f"Unsupported selection policy: {policy}")
-        ordered_feed = sorted(candidates, key=lambda episode: (episode.published_at, episode.guid), reverse=True)
+        if source_id and source_id not in self.settings.enabled_sources:
+            raise ValueError(f"Source {source_id!r} is not enabled.")
+        filtered = [episode for episode in candidates if not source_id or episode.source_id == source_id]
+        ordered_feed = sorted(filtered, key=lambda episode: (episode.published_at, episode.guid), reverse=True)
         ordered: list[EpisodeCandidate] = []
         seen_guids: set[str] = set()
         for episode in ordered_feed:
@@ -402,6 +412,10 @@ class Pipeline:
             "duration_seconds": episode.duration_seconds if episode.duration_seconds is not None else episode.fixture.get("duration_seconds"),
             "hosts": episode.hosts,
             "description": episode.description,
+            "source_id": episode.source_id,
+            "source_name": episode.source_name,
+            "source_url": episode.source_url,
+            "extraction_profile": episode.extraction_profile,
         }
 
     def _build_summary(self, episode: EpisodeCandidate, extraction: dict[str, Any], status: str) -> dict[str, Any]:

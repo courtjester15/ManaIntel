@@ -10,11 +10,11 @@ from pathlib import Path
 from unittest.mock import patch
 
 from ffw.archive import rebuild_catalog
-from ffw.detection import locate_cards_to_watch
+from ffw.detection import locate_cards_to_watch, locate_recommendation_section
 from ffw.models import EpisodeCandidate
 from ffw.config import Settings
 from ffw.pipeline import Pipeline, classify_failure
-from ffw.production import GeminiExtractor, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, StreamingDownloader, parse_episode_number, parse_rss, production_adapters
+from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, StreamingDownloader, parse_episode_number, parse_rss, production_adapters
 from ffw.state import JsonStateStore
 from ffw.utils import atomic_write_json, load_json
 
@@ -69,6 +69,36 @@ class RssTests(unittest.TestCase):
         duplicate = xml.replace("</channel>", xml[xml.index("<item>"):xml.index("</item>") + 7] + "</channel>")
         self.assertEqual(3, len(parse_rss(duplicate.encode())))
 
+    def test_brainstorm_feed_namespaces_identity_and_source(self) -> None:
+        payload = b"""<rss><channel><item><title>Brainstorm Brewery #705</title>
+        <guid>libsyn-705</guid><pubDate>Fri, 24 Jul 2026 06:00:00 +0000</pubDate>
+        <link>https://brainstormbrewery.com/705</link>
+        <enclosure url="https://traffic.libsyn.com/example/705.mp3" type="audio/mpeg" />
+        </item></channel></rss>"""
+        item = parse_rss(
+            payload, source_id="brainstorm-brewery", source_name="Brainstorm Brewery",
+            source_url="https://brainstormbrewery.com/", extraction_profile="brainstorm_brewery",
+            namespace_guid=True,
+        )[0]
+        self.assertEqual("brainstorm-brewery:libsyn-705", item.guid)
+        self.assertEqual(("brainstorm-brewery", "Brainstorm Brewery", "brainstorm_brewery"), (item.source_id, item.source_name, item.extraction_profile))
+
+    def test_source_specific_discovery_does_not_hide_requested_feed_failure(self) -> None:
+        class Source:
+            def __init__(self, source_id: str, fails: bool = False) -> None:
+                self.source_id = source_id
+                self.source_name = source_id
+                self.fails = fails
+
+            def episodes(self):
+                if self.fails:
+                    raise RuntimeError("feed unavailable")
+                return [episode()]
+
+        combined = CombinedFeedSource([Source("mtg-fast-finance"), Source("brainstorm-brewery", fails=True)])
+        with self.assertRaisesRegex(RuntimeError, "feed unavailable"):
+            combined.episodes_for("brainstorm-brewery")
+
 
 class DownloadTests(unittest.TestCase):
     def test_streams_and_renames_part_file(self) -> None:
@@ -114,6 +144,15 @@ class DetectionAndStateTests(unittest.TestCase):
         self.assertFalse(result["located"])
         self.assertEqual([], result["segments"])
 
+    def test_brainstorm_recommendation_profile_finds_breaking_bulk(self) -> None:
+        result = locate_recommendation_section([
+            {"start": 100, "end": 110, "text": "Breaking Bulk"},
+            {"start": 110, "end": 140, "text": "My pick is Example Card at a dollar."},
+            {"start": 140, "end": 150, "text": "Thanks for listening"},
+        ], "brainstorm_brewery")
+        self.assertTrue(result["located"])
+        self.assertEqual(("Breaking Bulk / Pick of the Week", "high"), (result["label"], result["confidence"]))
+
     def test_discovery_is_idempotent_and_failed_attempt_is_retryable(self) -> None:
         store = JsonStateStore(workspace_temp() / "state.json")
         candidate = episode()
@@ -157,6 +196,8 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("web/table.js", workflow)
         self.assertIn("function showEpisode", app)
         self.assertIn("View failure details", app)
+        self.assertIn("data-copy-guid", app)
+        self.assertIn("Open retry workflow", app)
         self.assertNotIn("Unavailable", app)
 
     def test_workflow_defaults_and_limit_guard_are_safe(self) -> None:
@@ -173,6 +214,8 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn('FFW_MAX_EPISODE_ATTEMPTS: "3"', workflow)
         self.assertIn("deploy_only", workflow)
         self.assertIn("retry_failed", workflow)
+        self.assertIn("brainstorm-brewery", workflow)
+        self.assertIn('FFW_ENABLED_SOURCES: "mtg-fast-finance,brainstorm-brewery"', workflow)
         self.assertIn("process-next --live", workflow)
         self.assertIn("Deploy-only mode selected", workflow)
         self.assertIn("validation and durable-state persistence will continue", workflow)
@@ -453,6 +496,18 @@ class StateAwareSelectionTests(unittest.TestCase):
             report.eligible_found,
             report.feed_entries_scanned,
         ))
+
+    def test_source_filter_selects_newest_from_requested_podcast(self) -> None:
+        self.settings = Settings(**{**self.settings.__dict__, "enabled_sources": ("mtg-fast-finance", "brainstorm-brewery")})
+        self.pipeline.settings = self.settings
+        ffw = EpisodeCandidate("ffw", 1, "FFW", "2026-01-06T00:00:00Z", "https://cdn.example.test/f.mp3", "https://example.test/f", [])
+        bb = EpisodeCandidate(
+            "brainstorm-brewery:bb", 700, "BB", "2026-01-05T00:00:00Z",
+            "https://cdn.example.test/b.mp3", "https://example.test/b", [],
+            source_id="brainstorm-brewery", source_name="Brainstorm Brewery", extraction_profile="brainstorm_brewery",
+        )
+        report = self.pipeline.select_candidates([ffw, bb], policy="next", source_id="brainstorm-brewery")
+        self.assertEqual([bb], report.selected)
 
     def test_backfill_limit_counts_eligible_not_feed_positions(self) -> None:
         candidates = self.candidates()

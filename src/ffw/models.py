@@ -41,6 +41,10 @@ class EpisodeCandidate:
     duration_seconds: int | None = None
     feed_metadata: dict[str, Any] = field(default_factory=dict, repr=False, compare=False)
     fixture: dict[str, Any] = field(default_factory=dict, repr=False, compare=False)
+    source_id: str = "mtg-fast-finance"
+    source_name: str = "MTG Fast Finance"
+    source_url: str = "https://www.mtgfastfinance.com/"
+    extraction_profile: str = "cards_to_watch"
 
     @property
     def synthetic(self) -> bool:
@@ -74,6 +78,8 @@ class SelectionReport:
                 "episode_number": episode.episode_number,
                 "title": episode.title,
                 "published_at": episode.published_at,
+                "source_id": episode.source_id,
+                "source_name": episode.source_name,
             }
             for episode in self.selected
         ]
