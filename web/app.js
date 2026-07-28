@@ -49,14 +49,27 @@ function formatDateTime(value) {
   }).format(new Date(value));
 }
 
-function isRecentlyProcessed(value) {
-  const timestamp = Date.parse(value || "");
+function isSuccessfulEpisode(episode) {
+  return ["complete", "needs_review"].includes(episode?.processing_status);
+}
+
+function isRecentlyAdded(episode) {
+  if (!isSuccessfulEpisode(episode)) return false;
+  const timestamp = Date.parse(episode?.processed_at || "");
   const age = Date.now() - timestamp;
   return Number.isFinite(timestamp) && age >= 0 && age <= 72 * 60 * 60 * 1000;
 }
 
-function recentBadge(value) {
-  return isRecentlyProcessed(value) ? `<span class="recent-badge" title="Processed within the last 72 hours">New</span>` : "";
+function recentBadge(episode) {
+  return isRecentlyAdded(episode) ? `<span class="recent-badge" title="Added within the last 72 hours">New</span>` : "";
+}
+
+function activityLabel(episode) {
+  return isSuccessfulEpisode(episode) ? "Added" : "Attempted";
+}
+
+function activityDate(episode) {
+  return `<span class="muted">${activityLabel(episode)}</span><br>${formatDate(episode.processed_at)} ${recentBadge(episode)}`;
 }
 
 function sortRows(rows, sort, accessors) {
@@ -233,7 +246,7 @@ function metric(name, value, note) {
 function renderEpisodes() {
   return `
     <div class="toolbar"><label class="search"><input id="episode-search" type="search" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
-    <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Episode", "episode_number")}${episodeSortHeader("Published", "published_at")}${episodeSortHeader("Processed", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Listen</th><th>Open</th></tr></thead><tbody id="episode-rows">${episodeRows()}</tbody></table></div>`;
+    <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Episode", "episode_number")}${episodeSortHeader("Published", "published_at")}${episodeSortHeader("Activity", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Listen</th><th>Open</th></tr></thead><tbody id="episode-rows">${episodeRows()}</tbody></table></div>`;
 }
 
 function episodeRows() {
@@ -243,7 +256,7 @@ function episodeRows() {
     return haystack.includes(query) && (state.status === "all" || episode.processing_status === state.status);
   }), state.episodeSort, episodeSortAccessors);
   if (!episodes.length) return `<tr><td colspan="9">No matching episodes.</td></tr>`;
-  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td title="${escapeHtml(formatDateTime(episode.processed_at))}">${formatDate(episode.processed_at)} ${recentBadge(episode.processed_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
+  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td title="${escapeHtml(`${activityLabel(episode)} ${formatDateTime(episode.processed_at)}`)}">${activityDate(episode)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
 }
 
 function renderPicks() {
@@ -301,7 +314,7 @@ function renderPickTable() {
 
 function renderStatus() {
   const episodes = sortRows(state.index.episodes, { key: "processed_at", direction: "desc" }, episodeSortAccessors);
-  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes · newest processing first</span></div><div class="panel-body status-timeline">${episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)} ${recentBadge(episode.processed_at)}</strong><small>${episode.review_reason ? escapeHtml(episode.review_reason) : `${episode.pick_count} structured picks · published ${formatDate(episode.published_at)} · processed ${formatDateTime(episode.processed_at)}`}</small></div>${badge(episode.processing_status)}</div>`).join("")}</div></article>`;
+  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes · newest activity first</span></div><div class="panel-body status-timeline">${episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)} ${recentBadge(episode)}</strong><small>${episode.review_reason ? `${escapeHtml(episode.review_reason)} · ${activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}` : `${episode.pick_count} structured picks · published ${formatDate(episode.published_at)} · ${activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}`}</small></div>${badge(episode.processing_status)}</div>`).join("")}</div></article>`;
 }
 
 function renderAbout() {
@@ -325,8 +338,8 @@ function renderDashboard() {
     </section>
     <section class="dashboard-console">
       <article class="panel dashboard-main">
-        <div class="panel-head"><h2>Recently processed</h2><a href="#episodes">Open archive</a></div>
-        <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Ep", "episode_number")}${episodeSortHeader("Processed", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Action</th></tr></thead><tbody>${dashboardEpisodeRows()}</tbody></table></div>
+        <div class="panel-head"><h2>Recently added</h2><a href="#episodes">Open archive</a></div>
+        <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Ep", "episode_number")}${episodeSortHeader("Added", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Action</th></tr></thead><tbody>${dashboardEpisodeRows()}</tbody></table></div>
       </article>
       <aside class="dashboard-side">
         <article class="panel">
@@ -354,9 +367,9 @@ function metric(name, value, note) {
 }
 
 function dashboardEpisodeRows() {
-  const episodes = sortRows(state.index.episodes, state.episodeSort, episodeSortAccessors).slice(0, 10);
-  if (!episodes.length) return `<tr><td colspan="7">No episodes have been published yet.</td></tr>`;
-  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td title="${escapeHtml(formatDateTime(episode.processed_at))}">${formatDate(episode.processed_at)} ${recentBadge(episode.processed_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
+  const episodes = sortRows(state.index.episodes.filter(isSuccessfulEpisode), state.episodeSort, episodeSortAccessors).slice(0, 10);
+  if (!episodes.length) return `<tr><td colspan="7">No episodes have been added yet.</td></tr>`;
+  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td title="${escapeHtml(formatDateTime(episode.processed_at))}">${formatDate(episode.processed_at)} ${recentBadge(episode)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
 }
 
 function bindPageEvents() {
@@ -414,7 +427,7 @@ function showEpisode(guid) {
   const picksSection = episodePicks.length
     ? `<div class="detail-section"><h3>Cards to Watch</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
     : `<div class="detail-section"><h3>Cards to Watch</h3><p>No structured picks were published for this episode.</p></div>`;
-  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>Failure details</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Processed</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
+  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>Failure details</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Attempted</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
   dialog.showModal();
 }
 
