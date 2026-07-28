@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.0",
-  "updated_at": "2026-07-28T02:10:32Z",
+  "updated_at": "2026-07-28T12:17:21Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2445,6 +2445,65 @@
         "traffic_type": null
       },
       "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=25602": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=25602",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-07-28T12:13:14Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-28T12:13:14Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-28T12:13:14Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-07-28T12:13:14Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-07-28T12:13:16Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-07-28T12:13:16Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-07-28T12:13:33Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-07-28T12:17:21Z"
+        }
+      ],
+      "title": "Banger or Bust! | Brainstorm Brewery #708 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-07-10T06:09:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 2/4 failed after 153.7s: JSONDecodeError: Unterminated string starting at: line 6134 column 15 (char 166925)",
+        "category": "unknown",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-07-28T18:17:21Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-07-28T12:17:21Z",
+      "output_directory": "episodes/0000-banger-or-bust-brainstorm-brewery-708-magic-finance-af03a40c"
     }
   }
 }
