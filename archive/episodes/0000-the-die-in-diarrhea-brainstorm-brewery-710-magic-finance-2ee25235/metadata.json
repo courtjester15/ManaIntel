@@ -31,7 +31,7 @@
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v1",
-    "processed_at": "2026-07-27T21:35:14Z",
+    "processed_at": "2026-07-28T21:34:47Z",
     "history": [
       {
         "status": "detected",
@@ -88,19 +88,43 @@
       {
         "status": "failed",
         "timestamp": "2026-07-27T21:35:14Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-28T21:31:39Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-07-28T21:31:39Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-07-28T21:31:40Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-07-28T21:31:40Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-07-28T21:32:06Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-07-28T21:34:47Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Gemini transcription chunk 1/4 failed after 289.8s: JSONDecodeError: Expecting property name enclosed in double quotes: line 5802 column 24 (char 179398)",
+      "message": "Gemini transcription chunk 1/4 failed after 161.0s: JSONDecodeError: Expecting ',' delimiter: line 5567 column 15 (char 173709)",
       "category": "unknown",
       "synthetic": false,
-      "retryable": true,
+      "retryable": false,
       "provider_wide": false,
-      "attempt": 2,
+      "attempt": 3,
       "max_attempts": 3,
-      "next_retry_at": "2026-07-28T03:35:14Z",
-      "quarantined": false
+      "next_retry_at": null,
+      "quarantined": true
     },
     "transcription": null,
     "extraction_usage": null
