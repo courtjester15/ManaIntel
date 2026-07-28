@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=26773",
+    "episode_number": 0,
+    "title": "It Was Bound To Happen | Brainstorm Brewery #709 | Magic Finance",
+    "published_at": "2026-07-17T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_709_It_Was_Bound_To_Happen.mp3",
+    "episode_url": "https://brainstormbrewery.com/it-was-bound-to-happen-brainstorm-brewery-709-magic-finance/",
+    "duration_seconds": 3530,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler) has passed again, but don’t worry Liz  (@devotedDruid) and DJ (@CardgardenMTG)  are gonna hold down the fort, and time to Du-Du-Du-Duel with some YuGiOh Banger or Bust Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.4.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v1",
+    "processed_at": "2026-07-28T02:10:32Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-07-28T02:01:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-28T02:01:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-07-28T02:01:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-07-28T02:01:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-07-28T02:01:30Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-07-28T02:01:30Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-07-28T02:01:49Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-07-28T02:10:06Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-07-28T02:10:06Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-07-28T02:10:32Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-07-28T02:10:32Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-07-28T02:10:32Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-07-28T02:10:32Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 3530,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 1200,
+          "request_seconds": 130.411,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17157,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 30053,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 29999
+              }
+            ],
+            "thoughts_token_count": 17330,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 64540,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 1200,
+          "request_seconds": 257.506,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16189,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 30053,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 29999
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 22813,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 69055,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 1130,
+          "request_seconds": 108.285,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14948,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 28307,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 28253
+              }
+            ],
+            "thoughts_token_count": 12260,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 55515,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 173,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 1771,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 1771
+        }
+      ],
+      "thoughts_token_count": 2383,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 4327,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 2735,
+    "end_seconds": 2861,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null
+  },
+  "recommendations": [
+    {
+      "card": "Blackwing Armor Master",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Very good card",
+        "Usually synchro with Gale, halve their thing, then make Armor Master, then start killing things"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2735,
+      "end_seconds": 2746,
+      "evidence_excerpt": "it's my pick of the week, actually. Uh, this is the end of the podcast, goodbye. No, I'm kidding. Get your, get your Blackwing Armor Masters.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-070bb2538cb37f9e",
+      "timestamp": "00:45:35",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_709_It_Was_Bound_To_Happen.mp3#t=2735"
+    }
+  ]
+}

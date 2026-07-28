@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.0",
-  "updated_at": "2026-07-27T21:35:14Z",
+  "updated_at": "2026-07-28T02:10:32Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2260,6 +2260,191 @@
       "status": "failed",
       "updated_at": "2026-07-27T21:35:14Z",
       "output_directory": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235"
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=26773": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=26773",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-07-28T02:01:28Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-28T02:01:28Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-28T02:01:28Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-07-28T02:01:28Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-07-28T02:01:30Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-07-28T02:01:30Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-07-28T02:01:49Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-07-28T02:10:06Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-07-28T02:10:06Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-07-28T02:10:32Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-07-28T02:10:32Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-07-28T02:10:32Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-07-28T02:10:32Z"
+        }
+      ],
+      "title": "It Was Bound To Happen | Brainstorm Brewery #709 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-07-17T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 1,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-07-28T02:10:32Z",
+      "output_directory": "episodes/0000-it-was-bound-to-happen-brainstorm-brewery-709-magic-finance-cda9bbfa",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 3530,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 1200,
+            "request_seconds": 130.411,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17157,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 30053,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 29999
+                }
+              ],
+              "thoughts_token_count": 17330,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 64540,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 1200,
+            "request_seconds": 257.506,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16189,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 30053,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 29999
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 22813,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 69055,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 1130,
+            "request_seconds": 108.285,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14948,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 28307,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 28253
+                }
+              ],
+              "thoughts_token_count": 12260,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 55515,
+              "traffic_type": null
+            }
+          }
+        ]
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 173,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 1771,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 1771
+          }
+        ],
+        "thoughts_token_count": 2383,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 4327,
+        "traffic_type": null
+      },
+      "review_reason": null
     }
   }
 }
