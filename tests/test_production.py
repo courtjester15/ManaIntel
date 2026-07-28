@@ -198,6 +198,12 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("View failure details", app)
         self.assertIn("data-copy-guid", app)
         self.assertIn("Open retry workflow", app)
+        self.assertIn('episodeSort: { key: "processed_at", direction: "desc" }', app)
+        self.assertIn('data-episode-sort', app)
+        self.assertIn('Processed within the last 72 hours', app)
+        table = (root / "web/table.js").read_text(encoding="utf-8")
+        self.assertIn("data-ms-sort", table)
+        self.assertIn("aria-sort", table)
         self.assertNotIn("Unavailable", app)
 
     def test_workflow_defaults_and_limit_guard_are_safe(self) -> None:

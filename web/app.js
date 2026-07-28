@@ -1,6 +1,10 @@
 "use strict";
 
-const state = { index: null, cards: [], route: "dashboard", query: "", status: "all" };
+const state = {
+  index: null, cards: [], route: "dashboard", query: "", status: "all",
+  episodeSort: { key: "processed_at", direction: "desc" },
+  pickSort: { key: "published_at", direction: "desc" },
+};
 const app = document.querySelector("#app");
 const pageTitle = document.querySelector("#page-title");
 const dialog = document.querySelector("#pick-dialog");
@@ -37,6 +41,61 @@ function formatDate(value, long = false) {
     : { month: "short", day: "numeric", year: "numeric" }
   ).format(new Date(value));
 }
+
+function formatDateTime(value) {
+  if (!value) return "Not recorded";
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit",
+  }).format(new Date(value));
+}
+
+function isRecentlyProcessed(value) {
+  const timestamp = Date.parse(value || "");
+  const age = Date.now() - timestamp;
+  return Number.isFinite(timestamp) && age >= 0 && age <= 72 * 60 * 60 * 1000;
+}
+
+function recentBadge(value) {
+  return isRecentlyProcessed(value) ? `<span class="recent-badge" title="Processed within the last 72 hours">New</span>` : "";
+}
+
+function sortRows(rows, sort, accessors) {
+  const accessor = accessors[sort.key];
+  if (!accessor) return [...rows];
+  const direction = sort.direction === "asc" ? 1 : -1;
+  return [...rows].sort((left, right) => {
+    const a = accessor(left);
+    const b = accessor(right);
+    if (a === null || a === undefined || a === "") return b === null || b === undefined || b === "" ? 0 : 1;
+    if (b === null || b === undefined || b === "") return -1;
+    if (typeof a === "number" && typeof b === "number") return (a - b) * direction;
+    return String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: "base" }) * direction;
+  });
+}
+
+function toggleSort(name, key) {
+  const current = state[name];
+  state[name] = current.key === key
+    ? { key, direction: current.direction === "asc" ? "desc" : "asc" }
+    : { key, direction: ["published_at", "processed_at", "pick_count", "episode_number"].includes(key) ? "desc" : "asc" };
+}
+
+function episodeSortHeader(labelText, key) {
+  const active = state.episodeSort.key === key;
+  const direction = active ? state.episodeSort.direction : null;
+  const ariaSort = direction ? ` aria-sort="${direction === "asc" ? "ascending" : "descending"}"` : "";
+  return `<th${ariaSort}><button class="table-sort" type="button" data-episode-sort="${escapeHtml(key)}">${escapeHtml(labelText)}<span aria-hidden="true">${active ? (direction === "asc" ? "▲" : "▼") : ""}</span></button></th>`;
+}
+
+const episodeSortAccessors = {
+  episode_number: (episode) => Number(episode.episode_number || 0),
+  published_at: (episode) => Date.parse(episode.published_at || "") || 0,
+  processed_at: (episode) => Date.parse(episode.processed_at || "") || 0,
+  title: (episode) => `${sourceName(episode)} ${episode.title}`,
+  processing_status: (episode) => episode.processing_status,
+  pick_count: (episode) => Number(episode.pick_count || 0),
+  review_state: (episode) => episode.review_state,
+};
 
 function display(value, fallback = "Not stated") {
   return value === null || value === undefined || value === "" ? fallback : escapeHtml(value);
@@ -174,17 +233,17 @@ function metric(name, value, note) {
 function renderEpisodes() {
   return `
     <div class="toolbar"><label class="search"><input id="episode-search" type="search" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
-    <div class="table-wrap"><table><thead><tr><th>Episode</th><th>Date</th><th>Title</th><th>Status</th><th>Picks</th><th>Review</th><th>Listen</th><th>Open</th></tr></thead><tbody id="episode-rows">${episodeRows()}</tbody></table></div>`;
+    <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Episode", "episode_number")}${episodeSortHeader("Published", "published_at")}${episodeSortHeader("Processed", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Listen</th><th>Open</th></tr></thead><tbody id="episode-rows">${episodeRows()}</tbody></table></div>`;
 }
 
 function episodeRows() {
   const query = state.query.toLowerCase();
-  const episodes = state.index.episodes.filter((episode) => {
+  const episodes = sortRows(state.index.episodes.filter((episode) => {
     const haystack = `${sourceName(episode)} ${episode.episode_number} ${episode.title} ${episode.hosts.join(" ")}`.toLowerCase();
     return haystack.includes(query) && (state.status === "all" || episode.processing_status === state.status);
-  });
-  if (!episodes.length) return `<tr><td colspan="8">No matching episodes.</td></tr>`;
-  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
+  }), state.episodeSort, episodeSortAccessors);
+  if (!episodes.length) return `<tr><td colspan="9">No matching episodes.</td></tr>`;
+  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td title="${escapeHtml(formatDateTime(episode.processed_at))}">${formatDate(episode.processed_at)} ${recentBadge(episode.processed_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
 }
 
 function renderPicks() {
@@ -195,9 +254,19 @@ function renderPicks() {
 
 function filteredPicks() {
   const query = state.query.toLowerCase();
-  return state.cards.filter((pick) => {
+  const filtered = state.cards.filter((pick) => {
     const haystack = `${sourceName(pick)} ${pick.card} ${pick.printing ?? ""} ${pick.hosts.join(" ")} ${pick.recommendation} ${pick.episode.title}`.toLowerCase();
     return haystack.includes(query) && (state.status === "all" || pick.review_status === state.status);
+  });
+  return sortRows(filtered, state.pickSort, {
+    card: (pick) => pick.card,
+    printing: (pick) => pick.printing || "",
+    entry: (pick) => pick.entry_target?.minimum ?? pick.entry_target?.maximum,
+    exit: (pick) => pick.exit_target?.minimum ?? pick.exit_target?.maximum,
+    hold: (pick) => pick.hold || "",
+    episode_number: (pick) => Number(pick.episode.episode_number || 0),
+    published_at: (pick) => Date.parse(pick.episode.published_at || "") || 0,
+    review_status: (pick) => pick.review_status,
   });
 }
 
@@ -208,28 +277,31 @@ function renderPickTable() {
   renderStandardTable(container, {
     tableClass: "ms-table--picks",
     rows: filteredPicks(),
+    sort: state.pickSort,
     emptyText: "No matching picks. Try a different card, host, or review filter.",
     getRowId: (pick) => pick.id,
     getRowLabel: (pick) => `Open details for ${pick.card}`,
     columns: [
-      { label: "Card", value: (pick) => pick.card },
-      { label: "Printing", value: (pick) => pick.printing || "—", title: (pick) => pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "Printing not stated" },
-      { label: "Entry", align: "money", value: (pick) => pick.entry_target?.raw || "—" },
-      { label: "Exit", align: "money", value: (pick) => pick.exit_target?.raw || "—" },
-      { label: "Hold", align: "center", value: (pick) => pick.hold || "—" },
-      { label: "Episode", align: "center", value: (pick) => pick.episode.episode_number ? `#${pick.episode.episode_number}` : "—", title: (pick) => pick.episode.title },
-      { label: "Date", align: "center", value: (pick) => formatDate(pick.episode.published_at) },
-      { label: "Review", align: "center", html: (pick) => badge(pick.review_status) },
+      { label: "Card", sortKey: "card", value: (pick) => pick.card },
+      { label: "Printing", sortKey: "printing", value: (pick) => pick.printing || "—", title: (pick) => pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "Printing not stated" },
+      { label: "Entry", sortKey: "entry", align: "money", value: (pick) => pick.entry_target?.raw || "—" },
+      { label: "Exit", sortKey: "exit", align: "money", value: (pick) => pick.exit_target?.raw || "—" },
+      { label: "Hold", sortKey: "hold", align: "center", value: (pick) => pick.hold || "—" },
+      { label: "Episode", sortKey: "episode_number", align: "center", value: (pick) => pick.episode.episode_number ? `#${pick.episode.episode_number}` : "—", title: (pick) => pick.episode.title },
+      { label: "Published", sortKey: "published_at", align: "center", value: (pick) => formatDate(pick.episode.published_at) },
+      { label: "Review", sortKey: "review_status", align: "center", html: (pick) => badge(pick.review_status) },
       { label: "Listen", align: "center", type: "anchor", href: (pick) => pick.listen_url, value: (pick) => pick.timestamp || "Listen" },
       { label: "Details", align: "actions", type: "action", action: "details", value: () => "Details" },
     ],
     onRowClick: (pick) => showPick(pick.id),
     onAction: (action, pick) => { if (action === "details") showPick(pick.id); },
+    onSort: (key) => { toggleSort("pickSort", key); renderPickTable(); },
   });
 }
 
 function renderStatus() {
-  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes</span></div><div class="panel-body status-timeline">${state.index.episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)}</strong><small>${episode.review_reason ? escapeHtml(episode.review_reason) : `${episode.pick_count} structured picks · ${formatDate(episode.published_at)} · processed ${formatDate(episode.processed_at)}`}</small></div>${badge(episode.processing_status)}</div>`).join("")}</div></article>`;
+  const episodes = sortRows(state.index.episodes, { key: "processed_at", direction: "desc" }, episodeSortAccessors);
+  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes · newest processing first</span></div><div class="panel-body status-timeline">${episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)} ${recentBadge(episode.processed_at)}</strong><small>${episode.review_reason ? escapeHtml(episode.review_reason) : `${episode.pick_count} structured picks · published ${formatDate(episode.published_at)} · processed ${formatDateTime(episode.processed_at)}`}</small></div>${badge(episode.processing_status)}</div>`).join("")}</div></article>`;
 }
 
 function renderAbout() {
@@ -253,8 +325,8 @@ function renderDashboard() {
     </section>
     <section class="dashboard-console">
       <article class="panel dashboard-main">
-        <div class="panel-head"><h2>Recent episodes</h2><a href="#episodes">Open archive</a></div>
-        <div class="table-wrap"><table><thead><tr><th>Ep</th><th>Date</th><th>Title</th><th>Status</th><th>Picks</th><th>Review</th><th>Action</th></tr></thead><tbody>${dashboardEpisodeRows()}</tbody></table></div>
+        <div class="panel-head"><h2>Recently processed</h2><a href="#episodes">Open archive</a></div>
+        <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Ep", "episode_number")}${episodeSortHeader("Processed", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Action</th></tr></thead><tbody>${dashboardEpisodeRows()}</tbody></table></div>
       </article>
       <aside class="dashboard-side">
         <article class="panel">
@@ -282,9 +354,9 @@ function metric(name, value, note) {
 }
 
 function dashboardEpisodeRows() {
-  const episodes = state.index.episodes.slice(0, 10);
+  const episodes = sortRows(state.index.episodes, state.episodeSort, episodeSortAccessors).slice(0, 10);
   if (!episodes.length) return `<tr><td colspan="7">No episodes have been published yet.</td></tr>`;
-  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
+  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td title="${escapeHtml(formatDateTime(episode.processed_at))}">${formatDate(episode.processed_at)} ${recentBadge(episode.processed_at)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
 }
 
 function bindPageEvents() {
@@ -293,6 +365,9 @@ function bindPageEvents() {
   renderPickTable();
   const episodeSearch = document.querySelector("#episode-search");
   const episodeStatus = document.querySelector("#episode-status");
+  document.querySelectorAll("[data-episode-sort]").forEach((control) => {
+    control.addEventListener("click", () => { toggleSort("episodeSort", control.dataset.episodeSort); renderRoute(); });
+  });
   if (episodeSearch) episodeSearch.addEventListener("input", () => { state.query = episodeSearch.value; document.querySelector("#episode-rows").innerHTML = episodeRows(); bindEpisodeButtons(); });
   if (episodeStatus) episodeStatus.addEventListener("change", () => { state.status = episodeStatus.value; document.querySelector("#episode-rows").innerHTML = episodeRows(); bindEpisodeButtons(); });
   const pickSearch = document.querySelector("#pick-search");

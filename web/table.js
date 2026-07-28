@@ -14,7 +14,7 @@ function renderStandardTable(container, config) {
 
   container.innerHTML = `
     <div class="ms-table__header" role="row">
-      ${config.columns.map((column) => renderStandardTableHeader(column)).join("")}
+      ${config.columns.map((column) => renderStandardTableHeader(column, config)).join("")}
     </div>
     <div class="ms-table__body" role="rowgroup">
       ${rows.map((row, index) => renderStandardTableRow(row, index, config)).join("")}
@@ -24,11 +24,17 @@ function renderStandardTable(container, config) {
   bindStandardTableEvents(container, rows, config);
 }
 
-function renderStandardTableHeader(column) {
+function renderStandardTableHeader(column, config) {
   const classes = ["ms-table__head-cell", tableAlignClass(column.align), column.headerClass]
     .filter(Boolean)
     .join(" ");
-  return `<span class="${classes}" role="columnheader">${tableEscapeHtml(column.label || "")}</span>`;
+  const active = column.sortKey && config.sort?.key === column.sortKey;
+  const direction = active ? config.sort.direction : null;
+  const ariaSort = direction ? ` aria-sort="${direction === "asc" ? "ascending" : "descending"}"` : "";
+  const content = column.sortKey
+    ? `<button class="ms-table__sort" type="button" data-ms-sort="${tableEscapeAttr(column.sortKey)}">${tableEscapeHtml(column.label || "")}<span aria-hidden="true">${active ? (direction === "asc" ? "▲" : "▼") : ""}</span></button>`
+    : tableEscapeHtml(column.label || "");
+  return `<span class="${classes}" role="columnheader"${ariaSort}>${content}</span>`;
 }
 
 function renderStandardTableRow(row, index, config) {
@@ -68,6 +74,12 @@ function renderStandardTableCell(row, index, column) {
 }
 
 function bindStandardTableEvents(container, rows, config) {
+  container.querySelectorAll("[data-ms-sort]").forEach((control) => {
+    control.addEventListener("click", () => {
+      if (typeof config.onSort === "function") config.onSort(control.dataset.msSort);
+    });
+  });
+
   container.querySelectorAll("[data-ms-link]").forEach((link) => {
     link.addEventListener("click", (event) => event.stopPropagation());
   });
