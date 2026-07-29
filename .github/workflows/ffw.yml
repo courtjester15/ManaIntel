@@ -52,6 +52,7 @@ env:
   FFW_AI_PROVIDER: gemini
   FFW_TRANSCRIPTION_MODEL: gemini-3.5-flash
   FFW_TRANSCRIPTION_FALLBACK_MODEL: gemini-3.5-flash-lite
+  FFW_AUDIO_CHUNK_SECONDS: "900"
   FFW_GEMINI_TRANSIENT_RETRIES: "1"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "2"
   FFW_EXTRACTION_MODEL: gemini-3.5-flash
@@ -100,6 +101,7 @@ jobs:
           echo "Provider: $FFW_AI_PROVIDER"
           echo "Transcription model: $FFW_TRANSCRIPTION_MODEL"
           echo "Transcription fallback model: $FFW_TRANSCRIPTION_FALLBACK_MODEL"
+          echo "Audio chunk seconds: $FFW_AUDIO_CHUNK_SECONDS"
           echo "Extraction model: $FFW_EXTRACTION_MODEL"
           if [[ "$FFW_AI_PROVIDER" == "gemini" && -z "$GEMINI_API_KEY" ]]; then
             echo "::error::GEMINI_API_KEY repository secret is missing or empty."

@@ -63,6 +63,8 @@ def classify_failure(message: str) -> tuple[str, bool, bool]:
         return "provider_configuration", False, True
     if any(pattern in normalized for pattern in EPISODE_ERROR_PATTERNS):
         return "episode_input", False, False
+    if "malformed json" in normalized or "jsondecodeerror" in normalized:
+        return "transient_model_output", True, False
     if any(pattern in normalized for pattern in TRANSIENT_ERROR_PATTERNS):
         return "transient_provider", True, True
     # Unknown model/output failures receive bounded retries, then quarantine.

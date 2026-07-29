@@ -4,8 +4,8 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-VERSION = "0.4.0"
-PIPELINE_VERSION = "0.4.0"
+VERSION = "0.4.1"
+PIPELINE_VERSION = "0.4.1"
 SCHEMA_VERSION = "1.1.0"
 PROMPT_VERSION = "source-recommendations-v1"
 MOCK_TRANSCRIPTION_MODEL = "mock-transcriber-v1"
@@ -35,7 +35,7 @@ class Settings:
     enabled_sources: tuple[str, ...] = ("mtg-fast-finance",)
     max_audio_bytes: int = 250_000_000
     download_timeout_seconds: int = 120
-    audio_chunk_seconds: int = 1200
+    audio_chunk_seconds: int = 900
     transcription_model: str = "gpt-4o-transcribe-diarize"
     transcription_fallback_model: str | None = None
     extraction_model: str = "gpt-5.6-luna"
@@ -69,7 +69,7 @@ class Settings:
             ),
             max_audio_bytes=int(os.getenv("FFW_MAX_AUDIO_BYTES", "250000000")),
             download_timeout_seconds=int(os.getenv("FFW_DOWNLOAD_TIMEOUT_SECONDS", "120")),
-            audio_chunk_seconds=int(os.getenv("FFW_AUDIO_CHUNK_SECONDS", "1200")),
+            audio_chunk_seconds=int(os.getenv("FFW_AUDIO_CHUNK_SECONDS", "900")),
             transcription_model=os.getenv("FFW_TRANSCRIPTION_MODEL", "gpt-4o-transcribe-diarize"),
             transcription_fallback_model=os.getenv("FFW_TRANSCRIPTION_FALLBACK_MODEL") or None,
             extraction_model=os.getenv("FFW_EXTRACTION_MODEL", "gpt-5.6-luna"),

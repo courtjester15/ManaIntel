@@ -206,7 +206,7 @@ class StreamingDownloader:
 
 
 class FfmpegAudioProcessor:
-    def __init__(self, chunk_seconds: int = 1200) -> None:
+    def __init__(self, chunk_seconds: int = 900) -> None:
         self.chunk_seconds = chunk_seconds
 
     def prepare(self, source: Path, destination: Path) -> list[Path]:
@@ -305,6 +305,17 @@ def _json_from_model_text(text: str) -> dict[str, Any]:
     return json.loads(cleaned)
 
 
+class GeminiMalformedJSONError(ValueError):
+    """Gemini returned text that could not be decoded as its requested JSON shape."""
+
+
+def _gemini_finish_reason(response: Any) -> str:
+    candidates = getattr(response, "candidates", None) or []
+    reason = getattr(candidates[0], "finish_reason", None) if candidates else None
+    value = getattr(reason, "value", reason)
+    return str(value or "not reported")
+
+
 def _inline_json_schema_refs(schema: dict[str, Any]) -> dict[str, Any]:
     """Inline local $defs references for Gemini's narrower structured-output support."""
     copied = deepcopy(schema)
@@ -325,11 +336,15 @@ def _inline_json_schema_refs(schema: dict[str, Any]) -> dict[str, Any]:
 
 
 def _is_gemini_schema_error(exc: Exception) -> bool:
+    if isinstance(exc, GeminiMalformedJSONError):
+        return False
     text = str(exc).lower()
     return any(token in text for token in ("schema", "response_json_schema", "response_schema", "json", "invalid_argument"))
 
 
 def _is_transient_gemini_error(exc: Exception) -> bool:
+    if isinstance(exc, (GeminiMalformedJSONError, json.JSONDecodeError)):
+        return True
     text = str(exc).lower()
     return any(token in text for token in (
         "408", "429", "500", "502", "503", "504", "connection reset",
@@ -355,7 +370,14 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
                 contents=request_contents,
                 config=types.GenerateContentConfig(**config_kwargs),
             )
-            payload = _json_from_model_text(getattr(response, "text", "") or "{}")
+            try:
+                payload = _json_from_model_text(getattr(response, "text", "") or "{}")
+            except json.JSONDecodeError as exc:
+                finish_reason = _gemini_finish_reason(response)
+                raise GeminiMalformedJSONError(
+                    f"Gemini returned malformed JSON ({exc.msg} at line {exc.lineno}, column {exc.colno}; "
+                    f"finish reason: {finish_reason})."
+                ) from exc
             usage = getattr(response, "usage_metadata", None)
             payload["_usage"] = usage.model_dump() if hasattr(usage, "model_dump") else (dict(usage) if usage else None)
             return payload

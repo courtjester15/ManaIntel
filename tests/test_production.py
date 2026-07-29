@@ -14,7 +14,7 @@ from ffw.detection import locate_cards_to_watch, locate_recommendation_section
 from ffw.models import EpisodeCandidate
 from ffw.config import Settings
 from ffw.pipeline import Pipeline, classify_failure
-from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, StreamingDownloader, parse_episode_number, parse_rss, production_adapters
+from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiMalformedJSONError, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, StreamingDownloader, _gemini_generate_json, parse_episode_number, parse_rss, production_adapters
 from ffw.state import JsonStateStore
 from ffw.utils import atomic_write_json, load_json
 
@@ -218,6 +218,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("gemini-3.5-flash", workflow)
         self.assertIn("gemini-3.5-flash-lite", workflow)
         self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "1"', workflow)
+        self.assertIn('FFW_AUDIO_CHUNK_SECONDS: "900"', workflow)
         self.assertIn('cron: "17 20 * * *"', workflow)
         self.assertIn('INPUT_MODE="retry_failed"', workflow)
         self.assertIn('FFW_MAX_EPISODE_ATTEMPTS: "3"', workflow)
@@ -281,6 +282,62 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertEqual(
             ["gemini-primary", "gemini-primary", "gemini-fallback"],
             [item.kwargs["model"] for item in generate.call_args_list],
+        )
+
+    def test_gemini_transcription_retries_malformed_json_then_uses_fallback(self) -> None:
+        transcriber = GeminiTranscriber(
+            "gemini-primary",
+            900,
+            fallback_model_name="gemini-fallback",
+            transient_retries=1,
+            retry_delay_seconds=0,
+        )
+        malformed = GeminiMalformedJSONError("Gemini returned malformed JSON (unterminated string).")
+        success = {"text": "Breaking Bulk", "segments": [], "_usage": None}
+        with patch(
+            "ffw.production._gemini_generate_json",
+            side_effect=[malformed, malformed, success],
+        ) as generate:
+            payload, model = transcriber._transcribe_chunk(object(), object(), ["audio"])
+
+        self.assertEqual(success, payload)
+        self.assertEqual("gemini-fallback", model)
+        self.assertEqual(
+            ["gemini-primary", "gemini-primary", "gemini-fallback"],
+            [item.kwargs["model"] for item in generate.call_args_list],
+        )
+
+    def test_gemini_malformed_json_reports_finish_reason_without_schema_downgrade(self) -> None:
+        class Reason:
+            value = "MAX_TOKENS"
+
+        class Response:
+            text = '{"text":"unfinished'
+            candidates = [type("Candidate", (), {"finish_reason": Reason()})()]
+            usage_metadata = None
+
+        class Models:
+            def __init__(self): self.calls = 0
+            def generate_content(self, **kwargs):
+                self.calls += 1
+                return Response()
+
+        class Client:
+            models = Models()
+
+        class Types:
+            class GenerateContentConfig:
+                def __init__(self, **kwargs): self.kwargs = kwargs
+
+        client = Client()
+        with self.assertRaisesRegex(GeminiMalformedJSONError, "MAX_TOKENS"):
+            _gemini_generate_json(client, Types, model="gemini", contents=["audio"], schema={"type": "object"})
+        self.assertEqual(1, client.models.calls)
+
+    def test_malformed_json_failure_is_retryable_without_stopping_other_sources(self) -> None:
+        self.assertEqual(
+            ("transient_model_output", True, False),
+            classify_failure("Gemini returned malformed JSON (unterminated string)."),
         )
 
     def test_gemini_transcription_does_not_hide_permanent_primary_failure(self) -> None:
