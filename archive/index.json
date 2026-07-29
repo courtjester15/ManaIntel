@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "FFW",
-    "pipeline_version": "0.4.0",
+    "pipeline_version": "0.4.1",
     "schema_version": "1.1.0",
-    "generated_at": "2026-07-28T21:34:48Z",
+    "generated_at": "2026-07-29T21:17:30Z",
     "latest_successful_run_at": "2026-07-28T02:10:32Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -29,7 +29,8 @@
     "real_pick_count": 42,
     "last_discovered_episode_date": "2026-07-24T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
-    "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml"
+    "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml",
+    "review_workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/review.yml"
   },
   "counts": {
     "episodes": 13,
@@ -70,7 +71,9 @@
     "outputs": {
       "metadata": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/metadata.json",
       "summary_json": null,
-      "summary_markdown": null
+      "summary_markdown": null,
+      "effective_summary_json": null,
+      "effective_summary_markdown": null
     },
     "processed_at": "2026-07-28T21:34:47Z",
     "error": {
@@ -85,6 +88,10 @@
       "next_retry_at": null,
       "quarantined": true
     },
+    "human_reviewed": false,
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "review_note": null,
     "synthetic": false
   },
   "recent_picks": [
@@ -125,7 +132,8 @@
         "source_id": "brainstorm-brewery",
         "source_name": "Brainstorm Brewery"
       },
-      "processing_status": "complete"
+      "processing_status": "complete",
+      "human_reviewed": false
     },
     {
       "card": "five Fen cards",
@@ -177,7 +185,8 @@
         "source_id": "mtg-fast-finance",
         "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review"
+      "processing_status": "needs_review",
+      "human_reviewed": false
     },
     {
       "card": "Nut Collector",
@@ -228,7 +237,8 @@
         "source_id": "mtg-fast-finance",
         "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review"
+      "processing_status": "needs_review",
+      "human_reviewed": false
     },
     {
       "card": "Plaza of Heroes",
@@ -280,7 +290,8 @@
         "source_id": "mtg-fast-finance",
         "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review"
+      "processing_status": "needs_review",
+      "human_reviewed": false
     },
     {
       "card": "Karn, the Legacy Reforged",
@@ -332,7 +343,8 @@
         "source_id": "mtg-fast-finance",
         "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review"
+      "processing_status": "needs_review",
+      "human_reviewed": false
     },
     {
       "card": "Turbulent Fens",
@@ -377,7 +389,8 @@
         "source_id": "mtg-fast-finance",
         "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review"
+      "processing_status": "needs_review",
+      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -408,7 +421,9 @@
       "outputs": {
         "metadata": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/metadata.json",
         "summary_json": null,
-        "summary_markdown": null
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-28T21:34:47Z",
       "error": {
@@ -423,6 +438,10 @@
         "next_retry_at": null,
         "quarantined": true
       },
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -452,10 +471,16 @@
       "outputs": {
         "metadata": "episodes/0000-it-was-bound-to-happen-brainstorm-brewery-709-magic-finance-cda9bbfa/metadata.json",
         "summary_json": "episodes/0000-it-was-bound-to-happen-brainstorm-brewery-709-magic-finance-cda9bbfa/summary.json",
-        "summary_markdown": "episodes/0000-it-was-bound-to-happen-brainstorm-brewery-709-magic-finance-cda9bbfa/summary.md"
+        "summary_markdown": "episodes/0000-it-was-bound-to-happen-brainstorm-brewery-709-magic-finance-cda9bbfa/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-28T02:10:32Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -485,21 +510,27 @@
       "outputs": {
         "metadata": "episodes/0000-banger-or-bust-brainstorm-brewery-708-magic-finance-af03a40c/metadata.json",
         "summary_json": null,
-        "summary_markdown": null
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
-      "processed_at": "2026-07-28T12:17:21Z",
+      "processed_at": "2026-07-29T21:17:30Z",
       "error": {
         "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/4 failed after 153.7s: JSONDecodeError: Unterminated string starting at: line 6134 column 15 (char 166925)",
-        "category": "unknown",
+        "message": "Gemini transcription chunk 2/5 failed after 160.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
         "synthetic": false,
         "retryable": true,
         "provider_wide": false,
-        "attempt": 1,
+        "attempt": 2,
         "max_attempts": 3,
-        "next_retry_at": "2026-07-28T18:17:21Z",
+        "next_retry_at": "2026-07-30T03:17:30Z",
         "quarantined": false
       },
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -522,10 +553,16 @@
       "outputs": {
         "metadata": "episodes/0530-secret-lair-cats-superdrop-results/metadata.json",
         "summary_json": "episodes/0530-secret-lair-cats-superdrop-results/summary.json",
-        "summary_markdown": "episodes/0530-secret-lair-cats-superdrop-results/summary.md"
+        "summary_markdown": "episodes/0530-secret-lair-cats-superdrop-results/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-17T03:52:44Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -548,10 +585,16 @@
       "outputs": {
         "metadata": "episodes/0529-much-more-marvel/metadata.json",
         "summary_json": "episodes/0529-much-more-marvel/summary.json",
-        "summary_markdown": "episodes/0529-much-more-marvel/summary.md"
+        "summary_markdown": "episodes/0529-much-more-marvel/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-18T02:21:33Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -574,10 +617,16 @@
       "outputs": {
         "metadata": "episodes/0528-mtgfastfinance-ep-528-marvel-x-mtg-top-10/metadata.json",
         "summary_json": "episodes/0528-mtgfastfinance-ep-528-marvel-x-mtg-top-10/summary.json",
-        "summary_markdown": "episodes/0528-mtgfastfinance-ep-528-marvel-x-mtg-top-10/summary.md"
+        "summary_markdown": "episodes/0528-mtgfastfinance-ep-528-marvel-x-mtg-top-10/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-18T11:24:26Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -600,10 +649,16 @@
       "outputs": {
         "metadata": "episodes/0527-mtgfastfinance-ep-527-top-5-overdue-edh-reprints/metadata.json",
         "summary_json": "episodes/0527-mtgfastfinance-ep-527-top-5-overdue-edh-reprints/summary.json",
-        "summary_markdown": "episodes/0527-mtgfastfinance-ep-527-top-5-overdue-edh-reprints/summary.md"
+        "summary_markdown": "episodes/0527-mtgfastfinance-ep-527-top-5-overdue-edh-reprints/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-21T21:40:09Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -626,10 +681,16 @@
       "outputs": {
         "metadata": "episodes/0526-goblin-decks-got-gone/metadata.json",
         "summary_json": "episodes/0526-goblin-decks-got-gone/summary.json",
-        "summary_markdown": "episodes/0526-goblin-decks-got-gone/summary.md"
+        "summary_markdown": "episodes/0526-goblin-decks-got-gone/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-22T21:30:17Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -652,7 +713,9 @@
       "outputs": {
         "metadata": "episodes/0525-secret-lair-chaos-vault-experiments/metadata.json",
         "summary_json": null,
-        "summary_markdown": null
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-24T21:20:56Z",
       "error": {
@@ -667,6 +730,10 @@
         "next_retry_at": null,
         "quarantined": true
       },
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -689,10 +756,16 @@
       "outputs": {
         "metadata": "episodes/0524-marvel-hobbit-previews/metadata.json",
         "summary_json": "episodes/0524-marvel-hobbit-previews/summary.json",
-        "summary_markdown": "episodes/0524-marvel-hobbit-previews/summary.md"
+        "summary_markdown": "episodes/0524-marvel-hobbit-previews/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-22T12:12:59Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -715,10 +788,16 @@
       "outputs": {
         "metadata": "episodes/0523-top-sos-commanders/metadata.json",
         "summary_json": "episodes/0523-top-sos-commanders/summary.json",
-        "summary_markdown": "episodes/0523-top-sos-commanders/summary.md"
+        "summary_markdown": "episodes/0523-top-sos-commanders/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-25T21:12:26Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -741,10 +820,16 @@
       "outputs": {
         "metadata": "episodes/0522-sos-brick-targets/metadata.json",
         "summary_json": "episodes/0522-sos-brick-targets/summary.json",
-        "summary_markdown": "episodes/0522-sos-brick-targets/summary.md"
+        "summary_markdown": "episodes/0522-sos-brick-targets/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-26T21:19:53Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     },
     {
@@ -767,10 +852,16 @@
       "outputs": {
         "metadata": "episodes/0521-sos-previews-pt-2/metadata.json",
         "summary_json": "episodes/0521-sos-previews-pt-2/summary.json",
-        "summary_markdown": "episodes/0521-sos-previews-pt-2/summary.md"
+        "summary_markdown": "episodes/0521-sos-previews-pt-2/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
       },
       "processed_at": "2026-07-26T11:43:09Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
       "synthetic": false
     }
   ]
