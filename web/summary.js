@@ -101,11 +101,14 @@ async function loadSummary() {
   }
 
   const summaryUrl = `archive/episodes/${episodeDir}/summary.json`;
-  const markdownUrl = `archive/episodes/${episodeDir}/summary.md`;
+  const effectiveUrl = `archive/episodes/${episodeDir}/effective.json`;
   try {
-    const response = await fetch(`${summaryUrl}?v=${Date.now()}`);
+    let response = await fetch(`${effectiveUrl}?v=${Date.now()}`);
+    const humanReviewed = response.ok;
+    if (!humanReviewed) response = await fetch(`${summaryUrl}?v=${Date.now()}`);
     if (!response.ok) throw new Error("Structured summary JSON was not found.");
     const summary = await response.json();
+    const markdownUrl = `archive/episodes/${episodeDir}/${humanReviewed ? "effective.md" : "summary.md"}`;
     const episode = summary.episode || {};
     const processing = summary.processing || {};
     const picks = summary.recommendations || [];
@@ -121,7 +124,10 @@ async function loadSummary() {
     ].filter(Boolean).join(" · ");
     actions.innerHTML = `<a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a><a class="button secondary" href="${escapeHtml(markdownUrl)}" target="_blank">Raw Markdown</a>`;
 
-    if (processing.review_reason) {
+    if (processing.human_review) {
+      reviewBanner.hidden = false;
+      reviewBanner.textContent = `Human reviewed by ${processing.human_review.reviewed_by}${processing.human_review.note ? ` · ${processing.human_review.note}` : ""}`;
+    } else if (processing.review_reason) {
       reviewBanner.hidden = false;
       reviewBanner.textContent = processing.review_reason;
     }
@@ -138,7 +144,7 @@ async function loadSummary() {
       <section class="panel prose summary-source"><div class="panel-body"><p class="eyebrow">Source description</p><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div></section>
     `;
   } catch (error) {
-    app.innerHTML = `<div class="empty-state"><strong>Summary could not be loaded</strong><p>${escapeHtml(error.message)}</p><p><a class="button secondary" href="${escapeHtml(markdownUrl)}">Try raw Markdown</a></p></div>`;
+    app.innerHTML = `<div class="empty-state"><strong>Summary could not be loaded</strong><p>${escapeHtml(error.message)}</p></div>`;
   }
 }
 

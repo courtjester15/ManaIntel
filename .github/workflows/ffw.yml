@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/ffw.yml"
       - "archive/**"
+      - "data/reviews/**"
       - "web/**"
   schedule:
     - cron: "17 10 * * *"
@@ -185,7 +186,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p _site/archive
-          cp web/index.html web/app.js web/table.js web/styles.css web/summary.html web/summary.js _site/
+          cp web/index.html web/app.js web/table.js web/styles.css web/summary.html web/summary.js web/review.html web/review.js _site/
           cp -R archive/. _site/archive/
 
       - name: Configure Pages

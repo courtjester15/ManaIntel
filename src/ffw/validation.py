@@ -7,6 +7,7 @@ import re
 
 from .models import PROCESSING_STATES
 from .rendering import render_episode_markdown
+from .reviews import apply_review, load_episode_review
 from .utils import load_json, stable_pick_id
 
 
@@ -20,7 +21,7 @@ class ValidationIssue:
 
 def validate_archive(
     archive_dir: Path, state_file: Path, schema_path: Path | None = None,
-    expected_production: bool | None = None,
+    expected_production: bool | None = None, reviews_dir: Path | None = None,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     index = load_json(archive_dir / "index.json")
@@ -78,8 +79,25 @@ def validate_archive(
         actual_markdown = markdown_path.read_text(encoding="utf-8") if markdown_path.exists() else ""
         if expected_markdown != actual_markdown:
             issues.append(ValidationIssue("error", "markdown_drift", str(markdown_path), "Markdown was not rendered from current JSON."))
+        review = load_episode_review(reviews_dir, summary)
+        try:
+            effective_summary = apply_review(summary, review)
+        except (KeyError, TypeError, ValueError) as exc:
+            issues.append(ValidationIssue("error", "invalid_review", str(summary_path), str(exc)))
+            continue
+        effective_path = episode_path / "effective.json"
+        effective_markdown_path = episode_path / "effective.md"
+        if review:
+            if load_json(effective_path) != effective_summary:
+                issues.append(ValidationIssue("error", "effective_summary_drift", str(effective_path), "Effective summary does not match the stored review."))
+            expected_effective_markdown = render_episode_markdown(effective_summary)
+            actual_effective_markdown = effective_markdown_path.read_text(encoding="utf-8") if effective_markdown_path.exists() else ""
+            if actual_effective_markdown != expected_effective_markdown:
+                issues.append(ValidationIssue("error", "effective_markdown_drift", str(effective_markdown_path), "Effective Markdown does not match the reviewed summary."))
+        elif effective_path.exists() or effective_markdown_path.exists():
+            issues.append(ValidationIssue("error", "orphan_effective_output", str(episode_path), "Effective review output exists without a stored review."))
         episode_pick_keys: set[tuple[Any, ...]] = set()
-        for pick in summary.get("recommendations", []):
+        for pick in effective_summary.get("recommendations", []):
             pick_path = f"{summary_path}#{pick.get('id', 'unknown')}"
             required_pick_fields = {
                 "id", "card", "printing", "printing_certainty", "hosts", "recommendation", "entry_target",

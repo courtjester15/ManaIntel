@@ -363,9 +363,44 @@ pre { overflow: auto; max-height: 180px; padding: 12px; border: 1px solid var(--
 .evidence-disclosure summary { min-height: 24px; color: var(--accent); font-weight: 700; }
 .evidence-disclosure .evidence { margin-top: 4px; }
 
+.review-shell { width: min(100% - 24px, 980px); }
+.review-safety { margin: 10px 0; }
+.review-overview { margin-bottom: 8px; }
+.review-overview p { margin: 0 0 8px; color: var(--text); font-size: 12px; line-height: 1.5; }
+.review-pick-list { display: grid; gap: 8px; margin-bottom: 8px; }
+.review-pick .panel-head { align-items: flex-start; }
+.review-pick .panel-head h2 { margin: 2px 0 0; color: var(--text-strong); font-size: 15px; }
+.review-action { display: grid; gap: 3px; min-width: 118px; color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.review-action select, .review-field input, .review-field textarea {
+  width: 100%;
+  min-height: var(--control-h);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text-strong);
+  background: var(--panel);
+  font: inherit;
+}
+.review-action select { padding: 0 8px; }
+.review-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.review-fields[hidden] { display: none; }
+.review-field { display: grid; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 700; }
+.review-field span { letter-spacing: .035em; }
+.review-field input { padding: 0 9px; }
+.review-field textarea { min-height: 72px; padding: 8px 9px; resize: vertical; line-height: 1.4; }
+.review-field-wide { grid-column: 1 / -1; }
+.review-finalize { margin-top: 8px; }
+.review-finalize .review-field { margin-bottom: 10px; }
+#review-payload { min-height: 130px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; }
+#review-output { margin-top: 12px; }
+#added-picks { display: grid; gap: 8px; }
+.status.approved { color: var(--green); background: rgba(85, 201, 149, .08); }
+.status.human_reviewed { color: var(--green); background: rgba(85, 201, 149, .08); }
+
 @media (max-width: 900px) {
   .app-header { align-items: stretch; flex-direction: column; min-height: 0; }
   .app-header .top-actions { margin-left: 0; }
   .dashboard-console { grid-template-columns: 1fr; }
   .summary-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .review-fields { grid-template-columns: 1fr; }
+  .review-field-wide { grid-column: 1; }
 }

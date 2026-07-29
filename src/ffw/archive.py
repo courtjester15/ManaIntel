@@ -5,6 +5,7 @@ from typing import Any
 
 from .config import PIPELINE_VERSION, SCHEMA_VERSION
 from .rendering import render_episode_markdown
+from .reviews import apply_review, load_episode_review
 from .utils import atomic_write_json, atomic_write_text, load_json
 from .models import utc_now
 
@@ -18,6 +19,7 @@ SYNTHETIC_NOTICE = (
 def rebuild_catalog(
     archive_dir: Path, *, production: bool = False, feed_name: str = "MTG Fast Finance",
     repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch",
+    reviews_dir: Path | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     archive_dir.mkdir(parents=True, exist_ok=True)
     episode_records: list[dict[str, Any]] = []
@@ -30,22 +32,49 @@ def rebuild_catalog(
             continue
         summary_path = metadata_path.parent / "summary.json"
         summary = load_json(summary_path)
+        review = load_episode_review(reviews_dir, summary) if summary else None
+        effective_summary = apply_review(summary, review) if summary else None
+        effective_path = metadata_path.parent / "effective.json"
+        effective_markdown_path = metadata_path.parent / "effective.md"
+        if review and effective_summary:
+            atomic_write_json(effective_path, effective_summary)
+            atomic_write_text(effective_markdown_path, render_episode_markdown(effective_summary))
+        else:
+            effective_path.unlink(missing_ok=True)
+            effective_markdown_path.unlink(missing_ok=True)
+        processing = (
+            effective_summary.get("processing", metadata["processing"])
+            if effective_summary else metadata["processing"]
+        )
+        human_review = processing.get("human_review")
+        outputs = {
+            **metadata.get("outputs", {}),
+            "effective_summary_json": (
+                effective_path.relative_to(archive_dir).as_posix() if review else None
+            ),
+            "effective_summary_markdown": (
+                effective_markdown_path.relative_to(archive_dir).as_posix() if review else None
+            ),
+        }
         episode_item = {
             **metadata["episode"],
-            "processing_status": metadata["processing"]["status"],
-            "review_state": metadata["processing"].get("review_state"),
-            "review_reason": metadata["processing"].get("review_reason"),
-            "pick_count": len(summary["recommendations"]) if summary else 0,
+            "processing_status": processing["status"],
+            "review_state": processing.get("review_state"),
+            "review_reason": processing.get("review_reason"),
+            "pick_count": len(effective_summary["recommendations"]) if effective_summary else 0,
             "directory": metadata_path.parent.relative_to(archive_dir).as_posix(),
-            "outputs": metadata.get("outputs", {}),
-            "processed_at": metadata["processing"].get("processed_at"),
-            "review_reason": metadata["processing"].get("review_reason"),
-            "error": metadata["processing"].get("error"),
+            "outputs": outputs,
+            "processed_at": processing.get("processed_at"),
+            "error": processing.get("error"),
+            "human_reviewed": bool(human_review),
+            "reviewed_at": human_review.get("reviewed_at") if human_review else None,
+            "reviewed_by": human_review.get("reviewed_by") if human_review else None,
+            "review_note": human_review.get("note") if human_review else None,
             "synthetic": metadata.get("synthetic", False),
         }
         episode_records.append(episode_item)
-        if summary:
-            for pick in summary["recommendations"]:
+        if effective_summary:
+            for pick in effective_summary["recommendations"]:
                 cards.append(
                     {
                         **pick,
@@ -59,7 +88,8 @@ def rebuild_catalog(
                             "source_id": metadata["episode"].get("source_id", "mtg-fast-finance"),
                             "source_name": metadata["episode"].get("source_name", feed_name),
                         },
-                        "processing_status": metadata["processing"]["status"],
+                        "processing_status": processing["status"],
+                        "human_reviewed": bool(human_review),
                     }
                 )
     episode_records.sort(key=lambda item: item["published_at"], reverse=True)
@@ -101,6 +131,7 @@ def rebuild_catalog(
             "last_discovered_episode_date": episode_records[0]["published_at"] if episode_records else None,
             "repository_url": repository_url,
             "workflow_url": f"{repository_url}/actions/workflows/ffw.yml",
+            "review_workflow_url": f"{repository_url}/actions/workflows/review.yml",
         },
         "counts": counts,
         "status_counts": status_counts,
@@ -122,11 +153,19 @@ def rebuild_catalog(
     return index, cards
 
 
-def rerender_archive(archive_dir: Path, *, production: bool = False) -> int:
+def rerender_archive(
+    archive_dir: Path, *, production: bool = False, reviews_dir: Path | None = None,
+    repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch",
+) -> int:
     rendered = 0
     for summary_path in (archive_dir / "episodes").glob("*/summary.json"):
         summary = load_json(summary_path)
         atomic_write_text(summary_path.with_suffix(".md"), render_episode_markdown(summary))
         rendered += 1
-    rebuild_catalog(archive_dir, production=production)
+    rebuild_catalog(
+        archive_dir,
+        production=production,
+        reviews_dir=reviews_dir,
+        repository_url=repository_url,
+    )
     return rendered

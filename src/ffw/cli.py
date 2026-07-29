@@ -9,6 +9,7 @@ from pathlib import Path
 from .archive import rerender_archive
 from .config import Settings, VERSION
 from .pipeline import Pipeline
+from .reviews import persist_review
 from .validation import validate_archive
 from .utils import atomic_write_json
 
@@ -43,6 +44,9 @@ def _parser() -> argparse.ArgumentParser:
     retry.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
     retry.add_argument("--source", choices=("mtg-fast-finance", "brainstorm-brewery"))
     subparsers.add_parser("process-latest", help="Process only the latest synthetic fixture")
+    review = subparsers.add_parser("apply-review", help="Persist a human review override and rebuild projections")
+    review.add_argument("--payload", required=True, help="Review JSON payload copied from the ManaIntel review page")
+    review.add_argument("--actor", required=True, help="Authenticated reviewer identity")
     serve = subparsers.add_parser("serve", help="Serve the repository for the local archive application")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8765)
@@ -108,8 +112,28 @@ def main(argv: list[str] | None = None) -> int:
         _, exit_code = _run_pipeline(settings, selection_policy="next")
         return exit_code
     if args.command == "render":
-        count = rerender_archive(settings.archive_dir, production=settings.mode == "live")
+        count = rerender_archive(
+            settings.archive_dir,
+            production=settings.mode == "live",
+            reviews_dir=settings.root / "data" / "reviews",
+            repository_url=settings.repository_url,
+        )
         print(f"Rendered {count} episode Markdown files and rebuilt archive catalogs.")
+        return 0
+    if args.command == "apply-review":
+        path = persist_review(
+            settings.archive_dir,
+            settings.root / "data" / "reviews",
+            args.payload,
+            actor=args.actor,
+        )
+        rerender_archive(
+            settings.archive_dir,
+            production=settings.mode == "live",
+            reviews_dir=settings.root / "data" / "reviews",
+            repository_url=settings.repository_url,
+        )
+        print(f"Applied durable review: {path.relative_to(settings.root)}")
         return 0
     if args.command == "validate":
         issues = validate_archive(
@@ -117,6 +141,7 @@ def main(argv: list[str] | None = None) -> int:
             settings.state_file,
             settings.root / "schemas/cards-to-watch.schema.json",
             expected_production=settings.mode == "live",
+            reviews_dir=settings.root / "data" / "reviews",
         )
         if not issues:
             print("Validation passed with no issues.")

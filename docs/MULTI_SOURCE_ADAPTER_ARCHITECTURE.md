@@ -74,7 +74,8 @@ BB RSS + extraction profile +        |
 - Pick references require timestamped audio semantics.
 - State and archive paths are episode-oriented.
 - Written articles are not supported.
-- Durable human review overrides are planned but not implemented.
+- Durable human review overrides are implemented as source-scoped files under
+  `data/reviews/`, with effective projections and an authenticated workflow.
 
 These limitations are acceptable while ManaIntel remains a small two-podcast tool.
 They should not be copied into an article ingestion path.

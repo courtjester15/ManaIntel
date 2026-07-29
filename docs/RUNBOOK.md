@@ -61,19 +61,20 @@ The job attempts all three sequentially, validates the production-only catalog, 
 4. Verify `git status` remains clean after pulling the workflow result.
 5. Before declaring the final pass complete, also verify that the workflow skips Pages upload/deployment when nothing changed. The pipeline currently avoids catalog rewrites, but the checked-in workflow still needs this deployment-level guard.
 
-## Final-pass review workflow (pending implementation)
+## Human review workflow
 
-The static site cannot write to the repository. When the Review editor is implemented:
+The static site intentionally contains no repository credential. It prepares a compact payload for the authenticated review workflow:
 
-1. Open the episode and select **Review**.
-2. Update, add, or exclude picks and mark the episode reviewed.
-3. Choose **Copy Correction JSON** or **Download Correction JSON**.
-4. Save the payload as `data/reviews/<episode-id>.json`; do not place it under generated `archive/` paths.
-5. Run `python -m ffw validate` and `python -m ffw render`.
-6. Confirm the effective archive reflects the correction and the original episode extraction is unchanged.
-7. Commit the review file and regenerated projections together.
+1. Open a needs-review episode and select **Review episode**.
+2. Leave valid picks on **Keep**, or choose **Exclude** or **Correct**. Add any omitted picks under **Missing picks**.
+3. Optionally add a review note, then choose **Prepare review payload** and **Copy payload**.
+4. Choose **Open review workflow**, select **Run workflow**, paste the payload into `review_payload`, and leave deployment enabled.
+5. The workflow records the GitHub actor, rejects stale or malformed payloads, runs the test and validation suites, writes the durable file under `data/reviews/<source-id>/`, rebuilds effective projections, commits both, and deploys Pages.
+6. Confirm the episode now shows **human reviewed** and that its effective summary contains the intended picks.
 
-Malformed review files must stop validation with a readable error. Never work around validation by editing `archive/index.json`, `archive/cards.json`, or generated Markdown directly.
+For local maintenance, run `python -m ffw apply-review --payload '<json>' --actor '<name>'`. This performs the same durable write and projection rebuild; validate before committing.
+
+The original `summary.json` and `summary.md` are immutable machine output. Reviewed output is written to `effective.json` and `effective.md`; normal catalog and summary views prefer those effective files. Malformed or stale reviews must stop validation with a readable error. Never work around validation by editing `archive/index.json`, `archive/cards.json`, or generated Markdown directly.
 
 ## Final-pass timestamp playback troubleshooting (pending implementation)
 

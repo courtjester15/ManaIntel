@@ -15,6 +15,8 @@ Version 0.2 retains a fully runnable credential-free mock mode and adds live RSS
 
 Open <https://courtjester15.github.io/mtgff-cards-to-watch/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history one per day. At 20:17 UTC, a separate bounded run retries at most one due transient failure without consuming the next day's fresh-backfill slot.
 
+For an episode marked **needs review**, open its details and choose **Review episode**. Keep, exclude, or correct extracted picks, add any missing picks, then prepare and copy the review payload. Paste that payload into **Actions -> Review one episode -> Run workflow**. The authenticated workflow validates and stores the review, rebuilds the effective archive, commits it, and deploys Pages while retaining the original AI extraction unchanged.
+
 The repository starts with synthetic fixtures. The deployed production catalog excludes those fixtures and shows only live records after the first successful backfill.
 
 > All recommendations, quotations, prices, episode numbers, people, and processing outcomes currently in `archive/` are synthetic fixtures. They are not real podcast commentary or financial advice.
@@ -91,7 +93,7 @@ Structural validation can prove that evidence exists; it cannot prove that an AI
 
 ## Production operation
 
-The feeds are MTG Fast Finance's SoundCloud RSS and Brainstorm Brewery's public FeedBurner RSS. The workflow is [`.github/workflows/ffw.yml`](.github/workflows/ffw.yml), supports `next`, `backfill`, `retry_failed`, and `deploy_only` manual modes plus an optional source selector, serializes writers, commits only `archive/` and `state/`, and deploys a clean Pages artifact. Audio, chunks, and full transcripts remain inside ignored/disposable `.ffw-work/` storage.
+The feeds are MTG Fast Finance's SoundCloud RSS and Brainstorm Brewery's public FeedBurner RSS. The processing workflow is [`.github/workflows/ffw.yml`](.github/workflows/ffw.yml), supports `next`, `backfill`, `retry_failed`, and `deploy_only` manual modes plus an optional source selector, serializes writers, commits only `archive/` and `state/`, and deploys a clean Pages artifact. [`.github/workflows/review.yml`](.github/workflows/review.yml) applies authenticated human-review payloads under `data/reviews/`, rebuilds effective projections, and deploys them through the same writer concurrency group. Audio, chunks, and full transcripts remain inside ignored/disposable `.ffw-work/` storage.
 
 Required repository setup and recovery procedures are documented in [Production Runbook](docs/RUNBOOK.md).
 

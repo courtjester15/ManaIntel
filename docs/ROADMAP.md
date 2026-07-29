@@ -19,7 +19,7 @@ This is enough foundation. The remaining work is a bounded usability and correct
 
 Work in this order and stop when the budget is exhausted:
 
-1. **Manual review overrides:** preserve extraction output, apply validated files from `data/reviews/`, and add a focused editor that copies or downloads correction JSON.
+1. **Manual review overrides (complete):** preserve extraction output, apply validated files from `data/reviews/`, and use a focused editor plus authenticated workflow for approve/update/add/exclude decisions.
 2. **Timestamp playback:** add an in-page remote RSS audio player that seeks after metadata loads and supports a `t` URL parameter.
 3. **Readable status and failure detail:** expose attempts, last attempt, retryability, review state, and a small failure taxonomy without leading with raw exceptions.
 4. **Single-episode recovery:** retain exact-GUID backend processing and expose a copyable workflow input or command in the episode UI.

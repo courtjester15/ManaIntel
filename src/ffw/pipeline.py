@@ -166,6 +166,7 @@ class Pipeline:
                 production=self.settings.mode == "live",
                 feed_name=self.settings.feed_name,
                 repository_url=self.settings.repository_url,
+                reviews_dir=self.settings.root / "data" / "reviews",
             )
         return results
 
