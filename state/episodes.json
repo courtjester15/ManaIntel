@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.3",
-  "updated_at": "2026-07-30T12:08:12Z",
+  "updated_at": "2026-07-30T21:41:04Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2528,6 +2528,30 @@
         {
           "status": "failed",
           "timestamp": "2026-07-29T21:17:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-30T21:31:22Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-07-30T21:31:22Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-07-30T21:31:24Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-07-30T21:31:24Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-07-30T21:31:47Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-07-30T21:41:04Z"
         }
       ],
       "title": "Banger or Bust! | Brainstorm Brewery #708 | Magic Finance",
@@ -2535,22 +2559,22 @@
       "published_at": "2026-07-10T06:09:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/5 failed after 160.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
+        "message": "Gemini transcription chunk 3/5 failed after 43.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+        "category": "transient_provider",
         "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 2,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-07-30T03:17:30Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-07-29T21:17:30Z",
+      "updated_at": "2026-07-30T21:41:04Z",
       "output_directory": "episodes/0000-banger-or-bust-brainstorm-brewery-708-magic-finance-af03a40c"
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=25241": {
