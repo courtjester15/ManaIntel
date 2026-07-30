@@ -43,6 +43,10 @@ def _parser() -> argparse.ArgumentParser:
     retry.add_argument("--limit", type=int, default=1, help="Failed live episodes to retry (1-20)")
     retry.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
     retry.add_argument("--source", choices=("mtg-fast-finance", "brainstorm-brewery"))
+    evening = subparsers.add_parser("evening-run", help="Retry one due failure, otherwise process one untouched episode")
+    evening.add_argument("--live", action="store_true", help="Use the live feed and configured production adapters")
+    evening.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
+    evening.add_argument("--source", choices=("mtg-fast-finance", "brainstorm-brewery"))
     subparsers.add_parser("process-latest", help="Process only the latest synthetic fixture")
     review = subparsers.add_parser("apply-review", help="Persist a human review override and rebuild projections")
     review.add_argument("--payload", required=True, help="Review JSON payload copied from the ManaIntel review page")
@@ -67,6 +71,7 @@ def _run_pipeline(settings: Settings, *, report_json: Path | None = None, **opti
         return [], 2
     selection = pipeline.last_selection
     print(f"Selection policy: {selection.policy}")
+    print(f"Selected mode: {selection.selected_mode or 'no-op'}")
     print(f"Feed entries scanned: {selection.feed_entries_scanned}")
     print(f"Skipped completed: {selection.completed_skipped}")
     print(f"Skipped failed: {selection.failed_skipped}")
@@ -107,6 +112,9 @@ def main(argv: list[str] | None = None) -> int:
         return exit_code
     if args.command == "retry-failed":
         _, exit_code = _run_pipeline(settings, report_json=args.report_json, limit=args.limit, selection_policy="failed_only", source_id=args.source)
+        return exit_code
+    if args.command == "evening-run":
+        _, exit_code = _run_pipeline(settings, report_json=args.report_json, selection_policy="retry_then_next", source_id=args.source)
         return exit_code
     if args.command == "process-latest":
         _, exit_code = _run_pipeline(settings, selection_policy="next")

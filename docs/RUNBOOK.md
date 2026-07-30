@@ -12,7 +12,7 @@ The production stages are feed discovery, eligibility-first selection, durable q
 
 MTG Fast Finance boundary detection is bidirectional. Early show-outline mentions of Cards to Watch do not count as a section start; a later explicit marker or recommendation-language cue supplies positive start evidence. A separate pick-wrap phrase or structural transition into the weekly feature named by the episode title/show notes supplies end evidence. Both sides are required for automatic completion. A weak or missing side remains `needs_review`, and a generic topic word inside a pick discussion is not sufficient to close the section.
 
-One concurrency group serializes all writers. The 10:17 UTC `next` run scans newest to oldest and processes at most one untouched eligible episode. `complete`, `needs_review`, and `failed` records skip before download or provider calls, so new releases take priority and historical backfill resumes automatically. The 20:17 UTC `failed_only` run retries at most one due transient failure. Retryable errors cool down for six hours and stop after three total episode attempts. A runner crash after an external API response but before the next durable Git commit can cause a repeated API call; file-backed Git state cannot guarantee exactly-once external billing.
+One concurrency group serializes all writers. The 10:17 UTC `next` run scans newest to oldest and processes at most one untouched eligible episode. `complete`, `needs_review`, and `failed` records skip before download or provider calls, so new releases take priority. The 20:17 UTC `retry_then_next` run selects at most one episode: the newest due retry first, otherwise the oldest untouched episode across both feeds. It never attempts both. Retryable errors cool down for six hours and stop after three total episode attempts. A runner crash after an external API response but before the next durable Git commit can cause a repeated API call; file-backed Git state cannot guarantee exactly-once external billing.
 
 ## One-time GitHub setup
 
@@ -49,7 +49,8 @@ The job attempts all three sequentially, validates the production-only catalog, 
 - Process one next eligible episode: dispatch `next` with `batch_size=1`.
 - Process one source only: dispatch `next`, choose `mtg-fast-finance` or `brainstorm-brewery` in `source`, and keep `batch_size=1`.
 - Process a controlled eligible batch: dispatch `backfill` with `batch_size` from 1 through 20.
-- Retry failed episodes only: the later daily schedule automatically attempts one due failure, or manually dispatch `retry_failed` with a `batch_size` from 1 through 20. Cooldowns and the three-attempt cap still apply.
+- Use the bounded evening slot manually: dispatch `evening`; it retries one due failure or, if none is due, processes the oldest untouched episode. It never does both.
+- Retry failed episodes only: manually dispatch `retry_failed` with a `batch_size` from 1 through 20. Cooldowns and the three-attempt cap still apply.
 - Force one episode: choose any processing mode and provide its exact RSS GUID in `force_guid`; the override searches the full fetched feed and bypasses batch position limits.
 - Validate locally: set `FFW_MODE=live`, then run `python -m ffw validate`.
 - Rebuild production projections locally: set `FFW_MODE=live`, then run `python -m ffw render`.

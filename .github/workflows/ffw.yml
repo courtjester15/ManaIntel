@@ -21,7 +21,7 @@ on:
         description: Processing mode
         required: true
         type: choice
-        options: [next, backfill, retry_failed, deploy_only]
+        options: [next, backfill, retry_failed, evening, deploy_only]
         default: next
       batch_size:
         description: Eligible episodes to process (1-20)
@@ -131,7 +131,7 @@ jobs:
         shell: bash
         run: |
           if [[ "$EVENT_SCHEDULE" == "17 20 * * *" ]]; then
-            INPUT_MODE="retry_failed"
+            INPUT_MODE="evening"
           fi
           echo "mode=$INPUT_MODE" >> "$GITHUB_OUTPUT"
           if [[ "$INPUT_MODE" == "deploy_only" ]]; then
@@ -151,6 +151,7 @@ jobs:
             next) args=(process-next --live) ;;
             backfill) args=(backfill --live --limit "$INPUT_LIMIT") ;;
             retry_failed) args=(retry-failed --live --limit "$INPUT_LIMIT") ;;
+            evening) args=(evening-run --live) ;;
             *) echo "::error::Unsupported processing mode: $INPUT_MODE"; exit 2 ;;
           esac
           if [[ -n "$INPUT_GUID" ]]; then args=(run --live --force-guid "$INPUT_GUID"); fi
@@ -220,6 +221,7 @@ jobs:
           report = json.load(open(sys.argv[1], encoding="utf-8"))
           with open(sys.argv[2], "a", encoding="utf-8") as summary:
               summary.write(f"- Selector policy: {report['policy']}\n")
+              summary.write(f"- Selected mode: {report.get('selected_mode') or 'no-op'}\n")
               summary.write(f"- Feed entries scanned: {report['feed_entries_scanned']}\n")
               summary.write(f"- Completed skipped: {report['completed_skipped']}\n")
               summary.write(f"- Failed skipped: {report['failed_skipped']}\n")

@@ -152,10 +152,14 @@ class Pipeline:
         results: list[PipelineResult] = []
         for episode in self.last_selection.selected:
             self.state.discover(episode)
+            existing = self.state.get(episode.guid) or {}
             result = self.process_episode(
                 episode,
                 force=force or policy == "exact_guid",
-                retry_failed=policy == "failed_only",
+                retry_failed=(
+                    policy == "failed_only"
+                    or (policy == "retry_then_next" and existing.get("status") == "failed")
+                ),
             )
             results.append(result)
             if self.settings.mode == "live" and result.status == "failed" and classify_failure(result.message)[2]:
@@ -180,7 +184,7 @@ class Pipeline:
         include_completed: bool = False,
         source_id: str | None = None,
     ) -> SelectionReport:
-        if policy not in {"next", "backfill", "failed_only", "exact_guid"}:
+        if policy not in {"next", "backfill", "failed_only", "retry_then_next", "exact_guid"}:
             raise ValueError(f"Unsupported selection policy: {policy}")
         if source_id and source_id not in self.settings.enabled_sources:
             raise ValueError(f"Source {source_id!r} is not enabled.")
@@ -194,6 +198,36 @@ class Pipeline:
                 seen_guids.add(episode.guid)
         records = self.state.all()
         report = SelectionReport(policy=policy)
+        if policy == "retry_then_next":
+            fallback: EpisodeCandidate | None = None
+            for episode in ordered:
+                report.feed_entries_scanned += 1
+                record = records.get(episode.guid)
+                status = record.get("status") if record else None
+                if status in TERMINAL_STATES:
+                    report.completed_skipped += 1
+                    continue
+                if status == "failed":
+                    error = record.get("error") or {}
+                    if not error.get("retryable", False) or int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts:
+                        report.retry_exhausted += 1
+                        continue
+                    retry_at = _parse_timestamp(error.get("next_retry_at"))
+                    if retry_at and retry_at > datetime.now(timezone.utc):
+                        report.retry_deferred += 1
+                        continue
+                    report.selected = [episode]
+                    report.selected_mode = "retry_failed"
+                    report.eligible_found = 1
+                    return report
+                # The morning run owns newest-first progress. If no retry is due,
+                # keep walking so the evening slot advances the oldest backlog.
+                fallback = episode
+            if fallback is not None:
+                report.selected = [fallback]
+                report.selected_mode = "next_fallback"
+                report.eligible_found = 1
+            return report
         eligible: list[EpisodeCandidate] = []
         for episode in ordered:
             report.feed_entries_scanned += 1
@@ -237,12 +271,14 @@ class Pipeline:
             report.selected = eligible[:1]
         else:
             report.selected = eligible if limit is None else eligible[:limit]
+        if report.selected:
+            report.selected_mode = "retry_failed" if policy == "failed_only" else policy
         return report
 
     def _validate_live_scope(self, *, policy: str, limit: int | None, force_guid: str | None) -> None:
         if policy == "exact_guid" and not force_guid:
             raise ValueError("Exact GUID selection requires --force-guid.")
-        if self.settings.mode != "live" or policy in {"next", "exact_guid"}:
+        if self.settings.mode != "live" or policy in {"next", "retry_then_next", "exact_guid"}:
             return
         if limit is None:
             raise ValueError("Live runs require a positive --limit to avoid processing the full feed.")

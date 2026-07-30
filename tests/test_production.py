@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 from ffw.archive import rebuild_catalog
 from ffw.detection import locate_cards_to_watch, locate_recommendation_section
-from ffw.models import EpisodeCandidate
+from ffw.models import EpisodeCandidate, PipelineResult
 from ffw.config import Settings
 from ffw.pipeline import Pipeline, classify_failure
 from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiMalformedJSONError, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, StreamingDownloader, _gemini_generate_json, parse_episode_number, parse_rss, production_adapters
@@ -321,10 +321,12 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "1"', workflow)
         self.assertIn('FFW_AUDIO_CHUNK_SECONDS: "900"', workflow)
         self.assertIn('cron: "17 20 * * *"', workflow)
-        self.assertIn('INPUT_MODE="retry_failed"', workflow)
+        self.assertIn('INPUT_MODE="evening"', workflow)
         self.assertIn('FFW_MAX_EPISODE_ATTEMPTS: "3"', workflow)
         self.assertIn("deploy_only", workflow)
         self.assertIn("retry_failed", workflow)
+        self.assertIn("evening-run --live", workflow)
+        self.assertIn("Selected mode", workflow)
         self.assertIn('- "src/**"', workflow)
         self.assertIn('- "tests/**"', workflow)
         self.assertIn('- "schemas/**"', workflow)
@@ -698,6 +700,77 @@ class StateAwareSelectionTests(unittest.TestCase):
         self.assertEqual(1, report.eligible_found)
         self.assertEqual(2, report.feed_entries_scanned)
 
+    def test_evening_prefers_one_due_retry_over_newer_unseen_episode(self) -> None:
+        candidates = self.candidates()
+        self.set_status(candidates[4], "failed")
+
+        report = self.pipeline.select_candidates(candidates, policy="retry_then_next")
+
+        self.assertEqual(["guid-5"], [item.guid for item in report.selected])
+        self.assertEqual("retry_failed", report.selected_mode)
+        self.assertEqual(1, len(report.selected))
+
+    def test_evening_falls_back_to_one_untouched_episode_when_no_retry_is_due(self) -> None:
+        candidates = self.candidates()
+        self.set_status(candidates[5], "complete")
+        self.set_status(candidates[4], "failed")
+        self.state.transition(candidates[4].guid, "failed", error={
+            "retryable": True,
+            "next_retry_at": "2999-01-01T00:00:00Z",
+        })
+
+        report = self.pipeline.select_candidates(candidates, policy="retry_then_next")
+
+        self.assertEqual(["guid-1"], [item.guid for item in report.selected])
+        self.assertEqual("next_fallback", report.selected_mode)
+        self.assertEqual(1, report.retry_deferred)
+        self.assertEqual(1, len(report.selected))
+
+    def test_evening_noops_when_neither_retry_nor_untouched_episode_exists(self) -> None:
+        candidates = self.candidates()
+        for candidate in candidates:
+            self.set_status(candidate, "complete")
+
+        report = self.pipeline.select_candidates(candidates, policy="retry_then_next")
+
+        self.assertEqual([], report.selected)
+        self.assertIsNone(report.selected_mode)
+        self.assertEqual(0, report.eligible_found)
+
+    def test_evening_run_processes_only_the_retry_candidate(self) -> None:
+        candidates = self.candidates()
+        self.set_status(candidates[4], "failed")
+
+        class Feed:
+            def episodes(self): return candidates
+
+        pipeline = Pipeline(self.settings, Feed(), object(), object(), object(), object(), self.state)
+        result = PipelineResult("guid-5", "complete", pick_count=1)
+        with patch.object(pipeline, "process_episode", return_value=result) as process, patch("ffw.pipeline.rebuild_catalog"):
+            results = pipeline.run(selection_policy="retry_then_next")
+
+        self.assertEqual([result], results)
+        process.assert_called_once()
+        self.assertEqual("guid-5", process.call_args.args[0].guid)
+        self.assertTrue(process.call_args.kwargs["retry_failed"])
+
+    def test_evening_run_processes_only_the_oldest_untouched_fallback(self) -> None:
+        candidates = self.candidates()
+        self.set_status(candidates[5], "complete")
+
+        class Feed:
+            def episodes(self): return candidates
+
+        pipeline = Pipeline(self.settings, Feed(), object(), object(), object(), object(), self.state)
+        result = PipelineResult("guid-1", "complete", pick_count=1)
+        with patch.object(pipeline, "process_episode", return_value=result) as process, patch("ffw.pipeline.rebuild_catalog"):
+            results = pipeline.run(selection_policy="retry_then_next")
+
+        self.assertEqual([result], results)
+        process.assert_called_once()
+        self.assertEqual("guid-1", process.call_args.args[0].guid)
+        self.assertFalse(process.call_args.kwargs["retry_failed"])
+
     def test_exact_guid_searches_full_feed_and_bypasses_position_limit(self) -> None:
         candidates = self.candidates()
         self.set_status(candidates[0], "complete")
@@ -762,6 +835,7 @@ class StateAwareSelectionTests(unittest.TestCase):
 
         pipeline = Pipeline(self.settings, Feed(), MustNotRun(), MustNotRun(), MustNotRun(), MustNotRun(), self.state)
         self.assertEqual([], pipeline.run(selection_policy="next"))
+        self.assertEqual([], pipeline.run(selection_policy="retry_then_next"))
         self.assertEqual('{"sentinel": true}\n', index.read_text(encoding="utf-8"))
         self.assertEqual(before_state, self.settings.state_file.read_text(encoding="utf-8"))
 

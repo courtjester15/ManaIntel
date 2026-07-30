@@ -148,7 +148,7 @@
 
 ## ADR-025 — Fresh backfill and failed recovery use separate bounded schedules
 
-**Decision:** Run `next` at 10:17 UTC and `retry_failed` at 20:17 UTC. The fresh run always selects one untouched episode and skips failed records. The retry run selects at most one due retryable failure after a six-hour cooldown. Each episode receives at most three total attempts before quarantine. Transient provider failures remain retryable even when they stop the current batch; permanent provider configuration failures and episode-specific bad input do not loop.
+**Decision:** Run `next` at 10:17 UTC and `retry_then_next` at 20:17 UTC. The fresh run always selects the newest untouched episode and skips failed records. The evening run selects at most one episode: the newest due retryable failure after a six-hour cooldown, otherwise the oldest untouched episode across both feeds. Each episode receives at most three total attempts before quarantine. Transient provider failures remain retryable even when they stop the current batch; permanent provider configuration failures and episode-specific bad input do not loop.
 
 **Reason:** A broken episode must not stall historical progress, but transient network, capacity, and quota failures should recover without manual dispatch. Separate schedules preserve a guaranteed fresh-work slot, spread free-tier requests across the day, and cap wasted provider calls when an episode is genuinely bad.
 
