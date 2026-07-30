@@ -4,10 +4,10 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-VERSION = "0.4.1"
-PIPELINE_VERSION = "0.4.1"
+VERSION = "0.4.2"
+PIPELINE_VERSION = "0.4.2"
 SCHEMA_VERSION = "1.1.0"
-PROMPT_VERSION = "source-recommendations-v1"
+PROMPT_VERSION = "source-recommendations-v2-hybrid-boundaries"
 MOCK_TRANSCRIPTION_MODEL = "mock-transcriber-v1"
 MOCK_EXTRACTION_MODEL = "mock-extractor-v1"
 MAX_LIVE_BATCH = 20

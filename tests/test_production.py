@@ -132,7 +132,7 @@ class DownloadTests(unittest.TestCase):
 class DetectionAndStateTests(unittest.TestCase):
     def test_section_detection_orders_segments_and_finds_boundaries(self) -> None:
         result = locate_cards_to_watch([
-            {"start": 30, "end": 40, "text": "Thanks for listening"},
+            {"start": 30, "end": 40, "text": "That wraps up our picks."},
             {"start": 20, "end": 30, "text": "The card is Example Card"},
             {"start": 10, "end": 20, "text": "Cards to Watch"},
         ])
@@ -143,6 +143,92 @@ class DetectionAndStateTests(unittest.TestCase):
         result = locate_cards_to_watch([{"start": 0, "end": 10, "text": "General discussion"}])
         self.assertFalse(result["located"])
         self.assertEqual([], result["segments"])
+
+    def test_ff_outline_is_ignored_when_implicit_picks_and_weekly_topic_bound_section(self) -> None:
+        result = locate_cards_to_watch([
+            {"start": 100, "end": 120, "text": "Today we have meta updates, Cards to Watch, and a deep dive into Goblin decks."},
+            {"start": 500, "end": 520, "text": "Prices moved a little this week."},
+            {"start": 600, "end": 620, "text": "What do you have for your first pick this week?"},
+            {"start": 620, "end": 700, "text": "My pick is Example Card at five dollars."},
+            {"start": 780, "end": 850, "text": "My other pick is Second Card."},
+            {"start": 900, "end": 930, "text": "Now let's move on to our main topic and break down the Goblin decks."},
+            {"start": 930, "end": 1000, "text": "The Goblin deck sale was a mess."},
+            {"start": 1400, "end": 1420, "text": "Thanks for listening."},
+        ], title="MTG Fast Finance Ep 1: Goblin Decks Got Gone")
+        self.assertTrue(result["located"])
+        self.assertEqual((600, 850), (result["start_seconds"], result["end_seconds"]))
+        self.assertEqual("recommendation_language", result["start_signal"])
+        self.assertEqual("advertised_topic_transition", result["end_signal"])
+        self.assertEqual("medium", result["confidence"])
+        self.assertIsNone(result["review_reason"])
+
+    def test_ff_later_explicit_marker_wins_over_early_show_outline(self) -> None:
+        result = locate_cards_to_watch([
+            {"start": 90, "end": 110, "text": "This week: price updates, Cards to Watch, and Marvel previews."},
+            {"start": 600, "end": 620, "text": "Now it is time for Cards to Watch."},
+            {"start": 620, "end": 800, "text": "My first pick is Example Card."},
+            {"start": 900, "end": 930, "text": "Moving on to our main topic, the Marvel previews."},
+        ], title="MTG Fast Finance Ep 2: Marvel Previews")
+        self.assertEqual((600, 800, "high"), (
+            result["start_seconds"], result["end_seconds"], result["confidence"],
+        ))
+        self.assertIsNone(result["review_reason"])
+
+    def test_ff_split_intro_outline_does_not_beat_later_pick_language(self) -> None:
+        result = locate_cards_to_watch([
+            {"start": 80, "end": 90, "text": "Today we have price updates,"},
+            {"start": 90, "end": 100, "text": "Cards to Watch,"},
+            {"start": 100, "end": 110, "text": "and a deep dive into Goblin decks."},
+            {"start": 600, "end": 620, "text": "My first pick this week is Example Card."},
+            {"start": 800, "end": 820, "text": "Moving on to our main topic, Goblin decks."},
+        ], title="MTG Fast Finance Ep 5: Goblin Decks Got Gone")
+        self.assertEqual(600, result["start_seconds"])
+        self.assertEqual("recommendation_language", result["start_signal"])
+        self.assertIsNone(result["review_reason"])
+
+    def test_ff_topic_word_inside_pick_discussion_is_not_a_structural_end(self) -> None:
+        result = locate_cards_to_watch([
+            {"start": 500, "end": 520, "text": "My first pick this week is a Marvel card."},
+            {"start": 700, "end": 730, "text": "Now let's talk about the Marvel printing and its price."},
+            {"start": 850, "end": 880, "text": "My other pick is Second Card."},
+            {"start": 1400, "end": 1420, "text": "Thanks for listening."},
+        ], title="MTG Fast Finance Ep 6: Much More Marvel")
+        self.assertIsNone(result["end_signal"])
+        self.assertIn("no explicit ending", result["review_reason"])
+
+    def test_ff_description_supplies_topic_hint_when_title_is_generic(self) -> None:
+        result = locate_cards_to_watch([
+            {"start": 500, "end": 520, "text": "My first pick this week is Example Card."},
+            {"start": 700, "end": 760, "text": "My other pick is Second Card."},
+            {"start": 900, "end": 930, "text": "We're going to break down the Chaos Vault experiment now."},
+        ], title="MTG Fast Finance Ep 7", description=(
+            "Price updates, cards to watch and a breakdown of the Secret Lair Chaos Vault experiment."
+        ))
+        self.assertEqual("advertised_topic_transition", result["end_signal"])
+        self.assertEqual(760, result["end_seconds"])
+        self.assertIsNone(result["review_reason"])
+
+    def test_ff_implicit_start_without_independent_end_still_needs_review(self) -> None:
+        result = locate_cards_to_watch([
+            {"start": 400, "end": 420, "text": "What do you have for your first pick this week?"},
+            {"start": 420, "end": 500, "text": "My pick is Example Card."},
+            {"start": 500, "end": 600, "text": "We keep discussing prices."},
+        ], title="MTG Fast Finance Ep 3: Special Topic")
+        self.assertTrue(result["located"])
+        self.assertEqual("recommendation_language", result["start_signal"])
+        self.assertIsNone(result["end_signal"])
+        self.assertIn("no explicit ending", result["review_reason"])
+
+    def test_ff_outline_and_topic_end_without_positive_start_remain_reviewable(self) -> None:
+        result = locate_cards_to_watch([
+            {"start": 100, "end": 120, "text": "Today: meta updates, Cards to Watch, and a deep dive into SOS."},
+            {"start": 700, "end": 800, "text": "Several cards changed price."},
+            {"start": 900, "end": 930, "text": "Now let's get into our main topic and discuss SOS."},
+        ], title="MTG Fast Finance Ep 4: SOS Brick Targets")
+        self.assertEqual("show_outline_fallback", result["start_signal"])
+        self.assertEqual("advertised_topic_transition", result["end_signal"])
+        self.assertEqual("low", result["confidence"])
+        self.assertIn("show-outline", result["review_reason"])
 
     def test_brainstorm_recommendation_profile_finds_breaking_bulk(self) -> None:
         result = locate_recommendation_section([

@@ -547,7 +547,10 @@ class OpenAIExtractor:
     def extract(self, episode: EpisodeCandidate, transcript: dict[str, Any]) -> dict[str, Any]:
         if not os.getenv("OPENAI_API_KEY"):
             raise RuntimeError("OPENAI_API_KEY is required for live extraction.")
-        section = locate_recommendation_section(transcript.get("segments", []), episode.extraction_profile)
+        section = locate_recommendation_section(
+            transcript.get("segments", []), episode.extraction_profile,
+            title=episode.title, description=episode.description or "",
+        )
         if not section["located"]:
             return {"section": {key: value for key, value in section.items() if key != "segments"}, "recommendations": [], "review_reason": section["review_reason"]}
         from openai import OpenAI
@@ -555,6 +558,8 @@ class OpenAIExtractor:
         evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
         instructions = (
             f"Extract only explicit {episode.source_name} recommendations from the supplied timestamped {section['label']} section. "
+            f"The episode is titled {episode.title!r}. The deterministic boundary signals are "
+            f"start={section.get('start_signal')!r} and end={section.get('end_signal')!r}. "
             "Never add finance opinions or infer unsupported cards, printings, speakers, prices, targets, foil status, or confidence. "
             "Unknown values must be null. Preserve original price wording in target.raw. Every pick needs a timestamp and a short evidence excerpt (max 30 words). "
             "Merge duplicate discussion of the same card unless distinct printings are clearly recommended. Mark ambiguity needs_review."
@@ -584,7 +589,10 @@ class GeminiExtractor:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not api_key:
             raise RuntimeError("GEMINI_API_KEY is required for Gemini live extraction.")
-        section = locate_recommendation_section(transcript.get("segments", []), episode.extraction_profile)
+        section = locate_recommendation_section(
+            transcript.get("segments", []), episode.extraction_profile,
+            title=episode.title, description=episode.description or "",
+        )
         if not section["located"]:
             return {"section": {key: value for key, value in section.items() if key != "segments"}, "recommendations": [], "review_reason": section["review_reason"]}
         from google import genai
@@ -594,6 +602,8 @@ class GeminiExtractor:
         evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
         instructions = (
             f"Extract only explicit {episode.source_name} recommendations from the supplied timestamped {section['label']} section. "
+            f"The episode is titled {episode.title!r}. The deterministic boundary signals are "
+            f"start={section.get('start_signal')!r} and end={section.get('end_signal')!r}. "
             "Never add finance opinions or infer unsupported cards, printings, speakers, prices, targets, foil status, or confidence. "
             "Unknown values must be null. Preserve original price wording in target.raw. Every pick needs a timestamp and a short evidence excerpt of 30 words or fewer. "
             "Merge duplicate discussion of the same card unless distinct printings are clearly recommended. Mark ambiguity needs_review. "
