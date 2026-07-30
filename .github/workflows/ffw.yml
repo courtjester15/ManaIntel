@@ -7,6 +7,10 @@ on:
       - ".github/workflows/ffw.yml"
       - "archive/**"
       - "data/reviews/**"
+      - "src/**"
+      - "tests/**"
+      - "schemas/**"
+      - "pyproject.toml"
       - "web/**"
   schedule:
     - cron: "17 10 * * *"
