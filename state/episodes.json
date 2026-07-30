@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.4.1",
-  "updated_at": "2026-07-29T21:17:30Z",
+  "pipeline_version": "0.4.3",
+  "updated_at": "2026-07-30T12:08:12Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2552,6 +2552,65 @@
       "status": "failed",
       "updated_at": "2026-07-29T21:17:30Z",
       "output_directory": "episodes/0000-banger-or-bust-brainstorm-brewery-708-magic-finance-af03a40c"
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=25241": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=25241",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-07-30T12:03:59Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-30T12:03:59Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-07-30T12:03:59Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-07-30T12:03:59Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-07-30T12:04:01Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-07-30T12:04:01Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-07-30T12:04:20Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-07-30T12:08:12Z"
+        }
+      ],
+      "title": "Process Driving the Data | Brainstorm Brewery #707 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-07-03T05:10:36Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 231.2s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-07-30T18:08:12Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-07-30T12:08:12Z",
+      "output_directory": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1"
     }
   }
 }

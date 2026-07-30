@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "FFW",
-    "pipeline_version": "0.4.1",
+    "pipeline_version": "0.4.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-07-29T21:17:30Z",
+    "generated_at": "2026-07-30T12:08:12Z",
     "latest_successful_run_at": "2026-07-28T02:10:32Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": null
       }
     ],
-    "real_episode_count": 13,
+    "real_episode_count": 14,
     "real_pick_count": 42,
     "last_discovered_episode_date": "2026-07-24T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
@@ -33,14 +33,14 @@
     "review_workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 13,
+    "episodes": 14,
     "picks": 42,
     "needs_review": 9,
-    "failed": 3,
+    "failed": 4,
     "completed": 1
   },
   "status_counts": {
-    "failed": 3,
+    "failed": 4,
     "complete": 1,
     "needs_review": 9
   },
@@ -591,6 +591,56 @@
       },
       "processed_at": "2026-07-18T02:21:33Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=25241",
+      "episode_number": 0,
+      "title": "Process Driving the Data | Brainstorm Brewery #707 | Magic Finance",
+      "published_at": "2026-07-03T05:10:36Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_707_Process_Driving_the_Data.mp3",
+      "episode_url": "https://brainstormbrewery.com/process-driving-the-data-brainstorm-brewery-707-magic-finance/",
+      "duration_seconds": 3428,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "Liz&#160; (@devotedDruid), Corbin (@CHosler) and DJ (@CardgardenMTG)&#160; are excited to jump in on the Legacy bannings, Moist Critical Cracking Cases, and the Magic Spotlight. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1",
+      "outputs": {
+        "metadata": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-07-30T12:08:12Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 231.2s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-07-30T18:08:12Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
