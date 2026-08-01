@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.4.3",
-  "updated_at": "2026-07-31T21:26:22Z",
+  "pipeline_version": "0.4.4",
+  "updated_at": "2026-08-01T11:45:18Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2853,6 +2853,220 @@
           }
         ]
       }
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=29150": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29150",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-01T11:34:39Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-01T11:34:39Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-01T11:34:39Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-01T11:34:39Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-01T11:34:40Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-01T11:34:40Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-01T11:34:59Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-01T11:44:42Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-01T11:44:42Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-01T11:45:18Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-01T11:45:18Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-01T11:45:18Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-01T11:45:18Z"
+        }
+      ],
+      "title": "The Odyssey of Universes Beyond | Brainstorm Brewery #711 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-07-31T05:56:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-01T11:45:18Z",
+      "output_directory": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3189,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 224.002,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12271,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22553,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 8784,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43608,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 113.85,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14551,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 7636,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44741,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 143.826,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8503,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 11640,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42697,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 489,
+            "request_seconds": 100.331,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 5859,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 12272,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 12218
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 11321,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 29452,
+              "traffic_type": null
+            }
+          }
+        ]
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 55,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 10607,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 10607
+          }
+        ],
+        "thoughts_token_count": 2944,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 13606,
+        "traffic_type": null
+      },
+      "review_reason": "No explicit financial recommendations (such as buys, sells, or holds) were made for any specific cards or products in the provided transcript. Only passive discussion of card prices, personal gaming preferences, and speculative future IP releases occurred."
     }
   }
 }
