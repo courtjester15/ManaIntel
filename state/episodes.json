@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-01T11:45:18Z",
+  "updated_at": "2026-08-01T21:17:04Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2635,6 +2635,50 @@
         {
           "status": "failed",
           "timestamp": "2026-07-31T21:26:22Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-01T21:09:11Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-01T21:09:11Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-01T21:09:12Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-01T21:09:12Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-01T21:09:31Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-01T21:16:46Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-01T21:16:46Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-01T21:17:04Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-01T21:17:04Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-01T21:17:04Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-01T21:17:04Z"
         }
       ],
       "title": "Process Driving the Data | Brainstorm Brewery #707 | Magic Finance",
@@ -2642,23 +2686,158 @@
       "published_at": "2026-07-03T05:10:36Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 262.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: RemoteProtocolError: Server disconnected without sending a response.",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-01T03:26:22Z",
-        "quarantined": false
+      "attempt_count": 3,
+      "pick_count": 3,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-01T21:17:04Z",
+      "output_directory": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3428,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 104.22,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10106,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22553,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 14040,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46699,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 101.403,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10106,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 12675,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 45335,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 127.437,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13316,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 15990,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 51860,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 728,
+            "request_seconds": 101.113,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8259,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 18261,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18207
+                }
+              ],
+              "thoughts_token_count": 12443,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38963,
+              "traffic_type": null
+            }
+          }
+        ]
       },
-      "status": "failed",
-      "updated_at": "2026-07-31T21:26:22Z",
-      "output_directory": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 865,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 4910,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 4910
+          }
+        ],
+        "thoughts_token_count": 4473,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 10248,
+        "traffic_type": null
+      },
+      "review_reason": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=25134": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=25134",

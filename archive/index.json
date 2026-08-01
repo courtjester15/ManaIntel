@@ -6,8 +6,8 @@
     "project": "FFW",
     "pipeline_version": "0.4.4",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-01T11:45:18Z",
-    "latest_successful_run_at": "2026-08-01T11:45:18Z",
+    "generated_at": "2026-08-01T21:17:04Z",
+    "latest_successful_run_at": "2026-08-01T21:17:04Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 16,
-    "real_pick_count": 42,
+    "real_pick_count": 45,
     "last_discovered_episode_date": "2026-07-31T05:56:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
     "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 16,
-    "picks": 42,
+    "picks": 45,
     "needs_review": 10,
-    "failed": 5,
-    "completed": 1
+    "failed": 4,
+    "completed": 2
   },
   "status_counts": {
     "needs_review": 10,
-    "failed": 5,
-    "complete": 1
+    "failed": 4,
+    "complete": 2
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29150",
@@ -644,31 +644,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 3,
       "directory": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1",
       "outputs": {
         "metadata": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1/summary.json",
+        "summary_markdown": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-07-31T21:26:22Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 262.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: RemoteProtocolError: Server disconnected without sending a response.",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-01T03:26:22Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-08-01T21:17:04Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
