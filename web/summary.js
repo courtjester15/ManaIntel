@@ -57,14 +57,17 @@ function pickMeta(pick) {
   ].map(escapeHtml).join(" · ");
 }
 
-function listenUrl(episode, pick) {
-  const start = typeof pick.start_seconds === "number" ? `#t=${Math.floor(pick.start_seconds)}` : "";
-  return `${safeUrl(episode.audio_url)}${start}`;
+function listenUrl(episodeDir, pick) {
+  const params = new URLSearchParams({ episode: episodeDir });
+  if (typeof pick.start_seconds === "number") params.set("t", Math.floor(pick.start_seconds));
+  if (pick.id) params.set("pick", pick.id);
+  return `summary.html?${params}`;
 }
 
-function pickCard(episode, pick, index) {
+function pickCard(episodeDir, pick, index) {
   const time = timestamp(pick.start_seconds);
-  return `<article class="summary-pick-card">
+  const cardId = `pick-${pick.id || index + 1}`;
+  return `<article class="summary-pick-card" id="${escapeHtml(cardId)}">
     <div class="pick-card-head">
       <div>
         <p class="eyebrow">Pick ${index + 1}${time ? ` · ${escapeHtml(time)}` : ""}</p>
@@ -87,7 +90,7 @@ function pickCard(episode, pick, index) {
       <section><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></section>
     </div>
     <details class="evidence-disclosure"><summary>Evidence${time ? ` · ${escapeHtml(time)}` : ""}</summary><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></details>
-    <div class="latest-actions"><a class="button" href="${listenUrl(episode, pick)}" target="_blank" rel="noreferrer">Listen at timestamp</a></div>
+    <div class="latest-actions"><a class="button" href="${escapeHtml(listenUrl(episodeDir, pick))}" data-listen-seconds="${escapeHtml(pick.start_seconds)}" data-listen-label="${escapeHtml(pick.card)}" data-listen-target="${escapeHtml(cardId)}">Listen at ${escapeHtml(time || "timestamp")}</a></div>
   </article>`;
 }
 
@@ -122,7 +125,15 @@ async function loadSummary() {
       `${picks.length} recommendations`,
       processing.status ? label(processing.status) : null,
     ].filter(Boolean).join(" · ");
-    actions.innerHTML = `<a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a><a class="button secondary" href="${escapeHtml(markdownUrl)}" target="_blank">Raw Markdown</a>`;
+    actions.innerHTML = `<button class="button" type="button" data-listen-seconds="0" data-listen-label="Episode start">Listen from start</button><a class="button secondary" href="${escapeHtml(markdownUrl)}" target="_blank">Raw Markdown</a>`;
+
+    AudioPlayback.mount({
+      container: "#audio-player",
+      audioUrl: episode.audio_url,
+      sourceUrl: episode.episode_url,
+      title: episode.title,
+    });
+    AudioPlayback.bind(document);
 
     if (processing.human_review) {
       reviewBanner.hidden = false;
@@ -139,10 +150,17 @@ async function loadSummary() {
         <article class="metric"><p>Duration</p><strong>${timestamp(episode.duration_seconds) || "—"}</strong><small>source audio</small></article>
       </section>
       <section class="summary-picks">
-        ${picks.length ? picks.map((pick, index) => pickCard(episode, pick, index)).join("") : `<div class="empty-state"><strong>No recommendations found</strong><p>The pipeline did not publish structured picks for this episode.</p></div>`}
+        ${picks.length ? picks.map((pick, index) => pickCard(episodeDir, pick, index)).join("") : `<div class="empty-state"><strong>No recommendations found</strong><p>The pipeline did not publish structured picks for this episode.</p></div>`}
       </section>
       <section class="panel prose summary-source"><div class="panel-body"><p class="eyebrow">Source description</p><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div></section>
     `;
+    const requestedTime = AudioPlayback.parseTime(params.get("t"));
+    if (requestedTime !== null) {
+      const requestedPick = params.get("pick");
+      const pick = picks.find((item) => item.id === requestedPick);
+      AudioPlayback.seekTo(requestedTime, { label: pick?.card || "Linked context", autoplay: false, scroll: false });
+      if (requestedPick) document.getElementById(`pick-${requestedPick}`)?.scrollIntoView({ block: "center" });
+    }
   } catch (error) {
     app.innerHTML = `<div class="empty-state"><strong>Summary could not be loaded</strong><p>${escapeHtml(error.message)}</p></div>`;
   }

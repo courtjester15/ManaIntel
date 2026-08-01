@@ -57,9 +57,11 @@ env:
   FFW_AI_PROVIDER: gemini
   FFW_TRANSCRIPTION_MODEL: gemini-3.5-flash
   FFW_TRANSCRIPTION_FALLBACK_MODEL: gemini-3.5-flash-lite
+  FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai
+  FFW_OPENAI_TRANSCRIPTION_MODEL: gpt-4o-transcribe-diarize
   FFW_AUDIO_CHUNK_SECONDS: "900"
-  FFW_GEMINI_TRANSIENT_RETRIES: "1"
-  FFW_GEMINI_RETRY_DELAY_SECONDS: "2"
+  FFW_GEMINI_TRANSIENT_RETRIES: "2"
+  FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
   FFW_EXTRACTION_MODEL: gemini-3.5-flash
   FFW_MAX_LIVE_BATCH: "20"
   FFW_MAX_EPISODE_ATTEMPTS: "3"
@@ -70,6 +72,8 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    outputs:
+      pages_ready: ${{ steps.pages_gate.outputs.ready }}
     env:
       FFW_REPORT_PATH: /tmp/ffw-run-report.json
     steps:
@@ -106,6 +110,7 @@ jobs:
           echo "Provider: $FFW_AI_PROVIDER"
           echo "Transcription model: $FFW_TRANSCRIPTION_MODEL"
           echo "Transcription fallback model: $FFW_TRANSCRIPTION_FALLBACK_MODEL"
+          echo "Cross-provider transcription fallback: $FFW_TRANSCRIPTION_PROVIDER_FALLBACK"
           echo "Audio chunk seconds: $FFW_AUDIO_CHUNK_SECONDS"
           echo "Extraction model: $FFW_EXTRACTION_MODEL"
           if [[ "$FFW_AI_PROVIDER" == "gemini" && -z "$GEMINI_API_KEY" ]]; then
@@ -115,6 +120,9 @@ jobs:
           if [[ "$FFW_AI_PROVIDER" == "openai" && -z "$OPENAI_API_KEY" ]]; then
             echo "::error::OPENAI_API_KEY repository secret is missing or empty."
             exit 2
+          fi
+          if [[ "$FFW_AI_PROVIDER" == "gemini" && "$FFW_TRANSCRIPTION_PROVIDER_FALLBACK" == "openai" && -z "$OPENAI_API_KEY" ]]; then
+            echo "::warning::OPENAI_API_KEY is unavailable; Gemini will run without cross-provider transcription fallback."
           fi
 
       - name: Process live feed
@@ -191,15 +199,33 @@ jobs:
         shell: bash
         run: |
           mkdir -p _site/archive
-          cp web/index.html web/app.js web/table.js web/styles.css web/summary.html web/summary.js web/review.html web/review.js _site/
+          cp web/index.html web/app.js web/table.js web/audio-player.js web/styles.css web/summary.html web/summary.js web/review.html web/review.js _site/
           cp -R archive/. _site/archive/
 
+      - name: Decide Pages publication
+        id: pages_gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REQUEST_MODE: ${{ inputs.mode || '' }}
+          REQUEST_DEPLOY: ${{ inputs.deploy || false }}
+          DURABLE_CHANGED: ${{ steps.persist.outputs.changed || 'false' }}
+        shell: bash
+        run: |
+          ready=false
+          if [[ "$EVENT_NAME" == "push" || "$REQUEST_MODE" == "deploy_only" ]]; then
+            ready=true
+          elif [[ "$DURABLE_CHANGED" == "true" && ( "$EVENT_NAME" == "schedule" || "$REQUEST_DEPLOY" == "true" ) ]]; then
+            ready=true
+          fi
+          echo "ready=$ready" >> "$GITHUB_OUTPUT"
+          echo "Pages publication ready: $ready (durable changed: $DURABLE_CHANGED)"
+
       - name: Configure Pages
-        if: ${{ (github.event_name == 'push' || github.event_name == 'schedule' || inputs.deploy) && (steps.pipeline.outputs.exit_code == '0' || steps.pipeline.outputs.exit_code == '') }}
+        if: ${{ steps.pages_gate.outputs.ready == 'true' }}
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        if: ${{ (github.event_name == 'push' || github.event_name == 'schedule' || inputs.deploy) && (steps.pipeline.outputs.exit_code == '0' || steps.pipeline.outputs.exit_code == '') }}
+        if: ${{ steps.pages_gate.outputs.ready == 'true' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
@@ -251,7 +277,7 @@ jobs:
 
   deploy:
     needs: publish
-    if: ${{ github.event_name == 'push' || github.event_name == 'schedule' || inputs.deploy }}
+    if: ${{ always() && needs.publish.outputs.pages_ready == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

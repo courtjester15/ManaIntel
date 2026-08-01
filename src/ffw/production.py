@@ -394,8 +394,8 @@ class GeminiTranscriber:
         model_name: str,
         chunk_seconds: int,
         fallback_model_name: str | None = None,
-        transient_retries: int = 1,
-        retry_delay_seconds: float = 2.0,
+        transient_retries: int = 2,
+        retry_delay_seconds: float = 30.0,
     ) -> None:
         self.model_name = model_name
         self.chunk_seconds = chunk_seconds
@@ -431,7 +431,7 @@ class GeminiTranscriber:
                     last_error = exc
                     transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
                     if attempt + 1 < attempts and self.retry_delay_seconds:
-                        time.sleep(self.retry_delay_seconds)
+                        time.sleep(self.retry_delay_seconds * (2 ** attempt))
         details = "; ".join(transient_errors)
         raise RuntimeError(f"Gemini transcription models exhausted after transient errors: {details}") from last_error
 
@@ -505,6 +505,36 @@ class GeminiTranscriber:
             "duration_seconds": episode.duration_seconds,
             "usage": usage,
         }
+
+
+class ProviderFallbackTranscriber:
+    """Retry a transient primary-provider failure with a second provider in the same episode attempt."""
+
+    def __init__(self, primary: Any, fallback: Any) -> None:
+        self.primary = primary
+        self.fallback = fallback
+
+    def transcribe(self, episode: EpisodeCandidate, audio_files: list[Path]) -> dict[str, Any]:
+        try:
+            return self.primary.transcribe(episode, audio_files)
+        except Exception as primary_error:
+            if not _is_transient_gemini_error(primary_error):
+                raise
+            try:
+                transcript = self.fallback.transcribe(episode, audio_files)
+            except Exception as fallback_error:
+                raise RuntimeError(
+                    "Transcription providers exhausted after transient primary failure: "
+                    f"primary={type(primary_error).__name__}: {primary_error}; "
+                    f"fallback={type(fallback_error).__name__}: {fallback_error}"
+                ) from fallback_error
+            transcript["provider_fallback"] = {
+                "used": True,
+                "primary_provider": "Gemini",
+                "fallback_provider": transcript.get("provider", "OpenAI"),
+                "primary_error": str(primary_error)[:1000],
+            }
+            return transcript
 
 
 EXTRACTION_SCHEMA: dict[str, Any] = {
@@ -628,16 +658,25 @@ def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:
     provider = settings.ai_provider.lower()
     if provider not in {"openai", "gemini"}:
         raise ValueError("FFW_AI_PROVIDER must be 'openai' or 'gemini'.")
+    provider_fallback = (settings.transcription_provider_fallback or "").lower()
+    if provider_fallback not in {"", "openai"}:
+        raise ValueError("FFW_TRANSCRIPTION_PROVIDER_FALLBACK must be empty or 'openai'.")
     transcriber: Any
     extractor: Any
     if provider == "gemini":
-        transcriber = GeminiTranscriber(
+        gemini_transcriber = GeminiTranscriber(
             settings.transcription_model,
             settings.audio_chunk_seconds,
             settings.transcription_fallback_model,
             settings.gemini_transient_retries,
             settings.gemini_retry_delay_seconds,
         )
+        transcriber = gemini_transcriber
+        if provider_fallback == "openai" and os.getenv("OPENAI_API_KEY"):
+            transcriber = ProviderFallbackTranscriber(
+                gemini_transcriber,
+                OpenAITranscriber(settings.openai_transcription_model, settings.audio_chunk_seconds),
+            )
         extractor = GeminiExtractor(settings.extraction_model, settings.card_glossary)
     else:
         transcriber = OpenAITranscriber(settings.transcription_model, settings.audio_chunk_seconds)

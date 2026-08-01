@@ -3,18 +3,21 @@ from __future__ import annotations
 import hashlib
 import io
 import os
+import json
+import shutil
+import subprocess
 import unittest
 import uuid
 from email.message import Message
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, call, patch
 
 from ffw.archive import rebuild_catalog
 from ffw.detection import locate_cards_to_watch, locate_recommendation_section
 from ffw.models import EpisodeCandidate, PipelineResult
 from ffw.config import Settings
 from ffw.pipeline import Pipeline, classify_failure
-from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiMalformedJSONError, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, StreamingDownloader, _gemini_generate_json, parse_episode_number, parse_rss, production_adapters
+from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiMalformedJSONError, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, ProviderFallbackTranscriber, StreamingDownloader, _gemini_generate_json, parse_episode_number, parse_rss, production_adapters
 from ffw.state import JsonStateStore
 from ffw.utils import atomic_write_json, load_json
 
@@ -282,6 +285,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("web/table.js", workflow)
         self.assertIn("web/review.html", workflow)
         self.assertIn("web/review.js", workflow)
+        self.assertIn("web/audio-player.js", workflow)
         self.assertIn("function showEpisode", app)
         self.assertIn("View failure details", app)
         self.assertIn("data-copy-guid", app)
@@ -310,6 +314,42 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("apply-review", review_workflow)
         self.assertIn("git add data/reviews archive", review_workflow)
 
+    def test_timestamp_playback_helpers_and_entry_points(self) -> None:
+        root = Path(__file__).parents[1]
+        player = root / "web/audio-player.js"
+        if shutil.which("node") is None:
+            self.skipTest("Node is required for the frontend helper contract test")
+        script = (
+            f"const p=require({json.dumps(str(player))});"
+            "console.log(JSON.stringify({"
+            "seconds:p.parseTime('01:02:03'),short:p.parseTime('12:34'),"
+            "invalid:p.parseTime('12:99'),clamped:p.clampTime(120,90),"
+            "unbounded:p.clampTime(120,NaN),formatted:p.formatTime(3723)}));"
+        )
+        completed = subprocess.run(
+            ["node", "-e", script], check=True, capture_output=True, text=True,
+        )
+        self.assertEqual(
+            {
+                "seconds": 3723,
+                "short": 754,
+                "invalid": None,
+                "clamped": 89.75,
+                "unbounded": 120,
+                "formatted": "01:02:03",
+            },
+            json.loads(completed.stdout),
+        )
+        summary = (root / "web/summary.js").read_text(encoding="utf-8")
+        review = (root / "web/review.js").read_text(encoding="utf-8")
+        app = (root / "web/app.js").read_text(encoding="utf-8")
+        self.assertIn('params.get("t")', summary)
+        self.assertIn('params.get("pick")', summary)
+        self.assertIn("data-listen-seconds", summary)
+        self.assertIn("data-review-listen", review)
+        self.assertIn("pickSummaryUrl", app)
+        self.assertIn("episodeListenUrl", app)
+
     def test_workflow_defaults_and_limit_guard_are_safe(self) -> None:
         workflow = (Path(__file__).parents[1] / ".github/workflows/ffw.yml").read_text(encoding="utf-8")
         self.assertIn("default: next", workflow)
@@ -318,7 +358,12 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("exceeds the safety cap", workflow)
         self.assertIn("gemini-3.5-flash", workflow)
         self.assertIn("gemini-3.5-flash-lite", workflow)
-        self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "1"', workflow)
+        self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "2"', workflow)
+        self.assertIn('FFW_GEMINI_RETRY_DELAY_SECONDS: "30"', workflow)
+        self.assertIn("FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai", workflow)
+        self.assertIn("Decide Pages publication", workflow)
+        self.assertIn("needs.publish.outputs.pages_ready == 'true'", workflow)
+        self.assertIn("DURABLE_CHANGED", workflow)
         self.assertIn('FFW_AUDIO_CHUNK_SECONDS: "900"', workflow)
         self.assertIn('cron: "17 20 * * *"', workflow)
         self.assertIn('INPUT_MODE="evening"', workflow)
@@ -390,6 +435,56 @@ class ProductionPipelineTests(unittest.TestCase):
             ["gemini-primary", "gemini-primary", "gemini-fallback"],
             [item.kwargs["model"] for item in generate.call_args_list],
         )
+
+    def test_gemini_transcription_uses_exponential_backoff(self) -> None:
+        transcriber = GeminiTranscriber(
+            "gemini-primary", 900, transient_retries=2, retry_delay_seconds=30,
+        )
+        success = {"text": "Cards to Watch", "segments": [], "_usage": None}
+        with (
+            patch("ffw.production._gemini_generate_json", side_effect=[RuntimeError("503"), RuntimeError("429"), success]),
+            patch("ffw.production.time.sleep") as sleep,
+        ):
+            payload, model = transcriber._transcribe_chunk(object(), object(), ["audio"])
+        self.assertEqual(success, payload)
+        self.assertEqual("gemini-primary", model)
+        self.assertEqual([call(30), call(60)], sleep.call_args_list)
+
+    def test_transient_gemini_failure_uses_openai_in_same_episode_attempt(self) -> None:
+        class Primary:
+            def transcribe(self, episode, audio_files):
+                raise RuntimeError("503 UNAVAILABLE")
+
+        class Fallback:
+            def transcribe(self, episode, audio_files):
+                return {"provider": "OpenAI", "text": "recovered", "segments": []}
+
+        transcript = ProviderFallbackTranscriber(Primary(), Fallback()).transcribe(episode(), [])
+        self.assertEqual("OpenAI", transcript["provider"])
+        self.assertTrue(transcript["provider_fallback"]["used"])
+        self.assertIn("503 UNAVAILABLE", transcript["provider_fallback"]["primary_error"])
+
+    def test_permanent_gemini_failure_does_not_cross_provider_boundary(self) -> None:
+        fallback = Mock()
+        primary = Mock()
+        primary.transcribe.side_effect = RuntimeError("404 NOT_FOUND model unavailable")
+        with self.assertRaisesRegex(RuntimeError, "404 NOT_FOUND"):
+            ProviderFallbackTranscriber(primary, fallback).transcribe(episode(), [])
+        fallback.transcribe.assert_not_called()
+
+    def test_gemini_adapter_enables_openai_fallback_when_secret_is_available(self) -> None:
+        root = workspace_temp()
+        settings = Settings(
+            root, root / "archive", root / "state/episodes.json", root / ".ffw-work",
+            mode="live", ai_provider="gemini", transcription_model="gemini-primary",
+            transcription_provider_fallback="openai", openai_transcription_model="openai-transcribe",
+        )
+        with patch.dict(os.environ, {"GEMINI_API_KEY": "gemini", "OPENAI_API_KEY": "openai"}, clear=False):
+            _, _, _, transcriber, _ = production_adapters(settings)
+        self.assertIsInstance(transcriber, ProviderFallbackTranscriber)
+        self.assertIsInstance(transcriber.primary, GeminiTranscriber)
+        self.assertIsInstance(transcriber.fallback, OpenAITranscriber)
+        self.assertEqual("openai-transcribe", transcriber.fallback.model_name)
 
     def test_gemini_transcription_retries_malformed_json_then_uses_fallback(self) -> None:
         transcriber = GeminiTranscriber(

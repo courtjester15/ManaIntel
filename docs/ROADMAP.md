@@ -20,10 +20,10 @@ This is enough foundation. The remaining work is a bounded usability and correct
 Work in this order and stop when the budget is exhausted:
 
 1. **Manual review overrides (complete):** preserve extraction output, apply validated files from `data/reviews/`, and use a focused editor plus authenticated workflow for approve/update/add/exclude decisions.
-2. **Timestamp playback:** add an in-page remote RSS audio player that seeks after metadata loads and supports a `t` URL parameter.
+2. **Timestamp playback (complete):** use a shared in-page remote RSS audio player across summaries and review, seek after metadata loads, support `t` and pick deep links, and route archive Listen actions to the Cards to Watch context.
 3. **Readable status and failure detail:** expose attempts, last attempt, retryability, review state, and a small failure taxonomy without leading with raw exceptions.
 4. **Single-episode recovery:** retain exact-GUID backend processing and expose a copyable workflow input or command in the episode UI.
-5. **No-op publication guard:** ensure an empty scheduled selection does not commit generated churn or deploy an unchanged Pages artifact.
+5. **No-op publication guard (complete):** empty scheduled selections do not commit or deploy; validated changed failure state is still published so the live status does not appear frozen.
 6. **Small readability fixes:** omit empty pick fields, keep evidence/debug content collapsed, and make the card name, recommendation, and timestamp the scanning hierarchy.
 
 Focused tests should cover override update/add/exclude behavior, override survival across rebuilds, invalid override rejection, timestamp parsing/seeking fallbacks, readable rendering, and the deployment-level no-op guard.

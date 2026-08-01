@@ -62,9 +62,12 @@ function pickEditor(pick, index, isNew = false) {
         <p class="eyebrow">${isNew ? "Missing pick" : `Extracted pick ${index + 1}`}</p>
         <h2>${escapeHtml(pick.card || "New pick")}</h2>
       </div>
+      <div class="review-head-actions">
+      <button class="link-button" type="button" data-review-listen>Listen${Number.isFinite(pick.start_seconds) ? ` · ${escapeHtml(secondsToTimestamp(pick.start_seconds))}` : ""}</button>
       ${isNew
         ? `<button class="link-button" type="button" data-remove-added>Remove draft</button>`
         : `<label class="review-action"><span>Decision</span><select name="action"><option value="keep">Keep</option><option value="exclude">Exclude</option><option value="update">Correct</option></select></label>`}
+      </div>
     </div>
     <div class="panel-body review-fields" data-fields ${isNew ? "" : "hidden"}>
       ${inputField("Card", "card", pick.card || "", { required: true })}
@@ -91,7 +94,7 @@ function renderReview() {
 
   reviewApp.innerHTML = `
     <section class="panel review-overview">
-      <div class="panel-head"><h2>Why this needs review</h2><a href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Open audio</a></div>
+      <div class="panel-head"><h2>Why this needs review</h2><button class="link-button" type="button" data-listen-seconds="0" data-listen-label="Episode start">Listen from start</button></div>
       <div class="panel-body">
         <p>${escapeHtml(processing.review_reason || "The extraction was flagged for human verification.")}</p>
         <p class="muted">If everything is correct, leave every pick on <strong>Keep</strong> and prepare the review.</p>
@@ -122,7 +125,22 @@ function renderReview() {
         <div class="failure-note" id="review-error" hidden></div>
       </div>
     </section>`;
+  AudioPlayback.mount({
+    container: "#audio-player",
+    audioUrl: episode.audio_url,
+    sourceUrl: episode.episode_url,
+    title: episode.title,
+  });
+  AudioPlayback.bind(document);
   bindReviewEvents();
+
+  const params = new URLSearchParams(window.location.search);
+  const requestedTime = AudioPlayback.parseTime(params.get("t"));
+  if (requestedTime !== null) {
+    const pick = sourceSummary.recommendations.find((item) => item.id === params.get("pick"));
+    AudioPlayback.seekTo(requestedTime, { label: pick?.card || "Linked review context", autoplay: false, scroll: false });
+    if (pick) document.querySelector(`[data-original-id="${CSS.escape(pick.id)}"]`)?.scrollIntoView({ block: "center" });
+  }
 }
 
 function readPickValues(editor) {
@@ -206,6 +224,25 @@ function preparePayload() {
 }
 
 function bindReviewEvents() {
+  document.querySelector("#review-app").addEventListener("click", (event) => {
+    const listen = event.target.closest("[data-review-listen]");
+    if (!listen) return;
+    const editor = listen.closest(".review-pick");
+    const value = editor.querySelector('[name="timestamp"]').value;
+    const card = editor.querySelector('[name="card"]').value.trim() || "Review context";
+    const seconds = AudioPlayback.parseTime(value);
+    if (seconds === null) {
+      document.querySelector("#review-error").textContent = `Timestamp "${value}" must use HH:MM:SS.`;
+      document.querySelector("#review-error").hidden = false;
+      return;
+    }
+    AudioPlayback.seekTo(seconds, { label: card });
+    const params = new URLSearchParams(window.location.search);
+    params.set("t", seconds);
+    if (editor.dataset.originalId) params.set("pick", editor.dataset.originalId);
+    else params.delete("pick");
+    history.replaceState(null, "", `${window.location.pathname}?${params}`);
+  });
   document.querySelectorAll(".review-pick[data-new='false'] [name='action']").forEach((select) => {
     select.addEventListener("change", () => {
       select.closest(".review-pick").querySelector("[data-fields]").hidden = select.value !== "update";

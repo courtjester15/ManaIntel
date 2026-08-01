@@ -8,7 +8,7 @@ GitHub Actions runs `.github/workflows/ffw.yml` at 10:17 UTC for fresh backfill 
 
 `https://feeds.feedburner.com/brainstormbrewerypodcast`
 
-The production stages are feed discovery, eligibility-first selection, durable queueing, streamed temporary download, ffmpeg normalization/splitting, provider transcription, Cards to Watch boundary detection, schema-constrained extraction, validation, bot commit, and Pages deployment. The checked-in workflow selects Gemini `gemini-3.5-flash` for transcription and extraction. Transcription retries one transient primary-model failure after two seconds, then uses `gemini-3.5-flash-lite` as a same-key fallback. OpenAI remains an environment-selectable adapter.
+The production stages are feed discovery, eligibility-first selection, durable queueing, streamed temporary download, ffmpeg normalization/splitting, provider transcription, Cards to Watch boundary detection, schema-constrained extraction, validation, bot commit, and Pages deployment. The checked-in workflow selects Gemini `gemini-3.5-flash` for transcription and extraction. Transcription retries transient primary-model failures after 30 and 60 seconds, then uses `gemini-3.5-flash-lite`, then uses OpenAI `gpt-4o-transcribe-diarize` when `OPENAI_API_KEY` is available. All provider fallbacks happen inside one durable episode attempt.
 
 MTG Fast Finance boundary detection is bidirectional. Early show-outline mentions of Cards to Watch do not count as a section start; a later explicit marker or recommendation-language cue supplies positive start evidence. A separate pick-wrap phrase or structural transition into the weekly feature named by the episode title/show notes supplies end evidence. Both sides are required for automatic completion. A weak or missing side remains `needs_review`, and a generic topic word inside a pick discussion is not sufficient to close the section.
 
@@ -62,7 +62,7 @@ The job attempts all three sequentially, validates the production-only catalog, 
 2. Dispatch `next` with `batch_size=1` and leave `force_guid` blank.
 3. In the run summary, verify `Selected: 0`, `Attempted: 0`, and `Durable outputs changed: false`.
 4. Verify `git status` remains clean after pulling the workflow result.
-5. Before declaring the final pass complete, also verify that the workflow skips Pages upload/deployment when nothing changed. The pipeline currently avoids catalog rewrites, but the checked-in workflow still needs this deployment-level guard.
+5. Confirm the **Decide Pages publication** step reports `ready=false` and that Pages upload/deployment are skipped. A changed, validated failure record should instead report `ready=true` and deploy the current failure status even though the publish job ultimately reports the pipeline failure.
 
 ## Human review workflow
 
@@ -79,9 +79,11 @@ For local maintenance, run `python -m ffw apply-review --payload '<json>' --acto
 
 The original `summary.json` and `summary.md` are immutable machine output. Reviewed output is written to `effective.json` and `effective.md`; normal catalog and summary views prefer those effective files. Malformed or stale reviews must stop validation with a readable error. Never work around validation by editing `archive/index.json`, `archive/cards.json`, or generated Markdown directly.
 
-## Final-pass timestamp playback troubleshooting (pending implementation)
+## Timestamp playback and review listening
 
-- Open the episode URL with `t=<seconds>` and confirm the selected timestamp appears in the player.
+- Use **Listen to Cards to Watch** from an episode, or **Listen** on a specific pick. Episode links choose the earliest extracted pick; pick links preserve both `t=<seconds>` and `pick=<id>`.
+- The summary and review pages share the same player. In review, each extracted or newly added pick can seek using the timestamp currently entered in its editor.
+- Open the episode URL with `t=<seconds>` and optionally `pick=<id>` to share or verify specific context.
 - If it does not seek immediately, wait for media metadata; seeking before `loadedmetadata` is not reliable.
 - If autoplay is blocked, press Play once. This is expected browser behavior.
 - If the enclosure host rejects seeking or byte ranges, use the displayed original episode link.

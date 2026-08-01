@@ -4,8 +4,8 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-VERSION = "0.4.3"
-PIPELINE_VERSION = "0.4.3"
+VERSION = "0.4.4"
+PIPELINE_VERSION = "0.4.4"
 SCHEMA_VERSION = "1.1.0"
 PROMPT_VERSION = "source-recommendations-v2-hybrid-boundaries"
 MOCK_TRANSCRIPTION_MODEL = "mock-transcriber-v1"
@@ -13,8 +13,8 @@ MOCK_EXTRACTION_MODEL = "mock-extractor-v1"
 MAX_LIVE_BATCH = 20
 MAX_EPISODE_ATTEMPTS = 3
 RETRY_COOLDOWN_HOURS = 6
-GEMINI_TRANSIENT_RETRIES = 1
-GEMINI_RETRY_DELAY_SECONDS = 2.0
+GEMINI_TRANSIENT_RETRIES = 2
+GEMINI_RETRY_DELAY_SECONDS = 30.0
 
 
 def project_root() -> Path:
@@ -38,6 +38,8 @@ class Settings:
     audio_chunk_seconds: int = 900
     transcription_model: str = "gpt-4o-transcribe-diarize"
     transcription_fallback_model: str | None = None
+    transcription_provider_fallback: str | None = None
+    openai_transcription_model: str = "gpt-4o-transcribe-diarize"
     extraction_model: str = "gpt-5.6-luna"
     max_live_batch: int = MAX_LIVE_BATCH
     max_episode_attempts: int = MAX_EPISODE_ATTEMPTS
@@ -72,6 +74,8 @@ class Settings:
             audio_chunk_seconds=int(os.getenv("FFW_AUDIO_CHUNK_SECONDS", "900")),
             transcription_model=os.getenv("FFW_TRANSCRIPTION_MODEL", "gpt-4o-transcribe-diarize"),
             transcription_fallback_model=os.getenv("FFW_TRANSCRIPTION_FALLBACK_MODEL") or None,
+            transcription_provider_fallback=(os.getenv("FFW_TRANSCRIPTION_PROVIDER_FALLBACK") or "").lower() or None,
+            openai_transcription_model=os.getenv("FFW_OPENAI_TRANSCRIPTION_MODEL", "gpt-4o-transcribe-diarize"),
             extraction_model=os.getenv("FFW_EXTRACTION_MODEL", "gpt-5.6-luna"),
             max_live_batch=int(os.getenv("FFW_MAX_LIVE_BATCH", str(MAX_LIVE_BATCH))),
             max_episode_attempts=int(os.getenv("FFW_MAX_EPISODE_ATTEMPTS", str(MAX_EPISODE_ATTEMPTS))),

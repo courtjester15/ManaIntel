@@ -41,6 +41,12 @@ function formatDate(value, long = false) {
     : { month: "short", day: "numeric", year: "numeric" }
   ).format(new Date(value));
 }
+function rawSafeUrl(value) {
+  try {
+    const url = new URL(value, window.location.href);
+    return ["http:", "https:"].includes(url.protocol) ? url.href : "#";
+  } catch { return "#"; }
+}
 
 function formatDateTime(value) {
   if (!value) return "Not recorded";
@@ -120,7 +126,23 @@ function label(value) { return String(value ?? "unknown").replaceAll("_", " "); 
 function badge(value, kind = "status") { return `<span class="${kind} ${escapeHtml(value ?? "unknown")}">${escapeHtml(label(value))}</span>`; }
 function episodeSummaryUrl(episode) { return `summary.html?episode=${encodeURIComponent(episode.directory.replace(/^episodes\//, ""))}`; }
 function episodeReviewUrl(episode) { return `review.html?episode=${encodeURIComponent(episode.directory.replace(/^episodes\//, ""))}`; }
+function pickSummaryUrl(pick, review = false) {
+  const episode = state.index?.episodes?.find((item) => item.guid === pick.episode.guid);
+  if (!episode) return rawSafeUrl(pick.listen_url || pick.episode.audio_url);
+  const params = new URLSearchParams({ episode: episode.directory.replace(/^episodes\//, "") });
+  if (typeof pick.start_seconds === "number") params.set("t", Math.floor(pick.start_seconds));
+  if (pick.id) params.set("pick", pick.id);
+  return `${review ? "review" : "summary"}.html?${params}`;
+}
 function canOpenSummary(episode) { return Boolean(episode?.outputs?.summary_markdown); }
+function episodeListenUrl(episode) {
+  if (!canOpenSummary(episode)) return rawSafeUrl(episode.audio_url);
+  const firstPick = state.cards
+    .filter((pick) => pick.episode.guid === episode.guid && typeof pick.start_seconds === "number")
+    .sort((left, right) => left.start_seconds - right.start_seconds)[0];
+  return firstPick ? pickSummaryUrl(firstPick) : episodeSummaryUrl(episode);
+}
+function episodeListenLabel(episode) { return canOpenSummary(episode) ? "Listen to Cards to Watch" : "Listen"; }
 function sentenceList(items, empty = "Not stated") {
   return items?.length ? items.map((item) => `<li>${escapeHtml(item)}</li>`).join("") : `<li>${escapeHtml(empty)}</li>`;
 }
@@ -228,7 +250,7 @@ function renderDashboard() {
           <div><p class="eyebrow">${escapeHtml(sourceName(latest))} · Episode ${latest.episode_number} · ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
           <div class="latest-meta"><span>${latest.pick_count} picks</span><span>${escapeHtml(latest.hosts.join(" · "))}</span><span>GUID ${escapeHtml(latest.guid)}</span></div>
           ${latest.error ? `<div class="failure-note">${failureReason(latest.error)}</div>` : ""}
-          <div class="latest-actions"><a class="button" href="${safeUrl(latest.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${episodeAction(latest)}</div>
+          <div class="latest-actions"><a class="button" href="${escapeHtml(episodeListenUrl(latest))}">${episodeListenLabel(latest)}</a>${episodeAction(latest)}</div>
         ` : `<div class="empty-state"><strong>No live episodes published yet</strong><p>The first automated run is pending.</p></div>`}</div>
       </article>
       <article class="panel">
@@ -257,7 +279,7 @@ function episodeRows() {
     return haystack.includes(query) && (state.status === "all" || episode.processing_status === state.status);
   }), state.episodeSort, episodeSortAccessors);
   if (!episodes.length) return `<tr><td colspan="9">No matching episodes.</td></tr>`;
-  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td title="${escapeHtml(`${activityLabel(episode)} ${formatDateTime(episode.processed_at)}`)}">${activityDate(episode)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
+  return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td title="${escapeHtml(`${activityLabel(episode)} ${formatDateTime(episode.processed_at)}`)}">${activityDate(episode)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${escapeHtml(episodeListenUrl(episode))}">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
 }
 
 function renderPicks() {
@@ -304,7 +326,7 @@ function renderPickTable() {
       { label: "Episode", sortKey: "episode_number", align: "center", value: (pick) => pick.episode.episode_number ? `#${pick.episode.episode_number}` : "—", title: (pick) => pick.episode.title },
       { label: "Published", sortKey: "published_at", align: "center", value: (pick) => formatDate(pick.episode.published_at) },
       { label: "Review", sortKey: "review_status", align: "center", html: (pick) => badge(pick.review_status) },
-      { label: "Listen", align: "center", type: "anchor", href: (pick) => pick.listen_url, value: (pick) => pick.timestamp || "Listen" },
+      { label: "Listen", align: "center", type: "anchor", href: (pick) => pickSummaryUrl(pick), value: (pick) => pick.timestamp || "Listen" },
       { label: "Details", align: "actions", type: "action", action: "details", value: () => "Details" },
     ],
     onRowClick: (pick) => showPick(pick.id),
@@ -350,7 +372,7 @@ function renderDashboard() {
             <div><p class="eyebrow">${escapeHtml(sourceName(latest))} · Episode ${latest.episode_number} - ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
             <div class="latest-meta"><span>${latest.pick_count} picks</span><span>${escapeHtml(latest.hosts.join(" / "))}</span></div>
             ${latest.error ? `<div class="failure-note">${failureReason(latest.error)}</div>` : ""}
-            <div class="latest-actions"><a class="button" href="${safeUrl(latest.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${episodeAction(latest)}</div>
+            <div class="latest-actions"><a class="button" href="${escapeHtml(episodeListenUrl(latest))}">${episodeListenLabel(latest)}</a>${episodeAction(latest)}</div>
           ` : `<div class="empty-state compact"><strong>No live episodes</strong><p>The first automated run is pending.</p></div>`}</div>
         </article>
         <article class="panel">
@@ -413,7 +435,7 @@ function bindEpisodeButtons() {
 function showPick(id) {
   const pick = state.cards.find((item) => item.id === id);
   if (!pick) return;
-  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">Episode ${pick.episode.episode_number} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(pick.card)}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit</small><strong>${target(pick.exit_target)}</strong></div></div><div class="recommendation-callout"><small>Host recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(pick.listen_url)}" target="_blank" rel="noreferrer">Listen at timestamp</a>${badge(pick.review_status)}</div></div>`;
+  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">Episode ${pick.episode.episode_number} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(pick.card)}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit</small><strong>${target(pick.exit_target)}</strong></div></div><div class="recommendation-callout"><small>Host recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${escapeHtml(pickSummaryUrl(pick))}">Listen at timestamp</a>${badge(pick.review_status)}</div></div>`;
   dialog.showModal();
 }
 
