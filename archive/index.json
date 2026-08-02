@@ -6,8 +6,8 @@
     "project": "FFW",
     "pipeline_version": "0.4.4",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-02T11:40:22Z",
-    "latest_successful_run_at": "2026-08-02T11:40:22Z",
+    "generated_at": "2026-08-02T21:16:02Z",
+    "latest_successful_run_at": "2026-08-02T21:16:02Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 17,
-    "real_pick_count": 49,
+    "real_pick_count": 53,
     "last_discovered_episode_date": "2026-07-31T05:56:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
     "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 17,
-    "picks": 49,
+    "picks": 53,
     "needs_review": 11,
-    "failed": 4,
-    "completed": 2
+    "failed": 3,
+    "completed": 3
   },
   "status_counts": {
     "needs_review": 11,
-    "failed": 4,
-    "complete": 2
+    "failed": 3,
+    "complete": 3
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29150",
@@ -747,31 +747,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 4,
       "directory": "episodes/0000-it-comes-out-in-the-wash-brainstorm-brewery-706-magic-finance-91f27b9f",
       "outputs": {
         "metadata": "episodes/0000-it-comes-out-in-the-wash-brainstorm-brewery-706-magic-finance-91f27b9f/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0000-it-comes-out-in-the-wash-brainstorm-brewery-706-magic-finance-91f27b9f/summary.json",
+        "summary_markdown": "episodes/0000-it-comes-out-in-the-wash-brainstorm-brewery-706-magic-finance-91f27b9f/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-07-31T12:21:23Z",
-      "error": {
-        "stage": "extracting",
-        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-07-31T18:21:23Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-08-02T21:16:02Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

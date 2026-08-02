@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-02T11:40:22Z",
+  "updated_at": "2026-08-02T21:16:02Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2881,6 +2881,50 @@
         {
           "status": "failed",
           "timestamp": "2026-07-31T12:21:23Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-02T21:10:32Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-02T21:10:32Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-02T21:10:33Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-02T21:10:33Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-02T21:10:50Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-02T21:15:34Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-02T21:15:34Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-02T21:16:02Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-02T21:16:02Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-02T21:16:02Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-02T21:16:02Z"
         }
       ],
       "title": "It Comes Out in the Wash | Brainstorm Brewery #706 | Magic Finance",
@@ -2888,28 +2932,17 @@
       "published_at": "2026-06-26T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "extracting",
-        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-07-31T18:21:23Z",
-        "quarantined": false
-      },
-      "status": "failed",
-      "updated_at": "2026-07-31T12:21:23Z",
+      "attempt_count": 2,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-02T21:16:02Z",
       "output_directory": "episodes/0000-it-comes-out-in-the-wash-brainstorm-brewery-706-magic-finance-91f27b9f",
       "transcription": {
         "provider": "Gemini",
-        "model": "gemini-3.5-flash-lite",
+        "model": "gemini-3.5-flash",
         "models": [
-          "gemini-3.5-flash-lite"
+          "gemini-3.5-flash"
         ],
         "chunk_count": 4,
         "duration_seconds": 2859,
@@ -2917,13 +2950,13 @@
           {
             "chunk": 1,
             "chunk_count": 4,
-            "model": "gemini-3.5-flash-lite",
+            "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 64.32,
+            "request_seconds": 78.401,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 20177,
+              "candidates_token_count": 11733,
               "candidates_tokens_details": null,
               "prompt_token_count": 22553,
               "prompt_tokens_details": [
@@ -2936,23 +2969,23 @@
                   "token_count": 22499
                 }
               ],
-              "thoughts_token_count": null,
+              "thoughts_token_count": 6753,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 42730,
+              "total_token_count": 41039,
               "traffic_type": null
             }
           },
           {
             "chunk": 2,
             "chunk_count": 4,
-            "model": "gemini-3.5-flash-lite",
+            "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 142.244,
+            "request_seconds": 129.247,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 32445,
+              "candidates_token_count": 12772,
               "candidates_tokens_details": null,
               "prompt_token_count": 22554,
               "prompt_tokens_details": [
@@ -2965,23 +2998,23 @@
                   "token_count": 22500
                 }
               ],
-              "thoughts_token_count": null,
+              "thoughts_token_count": 18803,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 54999,
+              "total_token_count": 54129,
               "traffic_type": null
             }
           },
           {
             "chunk": 3,
             "chunk_count": 4,
-            "model": "gemini-3.5-flash-lite",
+            "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 53.255,
+            "request_seconds": 53.42,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 14323,
+              "candidates_token_count": 11357,
               "candidates_tokens_details": null,
               "prompt_token_count": 22554,
               "prompt_tokens_details": [
@@ -2994,44 +3027,63 @@
                   "token_count": 22500
                 }
               ],
-              "thoughts_token_count": null,
+              "thoughts_token_count": 862,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 36877,
+              "total_token_count": 34773,
               "traffic_type": null
             }
           },
           {
             "chunk": 4,
             "chunk_count": 4,
-            "model": "gemini-3.5-flash-lite",
+            "model": "gemini-3.5-flash",
             "audio_seconds": 159,
-            "request_seconds": 18.312,
+            "request_seconds": 21.744,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 1764,
+              "candidates_token_count": 1917,
               "candidates_tokens_details": null,
               "prompt_token_count": 4015,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 54
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 3961
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
                 }
               ],
-              "thoughts_token_count": null,
+              "thoughts_token_count": 5279,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 5779,
+              "total_token_count": 11211,
               "traffic_type": null
             }
           }
         ]
-      }
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1269,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 8422,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 8422
+          }
+        ],
+        "thoughts_token_count": 4910,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 14601,
+        "traffic_type": null
+      },
+      "review_reason": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=29150": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29150",
