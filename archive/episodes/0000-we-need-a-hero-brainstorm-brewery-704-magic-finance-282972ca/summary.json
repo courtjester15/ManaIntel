@@ -1,0 +1,355 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=24954",
+    "episode_number": 0,
+    "title": "We Need A Hero! | Brainstorm Brewery #704 | Magic Finance",
+    "published_at": "2026-06-19T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_705_We_Need_A_Hero.mp3",
+    "episode_url": "https://brainstormbrewery.com/we-need-a-hero-brainstorm-brewery-704-magic-finance/",
+    "duration_seconds": null,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz&#160; (@devotedDruid) is back with Corbin (@CHosler) and DJ (@CardgardenMTG) and ready to find a hero at the pre-release this weekend. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-02T11:40:22Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-02T11:34:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-02T11:34:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-02T11:34:16Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-02T11:34:16Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-02T11:34:17Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-02T11:34:17Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-02T11:34:33Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-02T11:39:53Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-02T11:39:53Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-02T11:40:22Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-02T11:40:22Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-02T11:40:22Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-02T11:40:22Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": null,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 97.136,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13342,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22553,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 7822,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43717,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 77.037,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16603,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 80,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39237,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 144.838,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9051,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 20653,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20599
+              }
+            ],
+            "thoughts_token_count": 17557,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47261,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1248,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12086,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12086
+        }
+      ],
+      "thoughts_token_count": 4484,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17818,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 931,
+    "end_seconds": 2143,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+  },
+  "recommendations": [
+    {
+      "card": "Burn at the Stake",
+      "printing": "Avacyn Restored",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "speaker_3"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "a dollar",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$0.80",
+        "currency": "USD",
+        "minimum": 0.8,
+        "maximum": 0.8
+      },
+      "reasoning": [
+        "Card is a dollar, CK pays $0.80 on it."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1074,
+      "end_seconds": 1083,
+      "evidence_excerpt": "Burn at the Stake is a very good guess. Card is a dollar, CK pays $0.80 on it. That's a bonus breaking bulk for you all.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4969899932ce521c",
+      "timestamp": "00:17:54",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_705_We_Need_A_Hero.mp3#t=1074"
+    },
+    {
+      "card": "Tyrant of Discord",
+      "printing": "Avacyn Restored",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "speaker_3"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2.57",
+      "entry_target": {
+        "raw": "TCG low of $0.69",
+        "currency": "USD",
+        "minimum": 0.69,
+        "maximum": 0.69
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It is $2.57 market price as of June 15th, 2026",
+        "It spiked with Lorwyn because it is an elemental",
+        "Has probably zero reprints"
+      ],
+      "caveats": [
+        "This card is a nightmare to resolve logistically",
+        "Can whittle down a board state at the cost of 12 minutes of your evening"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1102,
+      "end_seconds": 1196,
+      "evidence_excerpt": "I am picking it cuz it is $2.57 market price as of June 15th, 2026.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ba466714b9643649",
+      "timestamp": "00:18:22",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_705_We_Need_A_Hero.mp3#t=1102"
+    },
+    {
+      "card": "Chameleon, Master of Disguise",
+      "printing": "Spider-Man",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "speaker_2"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "over a dollar",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "eighty-something cents",
+        "currency": "USD",
+        "minimum": 0.8,
+        "maximum": 0.89
+      },
+      "reasoning": [
+        "It's a dollar over a dollar",
+        "Card Kingdom is paying eighty-something cents on it",
+        "It goes in all of your Gyruda Commander decks",
+        "It has mayhem as well, so it can screw around in draw-discard decks"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1203,
+      "end_seconds": 1365,
+      "evidence_excerpt": "over a dollar, $2 foil Card Kingdom paying you eighty-something cents on it.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-acf1bd48230c38d6",
+      "timestamp": "00:20:03",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_705_We_Need_A_Hero.mp3#t=1203"
+    },
+    {
+      "card": "Strike It Rich",
+      "printing": "Modern Horizons 2",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "speaker_0"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "a buck-30",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "a buck-30",
+        "currency": "USD",
+        "minimum": 1.3,
+        "maximum": 1.3
+      },
+      "reasoning": [
+        "Lotus Petal that has suspend 1 is pretty strong",
+        "The buy list has actually come up on this too",
+        "The buy list has caught up"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1365,
+      "end_seconds": 1421,
+      "evidence_excerpt": "With a buy list of a buck-30 to CK... the buy list has actually come up on this too",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-42565c30558267c5",
+      "timestamp": "00:22:45",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_705_We_Need_A_Hero.mp3#t=1365"
+    }
+  ]
+}

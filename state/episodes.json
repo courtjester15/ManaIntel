@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-01T21:17:04Z",
+  "updated_at": "2026-08-02T11:40:22Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -3246,6 +3246,191 @@
         "traffic_type": null
       },
       "review_reason": "No explicit financial recommendations (such as buys, sells, or holds) were made for any specific cards or products in the provided transcript. Only passive discussion of card prices, personal gaming preferences, and speculative future IP releases occurred."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=24954": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=24954",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-02T11:34:16Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-02T11:34:16Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-02T11:34:16Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-02T11:34:16Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-02T11:34:17Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-02T11:34:17Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-02T11:34:33Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-02T11:39:53Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-02T11:39:53Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-02T11:40:22Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-02T11:40:22Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-02T11:40:22Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-02T11:40:22Z"
+        }
+      ],
+      "title": "We Need A Hero! | Brainstorm Brewery #704 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-06-19T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-02T11:40:22Z",
+      "output_directory": "episodes/0000-we-need-a-hero-brainstorm-brewery-704-magic-finance-282972ca",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": null,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 97.136,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13342,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22553,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 7822,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43717,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 77.037,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16603,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 80,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39237,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 144.838,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9051,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 20653,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20599
+                }
+              ],
+              "thoughts_token_count": 17557,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47261,
+              "traffic_type": null
+            }
+          }
+        ]
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1248,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 12086,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 12086
+          }
+        ],
+        "thoughts_token_count": 4484,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 17818,
+        "traffic_type": null
+      },
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
     }
   }
 }
