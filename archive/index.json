@@ -6,8 +6,8 @@
     "project": "FFW",
     "pipeline_version": "0.4.4",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-03T13:25:44Z",
-    "latest_successful_run_at": "2026-08-02T21:16:02Z",
+    "generated_at": "2026-08-03T21:29:54Z",
+    "latest_successful_run_at": "2026-08-03T21:29:54Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 18,
-    "real_pick_count": 53,
+    "real_pick_count": 54,
     "last_discovered_episode_date": "2026-07-31T05:56:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
     "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 18,
-    "picks": 53,
+    "picks": 54,
     "needs_review": 11,
-    "failed": 4,
-    "completed": 3
+    "failed": 3,
+    "completed": 4
   },
   "status_counts": {
     "needs_review": 11,
-    "failed": 4,
-    "complete": 3
+    "failed": 3,
+    "complete": 4
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29150",
@@ -857,31 +857,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 1,
       "directory": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9",
       "outputs": {
         "metadata": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9/summary.json",
+        "summary_markdown": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-08-03T13:25:44Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 371.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-03T19:25:44Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-08-03T21:29:54Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

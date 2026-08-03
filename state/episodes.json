@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-03T13:25:44Z",
+  "updated_at": "2026-08-03T21:29:54Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -3518,6 +3518,50 @@
         {
           "status": "failed",
           "timestamp": "2026-08-03T13:25:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-03T21:21:44Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-03T21:21:44Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-03T21:21:45Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-03T21:21:45Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-03T21:22:06Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-03T21:29:23Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-03T21:29:23Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-03T21:29:54Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-03T21:29:54Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-03T21:29:54Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-03T21:29:54Z"
         }
       ],
       "title": "Marveling at Magic | Brainstorm Brewery #704 | Magic Finance",
@@ -3525,23 +3569,158 @@
       "published_at": "2026-06-12T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 371.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-03T19:25:44Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 1,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-03T21:29:54Z",
+      "output_directory": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3465,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 83.422,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11049,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22553,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 9218,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42820,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 123.834,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9533,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 14792,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46879,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 119.362,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10567,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 12988,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46109,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 765,
+            "request_seconds": 109.818,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 7212,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 19174,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 19120
+                }
+              ],
+              "thoughts_token_count": 15902,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42288,
+              "traffic_type": null
+            }
+          }
+        ]
       },
-      "status": "failed",
-      "updated_at": "2026-08-03T13:25:44Z",
-      "output_directory": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 377,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 9090,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 9090
+          }
+        ],
+        "thoughts_token_count": 4898,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 14365,
+        "traffic_type": null
+      },
+      "review_reason": null
     }
   }
 }
