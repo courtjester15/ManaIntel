@@ -6,7 +6,7 @@
     "project": "FFW",
     "pipeline_version": "0.4.4",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-02T21:16:02Z",
+    "generated_at": "2026-08-03T13:25:44Z",
     "latest_successful_run_at": "2026-08-02T21:16:02Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": null
       }
     ],
-    "real_episode_count": 17,
+    "real_episode_count": 18,
     "real_pick_count": 53,
     "last_discovered_episode_date": "2026-07-31T05:56:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
@@ -33,15 +33,15 @@
     "review_workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 17,
+    "episodes": 18,
     "picks": 53,
     "needs_review": 11,
-    "failed": 3,
+    "failed": 4,
     "completed": 3
   },
   "status_counts": {
     "needs_review": 11,
-    "failed": 3,
+    "failed": 4,
     "complete": 3
   },
   "latest_episode": {
@@ -832,6 +832,56 @@
       },
       "processed_at": "2026-07-22T21:30:17Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=24803",
+      "episode_number": 0,
+      "title": "Marveling at Magic | Brainstorm Brewery #704 | Magic Finance",
+      "published_at": "2026-06-12T06:00:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_704_Marveling_at_Magic.mp3",
+      "episode_url": "https://brainstormbrewery.com/marveling-at-magic-brainstorm-brewery-704-magic-finance/",
+      "duration_seconds": 3465,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "Corbin (@CHosler) and DJ (@CardgardenMTG) discuss Marvel Heroes breaking into the Magic: The Gathering Universe. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9",
+      "outputs": {
+        "metadata": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-08-03T13:25:44Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 371.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-08-03T19:25:44Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-02T21:16:02Z",
+  "updated_at": "2026-08-03T13:25:44Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -3483,6 +3483,65 @@
         "traffic_type": null
       },
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=24803": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=24803",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-03T13:19:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-03T13:19:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-03T13:19:10Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-03T13:19:10Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-03T13:19:11Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-03T13:19:11Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-03T13:19:31Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-08-03T13:25:44Z"
+        }
+      ],
+      "title": "Marveling at Magic | Brainstorm Brewery #704 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-06-12T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 371.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-08-03T19:25:44Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-08-03T13:25:44Z",
+      "output_directory": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9"
     }
   }
 }
