@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=23643",
     "episode_number": 0,
@@ -286,9 +286,13 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/metadata.json",
-    "summary_json": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/summary.json",
-    "summary_markdown": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 242,
+    "end_seconds": 1500,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+  },
+  "recommendations": []
 }

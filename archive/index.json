@@ -6,8 +6,8 @@
     "project": "FFW",
     "pipeline_version": "0.4.4",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-04T12:43:50Z",
-    "latest_successful_run_at": "2026-08-03T21:29:54Z",
+    "generated_at": "2026-08-04T21:50:32Z",
+    "latest_successful_run_at": "2026-08-04T21:50:32Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -35,13 +35,13 @@
   "counts": {
     "episodes": 19,
     "picks": 54,
-    "needs_review": 11,
-    "failed": 4,
+    "needs_review": 12,
+    "failed": 3,
     "completed": 4
   },
   "status_counts": {
-    "needs_review": 11,
-    "failed": 4,
+    "needs_review": 12,
+    "failed": 3,
     "complete": 4
   },
   "latest_episode": {
@@ -971,31 +971,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "No explicit card recommendations or Pick of the Week/Breaking Bulk segments were found in the provided transcript text.",
       "pick_count": 0,
       "directory": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f",
       "outputs": {
         "metadata": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/summary.json",
+        "summary_markdown": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-08-04T12:43:50Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 4/5 failed after 344.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-04T18:43:50Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-08-04T21:50:32Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
