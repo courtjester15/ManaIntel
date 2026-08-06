@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=21601",
+    "episode_number": 0,
+    "title": "Corbin and DJ have Beef | Brainstorm Brewery #701 | Magic Finance",
+    "published_at": "2026-05-22T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_701_Corbin_and_DJ_have_Beef.mp3",
+    "episode_url": "https://brainstormbrewery.com/corbin-and-dj-have-beef-brainstorm-brewery-701-magic-finance/",
+    "duration_seconds": 4308,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz (@devotedDruid), and DJ (@CardgardenMTG) navigate the latest exciting bans and unbans, and the feud between Corbin and DJ grows. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-06T12:31:20Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-06T12:18:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-06T12:18:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-06T12:18:12Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-06T12:18:12Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-06T12:18:16Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-06T12:18:16Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-06T12:18:39Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-06T12:30:44Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-06T12:30:44Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-06T12:31:20Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-06T12:31:20Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-06T12:31:20Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-06T12:31:20Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 4308,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 61.226,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11932,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22553,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 950,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35435,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 251.069,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12649,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 22091,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 57294,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 153.233,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12514,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 21529,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 56597,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 159.056,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13604,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 20813,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 56971,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 708,
+          "request_seconds": 99.042,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9116,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 17739,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 17685
+              }
+            ],
+            "thoughts_token_count": 13665,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40520,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1520,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 11586,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 11586
+        }
+      ],
+      "thoughts_token_count": 5622,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 18728,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0000-corbin-and-dj-have-beef-brainstorm-brewery-701-magic-finance-bc7bc602/metadata.json",
+    "summary_json": "episodes/0000-corbin-and-dj-have-beef-brainstorm-brewery-701-magic-finance-bc7bc602/summary.json",
+    "summary_markdown": "episodes/0000-corbin-and-dj-have-beef-brainstorm-brewery-701-magic-finance-bc7bc602/summary.md"
+  }
+}
