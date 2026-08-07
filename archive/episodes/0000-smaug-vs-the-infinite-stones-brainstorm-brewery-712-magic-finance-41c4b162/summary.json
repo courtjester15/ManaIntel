@@ -1,0 +1,404 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29858",
+    "episode_number": 0,
+    "title": "Smaug VS The Infinite Stones | Brainstorm Brewery #712 | Magic Finance",
+    "published_at": "2026-08-07T06:01:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3",
+    "episode_url": "https://brainstormbrewery.com/smaug-vs-the-infinite-stones-brainstorm-brewery-712-magic-finance/",
+    "duration_seconds": 3349,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz&#160; (@devotedDruid), and DJ (@CardgardenMTG) are hyped about this weekend’s upcoming Hobbit Pre-Release Events. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-07T11:22:22Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-07T11:06:35Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-07T11:06:35Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-07T11:06:35Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-07T11:06:35Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-07T11:06:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-07T11:06:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-07T11:06:54Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-07T11:21:47Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-07T11:21:47Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-07T11:22:22Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-07T11:22:22Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-07T11:22:22Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-07T11:22:22Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3349,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 72.641,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10407,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22553,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 7970,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40930,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 180.78,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8803,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 9155,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40512,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 175.791,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10455,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 11548,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44557,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 649,
+          "request_seconds": 462.819,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7754,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 16283,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 16229
+              }
+            ],
+            "thoughts_token_count": 12500,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36537,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1387,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 8309,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 8309
+        }
+      ],
+      "thoughts_token_count": 5843,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 15539,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1935,
+    "end_seconds": 3158,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+  },
+  "recommendations": [
+    {
+      "card": "Shriekwood Devourer",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "a quarter",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "a quarter",
+        "currency": "USD",
+        "minimum": 0.25,
+        "maximum": 0.25
+      },
+      "reasoning": [
+        "You can ship these off to Card Kingdom for a quarter apiece.",
+        "The extended art ones are almost a buck."
+      ],
+      "caveats": [
+        "It is a seven-mana green Treefolk."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2601,
+      "end_seconds": 2652,
+      "evidence_excerpt": "you can... ship these off to CK for a quarter apiece.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7a103bed73d0eda0",
+      "timestamp": "00:43:21",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3#t=2601"
+    },
+    {
+      "card": "Chimil, the Inner Sun",
+      "printing": "Commander printing",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$12",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It dropped a little in price but has been climbing since.",
+        "Commander reprints of low-supply cards represent great opportunities."
+      ],
+      "caveats": [
+        "It ate a reprint this year in Commander."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2756,
+      "end_seconds": 2857,
+      "evidence_excerpt": "these Commander reprints are such great opportunities when it's, uh, low-supply cards.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-59431c85c0f3bbb7",
+      "timestamp": "00:45:56",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3#t=2756"
+    },
+    {
+      "card": "Badgermal Cup",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$48",
+      "entry_target": {
+        "raw": "$48 to $52",
+        "currency": "USD",
+        "minimum": 48.0,
+        "maximum": 52.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "We are about to jump into Standard RCQ season, putting pressure on it.",
+        "Hareruya will pay 10,000 Yen (~$63.88) for copies in Japan.",
+        "It has legs in several non-Standard formats and is always a four-of."
+      ],
+      "caveats": [
+        "It has the kind of text on it that could get banned."
+      ],
+      "confidence": "high",
+      "start_seconds": 2857,
+      "end_seconds": 2941,
+      "evidence_excerpt": "If you need Badgermal Cups for yourself to play, get them now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7caff2e22ae34a59",
+      "timestamp": "00:47:37",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3#t=2857"
+    },
+    {
+      "card": "Their Power is Limitless",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Historically, the charity Secret Lairs have been very good.",
+        "It contains Finale of Devastation, Dark Ritual, and Coat of Arms.",
+        "Supply will stay low because players ordering late have to wait eight months."
+      ],
+      "caveats": [
+        "It is print-to-demand and has a very long backorder wait if not purchased early."
+      ],
+      "confidence": "high",
+      "start_seconds": 2839,
+      "end_seconds": 3030,
+      "evidence_excerpt": "even with the print-to-demand model, I think that this is a slam... It's got Finale of Devastation in it.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-3123ee240f1d7b1b",
+      "timestamp": "00:47:19",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3#t=2839"
+    },
+    {
+      "card": "Miku Secret Lair deck",
+      "printing": "Secret Lair deck",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It is a slam dunk of a product.",
+        "Easiest double up of your life."
+      ],
+      "caveats": [
+        "There is only a 24-hour print-to-demand ordering window."
+      ],
+      "confidence": "high",
+      "start_seconds": 3048,
+      "end_seconds": 3158,
+      "evidence_excerpt": "order it, buy it. Uh, this is a slam dunk of a product.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f93e5dacaa76a153",
+      "timestamp": "00:50:48",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3#t=3048"
+    }
+  ]
+}
