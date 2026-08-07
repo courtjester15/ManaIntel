@@ -1,0 +1,445 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/286511008",
+    "episode_number": 36,
+    "title": "MTG Fast Finance Episode 36",
+    "published_at": "2016-10-09T13:50:03Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/286511008-user-519789566-mtg-fast-finance-episode-36.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-36",
+    "duration_seconds": 3100,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "MTG Fast Finance Episode 36",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-07T21:03:51Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-07T20:58:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-07T20:58:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-07T20:58:12Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-07T20:58:12Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-07T20:58:15Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-07T20:58:15Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-07T20:58:34Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-07T21:03:18Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-07T21:03:18Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-07T21:03:51Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-07T21:03:51Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-07T21:03:51Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-07T21:03:51Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3100,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 72.761,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10716,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 4955,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38225,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 75.02,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9812,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 5032,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37399,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 67.757,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10575,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 5817,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38947,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 400,
+          "request_seconds": 67.212,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4288,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 10053,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 9998
+              }
+            ],
+            "thoughts_token_count": 5300,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 19641,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1898,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 13949,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 13949
+        }
+      ],
+      "thoughts_token_count": 4509,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 20356,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 796,
+    "end_seconds": 3223,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Spirebluff Canal",
+      "printing": "Kaladesh",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$15",
+      "entry_target": {
+        "raw": "around $10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "hold": "1-3 years",
+      "exit_target": {
+        "raw": "double up",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "Historically, blue-red lands in constructed-playable cycles perform exceptionally well and become the most expensive.",
+        "Hoping to purchase at peak supply when prices hit around $10."
+      ],
+      "caveats": [
+        "Blue-red is currently a color pair that is not performing particularly well in the format."
+      ],
+      "confidence": "medium",
+      "start_seconds": 800,
+      "end_seconds": 1004,
+      "evidence_excerpt": "foils in particular of the blue-red and white-black lands, that's Spirebluff Canal and Concealed Courtyard... more interested in both of these cards around $10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-40012507553fea09",
+      "timestamp": "00:13:20",
+      "listen_url": "https://feeds.soundcloud.com/stream/286511008-user-519789566-mtg-fast-finance-episode-36.mp3#t=800"
+    },
+    {
+      "card": "Concealed Courtyard",
+      "printing": "Kaladesh",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "around $10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "hold": "1-3 years",
+      "exit_target": {
+        "raw": "double up",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "White-black fast lands have multiple homes in Modern, such as WB Tokens, WB Eldrazi Hatebears, and Abzan."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 800,
+      "end_seconds": 921,
+      "evidence_excerpt": "foils in particular of the blue-red and white-black lands, that's Spirebluff Canal and Concealed Courtyard... more interested in both of these cards around $10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9dffd6c55621ea49",
+      "timestamp": "00:13:20",
+      "listen_url": "https://feeds.soundcloud.com/stream/286511008-user-519789566-mtg-fast-finance-episode-36.mp3#t=800"
+    },
+    {
+      "card": "Reality Smasher",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": true,
+      "hosts": [
+        "Travis Allen"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10",
+      "entry_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "hold": "3-5 years",
+      "exit_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "A huge component of Eldrazi lists in both Modern and Legacy.",
+        "Foils of constructed-playable cards in older formats perform very well because players like to foil out their dedicated decks.",
+        "Extremely difficult to reprint; unlikely to see a reprint outside of a Masters set until 2019 or 2021."
+      ],
+      "caveats": [
+        "At $10, it represents a relatively high 3x multiplier already."
+      ],
+      "confidence": "high",
+      "start_seconds": 1006,
+      "end_seconds": 1215,
+      "evidence_excerpt": "foil Reality Smashers, um, are about $10 right now. Huge part of every Eldrazi list, it's in Modern and Legacy.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c33647b4940148d2",
+      "timestamp": "00:16:46",
+      "listen_url": "https://feeds.soundcloud.com/stream/286511008-user-519789566-mtg-fast-finance-episode-36.mp3#t=1006"
+    },
+    {
+      "card": "Madcap Experiment",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3.50",
+      "entry_target": {
+        "raw": "in and around $3 to $3.50",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.5
+      },
+      "hold": "long-term",
+      "exit_target": {
+        "raw": "10 to 20",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "The card has already shown up in Modern sideboard play as a four-of.",
+        "Expected to draw casual, EDH, and Cube brewing demand.",
+        "At $3.50, the foil price is extremely modest for a Modern-legal rare."
+      ],
+      "caveats": [
+        "If it does not prove to be competitive, appreciation will rely solely on slower casual/EDH demand."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1215,
+      "end_seconds": 1310,
+      "evidence_excerpt": "my last one this week is Madcap Experiment foils... foils are a modest $3.50... stocking away a few sets... in and around $3 to $3.50",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cbb6e8f8dadc709a",
+      "timestamp": "00:20:15",
+      "listen_url": "https://feeds.soundcloud.com/stream/286511008-user-519789566-mtg-fast-finance-episode-36.mp3#t=1215"
+    },
+    {
+      "card": "Obstinate Baloth",
+      "printing": "M11",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "Travis Allen"
+      ],
+      "recommendation": "trade",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "hold": "6-12 months",
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Widely played sideboard card in nearly every green deck in Modern.",
+        "M11 is an older set, and market supply is drying up with very low copy counts per vendor."
+      ],
+      "caveats": [
+        "Growth will be slow and steady rather than a sudden spike.",
+        "Not recommended for direct cash investment, but a premium trade target."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1314,
+      "end_seconds": 1611,
+      "evidence_excerpt": "Obstinate Baloth from M11. Um, it's about $5 right now... I probably wouldn't rush out to put money into this... but I will trade for these all day long.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-0f044d92e40dd3ef",
+      "timestamp": "00:21:54",
+      "listen_url": "https://feeds.soundcloud.com/stream/286511008-user-519789566-mtg-fast-finance-episode-36.mp3#t=1314"
+    }
+  ]
+}
