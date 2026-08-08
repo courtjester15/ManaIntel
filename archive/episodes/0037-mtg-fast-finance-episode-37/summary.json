@@ -1,0 +1,404 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/287786625",
+    "episode_number": 37,
+    "title": "MTG Fast Finance Episode 37",
+    "published_at": "2016-10-15T00:21:00Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/287786625-user-519789566-mtg-fast-finance-episode-37.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-37",
+    "duration_seconds": 3029,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "MTG Fast Finance Episode 37",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-08T20:53:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-08T20:47:31Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-08T20:47:31Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-08T20:47:31Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-08T20:47:31Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-08T20:47:32Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-08T20:47:32Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-08T20:47:51Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-08T20:53:14Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-08T20:53:14Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-08T20:53:49Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-08T20:53:49Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-08T20:53:49Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-08T20:53:49Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3029,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 137.766,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9185,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 2080,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33819,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 64.756,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9840,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 5019,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37414,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 82.173,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9261,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 9666,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41482,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 329,
+          "request_seconds": 38.095,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3230,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 8277,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 8222
+              }
+            ],
+            "thoughts_token_count": 5453,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 16960,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1436,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12795,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12795
+        }
+      ],
+      "thoughts_token_count": 5938,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 20169,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1103,
+    "end_seconds": 3222,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Metalwork Colossus",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Speaker 2"
+      ],
+      "recommendation": "Buy if it performs well at the Pro Tour, otherwise hold off.",
+      "mentioned_price": "dollar range",
+      "entry_target": {
+        "raw": "dollar range",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "over five dollars",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Showing up in a blue-black deck in the online meta",
+        "Cost reduction mechanic allows potential free 10/10"
+      ],
+      "caveats": [
+        "Only buy if a major team does well with it at the Pro Tour"
+      ],
+      "confidence": "low",
+      "start_seconds": 1111,
+      "end_seconds": 1247,
+      "evidence_excerpt": "If it's a major team's deck and they seem to be doing well with it, those are all triggers for buying this card. Otherwise, I think you hold off.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-aa4c384afd187468",
+      "timestamp": "00:18:31",
+      "listen_url": "https://feeds.soundcloud.com/stream/287786625-user-519789566-mtg-fast-finance-episode-37.mp3#t=1111"
+    },
+    {
+      "card": "Panharmonicon",
+      "printing": "Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1"
+      ],
+      "recommendation": "Buy foil copies immediately",
+      "mentioned_price": "$11 or $12",
+      "entry_target": {
+        "raw": "$11 or $12",
+        "currency": "USD",
+        "minimum": 11.0,
+        "maximum": 12.0
+      },
+      "hold": "1 to 2 years",
+      "exit_target": {
+        "raw": "$30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Insane in EDH",
+        "Generates incredible play patterns",
+        "Foils are much harder to reprint"
+      ],
+      "caveats": [
+        "Foils are disappearing extremely fast"
+      ],
+      "confidence": "high",
+      "start_seconds": 1429,
+      "end_seconds": 1733,
+      "evidence_excerpt": "I'm looking at the foil copies specifically. They were $10 yesterday.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-bdbd523ca5ea8940",
+      "timestamp": "00:23:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/287786625-user-519789566-mtg-fast-finance-episode-37.mp3#t=1429"
+    },
+    {
+      "card": "Gideon, Ally of Zendikar",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Speaker 2"
+      ],
+      "recommendation": "Buy and hold short to mid-term, sell before rotation",
+      "mentioned_price": "around $20",
+      "entry_target": {
+        "raw": "around $20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": "short to mid range",
+      "exit_target": {
+        "raw": "$30 range",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "By far the most played planeswalker in Standard",
+        "Only planeswalker in significant quantity leading into the Pro Tour"
+      ],
+      "caveats": [
+        "Do not hold past rotation next late spring"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1733,
+      "end_seconds": 1909,
+      "evidence_excerpt": "I'm looking at the short to mid range, because I think once this rotates out next late next spring, it's not going to be a card you're going to want to be caught holding.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1dc4340d2e44fd57",
+      "timestamp": "00:28:53",
+      "listen_url": "https://feeds.soundcloud.com/stream/287786625-user-519789566-mtg-fast-finance-episode-37.mp3#t=1733"
+    },
+    {
+      "card": "Metallurgic Summonings",
+      "printing": "Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1"
+      ],
+      "recommendation": "Buy foil copies under $20",
+      "mentioned_price": "under $20",
+      "entry_target": {
+        "raw": "under $20",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 20.0
+      },
+      "hold": "long-term",
+      "exit_target": {
+        "raw": "$40 foils",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Very few left out there after the recent run",
+        "A mythic people will get excited about in multiple formats"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1909,
+      "end_seconds": 1957,
+      "evidence_excerpt": "And, if you can track down foils of the Summonings anywhere under $20, I think it's a long-term, because it's a mythic, you're probably looking at $40 foils, given enough time.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9bd709feb39f4a76",
+      "timestamp": "00:31:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/287786625-user-519789566-mtg-fast-finance-episode-37.mp3#t=1909"
+    }
+  ]
+}

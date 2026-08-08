@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-08T10:58:36Z",
+  "updated_at": "2026-08-08T20:53:49Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -5099,6 +5099,220 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 34749,
+        "traffic_type": null
+      },
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
+    },
+    "tag:soundcloud,2010:tracks/287786625": {
+      "guid": "tag:soundcloud,2010:tracks/287786625",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-08T20:47:31Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-08T20:47:31Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-08T20:47:31Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-08T20:47:31Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-08T20:47:32Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-08T20:47:32Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-08T20:47:51Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-08T20:53:14Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-08T20:53:14Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-08T20:53:49Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-08T20:53:49Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-08T20:53:49Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-08T20:53:49Z"
+        }
+      ],
+      "title": "MTG Fast Finance Episode 37",
+      "episode_number": 37,
+      "published_at": "2016-10-15T00:21:00Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-08T20:53:49Z",
+      "output_directory": "episodes/0037-mtg-fast-finance-episode-37",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3029,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 137.766,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9185,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 2080,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33819,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 64.756,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9840,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22555,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                }
+              ],
+              "thoughts_token_count": 5019,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37414,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 82.173,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9261,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22555,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 9666,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41482,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 329,
+            "request_seconds": 38.095,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3230,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 8277,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 8222
+                }
+              ],
+              "thoughts_token_count": 5453,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 16960,
+              "traffic_type": null
+            }
+          }
+        ]
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1436,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 12795,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 12795
+          }
+        ],
+        "thoughts_token_count": 5938,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 20169,
         "traffic_type": null
       },
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
