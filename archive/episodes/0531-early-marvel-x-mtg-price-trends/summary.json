@@ -1,0 +1,524 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2377104500",
+    "episode_number": 531,
+    "title": "MTG Fast Finance Ep 531: Early Marvel x MTG Price Trends",
+    "published_at": "2026-08-07T00:34:40Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-531-early",
+    "duration_seconds": 3571,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The boys you caught on all the Magic the Gathering card price action of the week, including meta updates, cards to watch and some early analysis on Marvel Superheroes price trends and Hobbit reveals.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-08T10:58:36Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-08T10:50:38Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-08T10:50:38Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-08T10:50:38Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-08T10:50:38Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-08T10:50:39Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-08T10:50:39Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-08T10:51:01Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-08T10:57:58Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-08T10:57:58Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-08T10:58:36Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-08T10:58:36Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-08T10:58:36Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-08T10:58:36Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3571,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 179.039,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9773,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 12548,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44875,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 85.543,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9580,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 11517,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43652,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 77.963,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11722,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 7793,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42070,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 871,
+          "request_seconds": 73.86,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11232,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 21840,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 21785
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 5893,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38965,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2512,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 27049,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 27049
+        }
+      ],
+      "thoughts_token_count": 5188,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 34749,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 121,
+    "end_seconds": 3614,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Galactus",
+      "printing": "regular frame",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$9",
+      "entry_target": {
+        "raw": "under 10",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 10.0
+      },
+      "hold": "a year or two",
+      "exit_target": {
+        "raw": "20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "You have the Silver Surfer in the same deck that searches him up",
+        "Art is good and it is a very popular character",
+        "Molecule Man lets you cast him for free in Eldrazi decks"
+      ],
+      "caveats": [
+        "There is a world in which enough of these Commander decks get opened and the singles drop like a rock"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1587,
+      "end_seconds": 1795,
+      "evidence_excerpt": "pretty confident that getting these under 10 gets you to 20 in a year or two.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5945807a0c2d78bc",
+      "timestamp": "00:26:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=1587"
+    },
+    {
+      "card": "Forsaken Monument",
+      "printing": "Zendikar Rising FEA",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$13 to $15",
+      "entry_target": {
+        "raw": "around $13 to $15",
+        "currency": "USD",
+        "minimum": 13.0,
+        "maximum": 15.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Great synergy for players building Ultron decks",
+        "Gives colorless creatures +2/+2, makes colorless permanents tap for extra mana, and colorless spells gain life"
+      ],
+      "caveats": [
+        "Ultron has not broken into the top 30 most built Commanders yet"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1795,
+      "end_seconds": 1936,
+      "evidence_excerpt": "You can currently get these for around $13 to $15, and as people start building Ultron, uh I think that this is one of the most amazing cards",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5ad51ce00ae47a5a",
+      "timestamp": "00:29:55",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=1795"
+    },
+    {
+      "card": "Thor, God of Thunder",
+      "printing": "regular",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$7 to $8",
+      "entry_target": {
+        "raw": "in the $7 to $8 range",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 8.0
+      },
+      "hold": "long term",
+      "exit_target": {
+        "raw": "20 to 30",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "He is a beloved Marvel character",
+        "Fits easily into fantasy decks like Kaldheim milieu",
+        "Synergy with Storm, Force of Nature"
+      ],
+      "caveats": [
+        "There will be some opened copies that stay with the people who open them"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1936,
+      "end_seconds": 2123,
+      "evidence_excerpt": "regular copies under $10 make no sense to me. This is a future $20 to $30 card easy.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b56a130a6bba4306",
+      "timestamp": "00:32:16",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=1936"
+    },
+    {
+      "card": "Freyalise, Llanowar's Fury",
+      "printing": "Secret Lair (Miku, Voice of Power)",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$20",
+      "entry_target": {
+        "raw": "about 20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": "once the actual deck comes out",
+      "exit_target": {
+        "raw": "20 to 40",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Harkening to the Hatsune Miku Secret Lair deck leak",
+        "Great in populate token themes"
+      ],
+      "caveats": [
+        "Japanese copies are much cheaper but sell slower than English"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2123,
+      "end_seconds": 2258,
+      "evidence_excerpt": "I think the English copies are the safer bet to go something like 20 to 40 once the actual deck comes out.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6b6a6e00ba075928",
+      "timestamp": "00:35:23",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=2123"
+    },
+    {
+      "card": "Iron Man, Bleeding Edge",
+      "printing": "Jumpstart",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "17.50",
+      "entry_target": {
+        "raw": "in the mid-teens",
+        "currency": "USD",
+        "minimum": 13.0,
+        "maximum": 19.0
+      },
+      "hold": "the next year or two",
+      "exit_target": {
+        "raw": "say 30+",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Copies artifact spells and bypasses legend rule, which doubles things like the One Ring",
+        "Has high rarity as a Jumpstart foil with weird insulation on reprint protection"
+      ],
+      "caveats": [
+        "Price will get pushed down under the weight of fresh inventory in the near future"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2258,
+      "end_seconds": 2534,
+      "evidence_excerpt": "the Iron Man, Bleeding Edge foils in the mid-teens to go to say 30+ in the next year or two seems very likely to me.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4645d71ac9560db1",
+      "timestamp": "00:37:38",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=2258"
+    },
+    {
+      "card": "Swordsman's Steel",
+      "printing": "Jumpstart",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "hopefully under 10",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 10.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Allows you to draw cards and buffs equipped creature based on equipment count",
+        "Perfect auto-include for Captain America decks"
+      ],
+      "caveats": [
+        "Needs to fall to that price point"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2905,
+      "end_seconds": 2974,
+      "evidence_excerpt": "This is a card I can't wait to buy a lot of. If I get the chance to buy a stack of these, uh, hopefully under 10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-335395c662dbbb0b",
+      "timestamp": "00:48:25",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=2905"
+    },
+    {
+      "card": "Marvel Super Heroes Collector Booster Box",
+      "printing": "Sealed Collector Booster Box",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "400",
+      "entry_target": {
+        "raw": "say 400 a box",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 400.0
+      },
+      "hold": "three years",
+      "exit_target": {
+        "raw": "800 a box",
+        "currency": "USD",
+        "minimum": 800.0,
+        "maximum": 800.0
+      },
+      "reasoning": [
+        "Deep set with special subsets, chase cards, and Jumpstart cards supporting trailing demand",
+        "Boxes should move up in the mid to long-term"
+      ],
+      "caveats": [
+        "Could hit a low in August due to sellers liquidating to position on Hobbit"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3161,
+      "end_seconds": 3192,
+      "evidence_excerpt": "if they hit something like say 400 a box, I think putting them away to be 800 a box in three years is a pretty solid",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4f37c227ed187511",
+      "timestamp": "00:52:41",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=3161"
+    }
+  ]
+}
