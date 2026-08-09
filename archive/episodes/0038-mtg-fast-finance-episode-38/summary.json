@@ -1,0 +1,538 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/289374851",
+    "episode_number": 38,
+    "title": "MTG Fast Finance Episode 38",
+    "published_at": "2016-10-24T15:00:08Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/289374851-user-519789566-mtg-fast-finance-episode-38.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-38",
+    "duration_seconds": 5788,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "MTG Fast Finance Episode 38",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-09T21:11:11Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-09T20:51:22Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-09T20:51:22Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-09T20:51:22Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-09T20:51:22Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-09T20:51:24Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-09T20:51:24Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-09T20:52:00Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-09T21:10:35Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-09T21:10:35Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-09T21:11:11Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-09T21:11:11Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-09T21:11:11Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-09T21:11:11Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 7,
+      "duration_seconds": 5788,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 7,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 178.249,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11557,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 9185,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43296,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 7,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 184.26,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8961,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 15777,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47293,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 7,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 200.113,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10599,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 21302,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 54456,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 7,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 182.895,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10133,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 16310,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 48998,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 7,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 180.352,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9094,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 5277,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36926,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 6,
+          "chunk_count": 7,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 147.731,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9034,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 11445,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43034,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 7,
+          "chunk_count": 7,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 388,
+          "request_seconds": 40.519,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3724,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 9746,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 9691
+              }
+            ],
+            "thoughts_token_count": 5588,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 19058,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1887,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 37081,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 37081
+        }
+      ],
+      "thoughts_token_count": 4769,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 43737,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 64,
+    "end_seconds": 6028,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Cryptic Command",
+      "printing": "Modern Masters 2015 Edition",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott",
+        "Travis Allen"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$16",
+      "entry_target": {
+        "raw": "under $15",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 15.0
+      },
+      "hold": "couple years",
+      "exit_target": {
+        "raw": "cross 25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Currently at a historic low due to blue control being weak in the current Modern meta",
+        "One of the best counterspells in Magic history that will inevitably rise back up"
+      ],
+      "caveats": [
+        "Blue control is too slow for the current fast Modern format"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1918,
+      "end_seconds": 1971,
+      "evidence_excerpt": "my first pick of the week is Cryptic Command, which if you can believe it, is down as low as $16 on TCGplayer.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a5a1f4d768e1c72f",
+      "timestamp": "00:31:58",
+      "listen_url": "https://feeds.soundcloud.com/stream/289374851-user-519789566-mtg-fast-finance-episode-38.mp3#t=1918"
+    },
+    {
+      "card": "Grim Flayer",
+      "printing": "Eldritch Moon",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott",
+        "Travis Allen"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$16",
+      "entry_target": {
+        "raw": "about the 16 range",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 16.0
+      },
+      "hold": "mid to long",
+      "exit_target": {
+        "raw": "cross $30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Sees heavy play in Standard (Delirium) and Modern (Jund and Abzan)",
+        "Is a powerful mythic rare from a well-regarded second set (Eldritch Moon)"
+      ],
+      "caveats": [
+        "The buy-in of $15-$16 is relatively high compared to under $10 spec days"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2044,
+      "end_seconds": 2124,
+      "evidence_excerpt": "Alright, my first card for this week is, is Grim Flayer from Eldritch Moon. Um, I'm looking at a mid to long on this guy, probably about a 7.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e609e474c2385ee8",
+      "timestamp": "00:34:04",
+      "listen_url": "https://feeds.soundcloud.com/stream/289374851-user-519789566-mtg-fast-finance-episode-38.mp3#t=2044"
+    },
+    {
+      "card": "Dark Confidant",
+      "printing": "Modern Masters 2015 Edition",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott",
+        "Travis Allen"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$30",
+      "entry_target": {
+        "raw": "playset for $100",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "hold": "long-term",
+      "exit_target": {
+        "raw": "towards $45",
+        "currency": "USD",
+        "minimum": 45.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Unlikely to get reprinted a third time in the upcoming Modern Masters 2017",
+        "Jund is a premier Modern archetype and this card will rise if it stays out of print"
+      ],
+      "caveats": [
+        "Relatively high supply currently keeps the price suppressed"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2363,
+      "end_seconds": 2435,
+      "evidence_excerpt": "The, uh, so next on my list, in continuing of my theme of Modern, undervalued Modern Masters 2015 cards, um, is Dark Confidant.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9f45a9bdc74f0944",
+      "timestamp": "00:39:23",
+      "listen_url": "https://feeds.soundcloud.com/stream/289374851-user-519789566-mtg-fast-finance-episode-38.mp3#t=2363"
+    },
+    {
+      "card": "Hissing Quagmire",
+      "printing": "Oath of the Gatewatch",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott",
+        "Travis Allen"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "around $3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": "Standard",
+      "exit_target": {
+        "raw": "double up",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
+      "reasoning": [
+        "Key piece of the popular Black-Green Delirium Standard deck",
+        "Oath of the Gatewatch greatly benefits from the extended Standard rotation duration"
+      ],
+      "caveats": [
+        "Not a top-tier man-land, primarily limited to BG-specific decks"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2477,
+      "end_seconds": 2749,
+      "evidence_excerpt": "My second card this week is Hissing Quagmire. This is the creature land from Oath of the Gatewatch, the Black-Green guy.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c3dcd241970c8460",
+      "timestamp": "00:41:17",
+      "listen_url": "https://feeds.soundcloud.com/stream/289374851-user-519789566-mtg-fast-finance-episode-38.mp3#t=2477"
+    },
+    {
+      "card": "Eldrazi Temple",
+      "printing": "Modern Masters 2015 Edition",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott",
+        "Travis Allen"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "in the $5 to $6 range",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 6.0
+      },
+      "hold": "long-term",
+      "exit_target": {
+        "raw": "$10 to $12",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 12.0
+      },
+      "reasoning": [
+        "Eldrazi Bant is highly stable and strong in the Modern metagame",
+        "Massive casual and kitchen-table demand for Eldrazi tribal",
+        "An uncommon in Modern Masters has a much lower print run than standard sets"
+      ],
+      "caveats": [
+        "It is an uncommon, so reprints could happen easier than for rares"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3625,
+      "end_seconds": 3818,
+      "evidence_excerpt": "the land I've got my eye on out of Modern Masters 2015 is Eldrazi Temple",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-54da5e13f4d5e5f3",
+      "timestamp": "01:00:25",
+      "listen_url": "https://feeds.soundcloud.com/stream/289374851-user-519789566-mtg-fast-finance-episode-38.mp3#t=3625"
+    }
+  ]
+}
