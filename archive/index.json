@@ -6,8 +6,8 @@
     "project": "FFW",
     "pipeline_version": "0.4.4",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-07T11:22:22Z",
-    "latest_successful_run_at": "2026-08-07T11:22:22Z",
+    "generated_at": "2026-08-10T02:17:35Z",
+    "latest_successful_run_at": "2026-08-09T21:11:11Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -22,27 +22,27 @@
       {
         "id": "mtg-fast-finance",
         "name": "MTG Fast Finance",
-        "url": null
+        "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 22,
-    "real_pick_count": 63,
+    "real_episode_count": 27,
+    "real_pick_count": 87,
     "last_discovered_episode_date": "2026-08-07T06:01:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
     "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml",
     "review_workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 22,
-    "picks": 63,
-    "needs_review": 14,
+    "episodes": 27,
+    "picks": 87,
+    "needs_review": 18,
     "failed": 4,
-    "completed": 4
+    "completed": 5
   },
   "status_counts": {
-    "needs_review": 14,
+    "needs_review": 18,
     "failed": 4,
-    "complete": 4
+    "complete": 5
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29858",
@@ -303,43 +303,56 @@
       "human_reviewed": false
     },
     {
-      "card": "Blackwing Armor Master",
-      "printing": null,
-      "printing_certainty": null,
+      "card": "Marvel Super Heroes Collector Booster Box",
+      "printing": "Sealed Collector Booster Box",
+      "printing_certainty": "confirmed",
       "foil": null,
       "hosts": [
-        "DJ"
+        "James Chillcott",
+        "Cliff Daigle"
       ],
       "recommendation": "buy",
-      "mentioned_price": null,
-      "entry_target": null,
-      "hold": null,
-      "exit_target": null,
+      "mentioned_price": "400",
+      "entry_target": {
+        "raw": "say 400 a box",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 400.0
+      },
+      "hold": "three years",
+      "exit_target": {
+        "raw": "800 a box",
+        "currency": "USD",
+        "minimum": 800.0,
+        "maximum": 800.0
+      },
       "reasoning": [
-        "Very good card",
-        "Usually synchro with Gale, halve their thing, then make Armor Master, then start killing things"
+        "Deep set with special subsets, chase cards, and Jumpstart cards supporting trailing demand",
+        "Boxes should move up in the mid to long-term"
       ],
-      "caveats": [],
-      "confidence": "high",
-      "start_seconds": 2735,
-      "end_seconds": 2746,
-      "evidence_excerpt": "it's my pick of the week, actually. Uh, this is the end of the podcast, goodbye. No, I'm kidding. Get your, get your Blackwing Armor Masters.",
+      "caveats": [
+        "Could hit a low in August due to sellers liquidating to position on Hobbit"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3161,
+      "end_seconds": 3192,
+      "evidence_excerpt": "if they hit something like say 400 a box, I think putting them away to be 800 a box in three years is a pretty solid",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-070bb2538cb37f9e",
-      "timestamp": "00:45:35",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_709_It_Was_Bound_To_Happen.mp3#t=2735",
+      "id": "pick-4f37c227ed187511",
+      "timestamp": "00:52:41",
+      "listen_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3#t=3161",
       "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=26773",
-        "episode_number": 0,
-        "title": "It Was Bound To Happen | Brainstorm Brewery #709 | Magic Finance",
-        "published_at": "2026-07-17T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/it-was-bound-to-happen-brainstorm-brewery-709-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_709_It_Was_Bound_To_Happen.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
+        "guid": "tag:soundcloud,2010:tracks/2377104500",
+        "episode_number": 531,
+        "title": "MTG Fast Finance Ep 531: Early Marvel x MTG Price Trends",
+        "published_at": "2026-08-07T00:34:40Z",
+        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-531-early",
+        "audio_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3",
+        "source_id": "mtg-fast-finance",
+        "source_name": "MTG Fast Finance"
       },
-      "processing_status": "complete",
+      "processing_status": "needs_review",
       "human_reviewed": false
     }
   ],
@@ -376,6 +389,42 @@
         "effective_summary_markdown": null
       },
       "processed_at": "2026-08-07T11:22:22Z",
+      "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2377104500",
+      "episode_number": 531,
+      "title": "MTG Fast Finance Ep 531: Early Marvel x MTG Price Trends",
+      "published_at": "2026-08-07T00:34:40Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2377104500-user-519789566-mtg-fast-finance-ep-531-early.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-531-early",
+      "duration_seconds": 3571,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "The boys you caught on all the Magic the Gathering card price action of the week, including meta updates, cards to watch and some early analysis on Marvel Superheroes price trends and Hobbit reveals.\n\nIntro/Outro Music by Skylarka",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "pick_count": 7,
+      "directory": "episodes/0531-early-marvel-x-mtg-price-trends",
+      "outputs": {
+        "metadata": "episodes/0531-early-marvel-x-mtg-price-trends/metadata.json",
+        "summary_json": "episodes/0531-early-marvel-x-mtg-price-trends/summary.json",
+        "summary_markdown": "episodes/0531-early-marvel-x-mtg-price-trends/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-08-08T10:58:36Z",
       "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
@@ -1145,6 +1194,45 @@
       "synthetic": false
     },
     {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=20176",
+      "episode_number": 0,
+      "title": "In WHAT Universe! | Brainstorm Brewery #699 | Magic Finance",
+      "published_at": "2026-05-15T06:33:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_700_In_WHAT_Universe.mp3",
+      "episode_url": "https://brainstormbrewery.com/in-what-universe-brainstorm-brewery-699-magic-finance/",
+      "duration_seconds": 3323,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "Corbin (@CHosler), Liz (@devotedDruid), and DJ (@CardgardenMTG) are getting educated on what is within and what is beyond in standard, universes and much more. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "complete",
+      "review_state": "approved",
+      "review_reason": null,
+      "pick_count": 3,
+      "directory": "episodes/0000-in-what-universe-brainstorm-brewery-699-magic-finance-a4e17879",
+      "outputs": {
+        "metadata": "episodes/0000-in-what-universe-brainstorm-brewery-699-magic-finance-a4e17879/metadata.json",
+        "summary_json": "episodes/0000-in-what-universe-brainstorm-brewery-699-magic-finance-a4e17879/summary.json",
+        "summary_markdown": "episodes/0000-in-what-universe-brainstorm-brewery-699-magic-finance-a4e17879/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-08-09T11:15:22Z",
+      "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
       "guid": "tag:soundcloud,2010:tracks/2311672805",
       "episode_number": 521,
       "title": "MTG Fast Finance Ep 521: SOS Previews Pt 2",
@@ -1169,6 +1257,114 @@
         "effective_summary_markdown": null
       },
       "processed_at": "2026-07-26T11:43:09Z",
+      "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/289374851",
+      "episode_number": 38,
+      "title": "MTG Fast Finance Episode 38",
+      "published_at": "2016-10-24T15:00:08Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/289374851-user-519789566-mtg-fast-finance-episode-38.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-38",
+      "duration_seconds": 5788,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "MTG Fast Finance Episode 38",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "pick_count": 5,
+      "directory": "episodes/0038-mtg-fast-finance-episode-38",
+      "outputs": {
+        "metadata": "episodes/0038-mtg-fast-finance-episode-38/metadata.json",
+        "summary_json": "episodes/0038-mtg-fast-finance-episode-38/summary.json",
+        "summary_markdown": "episodes/0038-mtg-fast-finance-episode-38/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-08-09T21:11:11Z",
+      "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/287786625",
+      "episode_number": 37,
+      "title": "MTG Fast Finance Episode 37",
+      "published_at": "2016-10-15T00:21:00Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/287786625-user-519789566-mtg-fast-finance-episode-37.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-37",
+      "duration_seconds": 3029,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "MTG Fast Finance Episode 37",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "pick_count": 4,
+      "directory": "episodes/0037-mtg-fast-finance-episode-37",
+      "outputs": {
+        "metadata": "episodes/0037-mtg-fast-finance-episode-37/metadata.json",
+        "summary_json": "episodes/0037-mtg-fast-finance-episode-37/summary.json",
+        "summary_markdown": "episodes/0037-mtg-fast-finance-episode-37/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-08-08T20:53:49Z",
+      "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/286511008",
+      "episode_number": 36,
+      "title": "MTG Fast Finance Episode 36",
+      "published_at": "2016-10-09T13:50:03Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/286511008-user-519789566-mtg-fast-finance-episode-36.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-36",
+      "duration_seconds": 3100,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "MTG Fast Finance Episode 36",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "pick_count": 5,
+      "directory": "episodes/0036-mtg-fast-finance-episode-36",
+      "outputs": {
+        "metadata": "episodes/0036-mtg-fast-finance-episode-36/metadata.json",
+        "summary_json": "episodes/0036-mtg-fast-finance-episode-36/summary.json",
+        "summary_markdown": "episodes/0036-mtg-fast-finance-episode-36/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-08-07T21:03:51Z",
       "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
