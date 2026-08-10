@@ -9,6 +9,13 @@ const app = document.querySelector("#app");
 const pageTitle = document.querySelector("#page-title");
 const dialog = document.querySelector("#pick-dialog");
 const dialogContent = document.querySelector("#dialog-content");
+const dialogClose = document.querySelector(".dialog-close");
+const dialogState = {
+  view: null,
+  episodeGuid: null,
+  episodeScrollTop: 0,
+  pickId: null,
+};
 
 const routes = {
   dashboard: { title: "Dashboard", render: renderDashboard },
@@ -432,16 +439,39 @@ function bindEpisodeButtons() {
   });
 }
 
-function showPick(id) {
-  const pick = state.cards.find((item) => item.id === id);
-  if (!pick) return;
-  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">Episode ${pick.episode.episode_number} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(pick.card)}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit</small><strong>${target(pick.exit_target)}</strong></div></div><div class="recommendation-callout"><small>Host recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${escapeHtml(pickSummaryUrl(pick))}">Listen at timestamp</a>${badge(pick.review_status)}</div></div>`;
-  dialog.showModal();
+function openDialog() {
+  if (!dialog.open) dialog.showModal();
 }
 
-function showEpisode(guid) {
+function setDialogCloseAction(isBack) {
+  const label = isBack ? "Back to episode picks" : "Close details";
+  dialogClose.setAttribute("aria-label", label);
+  dialogClose.title = label;
+}
+
+function showPick(id, { fromEpisode = false } = {}) {
+  const pick = state.cards.find((item) => item.id === id);
+  if (!pick) return;
+  if (fromEpisode && dialogState.view === "episode" && dialogState.episodeGuid === pick.episode.guid) {
+    dialogState.episodeScrollTop = dialog.scrollTop;
+  } else {
+    dialogState.episodeGuid = null;
+    dialogState.episodeScrollTop = 0;
+  }
+  dialogState.view = "pick";
+  dialogState.pickId = pick.id;
+  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">Episode ${pick.episode.episode_number} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(pick.card)}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit</small><strong>${target(pick.exit_target)}</strong></div></div><div class="recommendation-callout"><small>Host recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${escapeHtml(pickSummaryUrl(pick))}">Listen at timestamp</a>${badge(pick.review_status)}</div></div>`;
+  setDialogCloseAction(Boolean(dialogState.episodeGuid));
+  openDialog();
+}
+
+function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
   const episode = state.index.episodes.find((item) => item.guid === guid);
   if (!episode) return;
+  if (!returning) dialogState.episodeScrollTop = 0;
+  dialogState.view = "episode";
+  dialogState.episodeGuid = guid;
+  dialogState.pickId = null;
   const error = episode.error || {};
   const summaryLink = canOpenSummary(episode) ? `<a class="button secondary" href="${episodeSummaryUrl(episode)}" target="_blank">Open summary</a>` : "";
   const episodePicks = state.cards.filter((pick) => pick.episode.guid === episode.guid);
@@ -456,11 +486,39 @@ function showEpisode(guid) {
     ? `<div class="detail-section"><h3>Cards to Watch</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
     : `<div class="detail-section"><h3>Cards to Watch</h3><p>No structured picks were published for this episode.</p></div>`;
   dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>Failure details</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Attempted</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
-  dialog.showModal();
+  setDialogCloseAction(false);
+  openDialog();
+  if (returning) {
+    requestAnimationFrame(() => {
+      dialog.scrollTop = dialogState.episodeScrollTop;
+      const pickElement = [...dialogContent.querySelectorAll("[data-pick-id]")]
+        .find((element) => element.dataset.pickId === focusPickId);
+      pickElement?.focus();
+    });
+  }
 }
 
-document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+function closeDialogOrBack() {
+  if (dialogState.view === "pick" && dialogState.episodeGuid) {
+    showEpisode(dialogState.episodeGuid, { returning: true, focusPickId: dialogState.pickId });
+    return;
+  }
+  dialog.close();
+}
+
+dialogClose.addEventListener("click", closeDialogOrBack);
+dialog.addEventListener("click", (event) => { if (event.target === dialog) closeDialogOrBack(); });
+dialog.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  closeDialogOrBack();
+});
+dialog.addEventListener("close", () => {
+  dialogState.view = null;
+  dialogState.episodeGuid = null;
+  dialogState.episodeScrollTop = 0;
+  dialogState.pickId = null;
+  setDialogCloseAction(false);
+});
 dialogContent.addEventListener("click", (event) => {
   const copyButton = event.target.closest("[data-copy-guid]");
   if (copyButton) {
@@ -468,14 +526,14 @@ dialogContent.addEventListener("click", (event) => {
     return;
   }
   const pickElement = event.target.closest("[data-pick-id]");
-  if (pickElement) showPick(pickElement.dataset.pickId);
+  if (pickElement) showPick(pickElement.dataset.pickId, { fromEpisode: dialogState.view === "episode" });
 });
 dialogContent.addEventListener("keydown", (event) => {
   if (!["Enter", " "].includes(event.key)) return;
   const pickElement = event.target.closest("[data-pick-id]");
   if (pickElement) {
     event.preventDefault();
-    showPick(pickElement.dataset.pickId);
+    showPick(pickElement.dataset.pickId, { fromEpisode: dialogState.view === "episode" });
   }
 });
 document.querySelector("#refresh-button").addEventListener("click", loadData);
