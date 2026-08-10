@@ -1,0 +1,371 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=19868",
+    "episode_number": 0,
+    "title": "Post Vegas Vegetation | Brainstorm Brewery #699 | Magic Finance",
+    "published_at": "2026-05-08T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_699_Post_Vegas_Vegitation.mp3",
+    "episode_url": "https://brainstormbrewery.com/post-vegas-vegetation-brainstorm-brewery-699-magic-finance/",
+    "duration_seconds": 3252,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz (@devotedDruid), and DJ (@CardgardenMTG) are all recovering from the whirlwind of Magic Con Vegas 2026, but that won’t stop them from bringing you the most exciting news. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Contains ambiguous card recommendations ('North Wind Avatar' and 'flashback') which likely result from transcription errors or jokes.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-10T11:32:24Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-10T11:20:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-10T11:20:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-10T11:20:46Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-10T11:20:46Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-10T11:20:47Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-10T11:20:47Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-10T11:21:06Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-10T11:31:37Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-10T11:31:37Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-10T11:32:24Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-10T11:32:24Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-10T11:32:24Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-10T11:32:24Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3252,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 217.344,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13002,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22553,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 6325,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41880,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 215.957,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9320,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 14373,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46247,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 134.984,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9363,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 11385,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43302,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 552,
+          "request_seconds": 62.023,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 5821,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 13862,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 13808
+              }
+            ],
+            "thoughts_token_count": 7830,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 27513,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1260,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 9518,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 9518
+        }
+      ],
+      "thoughts_token_count": 7134,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17912,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1654,
+    "end_seconds": 2903,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+  },
+  "recommendations": [
+    {
+      "card": "North Wind Avatar",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "Get a bunch of these bulk mythics over the next year",
+      "mentioned_price": "low of 70 cents",
+      "entry_target": {
+        "raw": "low of 70 cents",
+        "currency": "USD",
+        "minimum": 0.7,
+        "maximum": 0.7
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "buylist of $1.50",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 1.5
+      },
+      "reasoning": [
+        "Card has a buylist of $1.50 in multiple places",
+        "Seeing a little bit of Standard play",
+        "It is a dragon, a wish, and a spirit"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2052,
+      "end_seconds": 2112,
+      "evidence_excerpt": "I don't know, this I'm gonna get a bunch of these bulk mythics over the next year, and it's a dragon, and it's a wish",
+      "review_status": "needs_review",
+      "review_reason": "The card 'North Wind Avatar' is not a known Magic: The Gathering card; it is likely a transcription error or a joke.",
+      "id": "pick-e14e99e882c6b398",
+      "timestamp": "00:34:12",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_699_Post_Vegas_Vegitation.mp3#t=2052"
+    },
+    {
+      "card": "Infectious Bite",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "Pick up as a good card for Commander decks to start the proliferate engine",
+      "mentioned_price": "35-cent buylist",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It is removal and gives a poison counter",
+        "Very few cards give opponents poison counters without engaging in combat",
+        "Allows starting a proliferate engine even when shields are up"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2127,
+      "end_seconds": 2249,
+      "evidence_excerpt": "Infectious Bite gets things going, and also removes a blocker. It is 35-cent buylist, uh, and it's just a good card.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8646fd757fd6282f",
+      "timestamp": "00:35:27",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_699_Post_Vegas_Vegitation.mp3#t=2127"
+    },
+    {
+      "card": "Moonsilver Key",
+      "printing": "Innistrad: Midnight Hunt",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "Pick up and call attention to it",
+      "mentioned_price": "almost a dollar",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Trending up a little bit recently",
+        "Has zero reprints",
+        "Double Feature versions are scarce and very expensive, with base copies doubling from $2 to $5 recently"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2320,
+      "end_seconds": 2439,
+      "evidence_excerpt": "I did want to call attention to it because it's almost a dollar. It's it's a pretty good one, it's been kind of trending up a little bit recently.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9ea005686b2076af",
+      "timestamp": "00:38:40",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_699_Post_Vegas_Vegitation.mp3#t=2320"
+    },
+    {
+      "card": "flashback",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "Something to pick up once it gets a little cheaper",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Flashback has a lot going for it",
+        "Cards scaling with the size of the format perform well over a three-year Standard"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2724,
+      "end_seconds": 2903,
+      "evidence_excerpt": "I just think that flashback has a lot going for it and it'll probably get a little cheaper, and it's just, at that point, something to pick up.",
+      "review_status": "needs_review",
+      "review_reason": "Highly ambiguous card name 'flashback' or 'Jeskai Revelation' which are either mechanics or likely transcription errors for another card.",
+      "id": "pick-686f7cdf3d44e7cd",
+      "timestamp": "00:45:24",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_699_Post_Vegas_Vegitation.mp3#t=2724"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-09T21:11:11Z",
+  "updated_at": "2026-08-10T11:32:24Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -5831,6 +5831,220 @@
         "traffic_type": null
       },
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=19868": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=19868",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-10T11:20:45Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-10T11:20:45Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-10T11:20:46Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-10T11:20:46Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-10T11:20:47Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-10T11:20:47Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-10T11:21:06Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-10T11:31:37Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-10T11:31:37Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-10T11:32:24Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-10T11:32:24Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-10T11:32:24Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-10T11:32:24Z"
+        }
+      ],
+      "title": "Post Vegas Vegetation | Brainstorm Brewery #699 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-05-08T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-10T11:32:24Z",
+      "output_directory": "episodes/0000-post-vegas-vegetation-brainstorm-brewery-699-magic-finance-173bbe1e",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3252,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 217.344,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13002,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22553,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 6325,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41880,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 215.957,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9320,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 14373,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46247,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 134.984,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9363,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                }
+              ],
+              "thoughts_token_count": 11385,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43302,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 552,
+            "request_seconds": 62.023,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 5821,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 13862,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 54
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 13808
+                }
+              ],
+              "thoughts_token_count": 7830,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 27513,
+              "traffic_type": null
+            }
+          }
+        ]
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1260,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 9518,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 9518
+          }
+        ],
+        "thoughts_token_count": 7134,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 17912,
+        "traffic_type": null
+      },
+      "review_reason": "Contains ambiguous card recommendations ('North Wind Avatar' and 'flashback') which likely result from transcription errors or jokes."
     }
   }
 }
