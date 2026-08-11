@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-10T21:15:04Z",
+  "updated_at": "2026-08-11T11:19:44Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -6230,6 +6230,220 @@
         "traffic_type": null
       },
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
+    },
+    "tag:soundcloud,2010:tracks/2379250769": {
+      "guid": "tag:soundcloud,2010:tracks/2379250769",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-11T11:04:19Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-11T11:04:19Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-11T11:04:19Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-11T11:04:19Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-11T11:04:20Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-11T11:04:20Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-11T11:04:40Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-11T11:19:36Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-11T11:19:36Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-11T11:19:44Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-11T11:19:44Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-11T11:19:44Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-11T11:19:44Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 532: Early Marvel Price Action",
+      "episode_number": 532,
+      "published_at": "2026-08-10T18:47:26Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-11T11:19:44Z",
+      "output_directory": "episodes/0532-early-marvel-price-action",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3471,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 290.687,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9178,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 14679,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46411,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 58.655,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8426,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22555,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 4947,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 35928,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 493.152,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 7813,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22555,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                }
+              ],
+              "thoughts_token_count": 14013,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44381,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 771,
+            "request_seconds": 52.698,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 6729,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 19342,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 19287
+                }
+              ],
+              "thoughts_token_count": 3532,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 29603,
+              "traffic_type": null
+            }
+          }
+        ]
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 43,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 4087,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 4087
+          }
+        ],
+        "thoughts_token_count": 1715,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 5845,
+        "traffic_type": null
+      },
+      "review_reason": "The provided transcript segment only covers the Metagame Review and Top Movers sections; the Cards to Watch section is not present."
     }
   }
 }
