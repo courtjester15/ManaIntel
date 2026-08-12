@@ -1,0 +1,397 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/292660810",
+    "episode_number": 41,
+    "title": "MTG Fast Finance: Episode 41",
+    "published_at": "2016-11-12T06:05:23Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/292660810-user-519789566-mtg-fast-finance-episode-41.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-41",
+    "duration_seconds": 1271,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James flies solo this episode, buzzing through the latest MTG Finance news from the first week of November.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-12T21:04:20Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-12T21:02:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-12T21:02:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-12T21:02:26Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-12T21:02:26Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-12T21:02:27Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-12T21:02:27Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-12T21:02:35Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-12T21:03:54Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-12T21:03:54Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-12T21:04:20Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-12T21:04:20Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-12T21:04:20Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-12T21:04:20Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 2,
+      "duration_seconds": 1271,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 2,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 52.662,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7353,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 3921,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33828,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 2,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 371,
+          "request_seconds": 26.138,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2899,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 9340,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 9285
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 3234,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 15473,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1949,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 5405,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 5405
+        }
+      ],
+      "thoughts_token_count": 5642,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 12996,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 109,
+    "end_seconds": 1512,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Cryptic Command",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "under $30 / under $40",
+      "entry_target": {
+        "raw": "under $30 to under $40",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 40.0
+      },
+      "hold": "quite some time",
+      "exit_target": {
+        "raw": "$40 to $50",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "Low foil supply under $30",
+        "Unlikely to be reprinted in Modern Masters 2017",
+        "Staged a comeback last week at GP Dallas"
+      ],
+      "caveats": [
+        "Risk of a Masterpiece version showing up in the next couple of years"
+      ],
+      "confidence": null,
+      "start_seconds": 432,
+      "end_seconds": 539,
+      "evidence_excerpt": "both the Modern Masters 2015 foils as well as the promo foils, the textless ones that are out there available under $40, are probably relatively safe places to put your money",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c2bddbfe762b58bc",
+      "timestamp": "00:07:12",
+      "listen_url": "https://feeds.soundcloud.com/stream/292660810-user-519789566-mtg-fast-finance-episode-41.mp3#t=432"
+    },
+    {
+      "card": "Berserk",
+      "printing": "Conspiracy: Take the Crown",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chilcott",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$13, $14, $15",
+      "entry_target": {
+        "raw": "$13 to $15",
+        "currency": "USD",
+        "minimum": 13.0,
+        "maximum": 15.0
+      },
+      "hold": "mid- to long-term",
+      "exit_target": {
+        "raw": "$20 to $30 range",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Best pump spell ever",
+        "Maximum availability at current time",
+        "Unlikely to be reprinted again for a while",
+        "Amazing in Cube and Legacy Infect",
+        "Conspiracy was probably opened in relatively low volume"
+      ],
+      "caveats": [
+        "Could potentially show up in a spell-themed Masterpiece edition"
+      ],
+      "confidence": null,
+      "start_seconds": 539,
+      "end_seconds": 643,
+      "evidence_excerpt": "Cliff made clear to me that he was interested in Berserk as a mid- to long-term hold out of... Conspiracy: Take the Crown",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c3bbfac634239f59",
+      "timestamp": "00:08:59",
+      "listen_url": "https://feeds.soundcloud.com/stream/292660810-user-519789566-mtg-fast-finance-episode-41.mp3#t=539"
+    },
+    {
+      "card": "Smuggler's Copter",
+      "printing": "Kaladesh",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$15 to $17 range",
+      "entry_target": {
+        "raw": "$15 to $17 range",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 17.0
+      },
+      "hold": "short- to long-term",
+      "exit_target": {
+        "raw": "$25 to $30 range",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Relatively low supply for a fall set rare foil",
+        "Extremely popular in Standard, often played as a four-of",
+        "Kaladesh will be in Standard for a full two years",
+        "Potential in Modern"
+      ],
+      "caveats": [
+        "Standard foils aren't generally where you want to be"
+      ],
+      "confidence": null,
+      "start_seconds": 643,
+      "end_seconds": 818,
+      "evidence_excerpt": "I think that the foils are a relatively safe place to park some money for a while. And, I would be targeting getting in somewhere in the $15 to $17 range",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-30e715a1cbc8d76d",
+      "timestamp": "00:10:43",
+      "listen_url": "https://feeds.soundcloud.com/stream/292660810-user-519789566-mtg-fast-finance-episode-41.mp3#t=643"
+    },
+    {
+      "card": "Thought-Knot Seer",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "about $18 range",
+      "entry_target": {
+        "raw": "about $18 range",
+        "currency": "USD",
+        "minimum": 18.0,
+        "maximum": 18.0
+      },
+      "hold": "mid- to long-term",
+      "exit_target": {
+        "raw": "get up to $30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Eldrazi cards continue to make an impact in Modern, Legacy, and Vintage",
+        "Has potential to be the centerpiece of a deck in Standard before it rotates out"
+      ],
+      "caveats": [
+        "I certainly liked these a lot more when they were $12 to $15",
+        "Barring a reprint"
+      ],
+      "confidence": null,
+      "start_seconds": 818,
+      "end_seconds": 934,
+      "evidence_excerpt": "Thought-Knot Seer foils currently available in the about $18 range... they certainly have some potential mid- to long-term to get up to $30.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-190ab88c59cc120c",
+      "timestamp": "00:13:38",
+      "listen_url": "https://feeds.soundcloud.com/stream/292660810-user-519789566-mtg-fast-finance-episode-41.mp3#t=818"
+    },
+    {
+      "card": "Snow-Covered Mountain",
+      "printing": "Ice Age",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$2 to $3 range",
+      "entry_target": {
+        "raw": "$2 to $3 range",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 3.0
+      },
+      "hold": "short to mid",
+      "exit_target": {
+        "raw": "$5 to $6",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 6.0
+      },
+      "reasoning": [
+        "Ice Age art is clearly superior",
+        "Dried up quite a bit on the back of Skred Red winning GP Dallas",
+        "Requires 20 copies per deck, draining market faster"
+      ],
+      "caveats": [
+        "I don't really see all that many players jumping on the Skred Red bandwagon"
+      ],
+      "confidence": null,
+      "start_seconds": 934,
+      "end_seconds": 1127,
+      "evidence_excerpt": "if you can pick up, you know, copies of Snow-Covered Mountains in the $2 to $3 range, it's quite possible they may end up being a $5 to $6 card.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d89b077a1cf65e35",
+      "timestamp": "00:15:34",
+      "listen_url": "https://feeds.soundcloud.com/stream/292660810-user-519789566-mtg-fast-finance-episode-41.mp3#t=934"
+    }
+  ]
+}

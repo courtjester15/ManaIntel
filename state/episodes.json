@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.4.4",
-  "updated_at": "2026-08-12T11:31:43Z",
+  "updated_at": "2026-08-12T21:04:20Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -6968,6 +6968,162 @@
         "traffic_type": null
       },
       "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/292660810": {
+      "guid": "tag:soundcloud,2010:tracks/292660810",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-12T21:02:26Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-12T21:02:26Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-12T21:02:26Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-12T21:02:26Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-12T21:02:27Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-12T21:02:27Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-12T21:02:35Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-12T21:03:54Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-12T21:03:54Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-12T21:04:20Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-12T21:04:20Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-12T21:04:20Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-12T21:04:20Z"
+        }
+      ],
+      "title": "MTG Fast Finance: Episode 41",
+      "episode_number": 41,
+      "published_at": "2016-11-12T06:05:23Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 5,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-12T21:04:20Z",
+      "output_directory": "episodes/0041-mtg-fast-finance-episode-41",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 2,
+        "duration_seconds": 1271,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 2,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 52.662,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 7353,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22554,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                }
+              ],
+              "thoughts_token_count": 3921,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33828,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 2,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 371,
+            "request_seconds": 26.138,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 2899,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 9340,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 9285
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 55
+                }
+              ],
+              "thoughts_token_count": 3234,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 15473,
+              "traffic_type": null
+            }
+          }
+        ]
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1949,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 5405,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 5405
+          }
+        ],
+        "thoughts_token_count": 5642,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 12996,
+        "traffic_type": null
+      },
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
     }
   }
 }
