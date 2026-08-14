@@ -1,0 +1,268 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2305022402",
+    "episode_number": 520,
+    "title": "MTG Fast Finance Ep 520: SOS Previews In Focus",
+    "published_at": "2026-04-18T19:18:33Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2305022402-user-519789566-mtg-fast-finance-ep-520-sos.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-520-sos",
+    "duration_seconds": 3711,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys get you updated on all the Magic the Gathering card price action of the week, including meta updates, cards to watch and a discussion of their favorite SOS preview cards.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-14T20:54:20Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-14T20:45:22Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-14T20:45:22Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-14T20:45:22Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-14T20:45:22Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-14T20:45:24Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-14T20:45:24Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-14T20:45:45Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-14T20:53:56Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-14T20:53:56Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-14T20:54:20Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-14T20:54:20Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-14T20:54:20Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-14T20:54:20Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3711,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 136.69,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9347,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22620,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 12222,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44189,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 130.117,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10411,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 6123,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39155,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 169.092,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14061,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 8354,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45036,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 34.288,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9217,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 64,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 31902,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 111,
+          "request_seconds": 19.557,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1201,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 2901,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 2780
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 2050,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 6152,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 108
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 926,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 25903,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 25903
+        }
+      ],
+      "thoughts_token_count": 3916,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 30745,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0520-sos-previews-in-focus/metadata.json",
+    "summary_json": "episodes/0520-sos-previews-in-focus/summary.json",
+    "summary_markdown": "episodes/0520-sos-previews-in-focus/summary.md"
+  }
+}
