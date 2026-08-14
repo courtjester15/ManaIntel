@@ -1,0 +1,472 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/293592299",
+    "episode_number": 42,
+    "title": "MTG Fast Finance Episode 42",
+    "published_at": "2016-11-20T18:24:18Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/293592299-user-519789566-mtg-fast-finance-episode-42.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-42",
+    "duration_seconds": 3623,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "MTG Fast Finance Episode 42",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-13T21:13:08Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-13T21:02:47Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-13T21:02:47Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-13T21:02:47Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-13T21:02:47Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-13T21:02:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-13T21:02:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-13T21:03:13Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-13T21:11:55Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-13T21:11:55Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-13T21:13:08Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-13T21:13:08Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-13T21:13:08Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-13T21:13:08Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3623,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 83.788,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8978,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 9458,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40990,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 184.891,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8695,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 16482,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47732,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 143.876,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9612,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 4818,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36985,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 103.341,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8935,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 9216,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40706,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 23,
+          "request_seconds": 4.442,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 229,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 632,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 577
+              }
+            ],
+            "thoughts_token_count": 712,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 1573,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1459,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 19928,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 19928
+        }
+      ],
+      "thoughts_token_count": 13402,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 34789,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 102,
+    "end_seconds": 4200,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Mox Opal",
+      "printing": "Kaladesh Inventions",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "90",
+      "entry_target": {
+        "raw": "90",
+        "currency": "USD",
+        "minimum": 90.0,
+        "maximum": 90.0
+      },
+      "hold": "1-2 years",
+      "exit_target": {
+        "raw": "130 to 140",
+        "currency": "USD",
+        "minimum": 130.0,
+        "maximum": 140.0
+      },
+      "reasoning": [
+        "Masterpiece inventions are demonstrating relatively low supply at peak supply.",
+        "Affinity is no longer the main target of banning threats in Modern, ensuring stability.",
+        "Playsets of inventions are highly appealing to dedicated players."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 718,
+      "end_seconds": 905,
+      "evidence_excerpt": "Mox Opal. The Mox Opal inventions... If you can get these... for, you know, 90 in trade... exit in the 130 to 140 range.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e76edd1479a09294",
+      "timestamp": "00:11:58",
+      "listen_url": "https://feeds.soundcloud.com/stream/293592299-user-519789566-mtg-fast-finance-episode-42.mp3#t=718"
+    },
+    {
+      "card": "Jace, Vryn's Prodigy",
+      "printing": "Magic Origins",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chilcott",
+        "Speaker 1"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$16 to $17",
+      "entry_target": {
+        "raw": "$16 to $17",
+        "currency": "USD",
+        "minimum": 16.0,
+        "maximum": 17.0
+      },
+      "hold": "12-18 months",
+      "exit_target": {
+        "raw": "top $30 again",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Extremely powerful planeswalker currently underestimated in Modern due to format speed.",
+        "Excellent across casual, Cube, EDH, Legacy, and Vintage formats.",
+        "Flip cards are historically difficult to reprint."
+      ],
+      "caveats": [
+        "Currently lacks a proper Tier 1 shell in Modern."
+      ],
+      "confidence": "medium",
+      "start_seconds": 900,
+      "end_seconds": 1500,
+      "evidence_excerpt": "Jace, Vryn's Prodigy... pick them up in the $16-ish kind of range... easily top $30 again and you could be looking at 60 or 70% gains",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-48ec86278071d43c",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/293592299-user-519789566-mtg-fast-finance-episode-42.mp3#t=900"
+    },
+    {
+      "card": "Venser, the Sojourner",
+      "printing": "Scars of Mirrodin",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10 to $11",
+      "entry_target": {
+        "raw": "$10 to $11",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 11.0
+      },
+      "hold": "2-3 years",
+      "exit_target": null,
+      "reasoning": [
+        "Strong synergy with Panharmonicon and Deepglow Skate in EDH.",
+        "Venser is dead in the storyline, making a Standard reprint highly unlikely."
+      ],
+      "caveats": [
+        "Duel deck printing hampers value slightly."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1039,
+      "end_seconds": 1219,
+      "evidence_excerpt": "Venser, the Sojourner, uh, looking at the Scars of Mirrodin copies... in the $10, $10 to $11 range, um, and I think he's going to keep ticking up",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-aec51651d466fdcd",
+      "timestamp": "00:17:19",
+      "listen_url": "https://feeds.soundcloud.com/stream/293592299-user-519789566-mtg-fast-finance-episode-42.mp3#t=1039"
+    },
+    {
+      "card": "Pillar of the Paruns",
+      "printing": "Dissension",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "low $4 range",
+      "entry_target": {
+        "raw": "low $4 range",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "close to, to double digits",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Very low inventory across the internet.",
+        "Extremely powerful land for multicolor decks with no drawback.",
+        "Increased demand from heavy multicolor Commander 2016 sets."
+      ],
+      "caveats": [
+        "Only taps for multicolor spells."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1140,
+      "end_seconds": 1431,
+      "evidence_excerpt": "Pillar of the Paruns... low $4 range... as long as you dodge reprints on this, I think it's pretty inevitable that this will get close to, to double digits.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8bc33b52ff39268a",
+      "timestamp": "00:19:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/293592299-user-519789566-mtg-fast-finance-episode-42.mp3#t=1140"
+    },
+    {
+      "card": "Monastery Mentor",
+      "printing": "Fate Reforged",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$40",
+      "entry_target": {
+        "raw": "in and around the $40 range",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "hold": "long-term",
+      "exit_target": {
+        "raw": "$60 or $80",
+        "currency": "USD",
+        "minimum": 60.0,
+        "maximum": 80.0
+      },
+      "reasoning": [
+        "Busted one-card win condition in Vintage and seen play in Legacy and Modern.",
+        "Mythic rare printing from a middle set (Fate Reforged) limits foil supply.",
+        "Potential to spike heavily if a proper Modern shell coalesces around it."
+      ],
+      "caveats": [
+        "Struggles against cheap removal like Dismember, Lightning Bolt, and Path to Exile."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1221,
+      "end_seconds": 1373,
+      "evidence_excerpt": "Monastery Mentor foils are at relatively low supply in and around the $40 range. Um, this could easily be a $60 or $80 foil down the road.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4b7684e80b090c0d",
+      "timestamp": "00:20:21",
+      "listen_url": "https://feeds.soundcloud.com/stream/293592299-user-519789566-mtg-fast-finance-episode-42.mp3#t=1221"
+    }
+  ]
+}

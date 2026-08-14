@@ -1,0 +1,358 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=20176",
+    "episode_number": 0,
+    "title": "In WHAT Universe! | Brainstorm Brewery #699 | Magic Finance",
+    "published_at": "2026-05-15T06:33:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_700_In_WHAT_Universe.mp3",
+    "episode_url": "https://brainstormbrewery.com/in-what-universe-brainstorm-brewery-699-magic-finance/",
+    "duration_seconds": 3323,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz (@devotedDruid), and DJ (@CardgardenMTG) are getting educated on what is within and what is beyond in standard, universes and much more. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-09T11:15:22Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-09T10:52:08Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-09T10:52:08Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-09T10:52:08Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-09T10:52:08Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-09T10:52:10Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-09T10:52:10Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-09T10:52:29Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-09T11:14:53Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-09T11:14:53Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-09T11:15:22Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-09T11:15:22Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-09T11:15:22Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-09T11:15:22Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3323,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 463.111,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15302,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22553,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 20837,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 58692,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 421.982,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12531,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 21471,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 56556,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 235.27,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10444,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 26110,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 59108,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 623,
+          "request_seconds": 222.815,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8462,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 15622,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 15568
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 16677,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40761,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 792,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 8380,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 8380
+        }
+      ],
+      "thoughts_token_count": 4852,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 14024,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1355,
+    "end_seconds": 2310,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null
+  },
+  "recommendations": [
+    {
+      "card": "Ancient Cornucopia",
+      "printing": "The Big Score",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz",
+        "Corbin",
+        "DJ",
+        "Jason"
+      ],
+      "recommendation": "pull from bulk",
+      "mentioned_price": "$7",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$7",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 7.0
+      },
+      "reasoning": [
+        "Card has had a nice little jump in price recently.",
+        "It's a part of the new Golgari deck in Standard."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1406,
+      "end_seconds": 1511,
+      "evidence_excerpt": "It's Ancient Cornucopia. All right. Card has- has had a nice little jump in price recently. It's a part of the new Golgari deck in Standard... it is a card that is like $7 now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8119083d871cd9a0",
+      "timestamp": "00:23:26",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_700_In_WHAT_Universe.mp3#t=1406"
+    },
+    {
+      "card": "Combat Research",
+      "printing": "Dominaria United",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "Liz",
+        "DJ",
+        "Corbin",
+        "Jason"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "45 cents",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "45 cents",
+        "currency": "USD",
+        "minimum": 0.45,
+        "maximum": 0.45
+      },
+      "reasoning": [
+        "It is Curiosity plus, makes it harder to kill if legendary as it gets +1/+1 and ward 1.",
+        "Card Kingdom will pay you 45 cents apiece for 126 copies."
+      ],
+      "caveats": [
+        "CoolStuff will pay you a nickel apiece, don't sell them to CoolStuff."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1557,
+      "end_seconds": 1700,
+      "evidence_excerpt": "Combat Research... Card Kingdom will pay you 45 cents apiece for 126 copies. CoolStuff will pay you a nickel apiece, don't sell them to CoolStuff.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b0ac313089281a93",
+      "timestamp": "00:25:57",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_700_In_WHAT_Universe.mp3#t=1557"
+    },
+    {
+      "card": "Bigger on the Inside",
+      "printing": "Doctor Who",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Corbin",
+        "DJ",
+        "Liz",
+        "Jason"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "$4 foil",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$4",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "reasoning": [
+        "It's a $4 foil and has a very expensive Surge foil.",
+        "It's a five-mana Gruel enchantment that gives enchanted permanent tap to add two mana of any one color and gives the next spell cascade."
+      ],
+      "caveats": [
+        "Non-foil has a low 9-cent buylist."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1715,
+      "end_seconds": 1925,
+      "evidence_excerpt": "The card is Bigger on the Inside... 9-cent buylist. It's a $4 foil, though, which is probably the more important thing to note. And a very expensive Surge foil.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4321d0d43d3e8259",
+      "timestamp": "00:28:35",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_700_In_WHAT_Universe.mp3#t=1715"
+    }
+  ]
+}

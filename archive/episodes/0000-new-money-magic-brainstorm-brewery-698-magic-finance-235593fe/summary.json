@@ -1,0 +1,373 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=19091",
+    "episode_number": 0,
+    "title": "New Money Magic | Brainstorm Brewery #698 | Magic Finance",
+    "published_at": "2026-05-01T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_698_New_Money_Magic.mp3",
+    "episode_url": "https://brainstormbrewery.com/new-money-magic-brainstorm-brewery-698-magic-finance/",
+    "duration_seconds": 3507,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz (@devotedDruid), and DJ (@CardgardenMTG)are hyped up for all the news coming in for Vegas, Secrets of Strixhaven, and more Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-12T11:31:43Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-12T11:09:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-12T11:09:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-12T11:09:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-12T11:09:49Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-12T11:09:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-12T11:09:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-12T11:10:09Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-12T11:31:25Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-12T11:31:25Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-12T11:31:43Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-12T11:31:43Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-12T11:31:43Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-12T11:31:43Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3507,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 154.353,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8884,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22553,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 1321,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 32758,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 441.578,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11836,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 14956,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49346,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 534.168,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 45
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18957
+              }
+            ],
+            "cached_content_token_count": 19002,
+            "candidates_token_count": 12406,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 18953,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 53913,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 807,
+          "request_seconds": 144.641,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10008,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 20223,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 20169
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 54
+              }
+            ],
+            "thoughts_token_count": 19639,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49870,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 999,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 5799,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 5799
+        }
+      ],
+      "thoughts_token_count": 3721,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 10519,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1806,
+    "end_seconds": 1911,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null
+  },
+  "recommendations": [
+    {
+      "card": "Long River's Pull",
+      "printing": "Bloomburrow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Speaker 1"
+      ],
+      "recommendation": "pull from bulk and sell",
+      "mentioned_price": "20 cents",
+      "entry_target": {
+        "raw": "bulk",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "20 cents",
+        "currency": "USD",
+        "minimum": 0.2,
+        "maximum": 0.2
+      },
+      "reasoning": [
+        "It is seeing Standard play",
+        "Counters elementals and creature spells",
+        "Buy list price is 7 cents, but you can net 20 cents selling on TCGplayer Direct"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1806,
+      "end_seconds": 1809,
+      "evidence_excerpt": "It is seeing Standard play, it has a buy list price of 7 cents, has a small direct premium, you can net 20 cents selling this on TCGplayer Direct.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a18e48aa36ff6e7c",
+      "timestamp": "00:30:06",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_698_New_Money_Magic.mp3#t=1806"
+    },
+    {
+      "card": "Awaken the Blood Avatar Token",
+      "printing": "Strixhaven",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Speaker 2"
+      ],
+      "recommendation": "pull from bulk and sell",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "bulk",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "reasoning": [
+        "The 3/6 Avatar token with haste spiked in the last month to $2"
+      ],
+      "caveats": [
+        "Unknown reason for the spike"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1809,
+      "end_seconds": 1812,
+      "evidence_excerpt": "this token spiked, don't know why. But enjoy it! ... that token is $2 now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9d7d1b875830e042",
+      "timestamp": "00:30:09",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_698_New_Money_Magic.mp3#t=1809"
+    },
+    {
+      "card": "Abzan Battle Priest",
+      "printing": "Khans of Tarkir",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Speaker 3"
+      ],
+      "recommendation": "pull from bulk and sell",
+      "mentioned_price": "50 cents",
+      "entry_target": {
+        "raw": "bulk",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50 cents",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": 0.5
+      },
+      "reasoning": [
+        "Gives your whole team lifelink if they have +1/+1 counters",
+        "Synergizes well with popular Commander counter-themed decks"
+      ],
+      "caveats": [
+        "The Outlast ability itself is not great"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1812,
+      "end_seconds": 1814,
+      "evidence_excerpt": "Card's like 50 cents. There you go.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5d0b978685b2dabb",
+      "timestamp": "00:30:12",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_698_New_Money_Magic.mp3#t=1812"
+    }
+  ]
+}

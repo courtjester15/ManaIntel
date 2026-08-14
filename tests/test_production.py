@@ -276,6 +276,46 @@ class DetectionAndStateTests(unittest.TestCase):
         self.assertIn("generated_at", index["metadata"])
 
 
+    def test_catalog_merges_mixed_source_urls(self) -> None:
+        archive = workspace_temp() / "archive"
+        for name, source_url in (("legacy", None), ("current", "https://soundcloud.com/example")):
+            directory = archive / "episodes" / name
+            atomic_write_json(directory / "metadata.json", {
+                "synthetic": False,
+                "episode": {
+                    "guid": name,
+                    "episode_number": 1,
+                    "title": name,
+                    "published_at": "2026-01-01T00:00:00Z",
+                    "audio_url": "https://example.test/audio",
+                    "episode_url": "https://example.test/episode",
+                    "duration_seconds": 1,
+                    "hosts": [],
+                    "description": None,
+                    "source_id": "mtg-fast-finance",
+                    "source_name": "MTG Fast Finance",
+                    "source_url": source_url,
+                },
+                "processing": {
+                    "status": "complete",
+                    "processed_at": "2026-01-02T00:00:00Z",
+                    "review_state": "approved",
+                    "review_reason": None,
+                    "error": None,
+                },
+                "outputs": {},
+            })
+            atomic_write_json(directory / "summary.json", {"recommendations": []})
+
+        index, _ = rebuild_catalog(archive, production=True)
+
+        self.assertEqual(2, index["metadata"]["real_episode_count"])
+        self.assertEqual([{
+            "id": "mtg-fast-finance",
+            "name": "MTG Fast Finance",
+            "url": "https://soundcloud.com/example",
+        }], index["metadata"]["sources"])
+
 class FrontendContractTests(unittest.TestCase):
     def test_pages_paths_and_failure_copy(self) -> None:
         root = Path(__file__).parents[1]

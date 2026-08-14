@@ -113,10 +113,16 @@ def rebuild_catalog(
     generated_at = utc_now()
     is_synthetic = not production
     successful = [episode for episode in episode_records if episode["processing_status"] in {"complete", "needs_review"}]
-    sources = sorted({
-        (episode.get("source_id", "mtg-fast-finance"), episode.get("source_name", feed_name), episode.get("source_url"))
-        for episode in episode_records
-    })
+    sources_by_id: dict[str, dict[str, str | None]] = {}
+    for episode in episode_records:
+        source_id = episode.get("source_id") or "mtg-fast-finance"
+        source = sources_by_id.setdefault(source_id, {
+            "id": source_id,
+            "name": episode.get("source_name") or feed_name,
+            "url": None,
+        })
+        source["url"] = source["url"] or episode.get("source_url")
+    sources = sorted(sources_by_id.values(), key=lambda item: item["id"])
     index = {
         "schema_version": SCHEMA_VERSION,
         "synthetic": is_synthetic,
@@ -130,7 +136,7 @@ def rebuild_catalog(
             "generated_from": "synthetic-fixtures" if is_synthetic else "live-feed",
             "production_mode": production,
             "source": {"name": feed_name if len(sources) < 2 else "MTG Fast Finance + Brainstorm Brewery"},
-            "sources": [{"id": item[0], "name": item[1], "url": item[2]} for item in sources],
+            "sources": sources,
             "real_episode_count": 0 if is_synthetic else len(episode_records),
             "real_pick_count": 0 if is_synthetic else len(cards),
             "last_discovered_episode_date": episode_records[0]["published_at"] if episode_records else None,

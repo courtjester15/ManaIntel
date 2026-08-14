@@ -1,0 +1,340 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/290337102",
+    "episode_number": 39,
+    "title": "MTG Fast Finance Episode 39",
+    "published_at": "2016-10-31T03:17:49Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/290337102-user-519789566-mtg-fast-finance-episode-39.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-episode-39",
+    "duration_seconds": 2421,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "MTG Fast Finance Episode 39",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pipeline_version": "0.4.4",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-10T21:15:04Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-10T21:01:47Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-10T21:01:47Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-10T21:01:47Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-10T21:01:47Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-10T21:01:50Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-10T21:01:50Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-10T21:02:05Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-10T21:14:11Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-10T21:14:11Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-10T21:15:04Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-10T21:15:04Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-10T21:15:04Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-10T21:15:04Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2421,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 196.416,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9151,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22554,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              }
+            ],
+            "thoughts_token_count": 4684,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36389,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 386.046,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10071,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22555,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 10330,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42956,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 621,
+          "request_seconds": 142.156,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 6609,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 15581,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 55
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 15526
+              }
+            ],
+            "thoughts_token_count": 13082,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35272,
+            "traffic_type": null
+          }
+        }
+      ]
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1150,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 13983,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 13983
+        }
+      ],
+      "thoughts_token_count": 8606,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 23739,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 102,
+    "end_seconds": 2421,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Mantis Rider",
+      "printing": "Khans of Tarkir",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "$3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10 range",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Key card in the Jeskai Aggro deck in Modern",
+        "Sales attrition has cleared out many of the foils",
+        "Strong tempo card with flying, vigilance, and haste"
+      ],
+      "caveats": [
+        "Mantis Rider is a one-trick pony in Modern; the deck has to do well for these foils to climb and hold"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1021,
+      "end_seconds": 1215,
+      "evidence_excerpt": "move from $3, which is what the foils are currently available for, up into the $10 range.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-943a2d339a081991",
+      "timestamp": "00:17:01",
+      "listen_url": "https://feeds.soundcloud.com/stream/290337102-user-519789566-mtg-fast-finance-episode-39.mp3#t=1021"
+    },
+    {
+      "card": "Dragon Arch",
+      "printing": "Apocalypse",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2 range",
+      "entry_target": {
+        "raw": "$2 range",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Only has one printing ever",
+        "Highly useful in multi-color Commander 2016 decks to cheat large multi-color creatures into play",
+        "Non-foil inventory is starting to dry up"
+      ],
+      "caveats": [
+        "We do not know for a fact that it isn't included in the upcoming Commander 2016 decks as a reprint"
+      ],
+      "confidence": null,
+      "start_seconds": 1345,
+      "end_seconds": 1525,
+      "evidence_excerpt": "the non-foils are still widely available in the like $2 range. ... I can see this easily hitting $10.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-eb273a3d09e44436",
+      "timestamp": "00:22:25",
+      "listen_url": "https://feeds.soundcloud.com/stream/290337102-user-519789566-mtg-fast-finance-episode-39.mp3#t=1345"
+    },
+    {
+      "card": "Blessed Alliance",
+      "printing": "Eldritch Moon",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3.50 to $4.50 range",
+      "entry_target": {
+        "raw": "$3.50 to $4.50 range",
+        "currency": "USD",
+        "minimum": 3.5,
+        "maximum": 4.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10 to $15",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Foils are starting to show up in both main decks and sideboards in Modern",
+        "Consistently useful card against Burn and other aggressive matchups",
+        "Foil uncommons from small sets can easily peak over $10"
+      ],
+      "caveats": [
+        "It is an uncommon, not a rare",
+        "It is not generally run as a four-of"
+      ],
+      "confidence": null,
+      "start_seconds": 1651,
+      "end_seconds": 1806,
+      "evidence_excerpt": "I've started picking up copies in that $3.50 to $4.50 range. And, uh, I think we'll be happy when these peek over $10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9042deed0193d908",
+      "timestamp": "00:27:31",
+      "listen_url": "https://feeds.soundcloud.com/stream/290337102-user-519789566-mtg-fast-finance-episode-39.mp3#t=1651"
+    }
+  ]
+}
