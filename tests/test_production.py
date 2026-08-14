@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import gzip
 import hashlib
 import io
 import os
 import json
 import shutil
 import subprocess
+import sys
+import types as stdlib_types
 import unittest
 import uuid
 from email.message import Message
@@ -16,10 +19,11 @@ from ffw.archive import rebuild_catalog
 from ffw.detection import locate_cards_to_watch, locate_recommendation_section
 from ffw.models import EpisodeCandidate, PipelineResult
 from ffw.config import Settings
-from ffw.pipeline import Pipeline, classify_failure
+from ffw.pipeline import Pipeline, classify_failure, compare_episode_summaries
 from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiMalformedJSONError, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, ProviderFallbackTranscriber, StreamingDownloader, _gemini_generate_json, parse_episode_number, parse_rss, production_adapters
 from ffw.state import JsonStateStore
 from ffw.utils import atomic_write_json, load_json
+from ffw.verification import GeminiPickVerifier
 
 
 def workspace_temp() -> Path:
@@ -292,12 +296,21 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("Open retry workflow", app)
         self.assertIn("Review episode", app)
         self.assertIn("episodeReviewUrl", app)
+        self.assertIn("function closeDialogOrBack", app)
+        self.assertIn('showEpisode(dialogState.episodeGuid, { returning: true, focusPickId: dialogState.pickId })', app)
+        self.assertIn('dialog.addEventListener("cancel",', app)
+        self.assertIn('"Back to episode picks"', app)
         self.assertIn('episodeSort: { key: "processed_at", direction: "desc" }', app)
         self.assertIn('data-episode-sort', app)
         self.assertIn('Added within the last 72 hours', app)
         self.assertIn("<h2>Recently added</h2>", app)
         self.assertIn("state.index.episodes.filter(isSuccessfulEpisode)", app)
         self.assertIn('return isSuccessfulEpisode(episode) ? "Added" : "Attempted"', app)
+        self.assertIn('id="episode-source"', app)
+        self.assertIn('id="pick-source"', app)
+        self.assertIn('function sourceFilterOptions', app)
+        self.assertIn('sourceId(episode) === state.episodeSource', app)
+        self.assertIn('sourceId(pick) === state.pickSource', app)
         table = (root / "web/table.js").read_text(encoding="utf-8")
         self.assertIn("data-ms-sort", table)
         self.assertIn("aria-sort", table)
@@ -349,6 +362,11 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("data-review-listen", review)
         self.assertIn("pickSummaryUrl", app)
         self.assertIn("episodeListenUrl", app)
+        self.assertIn("function scryfallUrl", summary)
+        self.assertIn("function scryfallUrl", review)
+        self.assertIn("function scryfallUrl", app)
+        self.assertIn("cardPreview(pick)", review)
+        self.assertIn("cardPreview(pick)", app)
 
     def test_workflow_defaults_and_limit_guard_are_safe(self) -> None:
         workflow = (Path(__file__).parents[1] / ".github/workflows/ffw.yml").read_text(encoding="utf-8")
@@ -672,9 +690,82 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertEqual("episode_input", error["category"])
         self.assertTrue(error["quarantined"])
 
+    def test_targeted_second_listen_accepts_only_catalog_verified_card_name(self) -> None:
+        root = workspace_temp()
+        audio = root / "chunk-000.mp3"
+        audio.write_bytes(b"audio")
+
+        class Resolver:
+            def resolve(self, name):
+                if name == "Old Name":
+                    return {"status": "suggested", "canonical_name": "Correct Name"}
+                if name == "Correct Name":
+                    return {"status": "verified", "canonical_name": "Correct Name"}
+                return {"status": "not_found", "canonical_name": None}
+
+        fake_genai = stdlib_types.ModuleType("google.genai")
+        fake_genai.Client = lambda **kwargs: object()
+        fake_genai.types = stdlib_types.SimpleNamespace(
+            Part=stdlib_types.SimpleNamespace(from_bytes=lambda **kwargs: kwargs),
+        )
+        fake_google = stdlib_types.ModuleType("google")
+        fake_google.genai = fake_genai
+        extraction = {
+            "review_reason": "Likely transcription error in a card name.",
+            "recommendations": [{
+                "card": "Old Name", "start_seconds": 30, "review_status": "needs_review",
+                "review_reason": "Possible transcription error in card name.",
+            }],
+        }
+        verifier = GeminiPickVerifier("verify-model", 900, Resolver())
+
+        def create_clip(source, destination, relative_seconds):
+            destination.write_bytes(b"clip")
+            return destination
+
+        with (
+            patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+            patch.dict(sys.modules, {"google": fake_google, "google.genai": fake_genai}),
+            patch.object(verifier, "_clip", side_effect=create_clip),
+            patch("ffw.verification._gemini_generate_json", return_value={
+                "decision": "corrected", "card": "Correct Name", "explanation": "Clearly spoken.",
+                "_usage": None,
+            }),
+        ):
+            result = verifier.verify(episode(), extraction, [audio])
+
+        pick = result["recommendations"][0]
+        self.assertEqual("Correct Name", pick["card"])
+        self.assertEqual("approved", pick["review_status"])
+        self.assertTrue(pick["automated_verification"]["accepted"])
+        self.assertIsNone(result["review_reason"])
+    def test_reprocessing_comparison_reports_material_pick_changes(self) -> None:
+        before = {
+            "episode": {"guid": "episode-guid"},
+            "processing": {"status": "needs_review"},
+            "recommendations": [
+                {"card": "Old Name", "review_status": "needs_review", "start_seconds": 10},
+                {"card": "Stable Card", "review_status": "approved", "start_seconds": 20},
+            ],
+        }
+        after = {
+            "episode": {"guid": "episode-guid"},
+            "processing": {"status": "complete"},
+            "recommendations": [
+                {"card": "Correct Name", "review_status": "approved", "start_seconds": 10},
+                {"card": "Stable Card", "review_status": "approved", "start_seconds": 25},
+            ],
+        }
+
+        report = compare_episode_summaries(before, after)
+
+        self.assertEqual(["Correct Name"], report["added_cards"])
+        self.assertEqual(["Old Name"], report["removed_cards"])
+        self.assertEqual([{"card": "Stable Card", "fields": ["start_seconds"]}], report["changed_picks"])
+        self.assertEqual(("needs_review", "complete"), (report["before_status"], report["after_status"]))
     def test_real_five_pick_publication_cleanup_and_idempotent_skip(self) -> None:
         root = workspace_temp()
-        settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live")
+        settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live", retain_transcripts=True)
         candidate = episode()
 
         class Feed:
@@ -710,16 +801,21 @@ class ProductionPipelineTests(unittest.TestCase):
                         "evidence_excerpt": f"Short evidence for card {index + 1}.", "review_status": "approved",
                         "review_reason": None,
                     })
-                return {"section": {"located": True, "start_seconds": 600, "end_seconds": 930, "label": "Cards to Watch", "confidence": "high", "review_reason": None}, "recommendations": picks, "review_reason": None}
+                return {"section": {"located": True, "start_seconds": 600, "end_seconds": 930, "label": "Cards to Watch", "confidence": "medium", "review_reason": "No explicit section ending was detected."}, "recommendations": picks, "review_reason": None}
 
         extractor = Extractor()
         pipeline = Pipeline(settings, Feed(), Downloader(), Audio(), Transcriber(), extractor, JsonStateStore(settings.state_file))
         result = pipeline.run(limit=1)[0]
-        self.assertEqual(("complete", 5), (result.status, result.pick_count))
+        self.assertEqual(("complete", 5), (result.status, result.pick_count), result.message)
         summary = load_json(settings.archive_dir / result.output_directory / "summary.json")
         self.assertFalse(summary["synthetic"])
         self.assertEqual(5, len(summary["recommendations"]))
-        self.assertFalse(any(settings.work_dir.glob("*")))
+        transcript_paths = list((settings.work_dir / "transcripts").glob("*.json.gz"))
+        self.assertEqual(1, len(transcript_paths))
+        with gzip.open(transcript_paths[0], "rt", encoding="utf-8") as source:
+            retained = json.load(source)
+        self.assertEqual(candidate.guid, retained["episode"]["guid"])
+        self.assertEqual("test", retained["transcript"]["provider"])
         second = pipeline.run(limit=1)
         self.assertEqual([], second)
         self.assertEqual(1, pipeline.last_selection.completed_skipped)
@@ -816,7 +912,7 @@ class StateAwareSelectionTests(unittest.TestCase):
 
         report = self.pipeline.select_candidates(candidates, policy="retry_then_next")
 
-        self.assertEqual(["guid-1"], [item.guid for item in report.selected])
+        self.assertEqual(["guid-4"], [item.guid for item in report.selected])
         self.assertEqual("next_fallback", report.selected_mode)
         self.assertEqual(1, report.retry_deferred)
         self.assertEqual(1, len(report.selected))
@@ -849,7 +945,7 @@ class StateAwareSelectionTests(unittest.TestCase):
         self.assertEqual("guid-5", process.call_args.args[0].guid)
         self.assertTrue(process.call_args.kwargs["retry_failed"])
 
-    def test_evening_run_processes_only_the_oldest_untouched_fallback(self) -> None:
+    def test_evening_run_processes_only_the_newest_untouched_fallback(self) -> None:
         candidates = self.candidates()
         self.set_status(candidates[5], "complete")
 
@@ -857,13 +953,13 @@ class StateAwareSelectionTests(unittest.TestCase):
             def episodes(self): return candidates
 
         pipeline = Pipeline(self.settings, Feed(), object(), object(), object(), object(), self.state)
-        result = PipelineResult("guid-1", "complete", pick_count=1)
+        result = PipelineResult("guid-5", "complete", pick_count=1)
         with patch.object(pipeline, "process_episode", return_value=result) as process, patch("ffw.pipeline.rebuild_catalog"):
             results = pipeline.run(selection_policy="retry_then_next")
 
         self.assertEqual([result], results)
         process.assert_called_once()
-        self.assertEqual("guid-1", process.call_args.args[0].guid)
+        self.assertEqual("guid-5", process.call_args.args[0].guid)
         self.assertFalse(process.call_args.kwargs["retry_failed"])
 
     def test_exact_guid_searches_full_feed_and_bypasses_position_limit(self) -> None:
@@ -873,6 +969,23 @@ class StateAwareSelectionTests(unittest.TestCase):
         self.assertEqual(6, report.feed_entries_scanned)
         self.assertEqual(["guid-1"], [item.guid for item in report.selected])
 
+    def test_automatic_selection_skips_very_old_episodes_but_exact_guid_can_override(self) -> None:
+        recent = self.candidates()[-1]
+        old = EpisodeCandidate(
+            "guid-old", 36, "Episode 36", "2016-10-09T00:00:00Z",
+            "https://cdn.example.test/old.mp3", "https://example.test/old", [],
+        )
+
+        progressive = self.pipeline.select_candidates([old, recent], policy="next")
+        automatic = self.pipeline.select_candidates([old], policy="next")
+        explicit = self.pipeline.select_candidates(
+            [old, recent], policy="exact_guid", force_guid="guid-old",
+        )
+
+        self.assertEqual([recent], progressive.selected)
+        self.assertEqual([], automatic.selected)
+        self.assertEqual(1, automatic.age_skipped)
+        self.assertEqual([old], explicit.selected)
     def test_reordered_feed_and_new_release_keep_guid_identity(self) -> None:
         candidates = self.candidates()
         self.set_status(candidates[5], "complete")

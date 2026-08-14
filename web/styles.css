@@ -423,3 +423,14 @@ pre { overflow: auto; max-height: 180px; padding: 12px; border: 1px solid var(--
   .context-player-head { align-items: flex-start; flex-direction: column; }
   .review-head-actions { align-items: flex-end; flex-direction: column; }
 }
+.card-reference-link { color: inherit; text-decoration-color: rgba(125, 211, 252, .42); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.card-reference-link:hover { color: var(--accent); text-decoration-color: currentColor; }
+.card-reference-link:focus-visible, .card-preview-link:focus-visible { border-radius: 3px; outline: 2px solid var(--accent); outline-offset: 3px; }
+.card-preview-link { display: block; width: min(160px, 42vw); margin: 8px 0; border-radius: 8px; line-height: 0; }
+.card-preview { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow); }
+.review-card-identity { display: flex; min-width: 0; gap: 10px; align-items: flex-start; }
+.review-card-identity > div { min-width: 0; }
+.review-card-identity > .card-preview-link { flex: 0 0 64px; width: 64px; margin: 0; }
+.resolution-note { margin: 3px 0 0; color: var(--muted); font-size: 10px; line-height: 1.35; }
+.resolution-note.verified { color: #86efac; }
+.resolution-note.suggested { color: #fbbf24; }

@@ -444,11 +444,16 @@ class GeminiTranscriber:
 
         client = genai.Client(api_key=api_key)
         segments: list[dict[str, Any]] = []
+        timing_adjustments = 0
         texts: list[str] = []
         usage: list[dict[str, Any]] = []
         used_models: list[str] = []
+        episode_context = f"Episode title: {episode.title}."
+        if episode.description:
+            episode_context += f" Show notes: {episode.description[:1500]}"
         prompt = (
             f"Transcribe this {episode.source_name} Magic: The Gathering podcast audio chunk. Return JSON only. "
+            f"{episode_context} "
             "Use seconds relative to the start of this chunk for start and end. "
             "Include speaker labels when they are obvious; otherwise use null. "
             "Keep card names and price phrases as spoken."
@@ -487,8 +492,14 @@ class GeminiTranscriber:
             texts.append(str(payload.get("text", "")))
             for segment in payload.get("segments", []):
                 segment = dict(segment)
-                segment["start"] = float(segment.get("start", 0)) + offset
-                segment["end"] = float(segment.get("end", segment["start"] - offset)) + offset
+                relative_start = float(segment.get("start", 0))
+                relative_end = float(segment.get("end", relative_start))
+                bounded_start = min(max(relative_start, 0.0), float(self.chunk_seconds))
+                bounded_end = min(max(relative_end, bounded_start), float(self.chunk_seconds))
+                if bounded_start != relative_start or bounded_end != relative_end:
+                    timing_adjustments += 1
+                segment["start"] = bounded_start + offset
+                segment["end"] = bounded_end + offset
                 if segment.get("speaker"):
                     segment["speaker"] = str(segment["speaker"])
                 segments.append(segment)
@@ -504,6 +515,7 @@ class GeminiTranscriber:
             "chunk_count": len(audio_files),
             "duration_seconds": episode.duration_seconds,
             "usage": usage,
+            "timing_adjustments": timing_adjustments,
         }
 
 
@@ -605,8 +617,6 @@ class OpenAIExtractor:
         usage = getattr(response, "usage", None)
         result["_usage"] = usage.model_dump() if hasattr(usage, "model_dump") else (dict(usage) if usage else None)
         result["section"] = section
-        if section.get("review_reason") and not result.get("review_reason"):
-            result["review_reason"] = section["review_reason"]
         return result
 
 
@@ -649,8 +659,6 @@ class GeminiExtractor:
             schema=_inline_json_schema_refs(EXTRACTION_SCHEMA),
         )
         result["section"] = section
-        if section.get("review_reason") and not result.get("review_reason"):
-            result["review_reason"] = section["review_reason"]
         return result
 
 

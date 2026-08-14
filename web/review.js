@@ -23,6 +23,28 @@ function safeUrl(value) {
     return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "#";
   } catch { return "#"; }
 }
+function scryfallUrl(pick) {
+  const resolution = pick.card_resolution;
+  if (!["verified", "suggested"].includes(resolution?.status)) return null;
+  if (resolution.scryfall_uri) return resolution.scryfall_uri;
+  return resolution.oracle_id
+    ? `https://scryfall.com/search?q=${encodeURIComponent(`oracleid:${resolution.oracle_id}`)}`
+    : null;
+}
+function cardReferenceLink(pick, label, includeSuggested = false) {
+  if (pick.card_resolution?.status === "suggested" && !includeSuggested) return escapeHtml(label);
+  const url = scryfallUrl(pick);
+  if (!url) return escapeHtml(label);
+  return `<a class="card-reference-link" href="${safeUrl(url)}" target="_blank" rel="noreferrer" title="Open ${escapeHtml(label)} on Scryfall">${escapeHtml(label)}<span aria-hidden="true"> &nearr;</span></a>`;
+}
+function cardPreview(pick) {
+  const resolution = pick.card_resolution;
+  const imageUrl = resolution?.image_uri || resolution?.card_face_images?.[0]?.image_uri;
+  const pageUrl = scryfallUrl(pick);
+  if (!imageUrl || !pageUrl) return "";
+  const name = resolution.canonical_name || pick.card;
+  return `<a class="card-preview-link" href="${safeUrl(pageUrl)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(name)} on Scryfall"><img class="card-preview" src="${safeUrl(imageUrl)}" alt="${escapeHtml(name)} card image" loading="lazy"></a>`;
+}
 
 function formatDate(value) {
   if (!value) return "Unknown date";
@@ -53,14 +75,28 @@ function inputField(label, name, value, options = {}) {
   return `<label class="review-field${wide}"><span>${escapeHtml(label)}</span><input type="${type}" name="${escapeHtml(name)}" value="${escapeHtml(value)}"${required}></label>`;
 }
 
+function resolutionNote(pick) {
+  const resolution = pick.card_resolution;
+  if (resolution?.status === "verified" && resolution.canonical_name !== pick.card) {
+    return `<p class="resolution-note verified">Catalog match: ${cardReferenceLink(pick, resolution.canonical_name)}</p>`;
+  }
+  if (resolution?.status === "suggested" && resolution.canonical_name) {
+    return `<p class="resolution-note suggested">Possible match: ${cardReferenceLink(pick, resolution.canonical_name, true)} - choose Correct to apply</p>`;
+  }
+  return "";
+}
 function pickEditor(pick, index, isNew = false) {
   const editorId = isNew ? `new-${addedPickCounter++}` : pick.id;
   const hosts = (pick.hosts || sourceSummary.episode.hosts || []).join(", ");
   return `<article class="panel review-pick" data-review-pick="${escapeHtml(editorId)}" data-original-id="${escapeHtml(isNew ? "" : pick.id)}" data-new="${isNew}">
     <div class="panel-head">
-      <div>
-        <p class="eyebrow">${isNew ? "Missing pick" : `Extracted pick ${index + 1}`}</p>
-        <h2>${escapeHtml(pick.card || "New pick")}</h2>
+      <div class="review-card-identity">
+        ${cardPreview(pick)}
+        <div>
+          <p class="eyebrow">${isNew ? "Missing pick" : `Extracted pick ${index + 1}`}</p>
+          <h2>${cardReferenceLink(pick, pick.card || "New pick")}</h2>
+          ${resolutionNote(pick)}
+        </div>
       </div>
       <div class="review-head-actions">
       <button class="link-button" type="button" data-review-listen>Listen${Number.isFinite(pick.start_seconds) ? ` · ${escapeHtml(secondsToTimestamp(pick.start_seconds))}` : ""}</button>
@@ -282,12 +318,20 @@ async function loadReview() {
   }
   try {
     const nonce = Date.now();
-    const [summaryResponse, indexResponse] = await Promise.all([
+    const [summaryResponse, indexResponse, resolutionsResponse] = await Promise.all([
       fetch(`archive/episodes/${episodeDir}/summary.json?v=${nonce}`),
       fetch(`archive/index.json?v=${nonce}`),
+      fetch(`archive/resolutions.json?v=${nonce}`),
     ]);
     if (!summaryResponse.ok || !indexResponse.ok) throw new Error("Review data could not be loaded.");
     sourceSummary = await summaryResponse.json();
+    if (resolutionsResponse.ok) {
+      const resolutionMap = (await resolutionsResponse.json()).resolutions || {};
+      sourceSummary.recommendations = (sourceSummary.recommendations || []).map((pick) => {
+        const resolution = resolutionMap[pick.id];
+        return resolution?.raw_name === pick.card ? { ...pick, card_resolution: resolution } : pick;
+      });
+    }
     const index = await indexResponse.json();
     reviewWorkflowUrl = index.metadata.review_workflow_url;
     if (!reviewWorkflowUrl) throw new Error("The review workflow is not configured.");

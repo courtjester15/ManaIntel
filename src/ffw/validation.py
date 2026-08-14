@@ -143,6 +143,24 @@ def validate_archive(
         issues.append(ValidationIssue("error", "cards_catalog_drift", str(archive_dir / "cards.json"), "Flattened cards do not match episode summaries."))
     if index.get("counts", {}).get("picks") != len(all_summary_ids):
         issues.append(ValidationIssue("error", "count_mismatch", str(archive_dir / "index.json"), "Index pick count is incorrect."))
+    resolution_state = load_json(state_file.parent / "card-resolutions.json", {"resolutions": {}})
+    published_resolutions = load_json(archive_dir / "resolutions.json", {"resolutions": {}})
+    expected_resolutions = {
+        pick_id: record
+        for pick_id, record in resolution_state.get("resolutions", {}).items()
+        if pick_id in flattened_ids
+    }
+    if published_resolutions.get("resolutions", {}) != expected_resolutions:
+        issues.append(ValidationIssue("error", "card_resolution_drift", str(archive_dir / "resolutions.json"), "Published card resolutions do not match resolution state."))
+    for pick_id, record in published_resolutions.get("resolutions", {}).items():
+        resolution_path = f"{archive_dir / 'resolutions.json'}#{pick_id}"
+        if record.get("status") not in {"verified", "suggested", "not_found"}:
+            issues.append(ValidationIssue("error", "invalid_card_resolution", resolution_path, f"Unknown resolution status: {record.get('status')}"))
+        if not record.get("raw_name") or not record.get("resolver_version"):
+            issues.append(ValidationIssue("error", "invalid_card_resolution", resolution_path, "Resolution requires raw_name and resolver_version."))
+        if record.get("status") in {"verified", "suggested"} and not record.get("canonical_name"):
+            issues.append(ValidationIssue("error", "invalid_card_resolution", resolution_path, "Matched resolution requires canonical_name."))
+
 
     state = load_json(state_file, {"episodes": {}})
     state_guids = set(state.get("episodes", {}))

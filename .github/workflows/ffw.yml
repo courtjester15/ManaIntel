@@ -59,6 +59,9 @@ env:
   FFW_TRANSCRIPTION_FALLBACK_MODEL: gemini-3.5-flash-lite
   FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai
   FFW_OPENAI_TRANSCRIPTION_MODEL: gpt-4o-transcribe-diarize
+  FFW_RETAIN_TRANSCRIPTS: "true"
+  FFW_TARGETED_VERIFICATION_ENABLED: "true"
+  FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
   FFW_AUDIO_CHUNK_SECONDS: "900"
   FFW_GEMINI_TRANSIENT_RETRIES: "2"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
@@ -66,6 +69,7 @@ env:
   FFW_MAX_LIVE_BATCH: "20"
   FFW_MAX_EPISODE_ATTEMPTS: "3"
   FFW_RETRY_COOLDOWN_HOURS: "6"
+  FFW_AUTOMATIC_MAX_EPISODE_AGE_DAYS: "365"
   FFW_ENABLED_SOURCES: "mtg-fast-finance,brainstorm-brewery"
   PYTHONUNBUFFERED: "1"
 
@@ -179,6 +183,26 @@ jobs:
       - name: Validate production archive
         run: python -m ffw validate
 
+      - name: Upload private transcript diagnostics
+        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: transcripts-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .ffw-work/transcripts/*.json.gz
+          if-no-files-found: ignore
+          retention-days: 14
+
+
+      - name: Upload private reprocessing comparisons
+        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: reprocessing-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .ffw-work/reprocess-baselines/*.json
+            .ffw-work/reprocess-reports/*.json
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Persist durable state and archive
         if: ${{ github.event_name != 'push' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'deploy_only') }}
         id: persist
@@ -253,6 +277,7 @@ jobs:
               summary.write(f"- Failed skipped: {report['failed_skipped']}\n")
               summary.write(f"- Retry deferred: {report['retry_deferred']}\n")
               summary.write(f"- Retry exhausted/quarantined: {report['retry_exhausted']}\n")
+              summary.write(f"- Age-window skipped: {report.get('age_skipped', 0)}\n")
               summary.write(f"- Eligible found: {report['eligible_found']}\n")
               summary.write(f"- Selected: {report['selected_count']}\n")
               summary.write(f"- Attempted: {report['attempted']}\n")

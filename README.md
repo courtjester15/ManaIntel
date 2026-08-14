@@ -13,7 +13,7 @@ Version 0.2 retains a fully runnable credential-free mock mode and adds live RSS
 
 ## Normal user workflow
 
-Open <https://courtjester15.github.io/mtgff-cards-to-watch/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 20:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, that same one-episode slot advances the oldest untouched episode across both feeds.
+Open <https://courtjester15.github.io/mtgff-cards-to-watch/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 20:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, it advances the same newest-to-oldest untouched cursor. Automatic selection ignores episodes older than `FFW_AUTOMATIC_MAX_EPISODE_AGE_DAYS` (365 by default); an explicit GUID can override the age limit.
 
 For an episode marked **needs review**, open its details and choose **Review episode**. Keep, exclude, or correct extracted picks, add any missing picks, then prepare and copy the review payload. Paste that payload into **Actions -> Review one episode -> Run workflow**. The authenticated workflow validates and stores the review, rebuilds the effective archive, commits it, and deploys Pages while retaining the original AI extraction unchanged.
 
@@ -50,6 +50,7 @@ For development without installing the package, set `PYTHONPATH=src` before invo
 | `python -m ffw backfill --live --limit N` | Process the newest N eligible unprocessed live episodes. |
 | `python -m ffw retry-failed --live --limit N` | Retry only the newest N failed live episodes. |
 | `python -m ffw run --live --force-guid GUID` | Force one exact feed GUID regardless of feed position or terminal state. |
+| `python -m ffw resolve-cards --limit N` | Verify up to N uncached extracted card names against Scryfall and rebuild canonical display projections. |
 | `python -m ffw backfill` | Force-regenerate every synthetic fixture. |
 | `python -m ffw process-latest` | Process only the newest eligible synthetic fixture. |
 | `python -m ffw validate` | Validate identity, states, evidence, outputs, catalogs, and deterministic Markdown. |
@@ -57,6 +58,12 @@ For development without installing the package, set `PYTHONPATH=src` before invo
 | `python -m ffw serve` | Serve the repository and local archive on port 8765. |
 
 Live batch and failed-only runs require a positive limit no greater than 20. Limits count eligible selected episodes, not RSS entries inspected. `complete` and `needs_review` records are skipped before download or provider calls; failed records are selected only by `retry-failed` or an exact GUID override. Gemini transcription uses exponential in-run backoff, its configured same-key fallback, and then an optional OpenAI provider fallback before consuming an episode attempt. Automatic episode retries use a six-hour cooldown and stop after three total attempts. A no-op does not rewrite catalogs, state, or Pages; a changed validated failure record is published so operational status stays current.
+
+Targeted verification is bounded and cost-conscious. For at most `FFW_TARGETED_VERIFICATION_MAX_PICKS` transcription-level card-name ambiguities per episode, ManaIntel cuts a short audio excerpt, performs a focused second listen, and accepts a correction only when the returned name independently resolves as an exact Scryfall card. Printing and foil uncertainty remains reviewable.
+
+Card-name resolution is additive and auditable. Original extracted names and stable pick IDs remain unchanged in episode summaries. Exact or punctuation-normalized Scryfall matches receive a canonical display name and Oracle ID in `state/card-resolutions.json`; fuzzy matches are published only as review suggestions. Successful live runs resolve a bounded batch of historical names automatically, and `resolve-cards` can run an explicit backfill. `archive/resolutions.json`, `archive/cards.json`, and the web UI are rebuildable projections of that state.
+
+For local networks that inspect HTTPS, set `FFW_CA_BUNDLE` to the trusted PEM/CRT file. ManaIntel also honors an existing `NODE_EXTRA_CA_CERTS` value for the Scryfall resolver, so a shared local Node/browser development certificate does not need to be configured twice. This only adds the specified CA to normal TLS verification; certificate checks remain enabled, and deployed environments without either variable retain the default trust behavior.
 
 Run the tests with:
 
@@ -93,7 +100,7 @@ Structural validation can prove that evidence exists; it cannot prove that an AI
 
 ## Production operation
 
-The feeds are MTG Fast Finance's SoundCloud RSS and Brainstorm Brewery's public FeedBurner RSS. The processing workflow is [`.github/workflows/ffw.yml`](.github/workflows/ffw.yml), supports `next`, `backfill`, `retry_failed`, and `deploy_only` manual modes plus an optional source selector, serializes writers, commits only `archive/` and `state/`, and deploys a clean Pages artifact. [`.github/workflows/review.yml`](.github/workflows/review.yml) applies authenticated human-review payloads under `data/reviews/`, rebuilds effective projections, and deploys them through the same writer concurrency group. Audio, chunks, and full transcripts remain inside ignored/disposable `.ffw-work/` storage.
+The feeds are MTG Fast Finance's SoundCloud RSS and Brainstorm Brewery's public FeedBurner RSS. The processing workflow is [`.github/workflows/ffw.yml`](.github/workflows/ffw.yml), supports `next`, `backfill`, `retry_failed`, and `deploy_only` manual modes plus an optional source selector, serializes writers, commits only `archive/` and `state/`, and deploys a clean Pages artifact. [`.github/workflows/review.yml`](.github/workflows/review.yml) applies authenticated human-review payloads under `data/reviews/`, rebuilds effective projections, and deploys them through the same writer concurrency group. Audio and chunks remain inside ignored/disposable `.ffw-work/` storage. Production runs retain full timestamped transcripts only as private GitHub Actions artifacts for 14 days; they are never committed or published to Pages.
 
 Required repository setup and recovery procedures are documented in [Production Runbook](docs/RUNBOOK.md).
 

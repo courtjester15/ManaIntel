@@ -31,6 +31,18 @@ Projection generation loads the original episode summary, validates any matching
 
 Excluded picks remain auditable in original extraction and review history but do not appear in normal effective projections.
 
+### Card-name resolution overlay
+
+`state/card-resolutions.json` stores versioned catalog lookups keyed by the original stable pick ID. A resolution retains the raw extracted name, normalized lookup key, status, canonical Scryfall name, Oracle ID, lookup method, resolver version, and timestamp.
+
+- `verified` means an exact, punctuation-normalized, or explicitly reviewed catalog-and-episode-context match and may supply the canonical display name. Reviewed matches retain a note and timestamp.
+- `suggested` means Scryfall returned a fuzzy candidate; it is review assistance and must not silently replace the extraction.
+- `automated_verification` records a bounded focused-audio second listen. A corrected name may replace the extracted card only when the verifier identifies it audibly and Scryfall independently verifies the exact catalog name; the original name and decision remain in the audit object.
+- Matched records may retain the selected Scryfall printing ID, page URL, normal image URL, and per-face image URLs. These are display references only and do not change the canonical identity or original extraction.
+- `not_found` records a completed lookup with no candidate.
+
+Original summaries, `card`, and pick IDs remain unchanged. `archive/resolutions.json` and canonical fields in `archive/cards.json` are derived projections. A human review remains authoritative when it corrects a card name.
+
 ### Failure metadata
 
 Operational failure data exposes `category`, `message`, `stage`, `attempt`, `max_attempts`, `retryable`, `provider_wide`, `next_retry_at`, and `quarantined`. Current categories are `transient_provider`, `provider_configuration`, `episode_input`, and `unknown`. The transition history supplies attempt timestamps. Transcription error messages also identify the failed chunk and request duration; raw provider/stack detail remains secondary.

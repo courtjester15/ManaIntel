@@ -69,6 +69,7 @@ class SelectionReport:
     failed_skipped: int = 0
     retry_deferred: int = 0
     retry_exhausted: int = 0
+    age_skipped: int = 0
     eligible_found: int = 0
     selected: list[EpisodeCandidate] = field(default_factory=list)
 
@@ -92,6 +93,7 @@ class SelectionReport:
             "failed_skipped": self.failed_skipped,
             "retry_deferred": self.retry_deferred,
             "retry_exhausted": self.retry_exhausted,
+            "age_skipped": self.age_skipped,
             "eligible_found": self.eligible_found,
             "selected_count": len(selected),
             "selected": selected,

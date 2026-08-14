@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import PIPELINE_VERSION, SCHEMA_VERSION
+from .card_resolution import apply_card_resolution, load_resolution_store
 from .rendering import render_episode_markdown
 from .reviews import apply_review, load_episode_review
 from .utils import atomic_write_json, atomic_write_text, load_json
@@ -20,10 +21,13 @@ def rebuild_catalog(
     archive_dir: Path, *, production: bool = False, feed_name: str = "MTG Fast Finance",
     repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch",
     reviews_dir: Path | None = None,
+    resolutions_path: Path | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     archive_dir.mkdir(parents=True, exist_ok=True)
     episode_records: list[dict[str, Any]] = []
     cards: list[dict[str, Any]] = []
+    resolution_store = load_resolution_store(resolutions_path)
+    resolutions = resolution_store["resolutions"]
     for metadata_path in sorted((archive_dir / "episodes").glob("*/metadata.json")):
         metadata = load_json(metadata_path)
         if not metadata:
@@ -75,9 +79,10 @@ def rebuild_catalog(
         episode_records.append(episode_item)
         if effective_summary:
             for pick in effective_summary["recommendations"]:
+                projected_pick = apply_card_resolution(pick, resolutions)
                 cards.append(
                     {
-                        **pick,
+                        **projected_pick,
                         "episode": {
                             "guid": metadata["episode"]["guid"],
                             "episode_number": metadata["episode"]["episode_number"],
@@ -150,12 +155,26 @@ def rebuild_catalog(
             "cards": cards,
         },
     )
+    published_ids = {pick.get("id") for pick in cards}
+    atomic_write_json(
+        archive_dir / "resolutions.json",
+        {
+            "schema_version": resolution_store["schema_version"],
+            "resolver_updated_at": resolution_store.get("updated_at"),
+            "resolutions": {
+                pick_id: record
+                for pick_id, record in resolutions.items()
+                if pick_id in published_ids
+            },
+        },
+    )
     return index, cards
 
 
 def rerender_archive(
     archive_dir: Path, *, production: bool = False, reviews_dir: Path | None = None,
     repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch",
+    resolutions_path: Path | None = None,
 ) -> int:
     rendered = 0
     for summary_path in (archive_dir / "episodes").glob("*/summary.json"):
@@ -167,5 +186,6 @@ def rerender_archive(
         production=production,
         reviews_dir=reviews_dir,
         repository_url=repository_url,
+        resolutions_path=resolutions_path,
     )
     return rendered

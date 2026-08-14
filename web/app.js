@@ -2,6 +2,7 @@
 
 const state = {
   index: null, cards: [], route: "dashboard", query: "", status: "all",
+  episodeSource: "all", pickSource: "all",
   episodeSort: { key: "processed_at", direction: "desc" },
   pickSort: { key: "published_at", direction: "desc" },
 };
@@ -9,6 +10,13 @@ const app = document.querySelector("#app");
 const pageTitle = document.querySelector("#page-title");
 const dialog = document.querySelector("#pick-dialog");
 const dialogContent = document.querySelector("#dialog-content");
+const dialogClose = document.querySelector(".dialog-close");
+const dialogState = {
+  view: null,
+  episodeGuid: null,
+  episodeScrollTop: 0,
+  pickId: null,
+};
 
 const routes = {
   dashboard: { title: "Dashboard", render: renderDashboard },
@@ -122,6 +130,26 @@ function display(value, fallback = "Not stated") {
 
 function target(value) { return value ? escapeHtml(value.raw) : "Not stated"; }
 function sourceName(item) { return item?.source_name || item?.episode?.source_name || "MTG Fast Finance"; }
+function sourceId(item) {
+  const explicit = item?.source_id || item?.episode?.source_id;
+  if (explicit) return explicit;
+  const name = sourceName(item);
+  if (name === "MTG Fast Finance") return "mtg-fast-finance";
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+function sourceFilterOptions(items, selected) {
+  const sources = new Map();
+  items.forEach((item) => {
+    const id = sourceId(item);
+    const current = sources.get(id) || { name: sourceName(item), count: 0 };
+    current.count += 1;
+    sources.set(id, current);
+  });
+  return [...sources.entries()]
+    .sort((left, right) => left[1].name.localeCompare(right[1].name))
+    .map(([id, source]) => `<option value="${escapeHtml(id)}" ${selected === id ? "selected" : ""}>${escapeHtml(source.name)} (${source.count})</option>`)
+    .join("");
+}
 function label(value) { return String(value ?? "unknown").replaceAll("_", " "); }
 function badge(value, kind = "status") { return `<span class="${kind} ${escapeHtml(value ?? "unknown")}">${escapeHtml(label(value))}</span>`; }
 function episodeSummaryUrl(episode) { return `summary.html?episode=${encodeURIComponent(episode.directory.replace(/^episodes\//, ""))}`; }
@@ -153,12 +181,58 @@ function pickMeta(pick) {
     pick.hosts?.length ? pick.hosts.join(", ") : "host not stated",
   ].map(escapeHtml).join(" · ");
 }
+function cardName(pick) {
+  return pick.card_resolution?.status === "verified" && pick.resolved_card
+    ? pick.resolved_card
+    : pick.card;
+}
+function scryfallUrl(pick, allowSearch = false) {
+  const resolution = pick.card_resolution;
+  if (["verified", "suggested"].includes(resolution?.status)) {
+    if (resolution.scryfall_uri) return rawSafeUrl(resolution.scryfall_uri);
+    if (resolution.oracle_id) {
+      return `https://scryfall.com/search?q=${encodeURIComponent(`oracleid:${resolution.oracle_id}`)}`;
+    }
+  }
+  return allowSearch
+    ? `https://scryfall.com/search?q=${encodeURIComponent(`!"${cardName(pick)}"`)}`
+    : null;
+}
+function cardImageUrl(pick) {
+  const resolution = pick.card_resolution;
+  return resolution?.image_uri || resolution?.card_face_images?.[0]?.image_uri || null;
+}
+function cardReferenceLink(pick, { allowSearch = false, includeSuggested = false, label: linkLabel = cardName(pick) } = {}) {
+  const suggested = pick.card_resolution?.status === "suggested";
+  const url = suggested && !includeSuggested
+    ? (allowSearch ? `https://scryfall.com/search?q=${encodeURIComponent(`!"${cardName(pick)}"`)}` : null)
+    : scryfallUrl(pick, allowSearch);
+  if (!url) return escapeHtml(linkLabel);
+  return `<a class="card-reference-link" href="${safeUrl(url)}" target="_blank" rel="noreferrer" title="Open ${escapeHtml(linkLabel)} on Scryfall">${escapeHtml(linkLabel)}<span aria-hidden="true"> &nearr;</span></a>`;
+}
+function cardPreview(pick) {
+  const imageUrl = cardImageUrl(pick);
+  const pageUrl = scryfallUrl(pick, true);
+  if (!imageUrl || !pageUrl) return "";
+  return `<a class="card-preview-link" href="${safeUrl(pageUrl)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(cardName(pick))} on Scryfall"><img class="card-preview" src="${safeUrl(imageUrl)}" alt="${escapeHtml(cardName(pick))} card image" loading="lazy"></a>`;
+}
+function cardResolutionNote(pick) {
+  const resolution = pick.card_resolution;
+  if (resolution?.status === "verified" && cardName(pick) !== pick.card) {
+    return `<p class="resolution-note verified">Transcribed as &quot;${escapeHtml(pick.card)}&quot;</p>`;
+  }
+  if (resolution?.status === "suggested" && resolution.canonical_name) {
+    return `<p class="resolution-note suggested">Possible match: ${cardReferenceLink(pick, { includeSuggested: true, label: resolution.canonical_name })} - review required</p>`;
+  }
+  return "";
+}
 function pickCard(pick, compact = false) {
   return `<article class="pick-card ${compact ? "compact" : ""}" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0">
     <div class="pick-card-head">
       <div>
         <p class="eyebrow">${escapeHtml(sourceName(pick))} · Episode ${escapeHtml(pick.episode.episode_number || "?")} · ${display(pick.timestamp)}</p>
-        <h3>${escapeHtml(pick.card)}</h3>
+        <h3>${cardReferenceLink(pick)}</h3>
+        ${cardResolutionNote(pick)}
         <p class="pick-meta">${pickMeta(pick)}</p>
       </div>
       <div class="pick-badges">
@@ -256,7 +330,7 @@ function renderDashboard() {
       <article class="panel">
         <div class="panel-head"><h2>Recent recommendations</h2><a href="#picks">View all →</a></div>
         <div class="panel-body recommendation-list">
-          ${recent.map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${escapeHtml(pick.card)}</strong><p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
+          ${recent.map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${cardReferenceLink(pick)}</strong>${cardResolutionNote(pick)}<p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
         </div>
       </article>
     </section>`;
@@ -268,7 +342,7 @@ function metric(name, value, note) {
 
 function renderEpisodes() {
   return `
-    <div class="toolbar"><label class="search"><input id="episode-search" type="search" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
+    <div class="toolbar"><label class="search"><input id="episode-search" type="search" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.index.episodes, state.episodeSource)}</select><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
     <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Episode", "episode_number")}${episodeSortHeader("Published", "published_at")}${episodeSortHeader("Activity", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Listen</th><th>Open</th></tr></thead><tbody id="episode-rows">${episodeRows()}</tbody></table></div>`;
 }
 
@@ -276,7 +350,9 @@ function episodeRows() {
   const query = state.query.toLowerCase();
   const episodes = sortRows(state.index.episodes.filter((episode) => {
     const haystack = `${sourceName(episode)} ${episode.episode_number} ${episode.title} ${episode.hosts.join(" ")}`.toLowerCase();
-    return haystack.includes(query) && (state.status === "all" || episode.processing_status === state.status);
+    return haystack.includes(query)
+      && (state.episodeSource === "all" || sourceId(episode) === state.episodeSource)
+      && (state.status === "all" || episode.processing_status === state.status);
   }), state.episodeSort, episodeSortAccessors);
   if (!episodes.length) return `<tr><td colspan="9">No matching episodes.</td></tr>`;
   return episodes.map((episode) => `<tr class="episode-row" data-episode-guid="${escapeHtml(episode.guid)}" role="button" tabindex="0"><td><strong>#${episode.episode_number || "?"}</strong></td><td>${formatDate(episode.published_at)}</td><td title="${escapeHtml(`${activityLabel(episode)} ${formatDateTime(episode.processed_at)}`)}">${activityDate(episode)}</td><td><span class="muted">${escapeHtml(sourceName(episode))}</span><br><strong>${escapeHtml(episode.title)}</strong><br><span class="muted">${escapeHtml(episode.hosts.join(", "))}</span></td><td>${badge(episode.processing_status)}</td><td>${episode.pick_count}</td><td>${escapeHtml(label(episode.review_state))}</td><td><a class="link-button" href="${escapeHtml(episodeListenUrl(episode))}">Listen</a></td><td><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Details</button></td></tr>`).join("");
@@ -284,18 +360,20 @@ function episodeRows() {
 
 function renderPicks() {
   return `
-    <div class="toolbar"><label class="search"><input id="pick-search" type="search" placeholder="Search card, printing, host, recommendation…" value="${escapeHtml(state.query)}"></label><select id="pick-status" aria-label="Filter by review status"><option value="all">All review states</option>${["approved", "pending", "needs_review"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
+    <div class="toolbar"><label class="search"><input id="pick-search" type="search" placeholder="Search card, printing, host, recommendation…" value="${escapeHtml(state.query)}"></label><select id="pick-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.cards, state.pickSource)}</select><select id="pick-status" aria-label="Filter by review status"><option value="all">All review states</option>${["approved", "pending", "needs_review"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
     <div id="pick-table" aria-label="Cards to Watch recommendations"></div>`;
 }
 
 function filteredPicks() {
   const query = state.query.toLowerCase();
   const filtered = state.cards.filter((pick) => {
-    const haystack = `${sourceName(pick)} ${pick.card} ${pick.printing ?? ""} ${pick.hosts.join(" ")} ${pick.recommendation} ${pick.episode.title}`.toLowerCase();
-    return haystack.includes(query) && (state.status === "all" || pick.review_status === state.status);
+    const haystack = `${sourceName(pick)} ${pick.card} ${cardName(pick)} ${pick.card_resolution?.canonical_name ?? ""} ${pick.printing ?? ""} ${pick.hosts.join(" ")} ${pick.recommendation} ${pick.episode.title}`.toLowerCase();
+    return haystack.includes(query)
+      && (state.pickSource === "all" || sourceId(pick) === state.pickSource)
+      && (state.status === "all" || pick.review_status === state.status);
   });
   return sortRows(filtered, state.pickSort, {
-    card: (pick) => pick.card,
+    card: (pick) => cardName(pick),
     printing: (pick) => pick.printing || "",
     entry: (pick) => pick.entry_target?.minimum ?? pick.entry_target?.maximum,
     exit: (pick) => pick.exit_target?.minimum ?? pick.exit_target?.maximum,
@@ -316,9 +394,9 @@ function renderPickTable() {
     sort: state.pickSort,
     emptyText: "No matching picks. Try a different card, host, or review filter.",
     getRowId: (pick) => pick.id,
-    getRowLabel: (pick) => `Open details for ${pick.card}`,
+    getRowLabel: (pick) => `Open details for ${cardName(pick)}`,
     columns: [
-      { label: "Card", sortKey: "card", value: (pick) => pick.card },
+      { label: "Card", sortKey: "card", html: (pick) => `${cardReferenceLink(pick)}${cardResolutionNote(pick)}` },
       { label: "Printing", sortKey: "printing", value: (pick) => pick.printing || "—", title: (pick) => pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "Printing not stated" },
       { label: "Entry", sortKey: "entry", align: "money", value: (pick) => pick.entry_target?.raw || "—" },
       { label: "Exit", sortKey: "exit", align: "money", value: (pick) => pick.exit_target?.raw || "—" },
@@ -378,7 +456,7 @@ function renderDashboard() {
         <article class="panel">
           <div class="panel-head"><h2>Recent picks</h2><a href="#picks">All picks</a></div>
           <div class="panel-body recommendation-list compact">
-            ${recent.slice(0, 6).map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${escapeHtml(pick.card)}</strong><p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
+            ${recent.slice(0, 6).map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${cardReferenceLink(pick)}</strong>${cardResolutionNote(pick)}<p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
           </div>
         </article>
       </aside>
@@ -400,23 +478,27 @@ function bindPageEvents() {
   bindEpisodeButtons();
   renderPickTable();
   const episodeSearch = document.querySelector("#episode-search");
+  const episodeSource = document.querySelector("#episode-source");
   const episodeStatus = document.querySelector("#episode-status");
   document.querySelectorAll("[data-episode-sort]").forEach((control) => {
     control.addEventListener("click", () => { toggleSort("episodeSort", control.dataset.episodeSort); renderRoute(); });
   });
   if (episodeSearch) episodeSearch.addEventListener("input", () => { state.query = episodeSearch.value; document.querySelector("#episode-rows").innerHTML = episodeRows(); bindEpisodeButtons(); });
+  if (episodeSource) episodeSource.addEventListener("change", () => { state.episodeSource = episodeSource.value; document.querySelector("#episode-rows").innerHTML = episodeRows(); bindEpisodeButtons(); });
   if (episodeStatus) episodeStatus.addEventListener("change", () => { state.status = episodeStatus.value; document.querySelector("#episode-rows").innerHTML = episodeRows(); bindEpisodeButtons(); });
   const pickSearch = document.querySelector("#pick-search");
+  const pickSource = document.querySelector("#pick-source");
   const pickStatus = document.querySelector("#pick-status");
   if (pickSearch) pickSearch.addEventListener("input", () => { state.query = pickSearch.value; renderPickTable(); });
+  if (pickSource) pickSource.addEventListener("change", () => { state.pickSource = pickSource.value; renderPickTable(); });
   if (pickStatus) pickStatus.addEventListener("change", () => { state.status = pickStatus.value; renderPickTable(); });
 }
 
 function bindPickButtons() {
   document.querySelectorAll("[data-pick-id]").forEach((element) => {
-    const open = () => showPick(element.dataset.pickId);
+    const open = (event) => { if (!event?.target?.closest("a")) showPick(element.dataset.pickId); };
     element.addEventListener("click", open);
-    element.addEventListener("keydown", (event) => { if (["Enter", " "].includes(event.key)) open(); });
+    element.addEventListener("keydown", (event) => { if (["Enter", " "].includes(event.key)) open(event); });
   });
 }
 
@@ -432,16 +514,47 @@ function bindEpisodeButtons() {
   });
 }
 
-function showPick(id) {
-  const pick = state.cards.find((item) => item.id === id);
-  if (!pick) return;
-  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">Episode ${pick.episode.episode_number} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(pick.card)}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit</small><strong>${target(pick.exit_target)}</strong></div></div><div class="recommendation-callout"><small>Host recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${escapeHtml(pickSummaryUrl(pick))}">Listen at timestamp</a>${badge(pick.review_status)}</div></div>`;
-  dialog.showModal();
+function openDialog() {
+  if (!dialog.open) dialog.showModal();
 }
 
-function showEpisode(guid) {
+function setDialogCloseAction(isBack) {
+  const label = isBack ? "Back to episode picks" : "Close details";
+  dialogClose.setAttribute("aria-label", label);
+  dialogClose.title = label;
+}
+
+function showPick(id, { fromEpisode = false } = {}) {
+  const pick = state.cards.find((item) => item.id === id);
+  if (!pick) return;
+  if (fromEpisode && dialogState.view === "episode" && dialogState.episodeGuid === pick.episode.guid) {
+    dialogState.episodeScrollTop = dialog.scrollTop;
+  } else {
+    dialogState.episodeGuid = null;
+    dialogState.episodeScrollTop = 0;
+  }
+  dialogState.view = "pick";
+  dialogState.pickId = pick.id;
+  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">Episode ${pick.episode.episode_number} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(pick.card)}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit</small><strong>${target(pick.exit_target)}</strong></div></div><div class="recommendation-callout"><small>Host recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${escapeHtml(pickSummaryUrl(pick))}">Listen at timestamp</a>${badge(pick.review_status)}</div></div>`;
+  const cardHeading = dialogContent.querySelector("#dialog-card");
+  cardHeading.innerHTML = cardReferenceLink(pick, { allowSearch: true });
+  if (cardResolutionNote(pick)) {
+    cardHeading.insertAdjacentHTML("afterend", cardResolutionNote(pick));
+  }
+  if (cardPreview(pick)) {
+    cardHeading.insertAdjacentHTML("afterend", cardPreview(pick));
+  }
+  setDialogCloseAction(Boolean(dialogState.episodeGuid));
+  openDialog();
+}
+
+function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
   const episode = state.index.episodes.find((item) => item.guid === guid);
   if (!episode) return;
+  if (!returning) dialogState.episodeScrollTop = 0;
+  dialogState.view = "episode";
+  dialogState.episodeGuid = guid;
+  dialogState.pickId = null;
   const error = episode.error || {};
   const summaryLink = canOpenSummary(episode) ? `<a class="button secondary" href="${episodeSummaryUrl(episode)}" target="_blank">Open summary</a>` : "";
   const episodePicks = state.cards.filter((pick) => pick.episode.guid === episode.guid);
@@ -456,26 +569,55 @@ function showEpisode(guid) {
     ? `<div class="detail-section"><h3>Cards to Watch</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
     : `<div class="detail-section"><h3>Cards to Watch</h3><p>No structured picks were published for this episode.</p></div>`;
   dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>Failure details</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Attempted</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
-  dialog.showModal();
+  setDialogCloseAction(false);
+  openDialog();
+  if (returning) {
+    requestAnimationFrame(() => {
+      dialog.scrollTop = dialogState.episodeScrollTop;
+      const pickElement = [...dialogContent.querySelectorAll("[data-pick-id]")]
+        .find((element) => element.dataset.pickId === focusPickId);
+      pickElement?.focus();
+    });
+  }
 }
 
-document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+function closeDialogOrBack() {
+  if (dialogState.view === "pick" && dialogState.episodeGuid) {
+    showEpisode(dialogState.episodeGuid, { returning: true, focusPickId: dialogState.pickId });
+    return;
+  }
+  dialog.close();
+}
+
+dialogClose.addEventListener("click", closeDialogOrBack);
+dialog.addEventListener("click", (event) => { if (event.target === dialog) closeDialogOrBack(); });
+dialog.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  closeDialogOrBack();
+});
+dialog.addEventListener("close", () => {
+  dialogState.view = null;
+  dialogState.episodeGuid = null;
+  dialogState.episodeScrollTop = 0;
+  dialogState.pickId = null;
+  setDialogCloseAction(false);
+});
 dialogContent.addEventListener("click", (event) => {
   const copyButton = event.target.closest("[data-copy-guid]");
   if (copyButton) {
     navigator.clipboard.writeText(copyButton.dataset.copyGuid).then(() => { copyButton.textContent = "GUID copied"; });
     return;
   }
+  if (event.target.closest("a")) return;
   const pickElement = event.target.closest("[data-pick-id]");
-  if (pickElement) showPick(pickElement.dataset.pickId);
+  if (pickElement) showPick(pickElement.dataset.pickId, { fromEpisode: dialogState.view === "episode" });
 });
 dialogContent.addEventListener("keydown", (event) => {
-  if (!["Enter", " "].includes(event.key)) return;
+  if (!["Enter", " "].includes(event.key) || event.target.closest("a")) return;
   const pickElement = event.target.closest("[data-pick-id]");
   if (pickElement) {
     event.preventDefault();
-    showPick(pickElement.dataset.pickId);
+    showPick(pickElement.dataset.pickId, { fromEpisode: dialogState.view === "episode" });
   }
 });
 document.querySelector("#refresh-button").addEventListener("click", loadData);

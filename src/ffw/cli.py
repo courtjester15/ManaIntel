@@ -7,6 +7,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 from .archive import rerender_archive
+from .card_resolution import ScryfallCardResolver, resolve_archive_card_names
 from .config import Settings, VERSION
 from .pipeline import Pipeline
 from .reviews import persist_review
@@ -51,6 +52,9 @@ def _parser() -> argparse.ArgumentParser:
     review = subparsers.add_parser("apply-review", help="Persist a human review override and rebuild projections")
     review.add_argument("--payload", required=True, help="Review JSON payload copied from the ManaIntel review page")
     review.add_argument("--actor", required=True, help="Authenticated reviewer identity")
+    resolve = subparsers.add_parser("resolve-cards", help="Verify extracted card names against Scryfall")
+    resolve.add_argument("--limit", type=int, default=100, help="Maximum uncached card names to look up")
+    resolve.add_argument("--refresh", action="store_true", help="Refresh already stored resolutions")
     serve = subparsers.add_parser("serve", help="Serve the repository for the local archive application")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8765)
@@ -77,6 +81,7 @@ def _run_pipeline(settings: Settings, *, report_json: Path | None = None, **opti
     print(f"Skipped failed: {selection.failed_skipped}")
     print(f"Retry deferred: {selection.retry_deferred}")
     print(f"Retry exhausted/quarantined: {selection.retry_exhausted}")
+    print(f"Skipped outside automatic age window: {selection.age_skipped}")
     print(f"Eligible found: {selection.eligible_found}")
     if selection.selected:
         print(f"Selected newest eligible episode: {selection.selected[0].title}")
@@ -119,12 +124,39 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "process-latest":
         _, exit_code = _run_pipeline(settings, selection_policy="next")
         return exit_code
+    if args.command == "resolve-cards":
+        resolver = ScryfallCardResolver(
+            timeout_seconds=settings.card_resolution_timeout_seconds,
+            ca_bundle=settings.card_resolution_ca_bundle,
+        )
+        store_path = settings.root / "state" / "card-resolutions.json"
+        report = resolve_archive_card_names(
+            settings.archive_dir,
+            store_path,
+            resolver,
+            limit=args.limit,
+            refresh=args.refresh,
+            production=settings.mode == "live",
+        )
+        rerender_archive(
+            settings.archive_dir,
+            production=settings.mode == "live",
+            reviews_dir=settings.root / "data" / "reviews",
+            repository_url=settings.repository_url,
+            resolutions_path=store_path,
+        )
+        print(
+            f"Card resolution: verified={report.verified}, suggested={report.suggested}, "
+            f"not_found={report.not_found}, cached={report.cached}, unavailable={report.unavailable}."
+        )
+        return 1 if report.unavailable and not report.looked_up else 0
     if args.command == "render":
         count = rerender_archive(
             settings.archive_dir,
             production=settings.mode == "live",
             reviews_dir=settings.root / "data" / "reviews",
             repository_url=settings.repository_url,
+            resolutions_path=settings.root / "state" / "card-resolutions.json",
         )
         print(f"Rendered {count} episode Markdown files and rebuilt archive catalogs.")
         return 0
@@ -140,6 +172,7 @@ def main(argv: list[str] | None = None) -> int:
             production=settings.mode == "live",
             reviews_dir=settings.root / "data" / "reviews",
             repository_url=settings.repository_url,
+            resolutions_path=settings.root / "state" / "card-resolutions.json",
         )
         print(f"Applied durable review: {path.relative_to(settings.root)}")
         return 0

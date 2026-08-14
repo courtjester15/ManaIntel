@@ -3,11 +3,14 @@ from __future__ import annotations
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+import gzip
+import json
 import shutil
 import os
 from typing import Any
 
 from .archive import rebuild_catalog
+from .card_resolution import ScryfallCardResolver, resolve_archive_card_names
 from .config import PIPELINE_VERSION, PROMPT_VERSION, SCHEMA_VERSION, Settings
 from .interfaces import AudioDownloader, AudioProcessor, Extractor, FeedSource, Transcriber
 from .mocks import MockAudioProcessor, MockDownloader, MockExtractor, MockFeedSource, MockTranscriber
@@ -15,7 +18,8 @@ from .models import EpisodeCandidate, PipelineResult, SelectionReport, TERMINAL_
 from .production import production_adapters
 from .rendering import render_episode_markdown
 from .state import JsonStateStore
-from .utils import atomic_write_json, atomic_write_text, episode_slug, seconds_to_timestamp, stable_pick_id
+from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json, seconds_to_timestamp, stable_pick_id
+from .verification import GeminiPickVerifier
 
 PERMANENT_PROVIDER_ERROR_PATTERNS = (
     "401",
@@ -30,6 +34,34 @@ PERMANENT_PROVIDER_ERROR_PATTERNS = (
     "unauthenticated",
     "unsupported model",
 )
+
+def compare_episode_summaries(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any]:
+    """Produce a compact, deterministic audit report for a forced reprocessing run."""
+    before_picks = before.get("recommendations", [])
+    after_picks = after.get("recommendations", [])
+    before_by_card = {str(pick.get("card", "")).casefold(): pick for pick in before_picks if pick.get("card")}
+    after_by_card = {str(pick.get("card", "")).casefold(): pick for pick in after_picks if pick.get("card")}
+    shared = sorted(before_by_card.keys() & after_by_card.keys())
+    changed = []
+    for key in shared:
+        old = before_by_card[key]
+        new = after_by_card[key]
+        fields = [
+            field for field in ("printing", "foil", "recommendation", "start_seconds", "review_status", "review_reason")
+            if old.get(field) != new.get(field)
+        ]
+        if fields:
+            changed.append({"card": new.get("card"), "fields": fields})
+    return {
+        "episode_guid": after.get("episode", {}).get("guid") or before.get("episode", {}).get("guid"),
+        "before_pick_count": len(before_picks),
+        "after_pick_count": len(after_picks),
+        "added_cards": [after_by_card[key].get("card") for key in sorted(after_by_card.keys() - before_by_card.keys())],
+        "removed_cards": [before_by_card[key].get("card") for key in sorted(before_by_card.keys() - after_by_card.keys())],
+        "changed_picks": changed,
+        "before_status": before.get("processing", {}).get("status"),
+        "after_status": after.get("processing", {}).get("status"),
+    }
 
 TRANSIENT_ERROR_PATTERNS = (
     "408",
@@ -90,6 +122,8 @@ class Pipeline:
         transcriber: Transcriber,
         extractor: Extractor,
         state: JsonStateStore,
+        card_resolver: ScryfallCardResolver | None = None,
+        pick_verifier: GeminiPickVerifier | None = None,
     ) -> None:
         self.settings = settings
         self.feed = feed
@@ -98,6 +132,8 @@ class Pipeline:
         self.transcriber = transcriber
         self.extractor = extractor
         self.state = state
+        self.card_resolver = card_resolver
+        self.pick_verifier = pick_verifier
         self.last_selection = SelectionReport(policy="backfill")
 
     @classmethod
@@ -127,7 +163,25 @@ class Pipeline:
         else:
             raise ValueError("FFW_AI_PROVIDER must be 'openai' or 'gemini'.")
         feed, downloader, audio, transcriber, extractor = production_adapters(settings)
-        return cls(settings, feed, downloader, audio, transcriber, extractor, JsonStateStore(settings.state_file))
+        card_resolver = (
+            ScryfallCardResolver(
+                timeout_seconds=settings.card_resolution_timeout_seconds,
+                ca_bundle=settings.card_resolution_ca_bundle,
+            )
+            if settings.card_resolution_enabled else None
+        )
+        pick_verifier = (
+            GeminiPickVerifier(
+                settings.extraction_model, settings.audio_chunk_seconds, card_resolver,
+                max_picks=settings.targeted_verification_max_picks,
+            )
+            if settings.ai_provider == "gemini" and settings.targeted_verification_enabled and card_resolver is not None
+            else None
+        )
+        return cls(
+            settings, feed, downloader, audio, transcriber, extractor,
+            JsonStateStore(settings.state_file), card_resolver, pick_verifier,
+        )
 
     def run(
         self, *, force: bool = False, limit: int | None = None,
@@ -165,12 +219,21 @@ class Pipeline:
             if self.settings.mode == "live" and result.status == "failed" and classify_failure(result.message)[2]:
                 break
         if results:
+            if self.card_resolver is not None:
+                resolve_archive_card_names(
+                    self.settings.archive_dir,
+                    self.settings.root / "state" / "card-resolutions.json",
+                    self.card_resolver,
+                    limit=self.settings.card_resolution_batch_size,
+                    production=self.settings.mode == "live",
+                )
             rebuild_catalog(
                 self.settings.archive_dir,
                 production=self.settings.mode == "live",
                 feed_name=self.settings.feed_name,
                 repository_url=self.settings.repository_url,
                 reviews_dir=self.settings.root / "data" / "reviews",
+                resolutions_path=self.settings.root / "state" / "card-resolutions.json",
             )
         return results
 
@@ -198,6 +261,12 @@ class Pipeline:
                 seen_guids.add(episode.guid)
         records = self.state.all()
         report = SelectionReport(policy=policy)
+        automatic_cutoff = datetime.now(timezone.utc) - timedelta(days=self.settings.automatic_max_episode_age_days)
+
+        def is_too_old(episode: EpisodeCandidate) -> bool:
+            published_at = _parse_timestamp(episode.published_at)
+            return published_at is None or published_at < automatic_cutoff
+
         if policy == "retry_then_next":
             fallback: EpisodeCandidate | None = None
             for episode in ordered:
@@ -206,6 +275,9 @@ class Pipeline:
                 status = record.get("status") if record else None
                 if status in TERMINAL_STATES:
                     report.completed_skipped += 1
+                    continue
+                if is_too_old(episode):
+                    report.age_skipped += 1
                     continue
                 if status == "failed":
                     error = record.get("error") or {}
@@ -220,9 +292,9 @@ class Pipeline:
                     report.selected_mode = "retry_failed"
                     report.eligible_found = 1
                     return report
-                # The morning run owns newest-first progress. If no retry is due,
-                # keep walking so the evening slot advances the oldest backlog.
-                fallback = episode
+                # Both scheduled runs share the same newest-to-oldest cursor.
+                if fallback is None:
+                    fallback = episode
             if fallback is not None:
                 report.selected = [fallback]
                 report.selected_mode = "next_fallback"
@@ -237,11 +309,14 @@ class Pipeline:
                 if episode.guid == force_guid:
                     eligible.append(episode)
                 continue
+            if not include_completed and status in TERMINAL_STATES:
+                report.completed_skipped += 1
+                continue
+            if is_too_old(episode):
+                report.age_skipped += 1
+                continue
             if include_completed:
                 eligible.append(episode)
-                continue
-            if status in TERMINAL_STATES:
-                report.completed_skipped += 1
                 continue
             if policy == "failed_only":
                 if status == "failed":
@@ -302,6 +377,12 @@ class Pipeline:
         slug = episode_slug(episode.episode_number, episode.title, episode.guid)
         relative_output = f"episodes/{slug}"
         output_dir = self.settings.archive_dir / relative_output
+        baseline_summary = None
+        if force and (output_dir / "summary.json").exists():
+            baseline_summary = load_json(output_dir / "summary.json", {})
+            baseline_dir = self.settings.work_dir / "reprocess-baselines"
+            baseline_dir.mkdir(parents=True, exist_ok=True)
+            atomic_write_json(baseline_dir / f"{slug}.json", baseline_summary)
         work_dir = self.settings.work_dir / slug
         work_dir.mkdir(parents=True, exist_ok=True)
         if not existing:
@@ -318,6 +399,18 @@ class Pipeline:
             prepared_files = self.audio.prepare(downloaded, work_dir / "prepared-audio")
             self.state.transition(episode.guid, "transcribing")
             transcript = self.transcriber.transcribe(episode, prepared_files)
+            if self.settings.retain_transcripts and not episode.synthetic:
+                transcript_dir = self.settings.work_dir / "transcripts"
+                transcript_dir.mkdir(parents=True, exist_ok=True)
+                transcript_path = transcript_dir / f"{slug}.json.gz"
+                with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
+                    json.dump({
+                        "episode": self._episode_metadata(episode),
+                        "pipeline_version": PIPELINE_VERSION,
+                        "prompt_version": PROMPT_VERSION,
+                        "transcript": transcript,
+                    }, output, ensure_ascii=False, separators=(",", ":"))
+
             self.state.transition(episode.guid, "transcribed", transcription={
                 "provider": transcript.get("provider", "mock"),
                 "model": transcript.get("model", self.transcriber.model_name),
@@ -325,10 +418,16 @@ class Pipeline:
                 "chunk_count": transcript.get("chunk_count", len(prepared_files)),
                 "duration_seconds": transcript.get("duration_seconds", episode.duration_seconds),
                 "usage": transcript.get("usage"),
+                "timing_adjustments": transcript.get("timing_adjustments", 0),
             })
 
             self.state.transition(episode.guid, "extracting")
             extraction = self.extractor.extract(episode, transcript)
+            if self.pick_verifier is not None:
+                try:
+                    extraction = self.pick_verifier.verify(episode, extraction, prepared_files)
+                except Exception as verification_error:
+                    print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             extraction_usage = extraction.pop("_usage", None)
             self.state.transition(episode.guid, "extracted", extraction_usage=extraction_usage)
             final_status = episode.fixture.get("target_status", "complete") if episode.synthetic else (
@@ -361,6 +460,10 @@ class Pipeline:
             atomic_write_text(output_dir / "summary.md", render_episode_markdown(summary))
             metadata = self._build_metadata(episode, final_status, relative_output, summary)
             atomic_write_json(output_dir / "metadata.json", metadata)
+            if baseline_summary is not None:
+                report_dir = self.settings.work_dir / "reprocess-reports"
+                report_dir.mkdir(parents=True, exist_ok=True)
+                atomic_write_json(report_dir / f"{slug}.json", compare_episode_summaries(baseline_summary, summary))
             return PipelineResult(
                 guid=episode.guid,
                 status=final_status,

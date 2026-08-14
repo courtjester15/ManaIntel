@@ -56,6 +56,35 @@ function pickMeta(pick) {
     pick.hosts?.length ? pick.hosts.join(", ") : "host not stated",
   ].map(escapeHtml).join(" · ");
 }
+function cardName(pick) {
+  return pick.card_resolution?.status === "verified" && pick.resolved_card
+    ? pick.resolved_card
+    : pick.card;
+}
+function scryfallUrl(pick) {
+  const resolution = pick.card_resolution;
+  if (!["verified", "suggested"].includes(resolution?.status)) return null;
+  if (resolution.scryfall_uri) return resolution.scryfall_uri;
+  return resolution.oracle_id
+    ? `https://scryfall.com/search?q=${encodeURIComponent(`oracleid:${resolution.oracle_id}`)}`
+    : null;
+}
+function cardReferenceLink(pick, { includeSuggested = false, label: linkLabel = cardName(pick) } = {}) {
+  if (pick.card_resolution?.status === "suggested" && !includeSuggested) return escapeHtml(linkLabel);
+  const url = scryfallUrl(pick);
+  if (!url) return escapeHtml(linkLabel);
+  return `<a class="card-reference-link" href="${safeUrl(url)}" target="_blank" rel="noreferrer" title="Open ${escapeHtml(linkLabel)} on Scryfall">${escapeHtml(linkLabel)}<span aria-hidden="true"> &nearr;</span></a>`;
+}
+function cardResolutionNote(pick) {
+  const resolution = pick.card_resolution;
+  if (resolution?.status === "verified" && cardName(pick) !== pick.card) {
+    return `<p class="resolution-note verified">Transcribed as &quot;${escapeHtml(pick.card)}&quot;</p>`;
+  }
+  if (resolution?.status === "suggested" && resolution.canonical_name) {
+    return `<p class="resolution-note suggested">Possible match: ${cardReferenceLink(pick, { includeSuggested: true, label: resolution.canonical_name })} - review required</p>`;
+  }
+  return "";
+}
 
 function listenUrl(episodeDir, pick) {
   const params = new URLSearchParams({ episode: episodeDir });
@@ -71,7 +100,8 @@ function pickCard(episodeDir, pick, index) {
     <div class="pick-card-head">
       <div>
         <p class="eyebrow">Pick ${index + 1}${time ? ` · ${escapeHtml(time)}` : ""}</p>
-        <h2>${escapeHtml(pick.card)}</h2>
+        <h2>${cardReferenceLink(pick)}</h2>
+        ${cardResolutionNote(pick)}
         <p class="pick-meta">${pickMeta(pick)}</p>
       </div>
       <div class="pick-badges">
@@ -90,7 +120,7 @@ function pickCard(episodeDir, pick, index) {
       <section><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></section>
     </div>
     <details class="evidence-disclosure"><summary>Evidence${time ? ` · ${escapeHtml(time)}` : ""}</summary><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></details>
-    <div class="latest-actions"><a class="button" href="${escapeHtml(listenUrl(episodeDir, pick))}" data-listen-seconds="${escapeHtml(pick.start_seconds)}" data-listen-label="${escapeHtml(pick.card)}" data-listen-target="${escapeHtml(cardId)}">Listen at ${escapeHtml(time || "timestamp")}</a></div>
+    <div class="latest-actions"><a class="button" href="${escapeHtml(listenUrl(episodeDir, pick))}" data-listen-seconds="${escapeHtml(pick.start_seconds)}" data-listen-label="${escapeHtml(cardName(pick))}" data-listen-target="${escapeHtml(cardId)}">Listen at ${escapeHtml(time || "timestamp")}</a></div>
   </article>`;
 }
 
@@ -114,7 +144,15 @@ async function loadSummary() {
     const markdownUrl = `archive/episodes/${episodeDir}/${humanReviewed ? "effective.md" : "summary.md"}`;
     const episode = summary.episode || {};
     const processing = summary.processing || {};
-    const picks = summary.recommendations || [];
+    const resolutionResponse = await fetch(`archive/resolutions.json?v=${Date.now()}`);
+    const resolutionPayload = resolutionResponse.ok ? await resolutionResponse.json() : { resolutions: {} };
+    const resolutionMap = resolutionPayload.resolutions || {};
+    const picks = (summary.recommendations || []).map((pick) => {
+      const resolution = resolutionMap[pick.id];
+      if (!resolution || resolution.raw_name !== pick.card) return pick;
+      const resolvedCard = resolution.status === "verified" ? resolution.canonical_name : null;
+      return { ...pick, card_resolution: resolution, resolved_card: resolvedCard };
+    });
 
     document.title = `${episode.source_name || "ManaIntel"} · ${episode.title || "Episode Summary"}`;
     title.textContent = episode.title || "Episode Summary";
