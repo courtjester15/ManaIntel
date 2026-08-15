@@ -1,0 +1,377 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=17385",
+    "episode_number": 0,
+    "title": "Speedrunners of Strixhaven | Brainstorm Brewery #696 | Magic Finance",
+    "published_at": "2026-04-17T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_696_Speedrunners_of_Strixhaven.mp3",
+    "episode_url": "https://brainstormbrewery.com/speedrunners-of-strixhaven-brainstorm-brewery-696-magic-finance/",
+    "duration_seconds": 3537,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Liz (@devotedDruid) talk about so new speedrunning trends, what speed running magic would look like, and the upcoming secrets of Strixhaven. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-15T10:52:15Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-15T10:37:41Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-15T10:37:41Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-15T10:37:41Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-15T10:37:41Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-15T10:37:42Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-15T10:37:42Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-15T10:38:01Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-15T10:50:51Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-15T10:50:51Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-15T10:52:15Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-15T10:52:15Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-15T10:52:15Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-15T10:52:15Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3537,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 358.759,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12034,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22652,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 26811,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 61497,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 192.836,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10470,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22653,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 70948,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 104071,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 117.642,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10399,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22653,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              }
+            ],
+            "thoughts_token_count": 5129,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38181,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 837,
+          "request_seconds": 99.579,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8447,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 21085,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 20932
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              }
+            ],
+            "thoughts_token_count": 8102,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37634,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 123
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1209,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 7376,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 7376
+        }
+      ],
+      "thoughts_token_count": 3705,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 12290,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1800,
+    "end_seconds": 2703,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null
+  },
+  "recommendations": [
+    {
+      "card": "Thirsting Roots",
+      "printing": "Phyrexia: All Will Be One",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "quarter each",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "quarter each",
+        "currency": "USD",
+        "minimum": 0.25,
+        "maximum": 0.25
+      },
+      "reasoning": [
+        "Card Kingdom and Star City will pay a quarter each on non-foils.",
+        "Market price is $0.75.",
+        "It is a card with no reprints."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1919,
+      "end_seconds": 2109,
+      "evidence_excerpt": "It is Thirsting Roots, which is search for a basic or proliferate for one mana. Market price is $0.75. Card Kingdom and Star City will pay you a quarter each",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-68e1340f6b31f6b9",
+      "timestamp": "00:31:59",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_696_Speedrunners_of_Strixhaven.mp3#t=1919"
+    },
+    {
+      "card": "Brokers Hideout",
+      "printing": "Streets of New Capenna",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "$0.30",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$0.30",
+        "currency": "USD",
+        "minimum": 0.3,
+        "maximum": 0.3
+      },
+      "reasoning": [
+        "Card Kingdom will pay $0.30.",
+        "These are making the rounds in formats where they can trigger landfall.",
+        "They are good budget options with only one printing in Streets of New Capenna."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2111,
+      "end_seconds": 2228,
+      "evidence_excerpt": "Card Kingdom will pay $0.30 for Brokers Hideout. These have been making the rounds in any format where they can trigger landfall.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7ecdd931fdf9ca47",
+      "timestamp": "00:35:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_696_Speedrunners_of_Strixhaven.mp3#t=2111"
+    },
+    {
+      "card": "Waterlogged Teachings",
+      "printing": "Modern Horizons 3",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "multiple $0.50 buylists",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Has multiple $0.50 buylists.",
+        "Belcher decks run it to find Whir of Invention, which finds Goblin Charbelcher.",
+        "MDFCs have a very low opportunity cost in Commander and should replace the worst non-land cards in a deck."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2423,
+      "end_seconds": 2700,
+      "evidence_excerpt": "Waterlogged Teachings... card is like multiple $0.50 buylists... this should be in every Commander deck, almost, that is vaguely blue-black spell-based",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-465d21155683d329",
+      "timestamp": "00:40:23",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_696_Speedrunners_of_Strixhaven.mp3#t=2423"
+    },
+    {
+      "card": "Retether",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Corbin",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Retether is exploding because everyone is building Killian / Silverquill decks.",
+        "Aura cards are exploding in price and should be pulled out of bulk or bought if underpriced in stores."
+      ],
+      "caveats": [
+        "You have limited time to buy them before the set officially releases."
+      ],
+      "confidence": "high",
+      "start_seconds": 2702,
+      "end_seconds": 2704,
+      "evidence_excerpt": "Retether is exploding. Everything that mentions the word Aura on it is exploding in price... dig the enchantment cards, and, well really, the Aura cards out of bulk.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-dc944b9a20f3a612",
+      "timestamp": "00:45:02",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_696_Speedrunners_of_Strixhaven.mp3#t=2702"
+    }
+  ]
+}
