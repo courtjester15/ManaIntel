@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "tag:soundcloud,2010:tracks/2300986874",
     "episode_number": 519,
@@ -205,9 +205,136 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0519-goblins-on-the-horizon/metadata.json",
-    "summary_json": "episodes/0519-goblins-on-the-horizon/summary.json",
-    "summary_markdown": "episodes/0519-goblins-on-the-horizon/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 1061,
+    "end_seconds": 1800,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "recommendation_language",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Silver Shroud Costume",
+      "printing": "Promo",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$13.50",
+      "entry_target": {
+        "raw": "13 to 14 range",
+        "currency": "USD",
+        "minimum": 13.0,
+        "maximum": 14.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Protects commander from one kill and makes them unblockable",
+        "It auto-equips the first time",
+        "This promo art is superior and highly desirable compared to other versions"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1061,
+      "end_seconds": 1245,
+      "evidence_excerpt": "right now you can get it on TCG Player for about, uh, $13.50, give or take... I just think that this version is so awesome-looking... $30 is perfectly reasonable.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2695b3bc8c2d3645",
+      "timestamp": "00:17:41",
+      "listen_url": "https://feeds.soundcloud.com/stream/2300986874-user-519789566-mtg-fast-finance-ep-519.mp3#t=1061"
+    },
+    {
+      "card": "Raphael, the Muscle",
+      "printing": "Borderless Surge Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "230, 240",
+      "entry_target": {
+        "raw": "230, 240",
+        "currency": "USD",
+        "minimum": 230.0,
+        "maximum": 240.0
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "250 to 350",
+        "currency": "USD",
+        "minimum": 250.0,
+        "maximum": 350.0
+      },
+      "reasoning": [
+        "The Teenage Mutant Ninja Turtles set was not heavily printed, and cards are draining out quickly",
+        "Raphael is the most played TMNT commander card according to EDHREC stats",
+        "TCG Player supply is extremely thin with only 15 listings left"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1245,
+      "end_seconds": 1603,
+      "evidence_excerpt": "I'm going to call this to go 250 to 350 in the next six months... you got to take a look at Raphael, the Muscle, because he can't be far behind.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f9df3548a092a2e3",
+      "timestamp": "00:20:45",
+      "listen_url": "https://feeds.soundcloud.com/stream/2300986874-user-519789566-mtg-fast-finance-ep-519.mp3#t=1245"
+    },
+    {
+      "card": "Sakashima's Student",
+      "printing": "Secret Lair Black and White Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$18",
+      "entry_target": {
+        "raw": "$18",
+        "currency": "USD",
+        "minimum": 18.0,
+        "maximum": 18.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "around $35",
+        "currency": "USD",
+        "minimum": 35.0,
+        "maximum": 35.0
+      },
+      "reasoning": [
+        "First ever foil version of this card, which previously had very limited prints",
+        "Features original Teenage Mutant Ninja Turtles art by Kevin Eastman",
+        "Significantly cheaper than other foil versions currently in the 30s"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1603,
+      "end_seconds": 1800,
+      "evidence_excerpt": "you can get the black and white foils for $18... in the next 6 to 12 months, this should easily hit, uh, around $35.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-66c18e77909baf4f",
+      "timestamp": "00:26:43",
+      "listen_url": "https://feeds.soundcloud.com/stream/2300986874-user-519789566-mtg-fast-finance-ep-519.mp3#t=1603"
+    }
+  ]
 }

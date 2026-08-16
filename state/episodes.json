@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.0",
-  "updated_at": "2026-08-15T20:46:19Z",
+  "updated_at": "2026-08-16T20:42:35Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -8436,6 +8436,50 @@
         {
           "status": "failed",
           "timestamp": "2026-08-15T20:46:19Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-16T20:36:47Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-16T20:36:47Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-16T20:36:48Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-16T20:36:48Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-16T20:36:58Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-16T20:42:23Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-16T20:42:23Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-16T20:42:35Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-16T20:42:35Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-16T20:42:35Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-16T20:42:35Z"
         }
       ],
       "title": "MTG Fast Finance Ep 519: Goblins on the Horizon",
@@ -8443,22 +8487,11 @@
       "published_at": "2026-04-12T01:00:31Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "extracting",
-        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-16T02:46:19Z",
-        "quarantined": false
-      },
-      "status": "failed",
-      "updated_at": "2026-08-15T20:46:19Z",
+      "attempt_count": 2,
+      "pick_count": 3,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-16T20:42:35Z",
       "output_directory": "episodes/0519-goblins-on-the-horizon",
       "transcription": {
         "provider": "Gemini",
@@ -8474,36 +8507,27 @@
             "chunk_count": 2,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 438.741,
+            "request_seconds": 238.612,
             "provider_usage": {
-              "cache_tokens_details": [
-                {
-                  "modality": "AUDIO",
-                  "token_count": 18910
-                },
-                {
-                  "modality": "TEXT",
-                  "token_count": 105
-                }
-              ],
-              "cached_content_token_count": 19015,
-              "candidates_token_count": 10533,
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9810,
               "candidates_tokens_details": null,
               "prompt_token_count": 22624,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 125
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 125
                 }
               ],
-              "thoughts_token_count": 22114,
+              "thoughts_token_count": 33963,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 55271,
+              "total_token_count": 66397,
               "traffic_type": null
             }
           },
@@ -8512,33 +8536,52 @@
             "chunk_count": 2,
             "model": "gemini-3.5-flash",
             "audio_seconds": 808,
-            "request_seconds": 40.419,
+            "request_seconds": 84.597,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 7701,
+              "candidates_token_count": 7916,
               "candidates_tokens_details": null,
               "prompt_token_count": 20343,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 125
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 20218
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 125
                 }
               ],
-              "thoughts_token_count": 983,
+              "thoughts_token_count": 13004,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 29027,
+              "total_token_count": 41263,
               "traffic_type": null
             }
           }
         ],
-        "timing_adjustments": 33
-      }
+        "timing_adjustments": 23
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1141,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 4162,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 4162
+          }
+        ],
+        "thoughts_token_count": 2457,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 7760,
+        "traffic_type": null
+      },
+      "review_reason": null
     }
   }
 }
