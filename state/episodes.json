@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.0",
-  "updated_at": "2026-08-17T11:00:44Z",
+  "updated_at": "2026-08-17T20:55:18Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -8823,6 +8823,221 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 11326,
+        "traffic_type": null
+      },
+      "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2297270705": {
+      "guid": "tag:soundcloud,2010:tracks/2297270705",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-17T20:43:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-17T20:43:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-17T20:43:30Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-17T20:43:30Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-17T20:43:32Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-17T20:43:32Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-17T20:43:50Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-17T20:54:36Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-17T20:54:36Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-17T20:55:18Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-17T20:55:18Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-17T20:55:18Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-17T20:55:18Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 518: Dan-de-dan-dan-dan",
+      "episode_number": 518,
+      "published_at": "2026-04-06T03:45:39Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 6,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-17T20:55:18Z",
+      "output_directory": "episodes/0518-dan-de-dan-dan-dan",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2860,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 163.532,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8607,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22628,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 7796,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39031,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 223.449,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8808,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22629,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 21278,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 52715,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 241.605,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 7691,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22629,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 14626,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44946,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 160,
+            "request_seconds": 16.892,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 1713,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 4133,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 4004
+                }
+              ],
+              "thoughts_token_count": 1808,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 7654,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 75
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 2122,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11201,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 11201
+          }
+        ],
+        "thoughts_token_count": 6257,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 19580,
         "traffic_type": null
       },
       "review_reason": null

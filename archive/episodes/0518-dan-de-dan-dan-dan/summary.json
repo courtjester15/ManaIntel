@@ -1,0 +1,489 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2297270705",
+    "episode_number": 518,
+    "title": "MTG Fast Finance Ep 518: Dan-de-dan-dan-dan",
+    "published_at": "2026-04-06T03:45:39Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2297270705-user-519789566-mtg-fast-finance-ep-518-dan-de.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-518-dan-de",
+    "duration_seconds": 2860,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James pull you into all the hottest Magic the Gathering card price action of the week, including meta updates, cards to watch and how the Dandan Secret Lair deck drop ended up.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-17T20:55:18Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-17T20:43:30Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-17T20:43:30Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-17T20:43:30Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-17T20:43:30Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-17T20:43:32Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-17T20:43:32Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-17T20:43:50Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-17T20:54:36Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-17T20:54:36Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-17T20:55:18Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-17T20:55:18Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-17T20:55:18Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-17T20:55:18Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2860,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 163.532,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8607,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22628,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 7796,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39031,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 223.449,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8808,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22629,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 21278,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 52715,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 241.605,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7691,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22629,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 14626,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44946,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 160,
+          "request_seconds": 16.892,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1713,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 4133,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 4004
+              }
+            ],
+            "thoughts_token_count": 1808,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 7654,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 75
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2122,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 11201,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 11201
+        }
+      ],
+      "thoughts_token_count": 6257,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 19580,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 937,
+    "end_seconds": 2915,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Demonic Tutor",
+      "printing": "Secret Lair Borderless (Kieran Yanner)",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "85 to 95",
+      "entry_target": {
+        "raw": "95",
+        "currency": "USD",
+        "minimum": 95.0,
+        "maximum": 95.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "150",
+        "currency": "USD",
+        "minimum": 150.0,
+        "maximum": 150.0
+      },
+      "reasoning": [
+        "Extremely popular EDH staple with beautiful, unique art.",
+        "Very thin inventory remaining under $100 across platforms.",
+        "Secret Lair printings are generally not reprinted by Wizards."
+      ],
+      "caveats": [
+        "Wizards could theoretically reprint the card, although they committed not to reprint Secret Lair versions specifically."
+      ],
+      "confidence": null,
+      "start_seconds": 937,
+      "end_seconds": 1334,
+      "evidence_excerpt": "cards to watch, my first selection: Demonic Tutor borderless Secret Lair version.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-46493d948b957a87",
+      "timestamp": "00:15:37",
+      "listen_url": "https://feeds.soundcloud.com/stream/2297270705-user-519789566-mtg-fast-finance-ep-518-dan-de.mp3#t=937"
+    },
+    {
+      "card": "Night of Sweets' Revenge",
+      "printing": "Wilds of Eldraine foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$2.50",
+      "entry_target": {
+        "raw": "$2.50",
+        "currency": "USD",
+        "minimum": 2.5,
+        "maximum": 2.5
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Great engine card for popular green food-themed Commander decks.",
+        "Turns food tokens into mana sources as an enchantment, which is hard to deal with."
+      ],
+      "caveats": [
+        "Reprint risk in upcoming food-themed releases or Secret Lairs."
+      ],
+      "confidence": null,
+      "start_seconds": 1334,
+      "end_seconds": 1741,
+      "evidence_excerpt": "one of the best for those is Night of Sweets' Revenge... you can get this, uh, in foil for about $2.50",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c744c6e7c85d8373",
+      "timestamp": "00:22:14",
+      "listen_url": "https://feeds.soundcloud.com/stream/2297270705-user-519789566-mtg-fast-finance-ep-518-dan-de.mp3#t=1334"
+    },
+    {
+      "card": "Arcane Signet",
+      "printing": "Furbies: the Gathering Secret Lair confetti foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "45 to 100",
+      "entry_target": {
+        "raw": "45",
+        "currency": "USD",
+        "minimum": 45.0,
+        "maximum": 45.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "100",
+        "currency": "USD",
+        "minimum": 100.0,
+        "maximum": 100.0
+      },
+      "reasoning": [
+        "Confetti foil drop has a significantly lower print run than normal foil editions.",
+        "High demand for unique versions of EDH staples with strong collectible appeal."
+      ],
+      "caveats": [
+        "Relies heavily on niche Furby fan collectors."
+      ],
+      "confidence": null,
+      "start_seconds": 1741,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Furby confetti foil Arcane Signet... out of the Secret Lair drop this past fall.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6362212687d98848",
+      "timestamp": "00:29:01",
+      "listen_url": "https://feeds.soundcloud.com/stream/2297270705-user-519789566-mtg-fast-finance-ep-518-dan-de.mp3#t=1741"
+    },
+    {
+      "card": "Sol Ring",
+      "printing": "Secret Lair Fallout Greet the Dog rainbow foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "7 to 15",
+      "entry_target": {
+        "raw": "$7",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 7.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "Sol Ring special printings consistently reach the $15 range over time.",
+        "Highly popular dog thematic art."
+      ],
+      "caveats": [
+        "There are numerous printings of Sol Ring in existence."
+      ],
+      "confidence": null,
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Sol Ring from the Greet the Dog... you can get it in rainbow foil for $7",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-61f32e5815bf32d5",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2297270705-user-519789566-mtg-fast-finance-ep-518-dan-de.mp3#t=1800"
+    },
+    {
+      "card": "Show and Tell",
+      "printing": "Conspiracy: Take the Crown",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "15 or 16 at present",
+      "entry_target": {
+        "raw": "15 or 16",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 16.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$40 plus",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Premodern format interest and Legacy Showcase usage driving demand.",
+        "Cheapest nice frame printing compared to expensive original Urza's Saga or Judge promos."
+      ],
+      "caveats": [
+        "Relies on continued growth and interest in the Premodern format."
+      ],
+      "confidence": null,
+      "start_seconds": 1800,
+      "end_seconds": 1851,
+      "evidence_excerpt": "Show and Tell Conspiracy, uh, Take the Crown version, got 26 listings left on TCGplayer.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a7da250f6872d586",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2297270705-user-519789566-mtg-fast-finance-ep-518-dan-de.mp3#t=1800"
+    },
+    {
+      "card": "Krang, Uthrom Warlord",
+      "printing": "showcase fracture foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "200 to 400 plus",
+      "entry_target": {
+        "raw": "200",
+        "currency": "USD",
+        "minimum": 200.0,
+        "maximum": 200.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$400 plus",
+        "currency": "USD",
+        "minimum": 400.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Extremely low inventory of a major TMNT/Turtles franchise character.",
+        "Highly unlikely to get reprinted due to external IP licensing.",
+        "Very strong artifact-specific synergy threat for EDH."
+      ],
+      "caveats": [
+        "One host cautions that fracture foils generally tend downward shortly after release, suggesting waiting for a lower entry price."
+      ],
+      "confidence": null,
+      "start_seconds": 1851,
+      "end_seconds": 2700,
+      "evidence_excerpt": "Krang, Uthrom Warlord showcase fracture foil, card I greatly believe in.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4be150a012dd25b0",
+      "timestamp": "00:30:51",
+      "listen_url": "https://feeds.soundcloud.com/stream/2297270705-user-519789566-mtg-fast-finance-ep-518-dan-de.mp3#t=1851"
+    }
+  ]
+}
