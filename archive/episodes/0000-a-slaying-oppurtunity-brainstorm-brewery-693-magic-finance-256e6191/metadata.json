@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15874",
+    "episode_number": 0,
+    "title": "A Slaying Oppurtunity | Brainstorm Brewery #693 | Magic Finance",
+    "published_at": "2026-04-01T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_693_A_Slaying_Oppurtunity.mp3",
+    "episode_url": "https://brainstormbrewery.com/a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance/",
+    "duration_seconds": 467,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), Liz (@devotedDruid), and JJ, the editor, have found the newest and hottest finance opportunity in the card game space–Slay the Spire 2. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-18T20:45:11Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-18T20:41:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-18T20:41:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-18T20:41:59Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-18T20:41:59Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-18T20:42:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-18T20:42:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-18T20:42:02Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-18T20:44:36Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-18T20:44:36Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-08-18T20:45:11Z"
+      }
+    ],
+    "error": {
+      "stage": "extracting",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-08-19T02:45:11Z",
+      "quarantined": false
+    },
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 1,
+      "duration_seconds": 467,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 1,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 467,
+          "request_seconds": 153.315,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 6203
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 82
+              }
+            ],
+            "cached_content_token_count": 6285,
+            "candidates_token_count": 6721,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 11839,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 155
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 11684
+              }
+            ],
+            "thoughts_token_count": 9084,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 27644,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 0
+    },
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

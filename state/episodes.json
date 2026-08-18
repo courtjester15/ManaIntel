@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.0",
-  "updated_at": "2026-08-18T10:57:13Z",
+  "updated_at": "2026-08-18T20:45:11Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -9256,6 +9256,123 @@
         "traffic_type": null
       },
       "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15874": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15874",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-18T20:41:59Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-18T20:41:59Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-18T20:41:59Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-18T20:41:59Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-18T20:42:00Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-18T20:42:00Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-18T20:42:02Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-18T20:44:36Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-18T20:44:36Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-08-18T20:45:11Z"
+        }
+      ],
+      "title": "A Slaying Oppurtunity | Brainstorm Brewery #693 | Magic Finance",
+      "episode_number": 0,
+      "published_at": "2026-04-01T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "extracting",
+        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-08-19T02:45:11Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-08-18T20:45:11Z",
+      "output_directory": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 1,
+        "duration_seconds": 467,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 1,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 467,
+            "request_seconds": 153.315,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 6203
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 82
+                }
+              ],
+              "cached_content_token_count": 6285,
+              "candidates_token_count": 6721,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 11839,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 155
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 11684
+                }
+              ],
+              "thoughts_token_count": 9084,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 27644,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 0
+      }
     }
   }
 }
