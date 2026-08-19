@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15874",
     "episode_number": 0,
@@ -179,9 +179,44 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191/metadata.json",
-    "summary_json": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191/summary.json",
-    "summary_markdown": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 215,
+    "end_seconds": 747,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+  },
+  "recommendations": [
+    {
+      "card": "The Hunt",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Deal 10 damage, if fatal, gain an additional card reward. Perfect. Double the amount of cards you get."
+      ],
+      "caveats": [
+        "This is an April Fools joke recommendation.",
+        "The card is from the video game Slay the Spire 2, which is not a physical or tangible TCG."
+      ],
+      "confidence": "low",
+      "start_seconds": 601,
+      "end_seconds": 613,
+      "evidence_excerpt": "hot new tech, Slay the Spire 2: buy them now, invest heavily in The Hunt.",
+      "review_status": "needs_review",
+      "review_reason": "The recommendation is an April Fools joke for a digital video game card.",
+      "id": "pick-00f755f84d4a1d16",
+      "timestamp": "00:10:01",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_693_A_Slaying_Oppurtunity.mp3#t=601"
+    }
+  ]
 }

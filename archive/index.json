@@ -6,8 +6,8 @@
     "project": "FFW",
     "pipeline_version": "0.5.0",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-19T11:05:49Z",
-    "latest_successful_run_at": "2026-08-19T11:05:49Z",
+    "generated_at": "2026-08-19T20:55:29Z",
+    "latest_successful_run_at": "2026-08-19T20:55:29Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 44,
-    "real_pick_count": 138,
+    "real_pick_count": 139,
     "last_discovered_episode_date": "2026-08-14T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
     "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 44,
-    "picks": 138,
-    "needs_review": 26,
-    "failed": 5,
+    "picks": 139,
+    "needs_review": 27,
+    "failed": 4,
     "completed": 13
   },
   "status_counts": {
     "complete": 13,
-    "needs_review": 26,
-    "failed": 5
+    "needs_review": 27,
+    "failed": 4
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=31001",
@@ -1780,31 +1780,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "The entire episode is an April Fools joke recommending fictional/digital cards from the video game Slay the Spire 2 instead of Magic: The Gathering cards.",
+      "pick_count": 1,
       "directory": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191",
       "outputs": {
         "metadata": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191/summary.json",
+        "summary_markdown": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-08-18T20:45:11Z",
-      "error": {
-        "stage": "extracting",
-        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-19T02:45:11Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-08-19T20:55:29Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
