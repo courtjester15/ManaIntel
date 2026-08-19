@@ -1,0 +1,359 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15813",
+    "episode_number": 0,
+    "title": "Trading Cards Are Sports Goods? | Brainstorm Brewery #692 | Magic Finance",
+    "published_at": "2026-03-27T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_692_Trading_Cards_Are_Sports_Goods.mp3",
+    "episode_url": "https://brainstormbrewery.com/trading-cards-are-sports-goods-brainstorm-brewery-692-magic-finance/",
+    "duration_seconds": 3455,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Liz (@devotedDruid) are all back to talk about TCGs coming into sporting goods stores, Legacy, and Ban List. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-19T11:05:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-19T10:54:38Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-19T10:54:38Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-19T10:54:59Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-19T11:05:32Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-19T11:05:32Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-19T11:05:49Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-19T11:05:49Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-19T11:05:49Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-19T11:05:49Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3455,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 182.719,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10874,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22648,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              }
+            ],
+            "thoughts_token_count": 13213,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46735,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 233.285,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12279,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22649,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              }
+            ],
+            "thoughts_token_count": 16089,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 51017,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 136.872,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16556,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22649,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 1916,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41121,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 755,
+          "request_seconds": 79.248,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17039,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 19021,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18872
+              }
+            ],
+            "thoughts_token_count": 2224,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38284,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 77
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1017,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 15725,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 15725
+        }
+      ],
+      "thoughts_token_count": 3183,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 19925,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1800,
+    "end_seconds": 2893,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null
+  },
+  "recommendations": [
+    {
+      "card": "Crime Novelist",
+      "printing": "Murders at Karlov Manor",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin",
+        "DJ"
+      ],
+      "recommendation": "definitely a play",
+      "mentioned_price": "$1.50",
+      "entry_target": {
+        "raw": "$1.50",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 1.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5 probably",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "It obviously goes insane with treasures.",
+        "Sooner or later, there's going to be some treasure matters deck that comes out and this card's going to be $5 probably.",
+        "Only been printed in Murders at Karlov Manor."
+      ],
+      "caveats": [
+        "MKM is a weird set with value tied up in lands, which may affect how likely an uncommon is to hit $5."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1851,
+      "evidence_excerpt": "sooner or later, there's going to be some treasure matters deck that comes out and this card's going to be $10... Well, $5 probably... definitely a play.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f786b415e07007cb",
+      "timestamp": "00:30:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_692_Trading_Cards_Are_Sports_Goods.mp3#t=1800"
+    },
+    {
+      "card": "Seedcradle Witch",
+      "printing": "Shadowmoor",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "pull them out and list them",
+      "mentioned_price": "$1.50",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$1.50",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 1.5
+      },
+      "reasoning": [
+        "It is a cEDH card that goes infinite with untap commanders.",
+        "It has no reprints and is 20 years old."
+      ],
+      "caveats": [
+        "They might sell slowly ('might sell eventually')."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2221,
+      "end_seconds": 2296,
+      "evidence_excerpt": "If you got them, pull them out. List them at $1.50, they might sell eventually. Foils, congratulations.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e26d12707397a431",
+      "timestamp": "00:37:01",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_692_Trading_Cards_Are_Sports_Goods.mp3#t=2221"
+    },
+    {
+      "card": "Obsidian Charmaw",
+      "printing": "Modern Horizons 2",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "40 cents",
+      "entry_target": {
+        "raw": "40 cents",
+        "currency": "USD",
+        "minimum": 0.4,
+        "maximum": 0.4
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Modern RCQ season is starting and players need answers to kill fancy lands.",
+        "The card is extremely strong."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2377,
+      "end_seconds": 2412,
+      "evidence_excerpt": "Modern RCQ season is about to start... energy players need to be able to kill fancy lands and Obsidian Charmaw is honestly really strong.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a468660f9bd08b39",
+      "timestamp": "00:39:37",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_692_Trading_Cards_Are_Sports_Goods.mp3#t=2377"
+    }
+  ]
+}

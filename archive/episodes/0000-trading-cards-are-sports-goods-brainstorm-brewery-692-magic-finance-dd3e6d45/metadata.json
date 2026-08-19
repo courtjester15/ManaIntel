@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15813",
+    "episode_number": 0,
+    "title": "Trading Cards Are Sports Goods? | Brainstorm Brewery #692 | Magic Finance",
+    "published_at": "2026-03-27T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_692_Trading_Cards_Are_Sports_Goods.mp3",
+    "episode_url": "https://brainstormbrewery.com/trading-cards-are-sports-goods-brainstorm-brewery-692-magic-finance/",
+    "duration_seconds": 3455,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Liz (@devotedDruid) are all back to talk about TCGs coming into sporting goods stores, Legacy, and Ban List. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.0",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-19T11:05:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-19T10:54:36Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-19T10:54:38Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-19T10:54:38Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-19T10:54:59Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-19T11:05:32Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-19T11:05:32Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-19T11:05:49Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-19T11:05:49Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-19T11:05:49Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-19T11:05:49Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3455,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 182.719,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10874,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22648,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              }
+            ],
+            "thoughts_token_count": 13213,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46735,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 233.285,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12279,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22649,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              }
+            ],
+            "thoughts_token_count": 16089,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 51017,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 136.872,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16556,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22649,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 1916,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41121,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 755,
+          "request_seconds": 79.248,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17039,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 19021,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 149
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18872
+              }
+            ],
+            "thoughts_token_count": 2224,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38284,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 77
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1017,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 15725,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 15725
+        }
+      ],
+      "thoughts_token_count": 3183,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 19925,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0000-trading-cards-are-sports-goods-brainstorm-brewery-692-magic-finance-dd3e6d45/metadata.json",
+    "summary_json": "episodes/0000-trading-cards-are-sports-goods-brainstorm-brewery-692-magic-finance-dd3e6d45/summary.json",
+    "summary_markdown": "episodes/0000-trading-cards-are-sports-goods-brainstorm-brewery-692-magic-finance-dd3e6d45/summary.md"
+  }
+}
