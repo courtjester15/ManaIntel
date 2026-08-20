@@ -19,9 +19,11 @@ END_PATTERNS = SECTION_END_PATTERNS + EPISODE_END_PATTERNS
 # MTG Fast Finance commonly names Cards to Watch while previewing the whole show.
 # That outline mention is not a reliable section boundary by itself.
 OUTLINE_PATTERNS = (
-    r"\b(?:today|this week|on (?:today'?s|this) (?:show|episode)|coming up)\b.{0,160}\bcards?\s+to\s+watch\b",
-    r"\b(?:including|we(?:'ll| will)|going to)\b.{0,160}\bcards?\s+to\s+watch\b.{0,100}\b(?:and|plus|before)\b",
-    r"\b(?:meta|price) updates?\b.{0,160}\bcards?\s+to\s+watch\b",
+    r"\b(?:today|this week|on (?:today'?s|this) (?:show|episode)|coming up)\b.{0,500}\bcards?\s+to\s+watch\b",
+    r"\b(?:including|we(?:'ll| will)|going to)\b.{0,500}\bcards?\s+to\s+watch\b.{0,300}\b(?:and|plus|before)\b",
+    r"\b(?:meta|price) updates?\b.{0,500}\bcards?\s+to\s+watch\b",
+    r"\b(?:agenda|usual\s+(?:three|four|five|\d+)\s+segments?|have a lot going on|we(?:'ve| have) got to talk)\b.{0,700}\bcards?\s+to\s+watch\b",
+    r"\b(?:first|then|finally)\b.{0,700}\bcards?\s+to\s+watch\b.{0,300}\b(?:and then|then|finally|after|wrap)\b",
 )
 PICK_CUE_PATTERNS = (
     r"\bmy\s+(?:(?:first|second|next|other|last)\s+)?(?:card|pick)\b",
@@ -43,12 +45,14 @@ BRAINSTORM_START_PATTERNS = (
     r"picks?\s+of\s+the\s+week",
 )
 
-INTRO_OUTLINE_SECONDS = 300
 MIN_TOPIC_TRANSITION_SECONDS = 120
+MAX_UNBOUNDED_SECTION_SECONDS = 1200
+OUTLINE_CONTEXT_SECONDS = 120
 TOPIC_STOPWORDS = {
     "and", "best", "card", "cards", "episode", "ep", "fast", "finance", "for", "from",
     "got", "magic", "main", "more", "mtg", "much", "of", "on", "results", "set", "the",
-    "their", "this", "top", "with", "x",
+    "their", "this", "top", "with", "x", "action", "down", "how", "look", "low", "out",
+    "played", "take",
 }
 
 
@@ -61,13 +65,39 @@ def _window_text(segments: list[dict[str, Any]], index: int, width: int = 3) -> 
 
 
 def _is_outline_mention(segments: list[dict[str, Any]], index: int) -> bool:
-    if float(segments[index].get("start", 0)) > INTRO_OUTLINE_SECONDS:
-        return False
+    segment_text = str(segments[index].get("text", ""))
+    if _matches(OUTLINE_PATTERNS, segment_text):
+        return True
+    candidate_start = float(segments[index].get("start", 0))
     context = " ".join(
         str(item.get("text", ""))
         for item in segments[max(0, index - 2):index + 3]
+        if abs(float(item.get("start", 0)) - candidate_start) <= OUTLINE_CONTEXT_SECONDS
     )
     return _matches(OUTLINE_PATTERNS, context)
+
+
+def _ordered_segments(segments: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Prefer provider sequence over timestamps when every segment supplies it."""
+    if segments and all(item.get("sequence") is not None for item in segments):
+        return sorted(segments, key=lambda item: int(item["sequence"]))
+    return sorted(segments, key=lambda item: float(item.get("start", 0)))
+
+
+def _has_duration(segment: dict[str, Any]) -> bool:
+    return float(segment.get("end", segment.get("start", 0))) > float(segment.get("start", 0))
+
+
+def _best_explicit_start(explicit_indexes: list[int], implicit_indexes: list[int]) -> int:
+    """Choose the explicit marker most closely followed by recommendation language."""
+    ranked: list[tuple[int, int]] = []
+    for explicit_index in explicit_indexes:
+        following = [index for index in implicit_indexes if index >= explicit_index]
+        if following:
+            ranked.append((following[0] - explicit_index, explicit_index))
+    if ranked:
+        return min(ranked)[1]
+    return explicit_indexes[0]
 
 
 def _topic_terms(title: str, description: str) -> set[str]:
@@ -82,17 +112,31 @@ def _topic_terms(title: str, description: str) -> set[str]:
 
 def _topic_transition_index(
     ordered: list[dict[str, Any]], start_index: int, *, title: str, description: str,
+    first_pick_index: int | None = None,
 ) -> int | None:
     terms = _topic_terms(title, description)
     start_seconds = float(ordered[start_index].get("start", 0))
     for index in range(start_index + 1, len(ordered)):
+        if first_pick_index is None or index <= first_pick_index:
+            continue
         elapsed = float(ordered[index].get("start", 0)) - start_seconds
         if elapsed < MIN_TOPIC_TRANSITION_SECONDS:
             continue
         transition_text = str(ordered[index].get("text", ""))
-        if not _matches(TOPIC_TRANSITION_PATTERNS, transition_text):
+        if not _has_duration(ordered[index]) and ordered[index].get("sequence") is None:
             continue
-        context = _window_text(ordered, index, width=2)
+        transition_match = next(
+            (
+                match
+                for pattern in TOPIC_TRANSITION_PATTERNS
+                if (match := re.search(pattern, transition_text, re.IGNORECASE))
+            ),
+            None,
+        )
+        if transition_match is None:
+            continue
+        next_text = str(ordered[index + 1].get("text", "")) if index + 1 < len(ordered) else ""
+        context = f"{transition_text[transition_match.start():transition_match.end() + 200]} {next_text[:200]}"
         lowered = context.lower()
         # A strong generic label is sufficient. Otherwise require the transition
         # to agree with the advertised feature topic from the title/show notes.
@@ -109,7 +153,7 @@ def locate_cards_to_watch(
     segments: list[dict[str, Any]], *, title: str = "", description: str = "",
 ) -> dict[str, Any]:
     """Locate the recommendation block using independent start and end evidence."""
-    ordered = sorted(segments, key=lambda item: float(item.get("start", 0)))
+    ordered = _ordered_segments(segments)
     outline_indexes: list[int] = []
     explicit_indexes: list[int] = []
     implicit_indexes: list[int] = []
@@ -124,7 +168,7 @@ def locate_cards_to_watch(
             implicit_indexes.append(index)
 
     if explicit_indexes:
-        start_index = explicit_indexes[0]
+        start_index = _best_explicit_start(explicit_indexes, implicit_indexes)
         start_signal = "explicit_section_marker"
     elif implicit_indexes:
         start_index = implicit_indexes[0]
@@ -152,8 +196,10 @@ def locate_cards_to_watch(
         if _matches(SECTION_END_PATTERNS, str(ordered[index].get("text", ""))):
             explicit_end_index = index
             break
+    first_pick_index = next((index for index in implicit_indexes if index >= start_index), None)
     topic_index = _topic_transition_index(
         ordered, start_index, title=title, description=description,
+        first_pick_index=first_pick_index,
     )
     if topic_index is not None and (explicit_end_index is None or topic_index < explicit_end_index):
         end_index = topic_index
@@ -163,6 +209,11 @@ def locate_cards_to_watch(
         end_signal = "explicit_section_end"
     else:
         end_index = len(ordered)
+        start_seconds = float(ordered[start_index].get("start", 0))
+        for index in range(start_index + 1, len(ordered)):
+            if float(ordered[index].get("start", 0)) - start_seconds > MAX_UNBOUNDED_SECTION_SECONDS:
+                end_index = index
+                break
         end_signal = None
 
     selected = ordered[start_index:end_index]
@@ -196,7 +247,7 @@ def locate_recommendation_section(
     """Locate a source's recommendation segment without extracting picks."""
     if profile != "brainstorm_brewery":
         return locate_cards_to_watch(segments, title=title, description=description)
-    ordered = sorted(segments, key=lambda item: float(item.get("start", 0)))
+    ordered = _ordered_segments(segments)
     marker_indexes = [
         index for index, segment in enumerate(ordered)
         if _matches(BRAINSTORM_START_PATTERNS, str(segment.get("text", "")))

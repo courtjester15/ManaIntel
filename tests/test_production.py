@@ -181,6 +181,52 @@ class DetectionAndStateTests(unittest.TestCase):
         ))
         self.assertIsNone(result["review_reason"])
 
+    def test_ff_530_real_agenda_does_not_beat_later_cards_to_watch_marker(self) -> None:
+        result = locate_cards_to_watch([
+            {"sequence": 0, "start": 124, "end": 146.5, "text": (
+                "We have a lot going on. We've got to talk about Modern events. Then we've got our top movers "
+                "in paper. And then you and I have our cards to watch. And then we need to talk about the Cats."
+            )},
+            {"sequence": 1, "start": 147, "end": 239.5, "text": "Taking a look at the metagame week in review."},
+            {"sequence": 2, "start": 900, "end": 900, "text": (
+                "We're going to get into this Secret Lair drop later. For now, finish these top paper movers."
+            )},
+            {"sequence": 3, "start": 972, "end": 1003, "text": "All right, looking at cards to watch."},
+            {"sequence": 4, "start": 1228, "end": 1315, "text": "My first pick this week is Example Card."},
+            {"sequence": 5, "start": 1707, "end": 1760, "text": "My last pick is Final Card."},
+            {"sequence": 6, "start": 1800, "end": 1840, "text": (
+                "Now let's move on to our main topic and discuss the Cats Secret Lair Superdrop."
+            )},
+        ], title="MTG Fast Finance Ep 530: Secret Lair Cats Superdrop Results")
+
+        self.assertEqual((972, 1760), (result["start_seconds"], result["end_seconds"]))
+        self.assertEqual("explicit_section_marker", result["start_signal"])
+        self.assertEqual("advertised_topic_transition", result["end_signal"])
+
+    def test_ff_532_late_agenda_and_chunk_boundary_do_not_hide_real_section(self) -> None:
+        result = locate_cards_to_watch([
+            {"sequence": 0, "start": 341.9, "end": 416.7, "text": (
+                "Our usual four segments. First is the metagame review. Then segment two is top movers. "
+                "Then segment three, our cards to watch. And finally we wrap with Marvel Superheroes."
+            )},
+            {"sequence": 1, "start": 900, "end": 900, "text": (
+                "Marvel Superheroes cards gained this week; take profits and move on to the next thing."
+            )},
+            {"sequence": 2, "start": 1301.7, "end": 1315, "text": (
+                "Let's go to our cards to watch. Do you want to lead off?"
+            )},
+            {"sequence": 3, "start": 1514, "end": 1600, "text": "My first pick this week is Force of Vigor."},
+            {"sequence": 4, "start": 1800, "end": 1800, "text": "My second pick is Roaming Throne."},
+            {"sequence": 5, "start": 1900, "end": 1940, "text": "My other pick is Final Card."},
+            {"sequence": 6, "start": 2100, "end": 2100, "text": (
+                "Now let's move on to our main topic and discuss Marvel Superheroes pricing."
+            )},
+        ], title="MTG Fast Finance Ep 532: Early Marvel Price Action")
+
+        self.assertEqual((1301, 1940), (result["start_seconds"], result["end_seconds"]))
+        self.assertEqual("explicit_section_marker", result["start_signal"])
+        self.assertEqual("advertised_topic_transition", result["end_signal"])
+
     def test_ff_split_intro_outline_does_not_beat_later_pick_language(self) -> None:
         result = locate_cards_to_watch([
             {"start": 80, "end": 90, "text": "Today we have price updates,"},
@@ -220,10 +266,12 @@ class DetectionAndStateTests(unittest.TestCase):
             {"start": 400, "end": 420, "text": "What do you have for your first pick this week?"},
             {"start": 420, "end": 500, "text": "My pick is Example Card."},
             {"start": 500, "end": 600, "text": "We keep discussing prices."},
+            {"start": 1700, "end": 1750, "text": "Unrelated closing discussion."},
         ], title="MTG Fast Finance Ep 3: Special Topic")
         self.assertTrue(result["located"])
         self.assertEqual("recommendation_language", result["start_signal"])
         self.assertIsNone(result["end_signal"])
+        self.assertEqual(600, result["end_seconds"])
         self.assertIn("no explicit ending", result["review_reason"])
 
     def test_ff_outline_and_topic_end_without_positive_start_remain_reviewable(self) -> None:
@@ -233,7 +281,7 @@ class DetectionAndStateTests(unittest.TestCase):
             {"start": 900, "end": 930, "text": "Now let's get into our main topic and discuss SOS."},
         ], title="MTG Fast Finance Ep 4: SOS Brick Targets")
         self.assertEqual("show_outline_fallback", result["start_signal"])
-        self.assertEqual("advertised_topic_transition", result["end_signal"])
+        self.assertIsNone(result["end_signal"])
         self.assertEqual("low", result["confidence"])
         self.assertIn("show-outline", result["review_reason"])
 
@@ -803,6 +851,68 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertEqual(["Old Name"], report["removed_cards"])
         self.assertEqual([{"card": "Stable Card", "fields": ["start_seconds"]}], report["changed_picks"])
         self.assertEqual(("needs_review", "complete"), (report["before_status"], report["after_status"]))
+
+    def test_forced_zero_pick_reprocess_preserves_nonzero_published_summary(self) -> None:
+        root = workspace_temp()
+        settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live")
+        candidate = episode()
+
+        class Feed:
+            def episodes(self): return [candidate]
+
+        class Downloader:
+            def download(self, item, destination):
+                path = destination.with_suffix(".mp3")
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"temporary audio")
+                return path
+
+        class Audio:
+            def prepare(self, source, destination): return [source]
+
+        class Transcriber:
+            model_name = "test-transcriber"
+            def transcribe(self, item, files): return {"provider": "test", "segments": [], "chunk_count": 1}
+
+        class Extractor:
+            model_name = "test-extractor"
+            empty = False
+
+            def extract(self, item, transcript):
+                section = {
+                    "located": True, "start_seconds": 600, "end_seconds": 700,
+                    "label": "Cards to Watch", "confidence": "high", "review_reason": None,
+                }
+                if self.empty:
+                    return {"section": section, "recommendations": [], "review_reason": "No picks found."}
+                return {"section": section, "recommendations": [{
+                    "card": "Preserved Card", "printing": None, "printing_certainty": None,
+                    "foil": None, "hosts": [], "recommendation": "Watch for an entry.",
+                    "mentioned_price": None, "entry_target": None, "hold": None, "exit_target": None,
+                    "reasoning": ["Supply was discussed."], "caveats": [], "confidence": None,
+                    "start_seconds": 620, "end_seconds": 650, "evidence_excerpt": "Short evidence.",
+                    "review_status": "approved", "review_reason": None,
+                }], "review_reason": None}
+
+        extractor = Extractor()
+        pipeline = Pipeline(
+            settings, Feed(), Downloader(), Audio(), Transcriber(), extractor,
+            JsonStateStore(settings.state_file),
+        )
+        first = pipeline.process_episode(candidate)
+        extractor.empty = True
+        second = pipeline.process_episode(candidate, force=True)
+
+        summary = load_json(settings.archive_dir / first.output_directory / "summary.json")
+        report = load_json(settings.work_dir / "reprocess-reports" / "0042-episode-42.json")
+        state = pipeline.state.get(candidate.guid)
+        self.assertEqual(("complete", 1), (first.status, first.pick_count))
+        self.assertEqual(("needs_review", 1), (second.status, second.pick_count))
+        self.assertEqual(["Preserved Card"], [pick["card"] for pick in summary["recommendations"]])
+        self.assertIn("previous recommendations were retained", summary["processing"]["review_reason"])
+        self.assertEqual((1, False, True), (
+            state["pick_count"], report["published"], report["preserved_previous"],
+        ))
     def test_real_five_pick_publication_cleanup_and_idempotent_skip(self) -> None:
         root = workspace_temp()
         settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live", retain_transcripts=True)

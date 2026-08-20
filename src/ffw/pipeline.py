@@ -87,6 +87,11 @@ EPISODE_ERROR_PATTERNS = (
     "unexpected audio content type",
 )
 
+ZERO_PICK_REPROCESS_REVIEW = (
+    "Forced reprocessing produced zero picks while the published summary had picks; "
+    "the previous recommendations were retained for review."
+)
+
 
 def classify_failure(message: str) -> tuple[str, bool, bool]:
     """Return (category, retryable, provider_wide) for durable scheduling state."""
@@ -441,6 +446,45 @@ class Pipeline:
             metadata = self._build_metadata(episode, final_status, relative_output, summary)
             self.state.transition(episode.guid, "validating")
             self._validate_before_publish(summary)
+            if (
+                baseline_summary is not None
+                and baseline_summary.get("recommendations")
+                and not summary.get("recommendations")
+            ):
+                self.state.transition(episode.guid, "publishing")
+                preserved = deepcopy(baseline_summary)
+                preserved_pick_count = len(preserved["recommendations"])
+                self.state.transition(
+                    episode.guid,
+                    "needs_review",
+                    output_directory=relative_output,
+                    pick_count=preserved_pick_count,
+                    review_reason=ZERO_PICK_REPROCESS_REVIEW,
+                    error=None,
+                )
+                preserved["processing"] = self._processing_metadata(episode, "needs_review")
+                self._validate_before_publish(preserved)
+                output_dir.mkdir(parents=True, exist_ok=True)
+                atomic_write_json(output_dir / "summary.json", preserved)
+                atomic_write_text(output_dir / "summary.md", render_episode_markdown(preserved))
+                metadata = self._build_metadata(episode, "needs_review", relative_output, preserved)
+                atomic_write_json(output_dir / "metadata.json", metadata)
+                report = compare_episode_summaries(baseline_summary, summary)
+                report.update({
+                    "published": False,
+                    "preserved_previous": True,
+                    "publication_block_reason": ZERO_PICK_REPROCESS_REVIEW,
+                })
+                report_dir = self.settings.work_dir / "reprocess-reports"
+                report_dir.mkdir(parents=True, exist_ok=True)
+                atomic_write_json(report_dir / f"{slug}.json", report)
+                return PipelineResult(
+                    guid=episode.guid,
+                    status="needs_review",
+                    output_directory=relative_output,
+                    pick_count=preserved_pick_count,
+                    message=ZERO_PICK_REPROCESS_REVIEW,
+                )
             self.state.transition(episode.guid, "publishing")
             output_dir.mkdir(parents=True, exist_ok=True)
             atomic_write_json(output_dir / "metadata.json", metadata)

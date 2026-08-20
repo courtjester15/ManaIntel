@@ -259,6 +259,7 @@ class OpenAITranscriber:
                 segment = dict(segment)
                 segment["start"] = float(segment.get("start", 0)) + offset
                 segment["end"] = float(segment.get("end", segment["start"] - offset)) + offset
+                segment["sequence"] = len(segments)
                 segments.append(segment)
         segments.sort(key=lambda item: item["start"])
         return {
@@ -500,6 +501,7 @@ class GeminiTranscriber:
                     timing_adjustments += 1
                 segment["start"] = bounded_start + offset
                 segment["end"] = bounded_end + offset
+                segment["sequence"] = len(segments)
                 if segment.get("speaker"):
                     segment["speaker"] = str(segment["speaker"])
                 segments.append(segment)
