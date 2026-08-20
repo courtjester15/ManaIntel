@@ -1,0 +1,407 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2285845937",
+    "episode_number": 516,
+    "title": "MTG Fast Finance Ep 516: TMNT x Secret Lair Drop",
+    "published_at": "2026-03-18T02:09:12Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2285845937-user-519789566-mtg-fast-finance-ep-516-tmnt-x.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-516-tmnt-x",
+    "duration_seconds": 2953,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James & Cliff walk you through the meta evolutions in Standard and Legacy this week, fast moving cards, cards to watch and the results of the TMNT Secret Lair drops this month.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.1",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-20T20:57:39Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-20T20:45:58Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T20:45:58Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T20:45:58Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-20T20:45:58Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-20T20:46:01Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-20T20:46:01Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-20T20:46:14Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-20T20:57:16Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-20T20:57:16Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-20T20:57:39Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-20T20:57:39Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-20T20:57:39Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-20T20:57:39Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2953,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 245.652,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10228,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22625,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 126
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 2500,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35353,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 263.251,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10846,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22626,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 126
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 10397,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43869,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 85.007,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18889,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22626,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 126
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 1143,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42658,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 253,
+          "request_seconds": 67.427,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2901,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 6446,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 126
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 6320
+              }
+            ],
+            "thoughts_token_count": 6267,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 15614,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 93
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1577,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12039,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12039
+        }
+      ],
+      "thoughts_token_count": 3359,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 16975,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 900,
+    "end_seconds": 2102,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Ninja Pizza",
+      "printing": "Base set",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5.19",
+      "entry_target": {
+        "raw": "$5.19",
+        "currency": "USD",
+        "minimum": 5.19,
+        "maximum": 5.19
+      },
+      "hold": "1.5 to 2 years",
+      "exit_target": {
+        "raw": "$12 to $15",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "It is a legitimate replacement for super staples like Cultivate or Kodama's Reach",
+        "Ramp card with additional food, token, and artifact synergies",
+        "Unlikely to see a reprint for many years as a licensed TMNT card",
+        "Currently the number one card from the TMNT drop on EDHREC"
+      ],
+      "caveats": [
+        "Currently at presale prices, which could see some undercutting initially"
+      ],
+      "confidence": "medium",
+      "start_seconds": 900,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Ninja Pizza is on my radar as a... not a multi-format card, it's clearly an EDH card, but I think that food decks forever and ever are going to want this.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7470cc0f51c5c1c0",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2285845937-user-519789566-mtg-fast-finance-ep-516-tmnt-x.mp3#t=900"
+    },
+    {
+      "card": "Bloodline Bidding",
+      "printing": "Showcase foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "around 12 bucks",
+      "entry_target": {
+        "raw": "around 12 bucks",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 12.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": null,
+      "reasoning": [
+        "Sixth most popular card from Lord of the Rings: Tales of Middle-earth",
+        "Very cheap compared to the fracture foil version which is in the low 60s",
+        "Only 116 listings with no large bricks remaining, very flat price ramp"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "I'm ready to buy in on Bloodline Bidding, uh, the showcase foils. I don't want to buy the fracture foils, I don't think. I like the growth opportunity...",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-13dbb7806ebd6485",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2285845937-user-519789566-mtg-fast-finance-ep-516-tmnt-x.mp3#t=1800"
+    },
+    {
+      "card": "Weapons-Manufacturing",
+      "printing": "Borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5 or $6",
+      "entry_target": {
+        "raw": "$5 or $6",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 6.0
+      },
+      "hold": "1 to 2 years",
+      "exit_target": {
+        "raw": "$12 to $15",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Part of the default affinity model for Modern that recently placed in top eight decks",
+        "Low supply with only 54 listings and no major bricks",
+        "Strong token-generating artifact synergy without a once-per-turn limit",
+        "High collector booster drop-rate barrier (approx. 1 in 91 packs)"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1900,
+      "evidence_excerpt": "I took a look at Weapons-Manufacturing borderless foils... looks to me like these are going to drain out... these are going to go from $5 or $6 to $12 to $15",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-799bb425e0fc9a08",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2285845937-user-519789566-mtg-fast-finance-ep-516-tmnt-x.mp3#t=1800"
+    },
+    {
+      "card": "Academy Manufactor",
+      "printing": "Secret Lair Vault 33",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$11",
+      "entry_target": {
+        "raw": "nine to $11",
+        "currency": "USD",
+        "minimum": 9.0,
+        "maximum": 11.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "Highly popular commander staple appearing in over 323,000 decks on EDHREC",
+        "The Vault 33 art is much better looking than the previous Play-Doh Secret Lair version",
+        "Should easily overtake the price of the alternative Play-Doh version which is around $15"
+      ],
+      "caveats": [
+        "Price may drift slightly lower as more people receive their Fallout Lairs and list copies"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1900,
+      "end_seconds": 2102,
+      "evidence_excerpt": "I am really eager to buy the Secret Lair included Academy Manufactor that comes in the Vault 33 drop... currently $11... hot to hit $20.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1ab12c9f3385a5c4",
+      "timestamp": "00:31:40",
+      "listen_url": "https://feeds.soundcloud.com/stream/2285845937-user-519789566-mtg-fast-finance-ep-516-tmnt-x.mp3#t=1900"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.1",
-  "updated_at": "2026-08-20T10:53:27Z",
+  "updated_at": "2026-08-20T20:57:39Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -10067,6 +10067,221 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 13113,
+        "traffic_type": null
+      },
+      "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2285845937": {
+      "guid": "tag:soundcloud,2010:tracks/2285845937",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-20T20:45:58Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-20T20:45:58Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-20T20:45:58Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-20T20:45:58Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-20T20:46:01Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-20T20:46:01Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-20T20:46:14Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-20T20:57:16Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-20T20:57:16Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-20T20:57:39Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-20T20:57:39Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-20T20:57:39Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-20T20:57:39Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 516: TMNT x Secret Lair Drop",
+      "episode_number": 516,
+      "published_at": "2026-03-18T02:09:12Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-20T20:57:39Z",
+      "output_directory": "episodes/0516-tmnt-x-secret-lair-drop",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2953,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 245.652,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10228,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22625,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 126
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 2500,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 35353,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 263.251,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10846,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22626,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 126
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 10397,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43869,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 85.007,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 18889,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22626,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 126
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 1143,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42658,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 253,
+            "request_seconds": 67.427,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 2901,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 6446,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 126
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 6320
+                }
+              ],
+              "thoughts_token_count": 6267,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 15614,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 93
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1577,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 12039,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 12039
+          }
+        ],
+        "thoughts_token_count": 3359,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 16975,
         "traffic_type": null
       },
       "review_reason": null
