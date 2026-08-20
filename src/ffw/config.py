@@ -53,6 +53,7 @@ class Settings:
     card_resolution_timeout_seconds: float = 15.0
     card_resolution_ca_bundle: Path | None = None
     retain_transcripts: bool = False
+    reuse_transcripts: bool = False
     targeted_verification_enabled: bool = True
     targeted_verification_max_picks: int = 2
     repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch"
@@ -98,6 +99,7 @@ class Settings:
             card_resolution_timeout_seconds=max(1.0, float(os.getenv("FFW_CARD_RESOLUTION_TIMEOUT_SECONDS", "15"))),
             card_resolution_ca_bundle=Path(ca_bundle_value).expanduser() if ca_bundle_value else None,
             retain_transcripts=os.getenv("FFW_RETAIN_TRANSCRIPTS", "false").strip().lower() in {"1", "true", "yes", "on"},
+            reuse_transcripts=os.getenv("FFW_REUSE_TRANSCRIPTS", "false").strip().lower() in {"1", "true", "yes", "on"},
             targeted_verification_enabled=os.getenv("FFW_TARGETED_VERIFICATION_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"},
             targeted_verification_max_picks=max(0, int(os.getenv("FFW_TARGETED_VERIFICATION_MAX_PICKS", "2"))),
             repository_url=os.getenv("FFW_REPOSITORY_URL", "https://github.com/courtjester15/mtgff-cards-to-watch"),

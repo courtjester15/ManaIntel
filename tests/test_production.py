@@ -466,6 +466,9 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("gemini-3.5-flash-lite", workflow)
         self.assertIn("ai_model:", workflow)
         self.assertIn("inputs.ai_model || 'gemini-3.5-flash'", workflow)
+        self.assertIn("reuse_transcript_run_id:", workflow)
+        self.assertIn("Download retained transcript for recovery", workflow)
+        self.assertIn("FFW_REUSE_TRANSCRIPTS", workflow)
         self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "2"', workflow)
         self.assertIn('FFW_GEMINI_RETRY_DELAY_SECONDS: "30"', workflow)
         self.assertIn("FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai", workflow)
@@ -495,6 +498,57 @@ class FrontendContractTests(unittest.TestCase):
 
 
 class ProductionPipelineTests(unittest.TestCase):
+    def test_explicit_reuse_uses_matching_retained_transcript_without_transcriber_call(self) -> None:
+        root = workspace_temp()
+        settings = Settings(
+            root, root / "archive", root / "state/episodes.json", root / ".ffw-work",
+            mode="live", reuse_transcripts=True,
+        )
+        candidate = episode()
+        slug = "0042-episode-42"
+        transcript_path = settings.work_dir / "transcripts" / f"{slug}.json.gz"
+        transcript_path.parent.mkdir(parents=True, exist_ok=True)
+        with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
+            json.dump({
+                "episode": {"guid": candidate.guid},
+                "transcript": {"provider": "retained", "model": "retained-model", "segments": []},
+            }, output)
+
+        class Feed:
+            def episodes(self): return [candidate]
+
+        class Downloader:
+            def download(self, item, destination):
+                path = destination.with_suffix(".mp3")
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"temporary audio")
+                return path
+
+        class Audio:
+            def prepare(self, source, destination): return [source]
+
+        class Transcriber:
+            model_name = "must-not-run"
+            def transcribe(self, item, files): raise AssertionError("transcriber should not run")
+
+        class Extractor:
+            model_name = "test-extractor"
+            def extract(self, item, transcript):
+                self.transcript = transcript
+                return {
+                    "section": {"located": False, "start_seconds": None, "end_seconds": None,
+                                "label": "Cards to Watch", "confidence": "low", "review_reason": "No section."},
+                    "recommendations": [], "review_reason": "No picks.",
+                }
+
+        extractor = Extractor()
+        result = Pipeline(
+            settings, Feed(), Downloader(), Audio(), Transcriber(), extractor,
+            JsonStateStore(settings.state_file),
+        ).process_episode(candidate)
+
+        self.assertEqual(("needs_review", "retained-model"), (result.status, extractor.transcript["model"]))
+
     def test_live_provider_selection_is_swappable(self) -> None:
         root = workspace_temp()
         base = {

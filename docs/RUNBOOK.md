@@ -102,7 +102,7 @@ The exact-episode backend is already available:
 python -m ffw run --live --force-guid <rss-guid>
 ```
 
-In GitHub Actions, choose a normal processing mode, enter the exact canonical GUID in `force_guid`, keep `batch_size=1`, and dispatch. Exact GUID selection searches the full fetched feed and processes only that episode, even when it is quarantined. Manual dispatches can select `gemini-3.5-flash-lite` in `ai_model` when the primary model's per-model quota is exhausted; scheduled runs retain `gemini-3.5-flash` as the default. Failed episode details in the static UI provide **Copy retry GUID** and **Open retry workflow** buttons. The UI intentionally contains no GitHub token and cannot dispatch an authenticated run itself.
+In GitHub Actions, choose a normal processing mode, enter the exact canonical GUID in `force_guid`, keep `batch_size=1`, and dispatch. Exact GUID selection searches the full fetched feed and processes only that episode, even when it is quarantined. Manual dispatches can select `gemini-3.5-flash-lite` in `ai_model` when the primary model's per-model quota is exhausted; scheduled runs retain `gemini-3.5-flash` as the default. To retry extraction without paying to transcribe again, enter the prior Actions run ID in `reuse_transcript_run_id`; the workflow downloads that run's private transcript artifact, verifies its episode GUID, and fails closed if it is missing or mismatched. Failed episode details in the static UI provide **Copy retry GUID** and **Open retry workflow** buttons. The UI intentionally contains no GitHub token and cannot dispatch an authenticated run itself.
 
 ## Retention and cost
 

@@ -403,11 +403,21 @@ class Pipeline:
             self.state.transition(episode.guid, "preparing")
             prepared_files = self.audio.prepare(downloaded, work_dir / "prepared-audio")
             self.state.transition(episode.guid, "transcribing")
-            transcript = self.transcriber.transcribe(episode, prepared_files)
+            transcript_dir = self.settings.work_dir / "transcripts"
+            transcript_path = transcript_dir / f"{slug}.json.gz"
+            if self.settings.reuse_transcripts:
+                if not transcript_path.exists():
+                    raise FileNotFoundError(f"Reusable transcript was not found for {episode.guid}.")
+                with gzip.open(transcript_path, "rt", encoding="utf-8") as source:
+                    retained = json.load(source)
+                retained_guid = retained.get("episode", {}).get("guid")
+                if retained_guid != episode.guid or not isinstance(retained.get("transcript"), dict):
+                    raise ValueError(f"Reusable transcript does not match episode {episode.guid}.")
+                transcript = retained["transcript"]
+            else:
+                transcript = self.transcriber.transcribe(episode, prepared_files)
             if self.settings.retain_transcripts and not episode.synthetic:
-                transcript_dir = self.settings.work_dir / "transcripts"
                 transcript_dir.mkdir(parents=True, exist_ok=True)
-                transcript_path = transcript_dir / f"{slug}.json.gz"
                 with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
                     json.dump({
                         "episode": self._episode_metadata(episode),

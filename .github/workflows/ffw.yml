@@ -43,6 +43,10 @@ on:
         type: choice
         options: [gemini-3.5-flash, gemini-3.5-flash-lite]
         default: gemini-3.5-flash
+      reuse_transcript_run_id:
+        description: Optional prior Actions run ID whose retained transcript should be reused
+        required: false
+        default: ""
       deploy:
         description: Deploy GitHub Pages after validation
         required: true
@@ -66,6 +70,7 @@ env:
   FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai
   FFW_OPENAI_TRANSCRIPTION_MODEL: gpt-4o-transcribe-diarize
   FFW_RETAIN_TRANSCRIPTS: "true"
+  FFW_REUSE_TRANSCRIPTS: ${{ inputs.reuse_transcript_run_id != '' }}
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
   FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
   FFW_AUDIO_CHUNK_SECONDS: "900"
@@ -134,6 +139,17 @@ jobs:
           if [[ "$FFW_AI_PROVIDER" == "gemini" && "$FFW_TRANSCRIPTION_PROVIDER_FALLBACK" == "openai" && -z "$OPENAI_API_KEY" ]]; then
             echo "::warning::OPENAI_API_KEY is unavailable; Gemini will run without cross-provider transcription fallback."
           fi
+
+      - name: Download retained transcript for recovery
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_transcript_run_id != '' }}
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.reuse_transcript_run_id }}
+          pattern: transcripts-${{ inputs.reuse_transcript_run_id }}-*
+          path: .ffw-work/transcripts
+          merge-multiple: true
 
       - name: Process live feed
         if: ${{ github.event_name != 'push' }}
