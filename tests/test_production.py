@@ -511,7 +511,10 @@ class ProductionPipelineTests(unittest.TestCase):
         with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
             json.dump({
                 "episode": {"guid": candidate.guid},
-                "transcript": {"provider": "retained", "model": "retained-model", "segments": []},
+                "transcript": {
+                    "provider": "retained", "model": "retained-model",
+                    "segments": [{"start": 900, "end": 900, "text": "Retained segment."}],
+                },
             }, output)
 
         class Feed:
@@ -548,6 +551,7 @@ class ProductionPipelineTests(unittest.TestCase):
         ).process_episode(candidate)
 
         self.assertEqual(("needs_review", "retained-model"), (result.status, extractor.transcript["model"]))
+        self.assertEqual(0, extractor.transcript["segments"][0]["sequence"])
 
     def test_live_provider_selection_is_swappable(self) -> None:
         root = workspace_temp()

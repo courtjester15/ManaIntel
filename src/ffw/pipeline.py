@@ -414,6 +414,8 @@ class Pipeline:
                 if retained_guid != episode.guid or not isinstance(retained.get("transcript"), dict):
                     raise ValueError(f"Reusable transcript does not match episode {episode.guid}.")
                 transcript = retained["transcript"]
+                for sequence, segment in enumerate(transcript.get("segments", [])):
+                    segment.setdefault("sequence", sequence)
             else:
                 transcript = self.transcriber.transcribe(episode, prepared_files)
             if self.settings.retain_transcripts and not episode.synthetic:
