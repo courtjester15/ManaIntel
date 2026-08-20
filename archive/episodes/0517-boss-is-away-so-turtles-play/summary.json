@@ -1,0 +1,379 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2287744937",
+    "episode_number": 517,
+    "title": "MTG Fast Finance Ep 517: Boss is Away So Turtles Play",
+    "published_at": "2026-03-20T23:22:15Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2287744937-user-519789566-mtg-fast-finance-ep-517-boss.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-517-boss",
+    "duration_seconds": 2146,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Ted and Cliff take on the weekly updates, cards to watch and take a stab a breaking down the Fallout dump week specs and the early TMNT winners. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.1",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-20T10:53:27Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-20T10:47:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-20T10:47:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-20T10:47:10Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-20T10:53:07Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-20T10:53:07Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-20T10:53:27Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-20T10:53:27Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-20T10:53:27Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-20T10:53:27Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2146,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 183.271,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8037,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 13700,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44355,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 145.856,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8658,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 11106,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42383,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 346,
+          "request_seconds": 25.845,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3693,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 8780,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 8661
+              }
+            ],
+            "thoughts_token_count": 1888,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 14361,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 20
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1227,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 6670,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 6670
+        }
+      ],
+      "thoughts_token_count": 5216,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 13113,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 850,
+    "end_seconds": 2058,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Field of the Dead",
+      "printing": "Secret Lair Encyclopedia",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "Ted"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$70",
+      "entry_target": {
+        "raw": "$70 to $75",
+        "currency": "USD",
+        "minimum": 70.0,
+        "maximum": 75.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "the 150 range",
+        "currency": "USD",
+        "minimum": 150.0,
+        "maximum": 150.0
+      },
+      "reasoning": [
+        "The cheapest near mint foil is listed at $70.",
+        "The card is played in over 234,000 decks.",
+        "The sealed Secret Lair Encyclopedia is rising in value, making individual pulls like this cheap by comparison."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 850,
+      "end_seconds": 1034,
+      "evidence_excerpt": "Field of the Dead Halo foils from the Secret Lair Encyclopedia. These were all the way up at like $130, $140, and they have just gone down",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c3e1a8d405640f1a",
+      "timestamp": "00:14:10",
+      "listen_url": "https://feeds.soundcloud.com/stream/2287744937-user-519789566-mtg-fast-finance-ep-517-boss.mp3#t=850"
+    },
+    {
+      "card": "Nuka-Cola Vending Machine",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Ted",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$15",
+      "entry_target": {
+        "raw": "$15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "double up",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "This is the Sunset Sarsaparilla Machine Secret Lair skin.",
+        "Foil version is around $15, while original non-foil is $30+.",
+        "Food and token strategies are extremely popular in Commander, driving long-term demand."
+      ],
+      "caveats": [
+        "Undercutting during dump week could temporarily lower the price by a dollar or two."
+      ],
+      "confidence": "high",
+      "start_seconds": 1034,
+      "end_seconds": 1255,
+      "evidence_excerpt": "Sunset Sarsaparilla Machine, which is the Secret Lair skin of Nuka-Cola Vending Machine... right now... it's at 15 bucks for foil... easy double up.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5803b7e74a5d309c",
+      "timestamp": "00:17:14",
+      "listen_url": "https://feeds.soundcloud.com/stream/2287744937-user-519789566-mtg-fast-finance-ep-517-boss.mp3#t=1034"
+    },
+    {
+      "card": "Whip of Erebos",
+      "printing": "Secret Lair Uncharted",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "Cliff",
+        "Ted"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$8.50",
+      "entry_target": {
+        "raw": "$8.50",
+        "currency": "USD",
+        "minimum": 8.5,
+        "maximum": 8.5
+      },
+      "hold": "12 months",
+      "exit_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "This is the El Dorado Sarcophagus version, which is the only special frame treatment of a card in 157,000 decks.",
+        "The card has bottomed out at $6.50 and started rising to $8.50."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1255,
+      "end_seconds": 1526,
+      "evidence_excerpt": "Whip of Erebos from the Uncharted Secret Lair... hit bottom at 6.50, and now it's crept up to 8.50. This feels like a card that'll hit $20",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-111fb3c38069e1a5",
+      "timestamp": "00:20:55",
+      "listen_url": "https://feeds.soundcloud.com/stream/2287744937-user-519789566-mtg-fast-finance-ep-517-boss.mp3#t=1255"
+    },
+    {
+      "card": "Overlord of the Hauntwoods",
+      "printing": "Duskmourn: House of Horror",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Ted",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$160 - $170",
+      "entry_target": {
+        "raw": "160-170",
+        "currency": "USD",
+        "minimum": 160.0,
+        "maximum": 170.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "300",
+        "currency": "USD",
+        "minimum": 300.0,
+        "maximum": 300.0
+      },
+      "reasoning": [
+        "The fracture foil is the rarest and best treatment for this highly played ramp card.",
+        "Supply is extremely low on TCGplayer with around a dozen copies listed."
+      ],
+      "caveats": [
+        "Other fracture foils from recent sets, like the enduring cycle, have trickled downwards over time."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1526,
+      "end_seconds": 1800,
+      "evidence_excerpt": "the pick is Overlord of the Hauntwoods fracture foil... the lowest is like 160-170, and it's a pretty steep and pretty rapid ramp up to 300.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5884e90bd51e6d83",
+      "timestamp": "00:25:26",
+      "listen_url": "https://feeds.soundcloud.com/stream/2287744937-user-519789566-mtg-fast-finance-ep-517-boss.mp3#t=1526"
+    }
+  ]
+}

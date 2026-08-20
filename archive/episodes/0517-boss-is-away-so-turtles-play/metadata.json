@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2287744937",
+    "episode_number": 517,
+    "title": "MTG Fast Finance Ep 517: Boss is Away So Turtles Play",
+    "published_at": "2026-03-20T23:22:15Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2287744937-user-519789566-mtg-fast-finance-ep-517-boss.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-517-boss",
+    "duration_seconds": 2146,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Ted and Cliff take on the weekly updates, cards to watch and take a stab a breaking down the Fallout dump week specs and the early TMNT winners. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.1",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-20T10:53:27Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-20T10:46:59Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-20T10:47:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-20T10:47:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-20T10:47:10Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-20T10:53:07Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-20T10:53:07Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-20T10:53:27Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-20T10:53:27Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-20T10:53:27Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-20T10:53:27Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2146,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 183.271,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8037,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 13700,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44355,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 145.856,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8658,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 11106,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42383,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 346,
+          "request_seconds": 25.845,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3693,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 8780,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 8661
+              }
+            ],
+            "thoughts_token_count": 1888,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 14361,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 20
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1227,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 6670,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 6670
+        }
+      ],
+      "thoughts_token_count": 5216,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 13113,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0517-boss-is-away-so-turtles-play/metadata.json",
+    "summary_json": "episodes/0517-boss-is-away-so-turtles-play/summary.json",
+    "summary_markdown": "episodes/0517-boss-is-away-so-turtles-play/summary.md"
+  }
+}
