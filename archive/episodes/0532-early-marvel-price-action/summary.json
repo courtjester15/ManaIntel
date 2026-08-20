@@ -22,13 +22,13 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "The provided transcript segment only covers the Metagame Review and Top Movers sections; the Cards to Watch section is not present.",
-    "pipeline_version": "0.4.4",
+    "review_reason": "The provided transcript does not contain the 'Cards to Watch' section (Segment 3), ending instead during Segment 2 (Top Movers). As a result, no explicit recommendations from that section are present.",
+    "pipeline_version": "0.5.0",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-11T11:19:44Z",
+    "processed_at": "2026-08-20T02:39:12Z",
     "history": [
       {
         "status": "detected",
@@ -81,6 +81,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-11T11:19:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T02:33:53Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-20T02:33:53Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-20T02:33:54Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-20T02:33:54Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-20T02:34:09Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-20T02:39:00Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-20T02:39:00Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-20T02:39:12Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-20T02:39:12Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-20T02:39:12Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-20T02:39:12Z"
       }
     ],
     "error": null,
@@ -98,27 +142,27 @@
           "chunk_count": 4,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 290.687,
+          "request_seconds": 59.803,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 9178,
+            "candidates_token_count": 9533,
             "candidates_tokens_details": null,
-            "prompt_token_count": 22554,
+            "prompt_token_count": 22627,
             "prompt_tokens_details": [
               {
                 "modality": "TEXT",
-                "token_count": 55
+                "token_count": 128
               },
               {
                 "modality": "AUDIO",
                 "token_count": 22499
               }
             ],
-            "thoughts_token_count": 14679,
+            "thoughts_token_count": 4585,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 46411,
+            "total_token_count": 36745,
             "traffic_type": null
           }
         },
@@ -127,27 +171,27 @@
           "chunk_count": 4,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 58.655,
+          "request_seconds": 114.439,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 8426,
+            "candidates_token_count": 8768,
             "candidates_tokens_details": null,
-            "prompt_token_count": 22555,
+            "prompt_token_count": 22628,
             "prompt_tokens_details": [
-              {
-                "modality": "TEXT",
-                "token_count": 55
-              },
               {
                 "modality": "AUDIO",
                 "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 128
               }
             ],
-            "thoughts_token_count": 4947,
+            "thoughts_token_count": 10356,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 35928,
+            "total_token_count": 41752,
             "traffic_type": null
           }
         },
@@ -156,27 +200,27 @@
           "chunk_count": 4,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 493.152,
+          "request_seconds": 34.857,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 7813,
+            "candidates_token_count": 7653,
             "candidates_tokens_details": null,
-            "prompt_token_count": 22555,
+            "prompt_token_count": 22628,
             "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 128
+              },
               {
                 "modality": "AUDIO",
                 "token_count": 22500
-              },
-              {
-                "modality": "TEXT",
-                "token_count": 55
               }
             ],
-            "thoughts_token_count": 14013,
+            "thoughts_token_count": 437,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 44381,
+            "total_token_count": 30718,
             "traffic_type": null
           }
         },
@@ -185,55 +229,56 @@
           "chunk_count": 4,
           "model": "gemini-3.5-flash",
           "audio_seconds": 771,
-          "request_seconds": 52.698,
+          "request_seconds": 80.279,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 6729,
+            "candidates_token_count": 6683,
             "candidates_tokens_details": null,
-            "prompt_token_count": 19342,
+            "prompt_token_count": 19415,
             "prompt_tokens_details": [
-              {
-                "modality": "TEXT",
-                "token_count": 55
-              },
               {
                 "modality": "AUDIO",
                 "token_count": 19287
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 128
               }
             ],
-            "thoughts_token_count": 3532,
+            "thoughts_token_count": 11879,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 29603,
+            "total_token_count": 37977,
             "traffic_type": null
           }
         }
-      ]
+      ],
+      "timing_adjustments": 31
     },
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 43,
+      "candidates_token_count": 59,
       "candidates_tokens_details": null,
-      "prompt_token_count": 4087,
+      "prompt_token_count": 3089,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 4087
+          "token_count": 3089
         }
       ],
-      "thoughts_token_count": 1715,
+      "thoughts_token_count": 1978,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 5845,
+      "total_token_count": 5126,
       "traffic_type": null
     }
   },
   "section": {
     "located": true,
-    "start_seconds": 338,
-    "end_seconds": 1230,
+    "start_seconds": 341,
+    "end_seconds": 900,
     "label": "Cards to Watch",
     "confidence": "high",
     "review_reason": null,

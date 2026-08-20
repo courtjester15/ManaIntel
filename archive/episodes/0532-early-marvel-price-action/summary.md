@@ -13,4 +13,4 @@ No recommendations were extracted.
 
 ---
 
-Schema 1.1.0 · Pipeline 0.4.4 · Prompt source-recommendations-v2-hybrid-boundaries
+Schema 1.1.0 · Pipeline 0.5.0 · Prompt source-recommendations-v2-hybrid-boundaries
