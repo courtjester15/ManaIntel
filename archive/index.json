@@ -6,8 +6,8 @@
     "project": "FFW",
     "pipeline_version": "0.5.1",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-20T03:35:05Z",
-    "latest_successful_run_at": "2026-08-20T03:35:03Z",
+    "generated_at": "2026-08-20T03:40:05Z",
+    "latest_successful_run_at": "2026-08-20T03:40:04Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 44,
-    "real_pick_count": 143,
+    "real_pick_count": 147,
     "last_discovered_episode_date": "2026-08-14T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/mtgff-cards-to-watch",
     "workflow_url": "https://github.com/courtjester15/mtgff-cards-to-watch/actions/workflows/ffw.yml",
@@ -34,14 +34,14 @@
   },
   "counts": {
     "episodes": 44,
-    "picks": 143,
-    "needs_review": 26,
+    "picks": 147,
+    "needs_review": 25,
     "failed": 4,
-    "completed": 14
+    "completed": 15
   },
   "status_counts": {
-    "complete": 14,
-    "needs_review": 26,
+    "complete": 15,
+    "needs_review": 25,
     "failed": 4
   },
   "latest_episode": {
@@ -316,119 +316,140 @@
       "human_reviewed": false
     },
     {
-      "card": "Miku Secret Lair deck",
-      "printing": "Secret Lair deck",
+      "card": "Roaming Throne",
+      "printing": "Secret Lair Goblin Storm / Wizard of Barge art",
       "printing_certainty": "confirmed",
       "foil": null,
       "hosts": [
-        "DJ"
+        "Ted",
+        "Cliff"
       ],
       "recommendation": "buy",
-      "mentioned_price": null,
-      "entry_target": null,
+      "mentioned_price": "$80 to $100",
+      "entry_target": {
+        "raw": "65 to 70 euros (low 80s USD)",
+        "currency": "USD",
+        "minimum": 80,
+        "maximum": 85
+      },
       "hold": null,
-      "exit_target": null,
+      "exit_target": {
+        "raw": "150",
+        "currency": "USD",
+        "minimum": 150,
+        "maximum": 150
+      },
       "reasoning": [
-        "It is a slam dunk of a product.",
-        "Easiest double up of your life."
+        "Goblin Storm Secret Lair sold out immediately with tight supply.",
+        "Roaming Throne is an amazing Commander and cEDH staple for tribal decks.",
+        "Best art for the card with strong collectible appeal that should push price from around $80 entry to $150."
       ],
-      "caveats": [
-        "There is only a 24-hour print-to-demand ordering window."
-      ],
+      "caveats": [],
       "confidence": "high",
-      "start_seconds": 3048,
-      "end_seconds": 3158,
-      "evidence_excerpt": "order it, buy it. Uh, this is a slam dunk of a product.",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Roaming Throne, the Secret Lair version, which comes in the Goblin Storm deck, with the art by Wizard of Barge... copies that are like 65 to 70 euros... low is 100... should get to 150.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-f93e5dacaa76a153",
-      "timestamp": "00:50:48",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3#t=3048",
+      "id": "pick-902970e440cfd21d",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2379250769-user-519789566-mtg-fast-finance-ep-532-early.mp3#t=1800",
       "card_resolution": {
-        "raw_name": "Miku Secret Lair deck",
-        "normalized_name": "miku secret lair deck",
-        "status": "not_found",
-        "canonical_name": null,
-        "scryfall_id": null,
-        "oracle_id": null,
-        "scryfall_uri": null,
-        "image_uri": null,
+        "raw_name": "Roaming Throne",
+        "normalized_name": "roaming throne",
+        "status": "verified",
+        "canonical_name": "Roaming Throne",
+        "scryfall_id": "32fd8b7c-baf3-4d3d-be6f-044a917b11a0",
+        "oracle_id": "3640c29b-1534-4952-b297-619ade948431",
+        "scryfall_uri": "https://scryfall.com/card/lci/258/roaming-throne?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/3/2/32fd8b7c-baf3-4d3d-be6f-044a917b11a0.jpg?1783913723",
         "card_face_images": [],
-        "method": "fuzzy",
+        "method": "exact",
         "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-08-14T11:19:37Z"
+        "resolved_at": "2026-08-20T03:40:05Z"
       },
+      "resolved_card": "Roaming Throne",
+      "oracle_id": "3640c29b-1534-4952-b297-619ade948431",
       "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29858",
-        "episode_number": 0,
-        "title": "Smaug VS The Infinite Stones | Brainstorm Brewery #712 | Magic Finance",
-        "published_at": "2026-08-07T06:01:00Z",
-        "episode_url": "https://brainstormbrewery.com/smaug-vs-the-infinite-stones-brainstorm-brewery-712-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
+        "guid": "tag:soundcloud,2010:tracks/2379250769",
+        "episode_number": 532,
+        "title": "MTG Fast Finance Ep 532: Early Marvel Price Action",
+        "published_at": "2026-08-10T18:47:26Z",
+        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-532-early",
+        "audio_url": "https://feeds.soundcloud.com/stream/2379250769-user-519789566-mtg-fast-finance-ep-532-early.mp3",
+        "source_id": "mtg-fast-finance",
+        "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review",
+      "processing_status": "complete",
       "human_reviewed": false
     },
     {
-      "card": "Badgermal Cup",
-      "printing": null,
-      "printing_certainty": null,
+      "card": "Prismatic Vista",
+      "printing": "Cats are the Best Secret Lair / Gary Baseman art",
+      "printing_certainty": "confirmed",
       "foil": null,
-      "hosts": [],
+      "hosts": [
+        "Cliff"
+      ],
       "recommendation": "buy",
-      "mentioned_price": "$48",
+      "mentioned_price": "$25",
       "entry_target": {
-        "raw": "$48 to $52",
+        "raw": "$25",
         "currency": "USD",
-        "minimum": 48.0,
-        "maximum": 52.0
+        "minimum": 25,
+        "maximum": 25
       },
       "hold": null,
-      "exit_target": null,
+      "exit_target": {
+        "raw": "$55-$60",
+        "currency": "USD",
+        "minimum": 55,
+        "maximum": 60
+      },
       "reasoning": [
-        "We are about to jump into Standard RCQ season, putting pressure on it.",
-        "Hareruya will pay 10,000 Yen (~$63.88) for copies in Japan.",
-        "It has legs in several non-Standard formats and is always a four-of."
+        "Ridiculously low price of just over $25 during dump week for Cats are the Best super drop.",
+        "Much cheaper than other versions like Secret Lair foils, Special Guest foils, Expeditions, and Modern Horizons original foils.",
+        "Opportunity to buy a card for half price compared to other treatments."
       ],
       "caveats": [
-        "It has the kind of text on it that could get banned."
+        "Ted noted potential competition at $50 from classic land art versions where players might prefer traditional aesthetics."
       ],
-      "confidence": "high",
-      "start_seconds": 2857,
-      "end_seconds": 2941,
-      "evidence_excerpt": "If you need Badgermal Cups for yourself to play, get them now.",
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1837,
+      "evidence_excerpt": "Prismatic Vista, which is currently going for a very, very ridiculous price of just over $25... resell it for probably around $55 $60.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-7caff2e22ae34a59",
-      "timestamp": "00:47:37",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3#t=2857",
+      "id": "pick-830dd33cba5f9603",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2379250769-user-519789566-mtg-fast-finance-ep-532-early.mp3#t=1800",
       "card_resolution": {
-        "raw_name": "Badgermal Cup",
-        "normalized_name": "badgermal cup",
-        "status": "not_found",
-        "canonical_name": null,
-        "scryfall_id": null,
-        "oracle_id": null,
-        "scryfall_uri": null,
-        "image_uri": null,
+        "raw_name": "Prismatic Vista",
+        "normalized_name": "prismatic vista",
+        "status": "verified",
+        "canonical_name": "Prismatic Vista",
+        "scryfall_id": "e37da81e-be12-45a2-9128-376f1ad7b3e8",
+        "oracle_id": "032b8a0d-491a-4a12-ab9f-689010054d5b",
+        "scryfall_uri": "https://scryfall.com/card/mh1/244/prismatic-vista?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/e/3/e37da81e-be12-45a2-9128-376f1ad7b3e8.jpg?1783933066",
         "card_face_images": [],
-        "method": "fuzzy",
+        "method": "exact",
         "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-08-14T11:19:36Z"
+        "resolved_at": "2026-08-20T03:40:05Z"
       },
+      "resolved_card": "Prismatic Vista",
+      "oracle_id": "032b8a0d-491a-4a12-ab9f-689010054d5b",
       "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29858",
-        "episode_number": 0,
-        "title": "Smaug VS The Infinite Stones | Brainstorm Brewery #712 | Magic Finance",
-        "published_at": "2026-08-07T06:01:00Z",
-        "episode_url": "https://brainstormbrewery.com/smaug-vs-the-infinite-stones-brainstorm-brewery-712-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_712_Smaug_VS_The_Infinite_Stones.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
+        "guid": "tag:soundcloud,2010:tracks/2379250769",
+        "episode_number": 532,
+        "title": "MTG Fast Finance Ep 532: Early Marvel Price Action",
+        "published_at": "2026-08-10T18:47:26Z",
+        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-532-early",
+        "audio_url": "https://feeds.soundcloud.com/stream/2379250769-user-519789566-mtg-fast-finance-ep-532-early.mp3",
+        "source_id": "mtg-fast-finance",
+        "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review",
+      "processing_status": "complete",
       "human_reviewed": false
     }
   ],
@@ -488,10 +509,10 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "needs_review",
-      "review_state": "needs_review",
-      "review_reason": "The provided transcript does not contain the 'Cards to Watch' section (Segment 3), ending instead during Segment 2 (Top Movers). As a result, no explicit recommendations from that section are present.",
-      "pick_count": 0,
+      "processing_status": "complete",
+      "review_state": "approved",
+      "review_reason": null,
+      "pick_count": 4,
       "directory": "episodes/0532-early-marvel-price-action",
       "outputs": {
         "metadata": "episodes/0532-early-marvel-price-action/metadata.json",
@@ -500,7 +521,7 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-08-20T02:39:12Z",
+      "processed_at": "2026-08-20T03:40:04Z",
       "error": null,
       "human_reviewed": false,
       "reviewed_at": null,

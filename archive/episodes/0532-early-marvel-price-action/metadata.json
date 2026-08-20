@@ -20,15 +20,15 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
-    "review_reason": "The provided transcript does not contain the 'Cards to Watch' section (Segment 3), ending instead during Segment 2 (Top Movers). As a result, no explicit recommendations from that section are present.",
-    "pipeline_version": "0.5.0",
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.1",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
-    "extraction_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-20T02:39:12Z",
+    "processed_at": "2026-08-20T03:40:04Z",
     "history": [
       {
         "status": "detected",
@@ -125,6 +125,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-20T02:39:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T03:39:32Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-20T03:39:32Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-20T03:39:36Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-20T03:39:36Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-20T03:39:58Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-20T03:39:58Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-20T03:39:58Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-20T03:40:04Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-20T03:40:04Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-20T03:40:04Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-20T03:40:04Z"
       }
     ],
     "error": null,
@@ -259,19 +303,19 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 59,
+      "candidates_token_count": 1543,
       "candidates_tokens_details": null,
-      "prompt_token_count": 3089,
+      "prompt_token_count": 5891,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 3089
+          "token_count": 5891
         }
       ],
-      "thoughts_token_count": 1978,
+      "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 5126,
+      "total_token_count": 7434,
       "traffic_type": null
     }
   },

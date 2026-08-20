@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.1",
-  "updated_at": "2026-08-20T03:35:03Z",
+  "updated_at": "2026-08-20T03:40:04Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -6562,6 +6562,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-08-20T02:39:12Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-20T03:39:32Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-20T03:39:32Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-20T03:39:36Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-20T03:39:36Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-20T03:39:58Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-20T03:39:58Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-20T03:39:58Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-20T03:40:04Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-20T03:40:04Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-20T03:40:04Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-20T03:40:04Z"
         }
       ],
       "title": "MTG Fast Finance Ep 532: Early Marvel Price Action",
@@ -6569,11 +6613,11 @@
       "published_at": "2026-08-10T18:47:26Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
-      "pick_count": 0,
+      "attempt_count": 3,
+      "pick_count": 4,
       "error": null,
-      "status": "needs_review",
-      "updated_at": "2026-08-20T02:39:12Z",
+      "status": "complete",
+      "updated_at": "2026-08-20T03:40:04Z",
       "output_directory": "episodes/0532-early-marvel-price-action",
       "transcription": {
         "provider": "Gemini",
@@ -6706,22 +6750,22 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 59,
+        "candidates_token_count": 1543,
         "candidates_tokens_details": null,
-        "prompt_token_count": 3089,
+        "prompt_token_count": 5891,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 3089
+            "token_count": 5891
           }
         ],
-        "thoughts_token_count": 1978,
+        "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 5126,
+        "total_token_count": 7434,
         "traffic_type": null
       },
-      "review_reason": "The provided transcript does not contain the 'Cards to Watch' section (Segment 3), ending instead during Segment 2 (Top Movers). As a result, no explicit recommendations from that section are present."
+      "review_reason": null
     },
     "tag:soundcloud,2010:tracks/291264084": {
       "guid": "tag:soundcloud,2010:tracks/291264084",
