@@ -20,15 +20,15 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
+    "status": "complete",
+    "review_state": "approved",
     "review_reason": null,
     "pipeline_version": "0.5.1",
     "schema_version": "1.1.0",
-    "transcription_model": "gemini-3.5-flash-lite",
+    "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-20T03:29:04Z",
+    "processed_at": "2026-08-20T03:35:03Z",
     "history": [
       {
         "status": "detected",
@@ -245,14 +245,58 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-20T03:29:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T03:34:39Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-20T03:34:39Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-20T03:34:42Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-20T03:34:42Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-20T03:34:58Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-20T03:34:58Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-20T03:34:58Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-20T03:35:03Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-20T03:35:03Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-20T03:35:03Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-20T03:35:03Z"
       }
     ],
     "error": null,
     "transcription": {
       "provider": "Gemini",
-      "model": "gemini-3.5-flash-lite",
+      "model": "gemini-3.5-flash",
       "models": [
-        "gemini-3.5-flash-lite"
+        "gemini-3.5-flash"
       ],
       "chunk_count": 3,
       "duration_seconds": 2522,
@@ -260,13 +304,13 @@
         {
           "chunk": 1,
           "chunk_count": 3,
-          "model": "gemini-3.5-flash-lite",
+          "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 32.981,
+          "request_seconds": 112.604,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 12337,
+            "candidates_token_count": 7813,
             "candidates_tokens_details": null,
             "prompt_token_count": 22631,
             "prompt_tokens_details": [
@@ -279,102 +323,260 @@
                 "token_count": 22499
               }
             ],
-            "thoughts_token_count": null,
+            "thoughts_token_count": 3690,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 34968,
+            "total_token_count": 34134,
             "traffic_type": null
           }
         },
         {
           "chunk": 2,
           "chunk_count": 3,
-          "model": "gemini-3.5-flash-lite",
+          "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 47.73,
+          "request_seconds": 206.877,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 21136,
+            "candidates_token_count": 8979,
             "candidates_tokens_details": null,
             "prompt_token_count": 22632,
             "prompt_tokens_details": [
               {
-                "modality": "AUDIO",
-                "token_count": 22500
-              },
-              {
                 "modality": "TEXT",
                 "token_count": 132
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
               }
             ],
-            "thoughts_token_count": null,
+            "thoughts_token_count": 10447,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 43768,
+            "total_token_count": 42058,
             "traffic_type": null
           }
         },
         {
           "chunk": 3,
           "chunk_count": 3,
-          "model": "gemini-3.5-flash-lite",
+          "model": "gemini-3.5-flash",
           "audio_seconds": 722,
-          "request_seconds": 27.074,
+          "request_seconds": 99.266,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 11049,
+            "candidates_token_count": 7775,
             "candidates_tokens_details": null,
             "prompt_token_count": 18198,
             "prompt_tokens_details": [
               {
-                "modality": "AUDIO",
-                "token_count": 18066
-              },
-              {
                 "modality": "TEXT",
                 "token_count": 132
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18066
               }
             ],
-            "thoughts_token_count": null,
+            "thoughts_token_count": 8926,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 29247,
+            "total_token_count": 34899,
             "traffic_type": null
           }
         }
       ],
-      "timing_adjustments": 154
+      "timing_adjustments": 56
     },
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 19,
+      "candidates_token_count": 1360,
       "candidates_tokens_details": null,
-      "prompt_token_count": 20128,
+      "prompt_token_count": 6639,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 20128
+          "token_count": 6639
         }
       ],
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 20147,
+      "total_token_count": 7999,
       "traffic_type": null
     }
   },
   "section": {
     "located": true,
-    "start_seconds": 911,
-    "end_seconds": 2113,
+    "start_seconds": 1011,
+    "end_seconds": 2220,
     "label": "Cards to Watch",
     "confidence": "medium",
     "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
     "start_signal": "explicit_section_marker",
     "end_signal": null
   },
-  "recommendations": []
+  "recommendations": [
+    {
+      "card": "Turbulent Fen",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "under $10",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 10.0
+      },
+      "hold": "1 to 2 years",
+      "exit_target": {
+        "raw": "high teens to low 20s range",
+        "currency": "USD",
+        "minimum": 18.0,
+        "maximum": 22.0
+      },
+      "reasoning": [
+        "True staples for EDH purposes with a 5% to 6% inclusion rate on EDHREC.",
+        "Inventory is draining out while sales numbers are high."
+      ],
+      "caveats": [
+        "Could potentially be put into precons as early as next year."
+      ],
+      "confidence": "high",
+      "start_seconds": 1107,
+      "end_seconds": 1241,
+      "evidence_excerpt": "Somewhere in this summer lull, you are going to want to be picking up these Fens on a year-to-two uh year-to-two basis",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-436836ec75cdf4ce",
+      "timestamp": "00:18:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2353638380-user-519789566-mtg-fast-finance-ep-530-secret.mp3#t=1107"
+    },
+    {
+      "card": "Karn, the Legacy Reforged",
+      "printing": "foil etched",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 2",
+        "Speaker 1"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "20",
+      "entry_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "$40",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Recognized super staple in the archetype for Ultron.",
+        "Unlikely to catch a reprint due to coming from Aftermath."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1518,
+      "end_seconds": 1700,
+      "evidence_excerpt": "The foil etched is just under 20. I'm putting down $20 on the sheet.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9cac116598628498",
+      "timestamp": "00:25:18",
+      "listen_url": "https://feeds.soundcloud.com/stream/2353638380-user-519789566-mtg-fast-finance-ep-530-secret.mp3#t=1518"
+    },
+    {
+      "card": "Plaza of Heroes",
+      "printing": "borderless Galaxy Foil number 123",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "24",
+      "entry_target": {
+        "raw": "low 30s",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 33.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$35 to $60-plus",
+        "currency": "USD",
+        "minimum": 35.0,
+        "maximum": 60.0
+      },
+      "reasoning": [
+        "True EDH super staple with high inclusion rate.",
+        "Tiny quantity available near-mint on TCGplayer."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "These are going to go $35 to $60-plus pretty quickly here.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-0638ac55b0438b34",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2353638380-user-519789566-mtg-fast-finance-ep-530-secret.mp3#t=1800"
+    },
+    {
+      "card": "Nut Collector",
+      "printing": "borderless",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Speaker 2",
+        "Speaker 1"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "6",
+      "entry_target": {
+        "raw": "around $6",
+        "currency": "USD",
+        "minimum": 5.5,
+        "maximum": 6.5
+      },
+      "hold": "a couple months",
+      "exit_target": {
+        "raw": "around $15",
+        "currency": "USD",
+        "minimum": 14.0,
+        "maximum": 16.0
+      },
+      "reasoning": [
+        "Everyone playing Squirrel Girl is going to want squirrels."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "You can get copies right now for around $6 shipped, and I think that in the next few weeks... this should end up being around $15.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fd60394a2a3f1eac",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2353638380-user-519789566-mtg-fast-finance-ep-530-secret.mp3#t=1800"
+    }
+  ]
 }
