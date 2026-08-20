@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "FFW",
-    "pipeline_version": "0.5.0",
+    "pipeline_version": "0.5.1",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-20T02:47:09Z",
-    "latest_successful_run_at": "2026-08-20T02:47:09Z",
+    "generated_at": "2026-08-20T03:22:44Z",
+    "latest_successful_run_at": "2026-08-20T02:39:12Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -35,14 +35,14 @@
   "counts": {
     "episodes": 44,
     "picks": 139,
-    "needs_review": 27,
-    "failed": 4,
+    "needs_review": 26,
+    "failed": 5,
     "completed": 13
   },
   "status_counts": {
     "complete": 13,
-    "needs_review": 27,
-    "failed": 4
+    "needs_review": 26,
+    "failed": 5
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=31001",
@@ -777,20 +777,31 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "needs_review",
-      "review_state": "needs_review",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
       "review_reason": "The provided transcript segment ends during the 'Top paper movers' discussion and does not contain the 'Cards to Watch' section.",
       "pick_count": 0,
       "directory": "episodes/0530-secret-lair-cats-superdrop-results",
       "outputs": {
         "metadata": "episodes/0530-secret-lair-cats-superdrop-results/metadata.json",
-        "summary_json": "episodes/0530-secret-lair-cats-superdrop-results/summary.json",
-        "summary_markdown": "episodes/0530-secret-lair-cats-superdrop-results/summary.md",
+        "summary_json": null,
+        "summary_markdown": null,
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-08-20T02:47:09Z",
-      "error": null,
+      "processed_at": "2026-08-20T03:22:44Z",
+      "error": {
+        "stage": "extracting",
+        "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\\nPlease retry in 15.731955587s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '15s'}]}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 4,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

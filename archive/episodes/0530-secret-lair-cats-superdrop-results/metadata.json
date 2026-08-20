@@ -20,15 +20,15 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
+    "status": "failed",
+    "review_state": "not_applicable",
     "review_reason": "The provided transcript segment ends during the 'Top paper movers' discussion and does not contain the 'Cards to Watch' section.",
-    "pipeline_version": "0.5.0",
+    "pipeline_version": "0.5.1",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-20T02:47:09Z",
+    "processed_at": "2026-08-20T03:22:44Z",
     "history": [
       {
         "status": "detected",
@@ -169,9 +169,52 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-20T02:47:09Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-20T03:15:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-20T03:15:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-20T03:15:28Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-20T03:15:28Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-20T03:15:44Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-20T03:22:44Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-20T03:22:44Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-08-20T03:22:44Z"
       }
     ],
-    "error": null,
+    "error": {
+      "stage": "extracting",
+      "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\\nPlease retry in 15.731955587s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '15s'}]}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": false,
+      "provider_wide": true,
+      "attempt": 4,
+      "max_attempts": 3,
+      "next_retry_at": null,
+      "quarantined": true
+    },
     "transcription": {
       "provider": "Gemini",
       "model": "gemini-3.5-flash",
@@ -186,27 +229,27 @@
           "chunk_count": 3,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 173.412,
+          "request_seconds": 112.604,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 9593,
+            "candidates_token_count": 7813,
             "candidates_tokens_details": null,
             "prompt_token_count": 22631,
             "prompt_tokens_details": [
               {
-                "modality": "AUDIO",
-                "token_count": 22499
-              },
-              {
                 "modality": "TEXT",
                 "token_count": 132
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
               }
             ],
-            "thoughts_token_count": 13476,
+            "thoughts_token_count": 3690,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 45700,
+            "total_token_count": 34134,
             "traffic_type": null
           }
         },
@@ -215,11 +258,11 @@
           "chunk_count": 3,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 134.064,
+          "request_seconds": 206.877,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 9031,
+            "candidates_token_count": 8979,
             "candidates_tokens_details": null,
             "prompt_token_count": 22632,
             "prompt_tokens_details": [
@@ -232,10 +275,10 @@
                 "token_count": 22500
               }
             ],
-            "thoughts_token_count": 11292,
+            "thoughts_token_count": 10447,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 42955,
+            "total_token_count": 42058,
             "traffic_type": null
           }
         },
@@ -244,32 +287,32 @@
           "chunk_count": 3,
           "model": "gemini-3.5-flash",
           "audio_seconds": 722,
-          "request_seconds": 50.318,
+          "request_seconds": 99.266,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 7980,
+            "candidates_token_count": 7775,
             "candidates_tokens_details": null,
             "prompt_token_count": 18198,
             "prompt_tokens_details": [
               {
-                "modality": "AUDIO",
-                "token_count": 18066
-              },
-              {
                 "modality": "TEXT",
                 "token_count": 132
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18066
               }
             ],
-            "thoughts_token_count": 3968,
+            "thoughts_token_count": 8926,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 30146,
+            "total_token_count": 34899,
             "traffic_type": null
           }
         }
       ],
-      "timing_adjustments": 47
+      "timing_adjustments": 56
     },
     "extraction_usage": {
       "cache_tokens_details": null,
@@ -292,7 +335,7 @@
   },
   "outputs": {
     "metadata": "episodes/0530-secret-lair-cats-superdrop-results/metadata.json",
-    "summary_json": "episodes/0530-secret-lair-cats-superdrop-results/summary.json",
-    "summary_markdown": "episodes/0530-secret-lair-cats-superdrop-results/summary.md"
+    "summary_json": null,
+    "summary_markdown": null
   }
 }
