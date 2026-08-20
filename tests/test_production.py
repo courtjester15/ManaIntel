@@ -464,6 +464,8 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("exceeds the safety cap", workflow)
         self.assertIn("gemini-3.5-flash", workflow)
         self.assertIn("gemini-3.5-flash-lite", workflow)
+        self.assertIn("ai_model:", workflow)
+        self.assertIn("inputs.ai_model || 'gemini-3.5-flash'", workflow)
         self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "2"', workflow)
         self.assertIn('FFW_GEMINI_RETRY_DELAY_SECONDS: "30"', workflow)
         self.assertIn("FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai", workflow)
