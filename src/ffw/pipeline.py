@@ -380,7 +380,14 @@ class Pipeline:
             )
 
         slug = episode_slug(episode.episode_number, episode.title, episode.guid)
-        relative_output = f"episodes/{slug}"
+        # Output directories are durable public identities. Metadata repairs can
+        # change the preferred slug (for example, restoring an episode number),
+        # but a forced rerun must replace the existing record in place rather
+        # than create a second directory with the same GUID.
+        relative_output = existing.get("output_directory") if existing else None
+        output_parts = Path(relative_output).parts if isinstance(relative_output, str) else ()
+        if len(output_parts) != 2 or output_parts[0] != "episodes" or output_parts[1] in {"", ".", ".."}:
+            relative_output = f"episodes/{slug}"
         output_dir = self.settings.archive_dir / relative_output
         baseline_summary = None
         if force and (output_dir / "summary.json").exists():
