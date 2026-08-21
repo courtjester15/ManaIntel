@@ -1,0 +1,429 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2283289802",
+    "episode_number": 515,
+    "title": "MTG Fast Finance Ep 515: Braindead X Secret Lair Chaos Drop",
+    "published_at": "2026-03-13T19:47:02Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2283289802-user-519789566-mtg-fast-finance-ep-515.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-515",
+    "duration_seconds": 2045,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff walk you through all the latest in Magic price movement, take a look at the latest meta results for Pioneer and Modern, and cough up some great cards to watch. In our final segments the boys review the latest Secret Lair x Braindead chaos drop.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-21T20:46:54Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-21T20:40:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-21T20:40:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-21T20:40:21Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-21T20:40:21Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-21T20:40:23Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-21T20:40:23Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-21T20:40:36Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-21T20:46:25Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-21T20:46:25Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-21T20:46:54Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-21T20:46:54Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-21T20:46:54Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-21T20:46:54Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2045,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 131.793,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9578,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22644,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 145
+              }
+            ],
+            "thoughts_token_count": 10090,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42312,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 167.323,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9415,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22645,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 145
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 13899,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45959,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 245,
+          "request_seconds": 48.855,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3552,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 6278,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 145
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 6133
+              }
+            ],
+            "thoughts_token_count": 1740,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 11570,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 29
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1944,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 8310,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 8310
+        }
+      ],
+      "thoughts_token_count": 4659,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 14913,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 900,
+    "end_seconds": 2036,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Redirect Lightning",
+      "printing": "showcase foils",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$20",
+      "entry_target": {
+        "raw": "about $20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": "12 months",
+      "exit_target": {
+        "raw": "40",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Most played TLC card for EDH with 6% inclusion",
+        "S-tier staple",
+        "Good in every deck of the relevant color (red)"
+      ],
+      "caveats": [
+        "Lesson card, so if we get a good way to do that in Standard, that might pop off"
+      ],
+      "confidence": "high",
+      "start_seconds": 900,
+      "end_seconds": 999,
+      "evidence_excerpt": "these $20 showcase foils are going to get to 40.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-323bc07894cac14b",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2283289802-user-519789566-mtg-fast-finance-ep-515.mp3#t=900"
+    },
+    {
+      "card": "Beastmaster Ascension",
+      "printing": "borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "5.50",
+      "entry_target": {
+        "raw": "5.50 or so",
+        "currency": "USD",
+        "minimum": 5.5,
+        "maximum": 5.5
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Avatar version where Aang is staring down the spirit turtle",
+        "In 191,000 decks on EDHREC",
+        "It's already kind of drifting up and away",
+        "Not a card they're likely to reprint again in a premium version anytime soon"
+      ],
+      "caveats": [
+        "There is another Secret Lair version from 2024 (non-foils $20, foils a couple bucks more) that acts as a ceiling"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1002,
+      "end_seconds": 1144,
+      "evidence_excerpt": "hoping that it goes to around $15 in the next 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a09ee83d6640301a",
+      "timestamp": "00:16:42",
+      "listen_url": "https://feeds.soundcloud.com/stream/2283289802-user-519789566-mtg-fast-finance-ep-515.mp3#t=1002"
+    },
+    {
+      "card": "Serra Ascendant",
+      "printing": "borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "20",
+      "entry_target": {
+        "raw": "around $20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 25.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "45",
+        "currency": "USD",
+        "minimum": 45.0,
+        "maximum": 45.0
+      },
+      "reasoning": [
+        "Borderless foil Aang looking cute and fun",
+        "Only 27 listings left",
+        "Other borderless foil version from Secret Lair is about 40 to 45",
+        "Auto-include in every life gain matters deck"
+      ],
+      "caveats": [
+        "Not a super staple in the same way as say Redirect Lightning"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1144,
+      "end_seconds": 1358,
+      "evidence_excerpt": "there's no reason not to believe that Aang can't also get up to 45, given that there's only 27 listings left",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-75dc94b4b98b11a1",
+      "timestamp": "00:19:04",
+      "listen_url": "https://feeds.soundcloud.com/stream/2283289802-user-519789566-mtg-fast-finance-ep-515.mp3#t=1144"
+    },
+    {
+      "card": "Beast Within",
+      "printing": "borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "12.50",
+      "entry_target": {
+        "raw": "12.50",
+        "currency": "USD",
+        "minimum": 12.5,
+        "maximum": 12.5
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "reasoning": [
+        "Marvel version with the Lizard trying to rip up Spider-Man",
+        "Only other borderless version",
+        "Mega-mega-staple, in 1.2 million EDHREC decks"
+      ],
+      "caveats": [
+        "It's in so many Commander precons, which inflates EDHREC data"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1358,
+      "end_seconds": 1454,
+      "evidence_excerpt": "this has drifted down, it's now at about 12.50 for the foils... I think this'll hit 25... in the next 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-55fb38b27e69c54d",
+      "timestamp": "00:22:38",
+      "listen_url": "https://feeds.soundcloud.com/stream/2283289802-user-519789566-mtg-fast-finance-ep-515.mp3#t=1358"
+    },
+    {
+      "card": "Stinkweed Imp",
+      "printing": "Brain Dead",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "10 to 15",
+      "entry_target": {
+        "raw": "10 to 15 range",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 15.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "30 to 40",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Only really cool version of Stinkweed Imp, and the art is actually pretty awesome",
+        "This art is by far the most metal, badass art you're likely to ever get on this card",
+        "Dredge staple, anybody who's building dredge for the next bajillion years, this is the version they're going to reach for"
+      ],
+      "caveats": [
+        "The card title is difficult to read due to the black on white frame"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1587,
+      "end_seconds": 1822,
+      "evidence_excerpt": "anywhere in the 10 to 15 range, you go ahead and buy these Imps",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1da92d3f1dd5db2b",
+      "timestamp": "00:26:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2283289802-user-519789566-mtg-fast-finance-ep-515.mp3#t=1587"
+    }
+  ]
+}

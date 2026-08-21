@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-21T10:53:53Z",
+  "updated_at": "2026-08-21T20:46:54Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -10541,6 +10541,192 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 6051,
+        "traffic_type": null
+      },
+      "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2283289802": {
+      "guid": "tag:soundcloud,2010:tracks/2283289802",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-21T20:40:21Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-21T20:40:21Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-21T20:40:21Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-21T20:40:21Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-21T20:40:23Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-21T20:40:23Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-21T20:40:36Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-21T20:46:25Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-21T20:46:25Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-21T20:46:54Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-21T20:46:54Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-21T20:46:54Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-21T20:46:54Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 515: Braindead X Secret Lair Chaos Drop",
+      "episode_number": 515,
+      "published_at": "2026-03-13T19:47:02Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 5,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-21T20:46:54Z",
+      "output_directory": "episodes/0515-braindead-x-secret-lair-chaos-drop",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 2045,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 131.793,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9578,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22644,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                }
+              ],
+              "thoughts_token_count": 10090,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42312,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 167.323,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9415,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22645,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 13899,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 45959,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 245,
+            "request_seconds": 48.855,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3552,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 6278,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 6133
+                }
+              ],
+              "thoughts_token_count": 1740,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 11570,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 29
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1944,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 8310,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 8310
+          }
+        ],
+        "thoughts_token_count": 4659,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 14913,
         "traffic_type": null
       },
       "review_reason": null
