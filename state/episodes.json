@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.2",
-  "updated_at": "2026-08-21T02:35:37Z",
+  "pipeline_version": "0.5.3",
+  "updated_at": "2026-08-21T10:53:53Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -10326,6 +10326,221 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 16975,
+        "traffic_type": null
+      },
+      "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=31513": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=31513",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-21T10:46:12Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-21T10:46:12Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-21T10:46:12Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-21T10:46:12Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-21T10:46:13Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-21T10:46:13Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-21T10:46:31Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-21T10:53:38Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-21T10:53:38Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-21T10:53:53Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-21T10:53:53Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-21T10:53:53Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-21T10:53:53Z"
+        }
+      ],
+      "title": "We Are All Vendors Now | Brainstorm Brewery #714 | Magic Finance",
+      "episode_number": 714,
+      "published_at": "2026-08-21T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 2,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-21T10:53:53Z",
+      "output_directory": "episodes/0714-we-are-all-vendors-now-brainstorm-brewery-714-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3183,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 75.256,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14238,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22647,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                }
+              ],
+              "thoughts_token_count": 6648,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43533,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 166.811,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10153,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22648,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 5180,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37981,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 80.425,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13300,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22648,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                }
+              ],
+              "thoughts_token_count": 10360,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46308,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 483,
+            "request_seconds": 103.687,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 5732,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 12224,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 12076
+                }
+              ],
+              "thoughts_token_count": 9483,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 27439,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 81
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 673,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 2144,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 2144
+          }
+        ],
+        "thoughts_token_count": 3234,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 6051,
         "traffic_type": null
       },
       "review_reason": null

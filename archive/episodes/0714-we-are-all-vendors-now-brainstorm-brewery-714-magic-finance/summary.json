@@ -1,0 +1,322 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=31513",
+    "episode_number": 714,
+    "title": "We Are All Vendors Now | Brainstorm Brewery #714 | Magic Finance",
+    "published_at": "2026-08-21T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_714_We_Are_All_Vendors_Now.mp3",
+    "episode_url": "https://brainstormbrewery.com/we-are-all-vendors-now-brainstorm-brewery-714-magic-finance/",
+    "duration_seconds": 3183,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz  (@devotedDruid) is gone but Corbin (@CHosler) and DJ (@CardgardenMTG) talk about vending an event, Hobbit Collector Boxes, Legends of Runeterra. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-21T10:53:53Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-21T10:46:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-21T10:46:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-21T10:46:12Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-21T10:46:12Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-21T10:46:13Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-21T10:46:13Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-21T10:46:31Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-21T10:53:38Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-21T10:53:38Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-21T10:53:53Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-21T10:53:53Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-21T10:53:53Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-21T10:53:53Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3183,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 75.256,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14238,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22647,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              }
+            ],
+            "thoughts_token_count": 6648,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43533,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 166.811,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10153,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22648,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 5180,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37981,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 80.425,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13300,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22648,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              }
+            ],
+            "thoughts_token_count": 10360,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46308,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 483,
+          "request_seconds": 103.687,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 5732,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 12224,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 12076
+              }
+            ],
+            "thoughts_token_count": 9483,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 27439,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 81
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 673,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 2144,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 2144
+        }
+      ],
+      "thoughts_token_count": 3234,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 6051,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 2932,
+    "end_seconds": 3451,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Kozilek's Command",
+      "printing": "Modern Horizons 3",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$8",
+      "entry_target": {
+        "raw": "under 10",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 10.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "at least a $10 card",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "It is slowly climbing up from $6 to $8 over the summer",
+        "It might actually be the best card in Modern",
+        "It is powerful in Eldrazi colorless decks and is a combo piece with infinite colorless mana to draw the whole deck"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2946,
+      "end_seconds": 3126,
+      "evidence_excerpt": "pick your K-Commands up under 10.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-3c432c87439340aa",
+      "timestamp": "00:49:06",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_714_We_Are_All_Vendors_Now.mp3#t=2946"
+    },
+    {
+      "card": "Jeska's Will",
+      "printing": "Silver Scroll Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$450",
+      "entry_target": {
+        "raw": "450",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 450.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It has reached its lowest point since around June, down to $450 from a spike of $700",
+        "The Card Kingdom buy list is $400, creating an extremely thin spread",
+        "High demand for cEDH events causes them to sell out very quickly"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3144,
+      "end_seconds": 3418,
+      "evidence_excerpt": "specifically the ones where this is the best version, especially Jeska's Will. I think these are some really, really strong pick ups for the future.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8f6d15bf744388c9",
+      "timestamp": "00:52:24",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_714_We_Are_All_Vendors_Now.mp3#t=3144"
+    }
+  ]
+}
