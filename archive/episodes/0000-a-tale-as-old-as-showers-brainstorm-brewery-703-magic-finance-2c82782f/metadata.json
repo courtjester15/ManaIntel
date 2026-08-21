@@ -23,15 +23,15 @@
     "extraction_profile": "brainstorm_brewery"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
+    "status": "failed",
+    "review_state": "not_applicable",
     "review_reason": "No explicit card recommendations or Pick of the Week/Breaking Bulk segments were found in the provided transcript text.",
-    "pipeline_version": "0.4.4",
+    "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-04T21:50:32Z",
+    "processed_at": "2026-08-21T23:14:19Z",
     "history": [
       {
         "status": "detected",
@@ -108,9 +108,44 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-04T21:50:32Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-21T23:03:17Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-21T23:03:17Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-21T23:03:18Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-21T23:03:18Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-21T23:03:38Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-08-21T23:14:19Z"
       }
     ],
-    "error": null,
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 4/5 failed after 243.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\\nPlease retry in 43.304889795s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}; gemini-3.5-flash attempt 2: ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\\nPlease retry in 12.939989037s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '12s'}]}}; gemini-3.5-flash attempt 3: ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\\nPlease retry in 12.596969624s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '12s'}]}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+      "category": "transient_model_output",
+      "synthetic": false,
+      "retryable": false,
+      "provider_wide": false,
+      "attempt": 3,
+      "max_attempts": 3,
+      "next_retry_at": null,
+      "quarantined": true
+    },
     "transcription": {
       "provider": "Gemini",
       "model": "gemini-3.5-flash",
@@ -288,7 +323,7 @@
   },
   "outputs": {
     "metadata": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/metadata.json",
-    "summary_json": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/summary.json",
-    "summary_markdown": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f/summary.md"
+    "summary_json": null,
+    "summary_markdown": null
   }
 }
