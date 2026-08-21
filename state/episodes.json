@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-21T20:46:54Z",
+  "updated_at": "2026-08-21T23:01:39Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -4328,6 +4328,50 @@
         {
           "status": "failed",
           "timestamp": "2026-08-07T01:04:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-21T22:57:32Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-21T22:57:32Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-21T22:57:38Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-21T22:57:38Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-21T22:57:51Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-21T23:01:07Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-21T23:01:07Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-21T23:01:39Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-21T23:01:39Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-21T23:01:39Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-21T23:01:39Z"
         }
       ],
       "title": "Promo Pickle | Brainstorm Brewery #702 | Magic Finance",
@@ -4335,22 +4379,11 @@
       "published_at": "2026-05-29T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 3,
-      "pick_count": 0,
-      "error": {
-        "stage": "extracting",
-        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": true,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
-      "status": "failed",
-      "updated_at": "2026-08-07T01:04:30Z",
+      "attempt_count": 4,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-21T23:01:39Z",
       "output_directory": "episodes/0000-promo-pickle-brainstorm-brewery-702-magic-finance-c96afa32",
       "transcription": {
         "provider": "Gemini",
@@ -4366,27 +4399,36 @@
             "chunk_count": 3,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 355.131,
+            "request_seconds": 100.677,
             "provider_usage": {
-              "cache_tokens_details": null,
-              "cached_content_token_count": null,
-              "candidates_token_count": 13613,
-              "candidates_tokens_details": null,
-              "prompt_token_count": 22553,
-              "prompt_tokens_details": [
+              "cache_tokens_details": [
                 {
                   "modality": "TEXT",
-                  "token_count": 54
+                  "token_count": 130
                 },
                 {
                   "modality": "AUDIO",
-                  "token_count": 22499
+                  "token_count": 18891
                 }
               ],
-              "thoughts_token_count": 44,
+              "cached_content_token_count": 19021,
+              "candidates_token_count": 23070,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22654,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 155
+                }
+              ],
+              "thoughts_token_count": 2303,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 36210,
+              "total_token_count": 48027,
               "traffic_type": null
             }
           },
@@ -4395,27 +4437,36 @@
             "chunk_count": 3,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 96.378,
+            "request_seconds": 42.748,
             "provider_usage": {
-              "cache_tokens_details": null,
-              "cached_content_token_count": null,
-              "candidates_token_count": 10317,
+              "cache_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18891
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 130
+                }
+              ],
+              "cached_content_token_count": 19021,
+              "candidates_token_count": 9867,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22554,
+              "prompt_token_count": 22655,
               "prompt_tokens_details": [
                 {
                   "modality": "TEXT",
-                  "token_count": 54
+                  "token_count": 155
                 },
                 {
                   "modality": "AUDIO",
                   "token_count": 22500
                 }
               ],
-              "thoughts_token_count": 12522,
+              "thoughts_token_count": 1155,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 45393,
+              "total_token_count": 33677,
               "traffic_type": null
             }
           },
@@ -4424,32 +4475,52 @@
             "chunk_count": 3,
             "model": "gemini-3.5-flash",
             "audio_seconds": 667,
-            "request_seconds": 60.862,
+            "request_seconds": 51.088,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 6332,
+              "candidates_token_count": 6637,
               "candidates_tokens_details": null,
-              "prompt_token_count": 16723,
+              "prompt_token_count": 16824,
               "prompt_tokens_details": [
                 {
                   "modality": "TEXT",
-                  "token_count": 54
+                  "token_count": 155
                 },
                 {
                   "modality": "AUDIO",
                   "token_count": 16669
                 }
               ],
-              "thoughts_token_count": 7779,
+              "thoughts_token_count": 6832,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 30834,
+              "total_token_count": 30293,
               "traffic_type": null
             }
           }
-        ]
-      }
+        ],
+        "timing_adjustments": 37
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1319,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 13131,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 13131
+          }
+        ],
+        "thoughts_token_count": 6101,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 20551,
+        "traffic_type": null
+      },
+      "review_reason": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=21601": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=21601",
