@@ -16,8 +16,8 @@ from .utils import atomic_write_json
 
 
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="python -m ffw", description="FFW pipeline and local archive")
-    parser.add_argument("--version", action="version", version=f"FFW {VERSION}")
+    parser = argparse.ArgumentParser(prog="manaintel", description="ManaIntel pipeline and local archive")
+    parser.add_argument("--version", action="version", version=f"ManaIntel {VERSION}")
     subparsers = parser.add_subparsers(dest="command", required=True)
     run = subparsers.add_parser("run", help="Run the idempotent pipeline")
     run.add_argument("--force", action="store_true", help="Regenerate terminal fixture episodes")
@@ -209,7 +209,7 @@ def main(argv: list[str] | None = None) -> int:
         os.chdir(settings.root)
         handler = partial(SimpleHTTPRequestHandler, directory=str(settings.root))
         server = ThreadingHTTPServer((args.host, args.port), handler)
-        print(f"FFW archive: http://{args.host}:{args.port}/web/")
+        print(f"ManaIntel archive: http://{args.host}:{args.port}/web/")
         print("Press Ctrl+C to stop.")
         try:
             server.serve_forever()

@@ -1,19 +1,19 @@
-# FFW — ManaIntel Proof of Concept
+# ManaIntel
 
-FFW automatically checks MTG Fast Finance and Brainstorm Brewery, extracts their explicit recommendation segments, and publishes them to a static archive.
+ManaIntel automatically checks MTG Fast Finance and Brainstorm Brewery, extracts their explicit recommendation segments, and publishes them to a searchable static archive.
 
-FFW is the working implementation of **ManaIntel**, a deliberately small podcast recommendation archive. ManaIntel's goal is to show who recommended what, when, and why; it is not a price tracker, portfolio manager, or automated financial analyst.
+Its goal is to show who recommended what, when, and why. It is deliberately focused: ManaIntel is not a price tracker, portfolio manager, or automated financial analyst.
 
 The implementation supports two podcast adapters and is composed of two decoupled parts:
 
 1. A Python automation pipeline that turns podcast episodes into validated, versioned JSON and Markdown.
 2. A static vanilla JavaScript archive that reads only the generated JSON.
 
-Version 0.2 retains a fully runnable credential-free mock mode and adds live RSS, temporary audio preparation, swappable AI transcription/extraction, daily GitHub Actions processing, and GitHub Pages publication.
+The project includes a fully runnable credential-free mock mode plus live RSS, temporary audio preparation, swappable AI transcription/extraction, daily GitHub Actions processing, and GitHub Pages publication.
 
 ## Normal user workflow
 
-Open <https://courtjester15.github.io/mtgff-cards-to-watch/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 20:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, it advances the same newest-to-oldest untouched cursor. Automatic selection ignores episodes older than `FFW_AUTOMATIC_MAX_EPISODE_AGE_DAYS` (365 by default); an explicit GUID can override the age limit.
+Open <https://courtjester15.github.io/ManaIntel/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 20:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, it advances the same newest-to-oldest untouched cursor. Automatic selection ignores episodes older than `FFW_AUTOMATIC_MAX_EPISODE_AGE_DAYS` (365 by default); an explicit GUID can override the age limit.
 
 For an episode marked **needs review**, open its details and choose **Review episode**. Keep, exclude, or correct extracted picks, add any missing picks, then prepare and copy the review payload. Paste that payload into **Actions -> Review one episode -> Run workflow**. The authenticated workflow validates and stores the review, rebuilds the effective archive, commits it, and deploys Pages while retaining the original AI extraction unchanged.
 
@@ -29,33 +29,33 @@ Python 3.11 or newer is required. Mock processing needs no credentials or extern
 py -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -e .
-python -m ffw run
-python -m ffw validate
-python -m ffw serve
+manaintel run
+manaintel validate
+manaintel serve
 ```
 
 Open <http://127.0.0.1:8765/web/>. Stop the server with `Ctrl+C`.
 
 On macOS or Linux, activate with `source .venv/bin/activate`; the remaining commands are identical.
 
-For development without installing the package, set `PYTHONPATH=src` before invoking `python -m ffw`.
+For development without installing the package, set `PYTHONPATH=src` before invoking `manaintel`.
 
 ## Commands
 
 | Command | Purpose |
 |---|---|
-| `python -m ffw run` | Process unprocessed mock episodes and skip terminal records idempotently. |
-| `python -m ffw process-next --live` | Process the newest eligible live episode, at most one. |
-| `python -m ffw process-next --live --source brainstorm-brewery` | Process only the newest eligible Brainstorm Brewery episode. |
-| `python -m ffw backfill --live --limit N` | Process the newest N eligible unprocessed live episodes. |
-| `python -m ffw retry-failed --live --limit N` | Retry only the newest N failed live episodes. |
-| `python -m ffw run --live --force-guid GUID` | Force one exact feed GUID regardless of feed position or terminal state. |
-| `python -m ffw resolve-cards --limit N` | Verify up to N uncached extracted card names against Scryfall and rebuild canonical display projections. |
-| `python -m ffw backfill` | Force-regenerate every synthetic fixture. |
-| `python -m ffw process-latest` | Process only the newest eligible synthetic fixture. |
-| `python -m ffw validate` | Validate identity, states, evidence, outputs, catalogs, and deterministic Markdown. |
-| `python -m ffw render` | Re-render Markdown from JSON and rebuild `index.json` and `cards.json`. |
-| `python -m ffw serve` | Serve the repository and local archive on port 8765. |
+| `manaintel run` | Process unprocessed mock episodes and skip terminal records idempotently. |
+| `manaintel process-next --live` | Process the newest eligible live episode, at most one. |
+| `manaintel process-next --live --source brainstorm-brewery` | Process only the newest eligible Brainstorm Brewery episode. |
+| `manaintel backfill --live --limit N` | Process the newest N eligible unprocessed live episodes. |
+| `manaintel retry-failed --live --limit N` | Retry only the newest N failed live episodes. |
+| `manaintel run --live --force-guid GUID` | Force one exact feed GUID regardless of feed position or terminal state. |
+| `manaintel resolve-cards --limit N` | Verify up to N uncached extracted card names against Scryfall and rebuild canonical display projections. |
+| `manaintel backfill` | Force-regenerate every synthetic fixture. |
+| `manaintel process-latest` | Process only the newest eligible synthetic fixture. |
+| `manaintel validate` | Validate identity, states, evidence, outputs, catalogs, and deterministic Markdown. |
+| `manaintel render` | Re-render Markdown from JSON and rebuild `index.json` and `cards.json`. |
+| `manaintel serve` | Serve the repository and local archive on port 8765. |
 
 Live batch and failed-only runs require a positive limit no greater than 20. Limits count eligible selected episodes, not RSS entries inspected. `complete` and `needs_review` records are skipped before download or provider calls; failed records are selected only by `retry-failed` or an exact GUID override. Gemini transcription uses exponential in-run backoff, its configured same-key fallback, and then an optional OpenAI provider fallback before consuming an episode attempt. Automatic episode retries use a six-hour cooldown and stop after three total attempts. A no-op does not rewrite catalogs, state, or Pages; a changed validated failure record is published so operational status stays current.
 

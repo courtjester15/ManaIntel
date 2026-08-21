@@ -3,16 +3,17 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mtgff-cards-to-watch"
+name = "manaintel"
 version = "0.5.3"
-description = "FFW: an automated Cards to Watch pipeline and local archive"
+description = "ManaIntel: an automated MTG podcast recommendation archive"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Private" }
-authors = [{ name = "FFW" }]
+authors = [{ name = "ManaIntel contributors" }]
 dependencies = ["google-genai>=1.0.0,<2", "openai>=2.45.0,<3"]
 
 [project.scripts]
+manaintel = "ffw.cli:main"
 ffw = "ffw.cli:main"
 
 [tool.setuptools]

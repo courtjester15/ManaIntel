@@ -20,7 +20,7 @@ SYNTHETIC_NOTICE = (
 
 def rebuild_catalog(
     archive_dir: Path, *, production: bool = False, feed_name: str = "MTG Fast Finance",
-    repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch",
+    repository_url: str = "https://github.com/courtjester15/ManaIntel",
     reviews_dir: Path | None = None,
     resolutions_path: Path | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
@@ -129,7 +129,7 @@ def rebuild_catalog(
         "synthetic": is_synthetic,
         "notice": SYNTHETIC_NOTICE if is_synthetic else "Automated transcription and extraction may contain errors. Verify against source audio.",
         "metadata": {
-            "project": "FFW",
+            "project": "ManaIntel",
             "pipeline_version": PIPELINE_VERSION,
             "schema_version": SCHEMA_VERSION,
             "generated_at": generated_at,
@@ -180,7 +180,7 @@ def rebuild_catalog(
 
 def rerender_archive(
     archive_dir: Path, *, production: bool = False, reviews_dir: Path | None = None,
-    repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch",
+    repository_url: str = "https://github.com/courtjester15/ManaIntel",
     resolutions_path: Path | None = None,
 ) -> int:
     rendered = 0

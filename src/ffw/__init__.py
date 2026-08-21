@@ -1,4 +1,4 @@
-"""FFW automation pipeline and local archive package."""
+"""ManaIntel automation pipeline and local archive package."""
 
 from .config import PIPELINE_VERSION, PROMPT_VERSION, SCHEMA_VERSION, VERSION
 

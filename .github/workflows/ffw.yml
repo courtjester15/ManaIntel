@@ -1,4 +1,4 @@
-name: FFW automated archive
+name: ManaIntel automated archive
 
 on:
   push:
@@ -103,7 +103,7 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Install FFW and media tools
+      - name: Install ManaIntel pipeline and media tools
         run: |
           sudo apt-get update
           sudo apt-get install --yes ffmpeg
@@ -280,7 +280,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          echo "## FFW production run" >> "$GITHUB_STEP_SUMMARY"
+          echo "## ManaIntel production run" >> "$GITHUB_STEP_SUMMARY"
           echo "- Mode: ${{ steps.pipeline.outputs.mode || inputs.mode || 'next' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Source: ${{ inputs.source || 'all (newest across enabled sources)' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Pipeline exit: ${{ steps.pipeline.outputs.exit_code || 'not-run' }}" >> "$GITHUB_STEP_SUMMARY"
@@ -318,7 +318,7 @@ jobs:
         if: ${{ steps.pipeline.outputs.exit_code != '' && steps.pipeline.outputs.exit_code != '0' }}
         shell: bash
         run: |
-          echo "::error::FFW pipeline failed with exit code ${{ steps.pipeline.outputs.exit_code }}. Durable failure state was validated and persisted."
+          echo "::error::ManaIntel pipeline failed with exit code ${{ steps.pipeline.outputs.exit_code }}. Durable failure state was validated and persisted."
           exit "${{ steps.pipeline.outputs.exit_code }}"
 
 
@@ -338,6 +338,6 @@ jobs:
         if: always()
         shell: bash
         run: |
-          echo "## FFW deployment" >> "$GITHUB_STEP_SUMMARY"
+          echo "## ManaIntel deployment" >> "$GITHUB_STEP_SUMMARY"
           echo "- Pages deployment outcome: ${{ steps.deployment.outcome }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Pages URL: ${{ steps.deployment.outputs.page_url || 'not available' }}" >> "$GITHUB_STEP_SUMMARY"

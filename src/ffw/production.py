@@ -21,7 +21,7 @@ from .detection import locate_recommendation_section
 from .identity import parse_episode_number
 from .models import EpisodeCandidate
 
-USER_AGENT = "FFW/0.2 (+https://github.com/courtjester15/mtgff-cards-to-watch)"
+USER_AGENT = "ManaIntel/0.5 (+https://github.com/courtjester15/ManaIntel)"
 ALLOWED_AUDIO_TYPES = {
     "audio/mpeg", "audio/mp3", "audio/mp4", "audio/x-m4a", "audio/wav",
     "audio/x-wav", "audio/webm", "application/octet-stream",

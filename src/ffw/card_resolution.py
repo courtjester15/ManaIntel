@@ -76,7 +76,7 @@ class ScryfallCardResolver:
         request = urllib.request.Request(
             f"https://api.scryfall.com/cards/named?{query}",
             headers={
-                "User-Agent": "ManaIntel/0.5 (https://github.com/courtjester15/mtgff-cards-to-watch)",
+                "User-Agent": "ManaIntel/0.5 (https://github.com/courtjester15/ManaIntel)",
                 "Accept": "application/json;q=0.9,*/*;q=0.8",
             },
         )

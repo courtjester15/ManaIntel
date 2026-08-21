@@ -2,7 +2,7 @@
 
 ## Why this pass happened
 
-The scheduled run [29685070228](https://github.com/courtjester15/mtgff-cards-to-watch/actions/runs/29685070228) selected episode 527, downloaded and prepared its audio, then failed during Gemini transcription with `Server disconnected without sending a response.` The durable failure record was correctly committed, but Pages did not deploy because the pipeline failed.
+The scheduled run [29685070228](https://github.com/courtjester15/ManaIntel/actions/runs/29685070228) selected episode 527, downloaded and prepared its audio, then failed during Gemini transcription with `Server disconnected without sending a response.` The durable failure record was correctly committed, but Pages did not deploy because the pipeline failed.
 
 The run summary also reported 500 feed entries scanned and 497 eligible. Only one episode was selected and attempted; the selector had classified the entire RSS window before slicing to one. The expensive audio/model work was already limited to one episode, but the summary made that fact unnecessarily hard to see.
 

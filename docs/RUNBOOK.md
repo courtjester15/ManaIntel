@@ -1,4 +1,4 @@
-# FFW Production Runbook
+# ManaIntel Production Runbook
 
 ## Automated service
 
@@ -12,7 +12,7 @@ The production stages are feed discovery, eligibility-first selection, durable q
 
 Before publication, `FFW_TARGETED_VERIFICATION_ENABLED=true` permits up to `FFW_TARGETED_VERIFICATION_MAX_PICKS` focused second-listen checks for card-name/transcription ambiguities. Each check sends only a short excerpt around the pick timestamp. A correction is accepted only when the second listen supplies a name that Scryfall verifies exactly; unavailable verification remains non-fatal and the pick stays in review. Printing and foil ambiguity is not auto-approved.
 
-After a successful episode attempt, ManaIntel checks up to `FFW_CARD_RESOLUTION_BATCH_SIZE` uncached card names against Scryfall. Exact matches are projected as canonical names; fuzzy matches are only review suggestions. Resolution failures do not fail podcast ingestion. Run `python -m ffw resolve-cards --limit N` for an explicit historical sweep or add `--refresh` after a resolver-version change.
+After a successful episode attempt, ManaIntel checks up to `FFW_CARD_RESOLUTION_BATCH_SIZE` uncached card names against Scryfall. Exact matches are projected as canonical names; fuzzy matches are only review suggestions. Resolution failures do not fail podcast ingestion. Run `manaintel resolve-cards --limit N` for an explicit historical sweep or add `--refresh` after a resolver-version change.
 
 MTG Fast Finance boundary detection is bidirectional. Show-outline mentions of Cards to Watch do not count as a section start, regardless of when the agenda occurs; when multiple markers remain, the marker most closely followed by recommendation language wins. A separate pick-wrap phrase or structural transition into the weekly feature named by the episode title/show notes supplies end evidence only after pick language has occurred. Independent ending evidence improves section confidence; without it, extraction is conservatively capped at 20 minutes after the trusted start and remains a diagnostic warning when extraction still yields approved picks. Transcript sequence, not provider timestamps, owns structural ordering because malformed chunk timestamps can collapse at a chunk boundary. A weak start, missing section, empty extraction, or pick-level ambiguity remains `needs_review`, and a generic topic word inside a pick discussion is not sufficient to close the section.
 
@@ -25,7 +25,7 @@ One concurrency group serializes all writers. The 10:17 UTC `next` run scans new
 1. Open the repository, then **Settings -> Secrets and variables -> Actions -> New repository secret**. For the temporary Gemini validation provider, name it exactly `GEMINI_API_KEY` and paste a valid Google AI Studio API key. For the OpenAI provider, name it exactly `OPENAI_API_KEY` and paste a valid OpenAI API key.
 2. Open **Settings → Actions → General → Workflow permissions**. Select **Read and write permissions**, then save.
 3. Open **Settings → Pages → Build and deployment → Source**. Select **GitHub Actions**.
-4. If GitHub pauses the first deployment, open **Actions → FFW automated archive → the waiting run → Review deployments**, approve `github-pages`, and continue.
+4. If GitHub pauses the first deployment, open **Actions → ManaIntel automated archive → the waiting run → Review deployments**, approve `github-pages`, and continue.
 
 ## Controlled live validation
 
@@ -41,7 +41,7 @@ Never put the API key in `.env.example`, state, archive output, workflow inputs,
 
 ## Controlled historical backfill
 
-Open **Actions → FFW automated archive → Run workflow** and choose:
+Open **Actions → ManaIntel automated archive → Run workflow** and choose:
 
 - mode: `backfill`
 - batch_size: `3`
@@ -58,9 +58,9 @@ The job attempts all three sequentially, validates the production-only catalog, 
 - Use the bounded evening slot manually: dispatch `evening`; it retries one due failure or, if none is due, processes the newest untouched episode inside the automatic age window. It never does both.
 - Retry failed episodes only: manually dispatch `retry_failed` with a `batch_size` from 1 through 20. Cooldowns and the three-attempt cap still apply.
 - Force one episode: choose any processing mode and provide its exact RSS GUID in `force_guid`; the override searches the full fetched feed and bypasses batch position limits.
-- Validate locally: set `FFW_MODE=live`, then run `python -m ffw validate`.
-- Rebuild production projections locally: set `FFW_MODE=live`, then run `python -m ffw render`.
-- Inspect workflow health: open **Actions → FFW automated archive**. The publish summary reports selector counts, attempts, outcomes, and whether durable outputs changed. Deployment outcome is reported separately by the deployment job.
+- Validate locally: set `FFW_MODE=live`, then run `manaintel validate`.
+- Rebuild production projections locally: set `FFW_MODE=live`, then run `manaintel render`.
+- Inspect workflow health: open **Actions → ManaIntel automated archive**. The publish summary reports selector counts, attempts, outcomes, and whether durable outputs changed. Deployment outcome is reported separately by the deployment job.
 
 ## Verify a no-op run
 
@@ -81,7 +81,7 @@ The static site intentionally contains no repository credential. It prepares a c
 5. The workflow records the GitHub actor, rejects stale or malformed payloads, runs the test and validation suites, writes the durable file under `data/reviews/<source-id>/`, rebuilds effective projections, commits both, and deploys Pages.
 6. Confirm the episode now shows **human reviewed** and that its effective summary contains the intended picks.
 
-For local maintenance, run `python -m ffw apply-review --payload '<json>' --actor '<name>'`. This performs the same durable write and projection rebuild; validate before committing.
+For local maintenance, run `manaintel apply-review --payload '<json>' --actor '<name>'`. This performs the same durable write and projection rebuild; validate before committing.
 
 The original `summary.json` and `summary.md` are immutable machine output. Reviewed output is written to `effective.json` and `effective.md`; normal catalog and summary views prefer those effective files. Malformed or stale reviews must stop validation with a readable error. Never work around validation by editing `archive/index.json`, `archive/cards.json`, or generated Markdown directly.
 
@@ -101,7 +101,7 @@ The original `summary.json` and `summary.md` are immutable machine output. Revie
 The exact-episode backend is already available:
 
 ```bash
-python -m ffw run --live --force-guid <rss-guid>
+manaintel run --live --force-guid <rss-guid>
 ```
 
 In GitHub Actions, choose a normal processing mode, enter the exact canonical GUID in `force_guid`, keep `batch_size=1`, and dispatch. Exact GUID selection searches the full fetched feed and processes only that episode, even when it is quarantined. Manual dispatches can select `gemini-3.5-flash-lite` in `ai_model` when the primary model's per-model quota is exhausted; scheduled runs retain `gemini-3.5-flash` as the default. To retry extraction without paying to transcribe again, enter the prior Actions run ID in `reuse_transcript_run_id`; the workflow downloads that run's private transcript artifact, verifies its episode GUID, and fails closed if it is missing or mismatched. Failed episode details in the static UI provide **Copy retry GUID** and **Open retry workflow** buttons. The UI intentionally contains no GitHub token and cannot dispatch an authenticated run itself.

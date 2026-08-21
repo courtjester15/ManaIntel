@@ -56,7 +56,7 @@ class Settings:
     reuse_transcripts: bool = False
     targeted_verification_enabled: bool = True
     targeted_verification_max_picks: int = 2
-    repository_url: str = "https://github.com/courtjester15/mtgff-cards-to-watch"
+    repository_url: str = "https://github.com/courtjester15/ManaIntel"
 
     @classmethod
     def load(cls, root: Path | None = None) -> "Settings":
@@ -102,5 +102,5 @@ class Settings:
             reuse_transcripts=os.getenv("FFW_REUSE_TRANSCRIPTS", "false").strip().lower() in {"1", "true", "yes", "on"},
             targeted_verification_enabled=os.getenv("FFW_TARGETED_VERIFICATION_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"},
             targeted_verification_max_picks=max(0, int(os.getenv("FFW_TARGETED_VERIFICATION_MAX_PICKS", "2"))),
-            repository_url=os.getenv("FFW_REPOSITORY_URL", "https://github.com/courtjester15/mtgff-cards-to-watch"),
+            repository_url=os.getenv("FFW_REPOSITORY_URL", "https://github.com/courtjester15/ManaIntel"),
         )
