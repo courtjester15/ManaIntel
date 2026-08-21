@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.1",
-  "updated_at": "2026-08-20T20:57:39Z",
+  "pipeline_version": "0.5.2",
+  "updated_at": "2026-08-21T02:35:37Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -8890,6 +8890,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-08-17T11:00:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-21T02:35:11Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-21T02:35:12Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-21T02:35:13Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-21T02:35:13Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-21T02:35:33Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-21T02:35:33Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-21T02:35:33Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-21T02:35:37Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-21T02:35:37Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-21T02:35:37Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-21T02:35:37Z"
         }
       ],
       "title": "Hands Off My Bans | Brainstorm Brewery #695 | Magic Finance",
@@ -8897,11 +8941,11 @@
       "published_at": "2026-04-10T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
-      "pick_count": 0,
+      "attempt_count": 2,
+      "pick_count": 3,
       "error": null,
-      "status": "needs_review",
-      "updated_at": "2026-08-17T11:00:44Z",
+      "status": "complete",
+      "updated_at": "2026-08-21T02:35:37Z",
       "output_directory": "episodes/0000-hands-off-my-bans-brainstorm-brewery-695-magic-finance-d6da6118",
       "transcription": {
         "provider": "Gemini",
@@ -9063,19 +9107,19 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 11,
+        "candidates_token_count": 1060,
         "candidates_tokens_details": null,
-        "prompt_token_count": 10171,
+        "prompt_token_count": 14244,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 10171
+            "token_count": 14244
           }
         ],
-        "thoughts_token_count": 1144,
+        "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 11326,
+        "total_token_count": 15304,
         "traffic_type": null
       },
       "review_reason": null

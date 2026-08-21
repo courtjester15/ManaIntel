@@ -23,15 +23,15 @@
     "extraction_profile": "brainstorm_brewery"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
+    "status": "complete",
+    "review_state": "approved",
     "review_reason": null,
-    "pipeline_version": "0.5.0",
+    "pipeline_version": "0.5.2",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
-    "extraction_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-17T11:00:44Z",
+    "processed_at": "2026-08-21T02:35:37Z",
     "history": [
       {
         "status": "detected",
@@ -84,6 +84,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-17T11:00:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-21T02:35:11Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-21T02:35:12Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-21T02:35:13Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-21T02:35:13Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-21T02:35:33Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-21T02:35:33Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-21T02:35:33Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-21T02:35:37Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-21T02:35:37Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-21T02:35:37Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-21T02:35:37Z"
       }
     ],
     "error": null,
@@ -247,19 +291,19 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 11,
+      "candidates_token_count": 1060,
       "candidates_tokens_details": null,
-      "prompt_token_count": 10171,
+      "prompt_token_count": 14244,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 10171
+          "token_count": 14244
         }
       ],
-      "thoughts_token_count": 1144,
+      "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 11326,
+      "total_token_count": 15304,
       "traffic_type": null
     }
   },

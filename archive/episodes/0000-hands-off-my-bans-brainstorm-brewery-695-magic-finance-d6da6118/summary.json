@@ -23,15 +23,15 @@
     "extraction_profile": "brainstorm_brewery"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
+    "status": "complete",
+    "review_state": "approved",
     "review_reason": null,
-    "pipeline_version": "0.5.0",
+    "pipeline_version": "0.5.2",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
-    "extraction_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-17T11:00:44Z",
+    "processed_at": "2026-08-21T02:35:37Z",
     "history": [
       {
         "status": "detected",
@@ -84,6 +84,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-17T11:00:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-21T02:35:11Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-21T02:35:12Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-21T02:35:13Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-21T02:35:13Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-21T02:35:33Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-21T02:35:33Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-21T02:35:33Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-21T02:35:37Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-21T02:35:37Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-21T02:35:37Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-21T02:35:37Z"
       }
     ],
     "error": null,
@@ -247,29 +291,153 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 11,
+      "candidates_token_count": 1060,
       "candidates_tokens_details": null,
-      "prompt_token_count": 10171,
+      "prompt_token_count": 14244,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 10171
+          "token_count": 14244
         }
       ],
-      "thoughts_token_count": 1144,
+      "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 11326,
+      "total_token_count": 15304,
       "traffic_type": null
     }
   },
   "section": {
     "located": true,
-    "start_seconds": 31,
-    "end_seconds": 1231,
+    "start_seconds": 2035,
+    "end_seconds": 3600,
     "label": "Breaking Bulk / Pick of the Week",
-    "confidence": "medium",
-    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
   },
-  "recommendations": []
+  "recommendations": [
+    {
+      "card": "The Shire",
+      "printing": "Lord of the Rings",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "$2 to $3",
+        "currency": "USD",
+        "minimum": 2,
+        "maximum": 3
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 5
+      },
+      "reasoning": [
+        "The card has gone from $2.50 to about $5 in the past six weeks.",
+        "The line is starting to climb up more steeply."
+      ],
+      "caveats": [
+        "Maybe it gets reprinted with the hobbit.",
+        "Maybe they do a different version of the Shire."
+      ],
+      "confidence": null,
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "So we're looking at kind of a last call here on the Shire at, sub, you know, $3, $2 to $3 if you're able to find any in that range still.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-94ced7d7d42a12f5",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_695_Hands_Off_My_Bans.mp3#t=3600"
+    },
+    {
+      "card": "Phelia, Exuberant Shepherd",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Liz",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5 or $6",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 6
+      },
+      "reasoning": [
+        "Modern staple, Legacy staple.",
+        "Only gets better with every single set.",
+        "ETB effects are very important."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "Modern staple, Modern staple, Legacy staple, card is like $5-ish dollars last I checked, which I'm pulling it up in MTG BAN right now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2cb6b71ad7dc832d",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_695_Hands_Off_My_Bans.mp3#t=3600"
+    },
+    {
+      "card": "Dark Depths",
+      "printing": "Modern Horizons 3 commander deck",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$1.50, $2",
+      "entry_target": {
+        "raw": "$2 to $3",
+        "currency": "USD",
+        "minimum": 2,
+        "maximum": 3
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5 to $10",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 10
+      },
+      "reasoning": [
+        "Very cheap from a commander precon.",
+        "If the card enters the conversation cycle like Splinter Twin, it will ride the rollercoaster."
+      ],
+      "caveats": [
+        "Could be secretly in a Wizards file named never_unban_ever_you_dumb_idiot.txt."
+      ],
+      "confidence": null,
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "And the card is like $1.50, $2. It's very, very, very cheap. Even, and this is the most important part, this is the most important part of this pick...",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-800fcce96320f3c1",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_695_Hands_Off_My_Bans.mp3#t=3600"
+    }
+  ]
 }
