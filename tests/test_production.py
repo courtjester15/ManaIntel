@@ -294,6 +294,71 @@ class DetectionAndStateTests(unittest.TestCase):
         self.assertTrue(result["located"])
         self.assertEqual(("Breaking Bulk / Pick of the Week", "high"), (result["label"], result["confidence"]))
 
+    def test_brainstorm_later_marker_beats_early_show_outline(self) -> None:
+        result = locate_recommendation_section([
+            {"sequence": 0, "start": 31, "end": 55, "text": (
+                "On today's show we have listener questions, picks of the week, and finally Breaking Bulk."
+            )},
+            {"sequence": 1, "start": 400, "end": 500, "text": "News and general card-price discussion."},
+            {"sequence": 2, "start": 2860, "end": 2870, "text": "All right, time for Breaking Bulk."},
+            {"sequence": 3, "start": 2870, "end": 2940, "text": "My pick is Example Card at a dollar."},
+            {"sequence": 4, "start": 3000, "end": 3020, "text": "Thanks for listening."},
+        ], "brainstorm_brewery")
+
+        self.assertEqual((2860, 3020), (result["start_seconds"], result["end_seconds"]))
+        self.assertEqual(("explicit_section_marker", "explicit_section_end"), (
+            result["start_signal"], result["end_signal"],
+        ))
+        self.assertEqual("high", result["confidence"])
+
+    def test_brainstorm_recommendation_language_beats_outline_without_later_marker(self) -> None:
+        result = locate_recommendation_section([
+            {"start": 242, "end": 270, "text": "Coming up later: Breaking Bulk and listener questions."},
+            {"start": 1000, "end": 1100, "text": "General discussion continues."},
+            {"start": 2800, "end": 2860, "text": "I'm going with Example Card because copies are drying up."},
+            {"start": 2900, "end": 2920, "text": "Until next week."},
+        ], "brainstorm_brewery")
+
+        self.assertEqual(2800, result["start_seconds"])
+        self.assertEqual("recommendation_language", result["start_signal"])
+        self.assertEqual("explicit_section_end", result["end_signal"])
+
+    def test_brainstorm_outline_only_fallback_stays_low_confidence(self) -> None:
+        result = locate_recommendation_section([
+            {"start": 40, "end": 60, "text": "Today we'll cover news, Breaking Bulk, and listener questions."},
+            {"start": 500, "end": 600, "text": "General discussion."},
+        ], "brainstorm_brewery")
+
+        self.assertEqual("show_outline_fallback", result["start_signal"])
+        self.assertEqual("low", result["confidence"])
+        self.assertIn("show-outline", result["review_reason"])
+
+    def test_brainstorm_keeps_breaking_bulk_and_later_pick_of_week(self) -> None:
+        result = locate_recommendation_section([
+            {"sequence": 0, "start": 31, "end": 60, "text": (
+                "Today's show includes Breaking Bulk and picks of the week later."
+            )},
+            {"sequence": 1, "start": 2035, "end": 2040, "text": (
+                "Your attention should be on these Breaking Bulks because they will make you money."
+            )},
+            {"sequence": 2, "start": 2100, "end": 2200, "text": "Several bulk cards are recommended."},
+            {"sequence": 3, "start": 2583, "end": 2600, "text": (
+                "We will talk about Strixhaven and then do pick of the week."
+            )},
+            {"sequence": 4, "start": 3546, "end": 3560, "text": (
+                "Before we leave, we want to give you our picks of the week."
+            )},
+            {"sequence": 5, "start": 3600, "end": 3630, "text": (
+                "My pick of the week this week is Dark Depths."
+            )},
+            {"sequence": 6, "start": 3630, "end": 3644, "text": "Thanks for listening."},
+        ], "brainstorm_brewery")
+
+        self.assertEqual((2035, 3644), (result["start_seconds"], result["end_seconds"]))
+        self.assertEqual(("explicit_section_marker", "explicit_section_end"), (
+            result["start_signal"], result["end_signal"],
+        ))
+
     def test_discovery_is_idempotent_and_failed_attempt_is_retryable(self) -> None:
         store = JsonStateStore(workspace_temp() / "state.json")
         candidate = episode()
@@ -1264,6 +1329,12 @@ class StateAwareSelectionTests(unittest.TestCase):
 
 
 class FailureClassificationTests(unittest.TestCase):
+    def test_json_decode_transcription_failure_is_retryable_model_output(self) -> None:
+        category, retryable, provider_wide = classify_failure(
+            "Gemini transcription chunk 1/4 failed: JSONDecodeError: Expecting ',' delimiter"
+        )
+        self.assertEqual(("transient_model_output", True, False), (category, retryable, provider_wide))
+
     def test_quota_and_disconnect_are_retryable_provider_failures(self) -> None:
         self.assertEqual(("transient_provider", True, True), classify_failure("429 RESOURCE_EXHAUSTED"))
         self.assertEqual(("transient_provider", True, True), classify_failure("Server disconnected without sending a response."))

@@ -44,6 +44,16 @@ BRAINSTORM_START_PATTERNS = (
     r"bulk\s+to\s+binder",
     r"picks?\s+of\s+the\s+week",
 )
+BRAINSTORM_OUTLINE_PATTERNS = (
+    r"\b(?:today|this week|on (?:today'?s|this) (?:show|episode)|coming up|later(?:\s+in\s+the\s+show)?)\b.{0,500}\b(?:breaking\s+bulk|bulk\s+to\s+binder|picks?\s+of\s+the\s+week)\b",
+    r"\b(?:we(?:'ll| will)|going to|before|after)\b.{0,500}\b(?:breaking\s+bulk|bulk\s+to\s+binder|picks?\s+of\s+the\s+week)\b.{0,300}\b(?:and|plus|before|after|then)\b",
+    r"\b(?:agenda|first|then|finally|segments?|show)\b.{0,700}\b(?:breaking\s+bulk|bulk\s+to\s+binder|picks?\s+of\s+the\s+week)\b.{0,300}\b(?:and|then|finally|after|wrap)\b",
+)
+BRAINSTORM_PICK_CUE_PATTERNS = PICK_CUE_PATTERNS + (
+    r"\bmy\s+(?:breaking\s+bulk|bulk\s+pick)\b",
+    r"\bfor\s+(?:my|our)\s+(?:breaking\s+bulk|pick\s+of\s+the\s+week)\b",
+    r"\b(?:breaking\s+bulk|pick\s+of\s+the\s+week)\s+(?:is|has to be|goes to)\b",
+)
 
 MIN_TOPIC_TRANSITION_SECONDS = 120
 MAX_UNBOUNDED_SECTION_SECONDS = 1200
@@ -64,9 +74,11 @@ def _window_text(segments: list[dict[str, Any]], index: int, width: int = 3) -> 
     return " ".join(str(item.get("text", "")) for item in segments[index:index + width])
 
 
-def _is_outline_mention(segments: list[dict[str, Any]], index: int) -> bool:
+def _is_outline_mention(
+    segments: list[dict[str, Any]], index: int, *, patterns: tuple[str, ...] = OUTLINE_PATTERNS,
+) -> bool:
     segment_text = str(segments[index].get("text", ""))
-    if _matches(OUTLINE_PATTERNS, segment_text):
+    if _matches(patterns, segment_text):
         return True
     candidate_start = float(segments[index].get("start", 0))
     context = " ".join(
@@ -74,7 +86,7 @@ def _is_outline_mention(segments: list[dict[str, Any]], index: int) -> bool:
         for item in segments[max(0, index - 2):index + 3]
         if abs(float(item.get("start", 0)) - candidate_start) <= OUTLINE_CONTEXT_SECONDS
     )
-    return _matches(OUTLINE_PATTERNS, context)
+    return _matches(patterns, context)
 
 
 def _ordered_segments(segments: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -248,35 +260,79 @@ def locate_recommendation_section(
     if profile != "brainstorm_brewery":
         return locate_cards_to_watch(segments, title=title, description=description)
     ordered = _ordered_segments(segments)
-    marker_indexes = [
-        index for index, segment in enumerate(ordered)
-        if _matches(BRAINSTORM_START_PATTERNS, str(segment.get("text", "")))
-    ]
-    if not marker_indexes:
+    outline_indexes: list[int] = []
+    explicit_indexes: list[int] = []
+    implicit_indexes: list[int] = []
+    for index, segment in enumerate(ordered):
+        text = str(segment.get("text", ""))
+        has_pick_cue = _matches(BRAINSTORM_PICK_CUE_PATTERNS, text)
+        is_outline = _is_outline_mention(ordered, index, patterns=BRAINSTORM_OUTLINE_PATTERNS)
+        if _matches(BRAINSTORM_START_PATTERNS, text):
+            if is_outline and not has_pick_cue:
+                outline_indexes.append(index)
+            else:
+                explicit_indexes.append(index)
+        if has_pick_cue:
+            implicit_indexes.append(index)
+
+    if explicit_indexes:
+        # Brainstorm may contain both Breaking Bulk and Pick of the Week with a
+        # long topic discussion between them. Preserve the first credible
+        # section instead of collapsing to the marker closest to the last pick.
+        start_index = explicit_indexes[0]
+        start_signal = "explicit_section_marker"
+    elif implicit_indexes:
+        start_index = implicit_indexes[0]
+        start_signal = "recommendation_language"
+    elif outline_indexes:
+        start_index = outline_indexes[0]
+        start_signal = "show_outline_fallback"
+    else:
         return {
             "located": False, "start_seconds": None, "end_seconds": None,
             "label": "Breaking Bulk / Pick of the Week", "confidence": "low",
             "review_reason": "No credible Brainstorm Brewery recommendation segment marker was found.",
+            "start_signal": None, "end_signal": None,
             "segments": [],
         }
-    start_index = marker_indexes[0]
+
     start_seconds = float(ordered[start_index].get("start", 0))
     end_index = len(ordered)
-    explicit_end = False
+    end_signal: str | None = None
+    recommendation_indexes = [
+        index for index in explicit_indexes + implicit_indexes if index >= start_index
+    ]
+    last_recommendation_index = max(recommendation_indexes, default=start_index)
+    cap_anchor_seconds = float(ordered[last_recommendation_index].get("start", start_seconds))
     for index in range(start_index + 1, len(ordered)):
         text = str(ordered[index].get("text", ""))
-        elapsed = float(ordered[index].get("start", 0)) - start_seconds
-        if _matches(END_PATTERNS, text) or elapsed > 1200:
-            end_index = index + (1 if elapsed <= 1200 else 0)
-            explicit_end = elapsed <= 1200
+        segment_start = float(ordered[index].get("start", 0))
+        if index > last_recommendation_index and _matches(END_PATTERNS, text):
+            end_index = index + 1
+            end_signal = "explicit_section_end"
+            break
+        if segment_start - cap_anchor_seconds > MAX_UNBOUNDED_SECTION_SECONDS:
+            end_index = index
             break
     selected = ordered[start_index:end_index]
+    strong_start = start_signal != "show_outline_fallback"
+    if not strong_start:
+        review_reason = "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin."
+    elif end_signal is None:
+        review_reason = "Recommendation segment found without an explicit ending; review the bounded extraction."
+    else:
+        review_reason = None
+    confidence = "high" if start_signal == "explicit_section_marker" and end_signal else (
+        "medium" if strong_start else "low"
+    )
     return {
         "located": True,
         "start_seconds": int(float(selected[0].get("start", 0))),
         "end_seconds": int(float(selected[-1].get("end", selected[-1].get("start", 0)))),
         "label": "Breaking Bulk / Pick of the Week",
-        "confidence": "high" if explicit_end else "medium",
-        "review_reason": None if explicit_end else "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "confidence": confidence,
+        "review_reason": review_reason,
+        "start_signal": start_signal,
+        "end_signal": end_signal,
         "segments": selected,
     }
