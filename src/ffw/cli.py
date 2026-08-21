@@ -6,7 +6,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from .archive import rerender_archive
+from .archive import repair_missing_episode_numbers, rerender_archive
 from .card_resolution import ScryfallCardResolver, resolve_archive_card_names
 from .config import Settings, VERSION
 from .pipeline import Pipeline
@@ -29,6 +29,7 @@ def _parser() -> argparse.ArgumentParser:
     run.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
     subparsers.add_parser("validate", help="Validate state, episode outputs, and archive catalogs")
     subparsers.add_parser("render", help="Regenerate Markdown and archive catalogs from JSON")
+    subparsers.add_parser("repair-episode-numbers", help="Repair missing episode numbers from trusted title formats")
     next_episode = subparsers.add_parser("process-next", help="Process the newest eligible unprocessed episode")
     next_episode.add_argument("--live", action="store_true", help="Use the live feed and configured production adapters")
     next_episode.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
@@ -159,6 +160,20 @@ def main(argv: list[str] | None = None) -> int:
             resolutions_path=settings.root / "state" / "card-resolutions.json",
         )
         print(f"Rendered {count} episode Markdown files and rebuilt archive catalogs.")
+        return 0
+    if args.command == "repair-episode-numbers":
+        repaired = repair_missing_episode_numbers(settings.archive_dir, settings.state_file)
+        count = rerender_archive(
+            settings.archive_dir,
+            production=settings.mode == "live",
+            reviews_dir=settings.root / "data" / "reviews",
+            repository_url=settings.repository_url,
+            resolutions_path=settings.root / "state" / "card-resolutions.json",
+        )
+        print(
+            f"Repaired episode numbers in {repaired['archive']} archive records and "
+            f"{repaired['state']} state records; rendered {count} episodes."
+        )
         return 0
     if args.command == "apply-review":
         path = persist_review(

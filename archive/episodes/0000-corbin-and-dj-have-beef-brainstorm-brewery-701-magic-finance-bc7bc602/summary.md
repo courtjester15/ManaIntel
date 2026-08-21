@@ -1,4 +1,4 @@
-# Episode 0: Corbin and DJ have Beef | Brainstorm Brewery #701 | Magic Finance
+# Episode 701: Corbin and DJ have Beef | Brainstorm Brewery #701 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

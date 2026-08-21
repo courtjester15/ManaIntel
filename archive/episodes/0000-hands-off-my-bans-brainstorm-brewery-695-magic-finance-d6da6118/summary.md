@@ -1,4 +1,4 @@
-# Episode 0: Hands Off My Bans | Brainstorm Brewery #695 | Magic Finance
+# Episode 695: Hands Off My Bans | Brainstorm Brewery #695 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

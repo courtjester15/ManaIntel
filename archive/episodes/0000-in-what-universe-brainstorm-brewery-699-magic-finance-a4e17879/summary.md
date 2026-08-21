@@ -1,4 +1,4 @@
-# Episode 0: In WHAT Universe! | Brainstorm Brewery #699 | Magic Finance
+# Episode 699: In WHAT Universe! | Brainstorm Brewery #699 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

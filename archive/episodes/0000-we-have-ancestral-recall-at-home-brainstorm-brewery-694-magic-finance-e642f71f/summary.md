@@ -1,4 +1,4 @@
-# Episode 0: We Have Ancestral Recall at Home | Brainstorm Brewery #694 | Magic Finance
+# Episode 694: We Have Ancestral Recall at Home | Brainstorm Brewery #694 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

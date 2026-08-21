@@ -1,4 +1,4 @@
-# Episode 0: A New Reserve List | Brainstorm Brewery #697 | Magic Finance
+# Episode 697: A New Reserve List | Brainstorm Brewery #697 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

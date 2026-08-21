@@ -1,4 +1,4 @@
-# Episode 0: New Money Magic | Brainstorm Brewery #698 | Magic Finance
+# Episode 698: New Money Magic | Brainstorm Brewery #698 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

@@ -1,4 +1,4 @@
-# Episode 0: It Comes Out in the Wash | Brainstorm Brewery #706 | Magic Finance
+# Episode 706: It Comes Out in the Wash | Brainstorm Brewery #706 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

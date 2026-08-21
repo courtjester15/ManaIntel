@@ -1,4 +1,4 @@
-# Episode 0: Post Vegas Vegetation | Brainstorm Brewery #699 | Magic Finance
+# Episode 699: Post Vegas Vegetation | Brainstorm Brewery #699 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

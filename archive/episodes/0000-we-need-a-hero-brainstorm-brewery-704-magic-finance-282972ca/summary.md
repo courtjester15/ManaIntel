@@ -1,4 +1,4 @@
-# Episode 0: We Need A Hero! | Brainstorm Brewery #704 | Magic Finance
+# Episode 704: We Need A Hero! | Brainstorm Brewery #704 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

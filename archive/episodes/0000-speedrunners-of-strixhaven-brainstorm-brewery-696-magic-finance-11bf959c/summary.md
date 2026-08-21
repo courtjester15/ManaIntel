@@ -1,4 +1,4 @@
-# Episode 0: Speedrunners of Strixhaven | Brainstorm Brewery #696 | Magic Finance
+# Episode 696: Speedrunners of Strixhaven | Brainstorm Brewery #696 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

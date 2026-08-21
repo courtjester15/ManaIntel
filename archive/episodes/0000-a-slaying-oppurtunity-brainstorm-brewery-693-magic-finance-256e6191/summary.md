@@ -1,4 +1,4 @@
-# Episode 0: A Slaying Oppurtunity | Brainstorm Brewery #693 | Magic Finance
+# Episode 693: A Slaying Oppurtunity | Brainstorm Brewery #693 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

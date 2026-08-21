@@ -1,4 +1,4 @@
-# Episode 0: The Odyssey of Universes Beyond | Brainstorm Brewery #711 | Magic Finance
+# Episode 711: The Odyssey of Universes Beyond | Brainstorm Brewery #711 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

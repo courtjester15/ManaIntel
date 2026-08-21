@@ -1,4 +1,4 @@
-# Episode 0: Trading Cards Are Sports Goods? | Brainstorm Brewery #692 | Magic Finance
+# Episode 692: Trading Cards Are Sports Goods? | Brainstorm Brewery #692 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

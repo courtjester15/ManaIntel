@@ -1,4 +1,4 @@
-# Episode 0: A Tale As Old As Showers | Brainstorm Brewery #703 | Magic Finance
+# Episode 703: A Tale As Old As Showers | Brainstorm Brewery #703 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

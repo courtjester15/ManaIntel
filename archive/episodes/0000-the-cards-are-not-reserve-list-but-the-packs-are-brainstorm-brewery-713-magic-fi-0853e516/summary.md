@@ -1,4 +1,4 @@
-# Episode 0: The Cards Are Not Reserve List, But The Packs Are | Brainstorm Brewery #713 | Magic Finance
+# Episode 713: The Cards Are Not Reserve List, But The Packs Are | Brainstorm Brewery #713 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

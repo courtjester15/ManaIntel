@@ -1,4 +1,4 @@
-# Episode 0: Smaug VS The Infinite Stones | Brainstorm Brewery #712 | Magic Finance
+# Episode 712: Smaug VS The Infinite Stones | Brainstorm Brewery #712 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

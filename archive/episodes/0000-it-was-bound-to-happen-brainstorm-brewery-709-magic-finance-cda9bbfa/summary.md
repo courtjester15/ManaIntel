@@ -1,4 +1,4 @@
-# Episode 0: It Was Bound To Happen | Brainstorm Brewery #709 | Magic Finance
+# Episode 709: It Was Bound To Happen | Brainstorm Brewery #709 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

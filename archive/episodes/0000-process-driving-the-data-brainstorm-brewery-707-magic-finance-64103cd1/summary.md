@@ -1,4 +1,4 @@
-# Episode 0: Process Driving the Data | Brainstorm Brewery #707 | Magic Finance
+# Episode 707: Process Driving the Data | Brainstorm Brewery #707 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

@@ -1,4 +1,4 @@
-# Episode 0: Marveling at Magic | Brainstorm Brewery #704 | Magic Finance
+# Episode 704: Marveling at Magic | Brainstorm Brewery #704 | Magic Finance
 
 > Automated transcription and extraction. Verify recommendations against the linked source audio.
 

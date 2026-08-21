@@ -15,7 +15,7 @@ from email.message import Message
 from pathlib import Path
 from unittest.mock import Mock, call, patch
 
-from ffw.archive import rebuild_catalog
+from ffw.archive import rebuild_catalog, repair_missing_episode_numbers
 from ffw.detection import locate_cards_to_watch, locate_recommendation_section
 from ffw.models import EpisodeCandidate, PipelineResult
 from ffw.config import Settings
@@ -69,7 +69,11 @@ class RssTests(unittest.TestCase):
     def test_episode_number_variants(self) -> None:
         self.assertEqual(87, parse_episode_number("Episode #87 — Cards"))
         self.assertEqual(91, parse_episode_number("MTGFF Ep. 91"))
+        self.assertEqual(713, parse_episode_number(
+            "The Cards Are Not Reserve List, But The Packs Are | Brainstorm Brewery #713 | Magic Finance"
+        ))
         self.assertEqual(0, parse_episode_number("No number"))
+        self.assertEqual(0, parse_episode_number("A card numbered #713 is discussed"))
 
     def test_duplicate_guids_are_collapsed(self) -> None:
         xml = (Path(__file__).parent / "fixtures/feed.xml").read_text(encoding="utf-8")
@@ -89,6 +93,50 @@ class RssTests(unittest.TestCase):
         )[0]
         self.assertEqual("brainstorm-brewery:libsyn-705", item.guid)
         self.assertEqual(("brainstorm-brewery", "Brainstorm Brewery", "brainstorm_brewery"), (item.source_id, item.source_name, item.extraction_profile))
+        self.assertEqual(705, item.episode_number)
+
+    def test_repairs_missing_brainstorm_numbers_without_reprocessing(self) -> None:
+        root = workspace_temp()
+        episode_dir = root / "archive" / "episodes" / "0000-example"
+        episode_dir.mkdir(parents=True)
+        episode_payload = {
+            "guid": "brainstorm:example",
+            "episode_number": 0,
+            "title": "Example | Brainstorm Brewery #705 | Magic Finance",
+            "published_at": "2026-01-01T00:00:00Z",
+            "audio_url": "https://example.test/audio.mp3",
+            "episode_url": "https://example.test/705",
+            "hosts": [],
+        }
+        atomic_write_json(episode_dir / "metadata.json", {
+            "episode": dict(episode_payload), "processing": {"status": "needs_review"},
+        })
+        atomic_write_json(episode_dir / "summary.json", {
+            "schema_version": "1.1.0",
+            "episode": dict(episode_payload),
+            "processing": {
+                "status": "needs_review", "pipeline_version": "test",
+                "prompt_version": "test",
+            },
+            "section": {"label": "Recommendations"},
+            "recommendations": [],
+        })
+        state_file = root / "state" / "episodes.json"
+        atomic_write_json(state_file, {
+            "episodes": {"brainstorm:example": {
+                "guid": "brainstorm:example", "episode_number": 0,
+                "title": episode_payload["title"],
+            }},
+        })
+
+        repaired = repair_missing_episode_numbers(root / "archive", state_file)
+
+        self.assertEqual({"archive": 1, "state": 1}, repaired)
+        self.assertEqual(705, load_json(episode_dir / "metadata.json")["episode"]["episode_number"])
+        self.assertEqual(705, load_json(episode_dir / "summary.json")["episode"]["episode_number"])
+        self.assertEqual(705, load_json(state_file)["episodes"]["brainstorm:example"]["episode_number"])
+        self.assertTrue((episode_dir / "summary.md").read_text(encoding="utf-8").startswith("# Episode 705:"))
+        self.assertEqual({"archive": 0, "state": 0}, repair_missing_episode_numbers(root / "archive", state_file))
 
     def test_source_specific_discovery_does_not_hide_requested_feed_failure(self) -> None:
         class Source:

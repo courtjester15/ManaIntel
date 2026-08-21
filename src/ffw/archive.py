@@ -5,6 +5,7 @@ from typing import Any
 
 from .config import PIPELINE_VERSION, SCHEMA_VERSION
 from .card_resolution import apply_card_resolution, load_resolution_store
+from .identity import parse_episode_number
 from .rendering import render_episode_markdown
 from .reviews import apply_review, load_episode_review
 from .utils import atomic_write_json, atomic_write_text, load_json
@@ -195,3 +196,38 @@ def rerender_archive(
         resolutions_path=resolutions_path,
     )
     return rendered
+
+
+def repair_missing_episode_numbers(archive_dir: Path, state_file: Path) -> dict[str, int]:
+    repaired_archive = 0
+    repaired_state = 0
+    for metadata_path in sorted((archive_dir / "episodes").glob("*/metadata.json")):
+        metadata = load_json(metadata_path)
+        episode = metadata.get("episode", {})
+        number = parse_episode_number(str(episode.get("title", "")))
+        if episode.get("episode_number") or not number:
+            continue
+        episode["episode_number"] = number
+        atomic_write_json(metadata_path, metadata)
+        for json_name in ("summary.json", "effective.json"):
+            json_path = metadata_path.parent / json_name
+            summary = load_json(json_path)
+            if not summary:
+                continue
+            summary["episode"]["episode_number"] = number
+            atomic_write_json(json_path, summary)
+            atomic_write_text(json_path.with_suffix(".md"), render_episode_markdown(summary))
+        repaired_archive += 1
+
+    state = load_json(state_file)
+    state_changed = False
+    for record in state.get("episodes", {}).values():
+        number = parse_episode_number(str(record.get("title", "")))
+        if record.get("episode_number") or not number:
+            continue
+        record["episode_number"] = number
+        repaired_state += 1
+        state_changed = True
+    if state_changed:
+        atomic_write_json(state_file, state)
+    return {"archive": repaired_archive, "state": repaired_state}
