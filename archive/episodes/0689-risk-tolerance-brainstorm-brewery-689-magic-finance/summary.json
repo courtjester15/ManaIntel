@@ -1,0 +1,426 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15792",
+    "episode_number": 689,
+    "title": "Risk Tolerance | Brainstorm Brewery #689 | Magic Finance",
+    "published_at": "2026-03-06T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_689_Risk_Tolerance.mp3",
+    "episode_url": "https://brainstormbrewery.com/risk-tolerance-brainstorm-brewery-689-magic-finance/",
+    "duration_seconds": 3703,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and JJ the editor jump in to recap Teenage Mutant Ninja Turtles prerelease, draft format, and best-selling sets. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-22T20:44:57Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-22T20:39:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-22T20:39:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-22T20:39:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-22T20:39:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-22T20:39:06Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-22T20:39:06Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-22T20:39:27Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-22T20:44:24Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-22T20:44:25Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-22T20:44:57Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-22T20:44:57Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-22T20:44:57Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-22T20:44:57Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3703,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 54.101,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11530,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22639,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 140
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 2699,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36868,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 81.037,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9109,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22640,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 140
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 12935,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44684,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 69.181,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17455,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22640,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 140
+              }
+            ],
+            "thoughts_token_count": 1414,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41509,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 80.813,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8063,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22640,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 140
+              }
+            ],
+            "thoughts_token_count": 14596,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45299,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 103,
+          "request_seconds": 11.807,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1277,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 2701,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 140
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 2561
+              }
+            ],
+            "thoughts_token_count": 2465,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 6443,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 48
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 898,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 20468,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 20468
+        }
+      ],
+      "thoughts_token_count": 6444,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 27810,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1649,
+    "end_seconds": 3715,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Orcish Lumberjack",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "Pick it out of your bulk",
+      "mentioned_price": "$0.88",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Very powerful card in Jund-style decks that care about sacrificing lands or hitting the graveyard.",
+        "Lets you play a four-mana commander on turn two."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1837,
+      "end_seconds": 1857,
+      "evidence_excerpt": "Orcish Lumberjack, good card. Pick it out of your bulk.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b4e96e8282f02832",
+      "timestamp": "00:30:37",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_689_Risk_Tolerance.mp3#t=1837"
+    },
+    {
+      "card": "Cyberman Patrol",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "Check it out",
+      "mentioned_price": "$5",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Doctor Who has quietly had a number of cards spike up."
+      ],
+      "caveats": [],
+      "confidence": "low",
+      "start_seconds": 1813,
+      "end_seconds": 1835,
+      "evidence_excerpt": "It's Cyberman Patrol. It's $5. Or $3 depending on which art version you get. Anyway, check it out.",
+      "review_status": "needs_review",
+      "review_reason": "Ambiguous recommendation; host says 'check it out' but does not explicitly recommend buying or selling.",
+      "id": "pick-b07c944069385e19",
+      "timestamp": "00:30:13",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_689_Risk_Tolerance.mp3#t=1813"
+    },
+    {
+      "card": "Glasspool Mimic",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$6",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Has never been reprinted.",
+        "It is extremely powerful.",
+        "Starting to climb from $5 to $6."
+      ],
+      "caveats": [
+        "Commander players might not value the utility of a double-faced tap land the same way grinders do."
+      ],
+      "confidence": "high",
+      "start_seconds": 3516,
+      "end_seconds": 3600,
+      "evidence_excerpt": "Glasspool Mimic has never been reprinted. It is $6 and climbing after being $5 about a month ago. Uh, it is extremely powerful.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b60995bc27198fca",
+      "timestamp": "00:58:36",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_689_Risk_Tolerance.mp3#t=3516"
+    },
+    {
+      "card": "Tricky Terrain Commander Deck",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "Buy and crack for singles",
+      "mentioned_price": "50 bucks",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "The expected value of the deck is $75 while it can be purchased for $50 to $55.",
+        "It contains highly sought-after land soup staples like Yavimaya and Vesuva."
+      ],
+      "caveats": [
+        "Requires $50 of upfront capital to execute."
+      ],
+      "confidence": "high",
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "I have recently bought some Tricky Terrain decks because it's it's free money. It's it's not free money, it's $50.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-231e3d28c58d7cb8",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_689_Risk_Tolerance.mp3#t=3600"
+    },
+    {
+      "card": "Aftermath Analyst",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "JJ",
+        "DJ"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "50 cents",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Major buy lists are offering prices higher than TCG low, indicating supply is drying up.",
+        "It is very strong in Modern Amulet Titan and Jund land soup decks."
+      ],
+      "caveats": [
+        "Recently reprinted in an Edge of Eternity precon, which depressed the price graph.",
+        "Requires waiting for it to cook and dodging future reprints."
+      ],
+      "confidence": "medium",
+      "start_seconds": 3600,
+      "end_seconds": 3609,
+      "evidence_excerpt": "Aftermath Analyst... I do think it is a good buy, but I think you have to wait a while and let it cook.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8df8eb01219ede24",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_689_Risk_Tolerance.mp3#t=3600"
+    }
+  ]
+}
