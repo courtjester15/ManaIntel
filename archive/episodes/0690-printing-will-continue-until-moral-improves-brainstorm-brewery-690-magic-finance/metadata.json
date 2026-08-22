@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15794",
+    "episode_number": 690,
+    "title": "Printing Will Continue Until Moral Improves | Brainstorm Brewery #690 | Magic Finance *Fixed*",
+    "published_at": "2026-03-13T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_690_Printing_Will_Continue_Until_Moral_Improves_2.mp3",
+    "episode_url": "https://brainstormbrewery.com/printing-will-continue-until-moral-improves-brainstorm-brewery-690-magic-finance/",
+    "duration_seconds": 3008,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Jason (@jasonEAlt) talk about Teenage Mutant Ninja Turtles, Upcoming Strixhaven Previews and more. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-22T10:45:12Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-22T10:39:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-22T10:39:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-22T10:39:12Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-22T10:39:12Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-22T10:39:14Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-22T10:39:14Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-22T10:39:29Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-22T10:44:38Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-22T10:44:38Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-22T10:45:12Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-22T10:45:12Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-22T10:45:12Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-22T10:45:12Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3008,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 61.599,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10372,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22645,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 146
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 6763,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39780,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 124.168,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15524,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22646,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 146
+              }
+            ],
+            "thoughts_token_count": 13618,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 51788,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 70.694,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11929,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22646,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 146
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 9244,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43819,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 308,
+          "request_seconds": 51.69,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4448,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 7838,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 7692
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 146
+              }
+            ],
+            "thoughts_token_count": 9488,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 21774,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 33
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1390,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 14994,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 14994
+        }
+      ],
+      "thoughts_token_count": 6541,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 22925,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0690-printing-will-continue-until-moral-improves-brainstorm-brewery-690-magic-finance/metadata.json",
+    "summary_json": "episodes/0690-printing-will-continue-until-moral-improves-brainstorm-brewery-690-magic-finance/summary.json",
+    "summary_markdown": "episodes/0690-printing-will-continue-until-moral-improves-brainstorm-brewery-690-magic-finance/summary.md"
+  }
+}
