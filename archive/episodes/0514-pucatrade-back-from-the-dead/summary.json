@@ -1,0 +1,391 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2278431149",
+    "episode_number": 514,
+    "title": "MTG Fast Finance Ep 514: Pucatrade Back From the Dead",
+    "published_at": "2026-03-06T01:35:08Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2278431149-user-519789566-mtg-fast-finance-ep-514.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-514",
+    "duration_seconds": 2650,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the weekly top movers, meta shifts, cards to watch and explore the details of a possible resurrection of the Pucatrade monster.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-23T10:44:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-23T10:38:43Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-23T10:38:43Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-23T10:39:00Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-23T10:43:36Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-23T10:43:36Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-23T10:44:49Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-23T10:44:49Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-23T10:44:49Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-23T10:44:49Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2650,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 54.823,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9764,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22620,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 5584,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37968,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 69.36,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10197,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 9415,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42233,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 850,
+          "request_seconds": 151.838,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9580,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 21387,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 21266
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 10593,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41560,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 42
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1342,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 5938,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 5938
+        }
+      ],
+      "thoughts_token_count": 8160,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 15440,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1046,
+    "end_seconds": 1910,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Wedding Ring",
+      "printing": "Spidey version",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 2"
+      ],
+      "recommendation": "Buy foil copies of the Spider-Man/Spidey version of Wedding Ring.",
+      "mentioned_price": "$10, $11, $12",
+      "entry_target": {
+        "raw": "$10, $11, $12",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 12.0
+      },
+      "hold": "12 to 18 months",
+      "exit_target": {
+        "raw": "$25 plus",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Spider-Man wedding art is very iconic and popular.",
+        "Foil listings are draining significantly down to 56 listings.",
+        "Marvel summer hype will drive up interest in themed cards."
+      ],
+      "caveats": [
+        "Reprint risk exists as it is a generic upper mid-tier staple."
+      ],
+      "confidence": "high",
+      "start_seconds": 1046,
+      "end_seconds": 1531,
+      "evidence_excerpt": "if you grab these foils at $10, $11, $12, you're going to be able to get out at $25 plus in a year, maybe 18 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1eb2223ac8420684",
+      "timestamp": "00:17:26",
+      "listen_url": "https://feeds.soundcloud.com/stream/2278431149-user-519789566-mtg-fast-finance-ep-514.mp3#t=1046"
+    },
+    {
+      "card": "Flawless Maneuver",
+      "printing": "Captain America Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1"
+      ],
+      "recommendation": "Buy rainbow foil copies of Flawless Maneuver from the Captain America Secret Lair.",
+      "mentioned_price": "about 19",
+      "entry_target": {
+        "raw": "just under 20",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "the 40 range",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Features unique Captain America art.",
+        "Good position to take a jump when the Marvel summer hits.",
+        "Only about 100 copies listed on TCGplayer for the foil."
+      ],
+      "caveats": [
+        "Other versions like Commander Masters foil etched are also under 20.",
+        "Relies heavily on Captain America commander hype to move."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1533,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Flawless Maneuver you got out of the Captain America Secret Lair, the rainbow foils are at about 19... looking for them to double up into the 40 range.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-da4838a1e1a910fe",
+      "timestamp": "00:25:33",
+      "listen_url": "https://feeds.soundcloud.com/stream/2278431149-user-519789566-mtg-fast-finance-ep-514.mp3#t=1533"
+    },
+    {
+      "card": "Circle of Dreams Druid",
+      "printing": "AFR",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1"
+      ],
+      "recommendation": "Buy foil extended art copies of Circle of Dreams Druid from Adventures in the Forgotten Realms.",
+      "mentioned_price": "about $12",
+      "entry_target": {
+        "raw": "about $12",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 12.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "mid-20s",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 29.0
+      },
+      "reasoning": [
+        "Very popular elf showing up in many Commander decks.",
+        "Only 17 listings left on TCGplayer.",
+        "Difficult card to reprint easily outside of specific D&D-themed sets."
+      ],
+      "caveats": [
+        "Could be reprinted in a future Secret Lair or special slot."
+      ],
+      "confidence": "high",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Circle of Dreams Druid foil extended art out of AFR... about $12... push up into the mid-20s, so call it 12 to 25.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6e996013bd39c285",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2278431149-user-519789566-mtg-fast-finance-ep-514.mp3#t=1800"
+    },
+    {
+      "card": "Shared Animosity",
+      "printing": "Aetherdrift Commander",
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "Buy copies of the card referred to as Renewed Solidarity from Aetherdrift/Innistrad Commander.",
+      "mentioned_price": "$7 range",
+      "entry_target": {
+        "raw": "$7 range",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 7.0
+      },
+      "hold": "12 months",
+      "exit_target": {
+        "raw": "$15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Top card from its subset and has already doubled in price since December.",
+        "Commander reprints happen at a slow pace."
+      ],
+      "caveats": [
+        "Speaker likely misnamed the card, as 'Renewed Solidarity' is an Amonkhet common, not a 3-mana token enchantment.",
+        "Inventory is still relatively deep."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1910,
+      "evidence_excerpt": "Renewed Solidarity... I think that this is a card that can go a lot further, and I'm picking it to go to $15 in the next 12 months or so",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Renewed Solidarity",
+        "candidate_card": "Shared Animosity",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speaker is discussing a 3-mana card highly effective in tribal token decks, mentioning commanders like Edgar Markov (Vampires), Varina (Zombies), Xyris (Snakes), and Alela (Faeries) where the tokens share a creature type. The first extraction misheard 'Shared Animosity' as 'Renewed Solidarity' due to their close phonetic similarity."
+      },
+      "id": "pick-e1d1fb63173c6bad",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2278431149-user-519789566-mtg-fast-finance-ep-514.mp3#t=1800"
+    }
+  ]
+}

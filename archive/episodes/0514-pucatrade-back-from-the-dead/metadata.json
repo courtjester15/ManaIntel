@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2278431149",
+    "episode_number": 514,
+    "title": "MTG Fast Finance Ep 514: Pucatrade Back From the Dead",
+    "published_at": "2026-03-06T01:35:08Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2278431149-user-519789566-mtg-fast-finance-ep-514.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-514",
+    "duration_seconds": 2650,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the weekly top movers, meta shifts, cards to watch and explore the details of a possible resurrection of the Pucatrade monster.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-23T10:44:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-23T10:38:42Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-23T10:38:43Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-23T10:38:43Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-23T10:39:00Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-23T10:43:36Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-23T10:43:36Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-23T10:44:49Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-23T10:44:49Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-23T10:44:49Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-23T10:44:49Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2650,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 54.823,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9764,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22620,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 5584,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37968,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 69.36,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10197,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 9415,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42233,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 850,
+          "request_seconds": 151.838,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9580,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 21387,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 21266
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 10593,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41560,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 42
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1342,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 5938,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 5938
+        }
+      ],
+      "thoughts_token_count": 8160,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 15440,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0514-pucatrade-back-from-the-dead/metadata.json",
+    "summary_json": "episodes/0514-pucatrade-back-from-the-dead/summary.json",
+    "summary_markdown": "episodes/0514-pucatrade-back-from-the-dead/summary.md"
+  }
+}
