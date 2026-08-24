@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import unittest
-import uuid
 from copy import deepcopy
 from pathlib import Path
 
@@ -17,6 +16,7 @@ from ffw.reviews import (
 )
 from ffw.utils import atomic_write_json, atomic_write_text, load_json, stable_pick_id
 from ffw.validation import validate_archive
+from tests.workspace import workspace_temp
 
 
 def pick(guid: str, card: str, start: int, printing: str | None = None) -> dict:
@@ -167,8 +167,7 @@ class ReviewOverrideTests(unittest.TestCase):
             normalize_review(original, request, actor="reviewer")
 
     def test_persisted_review_builds_effective_catalog_and_validates(self) -> None:
-        root = Path.cwd() / ".test-work" / str(uuid.uuid4())
-        root.mkdir(parents=True, exist_ok=True)
+        root = workspace_temp(self)
         archive = root / "archive"
         episode_dir = archive / "episodes" / "0042-review-fixture"
         reviews = root / "data" / "reviews"
