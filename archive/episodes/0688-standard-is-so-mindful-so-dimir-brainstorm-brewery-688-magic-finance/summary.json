@@ -1,0 +1,456 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15786",
+    "episode_number": 688,
+    "title": "Standard Is So Mindful So Dimir | Brainstorm Brewery #688 | Magic Finance",
+    "published_at": "2026-02-27T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_688_Standard_So_Mindful_So_Dimir.mp3",
+    "episode_url": "https://brainstormbrewery.com/standard-is-so-mindful-so-dimir-brainstorm-brewery-688-magic-finance/",
+    "duration_seconds": 2879,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) talk about Standard tournaments, Past Pro Tours, and Riftbound. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Successfully extracted all explicit recommendations from the Breaking Bulk and Pick of the Week segments, flagging the Fire Crystal as needs_review due to the host's speculative discussion rather than a direct endorsement.",
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-24T10:59:42Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-24T10:52:46Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-24T10:52:46Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-24T10:52:46Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-24T10:52:46Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-24T10:52:48Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-24T10:52:48Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-24T10:53:05Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-24T10:58:58Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-24T10:58:58Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-24T10:59:42Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-24T10:59:42Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-24T10:59:42Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-24T10:59:42Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2879,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 87.95,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14755,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22642,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 143
+              }
+            ],
+            "thoughts_token_count": 5932,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43329,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 107.593,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13800,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22643,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 143
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 14277,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 50720,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 93.985,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17292,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22643,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 143
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 299,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40234,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 179,
+          "request_seconds": 62.804,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2000,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 4614,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 143
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 4471
+              }
+            ],
+            "thoughts_token_count": 4501,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 11115,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 46
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2033,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 17505,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 17505
+        }
+      ],
+      "thoughts_token_count": 7653,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 27191,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 910,
+    "end_seconds": 2941,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Mutavault Token",
+      "printing": "Lorwyn block",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "pull from bulk",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "The Mutavault token has a surprisingly high value of $2.",
+        "The foil version of this token is worth about $7."
+      ],
+      "caveats": [
+        "Tokens are sometimes not considered cards by traditional gameplay definitions, but still hold significant secondary market value."
+      ],
+      "confidence": "high",
+      "start_seconds": 910,
+      "end_seconds": 912,
+      "evidence_excerpt": "It's the Mutavault token, it's $2. ... Either way, Mutavault tokens, along with the Elk on the other side, are $2.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9add2e3085ac9997",
+      "timestamp": "00:15:10",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_688_Standard_So_Mindful_So_Dimir.mp3#t=910"
+    },
+    {
+      "card": "Shoot the Sheriff",
+      "printing": "Outlaws of Thunder Junction",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "pull from bulk",
+      "mentioned_price": "25 cents",
+      "entry_target": {
+        "raw": "like, 25 cents",
+        "currency": "USD",
+        "minimum": 0.25,
+        "maximum": 0.25
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "The card is seeing an uptick in competitive play, notably in Dimir Midrange at the recent Regional Championship.",
+        "It currently has a buylist price of around 25 cents."
+      ],
+      "caveats": [
+        "Make sure not to bulk out the promo versions of the card, as they are worth even more."
+      ],
+      "confidence": "high",
+      "start_seconds": 912,
+      "end_seconds": 913,
+      "evidence_excerpt": "Shoot the Sheriff has a buylist of like, 25 cents. Uh, card is seeing an uptick in play. Dimir Midrange had a pretty good showing at the RC last weekend. Pull these out of your bulk, folks.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-13e56cefb9265c22",
+      "timestamp": "00:15:12",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_688_Standard_So_Mindful_So_Dimir.mp3#t=912"
+    },
+    {
+      "card": "Shadow of the Goblin",
+      "printing": "Spider-Man",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "pull from bulk",
+      "mentioned_price": "$0.20",
+      "entry_target": {
+        "raw": "$0.20",
+        "currency": "USD",
+        "minimum": 0.2,
+        "maximum": 0.2
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It has a base version buylist price of $0.20 on Card Kingdom.",
+        "The most expensive version is valued at around $1.50.",
+        "It is highly synergistic with red card advantage engines that play lands or spells from exile."
+      ],
+      "caveats": [
+        "It has low individual value, making it primarily a target for bulk-sorting machines."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2040,
+      "end_seconds": 2145,
+      "evidence_excerpt": "Shadow of the Goblin... Card Kingdom buy list is $0.20 for the base version. So, it's not a bulk rare, the most expensive version is like $1.50.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-de2f6c4ac894459f",
+      "timestamp": "00:34:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_688_Standard_So_Mindful_So_Dimir.mp3#t=2040"
+    },
+    {
+      "card": "Heartmender",
+      "printing": "Shadowmoor",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "like $2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "like $8",
+        "currency": "USD",
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "reasoning": [
+        "It is a weird old rare from Shadowmoor that has never been reprinted.",
+        "MTG BAN data indicates that supply is actively drying up without an associated price spike yet."
+      ],
+      "caveats": [
+        "The card is not in the color identity of the most popular commander deck associated with its mechanic (white/spike)."
+      ],
+      "confidence": "high",
+      "start_seconds": 2516,
+      "end_seconds": 2555,
+      "evidence_excerpt": "Heartmender. It is a weird old rare from Shadowmoor... and you should pay like $2 for them. And eventually, you might get like $8 for them",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-dd6cbde15387e5d5",
+      "timestamp": "00:41:56",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_688_Standard_So_Mindful_So_Dimir.mp3#t=2516"
+    },
+    {
+      "card": "Nullhide Ferox",
+      "printing": "Guilds of Ravnica",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It serves as a strong counter to popular Dimir Midrange strategies in Standard.",
+        "It is highly effective against Deep-Cavern Bat and acts as a central piece of the Boros Dragons deck."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2558,
+      "end_seconds": 2617,
+      "evidence_excerpt": "My pick of the week is a Standard card. Uh, something that actually is specifically good against the Dimir decks. Uh, it's Nullhide Ferox from Guilds of Ravnica.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b77e43d0d38637d5",
+      "timestamp": "00:42:38",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_688_Standard_So_Mindful_So_Dimir.mp3#t=2558"
+    },
+    {
+      "card": "Fire Crystal",
+      "printing": "Final Fantasy",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "monitor",
+      "mentioned_price": "$5.15",
+      "entry_target": {
+        "raw": "five dollars and fifteen cents",
+        "currency": "USD",
+        "minimum": 5.15,
+        "maximum": 5.15
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Market price has steadily risen from three dollars to five dollars and fifteen cents over the last month.",
+        "Supply of Final Fantasy product is low since few people are cracking the set unless opening collector booster boxes."
+      ],
+      "caveats": [
+        "The host expresses doubts about its actual power level and playability in formats like Commander and Standard."
+      ],
+      "confidence": "low",
+      "start_seconds": 2705,
+      "end_seconds": 2853,
+      "evidence_excerpt": "The Fire Crystal out of Final Fantasy? Um, a month ago was three dollars and this month as of today is five dollars and fifteen cents market price.",
+      "review_status": "needs_review",
+      "review_reason": "Ambiguous recommendation; the host is analyzing its market movements and supply dynamics but explicitly expresses skepticism about its actual demand and playability.",
+      "id": "pick-afb2cdb6e7d457df",
+      "timestamp": "00:45:05",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_688_Standard_So_Mindful_So_Dimir.mp3#t=2705"
+    }
+  ]
+}
