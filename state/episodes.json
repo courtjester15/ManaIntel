@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-24T10:59:42Z",
+  "updated_at": "2026-08-24T20:54:51Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -11696,6 +11696,221 @@
         "traffic_type": null
       },
       "review_reason": "Successfully extracted all explicit recommendations from the Breaking Bulk and Pick of the Week segments, flagging the Fire Crystal as needs_review due to the host's speculative discussion rather than a direct endorsement."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15782": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15782",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-24T20:47:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-24T20:47:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-24T20:47:44Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-24T20:47:44Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-24T20:47:46Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-24T20:47:46Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-24T20:48:01Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-24T20:53:05Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-24T20:53:05Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-24T20:54:51Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-24T20:54:51Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-24T20:54:51Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-24T20:54:51Z"
+        }
+      ],
+      "title": "All Broken and All Fun! | Brainstorm Brewery #687 | Magic Finance",
+      "episode_number": 687,
+      "published_at": "2026-02-20T06:04:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-24T20:54:51Z",
+      "output_directory": "episodes/0687-all-broken-and-all-fun-brainstorm-brewery-687-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2752,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 61.379,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11494,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22641,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 142
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 5375,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39510,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 134.071,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12267,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22642,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 142
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 22251,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 57160,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 100.515,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9609,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22642,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 142
+                }
+              ],
+              "thoughts_token_count": 15284,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47535,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 52,
+            "request_seconds": 7.164,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 458,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 1427,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 1285
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 142
+                }
+              ],
+              "thoughts_token_count": 1540,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 3425,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 69
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1255,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 13132,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 13132
+          }
+        ],
+        "thoughts_token_count": 12357,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 26744,
+        "traffic_type": null
+      },
+      "review_reason": "Found ambiguous card names 'Vibrants' and 'Earthbending Ascendancy' which may be transcription errors or refer to non-Magic games."
     }
   }
 }

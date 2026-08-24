@@ -1,0 +1,385 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15782",
+    "episode_number": 687,
+    "title": "All Broken and All Fun! | Brainstorm Brewery #687 | Magic Finance",
+    "published_at": "2026-02-20T06:04:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_687_All_Broken_and_All_Fun.mp3",
+    "episode_url": "https://brainstormbrewery.com/all-broken-and-all-fun-brainstorm-brewery-687-magic-finance/",
+    "duration_seconds": 2752,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) are back talking about the beauty that is the meta movements in standard. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Found ambiguous card names 'Vibrants' and 'Earthbending Ascendancy' which may be transcription errors or refer to non-Magic games.",
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-24T20:54:51Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-24T20:47:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-24T20:47:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-24T20:47:44Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-24T20:47:44Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-24T20:47:46Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-24T20:47:46Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-24T20:48:01Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-24T20:53:05Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-24T20:53:05Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-24T20:54:51Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-24T20:54:51Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-24T20:54:51Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-24T20:54:51Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2752,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 61.379,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11494,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22641,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 5375,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39510,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 134.071,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12267,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22642,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 22251,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 57160,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 100.515,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9609,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22642,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              }
+            ],
+            "thoughts_token_count": 15284,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47535,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 52,
+          "request_seconds": 7.164,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 458,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 1427,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 1285
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              }
+            ],
+            "thoughts_token_count": 1540,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 3425,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 69
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1255,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 13132,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 13132
+        }
+      ],
+      "thoughts_token_count": 12357,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 26744,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1300,
+    "end_seconds": 2713,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Earthbending Ascendancy",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Seeing play in green landfall decks and Teemo Harmonizer",
+        "Multiple buy lists over TCGplayer market and Direct Net is well above TCGplayer market"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1445,
+      "end_seconds": 1482,
+      "evidence_excerpt": "Earthbending Ascendancy is seeing play in the green landfall decks and Teemo Harmonizer. Get your copies, or don't. I'm not your boss.",
+      "review_status": "needs_review",
+      "review_reason": "Card 'Earthbending Ascendancy' is from a non-Magic game (Riftbound or Avatar-related), or is otherwise ambiguous.",
+      "id": "pick-444fcfdb6748cd58",
+      "timestamp": "00:24:05",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_687_All_Broken_and_All_Fun.mp3#t=1445"
+    },
+    {
+      "card": "Nuclear Fallout",
+      "printing": "Fallout",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "$3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Climbed up to $3 from $1 two weeks ago and is probably just getting going"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2471,
+      "end_seconds": 2528,
+      "evidence_excerpt": "Nuclear Fallout from Fallout is, uh, climbed up to $3 from $1 two weeks ago, and I think it's probably just getting going. So, I think it's going to be $10.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d23b3f793c2e82fe",
+      "timestamp": "00:41:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_687_All_Broken_and_All_Fun.mp3#t=2471"
+    },
+    {
+      "card": "Vibrants",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Has buy list prices over TCG low on three of the four major websites",
+        "People will figure out the Lorwyn elementals when Turtles are the newest, hottest thing"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2540,
+      "end_seconds": 2608,
+      "evidence_excerpt": "My pick of the week this week is, uh, one of the Lorwyn elementals that maybe time forgot already because turtles have been lost in time or something. Vibrants.",
+      "review_status": "needs_review",
+      "review_reason": "Ambiguous card name 'Vibrants' and printing 'Lorwyn elementals' which seems to be a transcription error.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Vibrants",
+        "candidate_card": null,
+        "decision": "ambiguous",
+        "accepted": false,
+        "explanation": "The speaker refers to a card they call 'Vibrants', describing it as a 'red-green elemental' with modal options (lightning bolt, search for a land and gain 2 life, or a 5-mana 4/4 that does both). There is no Magic card named 'Vibrants' or 'Vibrant', and while the Lorwyn block contains the elemental 'Vigor', Vigor is mono-green and has entirely different abilities. Because the name and description do not clearly align with a specific existing card, the reference is ambiguous."
+      },
+      "id": "pick-89bdf849876deadc",
+      "timestamp": "00:42:20",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_687_All_Broken_and_All_Fun.mp3#t=2540"
+    },
+    {
+      "card": "Gisela, Blade of Goldnight",
+      "printing": "Murders at Karlov Manor Commander",
+      "printing_certainty": "likely",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Previously a $10 to $15 mythic that has dropped due to precon printing",
+        "Works very well with the upcoming Strixhaven Dragon in Boros spell decks",
+        "Precon mythics tend to drop and then reliably grow back in price"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2608,
+      "end_seconds": 2700,
+      "evidence_excerpt": "Gisela, Blade of Goldnight... she's still a $2 mythic that you should buy a bunch of because it's a previously $10 to $15 mythic.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fa06c049ba091116",
+      "timestamp": "00:43:28",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_687_All_Broken_and_All_Fun.mp3#t=2608"
+    }
+  ]
+}
