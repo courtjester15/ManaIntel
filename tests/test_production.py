@@ -10,7 +10,6 @@ import subprocess
 import sys
 import types as stdlib_types
 import unittest
-import uuid
 from email.message import Message
 from pathlib import Path
 from unittest.mock import Mock, call, patch
@@ -24,12 +23,7 @@ from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiMalformedJ
 from ffw.state import JsonStateStore
 from ffw.utils import atomic_write_json, load_json
 from ffw.verification import GeminiPickVerifier
-
-
-def workspace_temp() -> Path:
-    path = Path.cwd() / ".test-work" / str(uuid.uuid4())
-    path.mkdir(parents=True, exist_ok=True)
-    return path
+from tests.workspace import workspace_temp
 
 
 class FakeResponse(io.BytesIO):
@@ -96,7 +90,7 @@ class RssTests(unittest.TestCase):
         self.assertEqual(705, item.episode_number)
 
     def test_repairs_missing_brainstorm_numbers_without_reprocessing(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         episode_dir = root / "archive" / "episodes" / "0000-example"
         episode_dir.mkdir(parents=True)
         episode_payload = {
@@ -157,7 +151,7 @@ class RssTests(unittest.TestCase):
 
 class DownloadTests(unittest.TestCase):
     def test_streams_and_renames_part_file(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         downloader = StreamingDownloader(100, 5, opener=lambda *a, **k: FakeResponse(b"audio-data"))
         result = downloader.download(episode(), root / "source-audio")
         self.assertEqual(b"audio-data", result.read_bytes())
@@ -169,7 +163,7 @@ class DownloadTests(unittest.TestCase):
             downloader.download(episode("http://example.test/a.mp3"), Path("unused"))
 
     def test_rejects_mime_and_cleans_part(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         downloader = StreamingDownloader(100, 5, opener=lambda *a, **k: FakeResponse(b"html", content_type="text/html"))
         with self.assertRaisesRegex(ValueError, "content type"):
             downloader.download(episode(), root / "source-audio")
@@ -178,7 +172,7 @@ class DownloadTests(unittest.TestCase):
     def test_rejects_declared_or_streamed_oversize(self) -> None:
         for response in (FakeResponse(b"x", length=101), FakeResponse(b"x" * 101)):
             with self.subTest(length=response.headers.get("Content-Length")):
-                root = workspace_temp()
+                root = workspace_temp(self)
                 downloader = StreamingDownloader(100, 5, opener=lambda *a, response=response, **k: response)
                 with self.assertRaisesRegex(ValueError, "maximum size"):
                     downloader.download(episode(), root / "source-audio")
@@ -408,7 +402,7 @@ class DetectionAndStateTests(unittest.TestCase):
         ))
 
     def test_discovery_is_idempotent_and_failed_attempt_is_retryable(self) -> None:
-        store = JsonStateStore(workspace_temp() / "state.json")
+        store = JsonStateStore(workspace_temp(self) / "state.json")
         candidate = episode()
         self.assertTrue(store.discover(candidate))
         self.assertFalse(store.discover(candidate))
@@ -419,7 +413,7 @@ class DetectionAndStateTests(unittest.TestCase):
         self.assertEqual(before + 2, len(store.get(candidate.guid)["history"]))
 
     def test_production_catalog_excludes_fixtures_and_reports_health(self) -> None:
-        archive = workspace_temp() / "archive"
+        archive = workspace_temp(self) / "archive"
         for name, synthetic in (("fixture", True), ("real", False)):
             directory = archive / "episodes" / name
             metadata = {
@@ -438,7 +432,7 @@ class DetectionAndStateTests(unittest.TestCase):
 
 
     def test_catalog_merges_mixed_source_urls(self) -> None:
-        archive = workspace_temp() / "archive"
+        archive = workspace_temp(self) / "archive"
         for name, source_url in (("legacy", None), ("current", "https://soundcloud.com/example")):
             directory = archive / "episodes" / name
             atomic_write_json(directory / "metadata.json", {
@@ -612,7 +606,7 @@ class FrontendContractTests(unittest.TestCase):
 
 class ProductionPipelineTests(unittest.TestCase):
     def test_explicit_reuse_uses_matching_retained_transcript_without_transcriber_call(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         settings = Settings(
             root, root / "archive", root / "state/episodes.json", root / ".ffw-work",
             mode="live", reuse_transcripts=True,
@@ -667,7 +661,7 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertEqual(0, extractor.transcript["segments"][0]["sequence"])
 
     def test_live_provider_selection_is_swappable(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         base = {
             "root": root,
             "archive_dir": root / "archive",
@@ -752,7 +746,7 @@ class ProductionPipelineTests(unittest.TestCase):
         fallback.transcribe.assert_not_called()
 
     def test_gemini_adapter_enables_openai_fallback_when_secret_is_available(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         settings = Settings(
             root, root / "archive", root / "state/episodes.json", root / ".ffw-work",
             mode="live", ai_provider="gemini", transcription_model="gemini-primary",
@@ -853,7 +847,7 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertEqual(("transient_provider", True, True), classify_failure(str(raised.exception)))
 
     def test_live_run_requires_positive_limit(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live")
 
         class Feed:
@@ -868,7 +862,7 @@ class ProductionPipelineTests(unittest.TestCase):
             pipeline.run(limit=settings.max_live_batch + 1)
 
     def test_provider_wide_failure_stops_live_batch(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live")
         candidates = [
             EpisodeCandidate(f"guid-{index}", 50 + index, f"Episode {index}", f"2026-01-0{index}T00:00:00Z", "https://cdn.example.test/audio.mp3", "https://example.test/e", [])
@@ -905,7 +899,7 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertFalse(records["guid-3"]["error"]["retryable"])
 
     def test_episode_specific_failure_does_not_stop_limited_batch(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live")
         candidates = [
             EpisodeCandidate("guid-1", 1, "Episode 1", "2026-01-01T00:00:00Z", "https://cdn.example.test/1.mp3", "https://example.test/1", []),
@@ -952,7 +946,7 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertTrue(error["quarantined"])
 
     def test_targeted_second_listen_accepts_only_catalog_verified_card_name(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         audio = root / "chunk-000.mp3"
         audio.write_bytes(b"audio")
 
@@ -1026,7 +1020,7 @@ class ProductionPipelineTests(unittest.TestCase):
         self.assertEqual(("needs_review", "complete"), (report["before_status"], report["after_status"]))
 
     def test_forced_zero_pick_reprocess_preserves_nonzero_published_summary(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live")
         candidate = episode()
 
@@ -1087,7 +1081,7 @@ class ProductionPipelineTests(unittest.TestCase):
             state["pick_count"], report["published"], report["preserved_previous"],
         ))
     def test_real_five_pick_publication_cleanup_and_idempotent_skip(self) -> None:
-        root = workspace_temp()
+        root = workspace_temp(self)
         settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work", mode="live", retain_transcripts=True)
         candidate = episode()
 
@@ -1147,7 +1141,7 @@ class ProductionPipelineTests(unittest.TestCase):
 
 class StateAwareSelectionTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.root = workspace_temp()
+        self.root = workspace_temp(self)
         self.settings = Settings(
             self.root,
             self.root / "archive",

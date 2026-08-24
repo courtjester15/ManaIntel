@@ -4,7 +4,6 @@ import io
 import json
 import unittest
 import urllib.error
-import uuid
 from pathlib import Path
 from unittest.mock import Mock, patch
 
@@ -17,6 +16,7 @@ from ffw.card_resolution import (
 from ffw.utils import atomic_write_json, load_json
 from ffw.config import Settings
 from ffw.pipeline import Pipeline
+from tests.workspace import workspace_temp
 
 
 class JsonResponse(io.BytesIO):
@@ -117,7 +117,7 @@ class CardResolverTests(unittest.TestCase):
         self.assertEqual("verified", result["status"])
 
     def test_archive_sweep_reuses_a_name_lookup_and_preserves_pick_ids(self) -> None:
-        root = Path.cwd() / ".test-work" / str(uuid.uuid4())
+        root = workspace_temp(self)
         first = root / "archive/episodes/one/summary.json"
         second = root / "archive/episodes/two/summary.json"
         atomic_write_json(first, {"recommendations": [{"id": "pick-one", "card": "Sol Ring"}]})
@@ -160,7 +160,7 @@ class CardResolverTests(unittest.TestCase):
         self.assertEqual("Sol Ring", projected["card"])
 
     def test_archive_sweep_refreshes_legacy_records_without_visual_metadata(self) -> None:
-        root = Path.cwd() / ".test-work" / str(uuid.uuid4())
+        root = workspace_temp(self)
         summary = root / "archive/episodes/one/summary.json"
         store_path = root / "state/card-resolutions.json"
         atomic_write_json(summary, {"recommendations": [{"id": "pick-one", "card": "Sol Ring"}]})
@@ -205,7 +205,7 @@ class CardResolverTests(unittest.TestCase):
         self.assertEqual("https://cards.scryfall.io/normal/sol-ring.jpg", refreshed["image_uri"])
 
     def test_production_sweep_skips_synthetic_episode_summaries(self) -> None:
-        root = Path.cwd() / ".test-work" / str(uuid.uuid4())
+        root = workspace_temp(self)
         synthetic = root / "archive/episodes/synthetic/summary.json"
         atomic_write_json(synthetic, {"recommendations": [{"id": "synthetic-pick", "card": "Sol Ring"}]})
         atomic_write_json(synthetic.parent / "metadata.json", {"synthetic": True})
@@ -224,7 +224,7 @@ class CardResolverTests(unittest.TestCase):
         self.assertEqual(0, report.scanned)
 
     def test_pipeline_publishes_resolved_projection_without_mutating_summary(self) -> None:
-        root = Path.cwd() / ".test-work" / str(uuid.uuid4())
+        root = workspace_temp(self)
         settings = Settings(root, root / "archive", root / "state/episodes.json", root / ".ffw-work")
 
         class Resolver:

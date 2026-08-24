@@ -2,22 +2,18 @@ from __future__ import annotations
 
 import json
 import unittest
-import uuid
-from pathlib import Path
 
 from ffw.config import Settings
 from ffw.pipeline import Pipeline
 from ffw.rendering import render_episode_markdown
 from ffw.utils import load_json, stable_pick_id
 from ffw.validation import validate_archive
+from tests.workspace import workspace_temp
 
 
 class PipelineTests(unittest.TestCase):
     def setUp(self) -> None:
-        test_root = Path.cwd() / ".test-work"
-        test_root.mkdir(parents=True, exist_ok=True)
-        root = test_root / str(uuid.uuid4())
-        root.mkdir(parents=True, exist_ok=True)
+        root = workspace_temp(self)
         self.settings = Settings(
             root=root,
             archive_dir=root / "archive",
