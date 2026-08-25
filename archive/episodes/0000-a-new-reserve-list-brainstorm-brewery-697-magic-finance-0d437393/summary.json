@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=18925",
     "episode_number": 697,
@@ -331,9 +331,158 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0000-a-new-reserve-list-brainstorm-brewery-697-magic-finance-0d437393/metadata.json",
-    "summary_json": "episodes/0000-a-new-reserve-list-brainstorm-brewery-697-magic-finance-0d437393/summary.json",
-    "summary_markdown": "episodes/0000-a-new-reserve-list-brainstorm-brewery-697-magic-finance-0d437393/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 1306,
+    "end_seconds": 4114,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Blood Fountain",
+      "printing": "Innistrad: Crimson Vow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "Pull from bulk",
+      "mentioned_price": "41 cents market, 15 cents buylist",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "15 cents",
+        "currency": "USD",
+        "minimum": 0.15,
+        "maximum": 0.15
+      },
+      "reasoning": [
+        "It is a common with a 41 cent market price",
+        "CoolStuffInc pays 15 cents per copy"
+      ],
+      "caveats": [
+        "It is barely breaking bulkable and near the close threshold"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1454,
+      "end_seconds": 1557,
+      "evidence_excerpt": "It is a common with market price 41 cents, CoolStuff will pay you 15 cents 15 cents a piece per copy.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-78cdb3ccaec28fe7",
+      "timestamp": "00:24:14",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_697_A_New_Reserve_List.mp3#t=1454"
+    },
+    {
+      "card": "Siren Stormtamer",
+      "printing": "Ixalan",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "Pull from bulk",
+      "mentioned_price": "almost a dollar",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "almost a dollar",
+        "currency": "USD",
+        "minimum": 0.9,
+        "maximum": 1.0
+      },
+      "reasoning": [
+        "It has recently spiked again to almost a dollar",
+        "Siren Stormtamer is a solid wizard card played in commander"
+      ],
+      "caveats": [
+        "Only the original printing has the good price association right now"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1739,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Siren Stormtamer has recently spiked again. It's almost a dollar... go ahead and pick these up.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-81f09151385d9610",
+      "timestamp": "00:28:59",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_697_A_New_Reserve_List.mp3#t=1739"
+    },
+    {
+      "card": "Blex, Vexing Pest",
+      "printing": "Strixhaven",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "couple dollars",
+      "entry_target": {
+        "raw": "a couple dollars",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It has started to spike in the past few days",
+        "Modal cards are secretly way more powerful than people give them credit for"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "It's a Strixhaven card. An original Strixhaven card. It has started to spike... up to a couple dollars now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ba6fc5941e79ac66",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_697_A_New_Reserve_List.mp3#t=3600"
+    },
+    {
+      "card": "Underground Sea",
+      "printing": "Revised Edition",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "close to $700, $1,000",
+      "entry_target": {
+        "raw": "close to $700",
+        "currency": "USD",
+        "minimum": 650.0,
+        "maximum": 700.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$1,000",
+        "currency": "USD",
+        "minimum": 1000.0,
+        "maximum": 1000.0
+      },
+      "reasoning": [
+        "Revised duals are predicted to be worth significantly more by the end of the year",
+        "Massive influx of players seeking to trade into older stable cards",
+        "Vegas MagicCon will transact many duals and dry up stock on TCGPlayer"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 3600,
+      "end_seconds": 3926,
+      "evidence_excerpt": "HP Underground Sea is close to $700... I think before the end of the year we will... hit there [$1,000] by the end of the year.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-32d211fea5e0c9c4",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_697_A_New_Reserve_List.mp3#t=3600"
+    }
+  ]
 }
