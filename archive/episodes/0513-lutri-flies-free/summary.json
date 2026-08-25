@@ -1,0 +1,390 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2266661177",
+    "episode_number": 513,
+    "title": "MTG Fast Finance Ep 513: Lutri Flies Free!",
+    "published_at": "2026-02-14T19:36:30Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2266661177-user-519789566-mtg-fast-finance-ep-513-lutri.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-513-lutri",
+    "duration_seconds": 2635,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the weekly top movers, meta shifts, cards to watch and the impacts of the recent changes to the EDH ban list. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-25T10:55:26Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-25T10:48:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-25T10:48:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-25T10:48:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-25T10:48:49Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-25T10:48:50Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-25T10:48:50Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-25T10:49:06Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-25T10:54:46Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-25T10:54:46Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-25T10:55:26Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-25T10:55:26Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-25T10:55:26Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-25T10:55:26Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2635,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 114.945,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10106,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22615,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 116
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 6626,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39347,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 153.242,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8850,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22616,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 116
+              }
+            ],
+            "thoughts_token_count": 18311,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49777,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 835,
+          "request_seconds": 70.285,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": null,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 20995,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 116
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20879
+              }
+            ],
+            "thoughts_token_count": 4840,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 25835,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 48
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1621,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 5198,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 5198
+        }
+      ],
+      "thoughts_token_count": 7362,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 14181,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1125,
+    "end_seconds": 1800,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Plains",
+      "printing": "Secret Lair Series",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$13",
+      "entry_target": {
+        "raw": "about 13, some copies at 12, some closer to 15",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 15.0
+      },
+      "hold": "1 to 2 years",
+      "exit_target": {
+        "raw": "25 to 30",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Venom Plains has unique, dynamic art that won't be easily forgotten.",
+        "Zero restock potential as Wizards has stated zero intention of re-reprinting from Secret Lair.",
+        "Strong demand from Marvel commander decks like Anti-Venom."
+      ],
+      "caveats": [
+        "Low inventory with only 20 near mint listings left."
+      ],
+      "confidence": "high",
+      "start_seconds": 1125,
+      "end_seconds": 1550,
+      "evidence_excerpt": "Plains number 1950... buying price right now is about 13... sell target at 25 to 30... zero restock potential because you are not gonna see these... reprinted from Secret Lair.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-93bfc8f7c0f180ff",
+      "timestamp": "00:18:45",
+      "listen_url": "https://feeds.soundcloud.com/stream/2266661177-user-519789566-mtg-fast-finance-ep-513-lutri.mp3#t=1125"
+    },
+    {
+      "card": "Cursed Mirror",
+      "printing": "Secret Lair Drop: Avatar",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$8",
+      "entry_target": {
+        "raw": "around $8",
+        "currency": "USD",
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "In over 200,000 Commander decks, making it a highly played staple.",
+        "Low supply with only 30 vendors having 54 copies across all conditions.",
+        "Avatar Secret Lairs seem to have been underbought, creating high single potential."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1551,
+      "end_seconds": 1711,
+      "evidence_excerpt": "Cursed Mirror, the one with Zuko... foils right now for around $8, and I feel like these are going to hit 20 within the next 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-39faf6ea8c514343",
+      "timestamp": "00:25:51",
+      "listen_url": "https://feeds.soundcloud.com/stream/2266661177-user-519789566-mtg-fast-finance-ep-513-lutri.mp3#t=1551"
+    },
+    {
+      "card": "Monster Manual",
+      "printing": "Secret Lair Drop: D&D",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10 to $12",
+      "entry_target": {
+        "raw": "about $10 to $12",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 12.0
+      },
+      "hold": "3 to 9 months",
+      "exit_target": {
+        "raw": "$20-plus",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "D&D Secret Lair Superdrop just occurred without including this card, meaning zero reprint threat this year.",
+        "Low inventory with only 42 listings left.",
+        "High EDHREC usage with 75,000 decks."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1711,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Monster Manual rainbow foils from the D&D drop... sitting at about $10 to $12... setting up for a pretty decent ramp up into $20-plus somewhere in the next 3 to 9 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-58318d7266a8879b",
+      "timestamp": "00:28:31",
+      "listen_url": "https://feeds.soundcloud.com/stream/2266661177-user-519789566-mtg-fast-finance-ep-513-lutri.mp3#t=1711"
+    },
+    {
+      "card": "Exalted Sunborn",
+      "printing": "Japan Showcase",
+      "printing_certainty": "ambiguous",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$50",
+      "entry_target": {
+        "raw": "around $40. And it's already up $10 since then",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 50.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "85",
+        "currency": "USD",
+        "minimum": 85.0,
+        "maximum": 85.0
+      },
+      "reasoning": [
+        "Very powerful token doubler in 55,000 decks.",
+        "Strong long-term demand from token-focused Commander decks.",
+        "Selling 25 copies a month currently, and up to 150 a month previously."
+      ],
+      "caveats": [
+        "No white token-focused Commander is in the immediate spotlight right now, slowing immediate sales slightly."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Japan Showcase foil of Exalted Sunborn... picking this to go up to 85 in the next 6 to 12 months.",
+      "review_status": "needs_review",
+      "review_reason": "Card 'Exalted Sunborn' is not a known MTG card name, likely a transcription error for a token-doubling card.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Exalted Sunborn",
+        "candidate_card": null,
+        "decision": "ambiguous",
+        "accepted": false,
+        "explanation": "The audio does not contain any mention of 'Exalted Sunborn'. The conversation discusses print runs of Secret Lair drops, mentioning 'Shadowheart' and a drop containing 'Candlekeep' cards, but nothing related to 'Exalted Sunborn'."
+      },
+      "id": "pick-d0052fd6eeeaf37f",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2266661177-user-519789566-mtg-fast-finance-ep-513-lutri.mp3#t=1800"
+    }
+  ]
+}

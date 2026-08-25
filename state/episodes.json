@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-25T03:25:07Z",
+  "updated_at": "2026-08-25T10:55:26Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -11946,6 +11946,192 @@
         "traffic_type": null
       },
       "review_reason": "Found ambiguous card names 'Vibrants' and 'Earthbending Ascendancy' which may be transcription errors or refer to non-Magic games."
+    },
+    "tag:soundcloud,2010:tracks/2266661177": {
+      "guid": "tag:soundcloud,2010:tracks/2266661177",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-25T10:48:49Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-25T10:48:49Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-25T10:48:49Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-25T10:48:49Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-25T10:48:50Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-25T10:48:50Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-25T10:49:06Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-25T10:54:46Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-25T10:54:46Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-25T10:55:26Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-25T10:55:26Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-25T10:55:26Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-25T10:55:26Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 513: Lutri Flies Free!",
+      "episode_number": 513,
+      "published_at": "2026-02-14T19:36:30Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-25T10:55:26Z",
+      "output_directory": "episodes/0513-lutri-flies-free",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 2635,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 114.945,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10106,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22615,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 116
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 6626,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39347,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 153.242,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8850,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22616,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 116
+                }
+              ],
+              "thoughts_token_count": 18311,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 49777,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 835,
+            "request_seconds": 70.285,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": null,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 20995,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 116
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20879
+                }
+              ],
+              "thoughts_token_count": 4840,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 25835,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 48
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1621,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 5198,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 5198
+          }
+        ],
+        "thoughts_token_count": 7362,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 14181,
+        "traffic_type": null
+      },
+      "review_reason": null
     }
   }
 }
