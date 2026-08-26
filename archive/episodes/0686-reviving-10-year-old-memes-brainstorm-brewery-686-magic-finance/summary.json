@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15779",
+    "episode_number": 686,
+    "title": "Reviving 10 Year Old Memes | Brainstorm Brewery #686 | Magic Finance",
+    "published_at": "2026-02-13T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_686_Reviving_10_Year_Old_Memes.mp3",
+    "episode_url": "https://brainstormbrewery.com/reviving-10-year-old-memes-brainstorm-brewery-686-magic-finance/",
+    "duration_seconds": 2499,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) are wrestling with the addiction that is league of legends while also filling you in on all the latest Magic news. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-26T10:56:11Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-26T10:52:07Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-26T10:52:07Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-26T10:52:07Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-26T10:52:07Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-26T10:52:09Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-26T10:52:09Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-26T10:52:23Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-26T10:55:35Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-26T10:55:35Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-26T10:56:11Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-26T10:56:11Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-26T10:56:11Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-26T10:56:11Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2499,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 50.614,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12531,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22652,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35183,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 53.358,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13400,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22653,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              }
+            ],
+            "thoughts_token_count": 169,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36222,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 699,
+          "request_seconds": 87.087,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9334,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 17627,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 17474
+              }
+            ],
+            "thoughts_token_count": 13316,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40277,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 55
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 672,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12045,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12045
+        }
+      ],
+      "thoughts_token_count": 7394,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 20111,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1169,
+    "end_seconds": 2425,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Kaito, Bane of Nightmares",
+      "printing": "Duskmourn",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$20",
+      "entry_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "The entire next set is Ninjas",
+        "Blue-Black Midrange is seeing a resurgence in Standard",
+        "It is good to pump your team with Kaito's emblem"
+      ],
+      "caveats": [
+        "The card did not get cheap again, by the way. Card is still $20"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2199,
+      "end_seconds": 2246,
+      "evidence_excerpt": "My Pick of the Week this week is Kaito, Bane of Nightmares.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-de616bdf32dcfa60",
+      "timestamp": "00:36:39",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_686_Reviving_10_Year_Old_Memes.mp3#t=2199"
+    },
+    {
+      "card": "Exalted Sunborn",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "about 15, almost 16",
+      "entry_target": {
+        "raw": "about 15, almost 16 now",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 16.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It is a 4/5 flying lifelink Angel Wizard that doubles token creation under your control",
+        "It has Ward 2",
+        "It bottomed out in December at about $12 and is climbing",
+        "It feels like a card that is going to continue to rise in price",
+        "It does not feel like an easy card to reprint"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2251,
+      "end_seconds": 2311,
+      "evidence_excerpt": "Do you all know what Exalted Sunborn is? ... it just feels like a card that's going to continue to rise in price.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c3e4848473d70113",
+      "timestamp": "00:37:31",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_686_Reviving_10_Year_Old_Memes.mp3#t=2251"
+    },
+    {
+      "card": "Tree of Perdition",
+      "printing": "Lorwyn Eclipse",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "two or three dollars",
+      "entry_target": {
+        "raw": "two or three dollars",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It used to be $10 and went down to two or three dollars in a Lorwyn Eclipse precon",
+        "It is back to being a very, very small amount of money",
+        "It has new artwork, and it is a card that you play on turn four"
+      ],
+      "caveats": [
+        "I'm not sure how I feel about the new Tree of Perdition art"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2311,
+      "end_seconds": 2358,
+      "evidence_excerpt": "Tree of Perdition, everyone, is back to being a very, very small amount of money. It has new artwork, and it's a card that you play on turn four.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-3e76299092037f2b",
+      "timestamp": "00:38:31",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_686_Reviving_10_Year_Old_Memes.mp3#t=2311"
+    }
+  ]
+}
