@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2262160169",
+    "episode_number": 511,
+    "title": "MTG Fast Finance Ep 511: Fallout Secret Lair Results",
+    "published_at": "2026-02-07T23:35:56Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2262160169-user-519789566-mtg-fast-finance-ep-511.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-511",
+    "duration_seconds": 2472,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the weekly top movers, meta shifts, cards to watch and the results of the recent Fallout Secret Lair super drop.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-27T20:34:14Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-27T20:29:23Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-27T20:29:23Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-27T20:29:34Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-27T20:34:13Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-27T20:34:13Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-08-27T20:34:14Z"
+      }
+    ],
+    "error": {
+      "stage": "extracting",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-08-28T02:34:14Z",
+      "quarantined": false
+    },
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2472,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 157.174,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8650,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22614,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 6064,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37328,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 66.333,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8862,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22615,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              }
+            ],
+            "thoughts_token_count": 6282,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37759,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 672,
+          "request_seconds": 54.116,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 5778,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 16918,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 16803
+              }
+            ],
+            "thoughts_token_count": 1924,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 24620,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 24
+    },
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0511-fallout-secret-lair-results/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

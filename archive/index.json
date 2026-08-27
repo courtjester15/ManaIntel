@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-08-26T23:34:10Z",
+    "generated_at": "2026-08-27T20:34:14Z",
     "latest_successful_run_at": "2026-08-26T10:56:11Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 56,
+    "real_episode_count": 57,
     "real_pick_count": 201,
     "last_discovered_episode_date": "2026-08-21T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,16 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 56,
+    "episodes": 57,
     "picks": 201,
     "needs_review": 26,
-    "failed": 5,
+    "failed": 6,
     "completed": 25
   },
   "status_counts": {
     "complete": 25,
     "needs_review": 26,
-    "failed": 5
+    "failed": 6
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=31513",
@@ -2305,6 +2305,53 @@
         "attempt": 1,
         "max_attempts": 3,
         "next_retry_at": "2026-08-27T05:34:10Z",
+        "quarantined": false
+      },
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2262160169",
+      "episode_number": 511,
+      "title": "MTG Fast Finance Ep 511: Fallout Secret Lair Results",
+      "published_at": "2026-02-07T23:35:56Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2262160169-user-519789566-mtg-fast-finance-ep-511.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-511",
+      "duration_seconds": 2472,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "James and Cliff go over the weekly top movers, meta shifts, cards to watch and the results of the recent Fallout Secret Lair super drop.\n\nIntro/Outro Music by Skylarka",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0511-fallout-secret-lair-results",
+      "outputs": {
+        "metadata": "episodes/0511-fallout-secret-lair-results/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-08-27T20:34:14Z",
+      "error": {
+        "stage": "extracting",
+        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-08-28T02:34:14Z",
         "quarantined": false
       },
       "human_reviewed": false,
