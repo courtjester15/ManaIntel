@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-27T20:34:14Z",
+  "updated_at": "2026-08-28T04:34:35Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -12377,6 +12377,50 @@
         {
           "status": "failed",
           "timestamp": "2026-08-26T23:34:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-28T04:22:29Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-28T04:22:29Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-28T04:22:30Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-28T04:22:30Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-28T04:22:49Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-28T04:30:20Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-28T04:30:20Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-28T04:34:34Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-28T04:34:35Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-28T04:34:35Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-28T04:34:35Z"
         }
       ],
       "title": "MTG Fast Finance Ep 512: Chaos Drop Shenanigans",
@@ -12384,23 +12428,159 @@
       "published_at": "2026-02-08T22:38:15Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 135.9s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-27T05:34:10Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 5,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-28T04:34:35Z",
+      "output_directory": "episodes/0512-chaos-drop-shenanigans",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3112,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 74.935,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 21455,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22624,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 125
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 163,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44242,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 58.615,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9802,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22625,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 125
+                }
+              ],
+              "thoughts_token_count": 6740,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39167,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 155.666,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9706,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22625,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 125
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 15131,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47462,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 412,
+            "request_seconds": 161.003,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 5039,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 10421,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 125
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 10296
+                }
+              ],
+              "thoughts_token_count": 7081,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 22541,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 43
       },
-      "status": "failed",
-      "updated_at": "2026-08-26T23:34:10Z",
-      "output_directory": "episodes/0512-chaos-drop-shenanigans"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1935,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 7210,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 7210
+          }
+        ],
+        "thoughts_token_count": 4693,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 13838,
+        "traffic_type": null
+      },
+      "review_reason": null
     },
     "tag:soundcloud,2010:tracks/2262160169": {
       "guid": "tag:soundcloud,2010:tracks/2262160169",
