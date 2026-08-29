@@ -1,0 +1,467 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15777",
+    "episode_number": 685,
+    "title": "Free Hand of the Invisible Market | Brainstorm Brewery #685 | Magic Finance",
+    "published_at": "2026-02-06T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_685_Free_Hand_of_the_Invisible_Market.mp3",
+    "episode_url": "https://brainstormbrewery.com/free-hand-of-the-invisible-market-brainstorm-brewery-685-magic-finance/",
+    "duration_seconds": 3415,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) are tackling the discourse around choose your own price secret lairs, the Pro Tour, and more. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-29T22:47:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-29T22:39:56Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-29T22:39:56Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-29T22:39:56Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-29T22:39:56Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-29T22:39:58Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-29T22:39:58Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-29T22:40:16Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-29T22:47:15Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-29T22:47:15Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-29T22:47:49Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-29T22:47:49Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-29T22:47:49Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-29T22:47:49Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3415,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 94.552,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14305,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22647,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 13003,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49955,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 180.273,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12597,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22648,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 6110,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41355,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 108.718,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12395,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22648,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              }
+            ],
+            "thoughts_token_count": 22241,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 57284,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 715,
+          "request_seconds": 34.016,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9123,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 18030,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 148
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 17882
+              }
+            ],
+            "thoughts_token_count": 786,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 27939,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 87
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1351,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 25979,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 25979
+        }
+      ],
+      "thoughts_token_count": 6992,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 34322,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 816,
+    "end_seconds": 3600,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Intimidation Tactics",
+      "printing": "Aether Revolt",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "$0.10",
+      "entry_target": {
+        "raw": "$0.10",
+        "currency": "USD",
+        "minimum": 0.1,
+        "maximum": 0.1
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$0.60",
+        "currency": "USD",
+        "minimum": 0.6,
+        "maximum": 0.6
+      },
+      "reasoning": [
+        "CK's buylist is paying $0.60 on it.",
+        "Prominently featured card in the new Blue-Black Excruciator deck.",
+        "Cycling benefits Duress-type effects which are terrible in the late game otherwise."
+      ],
+      "caveats": [
+        "Only hitting creatures and artifacts is not actually that strong on its own."
+      ],
+      "confidence": "medium",
+      "start_seconds": 827,
+      "end_seconds": 900,
+      "evidence_excerpt": "CK's buylist has the big old star on it on MTGGoldfish.com, and uh they're paying $0.60 on it. This is a it's Duress, but it hits artifact",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ae8c0f300eb12018",
+      "timestamp": "00:13:47",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_685_Free_Hand_of_the_Invisible_Market.mp3#t=827"
+    },
+    {
+      "card": "Prized Statue",
+      "printing": "Commander Legends: Battle for Baldur's Gate",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$0.10",
+      "entry_target": {
+        "raw": "$0.10",
+        "currency": "USD",
+        "minimum": 0.1,
+        "maximum": 0.1
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$1.00 to $1.50",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 1.5
+      },
+      "reasoning": [
+        "Two-mana colorless artifact that creates a Treasure token when it enters or dies.",
+        "Excellent in artifact-based Commander decks with sacrifice and recursion mechanics.",
+        "Highly affordable non-foils make it a great bulk pickup."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 900,
+      "end_seconds": 919,
+      "evidence_excerpt": "I can definitely see this card going to like a dollar, $1.50 eventually in the same way that like uh Ichor Wellspring kind of does",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b7d3b83ed850ff5d",
+      "timestamp": "00:15:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_685_Free_Hand_of_the_Invisible_Market.mp3#t=900"
+    },
+    {
+      "card": "Ameboid Changeling",
+      "printing": "Lorwyn",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "$2",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "reasoning": [
+        "Spiked recently due to the popularity and sales of Lorwyn.",
+        "A changeling that can give or take away creature types, fitting well in tribal Commander strategies."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 919,
+      "end_seconds": 1113,
+      "evidence_excerpt": "This card is $2. It spiked, uh, first late last year, uh, and it is now spiking again, as it is a changeling",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fddbac1d10e4f8b7",
+      "timestamp": "00:15:19",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_685_Free_Hand_of_the_Invisible_Market.mp3#t=919"
+    },
+    {
+      "card": "Ajani, Outlaw Chaperone",
+      "printing": "Lorwyn Eclipse",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$2 TCG low",
+      "entry_target": {
+        "raw": "$2 TCG low",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Featured as a sideboard card in white weenie decks that performed well at the PT.",
+        "Mythic in Lorwyn Eclipse, which will stop being opened soon.",
+        "Strong three-mana planeswalker that defends itself, generates tokens, and serves as removal."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3052,
+      "end_seconds": 3218,
+      "evidence_excerpt": "I have Ajani, Outlaw Chaperone, the mythic rare planeswalker... It is $2 TCG low. There's a buy list of $3 at Star City Games, and $4.25",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6280851768317a63",
+      "timestamp": "00:50:52",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_685_Free_Hand_of_the_Invisible_Market.mp3#t=3052"
+    },
+    {
+      "card": "Timeless Lotus",
+      "printing": "Lorwyn Elementals precon",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2 to $3",
+      "entry_target": {
+        "raw": "$2 to $3",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Dominaria United mythic currently priced very low due to the precon printing.",
+        "Highly demanded five-color Commander mana rock that is bound to return to its previous value.",
+        "Excellent with untap effects like Amulet of Vigor."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 3218,
+      "end_seconds": 3401,
+      "evidence_excerpt": "just keep buying the new one at $2 to $3 and it will be $10 again, I promise you.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-dbeeb0150dd6c62e",
+      "timestamp": "00:53:38",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_685_Free_Hand_of_the_Invisible_Market.mp3#t=3218"
+    },
+    {
+      "card": "Superior Spiderman",
+      "printing": "Spider-Man",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "$3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Used to copy powerful effects from elementals.",
+        "Has only gone up slightly from $2 to $3 while other cards in these decks exploded.",
+        "Considered one of the top five strongest cards in the entire format."
+      ],
+      "caveats": [
+        "Spider-Man was a smaller set, potentially making it easier to open individual rares."
+      ],
+      "confidence": "medium",
+      "start_seconds": 3402,
+      "end_seconds": 3522,
+      "evidence_excerpt": "Superior Spiderman is like $3... $3 is unreasonable for what is probably one of the top five strongest cards in the entire format.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-253a69a99751cc3d",
+      "timestamp": "00:56:42",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_685_Free_Hand_of_the_Invisible_Market.mp3#t=3402"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-29T15:13:59Z",
+  "updated_at": "2026-08-29T22:47:49Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -13043,6 +13043,221 @@
         "traffic_type": null
       },
       "review_reason": "Contains ambiguous card recommendations ('Summoner' and 'Exalted Sanborn') that are not standard Magic: The Gathering cards or sets."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15777": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15777",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-29T22:39:56Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-29T22:39:56Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-29T22:39:56Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-29T22:39:56Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-29T22:39:58Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-29T22:39:58Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-29T22:40:16Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-29T22:47:15Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-29T22:47:15Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-29T22:47:49Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-29T22:47:49Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-29T22:47:49Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-29T22:47:49Z"
+        }
+      ],
+      "title": "Free Hand of the Invisible Market | Brainstorm Brewery #685 | Magic Finance",
+      "episode_number": 685,
+      "published_at": "2026-02-06T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 6,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-29T22:47:49Z",
+      "output_directory": "episodes/0685-free-hand-of-the-invisible-market-brainstorm-brewery-685-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3415,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 94.552,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14305,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22647,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 13003,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 49955,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 180.273,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12597,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22648,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 6110,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41355,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 108.718,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12395,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22648,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                }
+              ],
+              "thoughts_token_count": 22241,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 57284,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 715,
+            "request_seconds": 34.016,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9123,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 18030,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 17882
+                }
+              ],
+              "thoughts_token_count": 786,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 27939,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 87
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1351,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 25979,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 25979
+          }
+        ],
+        "thoughts_token_count": 6992,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 34322,
+        "traffic_type": null
+      },
+      "review_reason": null
     }
   }
 }
