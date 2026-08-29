@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-28T04:34:35Z",
+  "updated_at": "2026-08-29T03:16:40Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -12624,6 +12624,50 @@
         {
           "status": "failed",
           "timestamp": "2026-08-27T20:34:14Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-29T03:11:48Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-29T03:11:48Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-29T03:11:50Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-29T03:11:50Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-29T03:12:05Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-29T03:14:18Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-29T03:14:18Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-29T03:16:40Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-29T03:16:40Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-29T03:16:40Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-08-29T03:16:40Z"
         }
       ],
       "title": "MTG Fast Finance Ep 511: Fallout Secret Lair Results",
@@ -12631,22 +12675,11 @@
       "published_at": "2026-02-07T23:35:56Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "extracting",
-        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-28T02:34:14Z",
-        "quarantined": false
-      },
-      "status": "failed",
-      "updated_at": "2026-08-27T20:34:14Z",
+      "attempt_count": 2,
+      "pick_count": 3,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-08-29T03:16:40Z",
       "output_directory": "episodes/0511-fallout-secret-lair-results",
       "transcription": {
         "provider": "Gemini",
@@ -12662,27 +12695,27 @@
             "chunk_count": 3,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 157.174,
+            "request_seconds": 40.988,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 8650,
+              "candidates_token_count": 9157,
               "candidates_tokens_details": null,
               "prompt_token_count": 22614,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 115
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
                 }
               ],
-              "thoughts_token_count": 6064,
+              "thoughts_token_count": 2026,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 37328,
+              "total_token_count": 33797,
               "traffic_type": null
             }
           },
@@ -12691,27 +12724,27 @@
             "chunk_count": 3,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 66.333,
+            "request_seconds": 42.881,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 8862,
+              "candidates_token_count": 8466,
               "candidates_tokens_details": null,
               "prompt_token_count": 22615,
               "prompt_tokens_details": [
                 {
-                  "modality": "AUDIO",
-                  "token_count": 22500
-                },
-                {
                   "modality": "TEXT",
                   "token_count": 115
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
                 }
               ],
-              "thoughts_token_count": 6282,
+              "thoughts_token_count": 2244,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 37759,
+              "total_token_count": 33325,
               "traffic_type": null
             }
           },
@@ -12720,33 +12753,52 @@
             "chunk_count": 3,
             "model": "gemini-3.5-flash",
             "audio_seconds": 672,
-            "request_seconds": 54.116,
+            "request_seconds": 47.722,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 5778,
+              "candidates_token_count": 5609,
               "candidates_tokens_details": null,
               "prompt_token_count": 16918,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 115
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 16803
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
                 }
               ],
-              "thoughts_token_count": 1924,
+              "thoughts_token_count": 5831,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 24620,
+              "total_token_count": 28358,
               "traffic_type": null
             }
           }
         ],
-        "timing_adjustments": 24
-      }
+        "timing_adjustments": 16
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1525,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 6276,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 6276
+          }
+        ],
+        "thoughts_token_count": 21730,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 29531,
+        "traffic_type": null
+      },
+      "review_reason": "Two of the recommended cards ('Springleaf Parade' and 'Boomerang Basics') are likely transcription errors as they do not match any known MTG card names."
     }
   }
 }

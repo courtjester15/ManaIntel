@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2262160169",
+    "episode_number": 511,
+    "title": "MTG Fast Finance Ep 511: Fallout Secret Lair Results",
+    "published_at": "2026-02-07T23:35:56Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2262160169-user-519789566-mtg-fast-finance-ep-511.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-511",
+    "duration_seconds": 2472,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the weekly top movers, meta shifts, cards to watch and the results of the recent Fallout Secret Lair super drop.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Two of the recommended cards ('Springleaf Parade' and 'Boomerang Basics') are likely transcription errors as they do not match any known MTG card names.",
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-29T03:16:40Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-27T20:29:21Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-27T20:29:23Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-27T20:29:23Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-27T20:29:34Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-27T20:34:13Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-27T20:34:13Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-08-27T20:34:14Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-29T03:11:48Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-29T03:11:48Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-29T03:11:50Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-29T03:11:50Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-29T03:12:05Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-29T03:14:18Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-29T03:14:18Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-29T03:16:40Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-29T03:16:40Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-29T03:16:40Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-29T03:16:40Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2472,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 40.988,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9157,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22614,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              }
+            ],
+            "thoughts_token_count": 2026,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33797,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 42.881,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8466,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22615,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 2244,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33325,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 672,
+          "request_seconds": 47.722,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 5609,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 16918,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 16803
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              }
+            ],
+            "thoughts_token_count": 5831,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 28358,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 16
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1525,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 6276,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 6276
+        }
+      ],
+      "thoughts_token_count": 21730,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 29531,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1114,
+    "end_seconds": 2654,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Springleaf Drum",
+      "printing": "extended art",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$4",
+      "entry_target": {
+        "raw": "about $4, and maybe that gets down to 2.50 or 3",
+        "currency": "USD",
+        "minimum": 2.5,
+        "maximum": 4.0
+      },
+      "hold": "next year or two",
+      "exit_target": {
+        "raw": "$10 plus",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "no alternate arts of this, so no extra copies showing up in slots in CBs",
+        "regular copies only come out of the decks themselves, the Morcant deck",
+        "very broad applications for EDH purposes",
+        "whenever this enchantment enters, you create X 1/1 colorless Shapeshifter creature tokens with changeling",
+        "making your tokens tap for mana gives you the option of not generating any tokens, just cast it for two green and get that effect in play"
+      ],
+      "caveats": [
+        "maybe that gets down to 2.50 or 3 as more supply hits the market, so maybe you don't need to be in a huge rush to buy it off big chunks of this quite yet"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1114,
+      "end_seconds": 1443,
+      "evidence_excerpt": "The one I think we're supposed to be focused on for bricking is got to be Springleaf Parade. And in particular, I'm looking at the extended art version.",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Springleaf Parade",
+        "candidate_card": "Springleaf Drum",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speaker is discussing 'Springleaf Drum' in the context of using it to tap creature tokens for mana. The initial extraction 'Springleaf Parade' is a mishearing of the card name."
+      },
+      "id": "pick-8ab0bd78ca004914",
+      "timestamp": "00:18:34",
+      "listen_url": "https://feeds.soundcloud.com/stream/2262160169-user-519789566-mtg-fast-finance-ep-511.mp3#t=1114"
+    },
+    {
+      "card": "Regal Sliver",
+      "printing": "foil extended art",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "around $3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": "when the deck comes out",
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Sliver creatures you control have, 'When this creature enters a battlefield, slivers you control get 1/1 until end of turn if you're the monarch. Otherwise, you become the monarch.'",
+        "for four mana you get a 3/3 that says you become the monarch",
+        "with a bonus that the about slivers and your slivers can make you into the monarch",
+        "if it's a deck all around the monarchy, then this is a card that is not going to get reprinted",
+        "least likely of all the choices to get reprinted"
+      ],
+      "caveats": [
+        "We don't know what's in the commander deck, maybe they decide to add slivers into the commander deck",
+        "I do feel like I need more information about what the rest of this deck is going to look like before I would commit",
+        "might be close to the bottom of the pile of monarch cards you might reach for"
+      ],
+      "confidence": "low",
+      "start_seconds": 1501,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Regal Sliver is available in uh foil extended art... right now you can get the foil extended arts for around $3... you'll be able to resell these for $10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-08342f97d9af70ee",
+      "timestamp": "00:25:01",
+      "listen_url": "https://feeds.soundcloud.com/stream/2262160169-user-519789566-mtg-fast-finance-ep-511.mp3#t=1501"
+    },
+    {
+      "card": "Boomerang Basics",
+      "printing": "regular frame",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$1.00",
+      "entry_target": {
+        "raw": "a dollar",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 1.0
+      },
+      "hold": "down the line when we get either more lessons in Strixhaven or, God forbid, we get the learn mechanic back",
+      "exit_target": {
+        "raw": "like $2.50 or $3.00",
+        "currency": "USD",
+        "minimum": 2.5,
+        "maximum": 3.0
+      },
+      "reasoning": [
+        "for one mana you bounce a problem or you reset your awesome thing plus draw a card",
+        "seen it a bunch in these different kinds of decks that want to just cast a bunch of spells, use Artist's Talent, discard",
+        "going to be mega-mega popular in Standard"
+      ],
+      "caveats": [
+        "unless I'm buy listing it, I'm I'm steering well clear of"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1922,
+      "evidence_excerpt": "Boomerang Basics in regular frame, non-foil, you can pick them up for a dollar. This screams out, 'It's going to be a $4 card down the line...'",
+      "review_status": "needs_review",
+      "review_reason": "The card 'Boomerang Basics' is not a real MTG card and is likely a transcription error.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Boomerang Basics",
+        "candidate_card": null,
+        "decision": "ambiguous",
+        "accepted": false,
+        "explanation": "The speaker appears to be referring generally to 'card draw and boomerang effects' (or potentially 'Pearl of Wisdom' and 'boomerang effects') rather than a specific card named 'Boomerang Basics'. Since 'Boomerang Basics' is not a real Magic card and the audio does not clearly support an exact card name, the decision is ambiguous."
+      },
+      "id": "pick-0f4bce02795901c1",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2262160169-user-519789566-mtg-fast-finance-ep-511.mp3#t=1800"
+    }
+  ]
+}
