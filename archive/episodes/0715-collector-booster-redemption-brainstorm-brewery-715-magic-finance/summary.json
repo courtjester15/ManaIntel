@@ -1,0 +1,513 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=32434",
+    "episode_number": 715,
+    "title": "Collector Booster Redemption | Brainstorm Brewery #715 | Magic Finance",
+    "published_at": "2026-08-28T06:18:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_715_Collector_Booster_Redemption.mp3",
+    "episode_url": "https://brainstormbrewery.com/collector-booster-redemption-brainstorm-brewery-715-magic-finance/",
+    "duration_seconds": 3799,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz&#160; (@devotedDruid), Corbin (@CHosler), and DJ (@CardgardenMTG) are all back together to pack opening feelings, Secret Drops, and more Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Contains ambiguous card recommendations ('Summoner' and 'Exalted Sanborn') that are not standard Magic: The Gathering cards or sets.",
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-29T15:13:59Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-29T15:03:35Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-29T15:03:35Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-29T15:03:35Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-29T15:03:35Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-29T15:03:36Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-29T15:03:36Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-29T15:03:58Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-29T15:11:33Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-29T15:11:33Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-29T15:13:59Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-29T15:13:59Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-29T15:13:59Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-08-29T15:13:59Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3799,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 93.184,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10707,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22643,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 144
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 4433,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37783,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 86.433,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 21387,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22644,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 144
+              }
+            ],
+            "thoughts_token_count": 2630,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46661,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 161.193,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10659,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22644,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 144
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 4925,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38228,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 104.391,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11207,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22644,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 144
+              }
+            ],
+            "thoughts_token_count": 15528,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49379,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 199,
+          "request_seconds": 8.864,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2564,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 5125,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 144
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 4981
+              }
+            ],
+            "thoughts_token_count": 63,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 7752,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 66
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2072,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 27955,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 27955
+        }
+      ],
+      "thoughts_token_count": 18992,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 49019,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1051,
+    "end_seconds": 3730,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Summoner",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin",
+        "Liz"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "52 cents",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "52 cents",
+        "currency": "USD",
+        "minimum": 0.52,
+        "maximum": 0.52
+      },
+      "reasoning": [
+        "Card Kingdom will buy copies for 52 cents each (or ~70 cents in credit), which is 4 cents under the market price of 56 cents."
+      ],
+      "caveats": [
+        "The discussion surrounding this card is contextually framed within the Final Fantasy TCG rather than Magic: The Gathering."
+      ],
+      "confidence": "low",
+      "start_seconds": 1127,
+      "end_seconds": 1185,
+      "evidence_excerpt": "Card Kingdom will pay you 52 cents a piece for 122 copies, which is 4 cents under market price.",
+      "review_status": "needs_review",
+      "review_reason": "Discussed as a Final Fantasy TCG card; requires verification if this is indeed the intended target.",
+      "id": "pick-381541d6484db3f7",
+      "timestamp": "00:18:47",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_715_Collector_Booster_Redemption.mp3#t=1127"
+    },
+    {
+      "card": "Lost Legacy",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin",
+        "Liz"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "18 cent",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "18 cent",
+        "currency": "USD",
+        "minimum": 0.18,
+        "maximum": 0.18
+      },
+      "reasoning": [
+        "The card has an active 18 cent buy list to Card Kingdom due to its status as a standard staple."
+      ],
+      "caveats": [
+        "Standard is highly complicated right now, but this is a sideboard staple."
+      ],
+      "confidence": "high",
+      "start_seconds": 1290,
+      "end_seconds": 1308,
+      "evidence_excerpt": "this card has an 18 cent buy list to Card Kingdom, it is a standard staple.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-64a8ba608619e867",
+      "timestamp": "00:21:30",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_715_Collector_Booster_Redemption.mp3#t=1290"
+    },
+    {
+      "card": "Unnatural Restoration",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin",
+        "Liz"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "$1.50",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$1.50",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 1.5
+      },
+      "reasoning": [
+        "The card is selling for $1.50 and represents good value for breaking bulk from Phyrexia: All Will Be One."
+      ],
+      "caveats": [
+        "It is a green uncommon that acts as a Regrowth with proliferate."
+      ],
+      "confidence": "high",
+      "start_seconds": 1527,
+      "end_seconds": 1547,
+      "evidence_excerpt": "Unnatural Restoration is the name of the card and it's $1.50.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-18fced348752a77d",
+      "timestamp": "00:25:27",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_715_Collector_Booster_Redemption.mp3#t=1527"
+    },
+    {
+      "card": "Psychosis Crawler",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "around $2",
+      "entry_target": {
+        "raw": "around $2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "The card is experiencing a slow supply drain and has risen from bulk to around $2, with room to continue climbing."
+      ],
+      "caveats": [
+        "It is heavily printed in Commander precons and will likely stop growing when the next reprint occurs."
+      ],
+      "confidence": "medium",
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "it has climbed relatively quickly in the past couple of months to around $2. Uh I think this is just a slow supply drain.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4376360a5bccc1f9",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_715_Collector_Booster_Redemption.mp3#t=3600"
+    },
+    {
+      "card": "Devoted Druid",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$0.75 to to almost $1.50",
+      "entry_target": {
+        "raw": "$0.75 to to almost $1.50",
+        "currency": "USD",
+        "minimum": 0.75,
+        "maximum": 1.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5, $10",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Currently seeing play in Modern again; has a strong price memory, few reprints, and potential to spike if the deck wins in Dallas."
+      ],
+      "caveats": [
+        "Highly dependent on its Modern tournament performance."
+      ],
+      "confidence": "high",
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "I think if the Devoted Druid deck wins in Dallas, we could very well see Devoted Druid hit $5, $10 again.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1623066746de8e40",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_715_Collector_Booster_Redemption.mp3#t=3600"
+    },
+    {
+      "card": "Exalted Sanborn",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$15 up to $20",
+      "entry_target": {
+        "raw": "$15 up to $20",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "A mythic doubling season effect with ward that has climbed from $15 to $20 and seems primed to reach $30 barring a reprint."
+      ],
+      "caveats": [
+        "The exact name 'Exalted Sanborn' and set 'Edge of Eternities' are not standard MTG products."
+      ],
+      "confidence": "low",
+      "start_seconds": 3637,
+      "end_seconds": 3730,
+      "evidence_excerpt": "I mean, I think this might have even been a pick at some point in the past because it's just barring a reprint, got $30 written all over it.",
+      "review_status": "needs_review",
+      "review_reason": "The card name 'Exalted Sanborn' and set 'Edge of Eternities' do not map to official Magic: The Gathering database entries.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Exalted Sanborn",
+        "candidate_card": null,
+        "decision": "ambiguous",
+        "accepted": false,
+        "explanation": "The audio sounds like 'Exalted Sunborn' (or 'Exalted Sanborn'), but there is no Magic: The Gathering card with this name. The description of the card's abilities in the audio does not match any existing card with a similar name, making the exact card discussed ambiguous."
+      },
+      "id": "pick-ce72c9eb929ea430",
+      "timestamp": "01:00:37",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_715_Collector_Booster_Redemption.mp3#t=3637"
+    }
+  ]
+}
