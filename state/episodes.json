@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-30T15:34:17Z",
+  "updated_at": "2026-08-30T23:07:33Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -3396,6 +3396,50 @@
         {
           "status": "failed",
           "timestamp": "2026-08-30T02:00:39Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-30T22:44:03Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-30T22:44:03Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-30T22:44:05Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-30T22:44:05Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-30T22:44:23Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-08-30T23:06:53Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-08-30T23:06:53Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-08-30T23:07:33Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-08-30T23:07:33Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-08-30T23:07:33Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-08-30T23:07:33Z"
         }
       ],
       "title": "The Odyssey of Universes Beyond | Brainstorm Brewery #711 | Magic Finance",
@@ -3403,22 +3447,11 @@
       "published_at": "2026-07-31T05:56:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 265.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-08-30T08:00:39Z",
-        "quarantined": false
-      },
-      "status": "failed",
-      "updated_at": "2026-08-30T02:00:39Z",
+      "attempt_count": 3,
+      "pick_count": 6,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-08-30T23:07:33Z",
       "output_directory": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63",
       "transcription": {
         "provider": "Gemini",
@@ -3434,27 +3467,36 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 224.002,
+            "request_seconds": 937.909,
             "provider_usage": {
-              "cache_tokens_details": null,
-              "cached_content_token_count": null,
-              "candidates_token_count": 12271,
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 138
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20837
+                }
+              ],
+              "cached_content_token_count": 20975,
+              "candidates_token_count": 1132,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22553,
+              "prompt_token_count": 22649,
               "prompt_tokens_details": [
                 {
                   "modality": "TEXT",
-                  "token_count": 54
+                  "token_count": 150
                 },
                 {
                   "modality": "AUDIO",
                   "token_count": 22499
                 }
               ],
-              "thoughts_token_count": 8784,
+              "thoughts_token_count": 94,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 43608,
+              "total_token_count": 23875,
               "traffic_type": null
             }
           },
@@ -3463,27 +3505,27 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 113.85,
+            "request_seconds": 237.305,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 14551,
+              "candidates_token_count": 16788,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22554,
+              "prompt_token_count": 22650,
               "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 150
+                },
                 {
                   "modality": "AUDIO",
                   "token_count": 22500
-                },
-                {
-                  "modality": "TEXT",
-                  "token_count": 54
                 }
               ],
-              "thoughts_token_count": 7636,
+              "thoughts_token_count": 6941,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 44741,
+              "total_token_count": 46379,
               "traffic_type": null
             }
           },
@@ -3492,27 +3534,27 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 143.826,
+            "request_seconds": 110.741,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 8503,
+              "candidates_token_count": 14355,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22554,
+              "prompt_token_count": 22650,
               "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 150
+                },
                 {
                   "modality": "AUDIO",
                   "token_count": 22500
-                },
-                {
-                  "modality": "TEXT",
-                  "token_count": 54
                 }
               ],
-              "thoughts_token_count": 11640,
+              "thoughts_token_count": 13516,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 42697,
+              "total_token_count": 50521,
               "traffic_type": null
             }
           },
@@ -3521,51 +3563,52 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 489,
-            "request_seconds": 100.331,
+            "request_seconds": 63.247,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 5859,
+              "candidates_token_count": 6740,
               "candidates_tokens_details": null,
-              "prompt_token_count": 12272,
+              "prompt_token_count": 12368,
               "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 150
+                },
                 {
                   "modality": "AUDIO",
                   "token_count": 12218
-                },
-                {
-                  "modality": "TEXT",
-                  "token_count": 54
                 }
               ],
-              "thoughts_token_count": 11321,
+              "thoughts_token_count": 9844,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 29452,
+              "total_token_count": 28952,
               "traffic_type": null
             }
           }
-        ]
+        ],
+        "timing_adjustments": 60
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 55,
+        "candidates_token_count": 1169,
         "candidates_tokens_details": null,
-        "prompt_token_count": 10607,
+        "prompt_token_count": 13032,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 10607
+            "token_count": 13032
           }
         ],
-        "thoughts_token_count": 2944,
+        "thoughts_token_count": 8412,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 13606,
+        "total_token_count": 22613,
         "traffic_type": null
       },
-      "review_reason": "No explicit financial recommendations (such as buys, sells, or holds) were made for any specific cards or products in the provided transcript. Only passive discussion of card prices, personal gaming preferences, and speculative future IP releases occurred."
+      "review_reason": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=24954": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=24954",
