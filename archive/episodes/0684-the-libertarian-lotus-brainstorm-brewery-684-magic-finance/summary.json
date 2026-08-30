@@ -1,0 +1,544 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15774",
+    "episode_number": 684,
+    "title": "The Libertarian Lotus | Brainstorm Brewery #684 | Magic Finance",
+    "published_at": "2026-01-30T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3",
+    "episode_url": "https://brainstormbrewery.com/the-libertarian-lotus-brainstorm-brewery-684-magic-finance/",
+    "duration_seconds": 3920,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) are crashing back in after the magic tournament in Portland with movers and shakers, grading, and more. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite + gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-08-30T15:34:17Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-08-30T14:51:54Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-30T14:51:54Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-30T14:51:54Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-30T14:51:54Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-30T14:51:56Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-30T14:51:56Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-30T14:52:16Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-08-30T15:33:38Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-08-30T15:33:38Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-08-30T15:34:17Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-08-30T15:34:17Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-08-30T15:34:17Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-08-30T15:34:17Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite + gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash-lite",
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3920,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 956.087,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19653,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22646,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 147
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42299,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 406.627,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16082,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22647,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 147
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 2238,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40967,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 414.137,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10947,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22647,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 147
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 12879,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46473,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 635.441,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 123
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18896
+              }
+            ],
+            "cached_content_token_count": 19019,
+            "candidates_token_count": 10194,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22647,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 147
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 19619,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 52460,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 320,
+          "request_seconds": 68.688,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3686,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 8153,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 8006
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 147
+              }
+            ],
+            "thoughts_token_count": 8757,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 20596,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 156
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2291,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 31048,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 31048
+        }
+      ],
+      "thoughts_token_count": 7719,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 41058,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 826,
+    "end_seconds": 4122,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Rime Transfusion",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin",
+        "Cass"
+      ],
+      "recommendation": "Sell",
+      "mentioned_price": "93-cent market price",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "40 cents",
+        "currency": "USD",
+        "minimum": 0.4,
+        "maximum": 0.4
+      },
+      "reasoning": [
+        "Card Kingdom will buy it for 40 cents",
+        "It is a Coldsnap uncommon with no reprints"
+      ],
+      "caveats": [
+        "The Coldsnap set symbol looks identical between common and uncommon, making it hard to identify"
+      ],
+      "confidence": "high",
+      "start_seconds": 1536,
+      "end_seconds": 1730,
+      "evidence_excerpt": "It is a 93-cent market price card. Card Kingdom will pay you 40 cents for it. It is from Coldsnap, exclusively.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-708150b8dabdb654",
+      "timestamp": "00:25:36",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3#t=1536"
+    },
+    {
+      "card": "High Noon",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Cass",
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "Sell",
+      "mentioned_price": "about a dollar-ish TCG low",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "over $1.50",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": null
+      },
+      "reasoning": [
+        "The direct price is around $4.50 with a buy list over $1.50",
+        "The extended art version has a Card Kingdom buy list of $4.00, while TCG low is $2.20"
+      ],
+      "caveats": [
+        "It is less ubiquitous in Standard now than when prowess was the big deck"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "High Noon is not as, you know, it's not as ubiquitous, but obviously still a pick.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9e9fca9d2a4d6613",
+      "timestamp": "00:30:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3#t=1800"
+    },
+    {
+      "card": "TARDIS",
+      "printing": "Showcase",
+      "printing_certainty": "likely",
+      "foil": null,
+      "hosts": [
+        "Corbin",
+        "DJ",
+        "Cass"
+      ],
+      "recommendation": "Sell",
+      "mentioned_price": "$2",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$2, $3 in foil",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 3.0
+      },
+      "reasoning": [
+        "The showcase version is worth $2 to $3 in foil",
+        "The Vegas promo version is worth about $7"
+      ],
+      "caveats": [
+        "The base version of TARDIS is worth nothing"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1816,
+      "end_seconds": 1910,
+      "evidence_excerpt": "The showcase art looks a little different... It's worth $2, $3 in foil. Go ahead, and keep an eye out for your TARDISes.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e2787b73c1a9bf76",
+      "timestamp": "00:30:16",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3#t=1816"
+    },
+    {
+      "card": "Myrel, Shield of Argive",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Cass",
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$17 right now",
+      "entry_target": {
+        "raw": "$17",
+        "currency": "USD",
+        "minimum": 17.0,
+        "maximum": 17.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Way better than Grand Abolisher, which spent multiple years as a $30 card",
+        "Excellent utility creature with high toughness, anti-counterspell properties, and token generation"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3600,
+      "end_seconds": 3600,
+      "evidence_excerpt": "my Pick of the Week this week is Myrel, Shield of Argive... and it's like $17 right now. And you know what, if I didn't have my copies... I'd get them.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-26d987554e667c6f",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3#t=3600"
+    },
+    {
+      "card": "Silver Shroud Costume",
+      "printing": "Base version",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "DJ",
+        "Cass",
+        "Corbin"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "under $20",
+      "entry_target": {
+        "raw": "under $20",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "The base version is $12 to $13 right now, which is too cheap for its power level",
+        "It protects your commander and is generally extremely strong in the format"
+      ],
+      "caveats": [
+        "Market price has already spiked from $5.78 in mid-December"
+      ],
+      "confidence": "high",
+      "start_seconds": 3600,
+      "end_seconds": 3651,
+      "evidence_excerpt": "And I think regular Silver Shroud Costume under $20, auto buy.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2d8caa314f778072",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3#t=3600"
+    },
+    {
+      "card": "Silver Shroud Costume",
+      "printing": "Borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "DJ",
+        "Cass",
+        "Corbin"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "below 30",
+      "entry_target": {
+        "raw": "below 30",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 30.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It is the only borderless foil version of the card that exists, likely making it a $50 card long-term",
+        "Players will dump these to recoup Secret Lair bundle costs, creating a buying window"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3600,
+      "end_seconds": 3651,
+      "evidence_excerpt": "if that card goes below 30 during that time, I might just buy a lot of them.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-821973fc4c773780",
+      "timestamp": "01:00:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3#t=3600"
+    },
+    {
+      "card": "Tishana's Tidebinder",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Corbin",
+        "DJ",
+        "Cass"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$25 right now",
+      "entry_target": {
+        "raw": "$25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Standout mythic from Lost Caverns of Ixalan and incredibly impactful in competitive Standard",
+        "Card Kingdom is fully sold out at $30 and paying a high buylist of $17.50",
+        "Hareruya's buylist in Japan is $32 USD, which historically acts as a precursor for the US market"
+      ],
+      "caveats": [
+        "High entry cost of $25 to $28 makes it primarily a short-term pick if you need them"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3652,
+      "end_seconds": 4025,
+      "evidence_excerpt": "Tidebinder is going to be more than it is now, and it's already more than it was, so um if you're a Standard player, pick them up.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-00154cbec8836be8",
+      "timestamp": "01:00:52",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_684_Libertarian_Lotus.mp3#t=3652"
+    }
+  ]
+}
