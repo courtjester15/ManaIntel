@@ -23,15 +23,15 @@
     "extraction_profile": "brainstorm_brewery"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
+    "status": "failed",
+    "review_state": "not_applicable",
     "review_reason": "No explicit financial recommendations (such as buys, sells, or holds) were made for any specific cards or products in the provided transcript. Only passive discussion of card prices, personal gaming preferences, and speculative future IP releases occurred.",
-    "pipeline_version": "0.4.4",
+    "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-01T11:45:18Z",
+    "processed_at": "2026-08-30T02:00:39Z",
     "history": [
       {
         "status": "detected",
@@ -84,9 +84,44 @@
       {
         "status": "needs_review",
         "timestamp": "2026-08-01T11:45:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-08-30T01:55:54Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-08-30T01:55:54Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-08-30T01:55:56Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-08-30T01:55:56Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-08-30T01:56:12Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-08-30T02:00:39Z"
       }
     ],
-    "error": null,
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/4 failed after 265.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 2,
+      "max_attempts": 3,
+      "next_retry_at": "2026-08-30T08:00:39Z",
+      "quarantined": false
+    },
     "transcription": {
       "provider": "Gemini",
       "model": "gemini-3.5-flash",
@@ -235,7 +270,7 @@
   },
   "outputs": {
     "metadata": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/metadata.json",
-    "summary_json": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/summary.json",
-    "summary_markdown": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/summary.md"
+    "summary_json": null,
+    "summary_markdown": null
   }
 }
