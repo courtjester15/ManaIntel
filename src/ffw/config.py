@@ -15,6 +15,7 @@ MAX_EPISODE_ATTEMPTS = 3
 RETRY_COOLDOWN_HOURS = 6
 GEMINI_TRANSIENT_RETRIES = 2
 GEMINI_RETRY_DELAY_SECONDS = 30.0
+GEMINI_REQUEST_TIMEOUT_SECONDS = 180.0
 
 
 def project_root() -> Path:
@@ -47,6 +48,7 @@ class Settings:
     automatic_max_episode_age_days: int = 365
     gemini_transient_retries: int = GEMINI_TRANSIENT_RETRIES
     gemini_retry_delay_seconds: float = GEMINI_RETRY_DELAY_SECONDS
+    gemini_request_timeout_seconds: float = GEMINI_REQUEST_TIMEOUT_SECONDS
     card_glossary: str = ""
     card_resolution_enabled: bool = True
     card_resolution_batch_size: int = 25
@@ -93,6 +95,7 @@ class Settings:
             automatic_max_episode_age_days=max(1, int(os.getenv("FFW_AUTOMATIC_MAX_EPISODE_AGE_DAYS", "365"))),
             gemini_transient_retries=max(0, int(os.getenv("FFW_GEMINI_TRANSIENT_RETRIES", str(GEMINI_TRANSIENT_RETRIES)))),
             gemini_retry_delay_seconds=max(0.0, float(os.getenv("FFW_GEMINI_RETRY_DELAY_SECONDS", str(GEMINI_RETRY_DELAY_SECONDS)))),
+            gemini_request_timeout_seconds=max(1.0, float(os.getenv("FFW_GEMINI_REQUEST_TIMEOUT_SECONDS", str(GEMINI_REQUEST_TIMEOUT_SECONDS)))),
             card_glossary=os.getenv("FFW_CARD_GLOSSARY", ""),
             card_resolution_enabled=os.getenv("FFW_CARD_RESOLUTION_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"},
             card_resolution_batch_size=max(1, int(os.getenv("FFW_CARD_RESOLUTION_BATCH_SIZE", "25"))),

@@ -390,12 +390,14 @@ class GeminiTranscriber:
         fallback_model_name: str | None = None,
         transient_retries: int = 2,
         retry_delay_seconds: float = 30.0,
+        request_timeout_seconds: float = 180.0,
     ) -> None:
         self.model_name = model_name
         self.chunk_seconds = chunk_seconds
         self.fallback_model_name = fallback_model_name if fallback_model_name != model_name else None
         self.transient_retries = max(0, transient_retries)
         self.retry_delay_seconds = max(0.0, retry_delay_seconds)
+        self.request_timeout_seconds = max(1.0, request_timeout_seconds)
 
     def _transcribe_chunk(
         self,
@@ -436,7 +438,10 @@ class GeminiTranscriber:
         from google import genai
         from google.genai import types
 
-        client = genai.Client(api_key=api_key)
+        client = genai.Client(
+            api_key=api_key,
+            http_options=types.HttpOptions(timeout=int(self.request_timeout_seconds * 1000)),
+        )
         segments: list[dict[str, Any]] = []
         timing_adjustments = 0
         texts: list[str] = []
@@ -616,9 +621,10 @@ class OpenAIExtractor:
 
 
 class GeminiExtractor:
-    def __init__(self, model_name: str, card_glossary: str = "") -> None:
+    def __init__(self, model_name: str, card_glossary: str = "", request_timeout_seconds: float = 180.0) -> None:
         self.model_name = model_name
         self.card_glossary = card_glossary
+        self.request_timeout_seconds = max(1.0, request_timeout_seconds)
 
     def extract(self, episode: EpisodeCandidate, transcript: dict[str, Any]) -> dict[str, Any]:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
@@ -633,7 +639,10 @@ class GeminiExtractor:
         from google import genai
         from google.genai import types
 
-        client = genai.Client(api_key=api_key)
+        client = genai.Client(
+            api_key=api_key,
+            http_options=types.HttpOptions(timeout=int(self.request_timeout_seconds * 1000)),
+        )
         evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
         instructions = (
             f"Extract only explicit {episode.source_name} recommendations from the supplied timestamped {section['label']} section. "
@@ -673,6 +682,7 @@ def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:
             settings.transcription_fallback_model,
             settings.gemini_transient_retries,
             settings.gemini_retry_delay_seconds,
+            settings.gemini_request_timeout_seconds,
         )
         transcriber = gemini_transcriber
         if provider_fallback == "openai" and os.getenv("OPENAI_API_KEY"):
@@ -680,7 +690,9 @@ def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:
                 gemini_transcriber,
                 OpenAITranscriber(settings.openai_transcription_model, settings.audio_chunk_seconds),
             )
-        extractor = GeminiExtractor(settings.extraction_model, settings.card_glossary)
+        extractor = GeminiExtractor(
+            settings.extraction_model, settings.card_glossary, settings.gemini_request_timeout_seconds,
+        )
     else:
         transcriber = OpenAITranscriber(settings.transcription_model, settings.audio_chunk_seconds)
         extractor = OpenAIExtractor(settings.extraction_model, settings.card_glossary)

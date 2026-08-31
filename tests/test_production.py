@@ -578,6 +578,8 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("FFW_REUSE_TRANSCRIPTS", workflow)
         self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "2"', workflow)
         self.assertIn('FFW_GEMINI_RETRY_DELAY_SECONDS: "30"', workflow)
+        self.assertIn('FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "180"', workflow)
+        self.assertIn("timeout-minutes: 45", workflow)
         self.assertIn("FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai", workflow)
         self.assertIn("Decide Pages publication", workflow)
         self.assertIn("needs.publish.outputs.pages_ready == 'true'", workflow)

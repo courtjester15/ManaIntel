@@ -76,6 +76,7 @@ env:
   FFW_AUDIO_CHUNK_SECONDS: "900"
   FFW_GEMINI_TRANSIENT_RETRIES: "2"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
+  FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "180"
   FFW_EXTRACTION_MODEL: ${{ inputs.ai_model || 'gemini-3.5-flash' }}
   FFW_MAX_LIVE_BATCH: "20"
   FFW_MAX_EPISODE_ATTEMPTS: "3"
@@ -87,6 +88,7 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     outputs:
       pages_ready: ${{ steps.pages_gate.outputs.ready }}
     env:
