@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-08-31T03:08:28Z",
+  "updated_at": "2026-08-31T17:47:15Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -13614,6 +13614,65 @@
         "traffic_type": null
       },
       "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2256054647": {
+      "guid": "tag:soundcloud,2010:tracks/2256054647",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-08-31T17:36:54Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-31T17:36:54Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-08-31T17:36:54Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-08-31T17:36:54Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-08-31T17:36:56Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-08-31T17:36:56Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-08-31T17:37:18Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-08-31T17:47:15Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 510: TMNT Leaked Card Mishap",
+      "episode_number": 510,
+      "published_at": "2026-01-29T00:48:20Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 596.2s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting property name enclosed in double quotes at line 3337, column 94; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-08-31T23:47:15Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-08-31T17:47:15Z",
+      "output_directory": "episodes/0510-tmnt-leaked-card-mishap"
     }
   }
 }
