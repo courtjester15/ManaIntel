@@ -25,10 +25,10 @@
     "review_reason": null,
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "transcription_model": "gemini-3.5-flash",
+    "transcription_model": "gemini-3.5-flash-lite + gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-09-01T00:08:55Z",
+    "processed_at": "2026-09-01T23:18:32Z",
     "history": [
       {
         "status": "detected",
@@ -85,21 +85,237 @@
       {
         "status": "failed",
         "timestamp": "2026-09-01T00:08:55Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-01T22:36:34Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-01T22:36:34Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-01T22:36:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-01T22:36:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-01T22:36:58Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-01T23:18:31Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-01T23:18:31Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-01T23:18:32Z"
       }
     ],
     "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 4/5 failed after 389.5s: ClientError: 499 CANCELLED. {'error': {'code': 499, 'message': 'The operation was cancelled.', 'status': 'CANCELLED'}}",
-      "category": "unknown",
+      "stage": "extracting",
+      "message": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\\nPlease retry in 27.826261835s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '27s'}]}}",
+      "category": "transient_provider",
       "synthetic": false,
-      "retryable": true,
-      "provider_wide": false,
-      "attempt": 2,
+      "retryable": false,
+      "provider_wide": true,
+      "attempt": 3,
       "max_attempts": 3,
-      "next_retry_at": "2026-09-01T06:08:55Z",
-      "quarantined": false
+      "next_retry_at": null,
+      "quarantined": true
     },
-    "transcription": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite + gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash-lite",
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3890,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 660.377,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11941,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22620,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 34561,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 618.001,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 101
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18913
+              }
+            ],
+            "cached_content_token_count": 19014,
+            "candidates_token_count": 8607,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 10318,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41546,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 592.701,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 101
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18913
+              }
+            ],
+            "cached_content_token_count": 19014,
+            "candidates_token_count": 8668,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 5907,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37196,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 356.546,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 101
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18913
+              }
+            ],
+            "cached_content_token_count": 19014,
+            "candidates_token_count": 8244,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22621,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              }
+            ],
+            "thoughts_token_count": 13121,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43986,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 290,
+          "request_seconds": 264.82,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2534,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 7368,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 121
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 7247
+              }
+            ],
+            "thoughts_token_count": 2256,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 12158,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 46
+    },
     "extraction_usage": null
   },
   "outputs": {
