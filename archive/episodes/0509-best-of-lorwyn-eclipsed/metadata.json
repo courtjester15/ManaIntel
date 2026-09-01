@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2255449481",
+    "episode_number": 509,
+    "title": "MTG Fast Finance Ep 509:  Best of Lorwyn Eclipsed",
+    "published_at": "2026-01-28T01:06:29Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2255449481-user-519789566-mtg-fast-finance-ep-509-best-of-lorwyn-eclipsed.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-509-best-of-lorwyn-eclipsed",
+    "duration_seconds": 4102,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff break take a look at the standout cards from Lorwyn Eclipsed alongside all the usual updates on Magic finance.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-01T15:11:46Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-01T14:52:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-01T14:52:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-01T14:52:26Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-01T14:52:26Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-01T14:52:28Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-01T14:52:28Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-01T14:52:52Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-01T15:11:46Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 3/5 failed after 323.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting ',' delimiter at line 6263, column 23; finish reason: MAX_TOKENS).",
+      "category": "transient_model_output",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-01T21:11:46Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0509-best-of-lorwyn-eclipsed/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

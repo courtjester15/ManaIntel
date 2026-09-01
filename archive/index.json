@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-01T00:08:55Z",
+    "generated_at": "2026-09-01T15:11:46Z",
     "latest_successful_run_at": "2026-08-30T23:07:33Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 61,
+    "real_episode_count": 62,
     "real_pick_count": 234,
     "last_discovered_episode_date": "2026-08-28T06:18:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,16 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 61,
+    "episodes": 62,
     "picks": 234,
     "needs_review": 27,
-    "failed": 5,
+    "failed": 6,
     "completed": 29
   },
   "status_counts": {
     "needs_review": 27,
     "complete": 29,
-    "failed": 5
+    "failed": 6
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=32434",
@@ -2537,6 +2537,53 @@
         "attempt": 2,
         "max_attempts": 3,
         "next_retry_at": "2026-09-01T06:08:55Z",
+        "quarantined": false
+      },
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2255449481",
+      "episode_number": 509,
+      "title": "MTG Fast Finance Ep 509:  Best of Lorwyn Eclipsed",
+      "published_at": "2026-01-28T01:06:29Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2255449481-user-519789566-mtg-fast-finance-ep-509-best-of-lorwyn-eclipsed.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-509-best-of-lorwyn-eclipsed",
+      "duration_seconds": 4102,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "James and Cliff break take a look at the standout cards from Lorwyn Eclipsed alongside all the usual updates on Magic finance.\n\nIntro/Outro Music by Skylarka",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0509-best-of-lorwyn-eclipsed",
+      "outputs": {
+        "metadata": "episodes/0509-best-of-lorwyn-eclipsed/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-09-01T15:11:46Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 3/5 failed after 323.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting ',' delimiter at line 6263, column 23; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-01T21:11:46Z",
         "quarantined": false
       },
       "human_reviewed": false,

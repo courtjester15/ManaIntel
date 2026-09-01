@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-01T00:08:55Z",
+  "updated_at": "2026-09-01T15:11:46Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -13697,6 +13697,65 @@
       "status": "failed",
       "updated_at": "2026-09-01T00:08:55Z",
       "output_directory": "episodes/0510-tmnt-leaked-card-mishap"
+    },
+    "tag:soundcloud,2010:tracks/2255449481": {
+      "guid": "tag:soundcloud,2010:tracks/2255449481",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-01T14:52:26Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-01T14:52:26Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-01T14:52:26Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-01T14:52:26Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-01T14:52:28Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-01T14:52:28Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-01T14:52:52Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-01T15:11:46Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 509:  Best of Lorwyn Eclipsed",
+      "episode_number": 509,
+      "published_at": "2026-01-28T01:06:29Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 3/5 failed after 323.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting ',' delimiter at line 6263, column 23; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-01T21:11:46Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-09-01T15:11:46Z",
+      "output_directory": "episodes/0509-best-of-lorwyn-eclipsed"
     }
   }
 }
