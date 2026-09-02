@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-02T14:37:44Z",
+  "updated_at": "2026-09-02T23:07:03Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -13949,6 +13949,50 @@
         {
           "status": "failed",
           "timestamp": "2026-09-01T15:11:46Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-02T22:38:43Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-02T22:38:44Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-02T22:38:46Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-02T22:38:46Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-02T22:39:11Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-02T23:06:32Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-02T23:06:32Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-02T23:07:03Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-02T23:07:03Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-02T23:07:03Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-02T23:07:03Z"
         }
       ],
       "title": "MTG Fast Finance Ep 509:  Best of Lorwyn Eclipsed",
@@ -13956,23 +14000,203 @@
       "published_at": "2026-01-28T01:06:29Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 3/5 failed after 323.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting ',' delimiter at line 6263, column 23; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-01T21:11:46Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-02T23:07:03Z",
+      "output_directory": "episodes/0509-best-of-lorwyn-eclipsed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite + gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash-lite",
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 4102,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 430.827,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 18769,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22614,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41383,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 437.482,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 20838,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22615,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43453,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 419.835,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12494,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22615,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 35109,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 302.901,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 96
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18917
+                }
+              ],
+              "cached_content_token_count": 19013,
+              "candidates_token_count": 13154,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22615,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                }
+              ],
+              "thoughts_token_count": 14447,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 50216,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 502,
+            "request_seconds": 49.174,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11144,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 12678,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 12563
+                }
+              ],
+              "thoughts_token_count": 223,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 24045,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 276
       },
-      "status": "failed",
-      "updated_at": "2026-09-01T15:11:46Z",
-      "output_directory": "episodes/0509-best-of-lorwyn-eclipsed"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1480,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 20146,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 20146
+          }
+        ],
+        "thoughts_token_count": 5675,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 27301,
+        "traffic_type": null
+      },
+      "review_reason": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15770": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15770",

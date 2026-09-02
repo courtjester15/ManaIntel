@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-02T14:37:44Z",
-    "latest_successful_run_at": "2026-08-30T23:07:33Z",
+    "generated_at": "2026-09-02T23:07:11Z",
+    "latest_successful_run_at": "2026-09-02T23:07:03Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 63,
-    "real_pick_count": 234,
+    "real_pick_count": 238,
     "last_discovered_episode_date": "2026-08-28T06:18:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 63,
-    "picks": 234,
+    "picks": 238,
     "needs_review": 27,
-    "failed": 7,
-    "completed": 29
+    "failed": 6,
+    "completed": 30
   },
   "status_counts": {
     "needs_review": 27,
-    "complete": 29,
-    "failed": 7
+    "complete": 30,
+    "failed": 6
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=32434",
@@ -2561,31 +2561,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 4,
       "directory": "episodes/0509-best-of-lorwyn-eclipsed",
       "outputs": {
         "metadata": "episodes/0509-best-of-lorwyn-eclipsed/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0509-best-of-lorwyn-eclipsed/summary.json",
+        "summary_markdown": "episodes/0509-best-of-lorwyn-eclipsed/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-01T15:11:46Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 3/5 failed after 323.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 3: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting ',' delimiter at line 6263, column 23; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-01T21:11:46Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-09-02T23:07:03Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
