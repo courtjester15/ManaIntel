@@ -23,7 +23,7 @@ The repository starts with synthetic fixtures. The deployed production catalog e
 
 ## Developer quick start
 
-Python 3.11 or newer is required. Mock processing needs no credentials or external media tools. Live processing additionally requires `ffmpeg`, network access, and either `GEMINI_API_KEY` or `OPENAI_API_KEY` depending on `FFW_AI_PROVIDER`.
+Python 3.11 or newer is required. Mock processing needs no credentials or external media tools. The checked-in live deployment is intentionally free-tier-only and requires `ffmpeg`, network access, and `GEMINI_API_KEY`. OpenAI adapters remain dormant in the codebase for a possible future explicit opt-in; production does not configure an OpenAI key or cross-provider fallback.
 
 ```powershell
 py -m venv .venv
@@ -57,7 +57,7 @@ For development without installing the package, set `PYTHONPATH=src` before invo
 | `manaintel render` | Re-render Markdown from JSON and rebuild `index.json` and `cards.json`. |
 | `manaintel serve` | Serve the repository and local archive on port 8765. |
 
-Live batch and failed-only runs require a positive limit no greater than 20. Limits count eligible selected episodes, not RSS entries inspected. `complete` and `needs_review` records are skipped before download or provider calls; failed records are selected only by `retry-failed` or an exact GUID override. Gemini transcription uses exponential in-run backoff, its configured same-key fallback, and then an optional OpenAI provider fallback before consuming an episode attempt. Automatic episode retries use a six-hour cooldown and stop after three total attempts. A no-op does not rewrite catalogs, state, or Pages; a changed validated failure record is published so operational status stays current.
+Live batch and failed-only runs require a positive limit no greater than 20. Limits count eligible selected episodes, not RSS entries inspected. `complete` and `needs_review` records are skipped before download or provider calls; failed records are selected only by `retry-failed` or an exact GUID override. Gemini transcription makes one delayed transient retry and then uses its configured same-key Gemini fallback. Successful chunks are fingerprinted in ignored local storage and automatically carried between GitHub Actions runs through a private cache, so retries resume at the first missing chunk. Automatic episode retries use a six-hour cooldown and stop after three total attempts. Quota responses skip repeat calls to the exhausted model. A no-op does not rewrite catalogs, state, or Pages; a changed validated failure record is published so operational status stays current.
 
 Targeted verification is bounded and cost-conscious. For at most `FFW_TARGETED_VERIFICATION_MAX_PICKS` transcription-level card-name ambiguities per episode, ManaIntel cuts a short audio excerpt, performs a focused second listen, and accepts a correction only when the returned name independently resolves as an exact Scryfall card. Printing and foil uncertainty remains reviewable.
 
@@ -112,7 +112,7 @@ Implemented foundation:
 - Protocols for feed, downloader, audio, transcription, extraction, and state adapters.
 - Idempotent terminal-state handling and auditable processing histories.
 - Versioned JSON Schema and pipeline metadata.
-- Opt-in live RSS, guarded audio download, `ffmpeg` preparation, Gemini/OpenAI transcription and extraction adapters, and a scheduled GitHub Actions/Pages workflow.
+- Opt-in live RSS, guarded audio download, `ffmpeg` preparation, a Gemini free-tier production path, dormant OpenAI transcription/extraction adapters, and a scheduled GitHub Actions/Pages workflow.
 
 Still intentionally outside the product:
 

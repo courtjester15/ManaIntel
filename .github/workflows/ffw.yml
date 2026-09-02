@@ -67,14 +67,15 @@ env:
   FFW_AI_PROVIDER: gemini
   FFW_TRANSCRIPTION_MODEL: ${{ inputs.ai_model || 'gemini-3.5-flash' }}
   FFW_TRANSCRIPTION_FALLBACK_MODEL: gemini-3.5-flash-lite
-  FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai
-  FFW_OPENAI_TRANSCRIPTION_MODEL: gpt-4o-transcribe-diarize
+  # Production is intentionally Gemini free-tier only. The dormant OpenAI
+  # adapter remains available for a future explicit, paid opt-in.
+  FFW_TRANSCRIPTION_PROVIDER_FALLBACK: ""
   FFW_RETAIN_TRANSCRIPTS: "true"
   FFW_REUSE_TRANSCRIPTS: ${{ inputs.reuse_transcript_run_id != '' }}
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
   FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
   FFW_AUDIO_CHUNK_SECONDS: "900"
-  FFW_GEMINI_TRANSIENT_RETRIES: "2"
+  FFW_GEMINI_TRANSIENT_RETRIES: "1"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
   FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "180"
   FFW_EXTRACTION_MODEL: ${{ inputs.ai_model || 'gemini-3.5-flash' }}
@@ -121,26 +122,28 @@ jobs:
         if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         shell: bash
         run: |
           echo "Provider: $FFW_AI_PROVIDER"
           echo "Transcription model: $FFW_TRANSCRIPTION_MODEL"
           echo "Transcription fallback model: $FFW_TRANSCRIPTION_FALLBACK_MODEL"
-          echo "Cross-provider transcription fallback: $FFW_TRANSCRIPTION_PROVIDER_FALLBACK"
+          echo "Cross-provider transcription fallback: ${FFW_TRANSCRIPTION_PROVIDER_FALLBACK:-disabled}"
           echo "Audio chunk seconds: $FFW_AUDIO_CHUNK_SECONDS"
           echo "Extraction model: $FFW_EXTRACTION_MODEL"
           if [[ "$FFW_AI_PROVIDER" == "gemini" && -z "$GEMINI_API_KEY" ]]; then
             echo "::error::GEMINI_API_KEY repository secret is missing or empty."
             exit 2
           fi
-          if [[ "$FFW_AI_PROVIDER" == "openai" && -z "$OPENAI_API_KEY" ]]; then
-            echo "::error::OPENAI_API_KEY repository secret is missing or empty."
-            exit 2
-          fi
-          if [[ "$FFW_AI_PROVIDER" == "gemini" && "$FFW_TRANSCRIPTION_PROVIDER_FALLBACK" == "openai" && -z "$OPENAI_API_KEY" ]]; then
-            echo "::warning::OPENAI_API_KEY is unavailable; Gemini will run without cross-provider transcription fallback."
-          fi
+
+      - name: Restore private transcription checkpoints
+        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        id: checkpoint_restore
+        uses: actions/cache/restore@v4
+        with:
+          path: .ffw-work/chunk-checkpoints
+          key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ffw-chunks-${{ runner.os }}-
 
       - name: Download retained transcript for recovery
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_transcript_run_id != '' }}
@@ -158,7 +161,6 @@ jobs:
         id: pipeline
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           INPUT_MODE: ${{ inputs.mode || 'next' }}
           INPUT_LIMIT: ${{ inputs.batch_size || '1' }}
           INPUT_GUID: ${{ inputs.force_guid || '' }}
@@ -199,6 +201,13 @@ jobs:
           set -e
           echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
           echo "Pipeline completed with exit code $exit_code; validation and durable-state persistence will continue."
+
+      - name: Save private transcription checkpoints
+        if: ${{ always() && github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .ffw-work/chunk-checkpoints
+          key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Build deploy-only production catalog
         if: ${{ github.event_name == 'push' || inputs.mode == 'deploy_only' }}

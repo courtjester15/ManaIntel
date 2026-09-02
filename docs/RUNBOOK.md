@@ -8,7 +8,7 @@ GitHub Actions runs `.github/workflows/ffw.yml` at 10:17 UTC for fresh backfill 
 
 `https://feeds.feedburner.com/brainstormbrewerypodcast`
 
-The production stages are feed discovery, eligibility-first selection, durable queueing, streamed temporary download, ffmpeg normalization/splitting, provider transcription, Cards to Watch boundary detection, schema-constrained extraction, validation, bot commit, and Pages deployment. The checked-in workflow selects Gemini `gemini-3.5-flash` for transcription and extraction. Transcription retries transient primary-model failures after 30 and 60 seconds, then uses `gemini-3.5-flash-lite`, then uses OpenAI `gpt-4o-transcribe-diarize` when `OPENAI_API_KEY` is available. All provider fallbacks happen inside one durable episode attempt.
+The production stages are feed discovery, eligibility-first selection, durable queueing, streamed temporary download, ffmpeg normalization/splitting, provider transcription, Cards to Watch boundary detection, schema-constrained extraction, validation, bot commit, and Pages deployment. The checked-in workflow is intentionally free-tier-only: it selects Gemini `gemini-3.5-flash` for transcription and extraction, makes one delayed retry for transient primary-model failures, and then uses the same-key `gemini-3.5-flash-lite` fallback. It does not configure or use OpenAI. The OpenAI adapters remain dormant for a possible future explicit paid opt-in.
 
 Before publication, `FFW_TARGETED_VERIFICATION_ENABLED=true` permits up to `FFW_TARGETED_VERIFICATION_MAX_PICKS` focused second-listen checks for card-name/transcription ambiguities. Each check sends only a short excerpt around the pick timestamp. A correction is accepted only when the second listen supplies a name that Scryfall verifies exactly; unavailable verification remains non-fatal and the pick stays in review. Printing and foil ambiguity is not auto-approved.
 
@@ -22,7 +22,7 @@ One concurrency group serializes all writers. The 10:17 UTC `next` run scans new
 
 ## One-time GitHub setup
 
-1. Open the repository, then **Settings -> Secrets and variables -> Actions -> New repository secret**. For the temporary Gemini validation provider, name it exactly `GEMINI_API_KEY` and paste a valid Google AI Studio API key. For the OpenAI provider, name it exactly `OPENAI_API_KEY` and paste a valid OpenAI API key.
+1. Open the repository, then **Settings -> Secrets and variables -> Actions -> New repository secret**. Name the production secret exactly `GEMINI_API_KEY` and paste a valid Google AI Studio API key. Do not add an OpenAI key for the checked-in production workflow.
 2. Open **Settings → Actions → General → Workflow permissions**. Select **Read and write permissions**, then save.
 3. Open **Settings → Pages → Build and deployment → Source**. Select **GitHub Actions**.
 4. If GitHub pauses the first deployment, open **Actions → ManaIntel automated archive → the waiting run → Review deployments**, approve `github-pages`, and continue.
@@ -33,9 +33,13 @@ Manual live runs are intentionally capped. For one Brainstorm Brewery episode, u
 
 The first Gemini validation attempt used `gemini-2.5-flash`, which returned `404 NOT_FOUND` for this key because that model was not available to new users. That run also demonstrated why provider-wide failures must stop the batch: the old `episode_limit=0` default meant "all episodes" and published roughly 500 failed live records. The archive/state cleanup commit removes those generated failure records and keeps the synthetic fixture archive only.
 
-Provider-wide failures include missing or invalid keys, unavailable models, quota exhaustion, transient provider capacity, and provider schema capability errors. They stop the current batch so one outage does not burn through multiple episodes. Missing credentials, unsupported models, and incompatible schemas are non-retryable configuration failures. During transcription, quota (`429`), disconnect, timeout, and `5xx` errors receive one short retry on the primary model and one request on the configured fallback model. If both models fail, the episode remains retryable after the normal cooldown. Episode-specific bad input, such as oversized or empty audio, is quarantined and does not stop unrelated work.
+Provider-wide failures include missing or invalid keys, unavailable models, quota exhaustion, transient provider capacity, and provider schema capability errors. They stop the current batch so one outage does not burn through multiple episodes. Missing credentials, unsupported models, and incompatible schemas are non-retryable configuration failures. During transcription, quota (`429`), disconnect, timeout, and `5xx` errors receive the configured primary retries and one request on the same-key fallback model. If both models fail, the episode remains retryable after the normal cooldown. Episode-specific bad input, such as oversized or empty audio, is quarantined and does not stop unrelated work.
 
 The fallback uses the existing `GEMINI_API_KEY`; it requires no second account or repository secret. `FFW_TRANSCRIPTION_FALLBACK_MODEL` disables fallback when blank. `FFW_GEMINI_TRANSIENT_RETRIES` and `FFW_GEMINI_RETRY_DELAY_SECONDS` control primary-model retries and delay. Successful state records retain the actual model for every chunk, including mixed-model transcripts.
+
+### Free-tier retry caution
+
+Each successful transcription chunk is written atomically under ignored `.ffw-work/chunk-checkpoints/`. GitHub Actions restores and saves that directory through its private cache, so a later scheduled attempt resumes at the first missing chunk. A fingerprint covers the episode GUID and audio URL, audio bytes, prompt, model pair, and chunk size; stale or corrupt checkpoints are ignored. Checkpoints are cleared after the episode publishes successfully, while extraction failures retain the completed transcription chunks. A `429 RESOURCE_EXHAUSTED` response skips further retries on that model and tries the same-key fallback at most once. Do not manually dispatch more runs after both Gemini models report quota exhaustion that day.
 
 Never put the API key in `.env.example`, state, archive output, workflow inputs, issue text, or logs.
 
@@ -112,4 +116,4 @@ Raw MP3s and normalized chunks remain disposable in `.ffw-work/`. When `FFW_RETA
 
 A missing recommendation-section ending remains visible in section metadata but does not by itself require editorial review when all extracted picks are approved. Missing sections, empty extraction, and pick-level ambiguity still produce `needs_review`. Gemini segment timestamps are bounded to their source chunk and the count of timing corrections is retained in transcription metadata.
 
-The OpenAI API may return token usage for extraction, but transcription usage availability varies by response. The pipeline records provider/model/chunk/duration metadata when available and does not fabricate a cost estimate. Monitor actual spend in the OpenAI API usage dashboard.
+The production pipeline records Gemini provider/model/chunk/duration metadata when available and does not fabricate a cost estimate. OpenAI cost monitoring is irrelevant unless the dormant adapter is explicitly enabled in a future deployment.

@@ -13,7 +13,7 @@ MOCK_EXTRACTION_MODEL = "mock-extractor-v1"
 MAX_LIVE_BATCH = 20
 MAX_EPISODE_ATTEMPTS = 3
 RETRY_COOLDOWN_HOURS = 6
-GEMINI_TRANSIENT_RETRIES = 2
+GEMINI_TRANSIENT_RETRIES = 1
 GEMINI_RETRY_DELAY_SECONDS = 30.0
 GEMINI_REQUEST_TIMEOUT_SECONDS = 180.0
 
@@ -29,7 +29,7 @@ class Settings:
     state_file: Path
     work_dir: Path
     mode: str = "mock"
-    ai_provider: str = "openai"
+    ai_provider: str = "gemini"
     feed_url: str = "https://feeds.soundcloud.com/users/soundcloud:users:201003125/sounds.rss"
     feed_name: str = "MTG Fast Finance"
     brainstorm_feed_url: str = "https://feeds.feedburner.com/brainstormbrewerypodcast"
@@ -72,7 +72,7 @@ class Settings:
             state_file=state,
             work_dir=root / ".ffw-work",
             mode=os.getenv("FFW_MODE", "mock"),
-            ai_provider=os.getenv("FFW_AI_PROVIDER", "openai").lower(),
+            ai_provider=os.getenv("FFW_AI_PROVIDER", "gemini").lower(),
             feed_url=os.getenv("FFW_FEED_URL", "https://feeds.soundcloud.com/users/soundcloud:users:201003125/sounds.rss"),
             feed_name=os.getenv("FFW_FEED_NAME", "MTG Fast Finance"),
             brainstorm_feed_url=os.getenv("FFW_BRAINSTORM_FEED_URL", "https://feeds.feedburner.com/brainstormbrewerypodcast"),

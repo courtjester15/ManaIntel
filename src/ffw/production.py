@@ -347,6 +347,11 @@ def _is_transient_gemini_error(exc: Exception) -> bool:
     ))
 
 
+def _is_gemini_quota_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return "429" in text or "resource_exhausted" in text or "quota exceeded" in text
+
+
 def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list[Any], schema: dict[str, Any]) -> dict[str, Any]:
     attempts = [
         {"response_mime_type": "application/json", "response_json_schema": schema},
@@ -391,6 +396,7 @@ class GeminiTranscriber:
         transient_retries: int = 2,
         retry_delay_seconds: float = 30.0,
         request_timeout_seconds: float = 180.0,
+        checkpoint_root: Path | None = None,
     ) -> None:
         self.model_name = model_name
         self.chunk_seconds = chunk_seconds
@@ -398,6 +404,87 @@ class GeminiTranscriber:
         self.transient_retries = max(0, transient_retries)
         self.retry_delay_seconds = max(0.0, retry_delay_seconds)
         self.request_timeout_seconds = max(1.0, request_timeout_seconds)
+        self.checkpoint_root = checkpoint_root
+
+    @staticmethod
+    def _episode_checkpoint_name(episode: EpisodeCandidate) -> str:
+        return hashlib.sha256(episode.guid.encode("utf-8")).hexdigest()[:24]
+
+    def _checkpoint_dir(self, episode: EpisodeCandidate) -> Path | None:
+        return self.checkpoint_root / self._episode_checkpoint_name(episode) if self.checkpoint_root else None
+
+    def clear_checkpoint(self, episode: EpisodeCandidate) -> None:
+        checkpoint_dir = self._checkpoint_dir(episode)
+        if checkpoint_dir is not None:
+            shutil.rmtree(checkpoint_dir, ignore_errors=True)
+
+    def _checkpoint_fingerprint(
+        self, episode: EpisodeCandidate, audio_files: list[Path], prompt: str,
+    ) -> str:
+        audio = []
+        for path in audio_files:
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            audio.append({"name": path.name, "size": path.stat().st_size, "sha256": digest})
+        value = {
+            "version": 1,
+            "guid": episode.guid,
+            "audio_url": episode.audio_url,
+            "model": self.model_name,
+            "fallback_model": self.fallback_model_name,
+            "chunk_seconds": self.chunk_seconds,
+            "prompt": prompt,
+            "audio": audio,
+        }
+        encoded = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
+
+    def _load_chunk_checkpoint(
+        self, episode: EpisodeCandidate, index: int, chunk_count: int, fingerprint: str,
+    ) -> tuple[dict[str, Any], str, float] | None:
+        checkpoint_dir = self._checkpoint_dir(episode)
+        if checkpoint_dir is None:
+            return None
+        path = checkpoint_dir / f"chunk-{index:03d}.json"
+        try:
+            saved = json.loads(path.read_text(encoding="utf-8"))
+            if (
+                saved.get("fingerprint") != fingerprint
+                or saved.get("chunk_index") != index
+                or saved.get("chunk_count") != chunk_count
+                or not isinstance(saved.get("payload"), dict)
+                or not isinstance(saved.get("model"), str)
+            ):
+                return None
+            return saved["payload"], saved["model"], float(saved.get("request_seconds", 0.0))
+        except (OSError, ValueError, TypeError, json.JSONDecodeError):
+            return None
+
+    def _save_chunk_checkpoint(
+        self,
+        episode: EpisodeCandidate,
+        index: int,
+        chunk_count: int,
+        fingerprint: str,
+        payload: dict[str, Any],
+        model: str,
+        request_seconds: float,
+    ) -> None:
+        checkpoint_dir = self._checkpoint_dir(episode)
+        if checkpoint_dir is None:
+            return
+        checkpoint_dir.mkdir(parents=True, exist_ok=True)
+        path = checkpoint_dir / f"chunk-{index:03d}.json"
+        temporary = path.with_suffix(".tmp")
+        temporary.write_text(json.dumps({
+            "version": 1,
+            "fingerprint": fingerprint,
+            "chunk_index": index,
+            "chunk_count": chunk_count,
+            "model": model,
+            "request_seconds": request_seconds,
+            "payload": payload,
+        }, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        os.replace(temporary, path)
 
     def _transcribe_chunk(
         self,
@@ -426,6 +513,10 @@ class GeminiTranscriber:
                         raise
                     last_error = exc
                     transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
+                    # A daily/model quota response will not recover by repeating
+                    # the same model. Move directly to the same-key fallback.
+                    if _is_gemini_quota_error(exc):
+                        break
                     if attempt + 1 < attempts and self.retry_delay_seconds:
                         time.sleep(self.retry_delay_seconds * (2 ** attempt))
         details = "; ".join(transient_errors)
@@ -457,23 +548,34 @@ class GeminiTranscriber:
             "Include speaker labels when they are obvious; otherwise use null. "
             "Keep card names and price phrases as spoken."
         )
+        fingerprint = self._checkpoint_fingerprint(episode, audio_files, prompt)
         for index, path in enumerate(audio_files):
             started = time.monotonic()
-            try:
-                payload, used_model = self._transcribe_chunk(
-                    client,
-                    types,
-                    contents=[
-                        prompt,
-                        types.Part.from_bytes(data=path.read_bytes(), mime_type="audio/mpeg"),
-                    ],
+            checkpoint = self._load_chunk_checkpoint(episode, index, len(audio_files), fingerprint)
+            checkpoint_reused = checkpoint is not None
+            if checkpoint is not None:
+                payload, used_model, request_seconds = checkpoint
+                print(f"Reusing private transcription checkpoint for chunk {index + 1}/{len(audio_files)}.")
+            else:
+                try:
+                    payload, used_model = self._transcribe_chunk(
+                        client,
+                        types,
+                        contents=[
+                            prompt,
+                            types.Part.from_bytes(data=path.read_bytes(), mime_type="audio/mpeg"),
+                        ],
+                    )
+                except Exception as exc:
+                    elapsed = time.monotonic() - started
+                    raise RuntimeError(
+                        f"Gemini transcription chunk {index + 1}/{len(audio_files)} failed "
+                        f"after {elapsed:.1f}s: {type(exc).__name__}: {exc}"
+                    ) from exc
+                request_seconds = round(time.monotonic() - started, 3)
+                self._save_chunk_checkpoint(
+                    episode, index, len(audio_files), fingerprint, payload, used_model, request_seconds,
                 )
-            except Exception as exc:
-                elapsed = time.monotonic() - started
-                raise RuntimeError(
-                    f"Gemini transcription chunk {index + 1}/{len(audio_files)} failed "
-                    f"after {elapsed:.1f}s: {type(exc).__name__}: {exc}"
-                ) from exc
             chunk_usage = payload.pop("_usage", None)
             used_models.append(used_model)
             usage.append({
@@ -484,7 +586,8 @@ class GeminiTranscriber:
                     self.chunk_seconds,
                     max(0, (episode.duration_seconds or len(audio_files) * self.chunk_seconds) - index * self.chunk_seconds),
                 ),
-                "request_seconds": round(time.monotonic() - started, 3),
+                "request_seconds": request_seconds,
+                "checkpoint_reused": checkpoint_reused,
                 "provider_usage": chunk_usage,
             })
             offset = index * self.chunk_seconds
@@ -683,6 +786,7 @@ def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:
             settings.gemini_transient_retries,
             settings.gemini_retry_delay_seconds,
             settings.gemini_request_timeout_seconds,
+            settings.work_dir / "chunk-checkpoints",
         )
         transcriber = gemini_transcriber
         if provider_fallback == "openai" and os.getenv("OPENAI_API_KEY"):

@@ -371,6 +371,8 @@ class Pipeline:
         existing = self.state.get(episode.guid)
         should_skip_failed = existing and existing.get("status") == "failed" and (episode.synthetic or not retry_failed)
         if existing and (existing.get("status") in TERMINAL_STATES or should_skip_failed) and not force:
+            if existing.get("status") in TERMINAL_STATES:
+                self._clear_transcription_checkpoint(episode)
             return PipelineResult(
                 guid=episode.guid,
                 status=existing["status"],
@@ -497,6 +499,7 @@ class Pipeline:
                 report_dir = self.settings.work_dir / "reprocess-reports"
                 report_dir.mkdir(parents=True, exist_ok=True)
                 atomic_write_json(report_dir / f"{slug}.json", report)
+                self._clear_transcription_checkpoint(episode)
                 return PipelineResult(
                     guid=episode.guid,
                     status="needs_review",
@@ -527,6 +530,7 @@ class Pipeline:
                 report_dir = self.settings.work_dir / "reprocess-reports"
                 report_dir.mkdir(parents=True, exist_ok=True)
                 atomic_write_json(report_dir / f"{slug}.json", compare_episode_summaries(baseline_summary, summary))
+            self._clear_transcription_checkpoint(episode)
             return PipelineResult(
                 guid=episode.guid,
                 status=final_status,
@@ -587,6 +591,14 @@ class Pipeline:
                 raise ValueError("Extraction contains a pick without card and recommendation text.")
             if pick.get("start_seconds") is None or not pick.get("evidence_excerpt"):
                 raise ValueError("Every published pick requires a timestamp and compact evidence.")
+
+    def _clear_transcription_checkpoint(self, episode: EpisodeCandidate) -> None:
+        transcriber = self.transcriber
+        clear = getattr(transcriber, "clear_checkpoint", None)
+        if not callable(clear):
+            clear = getattr(getattr(transcriber, "primary", None), "clear_checkpoint", None)
+        if callable(clear):
+            clear(episode)
 
     def _processing_metadata(self, episode: EpisodeCandidate, status: str) -> dict[str, Any]:
         state_record = self.state.get(episode.guid) or {}

@@ -576,11 +576,13 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("reuse_transcript_run_id:", workflow)
         self.assertIn("Download retained transcript for recovery", workflow)
         self.assertIn("FFW_REUSE_TRANSCRIPTS", workflow)
-        self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "2"', workflow)
+        self.assertIn('FFW_GEMINI_TRANSIENT_RETRIES: "1"', workflow)
+        self.assertIn("Restore private transcription checkpoints", workflow)
+        self.assertIn("Save private transcription checkpoints", workflow)
         self.assertIn('FFW_GEMINI_RETRY_DELAY_SECONDS: "30"', workflow)
         self.assertIn('FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "180"', workflow)
         self.assertIn("timeout-minutes: 45", workflow)
-        self.assertIn("FFW_TRANSCRIPTION_PROVIDER_FALLBACK: openai", workflow)
+        self.assertIn('FFW_TRANSCRIPTION_PROVIDER_FALLBACK: ""', workflow)
         self.assertIn("Decide Pages publication", workflow)
         self.assertIn("needs.publish.outputs.pages_ready == 'true'", workflow)
         self.assertIn("DURABLE_CHANGED", workflow)
@@ -717,13 +719,71 @@ class ProductionPipelineTests(unittest.TestCase):
         )
         success = {"text": "Cards to Watch", "segments": [], "_usage": None}
         with (
-            patch("ffw.production._gemini_generate_json", side_effect=[RuntimeError("503"), RuntimeError("429"), success]),
+            patch("ffw.production._gemini_generate_json", side_effect=[RuntimeError("503"), RuntimeError("503"), success]),
             patch("ffw.production.time.sleep") as sleep,
         ):
             payload, model = transcriber._transcribe_chunk(object(), object(), ["audio"])
         self.assertEqual(success, payload)
         self.assertEqual("gemini-primary", model)
         self.assertEqual([call(30), call(60)], sleep.call_args_list)
+
+    def test_gemini_quota_skips_same_model_retries_and_uses_fallback_once(self) -> None:
+        transcriber = GeminiTranscriber(
+            "gemini-primary", 900, fallback_model_name="gemini-fallback",
+            transient_retries=2, retry_delay_seconds=30,
+        )
+        success = {"text": "recovered", "segments": [], "_usage": None}
+        with (
+            patch("ffw.production._gemini_generate_json", side_effect=[RuntimeError("429 RESOURCE_EXHAUSTED"), success]) as generate,
+            patch("ffw.production.time.sleep") as sleep,
+        ):
+            payload, model = transcriber._transcribe_chunk(object(), object(), ["audio"])
+        self.assertEqual(success, payload)
+        self.assertEqual("gemini-fallback", model)
+        self.assertEqual(["gemini-primary", "gemini-fallback"], [item.kwargs["model"] for item in generate.call_args_list])
+        sleep.assert_not_called()
+
+    def test_gemini_transcription_resumes_from_fingerprinted_chunk_checkpoint(self) -> None:
+        root = workspace_temp(self)
+        audio_files = [root / "chunk-000.mp3", root / "chunk-001.mp3"]
+        for index, path in enumerate(audio_files):
+            path.write_bytes(f"audio-{index}".encode())
+        candidate = EpisodeCandidate(
+            "guid", 42, "Episode 42", "2026-01-01T00:00:00Z",
+            "https://cdn.example.test/audio.mp3", "https://example.test/42", [],
+            duration_seconds=1800,
+        )
+        transcriber = GeminiTranscriber(
+            "gemini-primary", 900, transient_retries=0, retry_delay_seconds=0,
+            checkpoint_root=root / "checkpoints",
+        )
+        fake_genai = stdlib_types.ModuleType("google.genai")
+        fake_genai.Client = lambda **kwargs: object()
+        fake_genai.types = stdlib_types.SimpleNamespace(
+            HttpOptions=lambda **kwargs: kwargs,
+            Part=stdlib_types.SimpleNamespace(from_bytes=lambda **kwargs: kwargs),
+        )
+        fake_google = stdlib_types.ModuleType("google")
+        fake_google.genai = fake_genai
+        first = {"text": "first", "segments": [{"start": 1, "end": 2, "speaker": None, "text": "first"}], "_usage": None}
+        second = {"text": "second", "segments": [{"start": 3, "end": 4, "speaker": None, "text": "second"}], "_usage": None}
+        with (
+            patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+            patch.dict(sys.modules, {"google": fake_google, "google.genai": fake_genai}),
+            patch.object(transcriber, "_transcribe_chunk", side_effect=[(first, "gemini-primary"), RuntimeError("503 UNAVAILABLE")]),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "chunk 2/2"):
+                transcriber.transcribe(candidate, audio_files)
+        with (
+            patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}),
+            patch.dict(sys.modules, {"google": fake_google, "google.genai": fake_genai}),
+            patch.object(transcriber, "_transcribe_chunk", return_value=(second, "gemini-primary")) as generate,
+        ):
+            transcript = transcriber.transcribe(candidate, audio_files)
+        self.assertEqual(1, generate.call_count)
+        self.assertEqual("first\nsecond", transcript["text"])
+        self.assertTrue(transcript["usage"][0]["checkpoint_reused"])
+        self.assertFalse(transcript["usage"][1]["checkpoint_reused"])
 
     def test_transient_gemini_failure_uses_openai_in_same_episode_attempt(self) -> None:
         class Primary:
