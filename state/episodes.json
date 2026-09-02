@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-01T23:18:32Z",
+  "updated_at": "2026-09-02T14:37:44Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -13973,6 +13973,65 @@
       "status": "failed",
       "updated_at": "2026-09-01T15:11:46Z",
       "output_directory": "episodes/0509-best-of-lorwyn-eclipsed"
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15770": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15770",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-02T14:28:19Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-02T14:28:19Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-02T14:28:19Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-02T14:28:19Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-02T14:28:22Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-02T14:28:22Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-02T14:28:42Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-02T14:37:44Z"
+        }
+      ],
+      "title": "A Total Lowryn Eclipse of Our Hearts | Brainstorm Brewery #683 | Magic Finance",
+      "episode_number": 683,
+      "published_at": "2026-01-23T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 541.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash attempt 2: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-02T20:37:44Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-09-02T14:37:44Z",
+      "output_directory": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance"
     }
   }
 }

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15770",
+    "episode_number": 683,
+    "title": "A Total Lowryn Eclipse of Our Hearts | Brainstorm Brewery #683 | Magic Finance",
+    "published_at": "2026-01-23T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_683_A_Total_Lowryn_Eclipse_of_Our_Hearts.mp3",
+    "episode_url": "https://brainstormbrewery.com/a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance/",
+    "duration_seconds": 3437,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) are back talking about pre release, new standard shifts, and Pre Modern. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-02T14:37:44Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-02T14:28:19Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-02T14:28:19Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-02T14:28:19Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-02T14:28:19Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-02T14:28:22Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-02T14:28:22Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-02T14:28:42Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-02T14:37:44Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/4 failed after 541.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash attempt 2: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+      "category": "transient_model_output",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-02T20:37:44Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
