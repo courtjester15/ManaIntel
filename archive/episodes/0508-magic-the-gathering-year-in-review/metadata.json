@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2246508236",
+    "episode_number": 508,
+    "title": "MTG Fast Finance Ep 508: Magic the Gathering Year In Review",
+    "published_at": "2026-01-13T02:19:52Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2246508236-user-519789566-mtg-fast-finance-ep-508-magic-the-gathering-year-in-review.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-508-magic-the-gathering-year-in-review",
+    "duration_seconds": 4237,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff break down all the Magic the Gathering highs and lows for 2025 including all the major set releases and their Cards To Watch selections for the last year. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-03T14:56:44Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-03T14:34:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-03T14:34:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-03T14:34:45Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-03T14:34:45Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-03T14:34:47Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-03T14:34:47Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-03T14:35:07Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-03T14:53:45Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-03T14:53:45Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-03T14:56:44Z"
+      }
+    ],
+    "error": {
+      "stage": "extracting",
+      "message": "504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-03T20:56:44Z",
+      "quarantined": false
+    },
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 4237,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 82.786,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11075,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22623,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 124
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 13469,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47167,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 65.263,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8682,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22624,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 124
+              }
+            ],
+            "thoughts_token_count": 9880,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41186,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 84.899,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8830,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22624,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 124
+              }
+            ],
+            "thoughts_token_count": 16200,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47654,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 466.405,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17093,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22624,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 124
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39717,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 637,
+          "request_seconds": 417.417,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11040,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 16068,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 15944
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 124
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 27108,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 103
+    },
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0508-magic-the-gathering-year-in-review/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

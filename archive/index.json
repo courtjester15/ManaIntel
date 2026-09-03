@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-02T23:07:11Z",
+    "generated_at": "2026-09-03T14:56:44Z",
     "latest_successful_run_at": "2026-09-02T23:07:03Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 63,
+    "real_episode_count": 64,
     "real_pick_count": 238,
     "last_discovered_episode_date": "2026-08-28T06:18:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,16 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 63,
+    "episodes": 64,
     "picks": 238,
     "needs_review": 27,
-    "failed": 6,
+    "failed": 7,
     "completed": 30
   },
   "status_counts": {
     "needs_review": 27,
     "complete": 30,
-    "failed": 6
+    "failed": 7
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=32434",
@@ -2623,6 +2623,53 @@
         "attempt": 1,
         "max_attempts": 3,
         "next_retry_at": "2026-09-02T20:37:44Z",
+        "quarantined": false
+      },
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2246508236",
+      "episode_number": 508,
+      "title": "MTG Fast Finance Ep 508: Magic the Gathering Year In Review",
+      "published_at": "2026-01-13T02:19:52Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2246508236-user-519789566-mtg-fast-finance-ep-508-magic-the-gathering-year-in-review.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-508-magic-the-gathering-year-in-review",
+      "duration_seconds": 4237,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "James and Cliff break down all the Magic the Gathering highs and lows for 2025 including all the major set releases and their Cards To Watch selections for the last year. \n\nIntro/Outro Music by Skylarka",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0508-magic-the-gathering-year-in-review",
+      "outputs": {
+        "metadata": "episodes/0508-magic-the-gathering-year-in-review/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-09-03T14:56:44Z",
+      "error": {
+        "stage": "extracting",
+        "message": "504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-03T20:56:44Z",
         "quarantined": false
       },
       "human_reviewed": false,
