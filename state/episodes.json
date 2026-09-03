@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-03T14:56:44Z",
+  "updated_at": "2026-09-03T22:37:11Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -14299,6 +14299,38 @@
         {
           "status": "failed",
           "timestamp": "2026-09-03T14:56:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-03T22:34:34Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-03T22:34:34Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-03T22:34:36Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-03T22:34:36Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-03T22:35:00Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-03T22:35:01Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-03T22:35:01Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-03T22:37:11Z"
         }
       ],
       "title": "MTG Fast Finance Ep 508: Magic the Gathering Year In Review",
@@ -14306,22 +14338,22 @@
       "published_at": "2026-01-13T02:19:52Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 0,
       "error": {
         "stage": "extracting",
-        "message": "504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "category": "transient_provider",
         "synthetic": false,
         "retryable": true,
         "provider_wide": true,
-        "attempt": 1,
+        "attempt": 2,
         "max_attempts": 3,
-        "next_retry_at": "2026-09-03T20:56:44Z",
+        "next_retry_at": "2026-09-04T04:37:11Z",
         "quarantined": false
       },
       "status": "failed",
-      "updated_at": "2026-09-03T14:56:44Z",
+      "updated_at": "2026-09-03T22:37:11Z",
       "output_directory": "episodes/0508-magic-the-gathering-year-in-review",
       "transcription": {
         "provider": "Gemini",
@@ -14339,7 +14371,7 @@
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
             "request_seconds": 82.786,
-            "checkpoint_reused": false,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
@@ -14369,7 +14401,7 @@
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
             "request_seconds": 65.263,
-            "checkpoint_reused": false,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
@@ -14399,7 +14431,7 @@
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
             "request_seconds": 84.899,
-            "checkpoint_reused": false,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
@@ -14429,7 +14461,7 @@
             "model": "gemini-3.5-flash-lite",
             "audio_seconds": 900,
             "request_seconds": 466.405,
-            "checkpoint_reused": false,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
@@ -14459,7 +14491,7 @@
             "model": "gemini-3.5-flash-lite",
             "audio_seconds": 637,
             "request_seconds": 417.417,
-            "checkpoint_reused": false,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
