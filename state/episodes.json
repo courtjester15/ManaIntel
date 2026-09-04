@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-03T22:37:11Z",
+  "updated_at": "2026-09-04T14:31:09Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -14518,6 +14518,196 @@
         ],
         "timing_adjustments": 103
       }
+    },
+    "tag:soundcloud,2010:tracks/2243594903": {
+      "guid": "tag:soundcloud,2010:tracks/2243594903",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-04T14:20:55Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-04T14:20:55Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-04T14:20:55Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-04T14:20:55Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-04T14:20:58Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-04T14:20:58Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-04T14:21:12Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-04T14:30:15Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-04T14:30:15Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-04T14:31:09Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-04T14:31:09Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-04T14:31:09Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-04T14:31:09Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 507: PSA Buys Beckett",
+      "episode_number": 507,
+      "published_at": "2026-01-08T03:47:39Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-04T14:31:09Z",
+      "output_directory": "episodes/0507-psa-buys-beckett",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 2361,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 96.024,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 27500,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22614,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 688,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 50802,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 209.066,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8769,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22615,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 5907,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37291,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 561,
+            "request_seconds": 236.467,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 5640,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 14157,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 115
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 14042
+                }
+              ],
+              "thoughts_token_count": 2708,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 22505,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 12
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1414,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 6199,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 6199
+          }
+        ],
+        "thoughts_token_count": 3893,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 11506,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     }
   }
 }

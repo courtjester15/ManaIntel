@@ -1,0 +1,383 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2243594903",
+    "episode_number": 507,
+    "title": "MTG Fast Finance Ep 507: PSA Buys Beckett",
+    "published_at": "2026-01-08T03:47:39Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2243594903-user-519789566-mtg-fast-finance-ep-507-psa-buys-beckett.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-507-psa-buys-beckett",
+    "duration_seconds": 2361,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys walk you through all the latest in cardboard price movement, cards to watch and get into the weeds on the PSA acquisition of BGS. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-04T14:31:09Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-04T14:20:55Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-04T14:20:55Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-04T14:20:55Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-04T14:20:55Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-04T14:20:58Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-04T14:20:58Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-04T14:21:12Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-04T14:30:15Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-04T14:30:15Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-04T14:31:09Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-04T14:31:09Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-04T14:31:09Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-04T14:31:09Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2361,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 96.024,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 27500,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22614,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 688,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 50802,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 209.066,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8769,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22615,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 5907,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37291,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 561,
+          "request_seconds": 236.467,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 5640,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 14157,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 115
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 14042
+              }
+            ],
+            "thoughts_token_count": 2708,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 22505,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 12
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1414,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 6199,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 6199
+        }
+      ],
+      "thoughts_token_count": 3893,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 11506,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 743,
+    "end_seconds": 1755,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Sol Ring",
+      "printing": "Showcase",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$4",
+      "entry_target": {
+        "raw": "$4",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "hold": "1-2 years",
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Selling like hotcakes on TCG Player",
+        "Only available in Avatar gift bundles, which do not get reprinted"
+      ],
+      "caveats": [
+        "There are many other versions of Sol Ring in existence"
+      ],
+      "confidence": "medium",
+      "start_seconds": 754,
+      "end_seconds": 937,
+      "evidence_excerpt": "I think for these to go $4 to $10 over the next year or two is going to be pretty easy, uh, with all those dynamics in place.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-302251b0098f5cd1",
+      "timestamp": "00:12:34",
+      "listen_url": "https://feeds.soundcloud.com/stream/2243594903-user-519789566-mtg-fast-finance-ep-507-psa-buys-beckett.mp3#t=754"
+    },
+    {
+      "card": "Yuna, Grand Summoner",
+      "printing": "Promo",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$35",
+      "entry_target": {
+        "raw": "$35",
+        "currency": "USD",
+        "minimum": 35.0,
+        "maximum": 35.0
+      },
+      "hold": "6-12 months",
+      "exit_target": {
+        "raw": "$70",
+        "currency": "USD",
+        "minimum": 70.0,
+        "maximum": 70.0
+      },
+      "reasoning": [
+        "Store promo version given out for Commander Buy-a-Box League",
+        "Highly desirable 'waifu' art style",
+        "Can be acquired in Europe on Card Market for significantly less than US price"
+      ],
+      "caveats": [
+        "Shipping from Europe can add extra cost and complexity"
+      ],
+      "confidence": "medium",
+      "start_seconds": 937,
+      "end_seconds": 1205,
+      "evidence_excerpt": "I'm picking it, you pick it up at 35, you can sell it right now for 70, but, you know, 75 and higher is definitely in play.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-046c49950719ecaf",
+      "timestamp": "00:15:37",
+      "listen_url": "https://feeds.soundcloud.com/stream/2243594903-user-519789566-mtg-fast-finance-ep-507-psa-buys-beckett.mp3#t=937"
+    },
+    {
+      "card": "Walls of Ba Sing Se",
+      "printing": "Borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "mid 30s",
+      "entry_target": {
+        "raw": "mid 30s",
+        "currency": "USD",
+        "minimum": 33.0,
+        "maximum": 36.0
+      },
+      "hold": "1 year",
+      "exit_target": {
+        "raw": "$60 plus",
+        "currency": "USD",
+        "minimum": 60.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Blocks effectively and grants other permanents indestructible",
+        "Extremely annoying utility card that fits in many Commander strategies",
+        "Low inventory because these are difficult pulls"
+      ],
+      "caveats": [
+        "The art is considered medium compared to the regular version"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1205,
+      "end_seconds": 1550,
+      "evidence_excerpt": "I have a feeling this is going to get from mid 30s to $60 plus in the next year pretty easily.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-29535882e85434c1",
+      "timestamp": "00:20:05",
+      "listen_url": "https://feeds.soundcloud.com/stream/2243594903-user-519789566-mtg-fast-finance-ep-507-psa-buys-beckett.mp3#t=1205"
+    },
+    {
+      "card": "Maha, Its Feathers Night",
+      "printing": "Borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$30",
+      "entry_target": {
+        "raw": "$30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "60",
+        "currency": "USD",
+        "minimum": 60.0,
+        "maximum": 60.0
+      },
+      "reasoning": [
+        "Excellent synergy with upcoming -1/-1 counter deck strategies",
+        "Very low stock available among vendors",
+        "The borderless foil version will not be included in the preconstructed deck"
+      ],
+      "caveats": [
+        "Could theoretically face reprint pressure, though unlikely as a mythic"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1550,
+      "end_seconds": 1755,
+      "evidence_excerpt": "I love these borderless foils, and I think this is where I want to be. I'm calling it to go 30 to 60.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-077791b6aa288158",
+      "timestamp": "00:25:50",
+      "listen_url": "https://feeds.soundcloud.com/stream/2243594903-user-519789566-mtg-fast-finance-ep-507-psa-buys-beckett.mp3#t=1550"
+    }
+  ]
+}
