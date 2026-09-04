@@ -724,10 +724,44 @@ class OpenAIExtractor:
 
 
 class GeminiExtractor:
-    def __init__(self, model_name: str, card_glossary: str = "", request_timeout_seconds: float = 180.0) -> None:
+    def __init__(
+        self, model_name: str, card_glossary: str = "", request_timeout_seconds: float = 300.0,
+        fallback_model_name: str | None = None, transient_retries: int = 1,
+        retry_delay_seconds: float = 30.0,
+    ) -> None:
         self.model_name = model_name
         self.card_glossary = card_glossary
         self.request_timeout_seconds = max(1.0, request_timeout_seconds)
+        self.fallback_model_name = fallback_model_name if fallback_model_name != model_name else None
+        self.transient_retries = max(0, transient_retries)
+        self.retry_delay_seconds = max(0.0, retry_delay_seconds)
+
+    def _generate(self, client: Any, types: Any, contents: list[Any]) -> tuple[dict[str, Any], str]:
+        models = [self.model_name]
+        if self.fallback_model_name:
+            models.append(self.fallback_model_name)
+        transient_errors: list[str] = []
+        last_error: Exception | None = None
+        for model_index, model in enumerate(models):
+            attempts = 1 + self.transient_retries if model_index == 0 else 1
+            for attempt in range(attempts):
+                try:
+                    payload = _gemini_generate_json(
+                        client, types, model=model, contents=contents,
+                        schema=_inline_json_schema_refs(EXTRACTION_SCHEMA),
+                    )
+                    return payload, model
+                except Exception as exc:
+                    if not _is_transient_gemini_error(exc):
+                        raise
+                    last_error = exc
+                    transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
+                    if _is_gemini_quota_error(exc):
+                        break
+                    if attempt + 1 < attempts and self.retry_delay_seconds:
+                        time.sleep(self.retry_delay_seconds * (2 ** attempt))
+        details = "; ".join(transient_errors)
+        raise RuntimeError(f"Gemini extraction models exhausted after transient errors: {details}") from last_error
 
     def extract(self, episode: EpisodeCandidate, transcript: dict[str, Any]) -> dict[str, Any]:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
@@ -758,13 +792,8 @@ class GeminiExtractor:
         )
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
-        result = _gemini_generate_json(
-            client,
-            types,
-            model=self.model_name,
-            contents=[instructions, evidence],
-            schema=_inline_json_schema_refs(EXTRACTION_SCHEMA),
-        )
+        result, used_model = self._generate(client, types, [instructions, evidence])
+        result["_extraction_model"] = used_model
         result["section"] = section
         return result
 
@@ -796,6 +825,8 @@ def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:
             )
         extractor = GeminiExtractor(
             settings.extraction_model, settings.card_glossary, settings.gemini_request_timeout_seconds,
+            settings.extraction_fallback_model or settings.transcription_fallback_model,
+            settings.gemini_transient_retries, settings.gemini_retry_delay_seconds,
         )
     else:
         transcriber = OpenAITranscriber(settings.transcription_model, settings.audio_chunk_seconds)

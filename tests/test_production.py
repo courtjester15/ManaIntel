@@ -580,8 +580,9 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("Restore private transcription checkpoints", workflow)
         self.assertIn("Save private transcription checkpoints", workflow)
         self.assertIn('FFW_GEMINI_RETRY_DELAY_SECONDS: "30"', workflow)
-        self.assertIn('FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "180"', workflow)
-        self.assertIn("timeout-minutes: 45", workflow)
+        self.assertIn('FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "300"', workflow)
+        self.assertIn('FFW_EXTRACTION_FALLBACK_MODEL: gemini-3.5-flash-lite', workflow)
+        self.assertIn("timeout-minutes: 60", workflow)
         self.assertIn('FFW_TRANSCRIPTION_PROVIDER_FALLBACK: ""', workflow)
         self.assertIn("Decide Pages publication", workflow)
         self.assertIn("needs.publish.outputs.pages_ready == 'true'", workflow)
@@ -686,6 +687,7 @@ class ProductionPipelineTests(unittest.TestCase):
             self.assertIsInstance(extractor, GeminiExtractor)
             self.assertEqual(("gemini-t", "gemini-e"), (transcriber.model_name, extractor.model_name))
             self.assertEqual("gemini-t-fallback", transcriber.fallback_model_name)
+            self.assertEqual("gemini-t-fallback", extractor.fallback_model_name)
         settings = Settings(**base, ai_provider="openai", transcription_model="openai-t", extraction_model="openai-e")
         _, _, _, transcriber, extractor = production_adapters(settings)
         self.assertIsInstance(transcriber, OpenAITranscriber)
@@ -712,6 +714,47 @@ class ProductionPipelineTests(unittest.TestCase):
             ["gemini-primary", "gemini-primary", "gemini-fallback"],
             [item.kwargs["model"] for item in generate.call_args_list],
         )
+
+    def test_gemini_extraction_retries_then_uses_same_key_fallback(self) -> None:
+        extractor = GeminiExtractor(
+            "gemini-primary", fallback_model_name="gemini-fallback",
+            transient_retries=1, retry_delay_seconds=0,
+        )
+        success = {"recommendations": [], "_usage": None}
+        with patch(
+            "ffw.production._gemini_generate_json",
+            side_effect=[RuntimeError("503 UNAVAILABLE"), RuntimeError("504 DEADLINE_EXCEEDED"), success],
+        ) as generate:
+            payload, model = extractor._generate(object(), object(), ["evidence"])
+        self.assertEqual((success, "gemini-fallback"), (payload, model))
+        self.assertEqual(
+            ["gemini-primary", "gemini-primary", "gemini-fallback"],
+            [item.kwargs["model"] for item in generate.call_args_list],
+        )
+
+    def test_gemini_extraction_quota_moves_directly_to_fallback(self) -> None:
+        extractor = GeminiExtractor(
+            "gemini-primary", fallback_model_name="gemini-fallback",
+            transient_retries=2, retry_delay_seconds=30,
+        )
+        success = {"recommendations": [], "_usage": None}
+        with (
+            patch("ffw.production._gemini_generate_json", side_effect=[RuntimeError("429 RESOURCE_EXHAUSTED"), success]) as generate,
+            patch("ffw.production.time.sleep") as sleep,
+        ):
+            payload, model = extractor._generate(object(), object(), ["evidence"])
+        self.assertEqual((success, "gemini-fallback"), (payload, model))
+        self.assertEqual(["gemini-primary", "gemini-fallback"], [item.kwargs["model"] for item in generate.call_args_list])
+        sleep.assert_not_called()
+
+    def test_gemini_extraction_does_not_mask_permanent_errors(self) -> None:
+        extractor = GeminiExtractor(
+            "gemini-primary", fallback_model_name="gemini-fallback", transient_retries=1,
+        )
+        with patch("ffw.production._gemini_generate_json", side_effect=RuntimeError("404 NOT_FOUND")) as generate:
+            with self.assertRaisesRegex(RuntimeError, "404 NOT_FOUND"):
+                extractor._generate(object(), object(), ["evidence"])
+        self.assertEqual(1, generate.call_count)
 
     def test_gemini_transcription_uses_exponential_backoff(self) -> None:
         transcriber = GeminiTranscriber(

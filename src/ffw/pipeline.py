@@ -455,7 +455,10 @@ class Pipeline:
                 except Exception as verification_error:
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             extraction_usage = extraction.pop("_usage", None)
-            self.state.transition(episode.guid, "extracted", extraction_usage=extraction_usage)
+            extraction_model = extraction.pop("_extraction_model", self.extractor.model_name)
+            self.state.transition(
+                episode.guid, "extracted", extraction_usage=extraction_usage, extraction_model=extraction_model,
+            )
             final_status = episode.fixture.get("target_status", "complete") if episode.synthetic else (
                 "needs_review" if extraction.get("review_reason") or not extraction.get("recommendations")
                 or any(pick.get("review_status") != "approved" for pick in extraction.get("recommendations", []))
@@ -609,7 +612,7 @@ class Pipeline:
             "pipeline_version": PIPELINE_VERSION,
             "schema_version": SCHEMA_VERSION,
             "transcription_model": (state_record.get("transcription") or {}).get("model", self.transcriber.model_name),
-            "extraction_model": self.extractor.model_name,
+            "extraction_model": state_record.get("extraction_model", self.extractor.model_name),
             "prompt_version": PROMPT_VERSION,
             "processed_at": state_record.get("updated_at") or utc_now(),
             "history": state_record.get("history", []),

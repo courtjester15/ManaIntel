@@ -15,7 +15,7 @@ MAX_EPISODE_ATTEMPTS = 3
 RETRY_COOLDOWN_HOURS = 6
 GEMINI_TRANSIENT_RETRIES = 1
 GEMINI_RETRY_DELAY_SECONDS = 30.0
-GEMINI_REQUEST_TIMEOUT_SECONDS = 180.0
+GEMINI_REQUEST_TIMEOUT_SECONDS = 300.0
 
 
 def project_root() -> Path:
@@ -42,6 +42,7 @@ class Settings:
     transcription_provider_fallback: str | None = None
     openai_transcription_model: str = "gpt-4o-transcribe-diarize"
     extraction_model: str = "gpt-5.6-luna"
+    extraction_fallback_model: str | None = None
     max_live_batch: int = MAX_LIVE_BATCH
     max_episode_attempts: int = MAX_EPISODE_ATTEMPTS
     retry_cooldown_hours: int = RETRY_COOLDOWN_HOURS
@@ -89,6 +90,7 @@ class Settings:
             transcription_provider_fallback=(os.getenv("FFW_TRANSCRIPTION_PROVIDER_FALLBACK") or "").lower() or None,
             openai_transcription_model=os.getenv("FFW_OPENAI_TRANSCRIPTION_MODEL", "gpt-4o-transcribe-diarize"),
             extraction_model=os.getenv("FFW_EXTRACTION_MODEL", "gpt-5.6-luna"),
+            extraction_fallback_model=os.getenv("FFW_EXTRACTION_FALLBACK_MODEL") or None,
             max_live_batch=int(os.getenv("FFW_MAX_LIVE_BATCH", str(MAX_LIVE_BATCH))),
             max_episode_attempts=int(os.getenv("FFW_MAX_EPISODE_ATTEMPTS", str(MAX_EPISODE_ATTEMPTS))),
             retry_cooldown_hours=int(os.getenv("FFW_RETRY_COOLDOWN_HOURS", str(RETRY_COOLDOWN_HOURS))),
