@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "tag:soundcloud,2010:tracks/2246508236",
     "episode_number": 508,
@@ -330,9 +330,15 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0508-magic-the-gathering-year-in-review/metadata.json",
-    "summary_json": "episodes/0508-magic-the-gathering-year-in-review/summary.json",
-    "summary_markdown": "episodes/0508-magic-the-gathering-year-in-review/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 2507,
+    "end_seconds": 3707,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": []
 }

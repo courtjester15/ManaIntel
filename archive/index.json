@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-04T14:31:11Z",
-    "latest_successful_run_at": "2026-09-04T14:31:09Z",
+    "generated_at": "2026-09-04T22:26:16Z",
+    "latest_successful_run_at": "2026-09-04T22:26:16Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -35,14 +35,14 @@
   "counts": {
     "episodes": 65,
     "picks": 242,
-    "needs_review": 27,
-    "failed": 7,
+    "needs_review": 28,
+    "failed": 6,
     "completed": 31
   },
   "status_counts": {
-    "needs_review": 27,
+    "needs_review": 28,
     "complete": 31,
-    "failed": 7
+    "failed": 6
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=32434",
@@ -2647,31 +2647,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "This episode is a Year in Review special. No new/active recommendations were made; the hosts only analyzed and reviewed the performance of past picks from the previous year.",
       "pick_count": 0,
       "directory": "episodes/0508-magic-the-gathering-year-in-review",
       "outputs": {
         "metadata": "episodes/0508-magic-the-gathering-year-in-review/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0508-magic-the-gathering-year-in-review/summary.json",
+        "summary_markdown": "episodes/0508-magic-the-gathering-year-in-review/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-03T22:37:11Z",
-      "error": {
-        "stage": "extracting",
-        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-04T04:37:11Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-09-04T22:26:16Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
