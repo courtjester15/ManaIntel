@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "tag:soundcloud,2010:tracks/2235056672",
     "episode_number": 506,
@@ -289,9 +289,186 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0506-mtg-fast-finance-ep-506-marvel-heroes-previews/metadata.json",
-    "summary_json": "episodes/0506-mtg-fast-finance-ep-506-marvel-heroes-previews/summary.json",
-    "summary_markdown": "episodes/0506-mtg-fast-finance-ep-506-marvel-heroes-previews/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 1063,
+    "end_seconds": 2089,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Redirect Lightning",
+      "printing": "foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 2",
+        "Speaker 1"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "around $8 to $11",
+      "entry_target": {
+        "raw": "around $8 to $11",
+        "currency": "USD",
+        "minimum": 8.0,
+        "maximum": 11.0
+      },
+      "hold": "next couple of months",
+      "exit_target": {
+        "raw": "mid-20s",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "It is the number one EDH card of the set, despite other good cards.",
+        "It is already in 47,000 decks in the first month of release.",
+        "Under-opened set overall, meaning single supply is low relative to demand."
+      ],
+      "caveats": [
+        "The singles in the set could fall further, and the exact bottom is unknown.",
+        "Timing is difficult because the set is being cracked open currently."
+      ],
+      "confidence": "high",
+      "start_seconds": 1063,
+      "end_seconds": 1477,
+      "evidence_excerpt": "I have a feeling if you get these Redirect Lightning foils somewhere around $8 to $11 in the next couple of months, you are going to be well rewarded",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e229c2bf74368cf8",
+      "timestamp": "00:17:43",
+      "listen_url": "https://feeds.soundcloud.com/stream/2235056672-user-519789566-mtg-fast-finance-ep-506-marvel-heroes-previews.mp3#t=1063"
+    },
+    {
+      "card": "Phyrexian Altar",
+      "printing": "Secret Lair Drop",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "about $40",
+      "entry_target": {
+        "raw": "about $40",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "hold": "year and a half",
+      "exit_target": {
+        "raw": "60",
+        "currency": "USD",
+        "minimum": 60.0,
+        "maximum": 60.0
+      },
+      "reasoning": [
+        "The Art Deco art style is fantastic and unique.",
+        "Quantity of this specific Secret Lair printing is draining out nicely.",
+        "It's unlikely to receive another reprint in the next two years."
+      ],
+      "caveats": [
+        "The price could drift slightly lower before climbing."
+      ],
+      "confidence": "high",
+      "start_seconds": 1477,
+      "end_seconds": 1653,
+      "evidence_excerpt": "foils, not the Halo foils of Phyrexian Altar. Uh, you can get these foils for about $40 on TCGplayer. ... I think the foils are at a great buy-in point.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f4ef2e72a73ae3d7",
+      "timestamp": "00:24:37",
+      "listen_url": "https://feeds.soundcloud.com/stream/2235056672-user-519789566-mtg-fast-finance-ep-506-marvel-heroes-previews.mp3#t=1477"
+    },
+    {
+      "card": "Fated Firepower",
+      "printing": "Showcase",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 2",
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "30",
+      "entry_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "hold": "12 to 18 months",
+      "exit_target": {
+        "raw": "60",
+        "currency": "USD",
+        "minimum": 60.0,
+        "maximum": 60.0
+      },
+      "reasoning": [
+        "It's the number three mythic in the set on EDHREC.",
+        "Showcase art features popular characters Aang and Zuko, which increases desirability.",
+        "Set is under-opened, and there is extremely low supply of foil mythics."
+      ],
+      "caveats": [
+        "The price has already bounced up from its initial low point."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1653,
+      "end_seconds": 1919,
+      "evidence_excerpt": "Fated Firepower Showcase, so as opposed to Redirect Lightning where I was talking about pack foils, Fated Firepower Showcase, uh, is a mythic, not a rare",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8c69d454eeff9435",
+      "timestamp": "00:27:33",
+      "listen_url": "https://feeds.soundcloud.com/stream/2235056672-user-519789566-mtg-fast-finance-ep-506-marvel-heroes-previews.mp3#t=1653"
+    },
+    {
+      "card": "Spitting Dilophosaurus",
+      "printing": "Jurassic World Collection",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "20",
+      "entry_target": {
+        "raw": "20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": "January",
+      "exit_target": {
+        "raw": "50",
+        "currency": "USD",
+        "minimum": 50.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "Low supply with only 20 vendors having almost no copies left in foil.",
+        "Highly synergizes with upcoming -1/-1 counter themes in Lorwyn Commander decks.",
+        "As a Universes Beyond card, there is zero chance of a reprint anytime soon."
+      ],
+      "caveats": [
+        "This is a niche card that relies on incoming Commander hype to move."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1919,
+      "end_seconds": 2089,
+      "evidence_excerpt": "you can get Spitting Dilophosaurus. ... down to 20 vendors who have like uh, almost no copies left uh, in foil. So, I'm picking this to go",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1a676e48402c1b57",
+      "timestamp": "00:31:59",
+      "listen_url": "https://feeds.soundcloud.com/stream/2235056672-user-519789566-mtg-fast-finance-ep-506-marvel-heroes-previews.mp3#t=1919"
+    }
+  ]
 }
