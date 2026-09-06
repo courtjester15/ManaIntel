@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-05T22:08:10Z",
+  "updated_at": "2026-09-06T13:51:25Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -15031,6 +15031,205 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 14960,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2169174936": {
+      "guid": "tag:soundcloud,2010:tracks/2169174936",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-06T13:40:51Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-06T13:40:51Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-06T13:40:51Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-06T13:40:51Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-06T13:40:52Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-06T13:40:52Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-06T13:41:09Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-06T13:50:57Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-06T13:50:57Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-06T13:51:24Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-06T13:51:25Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-06T13:51:25Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-06T13:51:25Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 493: Spider-Man x Secret Lair Review",
+      "episode_number": 493,
+      "published_at": "2025-12-23T11:24:11Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-06T13:51:25Z",
+      "output_directory": "episodes/0493-spider-man-x-secret-lair-review",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 2589,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 326.142,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 114
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18903
+                }
+              ],
+              "cached_content_token_count": 19017,
+              "candidates_token_count": 10207,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22635,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 136
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 8540,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41382,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 71.995,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 7546,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22636,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 136
+                }
+              ],
+              "thoughts_token_count": 12876,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43058,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 789,
+            "request_seconds": 189.486,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8441,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 19862,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 19726
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 136
+                }
+              ],
+              "thoughts_token_count": 30028,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 58331,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 2
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1637,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 6115,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 6115
+          }
+        ],
+        "thoughts_token_count": 3762,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 11514,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash",

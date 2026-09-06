@@ -1,0 +1,389 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2169174936",
+    "episode_number": 493,
+    "title": "MTG Fast Finance Ep 493: Spider-Man x Secret Lair Review",
+    "published_at": "2025-12-23T11:24:11Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2169174936-user-519789566-mtg-fast-finance-ep-493-spider-man-x-secret-lair-review.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-493-spider-man-x-secret-lair-review",
+    "duration_seconds": 2589,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys check out the latest MTG tournaments, fast moving cardboard for the week online and in paper, their cards to watch and dish out a review of the SL x Spidey drop coming Sep 22/25. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-06T13:51:25Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-06T13:40:51Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-06T13:40:51Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-06T13:40:51Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-06T13:40:51Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-06T13:40:52Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-06T13:40:52Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-06T13:41:09Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-06T13:50:57Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-06T13:50:57Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-06T13:51:24Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-06T13:51:25Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-06T13:51:25Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-06T13:51:25Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2589,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 326.142,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 114
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18903
+              }
+            ],
+            "cached_content_token_count": 19017,
+            "candidates_token_count": 10207,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22635,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 8540,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41382,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 71.995,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7546,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22636,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              }
+            ],
+            "thoughts_token_count": 12876,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43058,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 789,
+          "request_seconds": 189.486,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8441,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 19862,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 19726
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              }
+            ],
+            "thoughts_token_count": 30028,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 58331,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 2
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1637,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 6115,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 6115
+        }
+      ],
+      "thoughts_token_count": 3762,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 11514,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 829,
+    "end_seconds": 2075,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Sythis, Harvest's Hand",
+      "printing": "Slay the Day Borderless",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$8",
+      "entry_target": {
+        "raw": "around the $8 range",
+        "currency": "USD",
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Reprinted in the Secret Lair Slay the Day drop from Festival in a Box Las Vegas bundle, which had limited distribution.",
+        "Crucial auto-include in five-color shrines decks (such as Go-Shintai) and general enchantment matters decks.",
+        "Very low supply on TCGplayer with only 90 sellers listed and no single seller holding more than 10 copies."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 832,
+      "end_seconds": 995,
+      "evidence_excerpt": "one of the top cards that just got a sweet reprint was Sythis, Harvest's Hand... there's a sweet borderless version... up to around the $8 range right now",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ed3c474ed2200a4a",
+      "timestamp": "00:13:52",
+      "listen_url": "https://feeds.soundcloud.com/stream/2169174936-user-519789566-mtg-fast-finance-ep-493-spider-man-x-secret-lair-review.mp3#t=832"
+    },
+    {
+      "card": "Birthing Ritual",
+      "printing": "Modern Horizons 3 Borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "between 10 and 12",
+      "entry_target": {
+        "raw": "somewhere between 10 and 12",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 12.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$20 plus",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Sees competitive Modern play across multiple archetypes including Neoform combo, Yawgmoth, and Reanimator hybrids.",
+        "Solid Commander inclusion with 20,000 decks reported in its first year.",
+        "Extremely low remaining inventory with only 24 listings left."
+      ],
+      "caveats": [
+        "Rate of sales is slightly low.",
+        "Risk of future Secret Lair reprints could impact the value."
+      ],
+      "confidence": null,
+      "start_seconds": 995,
+      "end_seconds": 1164,
+      "evidence_excerpt": "I'm going to go with Birthing Ritual borderless foils out of MH3... sitting at somewhere between 10 and 12... ramp up towards $20 plus seems very secure.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2280b4c28c42efe2",
+      "timestamp": "00:16:35",
+      "listen_url": "https://feeds.soundcloud.com/stream/2169174936-user-519789566-mtg-fast-finance-ep-493-spider-man-x-secret-lair-review.mp3#t=995"
+    },
+    {
+      "card": "Ishkanah, Grafwidow",
+      "printing": "Eldritch Moon Pack Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "about $5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "12 bucks",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 12.0
+      },
+      "reasoning": [
+        "The pack foil is a nine-year-old printing and is one of the only foil versions available.",
+        "Will see renewed tribal demand due to the upcoming Spider-Man Secret Lair drop.",
+        "Under 50 copies of the pack foil remain on TCGplayer."
+      ],
+      "caveats": [
+        "The Shelob alternate-art printing from Lord of the Rings is already highly expensive, which directs players to this cheaper foil option."
+      ],
+      "confidence": null,
+      "start_seconds": 1164,
+      "end_seconds": 1292,
+      "evidence_excerpt": "My other pick this week is... Ishkanah, Grafwidow... I'm picking the pack foil that came in Eldritch Moon... get the pack foils for about, uh, $5",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5c30d771bddeaf6b",
+      "timestamp": "00:19:24",
+      "listen_url": "https://feeds.soundcloud.com/stream/2169174936-user-519789566-mtg-fast-finance-ep-493-spider-man-x-secret-lair-review.mp3#t=1164"
+    },
+    {
+      "card": "Razorlash Needlehead",
+      "printing": "Pack Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "9 or 10",
+      "entry_target": {
+        "raw": "9 or 10",
+        "currency": "USD",
+        "minimum": 9.0,
+        "maximum": 10.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "12 to 25",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 25.0
+      },
+      "reasoning": [
+        "Exceptional Standard demand as a premier aggressive Red card that punishes card draw.",
+        "Massive Commander adoption with 80,000 decks recorded on EDHREC in its first year.",
+        "Extremely thin online supply with only 20 listings remaining on TCGplayer."
+      ],
+      "caveats": [
+        "Standard demand is highly tied to its performance against the current meta.",
+        "If Agatha's Soul Cauldron is banned, the card's price might see a temporary correction.",
+        "Large quantities of dealer/trader inventory may enter the market once the card establishes a $10+ price point."
+      ],
+      "confidence": null,
+      "start_seconds": 1292,
+      "end_seconds": 1729,
+      "evidence_excerpt": "I'm going to go for this Razorlash Needlehead, pack foil as well... now they're 9 or 10. Im going to call them to go... 12 to 25",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-feaef8395d88b1dd",
+      "timestamp": "00:21:32",
+      "listen_url": "https://feeds.soundcloud.com/stream/2169174936-user-519789566-mtg-fast-finance-ep-493-spider-man-x-secret-lair-review.mp3#t=1292"
+    }
+  ]
+}
