@@ -1,0 +1,494 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2232460787",
+    "episode_number": 505,
+    "title": "MTGFastFinance Ep 505: Is Avatar The Best Singles Set Since MH3?",
+    "published_at": "2025-12-19T02:08:27Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2232460787-user-519789566-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3",
+    "duration_seconds": 3616,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff drop knowledge on all the lastest in #mtgfinance, including fast movers, cards to watch, meta changes and take a deeper look at the plethora of MTG x Avatar cards that are commanding high prices. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-06T22:17:31Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-06T22:08:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-06T22:08:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-06T22:08:41Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-06T22:16:39Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-06T22:16:39Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-06T22:17:30Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-06T22:17:30Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-06T22:17:31Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-06T22:17:31Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3616,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 202.395,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7653,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22636,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              }
+            ],
+            "thoughts_token_count": 6536,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36825,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 121.608,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12299,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22637,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              }
+            ],
+            "thoughts_token_count": 924,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35860,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 72.038,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8375,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22637,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              }
+            ],
+            "thoughts_token_count": 12509,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43521,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 77.659,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 20443,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22637,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 200,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43280,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 16,
+          "request_seconds": 3.184,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 37,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 548,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 411
+              }
+            ],
+            "thoughts_token_count": 536,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 1121,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 27
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1911,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 9047,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 9047
+        }
+      ],
+      "thoughts_token_count": 3617,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 14575,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1079,
+    "end_seconds": 2605,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Parallel Lives",
+      "printing": "Marvel: Spider-Man",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$16",
+      "entry_target": {
+        "raw": "$16-$17",
+        "currency": "USD",
+        "minimum": 16.0,
+        "maximum": 17.0
+      },
+      "hold": "1.5 to 2 years",
+      "exit_target": {
+        "raw": "$30-$35",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 35.0
+      },
+      "reasoning": [
+        "Features stunning multiversal split art with Spider-Man and Miles",
+        "Foils have crashed from almost $100 down to $16",
+        "It is a mythic subset card, limiting the supply compared to regular set rares",
+        "Future Marvel sets or green token-focused commanders will drive demand"
+      ],
+      "caveats": [
+        "Slow drain with over 120 foil listings on TCGplayer",
+        "Requires a year or two to see significant movement"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1079,
+      "end_seconds": 1278,
+      "evidence_excerpt": "These foils are down to having started almost at $100 are down to 16.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1fac6673162e7d8e",
+      "timestamp": "00:17:59",
+      "listen_url": "https://feeds.soundcloud.com/stream/2232460787-user-519789566-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3.mp3#t=1079"
+    },
+    {
+      "card": "Rite of Replication",
+      "printing": "Marvel: Spider-Man",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$12-$15",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Unique comic book cover art which is highly appealing",
+        "Very hard pull rate makes current $5 foil pricing look incredibly cheap",
+        "Strong casual Commander staple in over 111,000 EDHREC decks"
+      ],
+      "caveats": [
+        "Limited utility as it cannot copy legendary commanders directly without them dying",
+        "High mana requirement to kick (nine mana)"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1284,
+      "end_seconds": 1425,
+      "evidence_excerpt": "You can get these for like $5 in foil, which is so silly for how hard it is to pull.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c614886d87c6271a",
+      "timestamp": "00:21:24",
+      "listen_url": "https://feeds.soundcloud.com/stream/2232460787-user-519789566-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3.mp3#t=1284"
+    },
+    {
+      "card": "High Fae Trickster",
+      "printing": "Foundations",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10-$15",
+      "entry_target": {
+        "raw": "$10-$15",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 15.0
+      },
+      "hold": "few months",
+      "exit_target": {
+        "raw": "$20+",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Highly popular card with Fire Lord Azula (70% inclusion rate)",
+        "Faeries are coming soon in Lorwyn early next year",
+        "Excellent utility as it allows players to cast anything at instant speed"
+      ],
+      "caveats": [
+        "Borderless copies are already drying up very quickly on TCGplayer"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1426,
+      "end_seconds": 1548,
+      "evidence_excerpt": "you can still get these like $10 to $15 copies of the borderless, and I think the art's a little better",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-0d4bc02d3d7bff34",
+      "timestamp": "00:23:46",
+      "listen_url": "https://feeds.soundcloud.com/stream/2232460787-user-519789566-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3.mp3#t=1426"
+    },
+    {
+      "card": "Carpet of Flowers",
+      "printing": "Through the Ages",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$15-$17",
+      "entry_target": {
+        "raw": "$15-$17",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 17.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Extremely powerful CEDH/EDH staple",
+        "The Through the Ages (FCA) borderless foil is rare and hard to pull",
+        "Supply is very low with only about 44 foil listings remaining on TCGplayer"
+      ],
+      "caveats": [
+        "Highly dependent on opponents playing blue (Islands) to generate mana"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1548,
+      "end_seconds": 1841,
+      "evidence_excerpt": "foil versions of the Through the Ages, the FCA set. ... I'm picking it in the next 6 to 12 months to go 17 to probably 30",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-aacc98c79ba65b26",
+      "timestamp": "00:25:48",
+      "listen_url": "https://feeds.soundcloud.com/stream/2232460787-user-519789566-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3.mp3#t=1548"
+    },
+    {
+      "card": "Legend of Yang Chen",
+      "printing": "Avatar: The Last Airbender",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$9",
+      "entry_target": {
+        "raw": "$7-$9",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 9.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "Difficult pull rate of around 1 in 138 collector booster packs",
+        "Extremely powerful multiplayer saga with political card drawing benefits",
+        "Expected to rise once the initial firebending/earthbending hype settles"
+      ],
+      "caveats": [
+        "Could potentially dip slightly lower to $7-$8 before spiking",
+        "Not yet in the top 10 cards for EDHREC from the set"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1903,
+      "end_seconds": 2415,
+      "evidence_excerpt": "Legend of Yang Chen, borderless foil mythics ... to get these at say nine, I have a feeling they have a strong potential to get to 20.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-eb5b5d93e87c944e",
+      "timestamp": "00:31:43",
+      "listen_url": "https://feeds.soundcloud.com/stream/2232460787-user-519789566-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3.mp3#t=1903"
+    }
+  ]
+}

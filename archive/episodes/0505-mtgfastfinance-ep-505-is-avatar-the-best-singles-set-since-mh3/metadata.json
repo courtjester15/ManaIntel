@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2232460787",
+    "episode_number": 505,
+    "title": "MTGFastFinance Ep 505: Is Avatar The Best Singles Set Since MH3?",
+    "published_at": "2025-12-19T02:08:27Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2232460787-user-519789566-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3",
+    "duration_seconds": 3616,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff drop knowledge on all the lastest in #mtgfinance, including fast movers, cards to watch, meta changes and take a deeper look at the plethora of MTG x Avatar cards that are commanding high prices. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-06T22:17:31Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-06T22:08:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-06T22:08:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-06T22:08:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-06T22:08:41Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-06T22:16:39Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-06T22:16:39Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-06T22:17:30Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-06T22:17:30Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-06T22:17:31Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-06T22:17:31Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3616,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 202.395,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7653,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22636,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              }
+            ],
+            "thoughts_token_count": 6536,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36825,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 121.608,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12299,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22637,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              }
+            ],
+            "thoughts_token_count": 924,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35860,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 72.038,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8375,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22637,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              }
+            ],
+            "thoughts_token_count": 12509,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43521,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 77.659,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 20443,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22637,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 200,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43280,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 16,
+          "request_seconds": 3.184,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 37,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 548,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 137
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 411
+              }
+            ],
+            "thoughts_token_count": 536,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 1121,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 27
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1911,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 9047,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 9047
+        }
+      ],
+      "thoughts_token_count": 3617,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 14575,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0505-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3/metadata.json",
+    "summary_json": "episodes/0505-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3/summary.json",
+    "summary_markdown": "episodes/0505-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3/summary.md"
+  }
+}
