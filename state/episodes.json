@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-07T02:51:55Z",
+  "updated_at": "2026-09-07T15:59:12Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -15734,6 +15734,65 @@
       },
       "extraction_model": "gemini-3.5-flash",
       "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2220274529": {
+      "guid": "tag:soundcloud,2010:tracks/2220274529",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-07T15:50:35Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-07T15:50:35Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-07T15:50:36Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-07T15:50:36Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-07T15:50:38Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-07T15:50:38Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-07T15:50:57Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-07T15:59:12Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 503: Avatar Secret Lair Results",
+      "episode_number": 503,
+      "published_at": "2025-11-28T00:35:36Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 2/4 failed after 280.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-07T21:59:12Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-09-07T15:59:12Z",
+      "output_directory": "episodes/0503-avatar-secret-lair-results"
     }
   }
 }
