@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-07T15:59:12Z",
+  "updated_at": "2026-09-07T22:54:29Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -15769,6 +15769,50 @@
         {
           "status": "failed",
           "timestamp": "2026-09-07T15:59:12Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-07T22:50:16Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-07T22:50:16Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-07T22:50:17Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-07T22:50:17Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-07T22:50:35Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-07T22:54:07Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-07T22:54:07Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-07T22:54:29Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-07T22:54:29Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-07T22:54:29Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-07T22:54:29Z"
         }
       ],
       "title": "MTG Fast Finance Ep 503: Avatar Secret Lair Results",
@@ -15776,23 +15820,165 @@
       "published_at": "2025-11-28T00:35:36Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/4 failed after 280.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-07T21:59:12Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 3,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-07T22:54:29Z",
+      "output_directory": "episodes/0503-avatar-secret-lair-results",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash",
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3057,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 214.404,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8828,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22637,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 138
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 19658,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 51123,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 103.366,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15280,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22638,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 138
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 14230,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 52148,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 78.809,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 18975,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22638,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 138
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41613,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 357,
+            "request_seconds": 29.322,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3318,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 9072,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 138
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 8934
+                }
+              ],
+              "thoughts_token_count": 3409,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 15799,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 164
       },
-      "status": "failed",
-      "updated_at": "2026-09-07T15:59:12Z",
-      "output_directory": "episodes/0503-avatar-secret-lair-results"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1298,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 15085,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 15085
+          }
+        ],
+        "thoughts_token_count": 3764,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 20147,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     }
   }
 }

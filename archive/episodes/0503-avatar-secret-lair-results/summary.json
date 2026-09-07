@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "tag:soundcloud,2010:tracks/2220274529",
     "episode_number": 503,
@@ -260,9 +260,146 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0503-avatar-secret-lair-results/metadata.json",
-    "summary_json": "episodes/0503-avatar-secret-lair-results/summary.json",
-    "summary_markdown": "episodes/0503-avatar-secret-lair-results/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 933,
+    "end_seconds": 2135,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Bojuka Bog",
+      "printing": "Fallout Secret Lair rainbow foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$24",
+      "entry_target": {
+        "raw": "$24",
+        "currency": "USD",
+        "minimum": 24.0,
+        "maximum": 25.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$40 plus to $50",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "Bojuka Bog is played in millions of decks, with 1.1 million recorded on EDHREC alone",
+        "Low inventory with only 28 listings left and steady demand of about one copy sold per day",
+        "Potential synergy and demand spike with Fallout Season 2 release next month"
+      ],
+      "caveats": [
+        "Competition from the Lord of the Rings Barrow-downs foil version",
+        "Existence of surge foil printings from the Lord of the Rings set"
+      ],
+      "confidence": "high",
+      "start_seconds": 938,
+      "end_seconds": 1449,
+      "evidence_excerpt": "Bojuka Bog rainbow foil from Fallout Secret Lair release. Currently lowest price copy on Direct is $40, but non-Direct is 24... These are going to get to 40 plus, feel very confident",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-53875771f32ff80f",
+      "timestamp": "00:15:38",
+      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=938"
+    },
+    {
+      "card": "Gray Merchant of Asphodel",
+      "printing": "Halo foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$55",
+      "entry_target": {
+        "raw": "$55",
+        "currency": "USD",
+        "minimum": 55.0,
+        "maximum": 55.0
+      },
+      "hold": "12 to 18 months",
+      "exit_target": {
+        "raw": "$80 to $125",
+        "currency": "USD",
+        "minimum": 80.0,
+        "maximum": 125.0
+      },
+      "reasoning": [
+        "The halo foil is widely considered the best and prettiest version of a highly popular card",
+        "Massive inclusion rate in over 322,000 Commander decks",
+        "Currently at the lowest price point since its release"
+      ],
+      "caveats": [
+        "Uncertainty around whether this is truly 'dump week' for inventory",
+        "The upcoming TCGplayer store credit sale may cause inventory to drain and prices to spike prematurely",
+        "Competition from the Time Spiral Remastered retro foil printing"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1513,
+      "end_seconds": 1732,
+      "evidence_excerpt": "first pick this week is halo foils of Gary, the Gray Merchant of Asphodel... pick them right now up for $55... jump up into the $125 range.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-03269afe51d07e52",
+      "timestamp": "00:25:13",
+      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=1513"
+    },
+    {
+      "card": "Field of the Dead",
+      "printing": "non-foil",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$25",
+      "entry_target": {
+        "raw": "$25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$50",
+        "currency": "USD",
+        "minimum": 50.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "The non-foil price of $25 is half the price of other non-foil printings that sit in the $50 range",
+        "Highly played EDH staple that is steadily being absorbed into decks",
+        "Wizards is unlikely to print another version of Field of the Dead anytime soon"
+      ],
+      "caveats": [
+        "Foil versions of this printing are relatively cheap at around $30, which may draw buyers away from non-foils",
+        "Competition from other premium versions like Special Guests and Secret Lairs"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1980,
+      "end_seconds": 2116,
+      "evidence_excerpt": "Field of the Dead is on my radar and I'm actually picking the non-foils right now at $25... make it back up into the $50 range.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c6303629e1bbf8ba",
+      "timestamp": "00:33:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=1980"
+    }
+  ]
 }

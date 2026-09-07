@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-07T15:59:12Z",
-    "latest_successful_run_at": "2026-09-07T02:51:55Z",
+    "generated_at": "2026-09-07T22:54:29Z",
+    "latest_successful_run_at": "2026-09-07T22:54:29Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 70,
-    "real_pick_count": 257,
+    "real_pick_count": 260,
     "last_discovered_episode_date": "2026-08-28T06:18:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 70,
-    "picks": 257,
+    "picks": 260,
     "needs_review": 28,
-    "failed": 7,
-    "completed": 35
+    "failed": 6,
+    "completed": 36
   },
   "status_counts": {
     "needs_review": 28,
-    "complete": 35,
-    "failed": 7
+    "complete": 36,
+    "failed": 6
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=32434",
@@ -2863,31 +2863,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 3,
       "directory": "episodes/0503-avatar-secret-lair-results",
       "outputs": {
         "metadata": "episodes/0503-avatar-secret-lair-results/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0503-avatar-secret-lair-results/summary.json",
+        "summary_markdown": "episodes/0503-avatar-secret-lair-results/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-07T15:59:12Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/4 failed after 280.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-07T21:59:12Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-09-07T22:54:29Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
