@@ -1,0 +1,489 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2396226345",
+    "episode_number": 533,
+    "title": "MTG Fast Finance Ep 533: Top 10 Hobbit Cards",
+    "published_at": "2026-09-07T17:20:10Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2396226345-user-519789566-mtg-fast-finance-ep-533-top-10.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-533-top-10",
+    "duration_seconds": 5175,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff slide up to their mics get you caught up on all the Magic the Gathering card price action of the week, including meta updates, cards to watch and their list of most likely specs from The Hobbit set.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite + gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-08T14:58:22Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-08T14:31:43Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-08T14:31:43Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-08T14:31:43Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-08T14:31:43Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-08T14:31:44Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-08T14:31:44Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-08T14:32:14Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-08T14:57:03Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-08T14:57:03Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-08T14:58:22Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-08T14:58:22Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-08T14:58:22Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-08T14:58:22Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite + gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash-lite",
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 6,
+      "duration_seconds": 5175,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 464.296,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15595,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22630,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38225,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 157.275,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8481,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22631,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 31112,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 134.741,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17369,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22631,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40000,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 485.539,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9476,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22631,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              }
+            ],
+            "thoughts_token_count": 6530,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38637,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 59.016,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7840,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22631,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 30471,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 6,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 675,
+          "request_seconds": 186.625,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7504,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 17027,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 16896
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 24531,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 174
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1572,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 16060,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 16060
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17632,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1533,
+    "end_seconds": 2736,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Jeska's Will",
+      "printing": "Silver Scroll Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$500",
+      "entry_target": {
+        "raw": "$450 to $500",
+        "currency": "USD",
+        "minimum": 450,
+        "maximum": 500
+      },
+      "hold": "6 months to a year",
+      "exit_target": {
+        "raw": "$750 to $1,000",
+        "currency": "USD",
+        "minimum": 750,
+        "maximum": 1000
+      },
+      "reasoning": [
+        "No base foil version exists, only non-foil or silver scroll foil.",
+        "Low inventory with only 27 listings left and 222 sold.",
+        "High EDH inclusion rate placing it in super staple status."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1533,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Jessica's will, silver scroll foils, in my opinion, are the best looking of the silver scroll foils.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cabf8041ff6368be",
+      "timestamp": "00:25:33",
+      "listen_url": "https://feeds.soundcloud.com/stream/2396226345-user-519789566-mtg-fast-finance-ep-533-top-10.mp3#t=1533"
+    },
+    {
+      "card": "Ruinous Ultimatum",
+      "printing": "Cat Drop",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$14",
+      "entry_target": {
+        "raw": "$14",
+        "currency": "USD",
+        "minimum": 14,
+        "maximum": 14
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$30",
+        "currency": "USD",
+        "minimum": 30,
+        "maximum": 30
+      },
+      "reasoning": [
+        "Cute art featuring a cat that appeals to players.",
+        "Limited print run that sold out quickly.",
+        "Vendors have very low stock with nobody having more than a few copies."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1933,
+      "end_seconds": 2011,
+      "evidence_excerpt": "looking at the Per Majesty and Cat of Chaos cards, I keep coming back to Roinis Ultimatum",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-eb95ea05a8bc81a0",
+      "timestamp": "00:32:13",
+      "listen_url": "https://feeds.soundcloud.com/stream/2396226345-user-519789566-mtg-fast-finance-ep-533-top-10.mp3#t=1933"
+    },
+    {
+      "card": "Grave Researcher",
+      "printing": "Foil Extended Art",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": "2 years",
+      "exit_target": {
+        "raw": "$12 to $15",
+        "currency": "USD",
+        "minimum": 12,
+        "maximum": 15
+      },
+      "reasoning": [
+        "Strixhaven was a high impact set on EDH.",
+        "Functions as reanimate on a stick with card selection built in.",
+        "Rarest version of the card with no alternate art."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2191,
+      "end_seconds": 2276,
+      "evidence_excerpt": "my next pick is Grave Researcher, foil Extended Art.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-acfc21cc0b47e23d",
+      "timestamp": "00:36:31",
+      "listen_url": "https://feeds.soundcloud.com/stream/2396226345-user-519789566-mtg-fast-finance-ep-533-top-10.mp3#t=2191"
+    },
+    {
+      "card": "Archangel of Thune",
+      "printing": "Marvel Source Material",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$30",
+      "entry_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30,
+        "maximum": 30
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Significantly cheaper than every other version.",
+        "Features sweet comic book art with no other premium version widely available besides a high-priced secret layer."
+      ],
+      "caveats": [
+        "Might drop another buck or two lower."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2558,
+      "end_seconds": 2601,
+      "evidence_excerpt": "Archangel of Thune from the Marvel source material.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2f683e91849ad28e",
+      "timestamp": "00:42:38",
+      "listen_url": "https://feeds.soundcloud.com/stream/2396226345-user-519789566-mtg-fast-finance-ep-533-top-10.mp3#t=2558"
+    },
+    {
+      "card": "Sheoldred, the Apocalypse",
+      "printing": "Step-and-Compleat Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$300",
+      "entry_target": {
+        "raw": "$300",
+        "currency": "USD",
+        "minimum": 300,
+        "maximum": 300
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$500-plus",
+        "currency": "USD",
+        "minimum": 500,
+        "maximum": 500
+      },
+      "reasoning": [
+        "Newer reprint art features Benedict Cumberbatch which is considered jarring by many players preferring fantasy art.",
+        "Step-and-compleat foil is widely considered the best version of the card.",
+        "Limited listings left on the market."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2700,
+      "end_seconds": null,
+      "evidence_excerpt": "So, I'm going to say, $300 Sheoldred, the Apocalypse. I'm going to pick one of these up tonight for personal use.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8bab169f7246bec9",
+      "timestamp": "00:45:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2396226345-user-519789566-mtg-fast-finance-ep-533-top-10.mp3#t=2700"
+    }
+  ]
+}
