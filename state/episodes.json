@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-08T14:58:22Z",
+  "updated_at": "2026-09-08T22:52:43Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -16259,6 +16259,226 @@
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2216332583": {
+      "guid": "tag:soundcloud,2010:tracks/2216332583",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-08T22:39:18Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-08T22:39:18Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-08T22:39:18Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-08T22:39:18Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-08T22:39:21Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-08T22:39:21Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-08T22:39:35Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-08T22:52:10Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-08T22:52:10Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-08T22:52:43Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-08T22:52:43Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-08T22:52:43Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-08T22:52:43Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 502: Secret Lair Encyclopedias Take Off",
+      "episode_number": 502,
+      "published_at": "2025-11-21T01:33:35Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-08T22:52:43Z",
+      "output_directory": "episodes/0502-secret-lair-encyclopedias-take-off",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2855,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 397.787,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13748,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22628,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 194,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36570,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 91.686,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3347,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22629,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 201,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 26177,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 233.729,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11707,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22629,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                }
+              ],
+              "thoughts_token_count": 12999,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47335,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 155,
+            "request_seconds": 31.363,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 1672,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 4021,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 3892
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 129
+                }
+              ],
+              "thoughts_token_count": 2187,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 7880,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 43
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1096,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 5539,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 5539
+          }
+        ],
+        "thoughts_token_count": 3928,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 10563,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
       "review_reason": null
     }
   }

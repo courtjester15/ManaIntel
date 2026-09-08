@@ -1,0 +1,418 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2216332583",
+    "episode_number": 502,
+    "title": "MTG Fast Finance Ep 502: Secret Lair Encyclopedias Take Off",
+    "published_at": "2025-11-21T01:33:35Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2216332583-user-519789566-mtg-fast-finance-ep-502-secret-lair-encyclopedias-take-off.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-502-secret-lair-encyclopedias-take-off",
+    "duration_seconds": 2855,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff drop knowledge on all the lastest in #mtgfinance, including fast movers, cards to watch, meta changes and a deep dive on the latest Secret Lair Encyclopedia drop. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-08T22:52:43Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-08T22:39:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-08T22:39:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-08T22:39:18Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-08T22:39:18Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-08T22:39:21Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-08T22:39:21Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-08T22:39:35Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-08T22:52:10Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-08T22:52:10Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-08T22:52:43Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-08T22:52:43Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-08T22:52:43Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-08T22:52:43Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2855,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 397.787,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13748,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22628,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 194,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36570,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 91.686,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3347,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22629,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 201,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 26177,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 233.729,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11707,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22629,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              }
+            ],
+            "thoughts_token_count": 12999,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47335,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 155,
+          "request_seconds": 31.363,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1672,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 4021,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 3892
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 129
+              }
+            ],
+            "thoughts_token_count": 2187,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 7880,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 43
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1096,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 5539,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 5539
+        }
+      ],
+      "thoughts_token_count": 3928,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 10563,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 757,
+    "end_seconds": 1959,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Strix Serenade",
+      "printing": "Borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10",
+      "entry_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 8.0,
+        "maximum": 14.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$20+",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "High demand with 100k decks on EDHRec",
+        "Borderless foil supply is low with only 15 listings remaining",
+        "No clear near-term reprint risk"
+      ],
+      "caveats": [
+        "Might eventually show up in a Secret Lair"
+      ],
+      "confidence": "medium",
+      "start_seconds": 757,
+      "end_seconds": 900,
+      "evidence_excerpt": "I'm gonna take a look at Strix Serenade borderless foils out of MH3.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-02986a6187060059",
+      "timestamp": "00:12:37",
+      "listen_url": "https://feeds.soundcloud.com/stream/2216332583-user-519789566-mtg-fast-finance-ep-502-secret-lair-encyclopedias-take-off.mp3#t=757"
+    },
+    {
+      "card": "Tamiyo's Safekeeping",
+      "printing": "Confetti Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$14",
+      "entry_target": {
+        "raw": "$14",
+        "currency": "USD",
+        "minimum": 14.0,
+        "maximum": 14.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Super staple with over 200k decks on EDHRec",
+        "No prior commander-specific reprints",
+        "Low supply with 33 vendors having 68 copies of confetti foils"
+      ],
+      "caveats": [
+        "TCGplayer currently does not show the image of this card, which may slow down interest"
+      ],
+      "confidence": "medium",
+      "start_seconds": 900,
+      "end_seconds": 900,
+      "evidence_excerpt": "first pick this week... is Tamiyo's Safekeeping, which is available in a confetti foil.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d43ce327094bdcc8",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2216332583-user-519789566-mtg-fast-finance-ep-502-secret-lair-encyclopedias-take-off.mp3#t=900"
+    },
+    {
+      "card": "Felia, Exuberant Shepherd",
+      "printing": "Borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$17 to $20",
+      "entry_target": {
+        "raw": "17 to $20",
+        "currency": "USD",
+        "minimum": 17.0,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$30+",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Frequently played in Modern as the #7 creature",
+        "In 57,000 EDHRec decks",
+        "Down to only 18 listings on the borderless foils"
+      ],
+      "caveats": [
+        "MH3 is not technically out of print and boxes are still available"
+      ],
+      "confidence": "medium",
+      "start_seconds": 900,
+      "end_seconds": 1044,
+      "evidence_excerpt": "I'm looking at the borderless foils now... Felia, Exuberant Shepherd.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e1e66f19123261e6",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2216332583-user-519789566-mtg-fast-finance-ep-502-secret-lair-encyclopedias-take-off.mp3#t=900"
+    },
+    {
+      "card": "Scute Swarm",
+      "printing": "Play-Doh Extra Life Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$13",
+      "entry_target": {
+        "raw": "about $13",
+        "currency": "USD",
+        "minimum": 13.0,
+        "maximum": 13.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "reasoning": [
+        "In over 330,000 decks on EDHRec",
+        "The only borderless version of its kind",
+        "Supply is limited to 42 vendors with only ~3 copies each"
+      ],
+      "caveats": [
+        "Might drop another dollar or two since it just closed and final supply is settling"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1044,
+      "end_seconds": 1198,
+      "evidence_excerpt": "my other pick this week is, uh, Scute Swarm out of the Play-Doh Extra Life Secret Lair.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-02d60f7aa3cd3ff7",
+      "timestamp": "00:17:24",
+      "listen_url": "https://feeds.soundcloud.com/stream/2216332583-user-519789566-mtg-fast-finance-ep-502-secret-lair-encyclopedias-take-off.mp3#t=1044"
+    }
+  ]
+}
