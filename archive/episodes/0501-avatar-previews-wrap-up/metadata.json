@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2211623162",
+    "episode_number": 501,
+    "title": "MTG Fast Finance Ep 501: Avatar Previews Wrap Up",
+    "published_at": "2025-11-13T02:21:56Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2211623162-user-519789566-mtg-fast-finance-ep-501-avatar-previews-wrap-up.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-501-avatar-previews-wrap-up",
+    "duration_seconds": 5009,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys cover off all the latest in Magic the Gathering price movement, meta analysis, cards to watch and a final review of the Avatar preview cards. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-09T22:35:24Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-09T22:33:34Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-09T22:33:34Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-09T22:33:34Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-09T22:33:34Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-09T22:33:37Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-09T22:33:37Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-09T22:34:00Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-09T22:35:24Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/6 failed after 83.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-10T04:35:24Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0501-avatar-previews-wrap-up/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
