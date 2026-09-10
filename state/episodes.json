@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-09T22:35:24Z",
+  "updated_at": "2026-09-10T14:33:09Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -16850,6 +16850,235 @@
       "status": "failed",
       "updated_at": "2026-09-09T22:35:24Z",
       "output_directory": "episodes/0501-avatar-previews-wrap-up"
+    },
+    "tag:soundcloud,2010:tracks/2202916195": {
+      "guid": "tag:soundcloud,2010:tracks/2202916195",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-10T14:25:57Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-10T14:25:57Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-10T14:25:57Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-10T14:25:57Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-10T14:25:59Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-10T14:25:59Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-10T14:26:17Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-10T14:32:44Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-10T14:32:44Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-10T14:33:09Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-10T14:33:09Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-10T14:33:09Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-10T14:33:09Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 499: Lorwyn Eclipsed Early Previews",
+      "episode_number": 499,
+      "published_at": "2025-10-31T00:43:04Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-10T14:33:09Z",
+      "output_directory": "episodes/0499-lorwyn-eclipsed-early-previews",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2815,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 276.395,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 107
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18908
+                }
+              ],
+              "cached_content_token_count": 19015,
+              "candidates_token_count": 9329,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22627,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 128
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 9981,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41937,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 49.42,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8719,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22628,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 128
+                }
+              ],
+              "thoughts_token_count": 6429,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37776,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 37.707,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10906,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22628,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 128
+                }
+              ],
+              "thoughts_token_count": 142,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33676,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 115,
+            "request_seconds": 22.149,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 998,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 3008,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 2880
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 128
+                }
+              ],
+              "thoughts_token_count": 2403,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 6409,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 0
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1152,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 7272,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 7272
+          }
+        ],
+        "thoughts_token_count": 5219,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 13643,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     }
   }
 }

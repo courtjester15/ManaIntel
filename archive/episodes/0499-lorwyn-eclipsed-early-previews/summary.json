@@ -1,0 +1,425 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2202916195",
+    "episode_number": 499,
+    "title": "MTG Fast Finance Ep 499: Lorwyn Eclipsed Early Previews",
+    "published_at": "2025-10-31T00:43:04Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2202916195-user-519789566-mtg-fast-finance-ep-499-lorwyn-eclipsed-early-previews.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-499-lorwyn-eclipsed-early-previews",
+    "duration_seconds": 2815,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The boys walk us through the latest meta shifts, fast moving card prices, MTGO action and take a peek at the early Lorwyn Eclipsed spoilers, releasing Jan '26. \n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-10T14:33:09Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-10T14:25:57Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-10T14:25:57Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-10T14:25:57Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-10T14:25:57Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-10T14:25:59Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-10T14:25:59Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-10T14:26:17Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-10T14:32:44Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-10T14:32:44Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-10T14:33:09Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-10T14:33:09Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-10T14:33:09Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-10T14:33:09Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2815,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 276.395,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 107
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18908
+              }
+            ],
+            "cached_content_token_count": 19015,
+            "candidates_token_count": 9329,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22627,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 128
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 9981,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41937,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 49.42,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8719,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22628,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 128
+              }
+            ],
+            "thoughts_token_count": 6429,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37776,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 37.707,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10906,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22628,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 128
+              }
+            ],
+            "thoughts_token_count": 142,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33676,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 115,
+          "request_seconds": 22.149,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 998,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 3008,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 2880
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 128
+              }
+            ],
+            "thoughts_token_count": 2403,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 6409,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 0
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1152,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 7272,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 7272
+        }
+      ],
+      "thoughts_token_count": 5219,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 13643,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 776,
+    "end_seconds": 1985,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Academy Manufactor",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$16",
+      "entry_target": {
+        "raw": "under $16",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 16.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Colorless card with a 4% inclusion rate format-wide, appearing in over 287,000 decks on EDHREC.",
+        "The Play-Doh drop is a made-to-order, open-ended release that is highly likely to sell fewer units as players forget about it.",
+        "Features a unique Play-Doh figure art style that is expected to perform well in the long term."
+      ],
+      "caveats": [
+        "Not recommended to buy immediately; wait until November to see how much inventory is sitting on TCGPlayer."
+      ],
+      "confidence": null,
+      "start_seconds": 776,
+      "end_seconds": 975,
+      "evidence_excerpt": "Academy Manufactor that you can pull out of the Play-Doh drop... currently get copies under $16. ... Aiming to go 15 to 30.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-095746bff233987b",
+      "timestamp": "00:12:56",
+      "listen_url": "https://feeds.soundcloud.com/stream/2202916195-user-519789566-mtg-fast-finance-ep-499-lorwyn-eclipsed-early-previews.mp3#t=776"
+    },
+    {
+      "card": "Marcus, Mutant Mayor",
+      "printing": "Fallout",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Travis"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "around three bucks",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Synergizes extremely well with the upcoming Teenage Mutant Ninja Turtles set, which heavily features mutagen tokens and +1/+1 counters.",
+        "Synergizes with multiple partner commanders like Donatello and Michelangelo, as well as the five-color commander 'Heroes in a Half Shell'.",
+        "Extremely low inventory with under 50 copies of the surge foil extended art printing available."
+      ],
+      "caveats": [
+        "Relies on future mutant-type and counter synergies from the upcoming Turtle set to drive spikes."
+      ],
+      "confidence": null,
+      "start_seconds": 976,
+      "end_seconds": 1162,
+      "evidence_excerpt": "Marcus, Mutant Mayor, out of, uh, the Fallout set. ... get these, uh, full art, I'm sorry, these extended art foils in surge foil ... around three bucks.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c629adacd5112f01",
+      "timestamp": "00:16:16",
+      "listen_url": "https://feeds.soundcloud.com/stream/2202916195-user-519789566-mtg-fast-finance-ep-499-lorwyn-eclipsed-early-previews.mp3#t=976"
+    },
+    {
+      "card": "Crucible of Worlds",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$30",
+      "entry_target": {
+        "raw": "around 30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50",
+        "currency": "USD",
+        "minimum": 50.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "Currently sitting at an attractive entry price around $30, down from its initial highs in the $60s.",
+        "If Wizards of the Coast replaces the underwhelming first-gen galaxy foils, it could trigger a dump week with a lower entry point, while creating highly sought-after secondary versions.",
+        "If replacements do not occur, the organic demand will eventually dry up current listings and raise prices."
+      ],
+      "caveats": [
+        "Logistics are messy due to unresolved replacement timelines and the lack of distinct markings between first-generation and replacement galaxy foils.",
+        "Buyers should use platforms like eBay to visually verify the quality of the galaxy foiling before purchasing."
+      ],
+      "confidence": null,
+      "start_seconds": 1162,
+      "end_seconds": 1442,
+      "evidence_excerpt": "Crucible of Worlds galaxy foil out of that drop is sitting at around $30 ... to go, say, 30 to 50 seems reasonable.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cd0348121189cd8c",
+      "timestamp": "00:19:22",
+      "listen_url": "https://feeds.soundcloud.com/stream/2202916195-user-519789566-mtg-fast-finance-ep-499-lorwyn-eclipsed-early-previews.mp3#t=1162"
+    },
+    {
+      "card": "Damnation",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Travis"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10",
+      "entry_target": {
+        "raw": "down to $10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "reasoning": [
+        "The black-and-white inked rainbow foil printing is down to an extremely cheap $10 during its dump week.",
+        "Black-and-white single versions are outselling the colored versions at a 2:1 ratio despite vendors underestimating demand.",
+        "Features highly popular Venom character art by Mark Bagley.",
+        "The first Secret Lairs to use external box cover art, which will increase shelf presence and drive visual impulse purchases."
+      ],
+      "caveats": [
+        "The price may not have reached its absolute floor yet."
+      ],
+      "confidence": null,
+      "start_seconds": 1442,
+      "end_seconds": 1680,
+      "evidence_excerpt": "the inked rainbow foil... version of Damnation is down to $10... picking this to go 10 to 25",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fb946b7fccaddd15",
+      "timestamp": "00:24:02",
+      "listen_url": "https://feeds.soundcloud.com/stream/2202916195-user-519789566-mtg-fast-finance-ep-499-lorwyn-eclipsed-early-previews.mp3#t=1442"
+    }
+  ]
+}
