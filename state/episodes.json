@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-10T14:33:09Z",
+  "updated_at": "2026-09-10T22:44:24Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -14232,6 +14232,50 @@
         {
           "status": "failed",
           "timestamp": "2026-09-02T14:37:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-10T22:35:15Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-10T22:35:15Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-10T22:35:18Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-10T22:35:18Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-10T22:35:33Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-10T22:44:01Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-10T22:44:01Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-10T22:44:24Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-10T22:44:24Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-10T22:44:24Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-10T22:44:24Z"
         }
       ],
       "title": "A Total Lowryn Eclipse of Our Hearts | Brainstorm Brewery #683 | Magic Finance",
@@ -14239,23 +14283,164 @@
       "published_at": "2026-01-23T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 541.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash attempt 2: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-02T20:37:44Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-10T22:44:24Z",
+      "output_directory": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3437,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 66.638,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11582,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22644,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                }
+              ],
+              "thoughts_token_count": 9607,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43833,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 130.939,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13530,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22645,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                }
+              ],
+              "thoughts_token_count": 124,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36299,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 135.743,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15362,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22645,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 26298,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 64305,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 737,
+            "request_seconds": 174.313,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8680,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 18561,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18416
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                }
+              ],
+              "thoughts_token_count": 15889,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43130,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 7
       },
-      "status": "failed",
-      "updated_at": "2026-09-02T14:37:44Z",
-      "output_directory": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 840,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 23766,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 23766
+          }
+        ],
+        "thoughts_token_count": 5288,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 29894,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     },
     "tag:soundcloud,2010:tracks/2246508236": {
       "guid": "tag:soundcloud,2010:tracks/2246508236",

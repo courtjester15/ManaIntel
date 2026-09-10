@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-10T14:33:10Z",
-    "latest_successful_run_at": "2026-09-10T14:33:09Z",
+    "generated_at": "2026-09-10T22:44:28Z",
+    "latest_successful_run_at": "2026-09-10T22:44:24Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 75,
-    "real_pick_count": 273,
+    "real_pick_count": 277,
     "last_discovered_episode_date": "2026-09-07T17:20:10Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 75,
-    "picks": 273,
+    "picks": 277,
     "needs_review": 29,
-    "failed": 7,
-    "completed": 39
+    "failed": 6,
+    "completed": 40
   },
   "status_counts": {
-    "complete": 39,
+    "complete": 40,
     "needs_review": 29,
-    "failed": 7
+    "failed": 6
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2396226345",
@@ -2628,31 +2628,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 4,
       "directory": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance",
       "outputs": {
         "metadata": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance/summary.json",
+        "summary_markdown": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-02T14:37:44Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 541.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash attempt 2: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-02T20:37:44Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-09-10T22:44:24Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
