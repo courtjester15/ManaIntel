@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "tag:soundcloud,2010:tracks/2211623162",
     "episode_number": 501,
@@ -324,9 +324,140 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0501-avatar-previews-wrap-up/metadata.json",
-    "summary_json": "episodes/0501-avatar-previews-wrap-up/summary.json",
-    "summary_markdown": "episodes/0501-avatar-previews-wrap-up/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 1805,
+    "end_seconds": 3006,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "recommendation_language",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Jenova, the Ancient Calamity",
+      "printing": "Borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$7.50",
+      "entry_target": {
+        "raw": "$7.50",
+        "currency": "USD",
+        "minimum": 7.5,
+        "maximum": 7.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Cares about mutant creature type which synergizes with the upcoming Teenage Mutant Ninja Turtles set",
+        "Puts counters on other creatures, turns them into mutants, and draws cards when mutants die",
+        "Borderless foil printing has IP protection and cannot easily be reprinted due to Final Fantasy licensing",
+        "Low inventory with only 68 vendors on TCGplayer"
+      ],
+      "caveats": [
+        "Some vendors have a big stack of inventory"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1805,
+      "end_seconds": 1811,
+      "evidence_excerpt": "You can get borderless foils for about $7.50. ... I'm calling it to go $7.50 to about $20 ... I've revised mine down to 15",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b1875e95e11ebdce",
+      "timestamp": "00:30:05",
+      "listen_url": "https://feeds.soundcloud.com/stream/2211623162-user-519789566-mtg-fast-finance-ep-501-avatar-previews-wrap-up.mp3#t=1805"
+    },
+    {
+      "card": "Electro, Assaulting Battery",
+      "printing": "Extended Art",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "under $5.50",
+      "entry_target": {
+        "raw": "under $5.50",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 5.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Synergizes extremely well with the firebending mechanic from the upcoming Avatar set because unspent red mana does not drain",
+        "Generates red mana on instant/sorcery cast",
+        "Deals damage upon leaving the battlefield based on mana paid",
+        "Low inventory with only 92 listings of foil extended art"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1811,
+      "end_seconds": 2827,
+      "evidence_excerpt": "Electro, Assaulting Battery... foil extended arts... still available under $5.50... I have a feeling that... this can get like $6 to 15 as well.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-166e35049de73068",
+      "timestamp": "00:30:11",
+      "listen_url": "https://feeds.soundcloud.com/stream/2211623162-user-519789566-mtg-fast-finance-ep-501-avatar-previews-wrap-up.mp3#t=1811"
+    },
+    {
+      "card": "Leyline of Anticipation",
+      "printing": "Enchanting Tales",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$7",
+      "entry_target": {
+        "raw": "$7",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 7.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "about $18",
+        "currency": "USD",
+        "minimum": 18.0,
+        "maximum": 18.0
+      },
+      "reasoning": [
+        "Top card for Azula and other firebending commanders because playing at flash speed is highly beneficial",
+        "Only one fancy printing (Enchanting Tales) exists",
+        "Very low vendor count with only 48 vendors left on TCGplayer"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2827,
+      "end_seconds": 3006,
+      "evidence_excerpt": "Leyline of Anticipation from Wilds of Eldraine ... Enchanting Tales subset. And you can get foil copies of that for $7 ... picking it to go from $7 to about $18",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6de70f4a5a33d11f",
+      "timestamp": "00:47:07",
+      "listen_url": "https://feeds.soundcloud.com/stream/2211623162-user-519789566-mtg-fast-finance-ep-501-avatar-previews-wrap-up.mp3#t=2827"
+    }
+  ]
 }

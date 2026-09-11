@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-11T14:35:23Z",
+  "updated_at": "2026-09-11T22:44:42Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -17011,6 +17011,50 @@
         {
           "status": "failed",
           "timestamp": "2026-09-09T22:35:24Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-11T22:35:34Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-11T22:35:34Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-11T22:35:38Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-11T22:35:38Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-11T22:36:09Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-11T22:43:20Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-11T22:43:20Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-11T22:44:42Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-11T22:44:42Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-11T22:44:42Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-11T22:44:42Z"
         }
       ],
       "title": "MTG Fast Finance Ep 501: Avatar Previews Wrap Up",
@@ -17018,23 +17062,229 @@
       "published_at": "2025-11-13T02:21:56Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/6 failed after 83.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-10T04:35:24Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 3,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-11T22:44:42Z",
+      "output_directory": "episodes/0501-avatar-previews-wrap-up",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 6,
+        "duration_seconds": 5009,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 40.515,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8978,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22616,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 117
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 3036,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 34630,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 81.651,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 7790,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22617,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 117
+                }
+              ],
+              "thoughts_token_count": 18553,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 48960,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 119.511,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8355,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22617,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 117
+                }
+              ],
+              "thoughts_token_count": 9782,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 40754,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 65.869,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8623,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22617,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 117
+                }
+              ],
+              "thoughts_token_count": 12946,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44186,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 99.338,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9196,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22617,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 117
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 24357,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 56170,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 6,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 509,
+            "request_seconds": 22.898,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 4580,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 12841,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 117
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 12724
+                }
+              ],
+              "thoughts_token_count": 2363,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 19784,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 74
       },
-      "status": "failed",
-      "updated_at": "2026-09-09T22:35:24Z",
-      "output_directory": "episodes/0501-avatar-previews-wrap-up"
+      "extraction_usage": {
+        "cache_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 1659
+          }
+        ],
+        "cached_content_token_count": 1659,
+        "candidates_token_count": 921,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 4273,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 4273
+          }
+        ],
+        "thoughts_token_count": 4721,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 9915,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     },
     "tag:soundcloud,2010:tracks/2202916195": {
       "guid": "tag:soundcloud,2010:tracks/2202916195",
