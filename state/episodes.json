@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-10T22:44:24Z",
+  "updated_at": "2026-09-11T14:35:23Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -17260,6 +17260,257 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 13643,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=34486": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34486",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-11T14:25:02Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-11T14:25:02Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-11T14:25:02Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-11T14:25:02Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-11T14:25:03Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-11T14:25:03Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-11T14:25:23Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-11T14:34:07Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-11T14:34:07Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-11T14:35:23Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-11T14:35:23Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-11T14:35:23Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-11T14:35:23Z"
+        }
+      ],
+      "title": "Mox Diamond Hands Forever | Brainstorm Brewery #717 | Magic Finance",
+      "episode_number": 717,
+      "published_at": "2026-09-11T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-11T14:35:23Z",
+      "output_directory": "episodes/0717-mox-diamond-hands-forever-brainstorm-brewery-717-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite + gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash-lite",
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 3766,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 295.579,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13703,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22660,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36363,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 67.198,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17112,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22661,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                }
+              ],
+              "thoughts_token_count": 221,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39994,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 69.494,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12277,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22661,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                }
+              ],
+              "thoughts_token_count": 5506,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 40444,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 77.241,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10317,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22661,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 11051,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44029,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 166,
+            "request_seconds": 12.987,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 2364,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 4309,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 4148
+                }
+              ],
+              "thoughts_token_count": 1583,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 8256,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 70
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1512,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 16728,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 16728
+          }
+        ],
+        "thoughts_token_count": 10498,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 28738,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash",
