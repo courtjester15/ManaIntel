@@ -1,0 +1,423 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=33206",
+    "episode_number": 716,
+    "title": "Dying of or for Consumption | Brainstorm Brewery #716 | Magic Finance",
+    "published_at": "2026-09-04T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_716_Dying_of_or_for_Consumption.mp3",
+    "episode_url": "https://brainstormbrewery.com/dying-of-or-for-consumption-brainstorm-brewery-716-magic-finance/",
+    "duration_seconds": 3382,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz  (@devotedDruid), Corbin (@CHosler), and DJ (@CardgardenMTG) have found the plague that is ravaging the trading card game space: consumption and the only cure… More! Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-12T13:43:55Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-12T13:36:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-12T13:36:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-12T13:36:26Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-12T13:36:26Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-12T13:36:27Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-12T13:36:27Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-12T13:36:47Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-12T13:43:29Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-12T13:43:29Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-12T13:43:55Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-12T13:43:55Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-12T13:43:55Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-12T13:43:55Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3382,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 71.459,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12172,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22650,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 151
+              }
+            ],
+            "thoughts_token_count": 12641,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47463,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 135.742,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11617,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22651,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 151
+              }
+            ],
+            "thoughts_token_count": 17076,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 51344,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 88.097,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17216,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22651,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 151
+              }
+            ],
+            "thoughts_token_count": 11576,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 51443,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 682,
+          "request_seconds": 106.478,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10060,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 17202,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 151
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 17051
+              }
+            ],
+            "thoughts_token_count": 5394,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 32656,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 167
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1550,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 20692,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 20692
+        }
+      ],
+      "thoughts_token_count": 4811,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 27053,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1800,
+    "end_seconds": 2711,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Plains",
+      "printing": "four seasonal plains",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "pick them up",
+      "mentioned_price": "almost a dollar",
+      "entry_target": {
+        "raw": "almost a dollar",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 1.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "They are the most expensive non-rares in the set at almost a dollar.",
+        "They are seasonal plains that come from bundles or pre-release kits."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1805,
+      "end_seconds": 1851,
+      "evidence_excerpt": "if you see any of those plains floating around, they're pretty cool, so pick them up.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9146b1f227337caa",
+      "timestamp": "00:30:05",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_716_Dying_of_or_for_Consumption.mp3#t=1805"
+    },
+    {
+      "card": "Basking Broodscale",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "a nickel",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "a nickel",
+        "currency": "USD",
+        "minimum": 0.05,
+        "maximum": 0.05
+      },
+      "reasoning": [
+        "They have a five cent buy list, which is notable for a Modern Horizons 3 common.",
+        "You can find them in your bulk and add them up to a dollar or two for store credit."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2050,
+      "end_seconds": 2100,
+      "evidence_excerpt": "They'll give you a nickel for this card... Go in your bulk, find some of them. Add them up to a dollar, add them up to two dollars, even.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cbbc96d88ec1718c",
+      "timestamp": "00:34:10",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_716_Dying_of_or_for_Consumption.mp3#t=2050"
+    },
+    {
+      "card": "Eldrazi Temple",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "three or four dollars",
+      "entry_target": {
+        "raw": "three or four dollars",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Every version of this card has a buy list higher than TCG low.",
+        "Eldrazi decks in Modern keep performing well.",
+        "If not printed for another two years, the card will likely return to being $10."
+      ],
+      "caveats": [
+        "Recently reprinted back-to-back in the MH3 precon and Edge of Eternity."
+      ],
+      "confidence": "high",
+      "start_seconds": 2701,
+      "end_seconds": 2702,
+      "evidence_excerpt": "my pick of the week this week is Eldrazi Temple. Every version of this card has a buy list higher than TCG low",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ade2a833e7171c69",
+      "timestamp": "00:45:01",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_716_Dying_of_or_for_Consumption.mp3#t=2701"
+    },
+    {
+      "card": "Namor, the Sub-Mariner",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "down to $5",
+      "entry_target": {
+        "raw": "down to $5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Good spec in preparation for Noktis, which is confirmed to feature Merfolk.",
+        "It is down to $5 after debuting around $10.",
+        "Sees some competitive play as a protect-the-queen card in Charbelcher sideboards."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2702,
+      "end_seconds": 2705,
+      "evidence_excerpt": "My pick of the week is a Corbin favorite in prep—preparation for Noktis... Namor, the Sub-Mariner.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b865b44b7a322064",
+      "timestamp": "00:45:02",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_716_Dying_of_or_for_Consumption.mp3#t=2702"
+    },
+    {
+      "card": "Slicer, Hired Muscle",
+      "printing": "Shattered Glass",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$35",
+      "entry_target": {
+        "raw": "$35",
+        "currency": "USD",
+        "minimum": 35.0,
+        "maximum": 35.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Highly scarce printings like Shattered Glass versions systematically capture value.",
+        "People may chase the trend of other spiked Transformers cards like Optimus Prime.",
+        "Slicer is a highly popular card in casual multiplayer Commander."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2705,
+      "end_seconds": 2708,
+      "evidence_excerpt": "the Shattered Glass Slicer is at an all-time high right now of $35... if you're someone who maybe likes this at all, you should probably take a look at it",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e20e72dda7f6746d",
+      "timestamp": "00:45:05",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_716_Dying_of_or_for_Consumption.mp3#t=2705"
+    }
+  ]
+}
