@@ -1,0 +1,422 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15768",
+    "episode_number": 682,
+    "title": "What a Bunch of Muppets  | Brainstorm Brewery #682 | Magic Finance",
+    "published_at": "2026-01-16T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_682_What_a_Bunch_of_Muppets.mp3",
+    "episode_url": "https://brainstormbrewery.com/what-a-bunch-of-muppets-brainstorm-brewery-682-magic-finance/",
+    "duration_seconds": 3833,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid), Corbin (@CHosler), and DJ (@CardgardenMTG) are magic and muppets; a perfect mix? The BSB discusses as well as all the best trailers in magic history, Lorwyn Eclipsed, and more. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-12T22:23:50Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-12T22:16:58Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-12T22:16:58Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-12T22:16:58Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-12T22:16:58Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-12T22:17:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-12T22:17:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-12T22:17:22Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-12T22:23:24Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-12T22:23:24Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-12T22:23:50Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-12T22:23:50Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-12T22:23:50Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-12T22:23:50Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3833,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 60.336,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13320,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22663,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 164
+              }
+            ],
+            "thoughts_token_count": 5671,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41654,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 101.847,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14042,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22664,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 164
+              }
+            ],
+            "thoughts_token_count": 20234,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 56940,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 62.965,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12555,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22664,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 164
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 7444,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42663,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 70.216,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13244,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22664,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 164
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 7473,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43381,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 233,
+          "request_seconds": 65.055,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2557,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 5976,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 164
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 5812
+              }
+            ],
+            "thoughts_token_count": 5351,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 13884,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 162
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1242,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 22576,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 22576
+        }
+      ],
+      "thoughts_token_count": 5474,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 29292,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1800,
+    "end_seconds": 3942,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Mishra's Burnished Banner",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "below 50 bucks",
+      "entry_target": {
+        "raw": "below 50 bucks",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 50.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "If found below 50 bucks, it is a good value",
+        "Can be cracked for contents or resold on TCGplayer for $80"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2553,
+      "end_seconds": 2644,
+      "evidence_excerpt": "if you find this precon ... for like anything below 50 bucks, you should just buy it because it is a good value",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2e7bc49a21226b7b",
+      "timestamp": "00:42:33",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_682_What_a_Bunch_of_Muppets.mp3#t=2553"
+    },
+    {
+      "card": "Agent Frank Horrigan",
+      "printing": "Fallout",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin",
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "from $1 to $2",
+      "entry_target": {
+        "raw": "from $1 to $2",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Gone from $1 to $2 in the past four days and is going to keep going up",
+        "It is a big, dorky, seven-mana Golgari card with proliferate"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3220,
+      "end_seconds": 3247,
+      "evidence_excerpt": "Agent Frank Horrigan is gone from $1 to $2 in the past four days, and is going to keep going up.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d2138ad7d2ce6a71",
+      "timestamp": "00:53:40",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_682_What_a_Bunch_of_Muppets.mp3#t=3220"
+    },
+    {
+      "card": "Deeproot Pilgrimage",
+      "printing": "Lost Caverns of Ixalan",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "under a dollar",
+      "entry_target": {
+        "raw": "under a dollar",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 1.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Currently under a dollar",
+        "Synergizes with the Lorwyn Eclipsed theme of tapping and untapping",
+        "Creates the only hexproof token in Standard",
+        "Typal card for a very popular creature type"
+      ],
+      "caveats": [
+        "Standard is turbo broken so it is hard to tell if typal decks can compete"
+      ],
+      "confidence": null,
+      "start_seconds": 3541,
+      "end_seconds": 3600,
+      "evidence_excerpt": "Deeproot Pilgrimage is under a dollar, uh, and it's really hard to convince me that ... there's no way that card can be under a dollar.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-115ceb971aadde76",
+      "timestamp": "00:59:01",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_682_What_a_Bunch_of_Muppets.mp3#t=3541"
+    },
+    {
+      "card": "Claws of Gix",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3 to $6",
+      "entry_target": {
+        "raw": "$3 to $6",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 6.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Played in Modern Affinity as a sacrifice outlet",
+        "Played in Pre-Modern",
+        "Only has two printings (Urza's Saga and Time Shifted)",
+        "Card Kingdom is paying more on this card now than in the past few months"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3739,
+      "end_seconds": 3913,
+      "evidence_excerpt": "if you don't have four Claws of Gix, you should probably get that fixed.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c25b8998d1e0a700",
+      "timestamp": "01:02:19",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_682_What_a_Bunch_of_Muppets.mp3#t=3739"
+    }
+  ]
+}
