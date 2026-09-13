@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-12T22:23:50Z",
+  "updated_at": "2026-09-13T14:40:57Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -18231,6 +18231,236 @@
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
         "total_token_count": 29292,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15765": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15765",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-13T14:22:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-13T14:22:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-13T14:22:10Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-13T14:22:10Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-13T14:22:13Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-13T14:22:13Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-13T14:22:26Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-13T14:38:56Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-13T14:38:56Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-13T14:40:57Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-13T14:40:57Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-13T14:40:57Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-13T14:40:57Z"
+        }
+      ],
+      "title": "Earthbending Like Beckham | Brainstorm Brewery #681 | Magic Finance",
+      "episode_number": 681,
+      "published_at": "2026-01-09T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 7,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-13T14:40:57Z",
+      "output_directory": "episodes/0681-earthbending-like-beckham-brainstorm-brewery-681-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash",
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3302,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 133.661,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14942,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22647,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                }
+              ],
+              "thoughts_token_count": 5619,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43208,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 339.157,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 21072,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22648,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 43720,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 292.742,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 18865,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22648,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41513,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 602,
+            "request_seconds": 223.336,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 122
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 12498
+                }
+              ],
+              "cached_content_token_count": 12620,
+              "candidates_token_count": 6748,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 15192,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 148
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 15044
+                }
+              ],
+              "thoughts_token_count": 7425,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 29365,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 114
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 2116,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 39910,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 39910
+          }
+        ],
+        "thoughts_token_count": 8608,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 50634,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash",
