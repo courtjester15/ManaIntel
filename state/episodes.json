@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-14T16:36:36Z",
+  "updated_at": "2026-09-14T23:20:33Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -18979,6 +18979,295 @@
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2400378882": {
+      "guid": "tag:soundcloud,2010:tracks/2400378882",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-14T23:08:00Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-14T23:08:00Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-14T23:08:00Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-14T23:08:00Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-14T23:08:02Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-14T23:08:02Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-14T23:08:25Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-14T23:19:56Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-14T23:19:56Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-14T23:20:33Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-14T23:20:33Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-14T23:20:33Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-09-14T23:20:33Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 534: Hobbit Favorites",
+      "episode_number": 534,
+      "published_at": "2026-09-14T17:07:04Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 5,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-09-14T23:20:33Z",
+      "output_directory": "episodes/0534-hobbit-favorites",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 6,
+        "duration_seconds": 5341,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 434.947,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 99
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18915
+                }
+              ],
+              "cached_content_token_count": 19014,
+              "candidates_token_count": 9717,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22617,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 118
+                }
+              ],
+              "thoughts_token_count": 15049,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47383,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 45.83,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9246,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22618,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 118
+                }
+              ],
+              "thoughts_token_count": 4221,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36085,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 27.81,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8214,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22618,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 118
+                }
+              ],
+              "thoughts_token_count": 226,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 31058,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 36.682,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11158,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22618,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 118
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 96,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33872,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 79.294,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9767,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22618,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 118
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 13688,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46073,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 6,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 841,
+            "request_seconds": 65.554,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12112,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 21163,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 21045
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 118
+                }
+              ],
+              "thoughts_token_count": 6100,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39375,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 103
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 2136,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 12743,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 12743
+          }
+        ],
+        "thoughts_token_count": 6946,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 21825,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
       "review_reason": null
     }
   }

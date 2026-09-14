@@ -1,0 +1,526 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2400378882",
+    "episode_number": 534,
+    "title": "MTG Fast Finance Ep 534: Hobbit Favorites",
+    "published_at": "2026-09-14T17:07:04Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-534-hobbit",
+    "duration_seconds": 5341,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The boys dish out all the updates on the Magic the Gathering card price action of the week, including meta updates, cards to watch and more commentary on The Hobbit top cards.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-14T23:20:33Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-14T23:08:00Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-14T23:08:00Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-14T23:08:00Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-14T23:08:00Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-14T23:08:02Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-14T23:08:02Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-14T23:08:25Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-14T23:19:56Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-14T23:19:56Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-14T23:20:33Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-14T23:20:33Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-14T23:20:33Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-09-14T23:20:33Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 6,
+      "duration_seconds": 5341,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 434.947,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 99
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18915
+              }
+            ],
+            "cached_content_token_count": 19014,
+            "candidates_token_count": 9717,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22617,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 118
+              }
+            ],
+            "thoughts_token_count": 15049,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47383,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 45.83,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9246,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 118
+              }
+            ],
+            "thoughts_token_count": 4221,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36085,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 27.81,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8214,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 118
+              }
+            ],
+            "thoughts_token_count": 226,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 31058,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 36.682,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11158,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 118
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 96,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33872,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 79.294,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9767,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 118
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 13688,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46073,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 6,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 841,
+          "request_seconds": 65.554,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12112,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 21163,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 21045
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 118
+              }
+            ],
+            "thoughts_token_count": 6100,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39375,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 103
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2136,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12743,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12743
+        }
+      ],
+      "thoughts_token_count": 6946,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 21825,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1328,
+    "end_seconds": 3230,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Avendot, Waking Haven",
+      "printing": "Borderless Galaxy Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$80",
+      "entry_target": {
+        "raw": "80",
+        "currency": "USD",
+        "minimum": 80.0,
+        "maximum": 80.0
+      },
+      "hold": "next six months or so",
+      "exit_target": {
+        "raw": "150",
+        "currency": "USD",
+        "minimum": 150.0,
+        "maximum": 150.0
+      },
+      "reasoning": [
+        "Very low inventory with only 13 listings remaining on TCGplayer.",
+        "Sells consistently with 13 copies in the last month and 256 in the last year.",
+        "High commander integration, currently in over 134,000 decks on EDHREC.",
+        "Expected synergies with the upcoming Star Trek 'stationing' mechanic.",
+        "Rarest version of the card and highly unlikely to see a reprint soon."
+      ],
+      "caveats": [
+        "Enters the battlefield tapped and requires mana to activate initially."
+      ],
+      "confidence": "high",
+      "start_seconds": 1328,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Avendot, Waking Haven Borderless Galaxy Foil to go 80 current price up to let's call it 150 in the next six months or so.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-262c5ed2fca6a121",
+      "timestamp": "00:22:08",
+      "listen_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3#t=1328"
+    },
+    {
+      "card": "Depala, Pilot Exemplar",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$4",
+      "entry_target": {
+        "raw": "4",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "hold": "sometime in the next 0 to 6 months",
+      "exit_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Dwarf decks are seeing interest and anticipation.",
+        "No natural venues for a reprint since there are no Dwarf-themed Commander decks planned.",
+        "Wayne Reynolds Secret Lair artwork from 2022 is highly desirable.",
+        "Extremely low availability with only 36 vendors showing near mint copies."
+      ],
+      "caveats": [
+        "Co-host expresses skepticism that Dwarf tribal decks will become highly popular.",
+        "Vehicle-based strategies historically underperform in the secondary market.",
+        "Most revealed Dwarf cards from Hobbit appear designed for Limited rather than Commander."
+      ],
+      "confidence": "low",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "sometime in the next 0 to 6 months, this 4 dollar card should be something going for around 10.",
+      "review_status": "needs_review",
+      "review_reason": "Host disagreement on Dwarf tribal viability; timestamps are clustered and duplicate on the source.",
+      "id": "pick-b9f74412067209f5",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3#t=1800"
+    },
+    {
+      "card": "Namor, the Sub-Mariner",
+      "printing": "Borderless Comic Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$60",
+      "entry_target": null,
+      "hold": "six months",
+      "exit_target": null,
+      "reasoning": [
+        "Part of the popular Marvel comic cover subset which collectors are buying as a full set.",
+        "Upcoming underwater Merfolk set Noktus in winter will drive significant hype and demand.",
+        "Namor is highly playable and likely an 80%+ auto-include in Merfolk tribal decks.",
+        "No non-foils exist, meaning supply is naturally capped and there are no cheap alternatives."
+      ],
+      "caveats": [
+        "Price pressure could briefly lessen and drop the card under 50 before Noktus hype cycle kicks in."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1800,
+      "end_seconds": 1964,
+      "evidence_excerpt": "Namor is going to get a bunch of attention as one of the hardest, like rarest and most expensive Merfolk, that's also an auto-include in any Merfolk deck",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2c2a616145069b6f",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3#t=1800"
+    },
+    {
+      "card": "Ayula, Queen Among Bears",
+      "printing": "Showcase Pip-Boy",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Speaker 2",
+        "Speaker 1"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "around $3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": "as the bear hype hits us",
+      "exit_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "High hype surrounding the newly previewed Bear commander Bjorn the Bear.",
+        "Ayula is the essential tribal payoff card for any Bear-themed deck.",
+        "The Fallout Showcase Pip-Boy frame (reskinned as Ruska, the Terror of Point Lookout) is the most unique and desirable variant."
+      ],
+      "caveats": [
+        "Surge foil versions of this printing are already heavily bought out and unaffordable for casual specs."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1965,
+      "end_seconds": 2208,
+      "evidence_excerpt": "Ruska, the Terror of Point Lookout... this version is something you can get right now for around... $3. And this is another card that should hit 10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-10e2b4f340eee0f7",
+      "timestamp": "00:32:45",
+      "listen_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3#t=1965"
+    },
+    {
+      "card": "Mind Stone",
+      "printing": "Marvel Super Heroes",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Speaker 1",
+        "Speaker 2"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$1,700",
+      "entry_target": {
+        "raw": "1,700, if you can get it, 1,800 is more likely right now",
+        "currency": "USD",
+        "minimum": 1700.0,
+        "maximum": 1800.0
+      },
+      "hold": "by the time that stone comes out / next year",
+      "exit_target": {
+        "raw": "2,500",
+        "currency": "USD",
+        "minimum": 2500.0,
+        "maximum": 2500.0
+      },
+      "reasoning": [
+        "Infinity Stones are a highly unique, multi-set cross-collectible that command a massive set premium.",
+        "Severe inventory shortage with only 10 active listings remaining on TCGplayer.",
+        "The market is pattern-pricing these premium chase stones at a $2,000+ floor.",
+        "No non-foil printings exist, securing long-term organic scarcity."
+      ],
+      "caveats": [
+        "Possibility of a temporary holiday-season dip, though historical trends on these stones suggest they may buck this trend.",
+        "Extremely high buy-in price represents substantial capital risk."
+      ],
+      "confidence": "high",
+      "start_seconds": 2209,
+      "end_seconds": 3230,
+      "evidence_excerpt": "My final call: 1,700, if you can get it, 1,800 is more likely right now, to get out, if you need to, at 2,500.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7c70d0ac92c5440c",
+      "timestamp": "00:36:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3#t=2209"
+    }
+  ]
+}
