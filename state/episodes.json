@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-14T03:23:46Z",
+  "updated_at": "2026-09-14T16:36:36Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -18750,6 +18750,235 @@
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15756": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15756",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-14T16:22:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-14T16:22:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-14T16:22:10Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-14T16:22:10Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-14T16:22:12Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-14T16:22:12Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-14T16:22:24Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-14T16:35:33Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-14T16:35:33Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-14T16:36:35Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-14T16:36:35Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-14T16:36:36Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-14T16:36:36Z"
+        }
+      ],
+      "title": "Spray Tan Glamor Magic | Brainstorm Brewery #679 | Magic Finance",
+      "episode_number": 679,
+      "published_at": "2025-12-19T06:23:35Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 3,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-14T16:36:36Z",
+      "output_directory": "episodes/0679-spray-tan-glamor-magic-brainstorm-brewery-679-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2777,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 117.516,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 10923,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22640,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 141
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 18388,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 51951,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 411.363,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 118
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18900
+                }
+              ],
+              "cached_content_token_count": 19018,
+              "candidates_token_count": 14899,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22641,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 141
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 16182,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 53722,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 51.264,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12578,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22641,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 141
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 2014,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37233,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 77,
+            "request_seconds": 208.418,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 1230,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 2073,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 1932
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 141
+                }
+              ],
+              "thoughts_token_count": 3245,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 6548,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 126
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 976,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 18727,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 18727
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 19703,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": null
     }
   }

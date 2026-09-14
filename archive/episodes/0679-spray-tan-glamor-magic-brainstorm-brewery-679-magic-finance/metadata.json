@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15756",
+    "episode_number": 679,
+    "title": "Spray Tan Glamor Magic | Brainstorm Brewery #679 | Magic Finance",
+    "published_at": "2025-12-19T06:23:35Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_679_Spray_Tan_Glamor_Magic.mp3",
+    "episode_url": "https://brainstormbrewery.com/spray-tan-glamor-magic-brainstorm-brewery-679-magic-finance/",
+    "duration_seconds": 2777,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid), Corbin (@CHosler) and DJ (@CardgardenMTG) talk about Lorwyn Eclipsed, Marvel, and Christmas movies. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-14T16:36:36Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-14T16:22:10Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-14T16:22:10Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-14T16:22:10Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-14T16:22:10Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-14T16:22:12Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-14T16:22:12Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-14T16:22:24Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-14T16:35:33Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-14T16:35:33Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-14T16:36:35Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-14T16:36:35Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-14T16:36:36Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-14T16:36:36Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2777,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 117.516,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10923,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22640,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 141
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 18388,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 51951,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 411.363,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 118
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18900
+              }
+            ],
+            "cached_content_token_count": 19018,
+            "candidates_token_count": 14899,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22641,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 141
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 16182,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 53722,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 51.264,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12578,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22641,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 141
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 2014,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37233,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 77,
+          "request_seconds": 208.418,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1230,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 2073,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 1932
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 141
+              }
+            ],
+            "thoughts_token_count": 3245,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 6548,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 126
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 976,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 18727,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 18727
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 19703,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0679-spray-tan-glamor-magic-brainstorm-brewery-679-magic-finance/metadata.json",
+    "summary_json": "episodes/0679-spray-tan-glamor-magic-brainstorm-brewery-679-magic-finance/summary.json",
+    "summary_markdown": "episodes/0679-spray-tan-glamor-magic-brainstorm-brewery-679-magic-finance/summary.md"
+  }
+}
