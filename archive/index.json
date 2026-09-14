@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-13T22:32:17Z",
+    "generated_at": "2026-09-14T03:23:46Z",
     "latest_successful_run_at": "2026-09-13T22:32:16Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 80,
-    "real_pick_count": 303,
+    "real_pick_count": 297,
     "last_discovered_episode_date": "2026-09-11T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 80,
-    "picks": 303,
+    "picks": 297,
     "needs_review": 29,
-    "failed": 5,
-    "completed": 46
+    "failed": 6,
+    "completed": 45
   },
   "status_counts": {
-    "complete": 46,
+    "complete": 45,
     "needs_review": 29,
-    "failed": 5
+    "failed": 6
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34486",
@@ -851,20 +851,31 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "complete",
-      "review_state": "approved",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
       "review_reason": null,
-      "pick_count": 6,
+      "pick_count": 0,
       "directory": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63",
       "outputs": {
         "metadata": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/metadata.json",
-        "summary_json": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/summary.json",
-        "summary_markdown": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/summary.md",
+        "summary_json": null,
+        "summary_markdown": null,
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-08-30T23:07:33Z",
-      "error": null,
+      "processed_at": "2026-09-14T03:23:46Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 3/4 failed after 174.6s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 4,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

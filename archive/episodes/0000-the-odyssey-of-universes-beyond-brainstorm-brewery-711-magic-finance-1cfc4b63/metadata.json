@@ -23,15 +23,15 @@
     "extraction_profile": "brainstorm_brewery"
   },
   "processing": {
-    "status": "complete",
-    "review_state": "approved",
+    "status": "failed",
+    "review_state": "not_applicable",
     "review_reason": null,
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-30T23:07:33Z",
+    "processed_at": "2026-09-14T03:23:46Z",
     "history": [
       {
         "status": "detected",
@@ -152,9 +152,44 @@
       {
         "status": "complete",
         "timestamp": "2026-08-30T23:07:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-14T03:14:29Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-14T03:14:29Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-14T03:14:31Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-14T03:14:31Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-14T03:14:48Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-14T03:23:46Z"
       }
     ],
-    "error": null,
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 3/4 failed after 174.6s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": false,
+      "provider_wide": true,
+      "attempt": 4,
+      "max_attempts": 3,
+      "next_retry_at": null,
+      "quarantined": true
+    },
     "transcription": {
       "provider": "Gemini",
       "model": "gemini-3.5-flash",
@@ -313,7 +348,7 @@
   },
   "outputs": {
     "metadata": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/metadata.json",
-    "summary_json": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/summary.json",
-    "summary_markdown": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63/summary.md"
+    "summary_json": null,
+    "summary_markdown": null
   }
 }
