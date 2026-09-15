@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-15T15:04:18Z",
+  "updated_at": "2026-09-15T23:08:31Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -19357,6 +19357,50 @@
         {
           "status": "failed",
           "timestamp": "2026-09-15T15:04:18Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-15T22:53:28Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-15T22:53:28Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-15T22:53:30Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-15T22:53:30Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-15T22:53:49Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-15T23:07:37Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-15T23:07:37Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-15T23:08:31Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-15T23:08:31Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-15T23:08:31Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-15T23:08:31Z"
         }
       ],
       "title": "NPR Pick of the Week | Brainstorm Brewery #678  | Magic Finance",
@@ -19364,23 +19408,170 @@
       "published_at": "2025-12-12T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 271.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-15T21:04:18Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 5,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-15T23:08:31Z",
+      "output_directory": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash",
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3252,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 90.418,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9920,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22656,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 157
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": 12981,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 45557,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 106.774,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12494,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22657,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 157
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 14231,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 49382,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 594.159,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 31269,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22657,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 157
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 53926,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 552,
+            "request_seconds": 36.17,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 6764,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 13958,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 157
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 13801
+                }
+              ],
+              "thoughts_token_count": 3646,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 24368,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 215
       },
-      "status": "failed",
-      "updated_at": "2026-09-15T15:04:18Z",
-      "output_directory": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance"
+      "extraction_usage": {
+        "cache_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 23748
+          }
+        ],
+        "cached_content_token_count": 23748,
+        "candidates_token_count": 1684,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 28690,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 28690
+          }
+        ],
+        "thoughts_token_count": 4729,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 35103,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     }
   }
 }
