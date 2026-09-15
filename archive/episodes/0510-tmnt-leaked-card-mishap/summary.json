@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "tag:soundcloud,2010:tracks/2256054647",
     "episode_number": 510,
@@ -368,9 +368,95 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0510-tmnt-leaked-card-mishap/metadata.json",
-    "summary_json": "episodes/0510-tmnt-leaked-card-mishap/summary.json",
-    "summary_markdown": "episodes/0510-tmnt-leaked-card-mishap/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 1800,
+    "end_seconds": 3035,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "The Great Henge",
+      "printing": "Borderless / Banyan Tree",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff",
+        "Ted"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "57",
+      "entry_target": {
+        "raw": "in the 50 range / $57",
+        "currency": "USD",
+        "minimum": 50.0,
+        "maximum": 57.0
+      },
+      "hold": "six to 12 months",
+      "exit_target": {
+        "raw": "90",
+        "currency": "USD",
+        "minimum": 90.0,
+        "maximum": 90.0
+      },
+      "reasoning": [
+        "It is an amazing card played in an enormous number of decks.",
+        "It is the second sweet printing we've gotten for it and is by far the cheapest version.",
+        "Party Tree pricing gives room for this version to grow."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1800,
+      "end_seconds": 1913,
+      "evidence_excerpt": "You could get non-foils in the 50 range... I think that this will be pushing $90 within the next six to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a7ee0134b6a57bf4",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2256054647-user-519789566-mtg-fast-finance-ep-510-tmnt-leaked-card-mishap.mp3#t=1800"
+    },
+    {
+      "card": "Splinter's Technique",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Ted"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "when it gets cheap",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Tutors are really good in Magic.",
+        "It acts like a Demonic Tutor with sneak for two mana.",
+        "It is a rare and will find its way everywhere in commander decks."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2700,
+      "end_seconds": 2778,
+      "evidence_excerpt": "I think you, you should definitely load up on this when it gets cheap when they are released.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7b8a101ce76541f8",
+      "timestamp": "00:45:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2256054647-user-519789566-mtg-fast-finance-ep-510-tmnt-leaked-card-mishap.mp3#t=2700"
+    }
+  ]
 }
