@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-15T02:33:44Z",
+  "updated_at": "2026-09-15T15:04:18Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -19322,6 +19322,65 @@
       },
       "extraction_model": "gemini-3.5-flash",
       "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15751": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15751",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-15T14:59:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-15T14:59:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-15T14:59:25Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-15T14:59:26Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-15T14:59:27Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-15T14:59:27Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-15T14:59:46Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-15T15:04:18Z"
+        }
+      ],
+      "title": "NPR Pick of the Week | Brainstorm Brewery #678  | Magic Finance",
+      "episode_number": 678,
+      "published_at": "2025-12-12T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 271.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-15T21:04:18Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-09-15T15:04:18Z",
+      "output_directory": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance"
     }
   }
 }

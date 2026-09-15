@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15751",
+    "episode_number": 678,
+    "title": "NPR Pick of the Week | Brainstorm Brewery #678  | Magic Finance",
+    "published_at": "2025-12-12T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_678_NPR_Pick_of_the_Week.mp3",
+    "episode_url": "https://brainstormbrewery.com/npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/",
+    "duration_seconds": 3252,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid), Corbin (@CHosler) and DJ (@CardgardenMTG), the crew, recap the world championships contraversy, how to get better at magic and sweet, smooth notes of pick of the week. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-15T15:04:18Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-15T14:59:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-15T14:59:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-15T14:59:25Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-15T14:59:26Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-15T14:59:27Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-15T14:59:27Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-15T14:59:46Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-15T15:04:18Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/4 failed after 271.8s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+      "category": "transient_model_output",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-15T21:04:18Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
