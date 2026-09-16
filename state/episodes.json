@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-15T23:08:31Z",
+  "updated_at": "2026-09-16T01:58:51Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -3488,6 +3488,50 @@
         {
           "status": "failed",
           "timestamp": "2026-09-14T03:23:46Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-16T01:55:59Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-16T01:55:59Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-16T01:56:01Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-16T01:56:01Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-16T01:56:20Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-16T01:58:05Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-16T01:58:05Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-16T01:58:51Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-16T01:58:51Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-16T01:58:51Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-16T01:58:51Z"
         }
       ],
       "title": "The Odyssey of Universes Beyond | Brainstorm Brewery #711 | Magic Finance",
@@ -3495,22 +3539,11 @@
       "published_at": "2026-07-31T05:56:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 4,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 3/4 failed after 174.6s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": true,
-        "attempt": 4,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
-      "status": "failed",
-      "updated_at": "2026-09-14T03:23:46Z",
+      "attempt_count": 5,
+      "pick_count": 5,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-16T01:58:51Z",
       "output_directory": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63",
       "transcription": {
         "provider": "Gemini",
@@ -3526,36 +3559,28 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 937.909,
+            "request_seconds": 181.846,
+            "checkpoint_reused": true,
             "provider_usage": {
-              "cache_tokens_details": [
-                {
-                  "modality": "TEXT",
-                  "token_count": 138
-                },
-                {
-                  "modality": "AUDIO",
-                  "token_count": 20837
-                }
-              ],
-              "cached_content_token_count": 20975,
-              "candidates_token_count": 1132,
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13149,
               "candidates_tokens_details": null,
               "prompt_token_count": 22649,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 150
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 150
                 }
               ],
-              "thoughts_token_count": 94,
+              "thoughts_token_count": 18600,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 23875,
+              "total_token_count": 54398,
               "traffic_type": null
             }
           },
@@ -3564,27 +3589,28 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 237.305,
+            "request_seconds": 180.031,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 16788,
+              "candidates_token_count": 13994,
               "candidates_tokens_details": null,
               "prompt_token_count": 22650,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 150
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 150
                 }
               ],
-              "thoughts_token_count": 6941,
+              "thoughts_token_count": 15057,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 46379,
+              "total_token_count": 51701,
               "traffic_type": null
             }
           },
@@ -3593,11 +3619,12 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 110.741,
+            "request_seconds": 52.815,
+            "checkpoint_reused": false,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 14355,
+              "candidates_token_count": 16686,
               "candidates_tokens_details": null,
               "prompt_token_count": 22650,
               "prompt_tokens_details": [
@@ -3610,10 +3637,10 @@
                   "token_count": 22500
                 }
               ],
-              "thoughts_token_count": 13516,
+              "thoughts_token_count": 64,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 50521,
+              "total_token_count": 39400,
               "traffic_type": null
             }
           },
@@ -3622,52 +3649,54 @@
             "chunk_count": 4,
             "model": "gemini-3.5-flash",
             "audio_seconds": 489,
-            "request_seconds": 63.247,
+            "request_seconds": 52.197,
+            "checkpoint_reused": false,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 6740,
+              "candidates_token_count": 7190,
               "candidates_tokens_details": null,
               "prompt_token_count": 12368,
               "prompt_tokens_details": [
                 {
-                  "modality": "TEXT",
-                  "token_count": 150
-                },
-                {
                   "modality": "AUDIO",
                   "token_count": 12218
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 150
                 }
               ],
-              "thoughts_token_count": 9844,
+              "thoughts_token_count": 8081,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 28952,
+              "total_token_count": 27639,
               "traffic_type": null
             }
           }
         ],
-        "timing_adjustments": 60
+        "timing_adjustments": 67
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1169,
+        "candidates_token_count": 1519,
         "candidates_tokens_details": null,
-        "prompt_token_count": 13032,
+        "prompt_token_count": 27664,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 13032
+            "token_count": 27664
           }
         ],
-        "thoughts_token_count": 8412,
+        "thoughts_token_count": 9865,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 22613,
+        "total_token_count": 39048,
         "traffic_type": null
       },
-      "review_reason": null
+      "review_reason": null,
+      "extraction_model": "gemini-3.5-flash"
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=24954": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=24954",
