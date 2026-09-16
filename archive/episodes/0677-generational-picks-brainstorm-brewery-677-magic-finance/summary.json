@@ -1,0 +1,488 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15749",
+    "episode_number": 677,
+    "title": "Generational Picks | Brainstorm Brewery #677  | Magic Finance",
+    "published_at": "2025-12-05T06:38:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_677_Generational_Picks.mp3",
+    "episode_url": "https://brainstormbrewery.com/generational-picks-brainstorm-brewery-677-magic-finance/",
+    "duration_seconds": 3237,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid), Corbin (@CHosler) and DJ (@CardgardenMTG) talk about how as an LGS you move high-dollar cards, World championship, and leveling up your buy and sell game. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-16T15:05:57Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-16T14:58:13Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-16T14:58:13Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-16T14:58:13Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-16T14:58:13Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-16T14:58:14Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-16T14:58:14Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-16T14:58:34Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-16T15:04:50Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-16T15:04:50Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-16T15:05:57Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-16T15:05:57Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-16T15:05:57Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-16T15:05:57Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3237,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 63.904,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12529,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22652,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              }
+            ],
+            "thoughts_token_count": 1492,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36673,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 76.269,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17110,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22653,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39763,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 84.131,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19569,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22653,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42222,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 537,
+          "request_seconds": 150.74,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 106
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 9343
+              }
+            ],
+            "cached_content_token_count": 9449,
+            "candidates_token_count": 6615,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 13565,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 13412
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 153
+              }
+            ],
+            "thoughts_token_count": 7584,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 27764,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 133
+    },
+    "extraction_usage": {
+      "cache_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 19656
+        }
+      ],
+      "cached_content_token_count": 19656,
+      "candidates_token_count": 1996,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 23870,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 23870
+        }
+      ],
+      "thoughts_token_count": 4973,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 30839,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1727,
+    "end_seconds": 3544,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Repulsive Mutation",
+      "printing": "Murders at Karlov Manor",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "31 cents",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "33 cents",
+        "currency": "USD",
+        "minimum": 0.33,
+        "maximum": 0.33
+      },
+      "reasoning": [
+        "Card Kingdom buylist is paying 33 cents, which is above the TCG market price of 31 cents.",
+        "The card is seeing Standard play in Simic Aggro/Omo decks."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "market price is 31 cents, CK's paying 33 cents, and they'll buy 200 copies.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7116d0e0dc4b02a9",
+      "timestamp": "00:30:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_677_Generational_Picks.mp3#t=1800"
+    },
+    {
+      "card": "Splash Portal",
+      "printing": "Bloomburrow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "60 cents",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "60 cents",
+        "currency": "USD",
+        "minimum": 0.6,
+        "maximum": 0.6
+      },
+      "reasoning": [
+        "Card Kingdom is paying 60 cents for up to 200 copies of this Bloomburrow blue uncommon.",
+        "The buylist price exceeds the market price, making it a great target to pull from bulk."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Card Kingdom is paying 60 cents for up to 200 copies of it.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6e956c0c80d7ea4f",
+      "timestamp": "00:30:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_677_Generational_Picks.mp3#t=1800"
+    },
+    {
+      "card": "Entangler",
+      "printing": "Prophecy",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "10",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "This previously bulk uncommon spiked to $10 due to synergy with Anti-Venom, Horrifying Healer.",
+        "It acts as an unkillable blocker in that specific Commander deck."
+      ],
+      "caveats": [
+        "The spike is driven purely by a niche commander synergy."
+      ],
+      "confidence": "high",
+      "start_seconds": 1803,
+      "end_seconds": 2012,
+      "evidence_excerpt": "It is currently 10... you should pick these out of bulk because uh it should be a dollar and it was like 10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1c9af5f283f0c611",
+      "timestamp": "00:30:03",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_677_Generational_Picks.mp3#t=1803"
+    },
+    {
+      "card": "Valgavoth, Terror Eater",
+      "printing": "Duskmourn: House of Horror",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$13",
+      "entry_target": {
+        "raw": "$10 to $13",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 13.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$19.99",
+        "currency": "USD",
+        "minimum": 19.99,
+        "maximum": 19.99
+      },
+      "reasoning": [
+        "The card is a powerful Commander and Standard reanimation target.",
+        "Buying at $10 to $13 and listing on TCG Direct for $19.99 is a reliable strategy as the retail price ticks up."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2700,
+      "end_seconds": 2744,
+      "evidence_excerpt": "Buy Valgavoth now... It's really easy to buy $10 Valgavoths, list them on Direct at $19.99",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e53482f6db0819ca",
+      "timestamp": "00:45:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_677_Generational_Picks.mp3#t=2700"
+    },
+    {
+      "card": "Multiversal Passage",
+      "printing": "Spider-Man",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$9",
+      "entry_target": {
+        "raw": "under 10",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 10.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "The price is currently trending upward.",
+        "It acts as a Commander staple similar to Prismatic Vista, representing an extra shockland."
+      ],
+      "caveats": [
+        "Standard play may drop significantly once a full cycle of shocklands is available."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2745,
+      "end_seconds": 3036,
+      "evidence_excerpt": "Multiversal Passage is going up. So, if you're someone who thinks you might want a copy, try to grab it under 10 while you can.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-0b38f07955bc1008",
+      "timestamp": "00:45:45",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_677_Generational_Picks.mp3#t=2745"
+    },
+    {
+      "card": "Survival of the Fittest",
+      "printing": "Judge Promo",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$1,000",
+      "entry_target": {
+        "raw": "roughly $1,000",
+        "currency": "USD",
+        "minimum": 1000.0,
+        "maximum": 1000.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "1700",
+        "currency": "USD",
+        "minimum": 1700.0,
+        "maximum": 1700.0
+      },
+      "reasoning": [
+        "This represents a great arbitrage opportunity from Europe (Cardmarket) to the United States.",
+        "Competitive cEDH players are not price-sensitive and will trade high-value binders for premium foil Reserve List staples."
+      ],
+      "caveats": [
+        "Requires a high capital investment to execute."
+      ],
+      "confidence": "high",
+      "start_seconds": 3150,
+      "end_seconds": 3259,
+      "evidence_excerpt": "I just bought a Judge Survival from Cardmarket for roughly $1,000. I am going to stick it for 1700 in my case",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-38aae70a2a8934d4",
+      "timestamp": "00:52:30",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_677_Generational_Picks.mp3#t=3150"
+    }
+  ]
+}
