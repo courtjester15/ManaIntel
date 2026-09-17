@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=28574",
     "episode_number": 710,
@@ -370,9 +370,164 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/metadata.json",
-    "summary_json": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/summary.json",
-    "summary_markdown": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 2700,
+    "end_seconds": 4915,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Emperor of Bones",
+      "printing": "Modern Horizons 3",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "sell",
+      "mentioned_price": "a buck 60",
+      "entry_target": {
+        "raw": "54 cents",
+        "currency": "USD",
+        "minimum": 0.54,
+        "maximum": 0.54
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "a buck 60",
+        "currency": "USD",
+        "minimum": 1.6,
+        "maximum": 1.6
+      },
+      "reasoning": [
+        "The card is down to 54 cents on TCG low, but the buylist is still strong at $1.60 at Card Kingdom.",
+        "Modern Horizons 3 was opened a lot, pushing down the price of this rare."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2792,
+      "end_seconds": 2970,
+      "evidence_excerpt": "You should really just send it to Card Kingdom, a buck 60 is full retail for the card effectively.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-aeb252364f81dd57",
+      "timestamp": "00:46:32",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_710_The_Die_in_Diarrhea.mp3#t=2792"
+    },
+    {
+      "card": "Allosaurus Rider",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$4",
+      "entry_target": {
+        "raw": "$4",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Saw play in Neoform / Tron Eldrazi at the Pro Tour.",
+        "During the Modern RQC season, players will quickly realize Neoform is a broken deck."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 4265,
+      "end_seconds": 4332,
+      "evidence_excerpt": "And Allosaurus Rider's like $4 still. ... Modern RQC season, people are going to pick up real quick that Neoform is broken.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c492ab31fd9e5a08",
+      "timestamp": "01:11:05",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_710_The_Die_in_Diarrhea.mp3#t=4265"
+    },
+    {
+      "card": "Grim Monolith",
+      "printing": "Gold Border",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "DJ",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "40, 50 bucks",
+      "entry_target": {
+        "raw": "40, 50 bucks",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 50.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "100",
+        "currency": "USD",
+        "minimum": 100.0,
+        "maximum": 100.0
+      },
+      "reasoning": [
+        "Gold border ones are currently affordable and are surprisingly hard to find.",
+        "They are likely to double in value in a year, similar to Gold Border Cradle.",
+        "Strong demand from cEDH."
+      ],
+      "caveats": [
+        "Pre-modern players might mind if you use a gold-bordered copy, as the card is banned in pre-modern."
+      ],
+      "confidence": "high",
+      "start_seconds": 4533,
+      "end_seconds": 4826,
+      "evidence_excerpt": "Gold border ones are like 40, 50 bucks. They'll probably be 100 in a year, like look at Gold Border Cradle.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4287b1072b07381f",
+      "timestamp": "01:15:33",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_710_The_Die_in_Diarrhea.mp3#t=4533"
+    },
+    {
+      "card": "Grim Monolith",
+      "printing": "Regular",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "340 to 430",
+      "entry_target": {
+        "raw": "340 to 430",
+        "currency": "USD",
+        "minimum": 340.0,
+        "maximum": 430.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "It is lagging behind its elder siblings in the Mox Diamond, LED, City of Traitors family.",
+        "It is nearly impossible to buy as a vendor because nobody wants to get rid of them.",
+        "Reserved list cards do not really go down in price."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 4533,
+      "end_seconds": 4826,
+      "evidence_excerpt": "I kind of want to pick regular Grim Monolith and Gold Border, just every version of Grim Monolith you can get your hands on...",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-df35ac5be364d9af",
+      "timestamp": "01:15:33",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_710_The_Die_in_Diarrhea.mp3#t=4533"
+    }
+  ]
 }

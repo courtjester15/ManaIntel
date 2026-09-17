@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-16T23:01:56Z",
+  "updated_at": "2026-09-17T04:04:14Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -2517,6 +2517,50 @@
         {
           "status": "failed",
           "timestamp": "2026-07-28T21:34:47Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-17T03:52:43Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-17T03:52:43Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-17T03:52:47Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-17T03:52:47Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-17T03:53:13Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-17T04:03:48Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-17T04:03:48Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-17T04:04:13Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-17T04:04:13Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-17T04:04:13Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-17T04:04:14Z"
         }
       ],
       "title": "The Die in Diarrhea | Brainstorm Brewery #710 | Magic Finance",
@@ -2524,23 +2568,224 @@
       "published_at": "2026-07-24T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 3,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 161.0s: JSONDecodeError: Expecting ',' delimiter: line 5567 column 15 (char 173709)",
-        "category": "unknown",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
+      "attempt_count": 4,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-17T04:04:14Z",
+      "output_directory": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 6,
+        "duration_seconds": 4755,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 256.058,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12489,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22652,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 153
+                }
+              ],
+              "thoughts_token_count": 12788,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47929,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 89.736,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11245,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22653,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 153
+                }
+              ],
+              "thoughts_token_count": 13411,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47309,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 87.024,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13273,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22653,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 153
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 10407,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46333,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 77.053,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11492,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22653,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 153
+                }
+              ],
+              "thoughts_token_count": 10306,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44451,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 46.483,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 9117,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22653,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 153
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 2651,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 34421,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 6,
+            "chunk_count": 6,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 255,
+            "request_seconds": 77.162,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3615,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 6513,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 6360
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 153
+                }
+              ],
+              "thoughts_token_count": 10154,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 20282,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 134
       },
-      "status": "failed",
-      "updated_at": "2026-07-28T21:34:47Z",
-      "output_directory": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1362,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 18456,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 18456
+          }
+        ],
+        "thoughts_token_count": 4668,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 24486,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=26773": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=26773",

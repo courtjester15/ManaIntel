@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-16T23:01:57Z",
-    "latest_successful_run_at": "2026-09-16T23:01:56Z",
+    "generated_at": "2026-09-17T04:04:15Z",
+    "latest_successful_run_at": "2026-09-17T04:04:14Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 85,
-    "real_pick_count": 329,
+    "real_pick_count": 333,
     "last_discovered_episode_date": "2026-09-14T17:07:04Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 85,
-    "picks": 329,
+    "picks": 333,
     "needs_review": 30,
-    "failed": 4,
-    "completed": 51
+    "failed": 3,
+    "completed": 52
   },
   "status_counts": {
     "needs_review": 30,
-    "complete": 51,
-    "failed": 4
+    "complete": 52,
+    "failed": 3
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2400378882",
@@ -931,31 +931,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 4,
       "directory": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235",
       "outputs": {
         "metadata": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/summary.json",
+        "summary_markdown": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-07-28T21:34:47Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 161.0s: JSONDecodeError: Expecting ',' delimiter: line 5567 column 15 (char 173709)",
-        "category": "unknown",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
+      "processed_at": "2026-09-17T04:04:14Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
