@@ -1,0 +1,163 @@
+name: ManaIntel zero-pick reprocessing queue
+
+on:
+  schedule:
+    # After the morning primary production run, then once after the evening run.
+    - cron: "17 18,22 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ffw-production-writer
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: write
+
+env:
+  FFW_MODE: live
+  FFW_AI_PROVIDER: gemini
+  FFW_TRANSCRIPTION_MODEL: gemini-3.5-flash
+  FFW_TRANSCRIPTION_FALLBACK_MODEL: gemini-3.5-flash-lite
+  FFW_EXTRACTION_MODEL: gemini-3.5-flash
+  FFW_EXTRACTION_FALLBACK_MODEL: gemini-3.5-flash-lite
+  FFW_RETAIN_TRANSCRIPTS: "true"
+  FFW_TARGETED_VERIFICATION_ENABLED: "true"
+  FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
+  FFW_AUDIO_CHUNK_SECONDS: "900"
+  FFW_GEMINI_TRANSIENT_RETRIES: "1"
+  FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
+  FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "300"
+  FFW_MAX_EPISODE_ATTEMPTS: "3"
+  FFW_RETRY_COOLDOWN_HOURS: "6"
+  FFW_AUTOMATIC_MAX_EPISODE_AGE_DAYS: "365"
+  FFW_ENABLED_SOURCES: "mtg-fast-finance,brainstorm-brewery"
+  FFW_DAILY_ZERO_PICK_REPROCESS_LIMIT: "2"
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  reprocess-one:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install ManaIntel pipeline and media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+      - name: Require a successful primary run today
+        id: primary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          today = datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
+          payload = subprocess.check_output([
+              "gh", "api", "--method", "GET", "repos/${{ github.repository }}/actions/workflows/ffw.yml/runs",
+              "-f", "event=schedule", "-f", "status=success", "-f", "per_page=20",
+          ], text=True)
+          ready = any(
+              run.get("conclusion") == "success" and run.get("completed_at", "")[:10] == today
+              for run in json.loads(payload).get("workflow_runs", [])
+          )
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"ready={'true' if ready else 'false'}\n")
+          PY
+      - name: Select one unconfirmed zero-pick episode
+        id: queue
+        if: ${{ steps.primary.outputs.ready == 'true' || github.event_name == 'workflow_dispatch' }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          ledger_path = Path("state/reprocess-queue.json")
+          ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+          pacific_day = datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
+          if ledger.get("daily_date") != pacific_day:
+              ledger["daily_date"] = pacific_day
+              ledger["daily_runs"] = 0
+          records = json.loads(Path("state/episodes.json").read_text(encoding="utf-8")).get("episodes", {})
+          seen = {item["guid"] for item in ledger.get("entries", []) if item.get("status") in {"complete", "blocked"}}
+          candidates = []
+          for guid, episode in records.items():
+              if guid in seen or guid.startswith("ffw-synthetic-"):
+                  continue
+              if episode.get("source_id") not in {"mtg-fast-finance", "brainstorm-brewery"}:
+                  continue
+              if episode.get("pick_count") != 0 or episode.get("status") not in {"failed", "needs_review", "complete"}:
+                  continue
+              error = episode.get("error") or {}
+              candidates.append((0 if error.get("stage") == "extracting" else 1, episode.get("attempt_count", 0), episode.get("updated_at", ""), guid, episode))
+
+          guid = ""
+          if ledger["daily_runs"] < int(os.environ["FFW_DAILY_ZERO_PICK_REPROCESS_LIMIT"]) and candidates:
+              _, _, _, guid, episode = min(candidates)
+              ledger.setdefault("entries", []).append({"guid": guid, "episode_number": episode.get("episode_number"), "title": episode.get("title"), "status": "running", "started_at": datetime.now(ZoneInfo("UTC")).isoformat()})
+              ledger["daily_runs"] += 1
+          ledger_path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"guid={guid}\n")
+          PY
+      - name: Reprocess selected episode
+        id: pipeline
+        if: ${{ steps.queue.outputs.guid != '' }}
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -m ffw run --live --force-guid "${{ steps.queue.outputs.guid }}"
+      - name: Record queue outcome
+        if: ${{ steps.queue.outputs.guid != '' }}
+        env:
+          GUID: ${{ steps.queue.outputs.guid }}
+          OUTCOME: ${{ steps.pipeline.outcome }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          path = Path("state/reprocess-queue.json")
+          ledger = json.loads(path.read_text(encoding="utf-8"))
+          entry = next(item for item in reversed(ledger["entries"]) if item["guid"] == os.environ["GUID"] and item["status"] == "running")
+          state = json.loads(Path("state/episodes.json").read_text(encoding="utf-8"))["episodes"].get(entry["guid"], {})
+          entry.update(finished_at=datetime.now(ZoneInfo("UTC")).isoformat(), result_status=state.get("status"), result_pick_count=state.get("pick_count", 0))
+          if os.environ["OUTCOME"] == "success" and state.get("status") in {"complete", "needs_review"}:
+              entry["status"] = "complete"
+          else:
+              entry.update(status="blocked", note="Pipeline failed; do not spend another automatic retry without review.")
+          path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
+          PY
+      - name: Validate durable archive
+        if: ${{ steps.queue.outputs.guid != '' }}
+        run: python -m ffw validate
+      - name: Persist queue and archive
+        if: ${{ steps.queue.outputs.guid != '' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add archive state
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(ffw): advance zero-pick reprocessing queue"
+            git push origin HEAD:${{ github.event.repository.default_branch }}
+          fi
+      - name: Report blocked item
+        if: ${{ steps.pipeline.outcome == 'failure' }}
+        run: exit 1
