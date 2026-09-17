@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-17T15:04:09Z",
+  "updated_at": "2026-09-17T22:57:35Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -20336,6 +20336,50 @@
         {
           "status": "failed",
           "timestamp": "2026-09-17T15:04:09Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-17T22:51:16Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-17T22:51:16Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-17T22:51:17Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-17T22:51:17Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-17T22:51:33Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-17T22:57:09Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-17T22:57:09Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-17T22:57:35Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-17T22:57:35Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-17T22:57:35Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-17T22:57:35Z"
         }
       ],
       "title": "Gallagher Three | Brainstorm Brewery #675 | Magic Finance",
@@ -20343,23 +20387,165 @@
       "published_at": "2025-11-21T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 253.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting value at line 5851, column 14; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-17T21:04:09Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-17T22:57:35Z",
+      "output_directory": "episodes/0675-gallagher-three-brainstorm-brewery-675-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash",
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2705,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 109.714,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13465,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22642,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 143
+                }
+              ],
+              "thoughts_token_count": 19188,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 55295,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 70.693,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12779,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22643,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 143
+                }
+              ],
+              "thoughts_token_count": 9502,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 44924,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 96.512,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13915,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22643,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 143
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 16037,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 52595,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 5,
+            "request_seconds": 57.756,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 273,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 143
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 130
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 288,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 102
       },
-      "status": "failed",
-      "updated_at": "2026-09-17T15:04:09Z",
-      "output_directory": "episodes/0675-gallagher-three-brainstorm-brewery-675-magic-finance"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1291,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 15344,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 15344
+          }
+        ],
+        "thoughts_token_count": 4543,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 21178,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     }
   }
 }
