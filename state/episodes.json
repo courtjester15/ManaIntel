@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-17T04:04:14Z",
+  "updated_at": "2026-09-17T15:04:09Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -20301,6 +20301,65 @@
       },
       "extraction_model": "gemini-3.5-flash",
       "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15742": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15742",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-17T14:59:45Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-17T14:59:45Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-17T14:59:45Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-17T14:59:45Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-17T14:59:46Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-17T14:59:46Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-17T14:59:55Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-17T15:04:09Z"
+        }
+      ],
+      "title": "Gallagher Three | Brainstorm Brewery #675 | Magic Finance",
+      "episode_number": 675,
+      "published_at": "2025-11-21T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 253.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Expecting value at line 5851, column 14; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-17T21:04:09Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-09-17T15:04:09Z",
+      "output_directory": "episodes/0675-gallagher-three-brainstorm-brewery-675-magic-finance"
     }
   }
 }
