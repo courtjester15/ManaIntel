@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15739",
+    "episode_number": 674,
+    "title": "Italian Arbitrage Oppurtunity to Make Some Dough | Brainstorm Brewery #674 | Magic Finance",
+    "published_at": "2025-11-14T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_674_Italian_Arbitrage_Oppurtunity_to_Make_Some_Dough.mp3",
+    "episode_url": "https://brainstormbrewery.com/italian-arbitrage-oppurtunity-to-make-some-dough-brainstorm-brewery-674-magic-finance/",
+    "duration_seconds": 3522,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid), Corbin (@CHosler), and DJ (@CardgardenMTG) have discovered a unique Italian arbitrage opportunity for listeners, where you can make some real money while learning about all the latest MTG News. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-18T22:40:29Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-18T22:34:31Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-18T22:34:31Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-18T22:34:50Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-18T22:40:07Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-18T22:40:08Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-18T22:40:29Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-18T22:40:29Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-18T22:40:29Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-18T22:40:29Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3522,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 48.36,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10370,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22658,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              }
+            ],
+            "thoughts_token_count": 3249,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36277,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 62.177,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13751,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22659,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 4966,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41376,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 70.196,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12945,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22659,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              }
+            ],
+            "thoughts_token_count": 10170,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45774,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 822,
+          "request_seconds": 135.751,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11712,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 20696,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20537
+              }
+            ],
+            "thoughts_token_count": 12896,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45304,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 138
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 688,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12126,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12126
+        }
+      ],
+      "thoughts_token_count": 5095,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17909,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0674-italian-arbitrage-oppurtunity-to-make-some-dough-brainstorm-brewery-674-magic-fi/metadata.json",
+    "summary_json": "episodes/0674-italian-arbitrage-oppurtunity-to-make-some-dough-brainstorm-brewery-674-magic-fi/summary.json",
+    "summary_markdown": "episodes/0674-italian-arbitrage-oppurtunity-to-make-some-dough-brainstorm-brewery-674-magic-fi/summary.md"
+  }
+}

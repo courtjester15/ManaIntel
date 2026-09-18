@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15739",
+    "episode_number": 674,
+    "title": "Italian Arbitrage Oppurtunity to Make Some Dough | Brainstorm Brewery #674 | Magic Finance",
+    "published_at": "2025-11-14T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_674_Italian_Arbitrage_Oppurtunity_to_Make_Some_Dough.mp3",
+    "episode_url": "https://brainstormbrewery.com/italian-arbitrage-oppurtunity-to-make-some-dough-brainstorm-brewery-674-magic-finance/",
+    "duration_seconds": 3522,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid), Corbin (@CHosler), and DJ (@CardgardenMTG) have discovered a unique Italian arbitrage opportunity for listeners, where you can make some real money while learning about all the latest MTG News. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-18T22:40:29Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-18T22:34:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-18T22:34:31Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-18T22:34:31Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-18T22:34:50Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-18T22:40:07Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-18T22:40:08Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-18T22:40:29Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-18T22:40:29Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-18T22:40:29Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-18T22:40:29Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3522,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 48.36,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10370,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22658,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              }
+            ],
+            "thoughts_token_count": 3249,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36277,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 62.177,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13751,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22659,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 4966,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41376,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 70.196,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12945,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22659,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              }
+            ],
+            "thoughts_token_count": 10170,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45774,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 822,
+          "request_seconds": 135.751,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11712,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 20696,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 159
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20537
+              }
+            ],
+            "thoughts_token_count": 12896,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45304,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 138
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 688,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12126,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12126
+        }
+      ],
+      "thoughts_token_count": 5095,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17909,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 2700,
+    "end_seconds": 3490,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Ghitu War Cry",
+      "printing": "Urza's Legacy",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "under a dollar",
+      "entry_target": {
+        "raw": "under a dollar",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 1.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Foils are underpriced on TCGplayer",
+        "Goes well with the firebending theme in Avatar commander decks",
+        "Recently added to Card Kingdom's buylist at $0.03 per copy"
+      ],
+      "caveats": [
+        "The card is not very good and players might replace it in their decks once they realize there are better options"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2781,
+      "end_seconds": 2849,
+      "evidence_excerpt": "The foils are under a dollar on TCGplayer. That cannot be right. I am sorry, it is an Urza's Legacy foil.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4a21d82f048817e1",
+      "timestamp": "00:46:21",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_674_Italian_Arbitrage_Oppurtunity_to_Make_Some_Dough.mp3#t=2781"
+    },
+    {
+      "card": "Deepglow Skate",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": false,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "at like a quarter",
+      "entry_target": {
+        "raw": "at like a quarter",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 0.25
+      },
+      "hold": "a few years",
+      "exit_target": null,
+      "reasoning": [
+        "Used to be a $20 card, currently down to around $0.20 due to heavy reprints",
+        "Extremely powerful counter-doubling effect",
+        "Low-risk spec at this entry price with high potential upside"
+      ],
+      "caveats": [
+        "Has been reprinted heavily across multiple products",
+        "Power creep means it is no longer the only way to get this effect"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3032,
+      "end_seconds": 3122,
+      "evidence_excerpt": "I think if you buy a bunch of these at like a quarter, and put them in a closet somewhere, you will either, one of two things will happen",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fd6b50ba782721ca",
+      "timestamp": "00:50:32",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_674_Italian_Arbitrage_Oppurtunity_to_Make_Some_Dough.mp3#t=3032"
+    }
+  ]
+}
