@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34719",
+    "episode_number": 718,
+    "title": "War of the Spark Meets Planar Chaos | Brainstorm Brewery #718 | Magic Finance",
+    "published_at": "2026-09-18T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3",
+    "episode_url": "https://brainstormbrewery.com/war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/",
+    "duration_seconds": 2977,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz  (@devotedDruid), and DJ (@CardgardenMTG) are done with the Hobbit; out of the Shire and into the frying pan of Jace&#8217;s fracturing reality. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-18T14:36:46Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-18T14:31:00Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-18T14:31:00Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-18T14:31:00Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-18T14:31:00Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-18T14:31:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-18T14:31:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-18T14:31:18Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-18T14:35:34Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-18T14:35:34Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-18T14:36:46Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-18T14:36:46Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-18T14:36:46Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-09-18T14:36:46Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2977,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 126.313,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12882,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22659,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 160
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 14069,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49610,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 85.641,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13889,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22660,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 160
+              }
+            ],
+            "thoughts_token_count": 11648,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 48197,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 12.537,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2597,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22660,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 160
+              }
+            ],
+            "thoughts_token_count": 375,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 25632,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 277,
+          "request_seconds": 31.418,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2281,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 7082,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 160
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 6922
+              }
+            ],
+            "thoughts_token_count": 6485,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 15848,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 130
+    },
+    "extraction_usage": {
+      "cache_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 3668
+        }
+      ],
+      "cached_content_token_count": 3668,
+      "candidates_token_count": 1716,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 8588,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 8588
+        }
+      ],
+      "thoughts_token_count": 5596,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 15900,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0718-war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/metadata.json",
+    "summary_json": "episodes/0718-war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/summary.json",
+    "summary_markdown": "episodes/0718-war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/summary.md"
+  }
+}
