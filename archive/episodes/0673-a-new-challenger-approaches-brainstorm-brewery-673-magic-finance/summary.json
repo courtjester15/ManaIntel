@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15736",
+    "episode_number": 673,
+    "title": "A New Challenger Approaches| Brainstorm Brewery #673 | Magic Finance",
+    "published_at": "2025-11-07T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_673_A_New_Challenger_Approaches.mp3",
+    "episode_url": "https://brainstormbrewery.com/a-new-challenger-approaches-brainstorm-brewery-673-magic-finance/",
+    "duration_seconds": 3666,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid), Corbin (@CHosler), and DJ (@CardgardenMTG) are all together again and stoked to bring you the latest Magic news and advice. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-19T14:01:29Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-19T13:55:32Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-19T13:55:32Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-19T13:55:32Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-19T13:55:32Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-19T13:55:34Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-19T13:55:34Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-19T13:55:54Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-19T14:01:10Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-19T14:01:10Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-19T14:01:29Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-19T14:01:29Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-19T14:01:29Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-19T14:01:29Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3666,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 74.824,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9389,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22641,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 15020,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47050,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 108.947,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15839,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22642,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 15401,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 53882,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 72.777,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10328,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22642,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              }
+            ],
+            "thoughts_token_count": 10255,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43225,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 43.411,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11625,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22642,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              }
+            ],
+            "thoughts_token_count": 365,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 34632,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 66,
+          "request_seconds": 15.03,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 510,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 1787,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 142
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 1645
+              }
+            ],
+            "thoughts_token_count": 1193,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 3490,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 148
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1020,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 29454,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 29454
+        }
+      ],
+      "thoughts_token_count": 3548,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 34022,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 555,
+    "end_seconds": 3600,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Ashaya, Soul of the Wild",
+      "printing": "regular",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass",
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$6",
+      "entry_target": {
+        "raw": "like $6",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "turns your creatures into lands",
+        "generically good in Commander",
+        "Earthbending is a mechanic that turns lands into creatures, synergizing with Ashaya"
+      ],
+      "caveats": [
+        "reprinted in Duskmourn Commander",
+        "not an insane buy list"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1814,
+      "end_seconds": 2722,
+      "evidence_excerpt": "It is Ashaya, Soul of the Wild. It's a card that turns your creatures into lands... regular one can go climb up to 10",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4fca2adad2efdad8",
+      "timestamp": "00:30:14",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_673_A_New_Challenger_Approaches.mp3#t=1814"
+    },
+    {
+      "card": "Tifa Lockhart",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "under $3",
+      "entry_target": {
+        "raw": "under $3",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "whenever a land enters the battlefield under your control, double Tifa's power",
+        "has trample",
+        "only costs two mana",
+        "iconic Final Fantasy character"
+      ],
+      "caveats": [
+        "maybe it can never fight its way through Dimir or something like that"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2810,
+      "end_seconds": 2921,
+      "evidence_excerpt": "Tifa Lockhart is under $3, um, from Final Fantasy... Tifa is one of those cards that people will love to play this deck in Standard",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b355972f9d5ab4aa",
+      "timestamp": "00:46:50",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_673_A_New_Challenger_Approaches.mp3#t=2810"
+    },
+    {
+      "card": "Into the Flood Maw",
+      "printing": "Bloomburrow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "like $3 or $4",
+      "entry_target": {
+        "raw": "like $3 or $4",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "premier bounce spell in like almost every format at this point",
+        "the way you deal with a problem permanent in like combo decks now",
+        "one of the best rate cards in Standard"
+      ],
+      "caveats": [
+        "going to be really funny if this thing gets banned next week"
+      ],
+      "confidence": "high",
+      "start_seconds": 2923,
+      "end_seconds": 3052,
+      "evidence_excerpt": "Into the Flood Maw. Uncommon from Bloomburrow, it's like $3 or $4. Uh, it is the premier bounce spell in like almost every format",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b6db63e02d0fe6d4",
+      "timestamp": "00:48:43",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_673_A_New_Challenger_Approaches.mp3#t=2923"
+    }
+  ]
+}
