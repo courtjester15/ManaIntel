@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15734",
+    "episode_number": 672,
+    "title": "We Know You Are Listening | Brainstorm Brewery #672 | Magic Finance",
+    "published_at": "2025-10-31T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_672_We_Know_You_Are_Listening.mp3",
+    "episode_url": "https://brainstormbrewery.com/we-know-you-are-listening-brainstorm-brewery-672-magic-finance/",
+    "duration_seconds": 3859,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass (@devotedDruid) and DJ (@CardgardenMTG) are back from Magic Spotlight in Balitmore and have all the news. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-19T22:34:52Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-19T22:20:03Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-19T22:20:03Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-19T22:20:03Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-19T22:20:03Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-19T22:20:05Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-19T22:20:05Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-19T22:20:27Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-19T22:33:25Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-19T22:33:25Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-19T22:34:52Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-19T22:34:52Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-19T22:34:52Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-09-19T22:34:52Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3859,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 107.104,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11335,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22635,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              }
+            ],
+            "thoughts_token_count": 10709,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44679,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 447.154,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12489,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22636,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 125,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35250,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 86.415,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9151,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22636,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 12326,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 44113,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 100.153,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 25719,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22636,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              }
+            ],
+            "thoughts_token_count": 998,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49353,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 259,
+          "request_seconds": 36.227,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2431,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 6612,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 136
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 6476
+              }
+            ],
+            "thoughts_token_count": 7747,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 16790,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 89
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1160,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 31678,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 31678
+        }
+      ],
+      "thoughts_token_count": 8513,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 41351,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1636,
+    "end_seconds": 4008,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Vivi",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "He is a powerhouse in Commander",
+        "He is one of the most popular Izzet commanders of all time",
+        "He is a beloved character being used to fill out binders of Final Fantasy cards"
+      ],
+      "caveats": [
+        "If banned in Standard, you might lose $15 on the borderless version and $5 on the non-borderless version",
+        "He might get reskinned/reprinted in 3 years as Ral's understudy or similar"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3094,
+      "end_seconds": 3260,
+      "evidence_excerpt": "when Vivi gets banned, I think you still just buy them. Right? Like, it's it's a One Ring situation because the card is functionally reserve list-kind of asterisk",
+      "review_status": "needs_review",
+      "review_reason": "The card 'Vivi' is ambiguous, likely referring to a misheard card name, or a card from the upcoming Final Fantasy set/TCG.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Vivi",
+        "candidate_card": "Vivi",
+        "decision": "confirmed",
+        "accepted": false,
+        "explanation": "The speakers are discussing the card 'Vivi' from the Final Fantasy Trading Card Game, comparing its market situation to Magic's 'The One Ring'. Since the exact name 'Vivi' is spoken and discussed, the extraction is confirmed."
+      },
+      "id": "pick-1d0d870c7b7931fc",
+      "timestamp": "00:51:34",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_672_We_Know_You_Are_Listening.mp3#t=3094"
+    },
+    {
+      "card": "Overlord of the Hauntwoods",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Cass",
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$19.99",
+      "entry_target": {
+        "raw": "$19.99 TCG Low",
+        "currency": "USD",
+        "minimum": 19.99,
+        "maximum": 19.99
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "40 bucks",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "reasoning": [
+        "Sees play in Modern and Legacy",
+        "Second strongest card in Duskmourn",
+        "Strong standard synergy with cards like Abhorrent Oculus and Quantum Riddle"
+      ],
+      "caveats": [
+        "Sorting machines (Rocas) frequently reject this card due to its highly monochromatic, dark artwork, which may constrain active supply"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3442,
+      "end_seconds": 3736,
+      "evidence_excerpt": "my pick is Overlord of the Hauntwoods... Card is $19.99 TCG Low, and Card Kingdom sells it for $38... I could see this card being 40 bucks.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-99675d68b194da3f",
+      "timestamp": "00:57:22",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_672_We_Know_You_Are_Listening.mp3#t=3442"
+    },
+    {
+      "card": "Cathars' Crusade",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "$3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "double digits",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 99.0
+      },
+      "reasoning": [
+        "Casual card that will hit double digits again because of its strong commander appeal",
+        "Historically was $10+ before getting reprinted in Innistrad Remastered",
+        "The card is too cheap for what it does"
+      ],
+      "caveats": [
+        "It is not a double-faced flip card, making it technically easier to reprint in standard Masters sets or Secret Lairs than flip cards"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3800,
+      "end_seconds": 3903,
+      "evidence_excerpt": "Cathars' Crusade is also $3. And historically was 10 plus before it got Innistrad Remastered-ed, and I I just think this card is too cheap for what it does.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2dbb8a2ffdf7b463",
+      "timestamp": "01:03:20",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_672_We_Know_You_Are_Listening.mp3#t=3800"
+    }
+  ]
+}
