@@ -66,7 +66,7 @@ jobs:
           today = datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
           payload = subprocess.check_output([
               "gh", "api", "--method", "GET", "repos/${{ github.repository }}/actions/workflows/ffw.yml/runs",
-              "-f", "event=schedule", "-f", "status=success", "-f", "per_page=20",
+              "-f", "event=schedule", "-f", "status=completed", "-f", "per_page=20",
           ], text=True)
           ready = any(
               run.get("conclusion") == "success" and run.get("completed_at", "")[:10] == today
@@ -103,11 +103,18 @@ jobs:
               if episode.get("pick_count") != 0 or episode.get("status") not in {"failed", "needs_review", "complete"}:
                   continue
               error = episode.get("error") or {}
-              candidates.append((0 if error.get("stage") == "extracting" else 1, episode.get("attempt_count", 0), episode.get("updated_at", ""), guid, episode))
+              candidates.append((
+                  0 if episode.get("source_id") == "mtg-fast-finance" else 1,
+                  0 if error.get("stage") == "extracting" else 1,
+                  episode.get("attempt_count", 0),
+                  episode.get("updated_at", ""),
+                  guid,
+                  episode,
+              ))
 
           guid = ""
           if ledger["daily_runs"] < int(os.environ["FFW_DAILY_ZERO_PICK_REPROCESS_LIMIT"]) and candidates:
-              _, _, _, guid, episode = min(candidates)
+              _, _, _, _, guid, episode = min(candidates)
               ledger.setdefault("entries", []).append({"guid": guid, "episode_number": episode.get("episode_number"), "title": episode.get("title"), "status": "running", "started_at": datetime.now(ZoneInfo("UTC")).isoformat()})
               ledger["daily_runs"] += 1
           ledger_path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
