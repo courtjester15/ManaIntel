@@ -1,0 +1,367 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15731",
+    "episode_number": 671,
+    "title": "Better Bracketology | Brainstorm Brewery #671 | Magic Finance",
+    "published_at": "2025-10-24T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_671_Better_Bracketology.mp3",
+    "episode_url": "https://brainstormbrewery.com/better-bracketology-brainstorm-brewery-671-magic-finance/",
+    "duration_seconds": 3367,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler) and DJ (@CardgardenMTG) talk about fans, WotC announcements, and hybrid mana. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-20T22:33:51Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-20T22:26:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-20T22:26:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-20T22:26:18Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-20T22:26:18Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-20T22:26:19Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-20T22:26:19Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-20T22:26:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-20T22:33:27Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-20T22:33:27Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-20T22:33:51Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-20T22:33:51Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-20T22:33:51Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-20T22:33:51Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3367,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 184.606,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11463,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22630,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 1887,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35980,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 72.967,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18644,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22631,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 176,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41451,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 82.193,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11249,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22631,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 11372,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 45252,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 667,
+          "request_seconds": 68.352,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9104,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 16792,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 16661
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 131
+              }
+            ],
+            "thoughts_token_count": 10002,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35898,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 41
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1078,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 18209,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 18209
+        }
+      ],
+      "thoughts_token_count": 4424,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 23711,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1477,
+    "end_seconds": 3246,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Evolving Wilds",
+      "printing": "Mystery Booster 1 List version",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "Corbin",
+        "DJ"
+      ],
+      "recommendation": "pull from bulk",
+      "mentioned_price": "$3.01",
+      "entry_target": null,
+      "hold": null,
+      "exit_target": {
+        "raw": "$3.01",
+        "currency": "USD",
+        "minimum": 3.01,
+        "maximum": 3.01
+      },
+      "reasoning": [
+        "TCG Player cart optimizer often autofills this specific List version, driving up artificial demand",
+        "Consistent sales history on TCG Player showing copies selling between $1.50 and $3",
+        "Mystery Booster 1 List version of this common has hit a $3 market price"
+      ],
+      "caveats": [
+        "Does not have strong buylist support (Card Kingdom only pays $0.04)"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2520,
+      "end_seconds": 2700,
+      "evidence_excerpt": "pull out your Evolving Wilds that have this symbol on them... that one is $3, and you should remember that, and this was worth Breaking Bulk.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-aac67b7db4105369",
+      "timestamp": "00:42:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_671_Better_Bracketology.mp3#t=2520"
+    },
+    {
+      "card": "Bloodline Keeper",
+      "printing": "Innistrad Remastered retro version",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "3 to 4",
+      "entry_target": {
+        "raw": "3 to 4",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Down to about $3 on TCGPlayer while Card Kingdom buylist pays $4 and retails at $8",
+        "Double-faced cards are structurally difficult for Wizards to reprint, limiting supply",
+        "Extremely popular option for vampire kindred decks"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2997,
+      "end_seconds": 3103,
+      "evidence_excerpt": "Bloodline Keeper is down to like $3-ish for the retro version... CK is selling the card for $8, and you can buy it on TCG for like 3 to 4.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7e55ce9e5144b371",
+      "timestamp": "00:49:57",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_671_Better_Bracketology.mp3#t=2997"
+    },
+    {
+      "card": "Tainted Remedy",
+      "printing": "Magic Origins",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin",
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5 to $6",
+      "entry_target": {
+        "raw": "$4 to $6",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 6.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Has no reprints and the price has been creeping up for a year",
+        "Rarely printed unique anti-life gain effect in mono-black",
+        "Currently starting to take off and expected to push to $10"
+      ],
+      "caveats": [
+        "Could potentially receive a Secret Lair reprint"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3103,
+      "end_seconds": 3237,
+      "evidence_excerpt": "Tainted Remedy at $5 to $6... starting to climb even more. So I think that we'll probably see Tainted Remedy push on up to $10.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1a6cb5634f277b43",
+      "timestamp": "00:51:43",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_671_Better_Bracketology.mp3#t=3103"
+    }
+  ]
+}
