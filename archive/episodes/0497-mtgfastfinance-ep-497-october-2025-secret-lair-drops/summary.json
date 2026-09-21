@@ -1,0 +1,446 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2191062111",
+    "episode_number": 497,
+    "title": "MTGFastFinance Ep 497: October 2025 Secret Lair Drops",
+    "published_at": "2025-10-15T21:19:51Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2191062111-user-519789566-mtgfastfinance-ep-497-october-2025-secret-lair-drops.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtgfastfinance-ep-497-october-2025-secret-lair-drops",
+    "duration_seconds": 4048,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The boys walk us through the latest meta shifts, fast moving card prices, MTGO action and take a stab at the must buy Secret Lairs coming out in October 2025.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-21T23:24:27Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-21T23:16:51Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-21T23:16:51Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-21T23:16:51Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-21T23:16:51Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-21T23:16:53Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-21T23:16:53Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-21T23:17:17Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-09-21T23:24:02Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-09-21T23:24:02Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-09-21T23:24:27Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-09-21T23:24:27Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-09-21T23:24:27Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-09-21T23:24:27Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 4048,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 73.75,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9022,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22629,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 130
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": 243,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 31894,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 160.742,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9602,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22630,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 130
+              }
+            ],
+            "thoughts_token_count": 10239,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42471,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 45.999,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8768,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22630,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 130
+              }
+            ],
+            "thoughts_token_count": 4505,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35903,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 82.33,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9902,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22630,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 130
+              }
+            ],
+            "thoughts_token_count": 14281,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46813,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 448,
+          "request_seconds": 41.028,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4426,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 11350,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 11220
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 130
+              }
+            ],
+            "thoughts_token_count": 6118,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 21894,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 65
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1608,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 9895,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 9895
+        }
+      ],
+      "thoughts_token_count": 4756,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 16259,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 900,
+    "end_seconds": 2103,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "The Ur-Dragon",
+      "printing": "Secret Lair Drop: Festival in a Box (Future Sight frame)",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$30",
+      "entry_target": {
+        "raw": "$30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$65 or $70",
+        "currency": "USD",
+        "minimum": 65.0,
+        "maximum": 70.0
+      },
+      "reasoning": [
+        "Top commander of all time on EDHREC.",
+        "Festival in a Box event has come and gone, limiting future supply.",
+        "Cheaper than other sweet foil versions."
+      ],
+      "caveats": [
+        "Not everyone likes the Future Sight frame.",
+        "Plenty of listings left, not close to draining out yet."
+      ],
+      "confidence": null,
+      "start_seconds": 900,
+      "end_seconds": 900,
+      "evidence_excerpt": "get your copies at 30 now because sometime in the next, uh, 6 to 12 months, that'll probably hit $65 or $70.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9813a7c1bc817cd6",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2191062111-user-519789566-mtgfastfinance-ep-497-october-2025-secret-lair-drops.mp3#t=900"
+    },
+    {
+      "card": "Spectacular Spider-Man",
+      "printing": "Borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$12",
+      "entry_target": {
+        "raw": "$12",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 12.0
+      },
+      "hold": "about a year",
+      "exit_target": {
+        "raw": "25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "reasoning": [
+        "Third most played card from Spider-Man so far on EDHREC with 9,000 decks.",
+        "Acts as a Heroic Intervention / Teferi's Protection variant or a counterspell against point removal on commander.",
+        "Very low inventory with only 55 listings and high velocity of 18 copies sold daily."
+      ],
+      "caveats": [
+        "Pioneer viability is not a major factor due to lack of support from Wizards next year."
+      ],
+      "confidence": null,
+      "start_seconds": 900,
+      "end_seconds": 1043,
+      "evidence_excerpt": "This is currently going for about $12, and I'm thinking that in about a year, these are going to be up to 25 given that they have strong, uh, EDH play.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-132a9f20895d895b",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2191062111-user-519789566-mtgfastfinance-ep-497-october-2025-secret-lair-drops.mp3#t=900"
+    },
+    {
+      "card": "Final Fantasy Collector Commander decks",
+      "printing": "Collector Edition (Surge Foil Setup)",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$600",
+      "entry_target": {
+        "raw": "$600",
+        "currency": "USD",
+        "minimum": 580.0,
+        "maximum": 600.0
+      },
+      "hold": "next year to 18 months",
+      "exit_target": {
+        "raw": "1,200",
+        "currency": "USD",
+        "minimum": 1200.0,
+        "maximum": 1200.0
+      },
+      "reasoning": [
+        "Lowest price they have been since release, down from early prices over $1,000.",
+        "High collectibility with every card in surge foil."
+      ],
+      "caveats": [
+        "The regular version of the decks exists and acts as an anchor.",
+        "Lack of unique borderless art on face cards slows product movement.",
+        "Considered a slow-burn spec, potentially taking longer to hit targets."
+      ],
+      "confidence": null,
+      "start_seconds": 1043,
+      "end_seconds": 1320,
+      "evidence_excerpt": "I want to get the set now at 600 to resell in the next year to 18 months for a double-up in the, back up into the 1,200 range",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-439986bc7264e2c1",
+      "timestamp": "00:17:23",
+      "listen_url": "https://feeds.soundcloud.com/stream/2191062111-user-519789566-mtgfastfinance-ep-497-october-2025-secret-lair-drops.mp3#t=1043"
+    },
+    {
+      "card": "Soul Stone",
+      "printing": "Regular Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James Chilcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": "by Christmas",
+      "exit_target": {
+        "raw": "over 150 to over 200",
+        "currency": "USD",
+        "minimum": 150.0,
+        "maximum": 200.0
+      },
+      "reasoning": [
+        "First of five anticipated Infinity Gauntlet stones; subsequent releases will drive demand back to this one.",
+        "Very low supply with only 31 listings and high scarcity.",
+        "Highest reported Spider-Man card on EDHREC with a 2.8% inclusion rate in black decks."
+      ],
+      "caveats": [
+        "Non-foils could act as a cheaper substitute for budget players.",
+        "Thanos Gauntlet promo versions exist but are extremely expensive."
+      ],
+      "confidence": null,
+      "start_seconds": 1320,
+      "end_seconds": 1800,
+      "evidence_excerpt": "I'm really liking where the foils are sitting because the other angle here is there's just not that many of these sitting around.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b894d94b87370252",
+      "timestamp": "00:22:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2191062111-user-519789566-mtgfastfinance-ep-497-october-2025-secret-lair-drops.mp3#t=1320"
+    }
+  ]
+}
