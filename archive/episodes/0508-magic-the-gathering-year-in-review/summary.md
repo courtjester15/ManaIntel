@@ -4,12 +4,12 @@
 
 - Published: 2026-01-13T02:19:52Z
 - Hosts: MTG Fast Finance
-- Processing status: Needs Review
+- Processing status: Complete — No recommendations
 - Episode source: https://soundcloud.com/user-519789566/mtg-fast-finance-ep-508-magic-the-gathering-year-in-review
 
 ## Cards to Watch
 
-No recommendations were extracted.
+No recommendations were extracted. This is a confirmed Year in Review episode; the hosts only discussed past picks and did not make new actionable recommendations.
 
 ---
 

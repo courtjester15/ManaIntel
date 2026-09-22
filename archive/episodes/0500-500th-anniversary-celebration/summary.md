@@ -4,12 +4,12 @@
 
 - Published: 2025-11-19T23:47:14Z
 - Hosts: MTG Fast Finance
-- Processing status: Needs Review
+- Processing status: Complete — No recommendations
 - Episode source: https://soundcloud.com/user-519789566/mtg-fast-finance-ep-500-500th-anniversary-celebration
 
 ## Cards to Watch
 
-No recommendations were extracted.
+No recommendations were extracted. This is a confirmed discussion episode; the hosts intentionally did not make new actionable recommendations.
 
 ---
 

@@ -100,6 +100,8 @@ jobs:
                   continue
               if episode.get("source_id") not in {"mtg-fast-finance", "brainstorm-brewery"}:
                   continue
+              if episode.get("zero_pick_disposition") == "confirmed_no_recommendations":
+                  continue
               if episode.get("pick_count") != 0 or episode.get("status") not in {"failed", "needs_review", "complete"}:
                   continue
               error = episode.get("error") or {}
