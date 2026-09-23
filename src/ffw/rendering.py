@@ -26,6 +26,12 @@ def render_episode_markdown(summary: dict[str, Any]) -> str:
         f"- Published: {episode['published_at']}",
         f"- Hosts: {', '.join(episode['hosts']) or 'Not identified'}",
         f"- Processing status: {processing['status'].replace('_', ' ').title()}",
+    ])
+    if processing.get("review_state") == "no_recommendations":
+        lines.append("- Review disposition: Confirmed no recommendations")
+        if processing.get("review_reason"):
+            lines.append(f"- Note: {processing['review_reason']}")
+    lines.extend([
         f"- Episode source: {episode['episode_url']}",
         "",
         f"## {summary.get('section', {}).get('label', 'Recommendations')}",
