@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-21T23:24:27Z",
+  "updated_at": "2026-09-23T03:48:59Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -3240,6 +3240,50 @@
         {
           "status": "failed",
           "timestamp": "2026-07-30T21:41:04Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-23T03:37:37Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-23T03:37:37Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-23T03:37:39Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-23T03:37:39Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-23T03:38:02Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-09-23T03:48:35Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-09-23T03:48:35Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-09-23T03:48:59Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-09-23T03:48:59Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-09-23T03:48:59Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-09-23T03:48:59Z"
         }
       ],
       "title": "Banger or Bust! | Brainstorm Brewery #708 | Magic Finance",
@@ -3247,23 +3291,203 @@
       "published_at": "2026-07-10T06:09:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 3,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 3/5 failed after 43.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": true,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
+      "attempt_count": 4,
+      "pick_count": 7,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-09-23T03:48:59Z",
+      "output_directory": "episodes/0000-banger-or-bust-brainstorm-brewery-708-magic-finance-af03a40c",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash",
+        "models": [
+          "gemini-3.5-flash"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 4068,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 160.691,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11838,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22643,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 144
+                }
+              ],
+              "thoughts_token_count": 40044,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 74525,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 296.875,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 120
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 18898
+                }
+              ],
+              "cached_content_token_count": 19018,
+              "candidates_token_count": 23074,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22644,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 144
+                }
+              ],
+              "thoughts_token_count": 1186,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46904,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 77.305,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14302,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22644,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 144
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 10620,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47566,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 900,
+            "request_seconds": 67.114,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 19331,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22644,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 144
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": 653,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42628,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash",
+            "audio_seconds": 468,
+            "request_seconds": 29.252,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 4937,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 11847,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 11703
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 144
+                }
+              ],
+              "thoughts_token_count": 3457,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 20241,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 94
       },
-      "status": "failed",
-      "updated_at": "2026-07-30T21:41:04Z",
-      "output_directory": "episodes/0000-banger-or-bust-brainstorm-brewery-708-magic-finance-af03a40c"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1287,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 26367,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 26367
+          }
+        ],
+        "thoughts_token_count": 4650,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 32304,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash",
+      "review_reason": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=25241": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=25241",
@@ -15115,11 +15339,11 @@
       "published_at": "2026-01-13T02:19:52Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-        "attempt_count": 3,
-        "pick_count": 0,
-        "zero_pick_disposition": "confirmed_no_recommendations",
-        "error": null,
-        "status": "complete",
+      "attempt_count": 3,
+      "pick_count": 0,
+      "zero_pick_disposition": "confirmed_no_recommendations",
+      "error": null,
+      "status": "complete",
       "updated_at": "2026-09-04T22:26:16Z",
       "output_directory": "episodes/0508-magic-the-gathering-year-in-review",
       "transcription": {
@@ -17320,11 +17544,11 @@
       "published_at": "2025-11-19T23:47:14Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-        "attempt_count": 2,
-        "pick_count": 0,
-        "zero_pick_disposition": "confirmed_no_recommendations",
-        "error": null,
-        "status": "complete",
+      "attempt_count": 2,
+      "pick_count": 0,
+      "zero_pick_disposition": "confirmed_no_recommendations",
+      "error": null,
+      "status": "complete",
       "updated_at": "2026-09-20T02:40:35Z",
       "output_directory": "episodes/0500-500th-anniversary-celebration",
       "transcription": {
