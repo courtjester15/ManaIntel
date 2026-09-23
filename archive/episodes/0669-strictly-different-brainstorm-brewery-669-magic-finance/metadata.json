@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15724",
+    "episode_number": 669,
+    "title": "Strictly Different | Brainstorm Brewery #669 | Magic Finance",
+    "published_at": "2025-10-10T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_669_Strictly_Different.mp3",
+    "episode_url": "https://brainstormbrewery.com/strictly-different-brainstorm-brewery-669-magic-finance/",
+    "duration_seconds": 3464,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) discuss diving back into card shops, strictly different and eternal weekend. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-23T15:07:15Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-23T15:01:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-23T15:01:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-23T15:01:12Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-23T15:01:12Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-23T15:01:15Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-23T15:01:15Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-23T15:01:35Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-23T15:07:15Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/4 failed after 338.3s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-23T21:07:15Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0669-strictly-different-brainstorm-brewery-669-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
