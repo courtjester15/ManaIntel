@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-23T15:07:15Z",
-    "latest_successful_run_at": "2026-09-23T03:48:59Z",
+    "generated_at": "2026-09-23T23:27:18Z",
+    "latest_successful_run_at": "2026-09-23T23:27:17Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 95,
-    "real_pick_count": 375,
+    "real_pick_count": 378,
     "last_discovered_episode_date": "2026-09-18T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 95,
-    "picks": 375,
+    "picks": 378,
     "needs_review": 30,
-    "failed": 2,
-    "completed": 63
+    "failed": 1,
+    "completed": 64
   },
   "status_counts": {
     "needs_review": 30,
-    "complete": 63,
-    "failed": 2
+    "complete": 64,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34719",
@@ -3762,31 +3762,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 3,
       "directory": "episodes/0669-strictly-different-brainstorm-brewery-669-magic-finance",
       "outputs": {
         "metadata": "episodes/0669-strictly-different-brainstorm-brewery-669-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0669-strictly-different-brainstorm-brewery-669-magic-finance/summary.json",
+        "summary_markdown": "episodes/0669-strictly-different-brainstorm-brewery-669-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-23T15:07:15Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 338.3s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-23T21:07:15Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-09-23T23:27:17Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
