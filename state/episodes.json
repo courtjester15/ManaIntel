@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-23T23:27:17Z",
+  "updated_at": "2026-09-24T15:13:09Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -23132,6 +23132,65 @@
       },
       "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": null
+    },
+    "tag:soundcloud,2010:tracks/2184691027": {
+      "guid": "tag:soundcloud,2010:tracks/2184691027",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-09-24T15:04:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-24T15:04:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-24T15:04:30Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-24T15:04:30Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-24T15:04:34Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-24T15:04:34Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-24T15:05:02Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-24T15:13:09Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 496: Modern Pro Tour 2025",
+      "episode_number": 496,
+      "published_at": "2025-10-07T23:44:40Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/6 failed after 485.4s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: RemoteProtocolError: Server disconnected without sending a response.; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-24T21:13:09Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-09-24T15:13:09Z",
+      "output_directory": "episodes/0496-modern-pro-tour-2025"
     }
   }
 }
