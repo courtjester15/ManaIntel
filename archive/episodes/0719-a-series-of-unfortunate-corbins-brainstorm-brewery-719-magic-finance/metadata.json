@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
+    "episode_number": 719,
+    "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
+    "published_at": "2026-09-25T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
+    "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
+    "duration_seconds": 3474,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz&#160; (@devotedDruid), and DJ (@CardgardenMTG) are all back to chat about Card Shows evolving, Reality Fracture, and more Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-26T14:33:06Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-26T14:29:05Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-26T14:29:05Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-26T14:29:05Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-26T14:29:05Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-26T14:29:06Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-26T14:29:06Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-26T14:29:21Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-26T14:33:06Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 3/4 failed after 224.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-26T20:33:06Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
