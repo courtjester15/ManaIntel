@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-26T14:33:06Z",
-    "latest_successful_run_at": "2026-09-24T23:27:29Z",
+    "generated_at": "2026-09-26T22:54:57Z",
+    "latest_successful_run_at": "2026-09-26T22:54:56Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 97,
-    "real_pick_count": 382,
+    "real_pick_count": 387,
     "last_discovered_episode_date": "2026-09-25T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,14 +34,13 @@
   },
   "counts": {
     "episodes": 97,
-    "picks": 382,
-    "needs_review": 31,
-    "failed": 1,
+    "picks": 387,
+    "needs_review": 32,
+    "failed": 0,
     "completed": 65
   },
   "status_counts": {
-    "failed": 1,
-    "needs_review": 31,
+    "needs_review": 32,
     "complete": 65
   },
   "latest_episode": {
@@ -63,31 +62,20 @@
     "source_name": "Brainstorm Brewery",
     "source_url": "https://brainstormbrewery.com/",
     "extraction_profile": "brainstorm_brewery",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "pick_count": 0,
+    "processing_status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Some cards (Ice-Talon Explorer, Shaman en-Kor) contain highly likely transcription errors but are preserved as transcribed per instructions.",
+    "pick_count": 5,
     "directory": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance",
     "outputs": {
       "metadata": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "summary_json": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/summary.json",
+      "summary_markdown": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-09-26T14:33:06Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 3/4 failed after 224.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-09-26T20:33:06Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-09-26T22:54:56Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -95,6 +83,334 @@
     "synthetic": false
   },
   "recent_picks": [
+    {
+      "card": "Shaman en-Kor",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10",
+      "entry_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Historically has seen play in CEDH.",
+        "Buylist spread on the regular printing is very close to TCG low.",
+        "Special comic book foils consistently sell out above TCG low."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3517,
+      "end_seconds": 3600,
+      "evidence_excerpt": "My pick of the week is Shaman en-Kor... if you're looking for the- the regular old Joe Schmoe one, $10 seems perfectly reasonable. Put your money here.",
+      "review_status": "needs_review",
+      "review_reason": "Card name 'Shaman en-Kor' and references to comic book foils/Marvel collections suggest a transcription error.",
+      "id": "pick-42113662a281c9c5",
+      "timestamp": "00:58:37",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=3517",
+      "card_resolution": {
+        "raw_name": "Shaman en-Kor",
+        "normalized_name": "shaman en-kor",
+        "status": "verified",
+        "canonical_name": "Shaman en-Kor",
+        "scryfall_id": "02e48948-f4bb-443f-aa35-d59328283cfc",
+        "oracle_id": "4d9d5dbb-25ab-41a5-a277-3ee5f9ef579b",
+        "scryfall_uri": "https://scryfall.com/card/tpr/27/shaman-en-kor?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/0/2/02e48948-f4bb-443f-aa35-d59328283cfc.jpg?1783938505",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-09-26T22:54:57Z"
+      },
+      "resolved_card": "Shaman en-Kor",
+      "oracle_id": "4d9d5dbb-25ab-41a5-a277-3ee5f9ef579b",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
+        "episode_number": 719,
+        "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
+        "published_at": "2026-09-25T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "The Second Doctor",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "a dollar to, uh, two to three",
+      "entry_target": {
+        "raw": "a dollar to, uh, two to three",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "five or more",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Enables players having no maximum hand size which drives casual appeal.",
+        "Unlikely to be reprinted anytime soon due to being in a Doctor Who crossover set."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3420,
+      "end_seconds": 3507,
+      "evidence_excerpt": "breaking bulk of the week is, uh, The Second Doctor... go from a dollar to, uh, two to three, um, but I think it's probably just going to end up five or more.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2935b953cb9c6888",
+      "timestamp": "00:57:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=3420",
+      "card_resolution": {
+        "raw_name": "The Second Doctor",
+        "normalized_name": "the second doctor",
+        "status": "verified",
+        "canonical_name": "The Second Doctor",
+        "scryfall_id": "568c2687-4381-4954-9cab-f669d1fe6306",
+        "oracle_id": "8a6eda31-2791-4def-b9e7-3adde155a4f0",
+        "scryfall_uri": "https://scryfall.com/card/who/156/the-second-doctor?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/5/6/568c2687-4381-4954-9cab-f669d1fe6306.jpg?1783914623",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-09-26T22:54:57Z"
+      },
+      "resolved_card": "The Second Doctor",
+      "oracle_id": "8a6eda31-2791-4def-b9e7-3adde155a4f0",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
+        "episode_number": 719,
+        "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
+        "published_at": "2026-09-25T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Demon of Death's Gate",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$1.50 to $2",
+      "entry_target": {
+        "raw": "$1.50 to $2",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Acts as a zero-mana way to sacrifice creatures to trigger Darklight Phoenix."
+      ],
+      "caveats": [
+        "Feels a little Christmas-landy to pull off consistently."
+      ],
+      "confidence": "medium",
+      "start_seconds": 3213,
+      "end_seconds": 3305,
+      "evidence_excerpt": "Second pick of the week/breaking bulk, is Demon of Death's Gate. Uh it's like a $1.50 to $2.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-13751d7b8e478409",
+      "timestamp": "00:53:33",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=3213",
+      "card_resolution": {
+        "raw_name": "Demon of Death's Gate",
+        "normalized_name": "demon of death's gate",
+        "status": "verified",
+        "canonical_name": "Demon of Death's Gate",
+        "scryfall_id": "57fab4fc-c8de-47ef-a717-3adb58c2f5b6",
+        "oracle_id": "be465805-1a37-4212-acf1-5dfec890b338",
+        "scryfall_uri": "https://scryfall.com/card/m11/92/demon-of-deaths-gate?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/5/7/57fab4fc-c8de-47ef-a717-3adb58c2f5b6.jpg?1783941817",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-09-26T22:54:57Z"
+      },
+      "resolved_card": "Demon of Death's Gate",
+      "oracle_id": "be465805-1a37-4212-acf1-5dfec890b338",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
+        "episode_number": 719,
+        "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
+        "published_at": "2026-09-25T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Aftermath Analyst",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "TCG low",
+      "entry_target": {
+        "raw": "TCG low",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Card has had a negative buylist spread for too long.",
+        "Every buylist pays more than TCG low on it.",
+        "It acts as a highly powerful Crucible of Worlds and Azusa effect on a creature."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2828,
+      "end_seconds": 3213,
+      "evidence_excerpt": "My primary one is Ice-Talon Explorer. Card has had a negative buylist spread for too long. Uh every buylist pays more than TCG low on it.",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Ice-Talon Explorer",
+        "candidate_card": "Aftermath Analyst",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speaker is discussing cards that act like Crucible of Worlds and Ramunap Excavator. They mention 'Aftermath Analyst', which was phonetically transcribed by the automated tool as 'Ice-Talon Explorer'. Aftermath Analyst fits the description perfectly as it mills you on ETB and returns lands from the graveyard to the battlefield."
+      },
+      "id": "pick-d6be96845e9376d4",
+      "timestamp": "00:47:08",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=2828",
+      "card_resolution": {
+        "raw_name": "Aftermath Analyst",
+        "normalized_name": "aftermath analyst",
+        "status": "verified",
+        "canonical_name": "Aftermath Analyst",
+        "scryfall_id": "66f135b4-8cb3-4a4e-86ae-81a3cf4b7259",
+        "oracle_id": "374e54d8-8e73-4268-9dde-c28c77bbbf32",
+        "scryfall_uri": "https://scryfall.com/card/eoc/91/aftermath-analyst?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/6/6/66f135b4-8cb3-4a4e-86ae-81a3cf4b7259.jpg?1783906036",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-09-26T22:54:56Z"
+      },
+      "resolved_card": "Aftermath Analyst",
+      "oracle_id": "374e54d8-8e73-4268-9dde-c28c77bbbf32",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
+        "episode_number": 719,
+        "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
+        "published_at": "2026-09-25T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Metastatic Evangel",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "a quarter",
+      "entry_target": {
+        "raw": "a quarter",
+        "currency": "USD",
+        "minimum": 0.25,
+        "maximum": 0.25
+      },
+      "hold": "put them in a box and forget about them until they are $2",
+      "exit_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "reasoning": [
+        "Good spec to put in a box and forget about",
+        "The retro frame version is already at 75 cents"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1939,
+      "end_seconds": 1958,
+      "evidence_excerpt": "if you find like a hundred of them for a quarter, you should just put them in a box and forget about them until they are $2.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ae924e1dba208a4c",
+      "timestamp": "00:32:19",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=1939",
+      "card_resolution": {
+        "raw_name": "Metastatic Evangel",
+        "normalized_name": "metastatic evangel",
+        "status": "verified",
+        "canonical_name": "Metastatic Evangel",
+        "scryfall_id": "774e115a-c0dc-4901-9a1f-87754304e378",
+        "oracle_id": "0a27bd77-ec13-4e8d-acad-9aa9c66b3b73",
+        "scryfall_uri": "https://scryfall.com/card/mh3/35/metastatic-evangel?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/7/7/774e115a-c0dc-4901-9a1f-87754304e378.jpg?1783911299",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-09-26T22:54:56Z"
+      },
+      "resolved_card": "Metastatic Evangel",
+      "oracle_id": "0a27bd77-ec13-4e8d-acad-9aa9c66b3b73",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
+        "episode_number": 719,
+        "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
+        "published_at": "2026-09-25T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
     {
       "card": "Psychic Frog",
       "printing": null,
@@ -161,341 +477,6 @@
       },
       "processing_status": "needs_review",
       "human_reviewed": false
-    },
-    {
-      "card": "Lorwyn Eclipse Collector Box",
-      "printing": null,
-      "printing_certainty": null,
-      "foil": null,
-      "hosts": [
-        "Corbin"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "380 to 400",
-      "entry_target": {
-        "raw": "380 to 400",
-        "currency": "USD",
-        "minimum": 380.0,
-        "maximum": 400.0
-      },
-      "hold": "1-2 years",
-      "exit_target": null,
-      "reasoning": [
-        "Highly resonant set with artwork by Rebecca Guay",
-        "Can buy Star City Games store credit at ~90% value to get the box for around $380 to $400",
-        "Delayed set release means it gets more unique focus and long-term appeal"
-      ],
-      "caveats": [
-        "Requires utilizing store credit trade-ins to effectively pay the lower price target"
-      ],
-      "confidence": "high",
-      "start_seconds": 2727,
-      "end_seconds": 2905,
-      "evidence_excerpt": "I'm picking Lorwyn Eclipse collector boxes. I think 420 dollars is not going to be where these stay in the long term.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-ea6fca77f5de1aae",
-      "timestamp": "00:45:27",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3#t=2727",
-      "card_resolution": {
-        "raw_name": "Lorwyn Eclipse Collector Box",
-        "normalized_name": "lorwyn eclipse collector box",
-        "status": "not_found",
-        "canonical_name": null,
-        "scryfall_id": null,
-        "oracle_id": null,
-        "scryfall_uri": null,
-        "image_uri": null,
-        "card_face_images": [],
-        "method": "fuzzy",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-18T14:36:47Z"
-      },
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34719",
-        "episode_number": 718,
-        "title": "War of the Spark Meets Planar Chaos | Brainstorm Brewery #718 | Magic Finance",
-        "published_at": "2026-09-18T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Tormod, the Desecrator",
-      "printing": null,
-      "printing_certainty": "ambiguous",
-      "foil": null,
-      "hosts": [
-        "DJ"
-      ],
-      "recommendation": "pull from bulk",
-      "mentioned_price": "86 cents",
-      "entry_target": {
-        "raw": "86 cents market price",
-        "currency": "USD",
-        "minimum": 0.86,
-        "maximum": 0.86
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "like $9, $10",
-        "currency": "USD",
-        "minimum": 9.0,
-        "maximum": 10.0
-      },
-      "reasoning": [
-        "Uncommon from Commander Legends that is easily found in bulk",
-        "The non-foil has climbed to 86 cents market price",
-        "The Secret Lair bonus card reprint version is worth $9 to $10"
-      ],
-      "caveats": [],
-      "confidence": "medium",
-      "start_seconds": 1800,
-      "end_seconds": 1800,
-      "evidence_excerpt": "The non-foil is like 86 cents market price. The most expensive version is the bonus card at like $9, $10.",
-      "review_status": "needs_review",
-      "review_reason": "Multiple different versions and price targets mentioned during discussion of breaking bulk.",
-      "id": "pick-6ce7d9da7000c941",
-      "timestamp": "00:30:00",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3#t=1800",
-      "card_resolution": {
-        "raw_name": "Tormod, the Desecrator",
-        "normalized_name": "tormod, the desecrator",
-        "status": "verified",
-        "canonical_name": "Tormod, the Desecrator",
-        "scryfall_id": "89903d5e-241f-477e-a336-2abe0232c04a",
-        "oracle_id": "6dc0150d-7145-41e2-bd3d-2564d9d32301",
-        "scryfall_uri": "https://scryfall.com/card/cmr/155/tormod-the-desecrator?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/8/9/89903d5e-241f-477e-a336-2abe0232c04a.jpg?1783928826",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-18T14:36:47Z"
-      },
-      "resolved_card": "Tormod, the Desecrator",
-      "oracle_id": "6dc0150d-7145-41e2-bd3d-2564d9d32301",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34719",
-        "episode_number": 718,
-        "title": "War of the Spark Meets Planar Chaos | Brainstorm Brewery #718 | Magic Finance",
-        "published_at": "2026-09-18T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Sheltering Ancient",
-      "printing": "Coldsnap",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Corbin"
-      ],
-      "recommendation": "pull from bulk",
-      "mentioned_price": "$2",
-      "entry_target": {
-        "raw": "$2",
-        "currency": "USD",
-        "minimum": 2.0,
-        "maximum": 2.0
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "$6 foil",
-        "currency": "USD",
-        "minimum": 6.0,
-        "maximum": 6.0
-      },
-      "reasoning": [
-        "Coldsnap uncommon that is now worth $2",
-        "Foils are worth $6",
-        "Synergistic downside in Commander where putting +1/+1 counters on opponents' creatures can be an upside"
-      ],
-      "caveats": [],
-      "confidence": "high",
-      "start_seconds": 1800,
-      "end_seconds": 1800,
-      "evidence_excerpt": "It's $2. $6 foil.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-772d3661dac6b156",
-      "timestamp": "00:30:00",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3#t=1800",
-      "card_resolution": {
-        "raw_name": "Sheltering Ancient",
-        "normalized_name": "sheltering ancient",
-        "status": "verified",
-        "canonical_name": "Sheltering Ancient",
-        "scryfall_id": "d16535ae-6e03-4992-9459-d31626a3222e",
-        "oracle_id": "4554ce06-4992-4689-8a40-558a1545b968",
-        "scryfall_uri": "https://scryfall.com/card/csp/121/sheltering-ancient?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/d/1/d16535ae-6e03-4992-9459-d31626a3222e.jpg?1783943326",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-18T14:36:47Z"
-      },
-      "resolved_card": "Sheltering Ancient",
-      "oracle_id": "4554ce06-4992-4689-8a40-558a1545b968",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34719",
-        "episode_number": 718,
-        "title": "War of the Spark Meets Planar Chaos | Brainstorm Brewery #718 | Magic Finance",
-        "published_at": "2026-09-18T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Cactus Preserve",
-      "printing": "Outlaws of Thunder Junction Commander",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Liz"
-      ],
-      "recommendation": "pull from bulk",
-      "mentioned_price": "2.75",
-      "entry_target": {
-        "raw": "2.75 on Card Kingdom's buy list",
-        "currency": "USD",
-        "minimum": 2.75,
-        "maximum": 2.75
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "almost $3 now",
-        "currency": "USD",
-        "minimum": 3.0,
-        "maximum": 3.0
-      },
-      "reasoning": [
-        "Card can still be found in bulk boxes",
-        "Card Kingdom's buy list is $2.75, and retail is almost $3",
-        "People cracked Outlaws of Thunder Junction Commander decks and ignored this card"
-      ],
-      "caveats": [],
-      "confidence": "high",
-      "start_seconds": 1611,
-      "end_seconds": 1727,
-      "evidence_excerpt": "Cactus Preserve is like 2.75 on Card Kingdom's buy list.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-e749bcc2bea130d4",
-      "timestamp": "00:26:51",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3#t=1611",
-      "card_resolution": {
-        "raw_name": "Cactus Preserve",
-        "normalized_name": "cactus preserve",
-        "status": "verified",
-        "canonical_name": "Cactus Preserve",
-        "scryfall_id": "ad9d426f-5870-42bb-a589-9218f7e35d62",
-        "oracle_id": "8da29533-f389-4bc2-ab9b-b469f893a362",
-        "scryfall_uri": "https://scryfall.com/card/otc/40/cactus-preserve?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/a/d/ad9d426f-5870-42bb-a589-9218f7e35d62.jpg?1783911961",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-18T14:36:47Z"
-      },
-      "resolved_card": "Cactus Preserve",
-      "oracle_id": "8da29533-f389-4bc2-ab9b-b469f893a362",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34719",
-        "episode_number": 718,
-        "title": "War of the Spark Meets Planar Chaos | Brainstorm Brewery #718 | Magic Finance",
-        "published_at": "2026-09-18T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Mind Stone",
-      "printing": "Marvel Super Heroes",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "Speaker 1",
-        "Speaker 2"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$1,700",
-      "entry_target": {
-        "raw": "1,700, if you can get it, 1,800 is more likely right now",
-        "currency": "USD",
-        "minimum": 1700.0,
-        "maximum": 1800.0
-      },
-      "hold": "by the time that stone comes out / next year",
-      "exit_target": {
-        "raw": "2,500",
-        "currency": "USD",
-        "minimum": 2500.0,
-        "maximum": 2500.0
-      },
-      "reasoning": [
-        "Infinity Stones are a highly unique, multi-set cross-collectible that command a massive set premium.",
-        "Severe inventory shortage with only 10 active listings remaining on TCGplayer.",
-        "The market is pattern-pricing these premium chase stones at a $2,000+ floor.",
-        "No non-foil printings exist, securing long-term organic scarcity."
-      ],
-      "caveats": [
-        "Possibility of a temporary holiday-season dip, though historical trends on these stones suggest they may buck this trend.",
-        "Extremely high buy-in price represents substantial capital risk."
-      ],
-      "confidence": "high",
-      "start_seconds": 2209,
-      "end_seconds": 3230,
-      "evidence_excerpt": "My final call: 1,700, if you can get it, 1,800 is more likely right now, to get out, if you need to, at 2,500.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-7c70d0ac92c5440c",
-      "timestamp": "00:36:49",
-      "listen_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3#t=2209",
-      "card_resolution": {
-        "raw_name": "Mind Stone",
-        "normalized_name": "mind stone",
-        "status": "verified",
-        "canonical_name": "Mind Stone",
-        "scryfall_id": "b30a8f92-ce42-4b27-a893-bcf97fde228d",
-        "oracle_id": "c97361b5-af16-4a7b-af85-a429dbaf4ad2",
-        "scryfall_uri": "https://scryfall.com/card/mbc/76/mind-stone?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/b/3/b30a8f92-ce42-4b27-a893-bcf97fde228d.jpg?1785759375",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-14T23:20:35Z"
-      },
-      "resolved_card": "Mind Stone",
-      "oracle_id": "c97361b5-af16-4a7b-af85-a429dbaf4ad2",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2400378882",
-        "episode_number": 534,
-        "title": "MTG Fast Finance Ep 534: Hobbit Favorites",
-        "published_at": "2026-09-14T17:07:04Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-534-hobbit",
-        "audio_url": "https://feeds.soundcloud.com/stream/2400378882-user-519789566-mtg-fast-finance-ep-534-hobbit.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -518,31 +499,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Some cards (Ice-Talon Explorer, Shaman en-Kor) contain highly likely transcription errors but are preserved as transcribed per instructions.",
+      "pick_count": 5,
       "directory": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance",
       "outputs": {
         "metadata": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/summary.json",
+        "summary_markdown": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-26T14:33:06Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 3/4 failed after 224.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-09-26T20:33:06Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-09-26T22:54:56Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

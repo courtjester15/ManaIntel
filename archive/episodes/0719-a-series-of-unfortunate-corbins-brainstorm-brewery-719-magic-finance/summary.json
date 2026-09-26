@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
     "episode_number": 719,
@@ -263,9 +263,204 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/metadata.json",
-    "summary_json": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/summary.json",
-    "summary_markdown": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 1939,
+    "end_seconds": 3600,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Metastatic Evangel",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "a quarter",
+      "entry_target": {
+        "raw": "a quarter",
+        "currency": "USD",
+        "minimum": 0.25,
+        "maximum": 0.25
+      },
+      "hold": "put them in a box and forget about them until they are $2",
+      "exit_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "reasoning": [
+        "Good spec to put in a box and forget about",
+        "The retro frame version is already at 75 cents"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1939,
+      "end_seconds": 1958,
+      "evidence_excerpt": "if you find like a hundred of them for a quarter, you should just put them in a box and forget about them until they are $2.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ae924e1dba208a4c",
+      "timestamp": "00:32:19",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=1939"
+    },
+    {
+      "card": "Aftermath Analyst",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "TCG low",
+      "entry_target": {
+        "raw": "TCG low",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Card has had a negative buylist spread for too long.",
+        "Every buylist pays more than TCG low on it.",
+        "It acts as a highly powerful Crucible of Worlds and Azusa effect on a creature."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2828,
+      "end_seconds": 3213,
+      "evidence_excerpt": "My primary one is Ice-Talon Explorer. Card has had a negative buylist spread for too long. Uh every buylist pays more than TCG low on it.",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Ice-Talon Explorer",
+        "candidate_card": "Aftermath Analyst",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speaker is discussing cards that act like Crucible of Worlds and Ramunap Excavator. They mention 'Aftermath Analyst', which was phonetically transcribed by the automated tool as 'Ice-Talon Explorer'. Aftermath Analyst fits the description perfectly as it mills you on ETB and returns lands from the graveyard to the battlefield."
+      },
+      "id": "pick-d6be96845e9376d4",
+      "timestamp": "00:47:08",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=2828"
+    },
+    {
+      "card": "Demon of Death's Gate",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$1.50 to $2",
+      "entry_target": {
+        "raw": "$1.50 to $2",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Acts as a zero-mana way to sacrifice creatures to trigger Darklight Phoenix."
+      ],
+      "caveats": [
+        "Feels a little Christmas-landy to pull off consistently."
+      ],
+      "confidence": "medium",
+      "start_seconds": 3213,
+      "end_seconds": 3305,
+      "evidence_excerpt": "Second pick of the week/breaking bulk, is Demon of Death's Gate. Uh it's like a $1.50 to $2.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-13751d7b8e478409",
+      "timestamp": "00:53:33",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=3213"
+    },
+    {
+      "card": "The Second Doctor",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "a dollar to, uh, two to three",
+      "entry_target": {
+        "raw": "a dollar to, uh, two to three",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "five or more",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": null
+      },
+      "reasoning": [
+        "Enables players having no maximum hand size which drives casual appeal.",
+        "Unlikely to be reprinted anytime soon due to being in a Doctor Who crossover set."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3420,
+      "end_seconds": 3507,
+      "evidence_excerpt": "breaking bulk of the week is, uh, The Second Doctor... go from a dollar to, uh, two to three, um, but I think it's probably just going to end up five or more.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2935b953cb9c6888",
+      "timestamp": "00:57:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=3420"
+    },
+    {
+      "card": "Shaman en-Kor",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$10",
+      "entry_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Historically has seen play in CEDH.",
+        "Buylist spread on the regular printing is very close to TCG low.",
+        "Special comic book foils consistently sell out above TCG low."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3517,
+      "end_seconds": 3600,
+      "evidence_excerpt": "My pick of the week is Shaman en-Kor... if you're looking for the- the regular old Joe Schmoe one, $10 seems perfectly reasonable. Put your money here.",
+      "review_status": "needs_review",
+      "review_reason": "Card name 'Shaman en-Kor' and references to comic book foils/Marvel collections suggest a transcription error.",
+      "id": "pick-42113662a281c9c5",
+      "timestamp": "00:58:37",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=3517"
+    }
+  ]
 }
