@@ -68,10 +68,17 @@ jobs:
               "gh", "api", "--method", "GET", "repos/${{ github.repository }}/actions/workflows/ffw.yml/runs",
               "-f", "event=schedule", "-f", "status=completed", "-f", "per_page=20",
           ], text=True)
+          def pacific_date(run: dict) -> str:
+              timestamp = run.get("updated_at", "")
+              if not timestamp:
+                  return ""
+              return datetime.fromisoformat(timestamp.replace("Z", "+00:00")).astimezone(ZoneInfo("America/Los_Angeles")).date().isoformat()
+
           ready = any(
-              run.get("conclusion") == "success" and run.get("completed_at", "")[:10] == today
+              run.get("conclusion") == "success" and pacific_date(run) == today
               for run in json.loads(payload).get("workflow_runs", [])
           )
+          print(f"Primary-run gate: {'ready' if ready else 'not ready'} for Pacific date {today}.")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"ready={'true' if ready else 'false'}\n")
           PY

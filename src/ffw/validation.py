@@ -59,8 +59,13 @@ def validate_archive(
         markdown_path = episode_path / "summary.md"
         if not metadata_path.exists():
             issues.append(ValidationIssue("error", "missing_metadata", str(metadata_path), "Episode metadata is required."))
-        if status in {"complete", "needs_review"} and (not summary_path.exists() or not markdown_path.exists()):
+        confirmed_no_recommendations = (
+            status == "complete" and episode.get("review_state") == "no_recommendations"
+        )
+        if status in {"complete", "needs_review"} and (not summary_path.exists() or not markdown_path.exists()) and not confirmed_no_recommendations:
             issues.append(ValidationIssue("error", "completed_without_outputs", str(episode_path), "Terminal successful episode is missing outputs."))
+            continue
+        if confirmed_no_recommendations and (not summary_path.exists() or not markdown_path.exists()):
             continue
         if status == "failed":
             continue
