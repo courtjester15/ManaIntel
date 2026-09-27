@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-26T22:54:57Z",
+    "generated_at": "2026-09-27T15:12:57Z",
     "latest_successful_run_at": "2026-09-26T22:54:56Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 97,
+    "real_episode_count": 98,
     "real_pick_count": 387,
     "last_discovered_episode_date": "2026-09-25T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,14 +33,15 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 97,
+    "episodes": 98,
     "picks": 387,
     "needs_review": 32,
-    "failed": 0,
+    "failed": 1,
     "completed": 65
   },
   "status_counts": {
     "needs_review": 32,
+    "failed": 1,
     "complete": 65
   },
   "latest_episode": {
@@ -513,6 +514,53 @@
       },
       "processed_at": "2026-09-26T22:54:56Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2407349688",
+      "episode_number": 535,
+      "title": "MTG Fast Finance Ep 535: The Zeta Drop Fiasco",
+      "published_at": "2026-09-25T00:38:27Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2407349688-user-519789566-mtg-fast-finance-ep-535-the.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-535-the",
+      "duration_seconds": 4243,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "James and Cliff drop some knowledge on the Magic the Gathering card price action of the week, including meta updates, cards to watch and some deep chats on the topic of cracking packs for entertainment value and the Secret Lair Zeta Drop fiasco.",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0535-the-zeta-drop-fiasco",
+      "outputs": {
+        "metadata": "episodes/0535-the-zeta-drop-fiasco/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-09-27T15:12:57Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 177.1s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-27T21:12:57Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
