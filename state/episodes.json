@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-09-28T02:14:18Z",
+  "updated_at": "2026-09-28T02:46:03Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -23774,6 +23774,30 @@
         {
           "status": "failed",
           "timestamp": "2026-09-28T02:14:18Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-09-28T02:42:39Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-09-28T02:42:39Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-09-28T02:42:40Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-09-28T02:42:40Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-09-28T02:43:06Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-09-28T02:46:03Z"
         }
       ],
       "title": "MTG Fast Finance Ep 535: The Zeta Drop Fiasco",
@@ -23781,22 +23805,22 @@
       "published_at": "2026-09-25T00:38:27Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 3,
+      "attempt_count": 4,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Gemini transcription chunk 4/5 failed after 171.2s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "message": "Gemini transcription chunk 4/5 failed after 175.7s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
         "category": "transient_model_output",
         "synthetic": false,
         "retryable": false,
         "provider_wide": false,
-        "attempt": 3,
+        "attempt": 4,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-09-28T02:14:18Z",
+      "updated_at": "2026-09-28T02:46:03Z",
       "output_directory": "episodes/0535-the-zeta-drop-fiasco"
     }
   }

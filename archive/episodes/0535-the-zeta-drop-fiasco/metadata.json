@@ -28,7 +28,7 @@
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-09-28T02:14:18Z",
+    "processed_at": "2026-09-28T02:46:03Z",
     "history": [
       {
         "status": "detected",
@@ -109,16 +109,40 @@
       {
         "status": "failed",
         "timestamp": "2026-09-28T02:14:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-28T02:42:39Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-28T02:42:39Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-28T02:42:40Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-28T02:42:40Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-28T02:43:06Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-28T02:46:03Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Gemini transcription chunk 4/5 failed after 171.2s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+      "message": "Gemini transcription chunk 4/5 failed after 175.7s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
       "category": "transient_model_output",
       "synthetic": false,
       "retryable": false,
       "provider_wide": false,
-      "attempt": 3,
+      "attempt": 4,
       "max_attempts": 3,
       "next_retry_at": null,
       "quarantined": true
