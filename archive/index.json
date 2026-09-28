@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-09-28T02:46:03Z",
+    "generated_at": "2026-09-28T18:12:20Z",
     "latest_successful_run_at": "2026-09-26T22:54:56Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 98,
+    "real_episode_count": 99,
     "real_pick_count": 387,
     "last_discovered_episode_date": "2026-09-25T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,15 +33,15 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 98,
+    "episodes": 99,
     "picks": 387,
     "needs_review": 32,
-    "failed": 1,
+    "failed": 2,
     "completed": 65
   },
   "status_counts": {
     "needs_review": 32,
-    "failed": 1,
+    "failed": 2,
     "complete": 65
   },
   "latest_episode": {
@@ -3880,6 +3880,56 @@
       },
       "processed_at": "2026-09-24T23:27:29Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15722",
+      "episode_number": 668,
+      "title": "Would You Rather | Brainstorm Brewery #668 | Magic Finance",
+      "published_at": "2025-10-03T06:00:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_668_Would_You_Rather.mp3",
+      "episode_url": "https://brainstormbrewery.com/would-you-rather-brainstorm-brewery-668-magic-finance/",
+      "duration_seconds": 4512,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) come together to chat about Spiderman, 2026 Magic Sets, and Magic Con Atlanta. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0668-would-you-rather-brainstorm-brewery-668-magic-finance",
+      "outputs": {
+        "metadata": "episodes/0668-would-you-rather-brainstorm-brewery-668-magic-finance/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-09-28T18:12:19Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/6 failed after 106.9s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-09-29T00:12:19Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

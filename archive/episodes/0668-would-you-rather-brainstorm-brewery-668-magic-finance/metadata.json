@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15722",
+    "episode_number": 668,
+    "title": "Would You Rather | Brainstorm Brewery #668 | Magic Finance",
+    "published_at": "2025-10-03T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_668_Would_You_Rather.mp3",
+    "episode_url": "https://brainstormbrewery.com/would-you-rather-brainstorm-brewery-668-magic-finance/",
+    "duration_seconds": 4512,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) come together to chat about Spiderman, 2026 Magic Sets, and Magic Con Atlanta. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-09-28T18:12:19Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-09-28T18:10:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-28T18:10:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-09-28T18:10:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-09-28T18:10:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-09-28T18:10:07Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-09-28T18:10:07Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-09-28T18:10:32Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-09-28T18:12:19Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/6 failed after 106.9s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-09-29T00:12:19Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0668-would-you-rather-brainstorm-brewery-668-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
