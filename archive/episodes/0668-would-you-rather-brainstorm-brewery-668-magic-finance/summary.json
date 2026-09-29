@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15722",
     "episode_number": 668,
@@ -322,9 +322,136 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0668-would-you-rather-brainstorm-brewery-668-magic-finance/metadata.json",
-    "summary_json": "episodes/0668-would-you-rather-brainstorm-brewery-668-magic-finance/summary.json",
-    "summary_markdown": "episodes/0668-would-you-rather-brainstorm-brewery-668-magic-finance/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 2649,
+    "end_seconds": 4500,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Three Steps Ahead",
+      "printing": null,
+      "printing_certainty": "likely",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$4",
+      "entry_target": {
+        "raw": "$4",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "This card was already good in Standard and is now a key piece of the second-place deck in the Modern Pro Tour finals",
+        "It is at peak supply at this moment",
+        "Best impulse we've had in probably a long time and also the best memory deluge",
+        "It is going to be the backbone of blue decks"
+      ],
+      "caveats": [
+        "Power creep could affect its long-term viability"
+      ],
+      "confidence": "medium",
+      "start_seconds": 3615,
+      "end_seconds": 3725,
+      "evidence_excerpt": "this card was already good in standard. And now after the Pro Tour where it made the finals as a key piece of the second-place deck... It's $4",
+      "review_status": "needs_review",
+      "review_reason": "Card name is not explicitly mentioned but inferred from 'three' wordplay and standard/modern control play.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash",
+        "original_card": "Three Steps Ahead",
+        "candidate_card": null,
+        "decision": "ambiguous",
+        "accepted": false,
+        "explanation": "The speakers discuss the card's utility, comparing it to 'Impulse' and 'Memory Deluge', and mention its price and tournament performance, but they do not audibly state the card name 'Three Steps Ahead' in this excerpt."
+      },
+      "id": "pick-38e3c0ac8955580c",
+      "timestamp": "01:00:15",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_668_Would_You_Rather.mp3#t=3615"
+    },
+    {
+      "card": "Three Tree City",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$15 to $20",
+      "entry_target": {
+        "raw": "$15 to $20",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Cards' buy list is basically the same as TCG low",
+        "Active Lorwyn spoilers will prevent the card from getting cheaper"
+      ],
+      "caveats": [
+        "Foil winter version is $75 if you want the nicest one"
+      ],
+      "confidence": "high",
+      "start_seconds": 4119,
+      "end_seconds": 4258,
+      "evidence_excerpt": "Three Tree City. Uh, cards' buy list is basically the same as TCG low. This card is not going to get cheaper. It's like between $15 and $20.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-14ea2206351d3efc",
+      "timestamp": "01:08:39",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_668_Would_You_Rather.mp3#t=4119"
+    },
+    {
+      "card": "Nuka-Cola Vending Machine",
+      "printing": null,
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$20",
+      "entry_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Fallout Season 2 drops in a couple months",
+        "Does not trigger once per turn, enabling very silly loops that generate a lot of mana, combos, and artifact triggers",
+        "Fallout booster boxes are going to keep going up",
+        "This set is not printed very much",
+        "Phyrexian Altar situation where it's the only card that does its thing"
+      ],
+      "caveats": [
+        "The borderless surge foil version is around $90",
+        "Risk of a future Universes Within Masters reprint, though likely not before 2027"
+      ],
+      "confidence": "high",
+      "start_seconds": 4259,
+      "end_seconds": 4500,
+      "evidence_excerpt": "Nuka-Cola Vending Machine. Fallout Season 2 drops in a couple months... Card is like $20 for the most affordable version.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-82caa40da6a36dfe",
+      "timestamp": "01:10:59",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_668_Would_You_Rather.mp3#t=4259"
+    }
+  ]
 }
