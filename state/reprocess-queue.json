@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
-  "daily_date": "2026-09-26",
+  "daily_date": "2026-09-30",
   "daily_runs": 1,
   "entries": [
     {
@@ -13,6 +13,17 @@
       "finished_at": "2026-09-27T00:42:02.700111+00:00",
       "result_status": "needs_review",
       "result_pick_count": 3
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2305022402",
+      "episode_number": 520,
+      "title": "MTG Fast Finance Ep 520: SOS Previews In Focus",
+      "status": "blocked",
+      "started_at": "2026-09-30T22:22:40.087686+00:00",
+      "finished_at": "2026-09-30T22:27:19.880405+00:00",
+      "result_status": "failed",
+      "result_pick_count": 0,
+      "note": "Pipeline failed; do not spend another automatic retry without review."
     }
   ]
 }
