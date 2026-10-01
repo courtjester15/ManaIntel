@@ -11,11 +11,11 @@
 
 ### Narset's Reversal
 
-- Printing: Multiverse Legends Halo Foil
+- Printing: Halo Foil
 - Printing certainty: confirmed
 - Host(s): Cliff, James
 - Recommendation: buy
-- Entry: around 30 bucks
+- Entry: 30
 - Hold: 6 to 12 months
 - Exit: 50
 - Confidence: medium
@@ -24,41 +24,40 @@
 
 **Reasoning**
 
-- Very popular in Commander with over 124,000 decks
-- Extremely low supply on TCGplayer with only 30 vendors and 41 total copies
-- Halo foils are hard to pull
+- Low supply with only 30 vendors holding 40 copies
+- Solid inclusion rate in commander format
+- Hard to pull halo foil
 
 **Caveats**
 
 - None stated
 
-> Evidence: these halo foils, I'm picking them to go from 30 to 50 in the next, uh, 6 to 12 months or so.
+> Evidence: My second pick is one of these encyclopedia cards, a halo foil. I love Narset's Reversal... I'm picking them to go from 30 to 50 in the next 6 to 12 months.
 
 ### Avatar Kyoshi
 
-- Printing: Extended Art Foil
+- Printing: Foil Extended Art
 - Printing certainty: confirmed
-- Host(s): James, Cliff
+- Host(s): Cliff, James
 - Recommendation: buy
-- Entry: about $16 to 17
+- Entry: 16
 - Hold: Not stated
-- Exit: Not stated
+- Exit: null
 - Confidence: medium
 - Timestamp: 00:30:00
 - Review status: Approved
 
 **Reasoning**
 
-- Down to 45 listings on TCGplayer
-- Strong sales rate of four copies a day
-- TLE cards only exist in Jumpstart, making them much rarer than play booster cards
-- Highly playable in lands-matter Commander decks
+- Jumpstart exclusive mythic foil extended art with lower supply
+- Strong inclusion rate in lands matter decks
+- Good sales velocity of several copies a day
 
 **Caveats**
 
-- Uncertain about long-term growth prospects as we transition into other hype cycles
+- None stated
 
-> Evidence: Avatar Kyoshi Earthbending foil extended art at 17, which is the price I'm telling people to go buy it for today
+> Evidence: I also like the look of Avatar Kyoshi foil extended arts because these are down to 45 listings. You can get them for about $16.
 
 ---
 

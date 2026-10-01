@@ -25,10 +25,10 @@
     "review_reason": null,
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "transcription_model": "gemini-3.5-flash",
-    "extraction_model": "gemini-3.5-flash",
+    "transcription_model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-09-07T02:51:55Z",
+    "processed_at": "2026-10-01T22:55:29Z",
     "history": [
       {
         "status": "detected",
@@ -81,14 +81,59 @@
       {
         "status": "complete",
         "timestamp": "2026-09-07T02:51:55Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-01T22:46:46Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-01T22:46:46Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-01T22:46:49Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-01T22:46:49Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-01T22:47:13Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-01T22:54:52Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-01T22:54:52Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-01T22:55:29Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-01T22:55:29Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-01T22:55:29Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-01T22:55:29Z"
       }
     ],
     "error": null,
     "transcription": {
       "provider": "Gemini",
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
       "models": [
-        "gemini-3.5-flash"
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite"
       ],
       "chunk_count": 5,
       "duration_seconds": 3623,
@@ -98,12 +143,12 @@
           "chunk_count": 5,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 35.427,
+          "request_seconds": 82.738,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 8422,
+            "candidates_token_count": 8186,
             "candidates_tokens_details": null,
             "prompt_token_count": 22628,
             "prompt_tokens_details": [
@@ -116,10 +161,10 @@
                 "token_count": 22499
               }
             ],
-            "thoughts_token_count": 602,
+            "thoughts_token_count": 7192,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 31652,
+            "total_token_count": 38006,
             "traffic_type": null
           }
         },
@@ -128,12 +173,12 @@
           "chunk_count": 5,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 115.449,
+          "request_seconds": 102.81,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 9449,
+            "candidates_token_count": 9207,
             "candidates_tokens_details": null,
             "prompt_token_count": 22629,
             "prompt_tokens_details": [
@@ -146,10 +191,10 @@
                 "token_count": 22500
               }
             ],
-            "thoughts_token_count": 4827,
+            "thoughts_token_count": 5590,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 36905,
+            "total_token_count": 37426,
             "traffic_type": null
           }
         },
@@ -158,28 +203,28 @@
           "chunk_count": 5,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 59.378,
+          "request_seconds": 91.887,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 8652,
+            "candidates_token_count": 8287,
             "candidates_tokens_details": null,
             "prompt_token_count": 22629,
             "prompt_tokens_details": [
               {
-                "modality": "TEXT",
-                "token_count": 129
-              },
-              {
                 "modality": "AUDIO",
                 "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 129
               }
             ],
-            "thoughts_token_count": 7424,
+            "thoughts_token_count": 10118,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 38705,
+            "total_token_count": 41034,
             "traffic_type": null
           }
         },
@@ -188,80 +233,80 @@
           "chunk_count": 5,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 70.032,
+          "request_seconds": 139.222,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 8557,
+            "candidates_token_count": 8892,
             "candidates_tokens_details": null,
             "prompt_token_count": 22629,
             "prompt_tokens_details": [
               {
-                "modality": "TEXT",
-                "token_count": 129
-              },
-              {
                 "modality": "AUDIO",
                 "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 129
               }
             ],
-            "thoughts_token_count": 9275,
+            "thoughts_token_count": 20442,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 40461,
+            "total_token_count": 51963,
             "traffic_type": null
           }
         },
         {
           "chunk": 5,
           "chunk_count": 5,
-          "model": "gemini-3.5-flash",
+          "model": "gemini-3.5-flash-lite",
           "audio_seconds": 23,
-          "request_seconds": 8.307,
+          "request_seconds": 41.983,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 76,
+            "candidates_token_count": 106,
             "candidates_tokens_details": null,
             "prompt_token_count": 724,
             "prompt_tokens_details": [
               {
-                "modality": "AUDIO",
-                "token_count": 595
-              },
-              {
                 "modality": "TEXT",
                 "token_count": 129
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 595
               }
             ],
-            "thoughts_token_count": 794,
+            "thoughts_token_count": null,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 1594,
+            "total_token_count": 830,
             "traffic_type": null
           }
         }
       ],
-      "timing_adjustments": 42
+      "timing_adjustments": 40
     },
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 734,
+      "candidates_token_count": 694,
       "candidates_tokens_details": null,
-      "prompt_token_count": 7120,
+      "prompt_token_count": 6655,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 7120
+          "token_count": 6655
         }
       ],
-      "thoughts_token_count": 4608,
+      "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 12462,
+      "total_token_count": 7349,
       "traffic_type": null
     }
   },

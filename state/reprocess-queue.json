@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
-  "daily_date": "2026-09-30",
+  "daily_date": "2026-10-01",
   "daily_runs": 1,
   "entries": [
     {
@@ -24,6 +24,16 @@
       "result_status": "failed",
       "result_pick_count": 0,
       "note": "Pipeline failed; do not spend another automatic retry without review."
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2226373154",
+      "episode_number": 504,
+      "title": "MTG Fast Finance Ep 504: Monster Hunter Secret Lair Breakdown",
+      "status": "complete",
+      "started_at": "2026-10-01T22:46:44.711994+00:00",
+      "finished_at": "2026-10-01T22:55:30.293426+00:00",
+      "result_status": "complete",
+      "result_pick_count": 2
     }
   ]
 }
