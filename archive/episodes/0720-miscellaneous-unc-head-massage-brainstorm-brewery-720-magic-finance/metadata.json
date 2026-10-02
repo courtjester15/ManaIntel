@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34960",
+    "episode_number": 720,
+    "title": "Miscellaneous Unc Head Massage | Brainstorm Brewery #720 | Magic Finance",
+    "published_at": "2026-10-02T06:24:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_720_Miscellaneous_Unc_Head_Massage.mp3",
+    "episode_url": "https://brainstormbrewery.com/miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/",
+    "duration_seconds": 3721,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), Liz  (@devotedDruid), and DJ (@CardgardenMTG) are Fracturing between the reality of mass surveillance, Jace losing his mind, and massages. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-10-02T16:18:04Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-02T16:16:29Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-02T16:16:29Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-02T16:16:29Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-02T16:16:29Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-02T16:16:31Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-02T16:16:31Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-02T16:16:43Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-02T16:18:04Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/5 failed after 80.7s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-02T22:18:04Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

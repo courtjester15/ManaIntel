@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-10-02T00:02:06Z",
+  "updated_at": "2026-10-02T16:18:04Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -24254,6 +24254,65 @@
       },
       "extraction_model": "gemini-3.5-flash",
       "review_reason": null
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=34960": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34960",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-02T16:16:29Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-02T16:16:29Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-02T16:16:29Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-02T16:16:29Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-02T16:16:31Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-02T16:16:31Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-02T16:16:43Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-02T16:18:04Z"
+        }
+      ],
+      "title": "Miscellaneous Unc Head Massage | Brainstorm Brewery #720 | Magic Finance",
+      "episode_number": 720,
+      "published_at": "2026-10-02T06:24:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 80.7s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-02T22:18:04Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-02T16:18:04Z",
+      "output_directory": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance"
     }
   }
 }
