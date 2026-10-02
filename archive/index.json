@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-02T16:18:05Z",
-    "latest_successful_run_at": "2026-10-01T22:55:29Z",
+    "generated_at": "2026-10-02T23:59:05Z",
+    "latest_successful_run_at": "2026-10-02T23:59:05Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 100,
-    "real_pick_count": 387,
+    "real_pick_count": 390,
     "last_discovered_episode_date": "2026-10-02T06:24:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 100,
-    "picks": 387,
+    "picks": 390,
     "needs_review": 33,
-    "failed": 3,
-    "completed": 64
+    "failed": 2,
+    "completed": 65
   },
   "status_counts": {
-    "failed": 3,
+    "complete": 65,
     "needs_review": 33,
-    "complete": 64
+    "failed": 2
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34960",
@@ -63,31 +63,20 @@
     "source_name": "Brainstorm Brewery",
     "source_url": "https://brainstormbrewery.com/",
     "extraction_profile": "brainstorm_brewery",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
+    "processing_status": "complete",
+    "review_state": "approved",
     "review_reason": null,
-    "pick_count": 0,
+    "pick_count": 3,
     "directory": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance",
     "outputs": {
       "metadata": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "summary_json": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/summary.json",
+      "summary_markdown": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-10-02T16:18:04Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 1/5 failed after 80.7s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-10-02T22:18:04Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-10-02T23:59:05Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -95,6 +84,200 @@
     "synthetic": false
   },
   "recent_picks": [
+    {
+      "card": "Valgavoth, Terror Eater",
+      "printing": "Duskmourn",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "about 16 to about 18",
+      "entry_target": {
+        "raw": "about 16 to about 18",
+        "currency": "USD",
+        "minimum": 16.0,
+        "maximum": 18.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "The card is a mythic from Duskmourn and has climbed from about 16 to 18 in the past month",
+        "It is pushing up towards an all-time high of around 20 dollars",
+        "It is projected to make a leap from 20 to 30 dollars at some point"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3252,
+      "end_seconds": 3351,
+      "evidence_excerpt": "Valgavoth, Terror Eater, the mythic from Duskmourn, has climbed from about 16 to about 18 in the past month... Valgavoth is going to make that leap from 20 to 30",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c0b00c7e6bd31b75",
+      "timestamp": "00:54:12",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_720_Miscellaneous_Unc_Head_Massage.mp3#t=3252",
+      "card_resolution": {
+        "raw_name": "Valgavoth, Terror Eater",
+        "normalized_name": "valgavoth, terror eater",
+        "status": "verified",
+        "canonical_name": "Valgavoth, Terror Eater",
+        "scryfall_id": "7740ff55-67bb-409e-90f7-2c2c8b8c770a",
+        "oracle_id": "cae3ec72-436d-4086-9dcb-17b3d92ad5c4",
+        "scryfall_uri": "https://scryfall.com/card/dsk/120/valgavoth-terror-eater?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/7/7/7740ff55-67bb-409e-90f7-2c2c8b8c770a.jpg?1783909475",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-02T23:59:05Z"
+      },
+      "resolved_card": "Valgavoth, Terror Eater",
+      "oracle_id": "cae3ec72-436d-4086-9dcb-17b3d92ad5c4",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34960",
+        "episode_number": 720,
+        "title": "Miscellaneous Unc Head Massage | Brainstorm Brewery #720 | Magic Finance",
+        "published_at": "2026-10-02T06:24:00Z",
+        "episode_url": "https://brainstormbrewery.com/miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_720_Miscellaneous_Unc_Head_Massage.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Phyrexian Tower",
+      "printing": "Modern Horizons 3",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$25",
+      "entry_target": {
+        "raw": "$25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Modern Horizons 3 was the last printing of it",
+        "This is the kind of card that could see play in Modern as a four-of moving forward with the Darklight Phoenix deck",
+        "Destined to become more expensive sooner than later"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2700,
+      "end_seconds": 2700,
+      "evidence_excerpt": "I'm picking Phyrexian Tower. Uh, Modern Horizons 3 was the last printing of it, it's like $25 for a copy of it... Get them now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-99087bc0d313c113",
+      "timestamp": "00:45:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_720_Miscellaneous_Unc_Head_Massage.mp3#t=2700",
+      "card_resolution": {
+        "raw_name": "Phyrexian Tower",
+        "normalized_name": "phyrexian tower",
+        "status": "verified",
+        "canonical_name": "Phyrexian Tower",
+        "scryfall_id": "0b47f6d2-9f65-47a4-bfc4-15619befe53d",
+        "oracle_id": "1861e642-21d5-4232-89f3-b5557f2946c1",
+        "scryfall_uri": "https://scryfall.com/card/mh3/303/phyrexian-tower?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/0/b/0b47f6d2-9f65-47a4-bfc4-15619befe53d.jpg?1783911207",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-02T23:59:05Z"
+      },
+      "resolved_card": "Phyrexian Tower",
+      "oracle_id": "1861e642-21d5-4232-89f3-b5557f2946c1",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34960",
+        "episode_number": 720,
+        "title": "Miscellaneous Unc Head Massage | Brainstorm Brewery #720 | Magic Finance",
+        "published_at": "2026-10-02T06:24:00Z",
+        "episode_url": "https://brainstormbrewery.com/miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_720_Miscellaneous_Unc_Head_Massage.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Chalice of the Void",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "15 or 16",
+      "entry_target": {
+        "raw": "15 or 16",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 16.0
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "DJ has sold a reasonable number of copies lately",
+        "The card does not have a lot of recent reprints",
+        "If it is playable, it is always a four-of to stop turn one plays",
+        "Hareruya buylist is paying over retail / TCG low on most printings"
+      ],
+      "caveats": [
+        "There is not a huge premier event upcoming for this card"
+      ],
+      "confidence": "medium",
+      "start_seconds": 2700,
+      "end_seconds": 2805,
+      "evidence_excerpt": "I think it should be on your radar if you are the kind of person who wants to have a gauntlet of things to own in Modern",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-121496decc19cd51",
+      "timestamp": "00:45:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_720_Miscellaneous_Unc_Head_Massage.mp3#t=2700",
+      "card_resolution": {
+        "raw_name": "Chalice of the Void",
+        "normalized_name": "chalice of the void",
+        "status": "verified",
+        "canonical_name": "Chalice of the Void",
+        "scryfall_id": "1f0d2e8e-c8f2-4b31-a6ba-6283fc8740d4",
+        "oracle_id": "74027ba4-a6ba-4696-baf1-60ef0b27ee0a",
+        "scryfall_uri": "https://scryfall.com/card/a25/222/chalice-of-the-void?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/1/f/1f0d2e8e-c8f2-4b31-a6ba-6283fc8740d4.jpg?1783935107",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-02T23:59:05Z"
+      },
+      "resolved_card": "Chalice of the Void",
+      "oracle_id": "74027ba4-a6ba-4696-baf1-60ef0b27ee0a",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34960",
+        "episode_number": 720,
+        "title": "Miscellaneous Unc Head Massage | Brainstorm Brewery #720 | Magic Finance",
+        "published_at": "2026-10-02T06:24:00Z",
+        "episode_url": "https://brainstormbrewery.com/miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_720_Miscellaneous_Unc_Head_Massage.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
     {
       "card": "Shaman en-Kor",
       "printing": null,
@@ -284,211 +467,6 @@
       },
       "processing_status": "needs_review",
       "human_reviewed": false
-    },
-    {
-      "card": "Aftermath Analyst",
-      "printing": null,
-      "printing_certainty": null,
-      "foil": null,
-      "hosts": [
-        "DJ",
-        "Liz"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "TCG low",
-      "entry_target": {
-        "raw": "TCG low",
-        "currency": "USD",
-        "minimum": null,
-        "maximum": null
-      },
-      "hold": null,
-      "exit_target": null,
-      "reasoning": [
-        "Card has had a negative buylist spread for too long.",
-        "Every buylist pays more than TCG low on it.",
-        "It acts as a highly powerful Crucible of Worlds and Azusa effect on a creature."
-      ],
-      "caveats": [],
-      "confidence": "medium",
-      "start_seconds": 2828,
-      "end_seconds": 3213,
-      "evidence_excerpt": "My primary one is Ice-Talon Explorer. Card has had a negative buylist spread for too long. Uh every buylist pays more than TCG low on it.",
-      "review_status": "approved",
-      "review_reason": null,
-      "automated_verification": {
-        "method": "focused_audio_scryfall",
-        "model": "gemini-3.5-flash",
-        "original_card": "Ice-Talon Explorer",
-        "candidate_card": "Aftermath Analyst",
-        "decision": "corrected",
-        "accepted": true,
-        "explanation": "The speaker is discussing cards that act like Crucible of Worlds and Ramunap Excavator. They mention 'Aftermath Analyst', which was phonetically transcribed by the automated tool as 'Ice-Talon Explorer'. Aftermath Analyst fits the description perfectly as it mills you on ETB and returns lands from the graveyard to the battlefield."
-      },
-      "id": "pick-d6be96845e9376d4",
-      "timestamp": "00:47:08",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=2828",
-      "card_resolution": {
-        "raw_name": "Aftermath Analyst",
-        "normalized_name": "aftermath analyst",
-        "status": "verified",
-        "canonical_name": "Aftermath Analyst",
-        "scryfall_id": "66f135b4-8cb3-4a4e-86ae-81a3cf4b7259",
-        "oracle_id": "374e54d8-8e73-4268-9dde-c28c77bbbf32",
-        "scryfall_uri": "https://scryfall.com/card/eoc/91/aftermath-analyst?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/6/6/66f135b4-8cb3-4a4e-86ae-81a3cf4b7259.jpg?1783906036",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-26T22:54:56Z"
-      },
-      "resolved_card": "Aftermath Analyst",
-      "oracle_id": "374e54d8-8e73-4268-9dde-c28c77bbbf32",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
-        "episode_number": 719,
-        "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
-        "published_at": "2026-09-25T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Metastatic Evangel",
-      "printing": null,
-      "printing_certainty": null,
-      "foil": null,
-      "hosts": [
-        "DJ"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "a quarter",
-      "entry_target": {
-        "raw": "a quarter",
-        "currency": "USD",
-        "minimum": 0.25,
-        "maximum": 0.25
-      },
-      "hold": "put them in a box and forget about them until they are $2",
-      "exit_target": {
-        "raw": "$2",
-        "currency": "USD",
-        "minimum": 2.0,
-        "maximum": 2.0
-      },
-      "reasoning": [
-        "Good spec to put in a box and forget about",
-        "The retro frame version is already at 75 cents"
-      ],
-      "caveats": [],
-      "confidence": "medium",
-      "start_seconds": 1939,
-      "end_seconds": 1958,
-      "evidence_excerpt": "if you find like a hundred of them for a quarter, you should just put them in a box and forget about them until they are $2.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-ae924e1dba208a4c",
-      "timestamp": "00:32:19",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3#t=1939",
-      "card_resolution": {
-        "raw_name": "Metastatic Evangel",
-        "normalized_name": "metastatic evangel",
-        "status": "verified",
-        "canonical_name": "Metastatic Evangel",
-        "scryfall_id": "774e115a-c0dc-4901-9a1f-87754304e378",
-        "oracle_id": "0a27bd77-ec13-4e8d-acad-9aa9c66b3b73",
-        "scryfall_uri": "https://scryfall.com/card/mh3/35/metastatic-evangel?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/7/7/774e115a-c0dc-4901-9a1f-87754304e378.jpg?1783911299",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-26T22:54:56Z"
-      },
-      "resolved_card": "Metastatic Evangel",
-      "oracle_id": "0a27bd77-ec13-4e8d-acad-9aa9c66b3b73",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34784",
-        "episode_number": 719,
-        "title": "A Series of Unfortunate Corbins | Brainstorm Brewery #719 | Magic Finance",
-        "published_at": "2026-09-25T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_719_A_Series_of_Unfortunate_Corbins.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Psychic Frog",
-      "printing": null,
-      "printing_certainty": null,
-      "foil": null,
-      "hosts": [
-        "DJ"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "six dollars",
-      "entry_target": {
-        "raw": "six dollars",
-        "currency": "USD",
-        "minimum": 6.0,
-        "maximum": 6.0
-      },
-      "hold": "1 year",
-      "exit_target": {
-        "raw": "eight",
-        "currency": "USD",
-        "minimum": 8.0,
-        "maximum": 8.0
-      },
-      "reasoning": [
-        "Modern staple in Esper blink/reanimator decks",
-        "Likely to rise in price during the upcoming Modern RC/RCQ season",
-        "Upcoming Pro Tour in Detroit is Modern format, driving competitive demand"
-      ],
-      "caveats": [],
-      "confidence": "high",
-      "start_seconds": 2905,
-      "end_seconds": 3035,
-      "evidence_excerpt": "I'll pop in here with Psychic Frog. Nothing fancy here, but it is ... hanging out at its six dollars.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-b97db5c15014f010",
-      "timestamp": "00:48:25",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3#t=2905",
-      "card_resolution": {
-        "raw_name": "Psychic Frog",
-        "normalized_name": "psychic frog",
-        "status": "verified",
-        "canonical_name": "Psychic Frog",
-        "scryfall_id": "68924203-c3d9-41ce-8ca8-c6dd491eb3ca",
-        "oracle_id": "e157ad1e-be35-47f3-92db-01799f8fb6a5",
-        "scryfall_uri": "https://scryfall.com/card/mh3/199/psychic-frog?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/6/8/68924203-c3d9-41ce-8ca8-c6dd491eb3ca.jpg?1783911246",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-09-18T14:36:47Z"
-      },
-      "resolved_card": "Psychic Frog",
-      "oracle_id": "e157ad1e-be35-47f3-92db-01799f8fb6a5",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=34719",
-        "episode_number": 718,
-        "title": "War of the Spark Meets Planar Chaos | Brainstorm Brewery #718 | Magic Finance",
-        "published_at": "2026-09-18T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_718_War_of_the_Spark_Meets_Planar_Chaos.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -511,31 +489,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 3,
       "directory": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance",
       "outputs": {
         "metadata": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/summary.json",
+        "summary_markdown": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-02T16:18:04Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/5 failed after 80.7s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-02T22:18:04Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-02T23:59:05Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
