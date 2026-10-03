@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-10-02T23:59:05Z",
+  "updated_at": "2026-10-03T02:10:47Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -9276,6 +9276,30 @@
         {
           "status": "failed",
           "timestamp": "2026-10-02T00:02:06Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-03T02:02:00Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-03T02:02:00Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-03T02:02:03Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-03T02:02:03Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-03T02:02:26Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-03T02:10:47Z"
         }
       ],
       "title": "MTG Fast Finance Ep 520: SOS Previews In Focus",
@@ -9283,22 +9307,22 @@
       "published_at": "2026-04-18T19:18:33Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 3,
+      "attempt_count": 4,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/5 failed after 444.2s: RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)",
-        "category": "unknown",
+        "message": "Gemini transcription chunk 2/5 failed after 308.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).; gemini-3.5-flash-lite attempt 2: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
         "synthetic": false,
         "retryable": false,
         "provider_wide": false,
-        "attempt": 3,
+        "attempt": 4,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-10-02T00:02:06Z",
+      "updated_at": "2026-10-03T02:10:47Z",
       "output_directory": "episodes/0520-sos-previews-in-focus",
       "transcription": {
         "provider": "Gemini",
