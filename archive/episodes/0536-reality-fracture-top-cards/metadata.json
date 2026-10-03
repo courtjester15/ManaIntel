@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2412061842",
+    "episode_number": 536,
+    "title": "MTG Fast Finance EP 536: Reality Fracture Top Cards",
+    "published_at": "2026-10-02T19:29:03Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-536",
+    "duration_seconds": 4181,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James break down the Magic the Gathering card price action of the week, including meta updates, cards to watch and an overview of their favorite cards from Reality Fracture.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-10-03T14:50:24Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-03T14:43:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-03T14:43:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-03T14:44:16Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-03T14:49:51Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-03T14:49:51Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-03T14:50:24Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-03T14:50:24Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-03T14:50:24Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-03T14:50:24Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 4181,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 78.803,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9324,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 11900,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43842,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 96.619,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9810,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 16631,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49060,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 35.665,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9725,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 142,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 32486,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 60.482,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10094,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 7827,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40540,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 581,
+          "request_seconds": 63.19,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 6381,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 14657,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 14538
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 2539,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 23577,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 50
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1074,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 8042,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 8042
+        }
+      ],
+      "thoughts_token_count": 6899,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 16015,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0536-reality-fracture-top-cards/metadata.json",
+    "summary_json": "episodes/0536-reality-fracture-top-cards/summary.json",
+    "summary_markdown": "episodes/0536-reality-fracture-top-cards/summary.md"
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2412061842",
+    "episode_number": 536,
+    "title": "MTG Fast Finance EP 536: Reality Fracture Top Cards",
+    "published_at": "2026-10-02T19:29:03Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-536",
+    "duration_seconds": 4181,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James break down the Magic the Gathering card price action of the week, including meta updates, cards to watch and an overview of their favorite cards from Reality Fracture.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pipeline_version": "0.5.3",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-10-03T14:50:24Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-03T14:43:50Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-03T14:43:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-03T14:43:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-03T14:44:16Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-03T14:49:51Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-03T14:49:51Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-03T14:50:24Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-03T14:50:24Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-03T14:50:24Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-03T14:50:24Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash",
+      "models": [
+        "gemini-3.5-flash"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 4181,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 78.803,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9324,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22618,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 11900,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 43842,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 96.619,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9810,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 16631,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49060,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 35.665,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9725,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": 142,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 32486,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 900,
+          "request_seconds": 60.482,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10094,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22619,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 7827,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40540,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash",
+          "audio_seconds": 581,
+          "request_seconds": 63.19,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 6381,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 14657,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 14538
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 119
+              }
+            ],
+            "thoughts_token_count": 2539,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 23577,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 50
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1074,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 8042,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 8042
+        }
+      ],
+      "thoughts_token_count": 6899,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 16015,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 900,
+    "end_seconds": 2141,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Y'shtola",
+      "printing": "borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy borderless foil copies of Y'shtola.",
+      "mentioned_price": "$400",
+      "entry_target": {
+        "raw": "400",
+        "currency": "USD",
+        "minimum": 400.0,
+        "maximum": 400.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "6 or 800",
+        "currency": "USD",
+        "minimum": 600.0,
+        "maximum": 800.0
+      },
+      "reasoning": [
+        "Y'shtola is the number one most played commander of the year",
+        "Very low supply with only around 10 near mint listings for borderless foils",
+        "Hard to reprint easily due to Final Fantasy IP"
+      ],
+      "caveats": [
+        "Wizards could print a premium Secret Lair deck for her",
+        "They might print a better generic Esper commander"
+      ],
+      "confidence": "medium",
+      "start_seconds": 900,
+      "end_seconds": 1140,
+      "evidence_excerpt": "Y'shtola borderless surge foil is now pushing $1500... getting in even late now at 400... borderless foils can get to 6 or 800.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-23a3fb2e91c0d267",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3#t=900"
+    },
+    {
+      "card": "Elminster",
+      "printing": "borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy foil borderless copies of Elminster.",
+      "mentioned_price": "$6",
+      "entry_target": {
+        "raw": "around six bucks",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "Synergizes extremely well as peanut butter and jelly with the new Reality Fracture sphinx Denzilor",
+        "Very tiny supply of foils with only 22 listings available",
+        "Elminster is a major wizard in D&D lore with a dedicated fan base"
+      ],
+      "caveats": [
+        "Denzilor might not get widely built",
+        "Deep inventory exists on non-foil copies"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1171,
+      "end_seconds": 1340,
+      "evidence_excerpt": "You can get foil borderless copies around six bucks... I think this goes from six to 20 just on the tiny supply available",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-54a5d43e8d96f524",
+      "timestamp": "00:19:31",
+      "listen_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3#t=1171"
+    },
+    {
+      "card": "Thranduil",
+      "printing": "Book surge foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy Thranduil Book surge foils.",
+      "mentioned_price": "$120",
+      "entry_target": {
+        "raw": "120",
+        "currency": "USD",
+        "minimum": 120.0,
+        "maximum": 120.0
+      },
+      "hold": "18 months",
+      "exit_target": {
+        "raw": "200",
+        "currency": "USD",
+        "minimum": 200.0,
+        "maximum": 200.0
+      },
+      "reasoning": [
+        "Thranduil is the number two commander of the month and likely top 10 for the year",
+        "Considered a very strong elf commander option",
+        "High collectibility from Lord of the Rings book cards",
+        "Extremely expensive collector booster boxes limit future supply growth"
+      ],
+      "caveats": [
+        "Some players might prefer other elf commanders like Lathril",
+        "Book cover style cards can look like they are in light play condition"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1340,
+      "end_seconds": 1683,
+      "evidence_excerpt": "My second selection this week is Thranduil Book surge foils... if I set a target at 120, I think it's pretty safe to say within 18 months that can crest 200",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c9637d7166a2e5cb",
+      "timestamp": "00:22:20",
+      "listen_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3#t=1340"
+    },
+    {
+      "card": "Transguild Courier",
+      "printing": "foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy foil copies of Transguild Courier.",
+      "mentioned_price": "$4",
+      "entry_target": {
+        "raw": "somewhere between $3 to $6, I'm putting it down four and splitting the difference",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 6.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Synergizes perfectly with the new five-color artifact commander Karn, the Gilded Guardian by providing all five colors on one card",
+        "Foils of this older uncommon are nearly nonexistent, with only 20 vendors having LP/NM copies"
+      ],
+      "caveats": [
+        "Karn may not be the top built commander from the set"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1683,
+      "end_seconds": 1784,
+      "evidence_excerpt": "foils are nearly nonexistent... you can spend somewhere between $3 to $6, I'm putting it down four... this should become a $10 card",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-aee9fb38e0fb96fd",
+      "timestamp": "00:28:03",
+      "listen_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3#t=1683"
+    }
+  ]
+}
