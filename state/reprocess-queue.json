@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
-  "daily_date": "2026-10-01",
+  "daily_date": "2026-10-03",
   "daily_runs": 1,
   "entries": [
     {
@@ -34,6 +34,16 @@
       "finished_at": "2026-10-01T22:55:30.293426+00:00",
       "result_status": "complete",
       "result_pick_count": 2
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2300986874",
+      "episode_number": 519,
+      "title": "MTG Fast Finance Ep 519: Goblins on the Horizon",
+      "status": "complete",
+      "started_at": "2026-10-03T21:26:42.521728+00:00",
+      "finished_at": "2026-10-03T21:29:49.181926+00:00",
+      "result_status": "complete",
+      "result_pick_count": 3
     }
   ]
 }

@@ -23,12 +23,12 @@
     "status": "complete",
     "review_state": "approved",
     "review_reason": null,
-    "pipeline_version": "0.5.0",
+    "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-08-16T20:42:35Z",
+    "processed_at": "2026-10-03T21:29:48Z",
     "history": [
       {
         "status": "detected",
@@ -113,6 +113,50 @@
       {
         "status": "complete",
         "timestamp": "2026-08-16T20:42:35Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-03T21:26:44Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-03T21:26:44Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-03T21:26:45Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-03T21:26:45Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-03T21:26:56Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-03T21:28:40Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-03T21:28:41Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-03T21:29:48Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-03T21:29:48Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-03T21:29:48Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-03T21:29:48Z"
       }
     ],
     "error": null,
@@ -130,11 +174,12 @@
           "chunk_count": 2,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 238.612,
+          "request_seconds": 65.936,
+          "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 9810,
+            "candidates_token_count": 9717,
             "candidates_tokens_details": null,
             "prompt_token_count": 22624,
             "prompt_tokens_details": [
@@ -147,10 +192,10 @@
                 "token_count": 125
               }
             ],
-            "thoughts_token_count": 33963,
+            "thoughts_token_count": 10120,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 66397,
+            "total_token_count": 42461,
             "traffic_type": null
           }
         },
@@ -159,49 +204,55 @@
           "chunk_count": 2,
           "model": "gemini-3.5-flash",
           "audio_seconds": 808,
-          "request_seconds": 84.597,
+          "request_seconds": 37.137,
+          "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 7916,
+            "candidates_token_count": 7862,
             "candidates_tokens_details": null,
             "prompt_token_count": 20343,
             "prompt_tokens_details": [
               {
-                "modality": "AUDIO",
-                "token_count": 20218
-              },
-              {
                 "modality": "TEXT",
                 "token_count": 125
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20218
               }
             ],
-            "thoughts_token_count": 13004,
+            "thoughts_token_count": 242,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 41263,
+            "total_token_count": 28447,
             "traffic_type": null
           }
         }
       ],
-      "timing_adjustments": 23
+      "timing_adjustments": 36
     },
     "extraction_usage": {
-      "cache_tokens_details": null,
-      "cached_content_token_count": null,
-      "candidates_token_count": 1141,
+      "cache_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 1632
+        }
+      ],
+      "cached_content_token_count": 1632,
+      "candidates_token_count": 1196,
       "candidates_tokens_details": null,
-      "prompt_token_count": 4162,
+      "prompt_token_count": 3927,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 4162
+          "token_count": 3927
         }
       ],
-      "thoughts_token_count": 2457,
+      "thoughts_token_count": 2427,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 7760,
+      "total_token_count": 7550,
       "traffic_type": null
     }
   },

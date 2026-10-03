@@ -11,79 +11,80 @@
 
 ### Silver Shroud Costume
 
-- Printing: Promo
+- Printing: Promo version
 - Printing certainty: confirmed
 - Host(s): Cliff, James
 - Recommendation: buy
-- Entry: 13 to 14 range
+- Entry: $13 to $14 range
 - Hold: Not stated
 - Exit: $30
-- Confidence: Not stated
-- Timestamp: 00:17:41
+- Confidence: medium
+- Timestamp: 00:17:40
 - Review status: Approved
 
 **Reasoning**
 
-- Protects commander from one kill and makes them unblockable
-- It auto-equips the first time
-- This promo art is superior and highly desirable compared to other versions
+- Promo version obtained from spending a threshold is being dumped.
+- Cliff thinks $30 is a perfectly reasonable price for this version.
+- The card protects commanders from removal and helps them attack unblocked.
 
 **Caveats**
 
-- None stated
+- Cliff is unsure of the exact spending threshold required to get the promo version originally.
 
-> Evidence: right now you can get it on TCG Player for about, uh, $13.50, give or take... I just think that this version is so awesome-looking... $30 is perfectly reasonable.
+> Evidence: Uh my first pick this week, uh there's a lot of dump week going on and one of the things getting dumped is Silver Shroud Costume.
 
 ### Raphael, the Muscle
 
-- Printing: Borderless Surge Foil
+- Printing: borderless surge foil
 - Printing certainty: confirmed
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: 230, 240
 - Hold: 6 months
-- Exit: 250 to 350
-- Confidence: Not stated
+- Exit: $250 to $350
+- Confidence: medium
 - Timestamp: 00:20:45
 - Review status: Approved
 
 **Reasoning**
 
-- The Teenage Mutant Ninja Turtles set was not heavily printed, and cards are draining out quickly
-- Raphael is the most played TMNT commander card according to EDHREC stats
-- TCG Player supply is extremely thin with only 15 listings left
+- Michelangelo, the Heart borderless surge foil is at $300 with few copies left, and Raphael should follow.
+- Raphael is actually the most played out of the top five Turtles on EDHREC.
+- There are only 15 listings left on TCGplayer starting around $215-$240.
 
 **Caveats**
 
-- None stated
+- Small sets are a different animal.
+- Some sellers have no sales history.
 
-> Evidence: I'm going to call this to go 250 to 350 in the next six months... you got to take a look at Raphael, the Muscle, because he can't be far behind.
+> Evidence: Uh my second one is Raphael, the Muscle, borderless surge foil.
 
 ### Sakashima's Student
 
-- Printing: Secret Lair Black and White Foil
+- Printing: black and white foil
 - Printing certainty: confirmed
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $18
 - Hold: 6 to 12 months
 - Exit: around $35
-- Confidence: Not stated
+- Confidence: medium
 - Timestamp: 00:26:43
 - Review status: Approved
 
 **Reasoning**
 
-- First ever foil version of this card, which previously had very limited prints
-- Features original Teenage Mutant Ninja Turtles art by Kevin Eastman
-- Significantly cheaper than other foil versions currently in the 30s
+- This is the first foil version of this card.
+- The card is highly playable as an instant speed clone that works well with Ninjas and flickering.
+- The black and white foil is much cheaper at $18 compared to color foils starting in the mid $20s.
 
 **Caveats**
 
-- None stated
+- This printing represents the largest circulation the card has ever had, which could affect its ceiling.
 
-> Evidence: you can get the black and white foils for $18... in the next 6 to 12 months, this should easily hit, uh, around $35.
+> Evidence: My other pick this week is another uh dump week... Sakashima's Student. And you can get the black and white foils for $18
 
 ---
 
-Schema 1.1.0 · Pipeline 0.5.0 · Prompt source-recommendations-v2-hybrid-boundaries
+Schema 1.1.0 · Pipeline 0.5.3 · Prompt source-recommendations-v2-hybrid-boundaries
