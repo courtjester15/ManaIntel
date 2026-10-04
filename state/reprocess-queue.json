@@ -2,7 +2,7 @@
   "schema_version": "2.0",
   "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
   "daily_date": "2026-10-03",
-  "daily_runs": 1,
+  "daily_runs": 2,
   "entries": [
     {
       "guid": "tag:soundcloud,2010:tracks/290337102",
@@ -44,6 +44,16 @@
       "finished_at": "2026-10-03T21:29:49.181926+00:00",
       "result_status": "complete",
       "result_pick_count": 3
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2262160169",
+      "episode_number": 511,
+      "title": "MTG Fast Finance Ep 511: Fallout Secret Lair Results",
+      "status": "complete",
+      "started_at": "2026-10-04T00:44:41.777435+00:00",
+      "finished_at": "2026-10-04T00:48:27.759498+00:00",
+      "result_status": "needs_review",
+      "result_pick_count": 4
     }
   ]
 }
