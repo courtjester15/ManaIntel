@@ -20,15 +20,15 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "complete",
-    "review_state": "approved",
+    "status": "needs_review",
+    "review_state": "needs_review",
     "review_reason": null,
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "transcription_model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+    "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-09-07T22:54:29Z",
+    "processed_at": "2026-10-04T21:41:52Z",
     "history": [
       {
         "status": "detected",
@@ -105,15 +105,58 @@
       {
         "status": "complete",
         "timestamp": "2026-09-07T22:54:29Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-04T21:37:18Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-04T21:37:18Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-04T21:37:21Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-04T21:37:21Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-04T21:37:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-04T21:41:34Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-04T21:41:34Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-04T21:41:52Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-04T21:41:52Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-04T21:41:52Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-04T21:41:52Z"
       }
     ],
     "error": null,
     "transcription": {
       "provider": "Gemini",
-      "model": "gemini-3.5-flash + gemini-3.5-flash-lite",
+      "model": "gemini-3.5-flash",
       "models": [
-        "gemini-3.5-flash",
-        "gemini-3.5-flash-lite"
+        "gemini-3.5-flash"
       ],
       "chunk_count": 4,
       "duration_seconds": 3057,
@@ -123,28 +166,28 @@
           "chunk_count": 4,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 214.404,
-          "checkpoint_reused": true,
+          "request_seconds": 106.708,
+          "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 8828,
+            "candidates_token_count": 10188,
             "candidates_tokens_details": null,
             "prompt_token_count": 22637,
             "prompt_tokens_details": [
               {
-                "modality": "TEXT",
-                "token_count": 138
-              },
-              {
                 "modality": "AUDIO",
                 "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 138
               }
             ],
-            "thoughts_token_count": 19658,
+            "thoughts_token_count": 11078,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 51123,
+            "total_token_count": 43903,
             "traffic_type": null
           }
         },
@@ -153,58 +196,58 @@
           "chunk_count": 4,
           "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 103.366,
+          "request_seconds": 76.005,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 15280,
+            "candidates_token_count": 10021,
             "candidates_tokens_details": null,
             "prompt_token_count": 22638,
             "prompt_tokens_details": [
               {
-                "modality": "TEXT",
-                "token_count": 138
-              },
-              {
                 "modality": "AUDIO",
                 "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 138
               }
             ],
-            "thoughts_token_count": 14230,
+            "thoughts_token_count": 11825,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 52148,
+            "total_token_count": 44484,
             "traffic_type": null
           }
         },
         {
           "chunk": 3,
           "chunk_count": 4,
-          "model": "gemini-3.5-flash-lite",
+          "model": "gemini-3.5-flash",
           "audio_seconds": 900,
-          "request_seconds": 78.809,
+          "request_seconds": 35.613,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 18975,
+            "candidates_token_count": 8724,
             "candidates_tokens_details": null,
             "prompt_token_count": 22638,
             "prompt_tokens_details": [
               {
-                "modality": "TEXT",
-                "token_count": 138
-              },
-              {
                 "modality": "AUDIO",
                 "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 138
               }
             ],
-            "thoughts_token_count": null,
+            "thoughts_token_count": 282,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 41613,
+            "total_token_count": 31644,
             "traffic_type": null
           }
         },
@@ -213,12 +256,12 @@
           "chunk_count": 4,
           "model": "gemini-3.5-flash",
           "audio_seconds": 357,
-          "request_seconds": 29.322,
+          "request_seconds": 16.479,
           "checkpoint_reused": false,
           "provider_usage": {
             "cache_tokens_details": null,
             "cached_content_token_count": null,
-            "candidates_token_count": 3318,
+            "candidates_token_count": 3411,
             "candidates_tokens_details": null,
             "prompt_token_count": 9072,
             "prompt_tokens_details": [
@@ -231,39 +274,39 @@
                 "token_count": 8934
               }
             ],
-            "thoughts_token_count": 3409,
+            "thoughts_token_count": 74,
             "tool_use_prompt_token_count": null,
             "tool_use_prompt_tokens_details": null,
-            "total_token_count": 15799,
+            "total_token_count": 12557,
             "traffic_type": null
           }
         }
       ],
-      "timing_adjustments": 164
+      "timing_adjustments": 45
     },
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 1298,
+      "candidates_token_count": 1290,
       "candidates_tokens_details": null,
-      "prompt_token_count": 15085,
+      "prompt_token_count": 5721,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 15085
+          "token_count": 5721
         }
       ],
-      "thoughts_token_count": 3764,
+      "thoughts_token_count": 4295,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 20147,
+      "total_token_count": 11306,
       "traffic_type": null
     }
   },
   "section": {
     "located": true,
-    "start_seconds": 933,
-    "end_seconds": 2135,
+    "start_seconds": 934,
+    "end_seconds": 1800,
     "label": "Cards to Watch",
     "confidence": "medium",
     "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
@@ -273,57 +316,56 @@
   "recommendations": [
     {
       "card": "Bojuka Bog",
-      "printing": "Fallout Secret Lair rainbow foil",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "Cliff",
-        "James"
-      ],
-      "recommendation": "Buy",
-      "mentioned_price": "$24",
-      "entry_target": {
-        "raw": "$24",
-        "currency": "USD",
-        "minimum": 24.0,
-        "maximum": 25.0
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "$40 plus to $50",
-        "currency": "USD",
-        "minimum": 40.0,
-        "maximum": 50.0
-      },
-      "reasoning": [
-        "Bojuka Bog is played in millions of decks, with 1.1 million recorded on EDHREC alone",
-        "Low inventory with only 28 listings left and steady demand of about one copy sold per day",
-        "Potential synergy and demand spike with Fallout Season 2 release next month"
-      ],
-      "caveats": [
-        "Competition from the Lord of the Rings Barrow-downs foil version",
-        "Existence of surge foil printings from the Lord of the Rings set"
-      ],
-      "confidence": "high",
-      "start_seconds": 938,
-      "end_seconds": 1449,
-      "evidence_excerpt": "Bojuka Bog rainbow foil from Fallout Secret Lair release. Currently lowest price copy on Direct is $40, but non-Direct is 24... These are going to get to 40 plus, feel very confident",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-53875771f32ff80f",
-      "timestamp": "00:15:38",
-      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=938"
-    },
-    {
-      "card": "Gray Merchant of Asphodel",
-      "printing": "Halo foil",
+      "printing": "Fallout Secret Lair Rainbow Foil",
       "printing_certainty": "confirmed",
       "foil": true,
       "hosts": [
         "James",
         "Cliff"
       ],
-      "recommendation": "Buy",
+      "recommendation": "buy",
+      "mentioned_price": "$24",
+      "entry_target": {
+        "raw": "$24",
+        "currency": "USD",
+        "minimum": 24.0,
+        "maximum": 24.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$40+",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "Bojuka Bog is a Commander staple with 1.1 million recorded decks on EDHREC.",
+        "The upcoming Fallout Season 2 release could spark interest and synergy with Fallout Magic cards."
+      ],
+      "caveats": [
+        "There is competition from other high-quality versions like the Lord of the Rings borderless foil.",
+        "Bojuka Bog is frequently reprinted in preconstructed Commander decks."
+      ],
+      "confidence": "high",
+      "start_seconds": 939,
+      "end_seconds": 1448,
+      "evidence_excerpt": "take a harder look at the Bojuka Bog rainbow foil from Fallout secret lair release. Currently, lowest price copy on Direct is $40, but non-Direct is 24.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-955d329cc42bc678",
+      "timestamp": "00:15:39",
+      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=939"
+    },
+    {
+      "card": "Gray Merchant of Asphodel",
+      "printing": "MTG Encyclopedia Halo Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
       "mentioned_price": "$55",
       "entry_target": {
         "raw": "$55",
@@ -331,75 +373,73 @@
         "minimum": 55.0,
         "maximum": 55.0
       },
-      "hold": "12 to 18 months",
+      "hold": "12-18 months",
       "exit_target": {
-        "raw": "$80 to $125",
+        "raw": "$125",
         "currency": "USD",
         "minimum": 80.0,
         "maximum": 125.0
       },
       "reasoning": [
-        "The halo foil is widely considered the best and prettiest version of a highly popular card",
-        "Massive inclusion rate in over 322,000 Commander decks",
-        "Currently at the lowest price point since its release"
+        "The card is played in over 322,000 decks on EDHREC and is a powerful, easily recurrent finisher.",
+        "The halo foil is visually stunning and considered the premier premium version of the card.",
+        "It is currently at its lowest price point since opening."
       ],
       "caveats": [
-        "Uncertainty around whether this is truly 'dump week' for inventory",
-        "The upcoming TCGplayer store credit sale may cause inventory to drain and prices to spike prematurely",
-        "Competition from the Time Spiral Remastered retro foil printing"
+        "More inventory may enter the market as sellers crack remaining unopened product.",
+        "A potential mid-December spending lull and an upcoming TCGplayer sale create pricing volatility and timing risks."
       ],
       "confidence": "medium",
-      "start_seconds": 1513,
-      "end_seconds": 1732,
-      "evidence_excerpt": "first pick this week is halo foils of Gary, the Gray Merchant of Asphodel... pick them right now up for $55... jump up into the $125 range.",
+      "start_seconds": 1504,
+      "end_seconds": 1800,
+      "evidence_excerpt": "my first pick this week is halo foils of Gray Merchant of Asphodel... you can pick them right now up for $55... jump up into the $125 range.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-03269afe51d07e52",
-      "timestamp": "00:25:13",
-      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=1513"
+      "id": "pick-e6c0c3e3ce09b48b",
+      "timestamp": "00:25:04",
+      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=1504"
     },
     {
-      "card": "Field of the Dead",
-      "printing": "non-foil",
+      "card": "Urza's Saga",
+      "printing": "MTG Encyclopedia Halo Foil",
       "printing_certainty": "confirmed",
-      "foil": false,
+      "foil": true,
       "hosts": [
-        "James",
-        "Cliff"
+        "Cliff",
+        "James"
       ],
-      "recommendation": "Buy",
-      "mentioned_price": "$25",
+      "recommendation": "buy",
+      "mentioned_price": "$300",
       "entry_target": {
-        "raw": "$25",
+        "raw": "$300",
         "currency": "USD",
-        "minimum": 25.0,
-        "maximum": 25.0
+        "minimum": 250.0,
+        "maximum": 300.0
       },
-      "hold": "6 to 12 months",
+      "hold": null,
       "exit_target": {
-        "raw": "$50",
+        "raw": "$500",
         "currency": "USD",
-        "minimum": 50.0,
-        "maximum": 50.0
+        "minimum": 500.0,
+        "maximum": 500.0
       },
       "reasoning": [
-        "The non-foil price of $25 is half the price of other non-foil printings that sit in the $50 range",
-        "Highly played EDH staple that is steadily being absorbed into decks",
-        "Wizards is unlikely to print another version of Field of the Dead anytime soon"
+        "Urza's Saga is an S-tier card with high demand.",
+        "Halo foils are comparable in scarcity to Masterpiece Inventions, but exist within a much larger modern player base."
       ],
       "caveats": [
-        "Foil versions of this printing are relatively cheap at around $30, which may draw buyers away from non-foils",
-        "Competition from other premium versions like Special Guests and Secret Lairs"
+        "The price could fade further to $250 before stabilizing and growing.",
+        "Upcoming sales events could cause short-term price spikes that distort organic demand."
       ],
-      "confidence": "medium",
-      "start_seconds": 1980,
-      "end_seconds": 2116,
-      "evidence_excerpt": "Field of the Dead is on my radar and I'm actually picking the non-foils right now at $25... make it back up into the $50 range.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-c6303629e1bbf8ba",
-      "timestamp": "00:33:00",
-      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=1980"
+      "confidence": "low",
+      "start_seconds": 1800,
+      "end_seconds": 1800,
+      "evidence_excerpt": "Urza's Saga started at $1,000. You can now get copies at 300... but I don't know what price I want them at... at some point in the future, these are probably $500 cards.",
+      "review_status": "needs_review",
+      "review_reason": "The speaker is uncertain about whether to buy at the current $300 level or wait for a dip to $250, noting that it depends heavily on individual risk tolerance.",
+      "id": "pick-cda82252cf4f8fa5",
+      "timestamp": "00:30:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2220274529-user-519789566-mtg-fast-finance-ep-503-avatar-secret-lair-results.mp3#t=1800"
     }
   ]
 }

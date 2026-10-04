@@ -4,89 +4,86 @@
 
 - Published: 2025-11-28T00:35:36Z
 - Hosts: MTG Fast Finance
-- Processing status: Complete
+- Processing status: Needs Review
 - Episode source: https://soundcloud.com/user-519789566/mtg-fast-finance-ep-503-avatar-secret-lair-results
 
 ## Cards to Watch
 
 ### Bojuka Bog
 
-- Printing: Fallout Secret Lair rainbow foil
+- Printing: Fallout Secret Lair Rainbow Foil
 - Printing certainty: confirmed
-- Host(s): Cliff, James
-- Recommendation: Buy
+- Host(s): James, Cliff
+- Recommendation: buy
 - Entry: $24
 - Hold: Not stated
-- Exit: $40 plus to $50
+- Exit: $40+
 - Confidence: high
-- Timestamp: 00:15:38
+- Timestamp: 00:15:39
 - Review status: Approved
 
 **Reasoning**
 
-- Bojuka Bog is played in millions of decks, with 1.1 million recorded on EDHREC alone
-- Low inventory with only 28 listings left and steady demand of about one copy sold per day
-- Potential synergy and demand spike with Fallout Season 2 release next month
+- Bojuka Bog is a Commander staple with 1.1 million recorded decks on EDHREC.
+- The upcoming Fallout Season 2 release could spark interest and synergy with Fallout Magic cards.
 
 **Caveats**
 
-- Competition from the Lord of the Rings Barrow-downs foil version
-- Existence of surge foil printings from the Lord of the Rings set
+- There is competition from other high-quality versions like the Lord of the Rings borderless foil.
+- Bojuka Bog is frequently reprinted in preconstructed Commander decks.
 
-> Evidence: Bojuka Bog rainbow foil from Fallout Secret Lair release. Currently lowest price copy on Direct is $40, but non-Direct is 24... These are going to get to 40 plus, feel very confident
+> Evidence: take a harder look at the Bojuka Bog rainbow foil from Fallout secret lair release. Currently, lowest price copy on Direct is $40, but non-Direct is 24.
 
 ### Gray Merchant of Asphodel
 
-- Printing: Halo foil
+- Printing: MTG Encyclopedia Halo Foil
 - Printing certainty: confirmed
-- Host(s): James, Cliff
-- Recommendation: Buy
+- Host(s): Cliff, James
+- Recommendation: buy
 - Entry: $55
-- Hold: 12 to 18 months
-- Exit: $80 to $125
+- Hold: 12-18 months
+- Exit: $125
 - Confidence: medium
-- Timestamp: 00:25:13
+- Timestamp: 00:25:04
 - Review status: Approved
 
 **Reasoning**
 
-- The halo foil is widely considered the best and prettiest version of a highly popular card
-- Massive inclusion rate in over 322,000 Commander decks
-- Currently at the lowest price point since its release
+- The card is played in over 322,000 decks on EDHREC and is a powerful, easily recurrent finisher.
+- The halo foil is visually stunning and considered the premier premium version of the card.
+- It is currently at its lowest price point since opening.
 
 **Caveats**
 
-- Uncertainty around whether this is truly 'dump week' for inventory
-- The upcoming TCGplayer store credit sale may cause inventory to drain and prices to spike prematurely
-- Competition from the Time Spiral Remastered retro foil printing
+- More inventory may enter the market as sellers crack remaining unopened product.
+- A potential mid-December spending lull and an upcoming TCGplayer sale create pricing volatility and timing risks.
 
-> Evidence: first pick this week is halo foils of Gary, the Gray Merchant of Asphodel... pick them right now up for $55... jump up into the $125 range.
+> Evidence: my first pick this week is halo foils of Gray Merchant of Asphodel... you can pick them right now up for $55... jump up into the $125 range.
 
-### Field of the Dead
+### Urza's Saga
 
-- Printing: non-foil
+- Printing: MTG Encyclopedia Halo Foil
 - Printing certainty: confirmed
-- Host(s): James, Cliff
-- Recommendation: Buy
-- Entry: $25
-- Hold: 6 to 12 months
-- Exit: $50
-- Confidence: medium
-- Timestamp: 00:33:00
-- Review status: Approved
+- Host(s): Cliff, James
+- Recommendation: buy
+- Entry: $300
+- Hold: Not stated
+- Exit: $500
+- Confidence: low
+- Timestamp: 00:30:00
+- Review status: Needs Review
 
 **Reasoning**
 
-- The non-foil price of $25 is half the price of other non-foil printings that sit in the $50 range
-- Highly played EDH staple that is steadily being absorbed into decks
-- Wizards is unlikely to print another version of Field of the Dead anytime soon
+- Urza's Saga is an S-tier card with high demand.
+- Halo foils are comparable in scarcity to Masterpiece Inventions, but exist within a much larger modern player base.
 
 **Caveats**
 
-- Foil versions of this printing are relatively cheap at around $30, which may draw buyers away from non-foils
-- Competition from other premium versions like Special Guests and Secret Lairs
+- The price could fade further to $250 before stabilizing and growing.
+- Upcoming sales events could cause short-term price spikes that distort organic demand.
 
-> Evidence: Field of the Dead is on my radar and I'm actually picking the non-foils right now at $25... make it back up into the $50 range.
+> Evidence: Urza's Saga started at $1,000. You can now get copies at 300... but I don't know what price I want them at... at some point in the future, these are probably $500 cards.
 
 ---
 
