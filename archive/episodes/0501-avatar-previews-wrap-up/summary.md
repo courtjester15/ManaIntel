@@ -4,7 +4,7 @@
 
 - Published: 2025-11-13T02:21:56Z
 - Hosts: MTG Fast Finance
-- Processing status: Complete
+- Processing status: Needs Review
 - Episode source: https://soundcloud.com/user-519789566/mtg-fast-finance-ep-501-avatar-previews-wrap-up
 
 ## Cards to Watch
