@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "synthetic": false,
-  "notice": "Live automated pipeline metadata.",
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
   "episode": {
     "guid": "tag:soundcloud,2010:tracks/2407349688",
     "episode_number": 535,
@@ -394,9 +394,58 @@
       "traffic_type": null
     }
   },
-  "outputs": {
-    "metadata": "episodes/0535-the-zeta-drop-fiasco/metadata.json",
-    "summary_json": "episodes/0535-the-zeta-drop-fiasco/summary.json",
-    "summary_markdown": "episodes/0535-the-zeta-drop-fiasco/summary.md"
-  }
+  "section": {
+    "located": true,
+    "start_seconds": 1947,
+    "end_seconds": 3150,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Extinction Event",
+      "printing": "Secret Lair",
+      "printing_certainty": "likely",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$9",
+      "entry_target": {
+        "raw": "$9",
+        "currency": "USD",
+        "minimum": 9.0,
+        "maximum": 9.0
+      },
+      "hold": "six to 12 months",
+      "exit_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "It is the most expensive, highly collectible version of the card with the Thanos snapping artwork.",
+        "Future Marvel releases are expected to drive up demand and price due to thematic synergy.",
+        "Thanos is heavily embedded in the zeitgeist."
+      ],
+      "caveats": [
+        "If Marvel releases are not announced or confirmed for the following year, players might panic that the collaboration is under review or discontinued."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1947,
+      "end_seconds": 2200,
+      "evidence_excerpt": "grab your foil copies for nine bucks, I think they'll hit $20 sometime in the next six to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2ab8c88aa01037f2",
+      "timestamp": "00:32:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2407349688-user-519789566-mtg-fast-finance-ep-535-the.mp3#t=1947"
+    }
+  ]
 }

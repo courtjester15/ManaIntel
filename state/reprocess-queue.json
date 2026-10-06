@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
-  "daily_date": "2026-10-05",
+  "daily_date": "2026-10-06",
   "daily_runs": 1,
   "entries": [
     {
@@ -85,6 +85,16 @@
       "result_status": "failed",
       "result_pick_count": 0,
       "note": "Pipeline failed; do not spend another automatic retry without review."
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2407349688",
+      "episode_number": 535,
+      "title": "MTG Fast Finance Ep 535: The Zeta Drop Fiasco",
+      "status": "complete",
+      "started_at": "2026-10-06T22:48:34.600590+00:00",
+      "finished_at": "2026-10-06T22:54:55.681047+00:00",
+      "result_status": "complete",
+      "result_pick_count": 1
     }
   ]
 }

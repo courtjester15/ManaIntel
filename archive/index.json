@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-06T02:30:14Z",
-    "latest_successful_run_at": "2026-10-05T01:09:54Z",
+    "generated_at": "2026-10-06T22:54:53Z",
+    "latest_successful_run_at": "2026-10-06T22:54:52Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 101,
-    "real_pick_count": 393,
+    "real_pick_count": 394,
     "last_discovered_episode_date": "2026-10-02T19:29:03Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 101,
-    "picks": 393,
+    "picks": 394,
     "needs_review": 35,
-    "failed": 3,
-    "completed": 63
+    "failed": 2,
+    "completed": 64
   },
   "status_counts": {
-    "complete": 63,
+    "complete": 64,
     "needs_review": 35,
-    "failed": 3
+    "failed": 2
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2412061842",
@@ -612,36 +612,25 @@
       "hosts": [
         "MTG Fast Finance"
       ],
-      "description": "James and Cliff drop some knowledge on the Magic the Gathering card price action of the week, including meta updates, cards to watch and some deep chats on the topic of cracking packs for entertainment value and the Secret Lair Zeta Drop fiasco.",
+      "description": "James and Cliff drop some knowledge on the Magic the Gathering card price action of the week, including meta updates, cards to watch and some deep chats on the topic of cracking packs for entertainment value and the Secret Lair Zeta Drop fiasco.\n\nIntro/Outro Music by Skylarka",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 1,
       "directory": "episodes/0535-the-zeta-drop-fiasco",
       "outputs": {
         "metadata": "episodes/0535-the-zeta-drop-fiasco/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0535-the-zeta-drop-fiasco/summary.json",
+        "summary_markdown": "episodes/0535-the-zeta-drop-fiasco/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-30T02:44:32Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 4/5 failed after 704.9s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: RemoteProtocolError: Server disconnected without sending a response.; gemini-3.5-flash attempt 2: RemoteProtocolError: Server disconnected without sending a response.; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 5,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
+      "processed_at": "2026-10-06T22:54:52Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
