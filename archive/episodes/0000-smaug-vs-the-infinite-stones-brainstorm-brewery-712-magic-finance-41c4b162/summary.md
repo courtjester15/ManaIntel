@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: sell
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Commander printing
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): 
 - Recommendation: buy
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): 
 - Recommendation: buy
 - Entry: $48 to $52
@@ -86,6 +89,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: Not stated
@@ -111,6 +115,7 @@
 
 - Printing: Secret Lair deck
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: Not stated

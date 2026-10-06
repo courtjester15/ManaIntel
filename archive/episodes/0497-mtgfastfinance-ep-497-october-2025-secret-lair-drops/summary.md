@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair Drop: Festival in a Box (Future Sight frame)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James Chilcott
 - Recommendation: buy
 - Entry: $30
@@ -39,6 +40,7 @@
 
 - Printing: Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott, Cliff
 - Recommendation: buy
 - Entry: $12
@@ -64,6 +66,7 @@
 
 - Printing: Collector Edition (Surge Foil Setup)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James Chilcott
 - Recommendation: buy
 - Entry: $600
@@ -90,6 +93,7 @@
 
 - Printing: Regular Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James Chilcott
 - Recommendation: buy
 - Entry: Not stated

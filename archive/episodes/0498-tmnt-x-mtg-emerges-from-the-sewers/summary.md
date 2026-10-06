@@ -13,6 +13,7 @@
 
 - Printing: Japanese fracture foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: $45, $55
@@ -38,6 +39,7 @@
 
 - Printing: Spider-Man Secret Lair (rainbow foil)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: $5.50
@@ -63,6 +65,7 @@
 
 - Printing: Fallout extended-art surge foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: $6, $7, $8
@@ -88,6 +91,7 @@
 
 - Printing: Spider-Man Secret Lair (rainbow foil)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: 10 or 11

@@ -13,6 +13,7 @@
 
 - Printing: Khans of Tarkir
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: $3
@@ -38,6 +39,7 @@
 
 - Printing: Apocalypse
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: $2 range
@@ -63,6 +65,7 @@
 
 - Printing: Eldritch Moon
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: $3.50 to $4.50 range

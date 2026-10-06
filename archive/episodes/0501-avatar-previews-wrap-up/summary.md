@@ -13,6 +13,7 @@
 
 - Printing: Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: $7.50
@@ -39,6 +40,7 @@
 
 - Printing: Extended Art
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: under $5.50
@@ -65,6 +67,7 @@
 
 - Printing: Enchanting Tales
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: $7

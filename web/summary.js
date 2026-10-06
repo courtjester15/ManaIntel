@@ -49,12 +49,19 @@ function timestamp(value) {
   return [hours, minutes, seconds].map((part) => String(part).padStart(2, "0")).join(":");
 }
 
+function finishBadge(pick) {
+  if (pick.foil !== true && pick.foil !== false) return "";
+  return `<span class="finish ${pick.foil ? "foil" : "nonfoil"}">${pick.foil ? "Foil" : "Nonfoil"}</span>`;
+}
+function versionDisplay(pick) {
+  return `<span class="version-display"><span>${escapeHtml(pick.printing || "Printing not stated")}</span>${finishBadge(pick)}</span>`;
+}
 function pickMeta(pick) {
   return [
-    pick.printing || "Printing not stated",
-    pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "printing certainty unknown",
-    pick.hosts?.length ? pick.hosts.join(", ") : "host not stated",
-  ].map(escapeHtml).join(" · ");
+    versionDisplay(pick),
+    escapeHtml(pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "printing certainty unknown"),
+    escapeHtml(pick.hosts?.length ? pick.hosts.join(", ") : "host not stated"),
+  ].join(" · ");
 }
 function cardName(pick) {
   return pick.card_resolution?.status === "verified" && pick.resolved_card

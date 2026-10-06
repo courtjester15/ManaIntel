@@ -13,6 +13,7 @@
 
 - Printing: Kaladesh
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: around $10
@@ -37,6 +38,7 @@
 
 - Printing: Kaladesh
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: around $10
@@ -60,6 +62,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Foil
 - Host(s): Travis Allen
 - Recommendation: buy
 - Entry: $10
@@ -85,6 +88,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: in and around $3 to $3.50
@@ -110,6 +114,7 @@
 
 - Printing: M11
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Travis Allen
 - Recommendation: trade
 - Entry: $5

@@ -13,6 +13,7 @@
 
 - Printing: Marvel: Spider-Man
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: $16-$17
@@ -40,6 +41,7 @@
 
 - Printing: Marvel: Spider-Man
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $5
@@ -66,6 +68,7 @@
 
 - Printing: Foundations
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: $10-$15
@@ -91,6 +94,7 @@
 
 - Printing: Through the Ages
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $15-$17
@@ -116,6 +120,7 @@
 
 - Printing: Avatar: The Last Airbender
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $7-$9

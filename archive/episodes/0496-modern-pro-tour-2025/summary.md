@@ -13,6 +13,7 @@
 
 - Printing: Modern Masters 2015
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: Buy Modern Masters 2015 foil copies.
 - Entry: around $7
@@ -39,6 +40,7 @@
 
 - Printing: Marvel Series (Lizard vs. Spider-Man art)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: Buy foil borderless comic book art promo copies.
 - Entry: 15 or 18
@@ -65,6 +67,7 @@
 
 - Printing: Modern Horizons 3 (borderless profile)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: Buy foil borderless profile copies.
 - Entry: around $17
@@ -90,6 +93,7 @@
 
 - Printing: Duskmourn: House of Horror (Gift Bundle movie poster promo)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: Buy borderless foil movie poster promo copies.
 - Entry: about $8 to $10

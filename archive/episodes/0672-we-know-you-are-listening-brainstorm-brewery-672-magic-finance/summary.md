@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ, Cass
 - Recommendation: buy
 - Entry: Not stated
@@ -39,6 +40,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Cass, DJ
 - Recommendation: buy
 - Entry: $19.99 TCG Low
@@ -64,6 +66,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ, Cass
 - Recommendation: buy
 - Entry: $3

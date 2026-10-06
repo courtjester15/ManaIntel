@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin, DJ, Jason
 - Recommendation: buy
 - Entry: $4 to $5
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Jason, DJ, Corbin
 - Recommendation: buy
 - Entry: under $10
@@ -64,6 +66,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ, Corbin, Jason
 - Recommendation: buy
 - Entry: $7

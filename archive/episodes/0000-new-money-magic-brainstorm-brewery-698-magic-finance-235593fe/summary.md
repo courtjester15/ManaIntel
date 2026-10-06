@@ -13,6 +13,7 @@
 
 - Printing: Bloomburrow
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 1
 - Recommendation: pull from bulk and sell
 - Entry: bulk
@@ -38,6 +39,7 @@
 
 - Printing: Strixhaven
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 2
 - Recommendation: pull from bulk and sell
 - Entry: bulk
@@ -61,6 +63,7 @@
 
 - Printing: Khans of Tarkir
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 3
 - Recommendation: pull from bulk and sell
 - Entry: bulk

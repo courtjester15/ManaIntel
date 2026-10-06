@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: under $16
@@ -38,6 +39,7 @@
 
 - Printing: Fallout
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Travis
 - Recommendation: buy
 - Entry: around three bucks
@@ -63,6 +65,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: around 30
@@ -89,6 +92,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Travis
 - Recommendation: buy
 - Entry: down to $10

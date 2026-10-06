@@ -13,6 +13,7 @@
 
 - Printing: Magic 2014
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: sell
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Kamigawa: Neon Dynasty
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin, DJ
 - Recommendation: sell
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Outlaws of Thunder Junction: The Big Score
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: hold
 - Entry: $2
@@ -86,6 +89,7 @@
 
 - Printing: Tarkir Dragonstorm
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: 2.47
@@ -111,6 +115,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $1
@@ -136,6 +141,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: $5

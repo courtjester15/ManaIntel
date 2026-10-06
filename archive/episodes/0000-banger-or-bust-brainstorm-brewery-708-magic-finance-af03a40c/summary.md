@@ -13,6 +13,7 @@
 
 - Printing: Commander Legends: Battle for Baldur's Gate
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -38,6 +39,7 @@
 
 - Printing: Modern Horizons 1
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -62,6 +64,7 @@
 
 - Printing: Urza's Saga
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -86,6 +89,7 @@
 
 - Printing: Bloomburrow
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -109,6 +113,7 @@
 
 - Printing: extended art
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $80
@@ -134,6 +139,7 @@
 
 - Printing: borderless
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: $5
@@ -158,6 +164,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: buy
 - Entry: 45 cents

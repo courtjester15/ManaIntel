@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: hold
 - Entry: a dollar
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass, Corbin
 - Recommendation: buy
 - Entry: $3.55 TCG low
@@ -63,6 +65,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Jason
 - Recommendation: buy
 - Entry: four bucks
@@ -87,6 +90,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: a dollar or two

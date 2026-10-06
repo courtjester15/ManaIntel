@@ -13,6 +13,7 @@
 
 - Printing: Confetti Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: about 25
@@ -39,6 +40,7 @@
 
 - Printing: Borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: about $45
@@ -66,6 +68,7 @@
 
 - Printing: Silver Scroll Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: Not stated
@@ -92,6 +95,7 @@
 
 - Printing: Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: $11

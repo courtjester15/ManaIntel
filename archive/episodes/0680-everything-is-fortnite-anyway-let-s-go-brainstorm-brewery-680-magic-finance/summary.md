@@ -13,6 +13,7 @@
 
 - Printing: Hour of Devastation
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: from a dollar to about three
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: like $1.50
@@ -64,6 +66,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: under like $4

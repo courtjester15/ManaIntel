@@ -14,6 +14,7 @@ REVIEW_ACTIONS = {"exclude", "update", "add"}
 EDITABLE_PICK_FIELDS = {
     "card",
     "printing",
+    "foil",
     "hosts",
     "recommendation",
     "start_seconds",
@@ -91,6 +92,8 @@ def _normalize_changes(changes: Any) -> dict[str, Any]:
         normalized["card"] = _require_text(normalized["card"], "card")
     if "printing" in normalized:
         normalized["printing"] = str(normalized["printing"]).strip() or None
+    if "foil" in normalized:
+        normalized["foil"] = _normalize_foil(normalized["foil"])
     if "hosts" in normalized:
         normalized["hosts"] = _normalize_hosts(normalized["hosts"])
     if "recommendation" in normalized:
@@ -101,6 +104,12 @@ def _normalize_changes(changes: Any) -> dict[str, Any]:
         if field in normalized:
             normalized[field] = _normalize_seconds(normalized[field], field)
     return normalized
+
+
+def _normalize_foil(value: Any) -> bool | None:
+    if value is not None and not isinstance(value, bool):
+        raise ValueError("Review pick field 'foil' must be true, false, or null.")
+    return value
 
 
 def _new_pick(summary: dict[str, Any], values: Any) -> dict[str, Any]:
@@ -124,7 +133,7 @@ def _new_pick(summary: dict[str, Any], values: Any) -> dict[str, Any]:
         "card": card,
         "printing": printing,
         "printing_certainty": None,
-        "foil": None,
+        "foil": _normalize_foil(values.get("foil")),
         "hosts": hosts,
         "recommendation": recommendation,
         "mentioned_price": None,

@@ -174,12 +174,22 @@ function episodeListenLabel(episode) { return canOpenSummary(episode) ? "Listen 
 function sentenceList(items, empty = "Not stated") {
   return items?.length ? items.map((item) => `<li>${escapeHtml(item)}</li>`).join("") : `<li>${escapeHtml(empty)}</li>`;
 }
+function finishLabel(pick) {
+  return pick.foil === true ? "Foil" : pick.foil === false ? "Nonfoil" : null;
+}
+function finishBadge(pick) {
+  const finish = finishLabel(pick);
+  return finish ? `<span class="finish ${pick.foil ? "foil" : "nonfoil"}">${finish}</span>` : "";
+}
+function versionDisplay(pick, fallback = "Printing not stated") {
+  return `<span class="version-display"><span>${escapeHtml(pick.printing || fallback)}</span>${finishBadge(pick)}</span>`;
+}
 function pickMeta(pick) {
   return [
-    pick.printing || "Printing not stated",
-    pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "printing certainty unknown",
-    pick.hosts?.length ? pick.hosts.join(", ") : "host not stated",
-  ].map(escapeHtml).join(" · ");
+    versionDisplay(pick),
+    escapeHtml(pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "printing certainty unknown"),
+    escapeHtml(pick.hosts?.length ? pick.hosts.join(", ") : "host not stated"),
+  ].join(" · ");
 }
 function cardName(pick) {
   return pick.card_resolution?.status === "verified" && pick.resolved_card
@@ -330,7 +340,7 @@ function renderDashboard() {
       <article class="panel">
         <div class="panel-head"><h2>Recent recommendations</h2><a href="#picks">View all →</a></div>
         <div class="panel-body recommendation-list">
-          ${recent.map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${cardReferenceLink(pick)}</strong>${cardResolutionNote(pick)}<p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
+          ${recent.map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${cardReferenceLink(pick)}</strong>${cardResolutionNote(pick)}<div class="pick-meta">${versionDisplay(pick)}</div><p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
         </div>
       </article>
     </section>`;
@@ -367,7 +377,7 @@ function renderPicks() {
 function filteredPicks() {
   const query = state.query.toLowerCase();
   const filtered = state.cards.filter((pick) => {
-    const haystack = `${sourceName(pick)} ${pick.card} ${cardName(pick)} ${pick.card_resolution?.canonical_name ?? ""} ${pick.printing ?? ""} ${pick.hosts.join(" ")} ${pick.recommendation} ${pick.episode.title}`.toLowerCase();
+    const haystack = `${sourceName(pick)} ${pick.card} ${cardName(pick)} ${pick.card_resolution?.canonical_name ?? ""} ${pick.printing ?? ""} ${finishLabel(pick) ?? ""} ${pick.hosts.join(" ")} ${pick.recommendation} ${pick.episode.title}`.toLowerCase();
     return haystack.includes(query)
       && (state.pickSource === "all" || sourceId(pick) === state.pickSource)
       && (state.status === "all" || pick.review_status === state.status);
@@ -397,7 +407,7 @@ function renderPickTable() {
     getRowLabel: (pick) => `Open details for ${cardName(pick)}`,
     columns: [
       { label: "Card", sortKey: "card", html: (pick) => `${cardReferenceLink(pick)}${cardResolutionNote(pick)}` },
-      { label: "Printing", sortKey: "printing", value: (pick) => pick.printing || "—", title: (pick) => pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "Printing not stated" },
+      { label: "Version", sortKey: "printing", html: (pick) => versionDisplay(pick, "—"), title: (pick) => pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "Printing not stated" },
       { label: "Entry", sortKey: "entry", align: "money", value: (pick) => pick.entry_target?.raw || "—" },
       { label: "Exit", sortKey: "exit", align: "money", value: (pick) => pick.exit_target?.raw || "—" },
       { label: "Hold", sortKey: "hold", align: "center", value: (pick) => pick.hold || "—" },

@@ -13,6 +13,7 @@
 
 - Printing: Phyrexia: All Will Be One
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): DJ
 - Recommendation: sell
 - Entry: Not stated
@@ -38,6 +39,7 @@
 
 - Printing: Streets of New Capenna
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: sell
 - Entry: Not stated
@@ -63,6 +65,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz, Corbin
 - Recommendation: buy
 - Entry: Not stated
@@ -88,6 +91,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin, Liz
 - Recommendation: buy
 - Entry: Not stated

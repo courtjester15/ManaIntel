@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: Not stated

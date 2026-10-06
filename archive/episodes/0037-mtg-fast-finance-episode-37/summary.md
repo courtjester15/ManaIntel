@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Speaker 2
 - Recommendation: Buy if it performs well at the Pro Tour, otherwise hold off.
 - Entry: dollar range
@@ -37,6 +38,7 @@
 
 - Printing: Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1
 - Recommendation: Buy foil copies immediately
 - Entry: $11 or $12
@@ -62,6 +64,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Speaker 2
 - Recommendation: Buy and hold short to mid-term, sell before rotation
 - Entry: around $20
@@ -86,6 +89,7 @@
 
 - Printing: Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1
 - Recommendation: Buy foil copies under $20
 - Entry: under $20

@@ -13,6 +13,7 @@
 
 - Printing: Promo version
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $13 to $14 range
@@ -38,6 +39,7 @@
 
 - Printing: borderless surge foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: 230, 240
@@ -64,6 +66,7 @@
 
 - Printing: black and white foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $18

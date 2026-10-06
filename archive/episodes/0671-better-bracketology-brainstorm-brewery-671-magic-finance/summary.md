@@ -13,6 +13,7 @@
 
 - Printing: Mystery Booster 1 List version
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Corbin, DJ
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -38,6 +39,7 @@
 
 - Printing: Innistrad Remastered retro version
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: buy
 - Entry: 3 to 4
@@ -63,6 +65,7 @@
 
 - Printing: Magic Origins
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin, DJ
 - Recommendation: buy
 - Entry: $4 to $6

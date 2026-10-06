@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Jason
 - Recommendation: Get a bunch of these bulk mythics over the next year
 - Entry: low of 70 cents
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: Pick up as a good card for Commander decks to start the proliferate engine
 - Entry: Not stated
@@ -63,6 +65,7 @@
 
 - Printing: Innistrad: Midnight Hunt
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Pick up and call attention to it
 - Entry: Not stated
@@ -88,6 +91,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Something to pick up once it gets a little cheaper
 - Entry: Not stated

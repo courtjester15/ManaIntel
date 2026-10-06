@@ -13,6 +13,7 @@
 
 - Printing: Duskmourn
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Mirrodin
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Dragons of Tarkir
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): 
 - Recommendation: pull from bulk
 - Entry: Not stated

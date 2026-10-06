@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: a quarter
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ, Liz
 - Recommendation: buy
 - Entry: TCG low
@@ -62,6 +64,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: buy
 - Entry: $1.50 to $2
@@ -85,6 +88,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: a dollar to, uh, two to three
@@ -109,6 +113,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $10

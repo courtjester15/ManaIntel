@@ -13,6 +13,7 @@
 
 - Printing: Avacyn Restored
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): speaker_3
 - Recommendation: sell
 - Entry: Not stated
@@ -36,6 +37,7 @@
 
 - Printing: Avacyn Restored
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): speaker_3
 - Recommendation: buy
 - Entry: TCG low of $0.69
@@ -62,6 +64,7 @@
 
 - Printing: Spider-Man
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): speaker_2
 - Recommendation: sell
 - Entry: Not stated
@@ -88,6 +91,7 @@
 
 - Printing: Modern Horizons 2
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): speaker_0
 - Recommendation: sell
 - Entry: Not stated

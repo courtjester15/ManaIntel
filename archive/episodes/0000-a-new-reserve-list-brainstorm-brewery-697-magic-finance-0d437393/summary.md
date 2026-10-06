@@ -13,6 +13,7 @@
 
 - Printing: Innistrad: Crimson Vow
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: Pull from bulk
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Ixalan
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Pull from bulk
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Strixhaven
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Buy
 - Entry: a couple dollars
@@ -85,6 +88,7 @@
 
 - Printing: Revised Edition
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: Buy
 - Entry: close to $700

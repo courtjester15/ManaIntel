@@ -13,6 +13,7 @@
 
 - Printing: Modern Masters 2015 Edition
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: under $15
@@ -37,6 +38,7 @@
 
 - Printing: Eldritch Moon
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: about the 16 range
@@ -61,6 +63,7 @@
 
 - Printing: Modern Masters 2015 Edition
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: playset for $100
@@ -85,6 +88,7 @@
 
 - Printing: Oath of the Gatewatch
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: around $3
@@ -109,6 +113,7 @@
 
 - Printing: Modern Masters 2015 Edition
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: in the $5 to $6 range

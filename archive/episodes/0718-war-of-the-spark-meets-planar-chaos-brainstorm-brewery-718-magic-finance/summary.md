@@ -13,6 +13,7 @@
 
 - Printing: Outlaws of Thunder Junction Commander
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: pull from bulk
 - Entry: 2.75 on Card Kingdom's buy list
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pull from bulk
 - Entry: 86 cents market price
@@ -63,6 +65,7 @@
 
 - Printing: Coldsnap
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: pull from bulk
 - Entry: $2
@@ -88,6 +91,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: 380 to 400
@@ -113,6 +117,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: six dollars

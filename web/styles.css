@@ -56,7 +56,7 @@ main { min-width: 0; max-width: 1320px; width: 100%; margin: 0 auto; padding: 12
 .eyebrow { margin: 0 0 2px; color: var(--muted); font-size: 9px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
 h1 { margin: 0; color: var(--text-strong); font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -.02em; }
 .top-actions { display: flex; gap: 9px; align-items: center; }
-.fixture-pill, .status, .certainty, .confidence { display: inline-flex; align-items: center; border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.fixture-pill, .status, .certainty, .confidence, .finish { display: inline-flex; align-items: center; border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
 .fixture-pill { padding: 6px 8px; border: 1px solid rgba(125, 211, 252, 0.28); color: var(--accent); background: var(--accent-soft); }
 .icon-button { display: grid; width: var(--control-h); height: var(--control-h); place-items: center; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--muted); background: var(--panel); cursor: pointer; }
 .icon-button:hover { color: var(--text); border-color: #465063; }
@@ -113,6 +113,11 @@ td strong { color: var(--text); }
 .certainty.confirmed, .confidence.high { color: var(--green); }
 .certainty.likely, .confidence.medium { color: var(--blue); }
 .confidence.low { color: var(--amber); }
+.finish { margin-left: 5px; padding: 2px 5px; border: 1px solid currentColor; font-size: 8px; line-height: 1.2; }
+.finish.foil { color: #d8b4fe; background: rgba(216, 180, 254, .09); }
+.finish.nonfoil { color: var(--muted); background: rgba(147, 164, 177, .06); }
+.version-display { display: inline-flex; min-width: 0; align-items: center; }
+.version-display > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .link-button { border: 0; color: var(--accent); background: none; font-size: 11px; font-weight: 750; cursor: pointer; }
 .table-sort, .ms-table__sort { display: inline-flex; gap: 4px; align-items: center; justify-content: inherit; width: 100%; height: 100%; padding: 0; border: 0; color: inherit; background: none; font: inherit; letter-spacing: inherit; text-align: inherit; text-transform: inherit; cursor: pointer; }
 .table-sort:hover, .ms-table__sort:hover { color: var(--text-strong); }
@@ -385,7 +390,7 @@ pre { overflow: auto; max-height: 180px; padding: 12px; border: 1px solid var(--
 .review-pick .panel-head h2 { margin: 2px 0 0; color: var(--text-strong); font-size: 15px; }
 .review-action { display: grid; gap: 3px; min-width: 118px; color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .review-head-actions { display: flex; gap: 8px; align-items: center; }
-.review-action select, .review-field input, .review-field textarea {
+.review-action select, .review-field input, .review-field select, .review-field textarea {
   width: 100%;
   min-height: var(--control-h);
   border: 1px solid var(--line);
@@ -399,7 +404,7 @@ pre { overflow: auto; max-height: 180px; padding: 12px; border: 1px solid var(--
 .review-fields[hidden] { display: none; }
 .review-field { display: grid; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 700; }
 .review-field span { letter-spacing: .035em; }
-.review-field input { padding: 0 9px; }
+.review-field input, .review-field select { padding: 0 9px; }
 .review-field textarea { min-height: 72px; padding: 8px 9px; resize: vertical; line-height: 1.4; }
 .review-field-wide { grid-column: 1 / -1; }
 .review-finalize { margin-top: 8px; }

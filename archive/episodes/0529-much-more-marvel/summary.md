@@ -13,6 +13,7 @@
 
 - Printing: non-foil
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: Buy non-foil copies
 - Entry: $3 to $4
@@ -38,6 +39,7 @@
 
 - Printing: foil extended art
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: Buy foil extended art copies
 - Entry: $15 to $18
@@ -63,6 +65,7 @@
 
 - Printing: surge foil
 - Printing certainty: ambiguous
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: Buy surge foil copies
 - Entry: $10.00, $10.50, maybe $11.00
@@ -88,6 +91,7 @@
 
 - Printing: foil extended art
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: Buy foil extended art copies
 - Entry: sub-$10

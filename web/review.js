@@ -75,6 +75,18 @@ function inputField(label, name, value, options = {}) {
   return `<label class="review-field${wide}"><span>${escapeHtml(label)}</span><input type="${type}" name="${escapeHtml(name)}" value="${escapeHtml(value)}"${required}></label>`;
 }
 
+function finishLabel(pick) {
+  return pick.foil === true ? "Foil" : pick.foil === false ? "Nonfoil" : "Finish not stated";
+}
+function finishBadge(pick) {
+  if (pick.foil !== true && pick.foil !== false) return "";
+  return `<span class="finish ${pick.foil ? "foil" : "nonfoil"}">${finishLabel(pick)}</span>`;
+}
+function foilField(value) {
+  const selected = value === true ? "true" : value === false ? "false" : "unknown";
+  return `<label class="review-field"><span>Finish</span><select name="foil"><option value="unknown"${selected === "unknown" ? " selected" : ""}>Not stated</option><option value="true"${selected === "true" ? " selected" : ""}>Foil</option><option value="false"${selected === "false" ? " selected" : ""}>Nonfoil</option></select></label>`;
+}
+
 function resolutionNote(pick) {
   const resolution = pick.card_resolution;
   if (resolution?.status === "verified" && resolution.canonical_name !== pick.card) {
@@ -96,6 +108,7 @@ function pickEditor(pick, index, isNew = false) {
           <p class="eyebrow">${isNew ? "Missing pick" : `Extracted pick ${index + 1}`}</p>
           <h2>${cardReferenceLink(pick, pick.card || "New pick")}</h2>
           ${resolutionNote(pick)}
+          <p class="pick-meta"><span>${escapeHtml(pick.printing || "Printing not stated")}</span>${finishBadge(pick)}</p>
         </div>
       </div>
       <div class="review-head-actions">
@@ -108,6 +121,7 @@ function pickEditor(pick, index, isNew = false) {
     <div class="panel-body review-fields" data-fields ${isNew ? "" : "hidden"}>
       ${inputField("Card", "card", pick.card || "", { required: true })}
       ${inputField("Printing", "printing", pick.printing || "")}
+      ${foilField(pick.foil)}
       ${inputField("Speaker(s), comma separated", "hosts", hosts, { required: true })}
       ${inputField("Timestamp", "timestamp", secondsToTimestamp(pick.start_seconds), { required: true })}
       ${inputField("Recommendation", "recommendation", pick.recommendation || "", { required: true, wide: true, multiline: true })}
@@ -181,9 +195,11 @@ function renderReview() {
 
 function readPickValues(editor) {
   const field = (name) => editor.querySelector(`[name="${name}"]`).value.trim();
+  const foil = field("foil");
   return {
     card: field("card"),
     printing: field("printing"),
+    foil: foil === "true" ? true : foil === "false" ? false : null,
     hosts: field("hosts").split(",").map((host) => host.trim()).filter(Boolean),
     start_seconds: timestampToSeconds(field("timestamp")),
     recommendation: field("recommendation"),
@@ -203,6 +219,7 @@ function changedFields(original, values) {
   const originalValues = {
     card: original.card,
     printing: original.printing || "",
+    foil: original.foil ?? null,
     hosts: original.hosts || [],
     start_seconds: original.start_seconds,
     recommendation: original.recommendation,
@@ -290,6 +307,7 @@ function bindReviewEvents() {
     container.insertAdjacentHTML("beforeend", pickEditor({
       card: "",
       printing: null,
+      foil: null,
       hosts: sourceSummary.episode.hosts,
       recommendation: "",
       start_seconds: null,

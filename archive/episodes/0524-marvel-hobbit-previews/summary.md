@@ -13,6 +13,7 @@
 
 - Printing: Silver Scroll foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James
 - Recommendation: buy
 - Entry: 400
@@ -38,6 +39,7 @@
 
 - Printing: Japanese alt-art non-foil
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James
 - Recommendation: buy
 - Entry: 100 to 115
@@ -63,6 +65,7 @@
 
 - Printing: Silver Scroll foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff
 - Recommendation: buy
 - Entry: $15
@@ -88,6 +91,7 @@
 
 - Printing: Silver Scroll foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James
 - Recommendation: buy
 - Entry: 130
@@ -113,6 +117,7 @@
 
 - Printing: DanDan Lair foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff
 - Recommendation: buy
 - Entry: $20

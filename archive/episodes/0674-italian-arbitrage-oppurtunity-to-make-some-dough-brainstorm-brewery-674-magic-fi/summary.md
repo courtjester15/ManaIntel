@@ -13,6 +13,7 @@
 
 - Printing: Urza's Legacy
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cass
 - Recommendation: buy
 - Entry: under a dollar
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Nonfoil
 - Host(s): DJ
 - Recommendation: buy
 - Entry: at like a quarter

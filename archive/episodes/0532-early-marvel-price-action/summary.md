@@ -13,6 +13,7 @@
 
 - Printing: Marvel Eternal Legal art / Hulk holding a boulder
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Ted, Cliff
 - Recommendation: buy
 - Entry: $7
@@ -38,6 +39,7 @@
 
 - Printing: Extended Art
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff
 - Recommendation: buy
 - Entry: $4
@@ -63,6 +65,7 @@
 
 - Printing: Secret Lair Goblin Storm / Wizard of Barge art
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Ted, Cliff
 - Recommendation: buy
 - Entry: 65 to 70 euros (low 80s USD)
@@ -88,6 +91,7 @@
 
 - Printing: Cats are the Best Secret Lair / Gary Baseman art
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff
 - Recommendation: buy
 - Entry: $25

@@ -13,6 +13,7 @@
 
 - Printing: Oath of the Gatewatch
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: say a dollar
@@ -39,6 +40,7 @@
 
 - Printing: Commander 2016
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Travis Allen, James Chilcott
 - Recommendation: buy
 - Entry: drifts down towards 3
@@ -64,6 +66,7 @@
 
 - Printing: Oath of the Gatewatch
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: $2
@@ -90,6 +93,7 @@
 
 - Printing: Oath of the Gatewatch
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Travis Allen, James Chilcott
 - Recommendation: buy
 - Entry: range of $10
@@ -115,6 +119,7 @@
 
 - Printing: Oath of the Gatewatch
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott, Travis Allen
 - Recommendation: buy
 - Entry: $2.50

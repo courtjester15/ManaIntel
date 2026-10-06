@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: buy
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass, Corbin, DJ
 - Recommendation: buy
 - Entry: for $30
@@ -62,6 +64,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin, DJ
 - Recommendation: buy
 - Entry: $12 or $13

@@ -13,6 +13,7 @@
 
 - Printing: Extended-art treatment, set unclear
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Blair Example, Casey Example
 - Recommendation: Watch the premium version after a pullback.
 - Entry: possibly below $45
@@ -36,6 +37,7 @@
 
 - Printing: Neon Dynasty borderless
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): Casey Example
 - Recommendation: Hold existing premium copies.
 - Entry: Not stated
@@ -59,6 +61,7 @@
 
 - Printing: The Lord of the Rings regular
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Blair Example
 - Recommendation: Do not buy solely on the synthetic metagame rumor.
 - Entry: Not stated
@@ -82,6 +85,7 @@
 
 - Printing: Commander Legends: Battle for Baldur's Gate
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Blair Example, Casey Example
 - Recommendation: Watch for a post-reprint floor.
 - Entry: $32 to $35

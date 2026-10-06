@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Fallout
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: $3
@@ -60,6 +62,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: Not stated
@@ -84,6 +87,7 @@
 
 - Printing: Murders at Karlov Manor Commander
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $2

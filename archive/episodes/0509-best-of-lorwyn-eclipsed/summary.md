@@ -13,6 +13,7 @@
 
 - Printing: Commander Masters Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): 
 - Recommendation: buy
 - Entry: $10
@@ -38,6 +39,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): 
 - Recommendation: buy
 - Entry: $10 copy
@@ -64,6 +66,7 @@
 
 - Printing: Foundations Jumpstart
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): 
 - Recommendation: buy
 - Entry: 8 or 9
@@ -89,6 +92,7 @@
 
 - Printing: Tales of Middle-earth Commander Showcase Scrolls
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): 
 - Recommendation: buy
 - Entry: about $10

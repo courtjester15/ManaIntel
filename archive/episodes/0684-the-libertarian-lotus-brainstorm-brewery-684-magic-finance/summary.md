@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ, Corbin, Cass
 - Recommendation: Sell
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass, DJ, Corbin
 - Recommendation: Sell
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Showcase
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): Corbin, DJ, Cass
 - Recommendation: Sell
 - Entry: Not stated
@@ -85,6 +88,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass, DJ, Corbin
 - Recommendation: Buy
 - Entry: $17
@@ -109,6 +113,7 @@
 
 - Printing: Base version
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): DJ, Cass, Corbin
 - Recommendation: Buy
 - Entry: under $20
@@ -133,6 +138,7 @@
 
 - Printing: Borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): DJ, Cass, Corbin
 - Recommendation: Buy
 - Entry: below 30
@@ -157,6 +163,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin, DJ, Cass
 - Recommendation: Buy
 - Entry: $25

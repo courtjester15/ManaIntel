@@ -46,6 +46,7 @@ def render_episode_markdown(summary: dict[str, Any]) -> str:
                 "",
                 f"- Printing: {_text(pick['printing'])}",
                 f"- Printing certainty: {_text(pick['printing_certainty'])}",
+                f"- Finish: {_text('Foil' if pick.get('foil') is True else 'Nonfoil' if pick.get('foil') is False else None)}",
                 f"- Host(s): {', '.join(pick['hosts'])}",
                 f"- Recommendation: {pick['recommendation']}",
                 f"- Entry: {_target(pick['entry_target'])}",

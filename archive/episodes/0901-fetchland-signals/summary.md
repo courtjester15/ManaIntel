@@ -13,6 +13,7 @@
 
 - Printing: Modern Horizons 3 retro frame
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Alex Example
 - Recommendation: Watch nonfoil copies and consider entering only near the stated floor.
 - Entry: $13 to $15
@@ -37,6 +38,7 @@
 
 - Printing: Modern Horizons 2 regular nonfoil
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): Blair Example
 - Recommendation: Hold existing copies; do not chase a short-term increase.
 - Entry: Not stated
@@ -60,6 +62,7 @@
 
 - Printing: Streets of New Capenna
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Alex Example, Blair Example
 - Recommendation: Avoid buying until tournament demand is visible again.
 - Entry: under $4
@@ -83,6 +86,7 @@
 
 - Printing: Modern Horizons 2 showcase sketch
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Blair Example
 - Recommendation: Watch premium copies rather than treating every printing alike.
 - Entry: $28

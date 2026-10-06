@@ -13,6 +13,7 @@
 
 - Printing: Duskmourn
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: $20
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: about 15, almost 16 now
@@ -65,6 +67,7 @@
 
 - Printing: Lorwyn Eclipse
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: two or three dollars

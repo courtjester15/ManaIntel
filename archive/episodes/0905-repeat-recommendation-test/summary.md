@@ -13,6 +13,7 @@
 
 - Printing: Modern Horizons 3 regular nonfoil
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Alex Example, Casey Example
 - Recommendation: The earlier watch has reached its synthetic entry range; accumulate cautiously.
 - Entry: $14
@@ -36,6 +37,7 @@
 
 - Printing: Wilds of Eldraine Enchanting Tales
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Blair Example
 - Recommendation: Continue watching; the prior synthetic entry has not been reached.
 - Entry: $22
@@ -59,6 +61,7 @@
 
 - Printing: War of the Spark regular nonfoil
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Alex Example, Blair Example, Casey Example
 - Recommendation: Hold existing copies and reassess after the next Commander release.
 - Entry: $24 to $26

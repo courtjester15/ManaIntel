@@ -13,6 +13,7 @@
 
 - Printing: Borderless Galaxy Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: 80
@@ -40,6 +41,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 2
 - Recommendation: buy
 - Entry: 4
@@ -68,6 +70,7 @@
 
 - Printing: Borderless Comic Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: Not stated
@@ -94,6 +97,7 @@
 
 - Printing: Showcase Pip-Boy
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: around $3
@@ -119,6 +123,7 @@
 
 - Printing: Marvel Super Heroes
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: 1,700, if you can get it, 1,800 is more likely right now

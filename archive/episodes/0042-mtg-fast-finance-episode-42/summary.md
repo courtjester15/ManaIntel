@@ -13,6 +13,7 @@
 
 - Printing: Kaladesh Inventions
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: 90
@@ -38,6 +39,7 @@
 
 - Printing: Magic Origins
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James Chilcott, Speaker 1
 - Recommendation: buy
 - Entry: $16 to $17
@@ -63,6 +65,7 @@
 
 - Printing: Scars of Mirrodin
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 2
 - Recommendation: buy
 - Entry: $10 to $11
@@ -87,6 +90,7 @@
 
 - Printing: Dissension
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: low $4 range
@@ -112,6 +116,7 @@
 
 - Printing: Fate Reforged
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2
 - Recommendation: buy
 - Entry: in and around the $40 range

@@ -110,6 +110,7 @@ def payload(source: dict) -> dict:
                 "changes": {
                     "card": "Corrected Card",
                     "printing": "Showcase",
+                    "foil": True,
                     "hosts": ["Host One", "Host Two"],
                     "recommendation": "buy under $5",
                     "start_seconds": 705,
@@ -122,6 +123,7 @@ def payload(source: dict) -> dict:
                 "pick": {
                     "card": "Missing Card",
                     "printing": "",
+                    "foil": False,
                     "hosts": ["Host Two"],
                     "recommendation": "watch",
                     "start_seconds": 800,
@@ -158,6 +160,11 @@ class ReviewOverrideTests(unittest.TestCase):
             corrected["id"],
         )
         self.assertEqual("00:11:45", corrected["timestamp"])
+        self.assertIs(corrected["foil"], True)
+        self.assertIs(effective["recommendations"][1]["foil"], False)
+        markdown = render_episode_markdown(effective)
+        self.assertIn("- Finish: Foil", markdown)
+        self.assertIn("- Finish: Nonfoil", markdown)
 
     def test_stale_review_is_rejected(self) -> None:
         original = summary()
@@ -165,6 +172,28 @@ class ReviewOverrideTests(unittest.TestCase):
         original["processing"]["processed_at"] = "2026-01-04T00:00:00Z"
         with self.assertRaisesRegex(ValueError, "stale"):
             normalize_review(original, request, actor="reviewer")
+
+    def test_finish_rejects_non_boolean_values_for_updates_and_additions(self) -> None:
+        original = summary()
+        for invalid in (0, 1, 0.0, 1.0, "true", "false", "", [], {}):
+            for action in ("update", "add"):
+                with self.subTest(action=action, invalid=invalid):
+                    request = payload(original)
+                    operation = next(item for item in request["operations"] if item["action"] == action)
+                    operation["changes" if action == "update" else "pick"]["foil"] = invalid
+                    with self.assertRaisesRegex(ValueError, "foil"):
+                        normalize_review(original, request, actor="reviewer")
+
+    def test_finish_can_be_cleared_without_changing_pick_identity(self) -> None:
+        original = summary()
+        original["recommendations"][0]["foil"] = True
+        request = payload(original)
+        request["operations"] = [{"action": "update", "pick_id": original["recommendations"][0]["id"], "changes": {"foil": None}}]
+        effective = apply_review(original, normalize_review(original, request, actor="reviewer"))
+        self.assertIsNone(effective["recommendations"][0]["foil"])
+        self.assertEqual(original["recommendations"][0]["id"], effective["recommendations"][0]["id"])
+        self.assertIn("- Finish: Not stated", render_episode_markdown(effective))
+        self.assertIs(original["recommendations"][0]["foil"], True)
 
     def test_persisted_review_builds_effective_catalog_and_validates(self) -> None:
         root = workspace_temp(self)

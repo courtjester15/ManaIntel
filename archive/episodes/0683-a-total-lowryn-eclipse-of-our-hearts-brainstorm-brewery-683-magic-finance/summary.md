@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: Not stated
@@ -39,6 +40,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: Not stated
@@ -64,6 +66,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: Not stated
@@ -89,6 +92,7 @@
 
 - Printing: Mercadian Masques
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Cass
 - Recommendation: buy
 - Entry: a quarter

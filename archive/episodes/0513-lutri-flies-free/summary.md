@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair Series
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: about 13, some copies at 12, some closer to 15
@@ -38,6 +39,7 @@
 
 - Printing: Secret Lair Drop: Avatar
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: around $8
@@ -63,6 +65,7 @@
 
 - Printing: Secret Lair Drop: D&D
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: about $10 to $12
@@ -88,6 +91,7 @@
 
 - Printing: Japan Showcase
 - Printing certainty: ambiguous
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: around $40. And it's already up $10 since then

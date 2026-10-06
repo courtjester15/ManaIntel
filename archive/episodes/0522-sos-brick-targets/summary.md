@@ -13,6 +13,7 @@
 
 - Printing: Special Guest
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: $35
@@ -38,6 +39,7 @@
 
 - Printing: showcase foils from Teenage Mutant Ninja Turtles
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2
 - Recommendation: buy
 - Entry: about $8
@@ -62,6 +64,7 @@
 
 - Printing: Special Guest
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff Dagle
 - Recommendation: buy
 - Entry: around $8.50, $9
@@ -86,6 +89,7 @@
 
 - Printing: borderless foils
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1
 - Recommendation: buy
 - Entry: 140

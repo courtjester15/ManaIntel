@@ -13,6 +13,7 @@
 
 - Printing: regular frame
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chillcott, Cliff Daigle
 - Recommendation: buy
 - Entry: under 10
@@ -38,6 +39,7 @@
 
 - Printing: Zendikar Rising FEA
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chillcott, Cliff Daigle
 - Recommendation: buy
 - Entry: around $13 to $15
@@ -62,6 +64,7 @@
 
 - Printing: regular
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chillcott, Cliff Daigle
 - Recommendation: buy
 - Entry: in the $7 to $8 range
@@ -87,6 +90,7 @@
 
 - Printing: Secret Lair (Miku, Voice of Power)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chillcott, Cliff Daigle
 - Recommendation: buy
 - Entry: about 20
@@ -111,6 +115,7 @@
 
 - Printing: Jumpstart
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chillcott, Cliff Daigle
 - Recommendation: buy
 - Entry: in the mid-teens
@@ -135,6 +140,7 @@
 
 - Printing: Jumpstart
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James Chillcott, Cliff Daigle
 - Recommendation: buy
 - Entry: hopefully under 10
@@ -159,6 +165,7 @@
 
 - Printing: Sealed Collector Booster Box
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James Chillcott, Cliff Daigle
 - Recommendation: buy
 - Entry: say 400 a box

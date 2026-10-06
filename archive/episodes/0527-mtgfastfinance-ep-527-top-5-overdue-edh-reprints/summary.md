@@ -13,6 +13,7 @@
 
 - Printing: Japanese alt-art Mystical Archive
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Speaker 1
 - Recommendation: Sell
 - Entry: Not stated
@@ -36,6 +37,7 @@
 
 - Printing: Japanese alt-art Mystical Archive
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Speaker 1
 - Recommendation: Sell
 - Entry: Not stated
@@ -59,6 +61,7 @@
 
 - Printing: Bundle promo
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: Buy
 - Entry: 90
@@ -83,6 +86,7 @@
 
 - Printing: borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: Buy
 - Entry: 20 to 25
@@ -108,6 +112,7 @@
 
 - Printing: Omen's of Chaos Strixhaven novel promo
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: Buy
 - Entry: 40
@@ -133,6 +138,7 @@
 
 - Printing: Thanos PSA promo
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: Buy
 - Entry: 35

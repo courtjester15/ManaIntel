@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: below 50 bucks
@@ -37,6 +38,7 @@
 
 - Printing: Fallout
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin, DJ
 - Recommendation: buy
 - Entry: from $1 to $2
@@ -61,6 +63,7 @@
 
 - Printing: Lost Caverns of Ixalan
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: under a dollar
@@ -87,6 +90,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $3 to $6

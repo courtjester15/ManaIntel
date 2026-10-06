@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair (Furby Drop)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: $8, $9, $10
@@ -38,6 +39,7 @@
 
 - Printing: Secret Lair 30th Anniversary Countdown Kit
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: under $9
@@ -63,6 +65,7 @@
 
 - Printing: Secret Lair (Furby Drop)
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: under 10
@@ -88,6 +91,7 @@
 
 - Printing: Secret Lair: Avatar: The Last Airbender
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: under 10
@@ -114,6 +118,7 @@
 
 - Printing: Doctor Who
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: 6

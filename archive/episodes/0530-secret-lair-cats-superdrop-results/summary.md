@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: under $10
@@ -37,6 +38,7 @@
 
 - Printing: foil etched
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: $20
@@ -61,6 +63,7 @@
 
 - Printing: borderless Galaxy Foil number 123
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: low 30s
@@ -85,6 +88,7 @@
 
 - Printing: borderless
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: around $6

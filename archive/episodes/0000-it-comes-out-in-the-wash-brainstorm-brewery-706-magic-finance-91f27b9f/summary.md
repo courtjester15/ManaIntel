@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pull
 - Entry: bulk
@@ -36,6 +37,7 @@
 
 - Printing: Morningtide
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: pull
 - Entry: bulk
@@ -59,6 +61,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: pull
 - Entry: bulk rares
@@ -82,6 +85,7 @@
 
 - Printing: Modern Horizons 2
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pull
 - Entry: bulk

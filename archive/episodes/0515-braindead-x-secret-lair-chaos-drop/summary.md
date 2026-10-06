@@ -13,6 +13,7 @@
 
 - Printing: showcase foils
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: about $20
@@ -38,6 +39,7 @@
 
 - Printing: borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: 5.50 or so
@@ -64,6 +66,7 @@
 
 - Printing: borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: around $20
@@ -90,6 +93,7 @@
 
 - Printing: borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: 12.50
@@ -115,6 +119,7 @@
 
 - Printing: Brain Dead
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: 10 to 15 range

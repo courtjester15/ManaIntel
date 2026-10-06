@@ -13,6 +13,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: under 10
@@ -38,6 +39,7 @@
 
 - Printing: Silver Scroll Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): DJ
 - Recommendation: buy
 - Entry: 450

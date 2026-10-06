@@ -13,6 +13,7 @@
 
 - Printing: Silver Scroll Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): 
 - Recommendation: buy
 - Entry: $450 to $500
@@ -38,6 +39,7 @@
 
 - Printing: Cat Drop
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): 
 - Recommendation: buy
 - Entry: $14
@@ -63,6 +65,7 @@
 
 - Printing: Foil Extended Art
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): 
 - Recommendation: buy
 - Entry: Not stated
@@ -88,6 +91,7 @@
 
 - Printing: Marvel Source Material
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): 
 - Recommendation: buy
 - Entry: 30
@@ -112,6 +116,7 @@
 
 - Printing: Step-and-Compleat Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff
 - Recommendation: buy
 - Entry: $300

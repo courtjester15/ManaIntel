@@ -13,6 +13,7 @@
 
 - Printing: Aether Revolt
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: sell
 - Entry: $0.10
@@ -38,6 +39,7 @@
 
 - Printing: Commander Legends: Battle for Baldur's Gate
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $0.10
@@ -63,6 +65,7 @@
 
 - Printing: Lorwyn
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: sell
 - Entry: Not stated
@@ -87,6 +90,7 @@
 
 - Printing: Lorwyn Eclipse
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): 
 - Recommendation: buy
 - Entry: $2 TCG low
@@ -112,6 +116,7 @@
 
 - Printing: Lorwyn Elementals precon
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $2 to $3
@@ -137,6 +142,7 @@
 
 - Printing: Spider-Man
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): 
 - Recommendation: buy
 - Entry: $3

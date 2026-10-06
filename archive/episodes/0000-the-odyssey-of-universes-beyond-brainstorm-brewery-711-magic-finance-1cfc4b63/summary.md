@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair Drop
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $20
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: buy
 - Entry: Not stated
@@ -60,6 +62,7 @@
 
 - Printing: seasonal variants
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: Not stated
@@ -86,6 +89,7 @@
 
 - Printing: Bloomburrow
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: two to almost four
@@ -110,6 +114,7 @@
 
 - Printing: Fallout
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: buy
 - Entry: $5-ish

@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: Pick it out of your bulk
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Check it out
 - Entry: Not stated
@@ -60,6 +62,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Buy
 - Entry: Not stated
@@ -85,6 +88,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: Buy and crack for singles
 - Entry: Not stated
@@ -109,6 +113,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): JJ, DJ
 - Recommendation: Buy
 - Entry: Not stated

@@ -13,6 +13,7 @@
 
 - Printing: Wilds of Eldraine Enchanting Tales
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Casey Example
 - Recommendation: Wait for the premium treatment to fall before considering an entry.
 - Entry: $22
@@ -36,6 +37,7 @@
 
 - Printing: Wilds of Eldraine regular nonfoil
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Alex Example
 - Recommendation: Take profit into strength rather than opening a new position.
 - Entry: Not stated
@@ -59,6 +61,7 @@
 
 - Printing: The Lost Caverns of Ixalan
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Alex Example, Casey Example
 - Recommendation: Accumulate slowly if copies reach the entry range.
 - Entry: $18 to $20
@@ -82,6 +85,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Casey Example
 - Recommendation: Avoid financial exposure until reprint policy is clearer.
 - Entry: Not stated

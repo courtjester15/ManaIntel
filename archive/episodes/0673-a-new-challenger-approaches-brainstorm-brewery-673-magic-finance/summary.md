@@ -13,6 +13,7 @@
 
 - Printing: regular
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass, DJ
 - Recommendation: buy
 - Entry: like $6
@@ -39,6 +40,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: under $3
@@ -65,6 +67,7 @@
 
 - Printing: Bloomburrow
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: like $3 or $4

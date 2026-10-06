@@ -13,6 +13,7 @@
 
 - Printing: Murders at Karlov Manor
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: sell
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Bloomburrow
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: sell
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Prophecy
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: sell
 - Entry: Not stated
@@ -85,6 +88,7 @@
 
 - Printing: Duskmourn: House of Horror
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: buy
 - Entry: $10 to $13
@@ -109,6 +113,7 @@
 
 - Printing: Spider-Man
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: buy
 - Entry: under 10
@@ -133,6 +138,7 @@
 
 - Printing: Judge Promo
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): DJ, Corbin
 - Recommendation: buy
 - Entry: roughly $1,000

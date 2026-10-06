@@ -13,6 +13,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Buy
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Scars of Mirrodin
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: Sell
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Innistrad Remastered
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: Buy
 - Entry: like eight
@@ -87,6 +90,7 @@
 
 - Printing: Fallout
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: Buy
 - Entry: um $3 or $4 right now

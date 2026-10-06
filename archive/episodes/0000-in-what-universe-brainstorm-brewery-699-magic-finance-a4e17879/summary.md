@@ -13,6 +13,7 @@
 
 - Printing: The Big Score
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz, Corbin, DJ, Jason
 - Recommendation: pull from bulk
 - Entry: Not stated
@@ -37,6 +38,7 @@
 
 - Printing: Dominaria United
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Liz, DJ, Corbin, Jason
 - Recommendation: sell
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Doctor Who
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Corbin, DJ, Liz, Jason
 - Recommendation: sell
 - Entry: Not stated

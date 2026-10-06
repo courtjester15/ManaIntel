@@ -13,6 +13,7 @@
 
 - Printing: four seasonal plains
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pick them up
 - Entry: almost a dollar
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: sell
 - Entry: Not stated
@@ -61,6 +63,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: three or four dollars
@@ -86,6 +89,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: down to $5
@@ -111,6 +115,7 @@
 
 - Printing: Shattered Glass
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: $35

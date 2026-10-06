@@ -13,6 +13,7 @@
 
 - Printing: Eventide
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: under five dollars
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: $1 to $2
@@ -61,6 +63,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: dollar-ish

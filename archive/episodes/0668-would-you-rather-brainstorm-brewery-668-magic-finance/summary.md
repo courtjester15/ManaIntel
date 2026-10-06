@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: $4
@@ -39,6 +40,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: $15 to $20
@@ -63,6 +65,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $20

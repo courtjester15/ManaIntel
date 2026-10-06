@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair Encyclopedia
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, Ted
 - Recommendation: Buy
 - Entry: $70 to $75
@@ -38,6 +39,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Ted, Cliff
 - Recommendation: Buy
 - Entry: $15
@@ -63,6 +65,7 @@
 
 - Printing: Secret Lair Uncharted
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Cliff, Ted
 - Recommendation: Buy
 - Entry: $8.50
@@ -87,6 +90,7 @@
 
 - Printing: Duskmourn: House of Horror
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Ted, Cliff
 - Recommendation: Buy
 - Entry: 160-170

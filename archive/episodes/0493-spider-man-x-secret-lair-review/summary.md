@@ -13,6 +13,7 @@
 
 - Printing: Slay the Day Borderless
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff Daigle
 - Recommendation: Buy
 - Entry: around the $8 range
@@ -38,6 +39,7 @@
 
 - Printing: Modern Horizons 3 Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: Buy
 - Entry: somewhere between 10 and 12
@@ -64,6 +66,7 @@
 
 - Printing: Eldritch Moon Pack Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Daigle
 - Recommendation: Buy
 - Entry: about $5
@@ -89,6 +92,7 @@
 
 - Printing: Pack Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: Buy
 - Entry: 9 or 10

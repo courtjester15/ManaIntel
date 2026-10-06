@@ -13,6 +13,7 @@
 
 - Printing: Mystical Archive
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: Buy
 - Entry: 60 or 70
@@ -39,6 +40,7 @@
 
 - Printing: Doctor Who
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: Buy
 - Entry: around $5 shipped
@@ -64,6 +66,7 @@
 
 - Printing: Teenage Mutant Ninja Turtles
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: Buy
 - Entry: $2.75 to $3.85
@@ -90,6 +93,7 @@
 
 - Printing: Mirage
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Cliff, James
 - Recommendation: Buy
 - Entry: about 10 or 11 dollars

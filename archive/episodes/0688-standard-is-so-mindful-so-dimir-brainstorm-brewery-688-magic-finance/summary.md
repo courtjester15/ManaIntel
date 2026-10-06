@@ -13,6 +13,7 @@
 
 - Printing: Lorwyn block
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: pull from bulk
 - Entry: $2
@@ -37,6 +38,7 @@
 
 - Printing: Outlaws of Thunder Junction
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: pull from bulk
 - Entry: like, 25 cents
@@ -61,6 +63,7 @@
 
 - Printing: Spider-Man
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pull from bulk
 - Entry: $0.20
@@ -86,6 +89,7 @@
 
 - Printing: Shadowmoor
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: like $2
@@ -110,6 +114,7 @@
 
 - Printing: Guilds of Ravnica
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: Not stated
@@ -134,6 +139,7 @@
 
 - Printing: Final Fantasy
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): 
 - Recommendation: monitor
 - Entry: five dollars and fifteen cents

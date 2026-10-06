@@ -13,6 +13,7 @@
 
 - Printing: Final Fantasy Premium Commander Deck
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott, Cliff Daigle
 - Recommendation: Buy
 - Entry: about $12
@@ -38,6 +39,7 @@
 
 - Printing: Final Fantasy Premium Commander Deck
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott, Cliff Daigle
 - Recommendation: Buy
 - Entry: 15
@@ -63,6 +65,7 @@
 
 - Printing: Extended Art
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Daigle
 - Recommendation: Buy
 - Entry: about $4
@@ -88,6 +91,7 @@
 
 - Printing: Secret Lair
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Daigle, James Chilcott
 - Recommendation: Buy
 - Entry: about $5
@@ -113,6 +117,7 @@
 
 - Printing: Strixhaven Book Promo
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff Daigle
 - Recommendation: Buy
 - Entry: 20

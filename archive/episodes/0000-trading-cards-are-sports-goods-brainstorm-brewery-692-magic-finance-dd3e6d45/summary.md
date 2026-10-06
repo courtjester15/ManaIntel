@@ -13,6 +13,7 @@
 
 - Printing: Murders at Karlov Manor
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin, DJ
 - Recommendation: definitely a play
 - Entry: $1.50
@@ -38,6 +39,7 @@
 
 - Printing: Shadowmoor
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: pull them out and list them
 - Entry: Not stated
@@ -62,6 +64,7 @@
 
 - Printing: Modern Horizons 2
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz, Corbin
 - Recommendation: buy
 - Entry: 40 cents

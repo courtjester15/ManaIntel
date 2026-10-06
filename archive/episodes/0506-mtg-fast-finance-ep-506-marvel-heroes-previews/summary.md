@@ -13,6 +13,7 @@
 
 - Printing: foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: around $8 to $11
@@ -39,6 +40,7 @@
 
 - Printing: Secret Lair Drop
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: about $40
@@ -64,6 +66,7 @@
 
 - Printing: Showcase
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2, James, Cliff
 - Recommendation: buy
 - Entry: 30
@@ -89,6 +92,7 @@
 
 - Printing: Jurassic World Collection
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: 20

@@ -13,6 +13,7 @@
 
 - Printing: Lorwyn block
 - Printing certainty: likely
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: Pick them out of bulk.
 - Entry: 10 cent TCG low
@@ -38,6 +39,7 @@
 
 - Printing: non-English
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: non-English Miku cards on TCGplayer or Card Kingdom or wherever you can find them.
 - Entry: Not stated
@@ -63,6 +65,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: My Standard one is Deceit. I think it is one of the biggest winners from the Standard banlist.
 - Entry: like five bucks
@@ -87,6 +90,7 @@
 
 - Printing: neon
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Corbin
 - Recommendation: I actually went and purchased one of each for myself of the neon Avatar cards.
 - Entry: Not stated

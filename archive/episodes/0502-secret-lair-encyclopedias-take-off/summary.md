@@ -13,6 +13,7 @@
 
 - Printing: Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: 10
@@ -38,6 +39,7 @@
 
 - Printing: Confetti Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $14
@@ -63,6 +65,7 @@
 
 - Printing: Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: 17 to $20
@@ -88,6 +91,7 @@
 
 - Printing: Play-Doh Extra Life Secret Lair
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: about $13

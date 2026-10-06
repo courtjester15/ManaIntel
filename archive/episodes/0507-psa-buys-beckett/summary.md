@@ -13,6 +13,7 @@
 
 - Printing: Showcase
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: $4
@@ -37,6 +38,7 @@
 
 - Printing: Promo
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Daigle
 - Recommendation: buy
 - Entry: $35
@@ -62,6 +64,7 @@
 
 - Printing: Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: buy
 - Entry: mid 30s
@@ -87,6 +90,7 @@
 
 - Printing: Borderless
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Daigle
 - Recommendation: buy
 - Entry: $30

@@ -13,6 +13,7 @@
 
 - Printing: Strixhaven
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: buy
 - Entry: a dollar per copy
@@ -38,6 +39,7 @@
 
 - Printing: Tales of Middle-earth
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: sell
 - Entry: around a dollar
@@ -62,6 +64,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: buy
 - Entry: $4
@@ -86,6 +89,7 @@
 
 - Printing: March of the Machine
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Ryan
 - Recommendation: buy
 - Entry: about $5

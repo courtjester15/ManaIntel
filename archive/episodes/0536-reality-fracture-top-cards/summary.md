@@ -13,6 +13,7 @@
 
 - Printing: borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: Buy borderless foil copies of Y'shtola.
 - Entry: 400
@@ -39,6 +40,7 @@
 
 - Printing: borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Daigle
 - Recommendation: Buy foil borderless copies of Elminster.
 - Entry: around six bucks
@@ -65,6 +67,7 @@
 
 - Printing: Book surge foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: Buy Thranduil Book surge foils.
 - Entry: 120
@@ -92,6 +95,7 @@
 
 - Printing: foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Daigle
 - Recommendation: Buy foil copies of Transguild Courier.
 - Entry: somewhere between $3 to $6, I'm putting it down four and splitting the difference

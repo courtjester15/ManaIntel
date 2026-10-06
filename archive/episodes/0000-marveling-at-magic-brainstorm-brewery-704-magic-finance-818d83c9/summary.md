@@ -13,6 +13,7 @@
 
 - Printing: Doctor Who
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin
 - Recommendation: sell
 - Entry: Not stated

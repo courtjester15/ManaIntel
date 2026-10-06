@@ -13,6 +13,7 @@
 
 - Printing: galaxy foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): speaker_2
 - Recommendation: buy
 - Entry: about $45
@@ -37,6 +38,7 @@
 
 - Printing: Fracture foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James
 - Recommendation: buy
 - Entry: around $65
@@ -62,6 +64,7 @@
 
 - Printing: list reprint
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): speaker_2
 - Recommendation: buy
 - Entry: $28
@@ -87,6 +90,7 @@
 
 - Printing: borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff
 - Recommendation: buy
 - Entry: 18

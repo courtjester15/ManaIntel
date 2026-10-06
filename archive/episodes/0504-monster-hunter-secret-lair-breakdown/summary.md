@@ -13,6 +13,7 @@
 
 - Printing: Halo Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: 30
@@ -38,6 +39,7 @@
 
 - Printing: Foil Extended Art
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: 16

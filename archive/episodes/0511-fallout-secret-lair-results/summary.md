@@ -13,6 +13,7 @@
 
 - Printing: extended art
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: buy
 - Entry: $2.50 to $3
@@ -38,6 +39,7 @@
 
 - Printing: foil extended art
 - Printing certainty: likely
+- Finish: Foil
 - Host(s): Speaker 2, Speaker 1
 - Recommendation: buy
 - Entry: $3
@@ -63,6 +65,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $1
@@ -87,6 +90,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $1

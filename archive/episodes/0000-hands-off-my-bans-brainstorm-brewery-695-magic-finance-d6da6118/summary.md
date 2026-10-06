@@ -13,6 +13,7 @@
 
 - Printing: Lord of the Rings
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $2 to $3
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Liz, Corbin
 - Recommendation: buy
 - Entry: $5
@@ -63,6 +65,7 @@
 
 - Printing: Modern Horizons 3 commander deck
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: $2 to $3

@@ -13,6 +13,7 @@
 
 - Printing: Urza's Legacy
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pull
 - Entry: 30-cent
@@ -36,6 +37,7 @@
 
 - Printing: Secrets of Strixhaven
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: pull
 - Entry: 40 cents
@@ -60,6 +62,7 @@
 
 - Printing: Teenage Mutant Ninja Turtles
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: like a dollar
@@ -85,6 +88,7 @@
 
 - Printing: SOC
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: around $200

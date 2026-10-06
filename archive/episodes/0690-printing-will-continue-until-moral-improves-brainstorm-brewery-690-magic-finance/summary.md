@@ -13,6 +13,7 @@
 
 - Printing: Aether Drift
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: almost $2
@@ -38,6 +39,7 @@
 
 - Printing: Special Guests
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): DJ
 - Recommendation: buy
 - Entry: $50
@@ -63,6 +65,7 @@
 
 - Printing: Fallout
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: $0.25 to $0.75
@@ -88,6 +91,7 @@
 
 - Printing: Murders at Karlov Manor
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Jason
 - Recommendation: buy
 - Entry: under $5

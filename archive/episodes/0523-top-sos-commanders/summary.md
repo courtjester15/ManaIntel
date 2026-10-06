@@ -13,6 +13,7 @@
 
 - Printing: Collector Booster Box
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James Chilcott, Cliff Dane
 - Recommendation: Buy and hold sealed Strixhaven Collector Booster Boxes.
 - Entry: about 530, 540, 550
@@ -38,6 +39,7 @@
 
 - Printing: Japanese Alt Art Silver Scroll
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott, Cliff Dane
 - Recommendation: Buy Crop Rotation Japanese Alt Art Silver Scroll foils.
 - Entry: 100
@@ -63,6 +65,7 @@
 
 - Printing: Special Guests
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff Dane, James Chilcott
 - Recommendation: Buy Thousand-Year Elixir Special Guest foils.
 - Entry: just under 20, like $19
@@ -88,6 +91,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cliff Dane, James Chilcott
 - Recommendation: Buy sealed copies of the Nuestra Magica Secret Lair.
 - Entry: low 70s

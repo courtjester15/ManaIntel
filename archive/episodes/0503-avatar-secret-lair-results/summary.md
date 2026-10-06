@@ -13,6 +13,7 @@
 
 - Printing: Fallout Secret Lair Rainbow Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: buy
 - Entry: $24
@@ -38,6 +39,7 @@
 
 - Printing: MTG Encyclopedia Halo Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $55
@@ -64,6 +66,7 @@
 
 - Printing: MTG Encyclopedia Halo Foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
 - Entry: $300

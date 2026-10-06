@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: Buy
 - Entry: under $30 to under $40
@@ -38,6 +39,7 @@
 
 - Printing: Conspiracy: Take the Crown
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James Chilcott, Cliff
 - Recommendation: Buy
 - Entry: $13 to $15
@@ -65,6 +67,7 @@
 
 - Printing: Kaladesh
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James Chilcott
 - Recommendation: Buy
 - Entry: $15 to $17 range
@@ -91,6 +94,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Foil
 - Host(s): James Chilcott, Cliff
 - Recommendation: Buy
 - Entry: about $18 range
@@ -116,6 +120,7 @@
 
 - Printing: Ice Age
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James Chilcott
 - Recommendation: Buy
 - Entry: $2 to $3 range

@@ -13,6 +13,7 @@
 
 - Printing: Base set
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James, Speaker 2
 - Recommendation: buy
 - Entry: $5.19
@@ -39,6 +40,7 @@
 
 - Printing: Showcase foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Speaker 2
 - Recommendation: buy
 - Entry: around 12 bucks
@@ -64,6 +66,7 @@
 
 - Printing: Borderless foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Speaker 2
 - Recommendation: buy
 - Entry: $5 or $6
@@ -90,6 +93,7 @@
 
 - Printing: Secret Lair Vault 33
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): James, Speaker 2
 - Recommendation: buy
 - Entry: nine to $11

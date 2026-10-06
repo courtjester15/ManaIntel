@@ -13,6 +13,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: sell
 - Entry: 54 cents
@@ -37,6 +38,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Liz
 - Recommendation: buy
 - Entry: $4
@@ -61,6 +63,7 @@
 
 - Printing: Gold Border
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): DJ, Liz
 - Recommendation: buy
 - Entry: 40, 50 bucks
@@ -86,6 +89,7 @@
 
 - Printing: Regular
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Liz
 - Recommendation: buy
 - Entry: 340 to 430

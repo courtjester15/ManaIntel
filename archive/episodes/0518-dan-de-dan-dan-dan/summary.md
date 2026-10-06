@@ -13,6 +13,7 @@
 
 - Printing: Secret Lair Borderless (Kieran Yanner)
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James, Cliff
 - Recommendation: Buy
 - Entry: 95
@@ -38,6 +39,7 @@
 
 - Printing: Wilds of Eldraine foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: Buy
 - Entry: $2.50
@@ -62,6 +64,7 @@
 
 - Printing: Furbies: the Gathering Secret Lair confetti foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: Buy
 - Entry: 45
@@ -86,6 +89,7 @@
 
 - Printing: Secret Lair Fallout Greet the Dog rainbow foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): James, Cliff
 - Recommendation: Buy
 - Entry: $7
@@ -110,6 +114,7 @@
 
 - Printing: Conspiracy: Take the Crown
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): James, Cliff
 - Recommendation: Buy
 - Entry: 15 or 16
@@ -134,6 +139,7 @@
 
 - Printing: showcase fracture foil
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1, Speaker 2
 - Recommendation: Buy
 - Entry: 200

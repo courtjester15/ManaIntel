@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: up to $8
@@ -38,6 +39,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Jason
 - Recommendation: buy
 - Entry: 50 cents
@@ -62,6 +64,7 @@
 
 - Printing: Commander Masters
 - Printing certainty: confirmed
+- Finish: Nonfoil
 - Host(s): DJ
 - Recommendation: buy
 - Entry: like $5
@@ -87,6 +90,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: Not stated
@@ -112,6 +116,7 @@
 
 - Printing: Zendikar Rising Commander
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: like 50 cents
@@ -136,6 +141,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Jason
 - Recommendation: buy
 - Entry: $5
@@ -161,6 +167,7 @@
 
 - Printing: Not stated
 - Printing certainty: Not stated
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: Not stated

@@ -13,6 +13,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ, Corbin, Liz
 - Recommendation: sell
 - Entry: Not stated
@@ -36,6 +37,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin, Liz
 - Recommendation: sell
 - Entry: Not stated
@@ -59,6 +61,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin, Liz
 - Recommendation: sell
 - Entry: Not stated
@@ -82,6 +85,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin, Liz
 - Recommendation: buy
 - Entry: around $2
@@ -105,6 +109,7 @@
 
 - Printing: Not stated
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ, Corbin, Liz
 - Recommendation: buy
 - Entry: $0.75 to to almost $1.50
@@ -128,6 +133,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ, Corbin, Liz
 - Recommendation: buy
 - Entry: $15 up to $20

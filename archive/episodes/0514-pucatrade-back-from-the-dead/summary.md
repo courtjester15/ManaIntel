@@ -13,6 +13,7 @@
 
 - Printing: Spidey version
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 2
 - Recommendation: Buy foil copies of the Spider-Man/Spidey version of Wedding Ring.
 - Entry: $10, $11, $12
@@ -38,6 +39,7 @@
 
 - Printing: Captain America Secret Lair
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1
 - Recommendation: Buy rainbow foil copies of Flawless Maneuver from the Captain America Secret Lair.
 - Entry: just under 20
@@ -64,6 +66,7 @@
 
 - Printing: AFR
 - Printing certainty: confirmed
+- Finish: Foil
 - Host(s): Speaker 1
 - Recommendation: Buy foil extended art copies of Circle of Dreams Druid from Adventures in the Forgotten Realms.
 - Entry: about $12
@@ -89,6 +92,7 @@
 
 - Printing: Aetherdrift Commander
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Cliff
 - Recommendation: Buy copies of the card referred to as Renewed Solidarity from Aetherdrift/Innistrad Commander.
 - Entry: $7 range

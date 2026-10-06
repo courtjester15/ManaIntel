@@ -13,6 +13,7 @@
 
 - Printing: Streets of New Capenna
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: pick from bulk
 - Entry: bulk
@@ -39,6 +40,7 @@
 
 - Printing: Lost Caverns of Ixalan
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: pick from bulk
 - Entry: a quarter TCG low
@@ -64,6 +66,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): DJ
 - Recommendation: buy
 - Entry: roughly $5
@@ -89,6 +92,7 @@
 
 - Printing: Not stated
 - Printing certainty: ambiguous
+- Finish: Not stated
 - Host(s): Cass
 - Recommendation: buy
 - Entry: Not stated
@@ -114,6 +118,7 @@
 
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
+- Finish: Not stated
 - Host(s): Corbin
 - Recommendation: buy
 - Entry: under $20
