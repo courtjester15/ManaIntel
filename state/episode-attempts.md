@@ -1,9 +1,8 @@
 # Episode attempt log
 
-Automatic attempt logging starts with the reliability patch. No historical
-attempts have been fabricated or backfilled.
+Generated from `attempts/*.json`. Outcomes describe local processing; workflow validation is separate. Run links identify persistence/deployment outcomes. No historical backfill is implied.
 
-Future runs regenerate this file from attempts/*.json and runs/*.json.
-It includes successful processing, failures, retries, explicit skips, recovery
-actions, validation outcomes, and workflow no-ops. See
-[the logging guide](../docs/INGESTION_RELIABILITY.md) for interpretation.
+
+## Workflow outcomes
+
+- 2026-10-06T16:47:57Z — run 37498445368/1: preflight=success; pipeline=success; exit=0; validation=success; selected=0; . [Details](runs/37498445368-1.json)
