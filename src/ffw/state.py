@@ -11,6 +11,7 @@ from .utils import atomic_write_json, load_json
 class JsonStateStore:
     def __init__(self, path: Path) -> None:
         self.path = path
+        self.audit_callback = None
 
     def _load(self) -> dict[str, Any]:
         return load_json(
@@ -44,6 +45,9 @@ class JsonStateStore:
         state["updated_at"] = timestamp
         state["pipeline_version"] = PIPELINE_VERSION
         atomic_write_json(self.path, state)
+        if self.audit_callback:
+            details = {key: updates[key] for key in ("pick_count", "review_reason", "extraction_model", "extraction_usage", "transcription") if key in updates}
+            self.audit_callback("stage", stage=status, **details)
 
     def discover(self, episode: Any) -> bool:
         if self.get(episode.guid):

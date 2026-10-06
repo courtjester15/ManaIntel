@@ -77,7 +77,7 @@ class GeminiPickVerifier:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not api_key:
             return extraction
-        client = genai.Client(api_key=api_key)
+        client = genai.Client(api_key=api_key, http_options=types.HttpOptions(timeout=300000, retry_options={"attempts": 1}))
         checked = 0
         accepted_count = 0
         for pick_index, pick in enumerate(extraction.get("recommendations", [])):
@@ -108,6 +108,8 @@ class GeminiPickVerifier:
                     model=self.model_name,
                     contents=[prompt, types.Part.from_bytes(data=clip_path.read_bytes(), mime_type="audio/mpeg")],
                     schema=VERIFICATION_SCHEMA,
+                    observer=(lambda event, **details: self.audit_callback(event, stage="verifying", **details))
+                    if getattr(self, "audit_callback", None) else None,
                 )
                 result.pop("_usage", None)
                 verdict_name = str(result.get("card") or "").strip()

@@ -4,13 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "manaintel"
-version = "0.5.3"
+version = "0.5.4"
 description = "ManaIntel: an automated MTG podcast recommendation archive"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Private" }
 authors = [{ name = "ManaIntel contributors" }]
-dependencies = ["google-genai>=1.0.0,<2", "openai>=2.45.0,<3"]
+dependencies = ["google-genai>=1.50.0,<2", "openai>=2.45.0,<3"]
+
+[project.optional-dependencies]
+test = ["PyYAML>=6,<7"]
 
 [project.scripts]
 manaintel = "ffw.cli:main"

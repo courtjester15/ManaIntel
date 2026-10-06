@@ -47,6 +47,14 @@ on:
         description: Optional prior Actions run ID whose retained transcript should be reused
         required: false
         default: ""
+      attempt_note:
+        description: Optional reason for this recovery or experiment (saved in attempt log)
+        required: false
+        default: ""
+      fresh_transcript:
+        description: Ignore automatically retained transcripts and transcribe fresh
+        type: boolean
+        default: false
       deploy:
         description: Deploy GitHub Pages after validation
         required: true
@@ -58,6 +66,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: read
   contents: write
   pages: write
   id-token: write
@@ -71,6 +80,8 @@ env:
   # adapter remains available for a future explicit, paid opt-in.
   FFW_TRANSCRIPTION_PROVIDER_FALLBACK: ""
   FFW_RETAIN_TRANSCRIPTS: "true"
+  FFW_AUTO_REUSE_TRANSCRIPTS: ${{ inputs.fresh_transcript && 'false' || 'true' }}
+  FFW_ATTEMPT_NOTE: ${{ inputs.attempt_note || '' }}
   FFW_REUSE_TRANSCRIPTS: ${{ inputs.reuse_transcript_run_id != '' }}
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
   FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
@@ -112,7 +123,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes ffmpeg
           python -m pip install --upgrade pip
-          python -m pip install -e .
+          python -m pip install -e ".[test]"
 
       - name: Run network-free tests
         env:
@@ -136,6 +147,11 @@ jobs:
             exit 2
           fi
 
+      - name: Preflight existing production archive
+        id: preflight
+        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        run: python -m ffw validate
+
       - name: Restore private transcription checkpoints
         if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
         id: checkpoint_restore
@@ -145,6 +161,15 @@ jobs:
           key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             ffw-chunks-${{ runner.os }}-
+
+      - name: Restore private retained transcripts
+        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        uses: actions/cache/restore@v4
+        with:
+          path: .ffw-work/transcripts
+          key: ffw-transcripts-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ffw-transcripts-${{ runner.os }}-
 
       - name: Download retained transcript for recovery
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_transcript_run_id != '' }}
@@ -210,15 +235,24 @@ jobs:
           path: .ffw-work/chunk-checkpoints
           key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
 
+      - name: Save private retained transcripts
+        if: ${{ always() && github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .ffw-work/transcripts
+          key: ffw-transcripts-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+
       - name: Build deploy-only production catalog
         if: ${{ github.event_name == 'push' || inputs.mode == 'deploy_only' }}
         run: python -m ffw render
 
       - name: Validate production archive
+        id: validation
+        continue-on-error: true
         run: python -m ffw validate
 
       - name: Upload private transcript diagnostics
-        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        if: ${{ always() && github.event_name != 'push' && inputs.mode != 'deploy_only' }}
         uses: actions/upload-artifact@v4
         with:
           name: transcripts-${{ github.run_id }}-${{ github.run_attempt }}
@@ -228,7 +262,7 @@ jobs:
 
 
       - name: Upload private reprocessing comparisons
-        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        if: ${{ always() && github.event_name != 'push' && inputs.mode != 'deploy_only' }}
         uses: actions/upload-artifact@v4
         with:
           name: reprocessing-${{ github.run_id }}-${{ github.run_attempt }}
@@ -237,23 +271,49 @@ jobs:
             .ffw-work/reprocess-reports/*.json
           if-no-files-found: ignore
           retention-days: 14
+      - name: Finalize attempt and workflow journals
+        id: audit
+        if: ${{ always() && github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        env:
+          VALIDATION: ${{ steps.validation.outcome }}
+          PREFLIGHT: ${{ steps.preflight.outcome }}
+          PIPELINE: ${{ steps.pipeline.outcome }}
+          PIPELINE_EXIT: ${{ steps.pipeline.outputs.exit_code }}
+        run: python -m ffw.audit --validation "$VALIDATION" --preflight "$PREFLIGHT" --pipeline "$PIPELINE"
+      - name: Upload attempt evidence even on failure
+        if: ${{ always() && steps.audit.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: attempts-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            state/attempts
+            state/runs
+            state/episode-attempts.md
+          retention-days: 30
       - name: Persist durable state and archive
-        if: ${{ github.event_name != 'push' && (github.event_name != 'workflow_dispatch' || inputs.mode != 'deploy_only') }}
+        if: ${{ always() && steps.audit.outcome == 'success' }}
         id: persist
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add archive state
+          git add state/episode-attempts.md state/runs
+          if [[ -d state/attempts ]]; then git add state/attempts; fi
+          if [[ "${{ steps.validation.outcome }}" == "success" ]]; then git add archive state; fi
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore(ffw): publish automated episode updates"
             git push origin HEAD:${{ github.event.repository.default_branch }}
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            if [[ "${{ steps.validation.outcome }}" == "success" ]]; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
       - name: Build clean Pages artifact
+        if: ${{ steps.validation.outcome == 'success' }}
         shell: bash
         run: |
           mkdir -p _site/archive
@@ -261,6 +321,7 @@ jobs:
           cp -R archive/. _site/archive/
 
       - name: Decide Pages publication
+        if: ${{ steps.validation.outcome == 'success' }}
         id: pages_gate
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -330,8 +391,12 @@ jobs:
         if: ${{ steps.pipeline.outputs.exit_code != '' && steps.pipeline.outputs.exit_code != '0' }}
         shell: bash
         run: |
-          echo "::error::ManaIntel pipeline failed with exit code ${{ steps.pipeline.outputs.exit_code }}. Durable failure state was validated and persisted."
+          echo "::error::ManaIntel pipeline failed with exit code ${{ steps.pipeline.outputs.exit_code }}. Inspect the attempt journal and validation/persistence steps."
           exit "${{ steps.pipeline.outputs.exit_code }}"
+
+      - name: Report archive validation failure
+        if: ${{ always() && steps.validation.outcome == 'failure' }}
+        run: exit 1
 
 
   deploy:

@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import time
 from pathlib import Path
 from typing import Any
 
@@ -11,7 +12,16 @@ def atomic_write_text(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(content, encoding="utf-8", newline="\n")
-    temporary.replace(path)
+    for attempt in range(6):
+        try:
+            temporary.replace(path)
+            break
+        except PermissionError as exc:
+            # Windows scanners can briefly hold the target between write and rename.
+            # Do not mask genuine permissions errors or retry indefinitely.
+            if getattr(exc, "winerror", None) not in {5, 32, 33} or attempt == 5:
+                raise
+            time.sleep(0.02 * (attempt + 1))
 
 
 def atomic_write_json(path: Path, payload: Any) -> None:

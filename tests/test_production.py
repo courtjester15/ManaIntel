@@ -1066,6 +1066,7 @@ class ProductionPipelineTests(unittest.TestCase):
         fake_genai = stdlib_types.ModuleType("google.genai")
         fake_genai.Client = lambda **kwargs: object()
         fake_genai.types = stdlib_types.SimpleNamespace(
+            HttpOptions=lambda **kwargs: kwargs,
             Part=stdlib_types.SimpleNamespace(from_bytes=lambda **kwargs: kwargs),
         )
         fake_google = stdlib_types.ModuleType("google")

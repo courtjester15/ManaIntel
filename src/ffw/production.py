@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import re
 import shutil
@@ -337,13 +338,20 @@ def _is_gemini_schema_error(exc: Exception) -> bool:
 
 
 def _is_transient_gemini_error(exc: Exception) -> bool:
+    try:
+        import httpx
+        transport_errors = (httpx.TransportError,)
+    except ImportError:
+        transport_errors = ()  # Network-free installations need no provider SDK.
+    if isinstance(exc, (*transport_errors, ConnectionError, TimeoutError)):
+        return True
     if isinstance(exc, (GeminiMalformedJSONError, json.JSONDecodeError)):
         return True
     text = str(exc).lower()
     return any(token in text for token in (
         "408", "429", "500", "502", "503", "504", "connection reset",
         "deadline_exceeded", "rate limit", "resource_exhausted", "server disconnected",
-        "temporarily unavailable", "timed out", "timeout",
+        "temporarily unavailable", "timed out", "timeout", "incomplete chunked read", "peer closed connection",
     ))
 
 
@@ -352,16 +360,20 @@ def _is_gemini_quota_error(exc: Exception) -> bool:
     return "429" in text or "resource_exhausted" in text or "quota exceeded" in text
 
 
-def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list[Any], schema: dict[str, Any]) -> dict[str, Any]:
+def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list[Any], schema: dict[str, Any], observer: Callable[..., None] | None = None, allow_schema_fallback: bool = True) -> dict[str, Any]:
     attempts = [
         {"response_mime_type": "application/json", "response_json_schema": schema},
         {"response_mime_type": "application/json", "response_schema": schema},
         {"response_mime_type": "application/json"},
     ]
     last_error: Exception | None = None
+    if not allow_schema_fallback:
+        attempts = attempts[:1]
     for config_kwargs in attempts:
+        started = time.monotonic()
+        diagnostics: dict[str, Any] = {}
         request_contents = contents
-        if config_kwargs == attempts[-1]:
+        if "response_json_schema" not in config_kwargs and "response_schema" not in config_kwargs:
             request_contents = [*contents, "Required JSON schema:\n" + json.dumps(schema, ensure_ascii=False)]
         try:
             response = client.models.generate_content(
@@ -369,7 +381,13 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
                 contents=request_contents,
                 config=types.GenerateContentConfig(**config_kwargs),
             )
+            usage = getattr(response, "usage_metadata", None)
+            usage = usage.model_dump() if hasattr(usage, "model_dump") else (dict(usage) if usage else None)
+            diagnostics = {"finish_reason": _gemini_finish_reason(response), "provider_usage": usage,
+                           "response_characters": len(getattr(response, "text", "") or "")}
             try:
+                if diagnostics["finish_reason"] == "MAX_TOKENS":
+                    raise GeminiMalformedJSONError("Gemini output truncated; finish reason: MAX_TOKENS.")
                 payload = _json_from_model_text(getattr(response, "text", "") or "{}")
             except json.JSONDecodeError as exc:
                 finish_reason = _gemini_finish_reason(response)
@@ -377,10 +395,16 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
                     f"Gemini returned malformed JSON ({exc.msg} at line {exc.lineno}, column {exc.colno}; "
                     f"finish reason: {finish_reason})."
                 ) from exc
-            usage = getattr(response, "usage_metadata", None)
-            payload["_usage"] = usage.model_dump() if hasattr(usage, "model_dump") else (dict(usage) if usage else None)
+            payload["_usage"] = usage
+            if observer:
+                observer("model_call", model=model, outcome="success", request_seconds=round(time.monotonic() - started, 3), **diagnostics)
             return payload
         except Exception as exc:
+            if observer:
+                status = getattr(exc, "code", None) or getattr(exc, "status_code", None)
+                status = int(status) if isinstance(status, (int, str)) and str(status).isdigit() else None
+                observer("model_call", model=model, outcome="failed", exception_class=type(exc).__name__,
+                         message=str(exc), http_status=status, request_seconds=round(time.monotonic() - started, 3), **diagnostics)
             if not _is_gemini_schema_error(exc) or config_kwargs == attempts[-1]:
                 raise
             last_error = exc
@@ -439,14 +463,16 @@ class GeminiTranscriber:
         return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
 
     def _load_chunk_checkpoint(
-        self, episode: EpisodeCandidate, index: int, chunk_count: int, fingerprint: str,
+        self, episode: EpisodeCandidate, index: int, chunk_count: int, fingerprint: str, suffix: str = "",
     ) -> tuple[dict[str, Any], str, float] | None:
         checkpoint_dir = self._checkpoint_dir(episode)
         if checkpoint_dir is None:
             return None
-        path = checkpoint_dir / f"chunk-{index:03d}.json"
+        path = checkpoint_dir / f"chunk-{index:03d}{suffix}.json"
         try:
             saved = json.loads(path.read_text(encoding="utf-8"))
+            if saved.get("fingerprint") != fingerprint and getattr(self, "audit_callback", None):
+                self.audit_callback("checkpoint_invalidated", chunk=index + 1, reason="audio/prompt/model configuration changed")
             if (
                 saved.get("fingerprint") != fingerprint
                 or saved.get("chunk_index") != index
@@ -468,12 +494,13 @@ class GeminiTranscriber:
         payload: dict[str, Any],
         model: str,
         request_seconds: float,
+        suffix: str = "",
     ) -> None:
         checkpoint_dir = self._checkpoint_dir(episode)
         if checkpoint_dir is None:
             return
         checkpoint_dir.mkdir(parents=True, exist_ok=True)
-        path = checkpoint_dir / f"chunk-{index:03d}.json"
+        path = checkpoint_dir / f"chunk-{index:03d}{suffix}.json"
         temporary = path.with_suffix(".tmp")
         temporary.write_text(json.dumps({
             "version": 1,
@@ -507,12 +534,16 @@ class GeminiTranscriber:
                         model=model,
                         contents=contents,
                         schema=TRANSCRIPT_SCHEMA,
+                        observer=getattr(self, "audit_callback", None),
                     ), model
                 except Exception as exc:
                     if not _is_transient_gemini_error(exc):
                         raise
                     last_error = exc
                     transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
+                    # Truncated output will not improve by repeating the same chunk/model.
+                    if "MAX_TOKENS" in str(exc):
+                        break
                     # A daily/model quota response will not recover by repeating
                     # the same model. Move directly to the same-key fallback.
                     if _is_gemini_quota_error(exc):
@@ -521,6 +552,69 @@ class GeminiTranscriber:
                         time.sleep(self.retry_delay_seconds * (2 ** attempt))
         details = "; ".join(transient_errors)
         raise RuntimeError(f"Gemini transcription models exhausted after transient errors: {details}") from last_error
+
+    def _rescue_chunk(self, client: Any, types: Any, episode: EpisodeCandidate, path: Path,
+                      index: int, chunk_count: int, fingerprint: str, prompt: str) -> tuple[dict[str, Any], str]:
+        """One level, one primary-model call per half; successful halves are checkpointed."""
+        observer = getattr(self, "audit_callback", None)
+        checkpoint_dir = self._checkpoint_dir(episode)
+        plan_path = checkpoint_dir / f"chunk-{index:03d}-split.json" if checkpoint_dir else None
+        measured = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+            capture_output=True, text=True, timeout=30,
+        )
+        if measured.returncode:
+            raise RuntimeError("ffprobe failed while measuring MAX_TOKENS rescue chunk.")
+        duration = float(measured.stdout.strip())
+        if not math.isfinite(duration) or duration <= 2:
+            raise ValueError("MAX_TOKENS rescue requires a finite audio duration greater than two seconds.")
+        half = duration / 2
+        if plan_path:
+            checkpoint_dir.mkdir(parents=True, exist_ok=True)
+            from .utils import atomic_write_json
+            atomic_write_json(plan_path, {"fingerprint": fingerprint, "duration": duration})
+        payloads = []
+        rescue_dir = path.parent / f"{path.stem}-rescue"
+        rescue_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            for part in range(2):
+                suffix = f"-half-{part}"
+                saved = self._load_chunk_checkpoint(episode, index, chunk_count, fingerprint + f":split-v1:{duration}", suffix)
+                if saved:
+                    payload, model, seconds = saved
+                    if observer:
+                        observer("checkpoint_reused", chunk=index + 1, subchunk=part + 1, model=model)
+                else:
+                    audio = rescue_dir / f"half-{part}.mp3"
+                    prepared = subprocess.run(
+                        ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(path),
+                         "-ss", str(part * half), "-t", str(half), "-vn", "-ac", "1", "-ar", "16000", "-b:a", "32k", str(audio)],
+                        capture_output=True, text=True, timeout=180,
+                    )
+                    if prepared.returncode or not audio.exists() or not audio.stat().st_size:
+                        raise RuntimeError("ffmpeg failed preparing MAX_TOKENS rescue half.")
+                    started = time.monotonic()
+                    def observe(event: str, **details: Any) -> None:
+                        if observer:
+                            observer(event, chunk=index + 1, subchunk=part + 1, stage="transcribing", **details)
+                    payload = _gemini_generate_json(
+                        client, types, model=self.model_name,
+                        contents=[prompt, types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
+                        schema=TRANSCRIPT_SCHEMA, observer=observe, allow_schema_fallback=False,
+                    )
+                    model, seconds = self.model_name, round(time.monotonic() - started, 3)
+                    self._save_chunk_checkpoint(episode, index, chunk_count, fingerprint + f":split-v1:{duration}", payload, model, seconds, suffix)
+                adjusted = deepcopy(payload)
+                for segment in adjusted.get("segments", []):
+                    start = min(max(float(segment.get("start", 0)), 0), half)
+                    end = min(max(float(segment.get("end", start)), start), half)
+                    segment.update(start=start + part * half, end=end + part * half)
+                payloads.append(adjusted)
+            return {"text": "\n".join(str(item.get("text", "")) for item in payloads),
+                    "segments": [segment for item in payloads for segment in item.get("segments", [])],
+                    "_usage": {"rescue_subchunks": [item.get("_usage") for item in payloads]}}, self.model_name
+        finally:
+            shutil.rmtree(rescue_dir, ignore_errors=True)
 
     def transcribe(self, episode: EpisodeCandidate, audio_files: list[Path]) -> dict[str, Any]:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
@@ -531,7 +625,7 @@ class GeminiTranscriber:
 
         client = genai.Client(
             api_key=api_key,
-            http_options=types.HttpOptions(timeout=int(self.request_timeout_seconds * 1000)),
+            http_options=types.HttpOptions(timeout=int(self.request_timeout_seconds * 1000), retry_options={"attempts": 1}),
         )
         segments: list[dict[str, Any]] = []
         timing_adjustments = 0
@@ -549,6 +643,8 @@ class GeminiTranscriber:
             "Keep card names and price phrases as spoken."
         )
         fingerprint = self._checkpoint_fingerprint(episode, audio_files, prompt)
+        rescue_used = False
+        observer = getattr(self, "audit_callback", None)
         for index, path in enumerate(audio_files):
             started = time.monotonic()
             checkpoint = self._load_chunk_checkpoint(episode, index, len(audio_files), fingerprint)
@@ -556,16 +652,35 @@ class GeminiTranscriber:
             if checkpoint is not None:
                 payload, used_model, request_seconds = checkpoint
                 print(f"Reusing private transcription checkpoint for chunk {index + 1}/{len(audio_files)}.")
+                if observer:
+                    observer("checkpoint_reused", chunk=index + 1, model=used_model)
             else:
                 try:
-                    payload, used_model = self._transcribe_chunk(
-                        client,
-                        types,
-                        contents=[
-                            prompt,
-                            types.Part.from_bytes(data=path.read_bytes(), mime_type="audio/mpeg"),
-                        ],
-                    )
+                    directory = self._checkpoint_dir(episode)
+                    plan_path = directory / f"chunk-{index:03d}-split.json" if directory else None
+                    from .utils import load_json
+                    split_planned = bool(plan_path and load_json(plan_path, {}).get("fingerprint") == fingerprint)
+                    if split_planned and not rescue_used:
+                        rescue_used = True
+                        payload, used_model = self._rescue_chunk(client, types, episode, path, index, len(audio_files), fingerprint, prompt)
+                    else:
+                        original_observer = getattr(self, "audit_callback", None)
+                        try:
+                            if observer:
+                                self.audit_callback = lambda event, **details: observer(event, chunk=index + 1, stage="transcribing", **details)
+                            payload, used_model = self._transcribe_chunk(
+                                client, types, contents=[prompt, types.Part.from_bytes(data=path.read_bytes(), mime_type="audio/mpeg")],
+                            )
+                        except Exception as exc:
+                            if rescue_used or "MAX_TOKENS" not in str(exc):
+                                raise
+                            rescue_used = True
+                            if observer:
+                                observer("chunk_split", chunk=index + 1, reason="MAX_TOKENS", additional_call_cap=2)
+                            self.audit_callback = original_observer
+                            payload, used_model = self._rescue_chunk(client, types, episode, path, index, len(audio_files), fingerprint, prompt)
+                        finally:
+                            self.audit_callback = original_observer
                 except Exception as exc:
                     elapsed = time.monotonic() - started
                     raise RuntimeError(
@@ -749,6 +864,7 @@ class GeminiExtractor:
                     payload = _gemini_generate_json(
                         client, types, model=model, contents=contents,
                         schema=_inline_json_schema_refs(EXTRACTION_SCHEMA),
+                        observer=getattr(self, "audit_callback", None),
                     )
                     return payload, model
                 except Exception as exc:
@@ -778,7 +894,7 @@ class GeminiExtractor:
 
         client = genai.Client(
             api_key=api_key,
-            http_options=types.HttpOptions(timeout=int(self.request_timeout_seconds * 1000)),
+            http_options=types.HttpOptions(timeout=int(self.request_timeout_seconds * 1000), retry_options={"attempts": 1}),
         )
         evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
         instructions = (

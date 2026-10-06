@@ -22,6 +22,8 @@ env:
   FFW_EXTRACTION_MODEL: gemini-3.5-flash
   FFW_EXTRACTION_FALLBACK_MODEL: gemini-3.5-flash-lite
   FFW_RETAIN_TRANSCRIPTS: "true"
+  FFW_AUTO_REUSE_TRANSCRIPTS: "true"
+  FFW_ATTEMPT_NOTE: Automatic low-pick recovery
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
   FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
   FFW_AUDIO_CHUNK_SECONDS: "900"
@@ -50,7 +52,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes ffmpeg
           python -m pip install --upgrade pip
-          python -m pip install -e .
+          python -m pip install -e ".[test]"
+      - name: Run network-free tests
+        env:
+          FFW_MODE: mock
+        run: python -m unittest discover -s tests -v
       - name: Require a successful primary run today
         id: primary
         env:
@@ -68,20 +74,20 @@ jobs:
               "gh", "api", "--method", "GET", "repos/${{ github.repository }}/actions/workflows/ffw.yml/runs",
               "-f", "event=schedule", "-f", "status=completed", "-f", "per_page=20",
           ], text=True)
-          def pacific_date(run: dict) -> str:
+          def pacific_date(run):
               timestamp = run.get("updated_at", "")
-              if not timestamp:
-                  return ""
-              return datetime.fromisoformat(timestamp.replace("Z", "+00:00")).astimezone(ZoneInfo("America/Los_Angeles")).date().isoformat()
-
+              return datetime.fromisoformat(timestamp.replace("Z", "+00:00")).astimezone(ZoneInfo("America/Los_Angeles")).date().isoformat() if timestamp else ""
           ready = any(
               run.get("conclusion") == "success" and pacific_date(run) == today
               for run in json.loads(payload).get("workflow_runs", [])
           )
-          print(f"Primary-run gate: {'ready' if ready else 'not ready'} for Pacific date {today}.")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"ready={'true' if ready else 'false'}\n")
           PY
+      - name: Preflight existing production archive
+        id: preflight
+        if: ${{ steps.primary.outputs.ready == 'true' || github.event_name == 'workflow_dispatch' }}
+        run: python -m ffw validate
       - name: Select one unconfirmed low-pick episode
         id: queue
         if: ${{ steps.primary.outputs.ready == 'true' || github.event_name == 'workflow_dispatch' }}
@@ -110,22 +116,11 @@ jobs:
               if episode.get("zero_pick_disposition") == "confirmed_no_recommendations":
                   continue
               pick_count = episode.get("pick_count", 0)
-              is_unconfirmed_zero = pick_count == 0
               is_mtgff_partial = episode.get("source_id") == "mtg-fast-finance" and 0 < pick_count < 4
-              if not (is_unconfirmed_zero or is_mtgff_partial):
-                  continue
-              if episode.get("status") not in {"failed", "needs_review", "complete"}:
+              if not (pick_count == 0 or is_mtgff_partial) or episode.get("status") not in {"failed", "needs_review", "complete"}:
                   continue
               error = episode.get("error") or {}
-              candidates.append((
-                  0 if is_mtgff_partial else 1,
-                  0 if episode.get("source_id") == "mtg-fast-finance" else 1,
-                  0 if error.get("stage") == "extracting" else 1,
-                  episode.get("attempt_count", 0),
-                  episode.get("updated_at", ""),
-                  guid,
-                  episode,
-              ))
+              candidates.append((0 if is_mtgff_partial else 1, 0 if episode.get("source_id") == "mtg-fast-finance" else 1, 0 if error.get("stage") == "extracting" else 1, episode.get("attempt_count", 0), episode.get("updated_at", ""), guid, episode))
 
           guid = ""
           if ledger["daily_runs"] < int(os.environ["FFW_DAILY_LOW_PICK_REPROCESS_LIMIT"]) and candidates:
@@ -135,7 +130,24 @@ jobs:
           ledger_path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"guid={guid}\n")
+              output.write(f"reason={'selected' if guid else 'daily cap reached' if ledger['daily_runs'] >= int(os.environ['FFW_DAILY_LOW_PICK_REPROCESS_LIMIT']) else 'no eligible episode'}\n")
           PY
+      - name: Restore private transcription checkpoints and transcripts
+        if: ${{ steps.queue.outputs.guid != '' }}
+        uses: actions/cache/restore@v4
+        with:
+          path: .ffw-work/chunk-checkpoints
+          key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ffw-chunks-${{ runner.os }}-
+      - name: Restore private retained transcripts
+        if: ${{ steps.queue.outputs.guid != '' }}
+        uses: actions/cache/restore@v4
+        with:
+          path: .ffw-work/transcripts
+          key: ffw-transcripts-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ffw-transcripts-${{ runner.os }}-
       - name: Reprocess selected episode
         id: pipeline
         if: ${{ steps.queue.outputs.guid != '' }}
@@ -143,8 +155,28 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python -m ffw run --live --force-guid "${{ steps.queue.outputs.guid }}"
+      - name: Save private transcription checkpoints and transcripts
+        if: ${{ always() && steps.pipeline.outcome != 'skipped' && steps.queue.outputs.guid != '' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .ffw-work/chunk-checkpoints
+          key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Save private retained transcripts
+        if: ${{ always() && steps.pipeline.outcome != 'skipped' && steps.queue.outputs.guid != '' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .ffw-work/transcripts
+          key: ffw-transcripts-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Upload private transcript diagnostics
+        if: ${{ always() && steps.queue.outputs.guid != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: transcripts-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .ffw-work/transcripts/*.json.gz
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Record queue outcome
-        if: ${{ steps.queue.outputs.guid != '' }}
+        if: ${{ always() && steps.queue.outputs.guid != '' }}
         env:
           GUID: ${{ steps.queue.outputs.guid }}
           OUTCOME: ${{ steps.pipeline.outcome }}
@@ -168,18 +200,42 @@ jobs:
           path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
           PY
       - name: Validate durable archive
-        if: ${{ steps.queue.outputs.guid != '' }}
+        id: validation
+        if: ${{ always() && steps.queue.outputs.guid != '' }}
+        continue-on-error: true
         run: python -m ffw validate
+      - name: Finalize attempt and workflow journals
+        id: audit
+        if: always()
+        env:
+          VALIDATION: ${{ steps.validation.outcome }}
+          PREFLIGHT: ${{ steps.preflight.outcome }}
+          PIPELINE: ${{ steps.pipeline.outcome }}
+          GATE: ${{ steps.primary.outputs.ready }}
+          SELECTION: ${{ steps.queue.outputs.reason }}
+        run: python -m ffw.audit --validation "$VALIDATION" --preflight "$PREFLIGHT" --pipeline "$PIPELINE" --note "Primary gate=$GATE; queue=$SELECTION"
+      - name: Upload attempt evidence even on failure
+        if: ${{ always() && steps.audit.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: attempts-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            state/attempts
+            state/runs
+            state/episode-attempts.md
+          retention-days: 30
       - name: Persist queue and archive
-        if: ${{ steps.queue.outputs.guid != '' }}
+        if: ${{ always() && steps.audit.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add archive state
+          git add state/episode-attempts.md state/runs
+          if [[ -d state/attempts ]]; then git add state/attempts; fi
+          if [[ "${{ steps.validation.outcome }}" == "success" ]]; then git add archive state; fi
           if ! git diff --cached --quiet; then
             git commit -m "chore(ffw): advance zero-pick reprocessing queue"
             git push origin HEAD:${{ github.event.repository.default_branch }}
           fi
       - name: Report blocked item
-        if: ${{ steps.pipeline.outcome == 'failure' }}
+        if: ${{ always() && (steps.pipeline.outcome == 'failure' || steps.validation.outcome == 'failure') }}
         run: exit 1

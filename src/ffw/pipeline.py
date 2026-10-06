@@ -10,6 +10,7 @@ import os
 from typing import Any
 
 from .archive import rebuild_catalog
+from .audit import AttemptJournal, safe_message
 from .card_resolution import ScryfallCardResolver, resolve_archive_card_names
 from .config import PIPELINE_VERSION, PROMPT_VERSION, SCHEMA_VERSION, Settings
 from .interfaces import AudioDownloader, AudioProcessor, Extractor, FeedSource, Transcriber
@@ -20,6 +21,7 @@ from .rendering import render_episode_markdown
 from .state import JsonStateStore
 from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json, seconds_to_timestamp, stable_pick_id
 from .verification import GeminiPickVerifier
+from .validation import validate_archive
 
 PERMANENT_PROVIDER_ERROR_PATTERNS = (
     "401",
@@ -78,6 +80,9 @@ TRANSIENT_ERROR_PATTERNS = (
     "temporarily unavailable",
     "timed out",
     "timeout",
+    "incomplete chunked read",
+    "peer closed connection",
+    "remoteprotocolerror",
 )
 
 EPISODE_ERROR_PATTERNS = (
@@ -100,10 +105,10 @@ def classify_failure(message: str) -> tuple[str, bool, bool]:
         return "provider_configuration", False, True
     if any(pattern in normalized for pattern in EPISODE_ERROR_PATTERNS):
         return "episode_input", False, False
-    if "malformed json" in normalized or "jsondecodeerror" in normalized:
-        return "transient_model_output", True, False
     if any(pattern in normalized for pattern in TRANSIENT_ERROR_PATTERNS):
         return "transient_provider", True, True
+    if "malformed json" in normalized or "jsondecodeerror" in normalized or "max_tokens" in normalized:
+        return "transient_model_output", True, False
     # Unknown model/output failures receive bounded retries, then quarantine.
     return "unknown", True, False
 
@@ -208,6 +213,11 @@ class Pipeline:
             include_completed=force,
             source_id=source_id,
         )
+        if self.last_selection.selected and self.settings.mode == "live" and (self.settings.archive_dir / "index.json").exists():
+            issues = validate_archive(self.settings.archive_dir, self.settings.state_file, expected_production=True)
+            errors = [issue for issue in issues if issue.severity == "error"]
+            if errors:
+                raise ValueError("Archive preflight failed before provider calls: " + "; ".join(f"{issue.code}: {issue.message}" for issue in errors[:5]))
         results: list[PipelineResult] = []
         for episode in self.last_selection.selected:
             self.state.discover(episode)
@@ -369,10 +379,22 @@ class Pipeline:
 
     def process_episode(self, episode: EpisodeCandidate, *, force: bool = False, retry_failed: bool = False) -> PipelineResult:
         existing = self.state.get(episode.guid)
+        journal = AttemptJournal(
+            self.settings.state_file, episode, force=force, retry_failed=retry_failed,
+            reuse_transcript=self.settings.reuse_transcripts,
+            prior_status=(existing or {}).get("status"), prior_attempt_count=(existing or {}).get("attempt_count", 0),
+            transcription_model=self.transcriber.model_name, extraction_model=self.extractor.model_name,
+            chunk_seconds=self.settings.audio_chunk_seconds,
+            transcription_fallback=getattr(self.transcriber, "fallback_model_name", None),
+            extraction_fallback=getattr(self.extractor, "fallback_model_name", None),
+            transient_retries=self.settings.gemini_transient_retries,
+            request_timeout_seconds=self.settings.gemini_request_timeout_seconds,
+        )
         should_skip_failed = existing and existing.get("status") == "failed" and (episode.synthetic or not retry_failed)
         if existing and (existing.get("status") in TERMINAL_STATES or should_skip_failed) and not force:
             if existing.get("status") in TERMINAL_STATES:
                 self._clear_transcription_checkpoint(episode)
+            journal.finish("skipped", pick_count=existing.get("pick_count", 0), note="Already processed; idempotent skip.")
             return PipelineResult(
                 guid=episode.guid,
                 status=existing["status"],
@@ -392,8 +414,10 @@ class Pipeline:
             relative_output = f"episodes/{slug}"
         output_dir = self.settings.archive_dir / relative_output
         baseline_summary = None
+        baseline_outputs: dict[str, str] = {}
         if force and (output_dir / "summary.json").exists():
             baseline_summary = load_json(output_dir / "summary.json", {})
+            baseline_outputs = {name: (output_dir / name).read_text(encoding="utf-8") for name in ("summary.json", "summary.md", "metadata.json") if (output_dir / name).exists()}
             baseline_dir = self.settings.work_dir / "reprocess-baselines"
             baseline_dir.mkdir(parents=True, exist_ok=True)
             atomic_write_json(baseline_dir / f"{slug}.json", baseline_summary)
@@ -402,6 +426,15 @@ class Pipeline:
         if not existing:
             self.state.discover(episode)
             existing = self.state.get(episode.guid)
+        audit_targets = [self.state, self.transcriber, self.extractor]
+        if hasattr(self.transcriber, "primary"):
+            audit_targets.append(self.transcriber.primary)
+        if self.pick_verifier is not None:
+            audit_targets.append(self.pick_verifier)
+        prior_callbacks = [(target, getattr(target, "audit_callback", None)) for target in audit_targets]
+        for target in audit_targets:
+            target.audit_callback = journal.record
+        self.extractor.audit_callback = lambda event, **details: journal.record(event, stage="extracting", **details)
         if existing.get("status") != "queued" or not existing.get("output_directory"):
             self.state.transition(episode.guid, "queued", output_directory=relative_output, pick_count=0, error=None)
         try:
@@ -414,15 +447,27 @@ class Pipeline:
             self.state.transition(episode.guid, "transcribing")
             transcript_dir = self.settings.work_dir / "transcripts"
             transcript_path = transcript_dir / f"{slug}.json.gz"
-            if self.settings.reuse_transcripts:
-                if not transcript_path.exists():
-                    raise FileNotFoundError(f"Reusable transcript was not found for {episode.guid}.")
+            retained = None
+            if transcript_path.exists() and (self.settings.reuse_transcripts or os.getenv("FFW_AUTO_REUSE_TRANSCRIPTS", "").lower() == "true"):
                 with gzip.open(transcript_path, "rt", encoding="utf-8") as source:
                     retained = json.load(source)
+                if not self.settings.reuse_transcripts and (
+                    retained.get("episode", {}).get("guid") != episode.guid
+                    or retained.get("episode", {}).get("audio_url") != episode.audio_url
+                    or retained.get("prompt_version") != PROMPT_VERSION
+                ):
+                    retained = None
+            if self.settings.reuse_transcripts or retained is not None:
+                if not transcript_path.exists():
+                    raise FileNotFoundError(f"Reusable transcript was not found for {episode.guid}.")
+                if retained is None:
+                    with gzip.open(transcript_path, "rt", encoding="utf-8") as source:
+                        retained = json.load(source)
                 retained_guid = retained.get("episode", {}).get("guid")
                 if retained_guid != episode.guid or not isinstance(retained.get("transcript"), dict):
                     raise ValueError(f"Reusable transcript does not match episode {episode.guid}.")
                 transcript = retained["transcript"]
+                journal.record("transcript_reused", provider=transcript.get("provider"), model=transcript.get("model"))
                 for sequence, segment in enumerate(transcript.get("segments", [])):
                     segment.setdefault("sequence", sequence)
             else:
@@ -453,6 +498,7 @@ class Pipeline:
                 try:
                     extraction = self.pick_verifier.verify(episode, extraction, prepared_files)
                 except Exception as verification_error:
+                    journal.record("verification_warning", exception_class=type(verification_error).__name__, message=str(verification_error))
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             extraction_usage = extraction.pop("_usage", None)
             extraction_model = extraction.pop("_extraction_model", self.extractor.model_name)
@@ -467,6 +513,11 @@ class Pipeline:
             if final_status not in {"complete", "needs_review"}:
                 final_status = "complete"
             summary = self._build_summary(episode, extraction, final_status)
+            journal.record("extraction_summary", section={key: summary.get("section", {}).get(key) for key in
+                           ("located", "label", "start_seconds", "end_seconds")},
+                           pick_count=len(summary["recommendations"]), review_reason=extraction.get("review_reason"),
+                           picks=[{key: pick.get(key) for key in ("card", "printing", "confidence", "review_status", "review_reason")}
+                                  for pick in summary["recommendations"]])
             metadata = self._build_metadata(episode, final_status, relative_output, summary)
             self.state.transition(episode.guid, "validating")
             self._validate_before_publish(summary)
@@ -503,6 +554,7 @@ class Pipeline:
                 report_dir.mkdir(parents=True, exist_ok=True)
                 atomic_write_json(report_dir / f"{slug}.json", report)
                 self._clear_transcription_checkpoint(episode)
+                journal.finish("needs_review", pick_count=preserved_pick_count, preserved_previous=True, note=ZERO_PICK_REPROCESS_REVIEW)
                 return PipelineResult(
                     guid=episode.guid,
                     status="needs_review",
@@ -534,6 +586,8 @@ class Pipeline:
                 report_dir.mkdir(parents=True, exist_ok=True)
                 atomic_write_json(report_dir / f"{slug}.json", compare_episode_summaries(baseline_summary, summary))
             self._clear_transcription_checkpoint(episode)
+            journal.finish(final_status, pick_count=len(summary["recommendations"]), local_outputs_written=True,
+                           review_reason=extraction.get("review_reason"))
             return PipelineResult(
                 guid=episode.guid,
                 status=final_status,
@@ -544,6 +598,7 @@ class Pipeline:
         except Exception as exc:
             current = self.state.get(episode.guid) or {}
             failed_stage = current.get("status", "detected")
+            journal.record("failure", stage=failed_stage, exception_class=type(exc).__name__, message=str(exc))
             category, retryable, provider_wide = classify_failure(str(exc))
             attempt_count = int(current.get("attempt_count", 0))
             exhausted = attempt_count >= self.settings.max_episode_attempts
@@ -560,7 +615,7 @@ class Pipeline:
                 pick_count=0,
                 error={
                     "stage": failed_stage,
-                    "message": str(exc),
+                    "message": safe_message(exc),
                     "category": category,
                     "synthetic": episode.synthetic,
                     "retryable": retryable,
@@ -571,11 +626,28 @@ class Pipeline:
                     "quarantined": bool(exhausted or (not retryable and not provider_wide)),
                 },
             )
-            output_dir.mkdir(parents=True, exist_ok=True)
-            metadata = self._build_metadata(episode, "failed", relative_output, None)
-            (output_dir / "summary.json").unlink(missing_ok=True)
-            (output_dir / "summary.md").unlink(missing_ok=True)
-            atomic_write_json(output_dir / "metadata.json", metadata)
+            if baseline_summary is not None:
+                failed_error = (self.state.get(episode.guid) or {}).get("error")
+                published_status = baseline_summary.get("processing", {}).get("status", "needs_review")
+                if published_status not in TERMINAL_STATES:
+                    published_status = "needs_review"
+                self.state.transition(
+                    episode.guid, published_status, pick_count=len(baseline_summary.get("recommendations", [])),
+                    error=existing.get("error"), last_attempt_error=failed_error,
+                    review_reason=existing.get("review_reason"), transcription=existing.get("transcription"),
+                    extraction_model=existing.get("extraction_model"), extraction_usage=existing.get("extraction_usage"),
+                )
+                # Roll back even a failure partway through writing the replacement.
+                for name, contents in baseline_outputs.items():
+                    atomic_write_text(output_dir / name, contents)
+            else:
+                output_dir.mkdir(parents=True, exist_ok=True)
+                metadata = self._build_metadata(episode, "failed", relative_output, None)
+                (output_dir / "summary.json").unlink(missing_ok=True)
+                (output_dir / "summary.md").unlink(missing_ok=True)
+                atomic_write_json(output_dir / "metadata.json", metadata)
+            journal.finish("failed", pick_count=len(baseline_summary.get("recommendations", [])) if baseline_summary else 0,
+                           preserved_previous=baseline_summary is not None)
             return PipelineResult(
                 guid=episode.guid,
                 status="failed",
@@ -584,6 +656,8 @@ class Pipeline:
                 message=str(exc),
             )
         finally:
+            for target, callback in prior_callbacks:
+                target.audit_callback = callback
             if not episode.synthetic:
                 shutil.rmtree(work_dir, ignore_errors=True)
 
