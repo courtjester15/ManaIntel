@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.3",
-  "updated_at": "2026-10-05T01:09:54Z",
+  "updated_at": "2026-10-06T00:20:15Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -14652,6 +14652,30 @@
         {
           "status": "complete",
           "timestamp": "2026-09-15T02:33:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-06T00:09:15Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-06T00:09:15Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-06T00:09:18Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-06T00:09:18Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-06T00:09:39Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-06T00:20:15Z"
         }
       ],
       "title": "MTG Fast Finance Ep 510: TMNT Leaked Card Mishap",
@@ -14659,11 +14683,22 @@
       "published_at": "2026-01-29T00:48:20Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 4,
-      "pick_count": 2,
-      "error": null,
-      "status": "complete",
-      "updated_at": "2026-09-15T02:33:44Z",
+      "attempt_count": 5,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 634.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ReadTimeout: The read operation timed out; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": false,
+        "attempt": 5,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      },
+      "status": "failed",
+      "updated_at": "2026-10-06T00:20:15Z",
       "output_directory": "episodes/0510-tmnt-leaked-card-mishap",
       "transcription": {
         "provider": "Gemini",

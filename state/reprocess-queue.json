@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
-  "daily_date": "2026-10-04",
-  "daily_runs": 2,
+  "daily_date": "2026-10-05",
+  "daily_runs": 1,
   "entries": [
     {
       "guid": "tag:soundcloud,2010:tracks/290337102",
@@ -74,6 +74,17 @@
       "finished_at": "2026-10-05T01:09:54.839876+00:00",
       "result_status": "needs_review",
       "result_pick_count": 3
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2256054647",
+      "episode_number": 510,
+      "title": "MTG Fast Finance Ep 510: TMNT Leaked Card Mishap",
+      "status": "blocked",
+      "started_at": "2026-10-06T00:09:12.968518+00:00",
+      "finished_at": "2026-10-06T00:20:15.691148+00:00",
+      "result_status": "failed",
+      "result_pick_count": 0,
+      "note": "Pipeline failed; do not spend another automatic retry without review."
     }
   ]
 }

@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.3",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-05T01:09:54Z",
+    "generated_at": "2026-10-06T00:20:15Z",
     "latest_successful_run_at": "2026-10-05T01:09:54Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 101,
-    "real_pick_count": 395,
+    "real_pick_count": 393,
     "last_discovered_episode_date": "2026-10-02T19:29:03Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 101,
-    "picks": 395,
+    "picks": 393,
     "needs_review": 35,
-    "failed": 2,
-    "completed": 64
+    "failed": 3,
+    "completed": 63
   },
   "status_counts": {
-    "complete": 64,
+    "complete": 63,
     "needs_review": 35,
-    "failed": 2
+    "failed": 3
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2412061842",
@@ -2833,20 +2833,31 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "complete",
-      "review_state": "approved",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
       "review_reason": null,
-      "pick_count": 2,
+      "pick_count": 0,
       "directory": "episodes/0510-tmnt-leaked-card-mishap",
       "outputs": {
         "metadata": "episodes/0510-tmnt-leaked-card-mishap/metadata.json",
-        "summary_json": "episodes/0510-tmnt-leaked-card-mishap/summary.json",
-        "summary_markdown": "episodes/0510-tmnt-leaked-card-mishap/summary.md",
+        "summary_json": null,
+        "summary_markdown": null,
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-09-15T02:33:44Z",
-      "error": null,
+      "processed_at": "2026-10-06T00:20:15Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 634.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash attempt 2: ReadTimeout: The read operation timed out; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": false,
+        "attempt": 5,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
