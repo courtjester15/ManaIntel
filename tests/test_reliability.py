@@ -163,13 +163,17 @@ class ReliabilityTests(unittest.TestCase):
     def test_compressed_transcript_retranscribes_only_matching_chunk(self):
         pipeline, item, _ = self.published()
         healthy = {"segments": [{"start": 600, "end": 650, "text": "A correctly timed recommendation."}]}
-        compressed = {"segments": [{"start": i / 2, "end": i / 2 + .1, "text": "word " * 70} for i in range(50)]}
-        with patch.object(pipeline.transcriber, "transcribe", side_effect=[compressed, healthy]) as transcribe:
+        compressed = {"segments": [{"start": i / 2, "end": i / 2 + .1, "text": "word " * 70} for i in range(50)]
+                                  + [{"start": 900, "end": 900, "text": "Stale clipped boundary"}]}
+        with patch.object(pipeline.transcriber, "transcribe", side_effect=[compressed, healthy]) as transcribe, patch.object(
+            pipeline.extractor, "extract", wraps=pipeline.extractor.extract
+        ) as extract:
             result = pipeline.process_episode(item, force=True)
         self.assertIn(result.status, {"complete", "needs_review"})
         self.assertEqual(2, transcribe.call_count)
         self.assertEqual(1, len(transcribe.call_args.args[1]))
         self.assertIn(":timing-repair-0", transcribe.call_args.args[0].guid)
+        self.assertNotIn("Stale clipped boundary", [s["text"] for s in extract.call_args.args[1]["segments"]])
 
     def test_timing_repair_failure_preserves_published_files(self):
         pipeline, item, output = self.published()

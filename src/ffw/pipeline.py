@@ -474,6 +474,12 @@ class Pipeline:
             else:
                 transcript = self.transcriber.transcribe(episode, prepared_files)
             from .transcript_timing import suspect_timing_chunks
+            repaired_boundaries = {r["chunk"] * self.settings.audio_chunk_seconds for r in transcript.get("timing_repairs", [])}
+            if repaired_boundaries:
+                transcript["segments"] = [s for s in transcript.get("segments", [])
+                                          if not (s.get("start") in repaired_boundaries and s.get("end") == s.get("start"))]
+                for sequence, segment in enumerate(transcript["segments"]):
+                    segment["sequence"] = sequence
             suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
             if len(suspect_chunks) > 2:
                 raise ValueError("Multiple chunks have suspect timing; manual review required before spending more calls.")
@@ -486,7 +492,10 @@ class Pipeline:
                     raise ValueError("Replacement transcript has missing segments or an implausibly compressed clock.")
                 offset = index * self.settings.audio_chunk_seconds
                 stop = offset + self.settings.audio_chunk_seconds
-                kept = [s for s in transcript.get("segments", []) if not offset <= float(s.get("start", 0)) < stop]
+                kept = [s for s in transcript.get("segments", []) if not (
+                    offset <= float(s.get("start", 0)) < stop
+                    or float(s.get("start", 0)) == stop and float(s.get("end", stop)) == stop
+                )]
                 for segment in repaired["segments"]:
                     segment["start"] += offset
                     segment["end"] += offset

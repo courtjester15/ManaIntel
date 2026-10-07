@@ -910,6 +910,7 @@ class GeminiExtractor:
             "Unknown values must be null. Preserve original price wording in target.raw. Every pick needs a timestamp and a short evidence excerpt of 30 words or fewer. "
             "Merge duplicate discussion of the same card unless distinct printings are clearly recommended. Mark ambiguity needs_review. "
             "Return JSON that exactly matches the supplied schema."
+            " For sealed-product recommendations, preserve the spoken set and product names; do not substitute a different familiar product."
         )
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
