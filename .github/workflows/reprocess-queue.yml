@@ -194,7 +194,10 @@ jobs:
           state = json.loads(Path("state/episodes.json").read_text(encoding="utf-8"))["episodes"].get(entry["guid"], {})
           entry.update(finished_at=datetime.now(ZoneInfo("UTC")).isoformat(), result_status=state.get("status"), result_pick_count=state.get("pick_count", 0))
           if os.environ["OUTCOME"] == "success" and state.get("status") in {"complete", "needs_review"}:
-              entry["status"] = "complete"
+              if entry.get("guid") and state.get("source_id") == "mtg-fast-finance" and 0 < state.get("pick_count", 0) < 4:
+                  entry.update(status="blocked", note="Partial MTGFF result requires review; not a completed recovery.")
+              else:
+                  entry["status"] = "complete"
           else:
               entry.update(status="blocked", note="Pipeline failed; do not spend another automatic retry without review.")
           path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")

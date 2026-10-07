@@ -639,6 +639,7 @@ class GeminiTranscriber:
             f"Transcribe this {episode.source_name} Magic: The Gathering podcast audio chunk. Return JSON only. "
             f"{episode_context} "
             "Use seconds relative to the start of this chunk for start and end. "
+            "Use numeric elapsed seconds, never minute.second clock notation: 11:11 must be 671, not 11.11. "
             "Include speaker labels when they are obvious; otherwise use null. "
             "Keep card names and price phrases as spoken."
         )

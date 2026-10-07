@@ -1044,7 +1044,7 @@ class ProductionPipelineTests(unittest.TestCase):
 
         pipeline = Pipeline(settings, Feed(), Downloader(), Audio(), Transcriber(), Extractor(), JsonStateStore(settings.state_file))
         results = pipeline.run(limit=2, selection_policy="backfill")
-        self.assertEqual(["complete", "failed"], [item.status for item in results])
+        self.assertEqual(["needs_review", "failed"], [item.status for item in results])
         error = pipeline.state.get("guid-1")["error"]
         self.assertFalse(error["retryable"])
         self.assertEqual("episode_input", error["category"])
@@ -1179,7 +1179,7 @@ class ProductionPipelineTests(unittest.TestCase):
         summary = load_json(settings.archive_dir / first.output_directory / "summary.json")
         report = load_json(settings.work_dir / "reprocess-reports" / "0042-episode-42.json")
         state = pipeline.state.get(candidate.guid)
-        self.assertEqual(("complete", 1), (first.status, first.pick_count))
+        self.assertEqual(("needs_review", 1), (first.status, first.pick_count))
         self.assertEqual(("needs_review", 1), (second.status, second.pick_count))
         self.assertEqual(["Preserved Card"], [pick["card"] for pick in summary["recommendations"]])
         self.assertIn("previous recommendations were retained", summary["processing"]["review_reason"])
@@ -1229,7 +1229,7 @@ class ProductionPipelineTests(unittest.TestCase):
         extractor = Extractor()
         pipeline = Pipeline(settings, Feed(), Downloader(), Audio(), Transcriber(), extractor, JsonStateStore(settings.state_file))
         result = pipeline.run(limit=1)[0]
-        self.assertEqual(("complete", 5), (result.status, result.pick_count), result.message)
+        self.assertEqual(("needs_review", 5), (result.status, result.pick_count), result.message)
         summary = load_json(settings.archive_dir / result.output_directory / "summary.json")
         self.assertFalse(summary["synthetic"])
         self.assertEqual(5, len(summary["recommendations"]))

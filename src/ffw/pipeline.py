@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import gzip
@@ -93,7 +94,7 @@ EPISODE_ERROR_PATTERNS = (
 )
 
 ZERO_PICK_REPROCESS_REVIEW = (
-    "Forced reprocessing produced zero picks while the published summary had picks; "
+    "Forced reprocessing omitted published recommendations; "
     "the previous recommendations were retained for review."
 )
 
@@ -472,6 +473,28 @@ class Pipeline:
                     segment.setdefault("sequence", sequence)
             else:
                 transcript = self.transcriber.transcribe(episode, prepared_files)
+            from .transcript_timing import suspect_timing_chunks
+            suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
+            if len(suspect_chunks) > 1:
+                raise ValueError("Multiple chunks have suspect timing; manual review required before spending more calls.")
+            for index in suspect_chunks:
+                if index >= len(prepared_files):
+                    raise ValueError("Transcript timing repair has no matching audio chunk.")
+                chunk_episode = replace(episode, guid=episode.guid + f":timing-repair-{index}", duration_seconds=self.settings.audio_chunk_seconds)
+                repaired = self.transcriber.transcribe(chunk_episode, [prepared_files[index]])
+                if not repaired.get("segments") or suspect_timing_chunks(repaired, self.settings.audio_chunk_seconds):
+                    raise ValueError("Replacement transcript has missing segments or an implausibly compressed clock.")
+                offset = index * self.settings.audio_chunk_seconds
+                stop = offset + self.settings.audio_chunk_seconds
+                kept = [s for s in transcript.get("segments", []) if not offset <= float(s.get("start", 0)) < stop]
+                for segment in repaired["segments"]:
+                    segment["start"] += offset
+                    segment["end"] += offset
+                transcript["segments"] = sorted(kept + repaired["segments"], key=lambda s: s["start"])
+                for sequence, segment in enumerate(transcript["segments"]):
+                    segment["sequence"] = sequence
+                transcript.setdefault("timing_repairs", []).append({"chunk": index + 1, "method": "retranscribe_audio", "usage": repaired.get("usage")})
+                journal.record("transcript_timing_repaired", chunk=index + 1, method="retranscribe_audio", usage=repaired.get("usage"))
             if self.settings.retain_transcripts and not episode.synthetic:
                 transcript_dir.mkdir(parents=True, exist_ok=True)
                 with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
@@ -500,6 +523,10 @@ class Pipeline:
                 except Exception as verification_error:
                     journal.record("verification_warning", exception_class=type(verification_error).__name__, message=str(verification_error))
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
+            warnings = [extraction.get("review_reason"), extraction.get("section", {}).get("review_reason")]
+            if episode.source_id == "mtg-fast-finance" and 0 < len(extraction.get("recommendations", [])) < 4:
+                warnings.append("Fewer than four MTG Fast Finance recommendations; verify section completeness.")
+            extraction["review_reason"] = " ".join(dict.fromkeys(reason for reason in warnings if reason)) or None
             extraction_usage = extraction.pop("_usage", None)
             extraction_model = extraction.pop("_extraction_model", self.extractor.model_name)
             self.state.transition(
@@ -521,10 +548,17 @@ class Pipeline:
             metadata = self._build_metadata(episode, final_status, relative_output, summary)
             self.state.transition(episode.guid, "validating")
             self._validate_before_publish(summary)
+            if baseline_summary is not None:
+                atomic_write_json(self.settings.work_dir / "reprocess-reports" / f"{slug}.candidate.json", summary)
             if (
                 baseline_summary is not None
                 and baseline_summary.get("recommendations")
-                and not summary.get("recommendations")
+                and (
+                    len(summary.get("recommendations", [])) < len(baseline_summary["recommendations"])
+                    or not {str(p["card"]).casefold().strip() for p in baseline_summary["recommendations"]}.issubset(
+                        {str(p["card"]).casefold().strip() for p in summary.get("recommendations", [])}
+                    )
+                )
             ):
                 self.state.transition(episode.guid, "publishing")
                 preserved = deepcopy(baseline_summary)
