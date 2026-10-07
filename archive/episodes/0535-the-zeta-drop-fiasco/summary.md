@@ -4,19 +4,19 @@
 
 - Published: 2026-09-25T00:38:27Z
 - Hosts: MTG Fast Finance
-- Processing status: Complete
+- Processing status: Needs Review
 - Episode source: https://soundcloud.com/user-519789566/mtg-fast-finance-ep-535-the
 
 ## Cards to Watch
 
 ### Extinction Event
 
-- Printing: Secret Lair
-- Printing certainty: likely
+- Printing: Secret Lair x Marvel's Thanos
+- Printing certainty: confirmed
 - Finish: Foil
 - Host(s): Cliff, James
 - Recommendation: buy
-- Entry: $9
+- Entry: nine bucks
 - Hold: six to 12 months
 - Exit: $20
 - Confidence: medium
@@ -25,15 +25,15 @@
 
 **Reasoning**
 
-- It is the most expensive, highly collectible version of the card with the Thanos snapping artwork.
-- Future Marvel releases are expected to drive up demand and price due to thematic synergy.
-- Thanos is heavily embedded in the zeitgeist.
+- It is the most expensive version of Extinction Event.
+- Future Marvel releases will drive interest and raise the price higher over time.
+- Thanos is deeply embedded in the cultural zeitgeist.
 
 **Caveats**
 
-- If Marvel releases are not announced or confirmed for the following year, players might panic that the collaboration is under review or discontinued.
+- If a Marvel set is not confirmed for next year, speculation on Marvel cards may cool down or trigger minor panics.
 
-> Evidence: grab your foil copies for nine bucks, I think they'll hit $20 sometime in the next six to 12 months.
+> Evidence: So go ahead and grab your foil copies for nine bucks, I think they'll hit $20 sometime in the next six to 12 months.
 
 ---
 
