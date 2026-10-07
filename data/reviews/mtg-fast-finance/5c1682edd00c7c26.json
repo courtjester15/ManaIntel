@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "mtg-fast-finance",
+  "episode_guid": "tag:soundcloud,2010:tracks/2407349688",
+  "expected": {
+    "processed_at": "2026-10-07T02:30:23Z",
+    "pick_ids": [
+      "pick-146f71de4da3ae93",
+      "pick-8c481cfb4ee823d0",
+      "pick-e4bdaa963d015388",
+      "pick-f1994f691879d388"
+    ]
+  },
+  "decision": "approve",
+  "note": "Transcript-level recovery review, not an independent full-audio audit. Checked the retained transcript and corrected extraction candidate from Actions run 37562072188 after clock repair and removal of stale boundary duplicates. All four recommendation identities retained; sealed product corrected to the spoken Hobbit name. Original extraction preserved. Corrected deterministic section starts at 625 seconds and ends at 2019 seconds; the original raw summary retains the superseded boundary.",
+  "operations": [
+    {
+      "action": "update",
+      "pick_id": "pick-146f71de4da3ae93",
+      "changes": {
+        "printing": "The Brothers' War Retro Frame Artifacts",
+        "foil": true,
+        "start_seconds": 742,
+        "end_seconds": 930,
+        "evidence_excerpt": "how about Mox Amber retro frame foils? ... I think a target of 600 as an entry point ... 600 to 1200 over a two year time frame"
+      }
+    },
+    {
+      "action": "update",
+      "pick_id": "pick-8c481cfb4ee823d0",
+      "changes": {
+        "start_seconds": 932,
+        "end_seconds": 1202
+      }
+    },
+    {
+      "action": "update",
+      "pick_id": "pick-e4bdaa963d015388",
+      "changes": {
+        "card": "Hobbit Collector Booster Box",
+        "start_seconds": 1203,
+        "end_seconds": 1448,
+        "evidence_excerpt": "Hobbit Collector Booster Boxes ... I'd be okay dabbling around this 800 level ... I do believe these will hit in the, you know, double that range."
+      }
+    },
+    {
+      "action": "update",
+      "pick_id": "pick-f1994f691879d388",
+      "changes": {
+        "printing": "Secret Lair x Marvel",
+        "foil": true,
+        "start_seconds": 1907,
+        "end_seconds": 2019
+      }
+    }
+  ],
+  "reviewed_by": "codex-transcript-recovery-review",
+  "reviewed_at": "2026-10-07T02:32:12Z"
+}
