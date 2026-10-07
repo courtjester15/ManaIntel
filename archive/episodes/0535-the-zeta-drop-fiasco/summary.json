@@ -20,15 +20,15 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
-    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-07T02:14:15Z",
+    "processed_at": "2026-10-07T02:25:29Z",
     "history": [
       {
         "status": "detected",
@@ -245,6 +245,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-07T02:14:15Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-07T02:22:31Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-07T02:24:52Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-07T02:24:52Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-07T02:25:28Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-07T02:25:29Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-07T02:25:29Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-07T02:25:29Z"
       }
     ],
     "error": null,
@@ -422,43 +466,172 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 402,
+      "candidates_token_count": 1647,
       "candidates_tokens_details": null,
-      "prompt_token_count": 12432,
+      "prompt_token_count": 8639,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 12432
+          "token_count": 8639
         }
       ],
-      "thoughts_token_count": 2050,
+      "thoughts_token_count": 4626,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 14884,
+      "total_token_count": 14912,
       "traffic_type": null
     }
   },
   "section": {
     "located": true,
-    "start_seconds": 1947,
-    "end_seconds": 3150,
+    "start_seconds": 900,
+    "end_seconds": 2019,
     "label": "Cards to Watch",
-    "confidence": "medium",
-    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "confidence": "high",
+    "review_reason": null,
     "start_signal": "explicit_section_marker",
-    "end_signal": null
+    "end_signal": "advertised_topic_transition"
   },
   "recommendations": [
     {
-      "card": "Extinction Event",
-      "printing": "Secret Lair x Marvel's Thanos",
+      "card": "Mox Amber",
+      "printing": "The Brothers' War Retro Artifacts",
       "printing_certainty": "confirmed",
       "foil": true,
       "hosts": [
-        "Cliff",
-        "James"
+        "James Chilcott",
+        "Cliff Daigle"
       ],
-      "recommendation": "buy",
+      "recommendation": "Buy Mox Amber retro frame foils",
+      "mentioned_price": "$650 to $700",
+      "entry_target": {
+        "raw": "600",
+        "currency": "USD",
+        "minimum": 550.0,
+        "maximum": 600.0
+      },
+      "hold": "2 years",
+      "exit_target": {
+        "raw": "double-up plus",
+        "currency": "USD",
+        "minimum": 1200.0,
+        "maximum": 1400.0
+      },
+      "reasoning": [
+        "Massive Modern, Legacy, and EDH S-tier staple",
+        "Only had one major printing plus the retro artifact set",
+        "Extremely low inventory with around 55 to 61 listings on TCGplayer"
+      ],
+      "caveats": [
+        "Risk of future reprints",
+        "Requires a high capital entry point"
+      ],
+      "confidence": "high",
+      "start_seconds": 900,
+      "end_seconds": 932,
+      "evidence_excerpt": "Along those lines, how about Mox Amber retro frame foils? I picked one of these up locally around 650 US equivalent or something, a couple of weeks ago.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-146f71de4da3ae93",
+      "timestamp": "00:15:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2407349688-user-519789566-mtg-fast-finance-ep-535-the.mp3#t=900"
+    },
+    {
+      "card": "Bag End Banquet",
+      "printing": "Tales of Middle-earth Scene Boxes",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Daigle"
+      ],
+      "recommendation": "Buy Bag End Banquet from the scene boxes",
+      "mentioned_price": "$12",
+      "entry_target": {
+        "raw": "12",
+        "currency": "USD",
+        "minimum": 12.0,
+        "maximum": 12.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30.0,
+        "maximum": 30.0
+      },
+      "reasoning": [
+        "Strong synergy in food decks, tapping for substantial mana",
+        "Cannot be reprinted easily due to the specific name 'Bag End'",
+        "Low supply down to 90 vendors with no large walls"
+      ],
+      "caveats": [
+        "Foils from scene boxes are traditionally known to have curl issues",
+        "Timeline depends on when the next big food commander is released"
+      ],
+      "confidence": "medium",
+      "start_seconds": 932,
+      "end_seconds": 1202,
+      "evidence_excerpt": "Bag End Banquet, the card in the scene box... I'm okay picking it at 12 to eventually hit $30 sometime in the next 6 to 12 months or so.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8c481cfb4ee823d0",
+      "timestamp": "00:15:32",
+      "listen_url": "https://feeds.soundcloud.com/stream/2407349688-user-519789566-mtg-fast-finance-ep-535-the.mp3#t=932"
+    },
+    {
+      "card": "Tales of Middle-earth Special Edition Collector Booster Box",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Cliff Daigle",
+        "James Chilcott"
+      ],
+      "recommendation": "Buy and hold Special Edition Collector Booster Boxes",
+      "mentioned_price": "$800",
+      "entry_target": {
+        "raw": "800 level",
+        "currency": "USD",
+        "minimum": 800.0,
+        "maximum": 800.0
+      },
+      "hold": "2 years",
+      "exit_target": {
+        "raw": "double that range",
+        "currency": "USD",
+        "minimum": 1500.0,
+        "maximum": 1600.0
+      },
+      "reasoning": [
+        "Boxes are holding steady at $800 with very little downward pressure",
+        "Very high transaction volume on TCGplayer (over 3,400 sold in six months)",
+        "The WhatNot and streaming breaker communities are heavily consuming inventory"
+      ],
+      "caveats": [
+        "Does not contain serialized cards to chase at the same rate as the holiday edition",
+        "Requires discipline to avoid cracking open high-value sealed product"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1203,
+      "end_seconds": 1907,
+      "evidence_excerpt": "I think I'd be okay dabbling around this 800 level, especially if you can get a sealed, uh, case of six. Because when they when this eventually is a $2,000...",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e4bdaa963d015388",
+      "timestamp": "00:20:03",
+      "listen_url": "https://feeds.soundcloud.com/stream/2407349688-user-519789566-mtg-fast-finance-ep-535-the.mp3#t=1203"
+    },
+    {
+      "card": "Extinction Event",
+      "printing": "Secret Lair Drop: Marvel",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Daigle",
+        "James Chilcott"
+      ],
+      "recommendation": "Buy foil copies of the Marvel Thanos-themed Extinction Event",
       "mentioned_price": "$9",
       "entry_target": {
         "raw": "nine bucks",
@@ -466,30 +639,30 @@
         "minimum": 9.0,
         "maximum": 9.0
       },
-      "hold": "six to 12 months",
+      "hold": "6 to 12 months",
       "exit_target": {
-        "raw": "$20",
+        "raw": "20",
         "currency": "USD",
         "minimum": 20.0,
         "maximum": 20.0
       },
       "reasoning": [
-        "It is the most expensive version of Extinction Event.",
-        "Future Marvel releases will drive interest and raise the price higher over time.",
-        "Thanos is deeply embedded in the cultural zeitgeist."
+        "It is the most expensive and aesthetically unique version of Extinction Event",
+        "Thanos theme is deeply embedded in popular culture",
+        "Subsequent Marvel set releases should drive ongoing interest in these limited promo cards"
       ],
       "caveats": [
-        "If a Marvel set is not confirmed for next year, speculation on Marvel cards may cool down or trigger minor panics."
+        "Spec potential is stronger once official Marvel sets for next year are fully announced and confirmed"
       ],
       "confidence": "medium",
-      "start_seconds": 1947,
-      "end_seconds": 2210,
-      "evidence_excerpt": "So go ahead and grab your foil copies for nine bucks, I think they'll hit $20 sometime in the next six to 12 months.",
+      "start_seconds": 1907,
+      "end_seconds": 2019,
+      "evidence_excerpt": "grab your foil copies for nine bucks, I think they'll hit $20 sometime in the next 6 to 12 months.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-a53698bca119ec63",
-      "timestamp": "00:32:27",
-      "listen_url": "https://feeds.soundcloud.com/stream/2407349688-user-519789566-mtg-fast-finance-ep-535-the.mp3#t=1947"
+      "id": "pick-f1994f691879d388",
+      "timestamp": "00:31:47",
+      "listen_url": "https://feeds.soundcloud.com/stream/2407349688-user-519789566-mtg-fast-finance-ep-535-the.mp3#t=1907"
     }
   ]
 }

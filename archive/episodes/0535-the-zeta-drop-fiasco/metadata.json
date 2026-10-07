@@ -20,15 +20,15 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
-    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
     "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-07T02:14:15Z",
+    "processed_at": "2026-10-07T02:25:29Z",
     "history": [
       {
         "status": "detected",
@@ -245,6 +245,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-07T02:14:15Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-07T02:22:04Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-07T02:22:31Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-07T02:24:52Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-07T02:24:52Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-07T02:25:28Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-07T02:25:29Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-07T02:25:29Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-07T02:25:29Z"
       }
     ],
     "error": null,
@@ -422,19 +466,19 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 402,
+      "candidates_token_count": 1647,
       "candidates_tokens_details": null,
-      "prompt_token_count": 12432,
+      "prompt_token_count": 8639,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 12432
+          "token_count": 8639
         }
       ],
-      "thoughts_token_count": 2050,
+      "thoughts_token_count": 4626,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 14884,
+      "total_token_count": 14912,
       "traffic_type": null
     }
   },
