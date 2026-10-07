@@ -4,7 +4,7 @@
 
 - Published: 2026-09-25T00:38:27Z
 - Hosts: MTG Fast Finance
-- Processing status: Complete
+- Processing status: Needs Review
 - Episode source: https://soundcloud.com/user-519789566/mtg-fast-finance-ep-535-the
 
 ## Cards to Watch
