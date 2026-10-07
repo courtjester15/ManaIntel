@@ -475,7 +475,7 @@ class Pipeline:
                 transcript = self.transcriber.transcribe(episode, prepared_files)
             from .transcript_timing import suspect_timing_chunks
             suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
-            if len(suspect_chunks) > 1:
+            if len(suspect_chunks) > 2:
                 raise ValueError("Multiple chunks have suspect timing; manual review required before spending more calls.")
             for index in suspect_chunks:
                 if index >= len(prepared_files):

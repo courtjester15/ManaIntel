@@ -108,6 +108,9 @@ def _best_explicit_start(explicit_indexes: list[int], implicit_indexes: list[int
         if following:
             ranked.append((following[0] - explicit_index, explicit_index))
     if ranked:
+        nearby = [index for distance, index in ranked if distance <= 30]
+        if nearby:
+            return min(nearby)
         return min(ranked)[1]
     return explicit_indexes[0]
 
@@ -147,7 +150,8 @@ def _topic_transition_index(
         )
         if transition_match is None:
             continue
-        next_text = str(ordered[index + 1].get("text", "")) if index + 1 < len(ordered) else ""
+        next_text = " ".join(str(s.get("text", "")) for s in ordered[index + 1:index + 4]
+                             if float(s.get("start", 0)) - float(ordered[index].get("start", 0)) <= 60)
         context = f"{transition_text[transition_match.start():transition_match.end() + 200]} {next_text[:200]}"
         lowered = context.lower()
         # A strong generic label is sufficient. Otherwise require the transition

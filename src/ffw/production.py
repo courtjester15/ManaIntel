@@ -707,6 +707,10 @@ class GeminiTranscriber:
                 "provider_usage": chunk_usage,
             })
             offset = index * self.chunk_seconds
+            from .transcript_timing import normalize_integer_clock
+            payload = normalize_integer_clock(payload, self.chunk_seconds)
+            if payload.get("clock_encoding_repaired") and observer:
+                observer("chunk_clock_normalized", chunk=index + 1, encoding="MMSS")
             texts.append(str(payload.get("text", "")))
             for segment in payload.get("segments", []):
                 segment = dict(segment)
