@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "attempt_id": "92bad154d27d43c993609a6577da10d4",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2305022402",
+    "number": 520,
+    "title": "MTG Fast Finance Ep 520: SOS Previews In Focus",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-10-08T02:29:29Z",
+  "pipeline_version": "0.5.5",
+  "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+  "run_id": "37716700802",
+  "run_attempt": "1",
+  "git_sha": "5ae14bb8a07e4c8bf25d5a64fca1d3ee26efa313",
+  "intervention": "520 single bounded recovery after review-aware preflight fix; prior overnight run stopped before Gemini calls",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "prior_status": "failed",
+    "prior_attempt_count": 4,
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "chunk_seconds": 900,
+    "transcription_fallback": "gemini-3.5-flash-lite",
+    "extraction_fallback": "gemini-3.5-flash-lite",
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-08T02:29:29Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-08T02:29:29Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-08T02:29:30Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-08T02:29:30Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-08T02:29:44Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-08T02:29:44Z",
+      "event": "checkpoint_invalidated",
+      "chunk": 1,
+      "reason": "audio/prompt/model configuration changed"
+    },
+    {
+      "timestamp": "2026-10-08T02:31:06Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "success",
+      "request_seconds": 81.834,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 10724,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22653,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22499
+          }
+        ],
+        "thoughts_token_count": 6248,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 39625,
+        "traffic_type": null
+      },
+      "response_characters": 36225
+    },
+    {
+      "timestamp": "2026-10-08T02:33:48Z",
+      "event": "model_call",
+      "chunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "success",
+      "request_seconds": 161.913,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 10259,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22654,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": 6009,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 38922,
+        "traffic_type": null
+      },
+      "response_characters": 35953
+    },
+    {
+      "timestamp": "2026-10-08T02:36:32Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "success",
+      "request_seconds": 164.178,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 5739,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22654,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": 19899,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 48292,
+        "traffic_type": null
+      },
+      "response_characters": 20173
+    },
+    {
+      "timestamp": "2026-10-08T02:37:43Z",
+      "event": "model_call",
+      "chunk": 4,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "success",
+      "request_seconds": 70.555,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 10887,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22654,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          }
+        ],
+        "thoughts_token_count": 9990,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 43531,
+        "traffic_type": null
+      },
+      "response_characters": 36028
+    },
+    {
+      "timestamp": "2026-10-08T02:38:14Z",
+      "event": "model_call",
+      "chunk": 5,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "success",
+      "request_seconds": 31.414,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1082,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 2934,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 2780
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          }
+        ],
+        "thoughts_token_count": 1606,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 5622,
+        "traffic_type": null
+      },
+      "response_characters": 4021
+    },
+    {
+      "timestamp": "2026-10-08T02:38:14Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "ValueError",
+      "message": "Multiple chunks have suspect timing; manual review required before spending more calls."
+    },
+    {
+      "timestamp": "2026-10-08T02:38:14Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/37716700802",
+  "finished_at": "2026-10-08T02:38:14Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

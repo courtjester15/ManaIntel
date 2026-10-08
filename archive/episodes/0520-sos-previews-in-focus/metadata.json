@@ -23,12 +23,12 @@
     "status": "failed",
     "review_state": "not_applicable",
     "review_reason": null,
-    "pipeline_version": "0.5.3",
+    "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
-    "extraction_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-03T02:10:47Z",
+    "processed_at": "2026-10-08T02:38:14Z",
     "history": [
       {
         "status": "detected",
@@ -153,16 +153,40 @@
       {
         "status": "failed",
         "timestamp": "2026-10-03T02:10:47Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-08T02:29:29Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-08T02:29:29Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-08T02:29:30Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-08T02:29:30Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-08T02:29:44Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-08T02:38:14Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Gemini transcription chunk 2/5 failed after 308.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).; gemini-3.5-flash-lite attempt 2: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-      "category": "transient_model_output",
+      "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
+      "category": "unknown",
       "synthetic": false,
       "retryable": false,
       "provider_wide": false,
-      "attempt": 4,
+      "attempt": 5,
       "max_attempts": 3,
       "next_retry_at": null,
       "quarantined": true

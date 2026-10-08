@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-07T02:32:12Z",
+    "generated_at": "2026-10-08T02:38:14Z",
     "latest_successful_run_at": "2026-10-07T02:32:12Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -1995,15 +1995,15 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-03T02:10:47Z",
+      "processed_at": "2026-10-08T02:38:14Z",
       "error": {
         "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/5 failed after 308.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).; gemini-3.5-flash-lite attempt 2: GeminiMalformedJSONError: Gemini returned malformed JSON (Unterminated string starting at at line 2, column 11; finish reason: MAX_TOKENS).",
-        "category": "transient_model_output",
+        "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
+        "category": "unknown",
         "synthetic": false,
         "retryable": false,
         "provider_wide": false,
-        "attempt": 4,
+        "attempt": 5,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
