@@ -215,7 +215,10 @@ class Pipeline:
             source_id=source_id,
         )
         if self.last_selection.selected and self.settings.mode == "live" and (self.settings.archive_dir / "index.json").exists():
-            issues = validate_archive(self.settings.archive_dir, self.settings.state_file, expected_production=True)
+            issues = validate_archive(
+                self.settings.archive_dir, self.settings.state_file, expected_production=True,
+                reviews_dir=self.settings.root / "data" / "reviews",
+            )
             errors = [issue for issue in issues if issue.severity == "error"]
             if errors:
                 raise ValueError("Archive preflight failed before provider calls: " + "; ".join(f"{issue.code}: {issue.message}" for issue in errors[:5]))

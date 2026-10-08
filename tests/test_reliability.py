@@ -248,6 +248,42 @@ class ReliabilityTests(unittest.TestCase):
             pipeline.run(force_guid=candidate().guid)
         pipeline.downloader.download.assert_not_called()
 
+    def test_live_preflight_accepts_stored_review_and_effective_outputs(self):
+        from ffw.archive import rebuild_catalog
+        from ffw.reviews import persist_review
+        from ffw.rendering import render_episode_markdown
+        from ffw.utils import atomic_write_json
+        from tests.test_reviews import summary, payload
+
+        source = summary()
+        episode_dir = self.settings.archive_dir / "episodes" / "0042-review-fixture"
+        atomic_write_json(episode_dir / "summary.json", source)
+        atomic_write_text(episode_dir / "summary.md", render_episode_markdown(source))
+        atomic_write_json(episode_dir / "metadata.json", {
+            "schema_version": "1.1.0", "synthetic": False,
+            "episode": source["episode"], "processing": source["processing"],
+            "outputs": {"summary_json": "episodes/0042-review-fixture/summary.json",
+                        "summary_markdown": "episodes/0042-review-fixture/summary.md"},
+        })
+        atomic_write_json(self.settings.state_file, {"schema_version": "1.1.0", "episodes": {
+            source["episode"]["guid"]: {"status": "needs_review"}
+        }})
+        reviews = self.root / "data" / "reviews"
+        persist_review(self.settings.archive_dir, reviews, payload(source), actor="test-reviewer")
+        rebuild_catalog(self.settings.archive_dir, production=True, reviews_dir=reviews)
+        settings = Settings(self.root, self.settings.archive_dir, self.settings.state_file,
+                            self.settings.work_dir, mode="live")
+        pipeline = Pipeline.mock(settings)
+        item = EpisodeCandidate(source["episode"]["guid"], 42, "Review fixture", "2026-01-01T00:00:00Z",
+                                "https://audio.example/episode.mp3", "https://example.test/42", ["Host One"])
+        pipeline.feed = types.SimpleNamespace(episodes=lambda: [item])
+        with patch.object(pipeline.state, "discover"), patch.object(
+            pipeline, "process_episode", side_effect=RuntimeError("preflight passed")
+        ) as process:
+            with self.assertRaisesRegex(RuntimeError, "preflight passed"):
+                pipeline.run(force_guid=item.guid)
+        process.assert_called_once()
+
     def test_journal_secrets_redacted_and_validation_failure_survives(self):
         with patch.dict(os.environ, {"GEMINI_API_KEY": "super-secret", "GITHUB_RUN_ID": "123",
                                      "GITHUB_RUN_ATTEMPT": "1", "GITHUB_SHA": "abc"}):
