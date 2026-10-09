@@ -519,6 +519,12 @@ class GeminiTranscriber:
         types: Any,
         contents: list[Any],
     ) -> tuple[dict[str, Any], str]:
+        bounded_schema = deepcopy(TRANSCRIPT_SCHEMA)
+        for field in ("start", "end"):
+            bounded_schema["properties"]["segments"]["items"]["properties"][field].update(
+                minimum=0, maximum=self.chunk_seconds,
+                description=f"Elapsed seconds in this audio chunk, from 0 to {self.chunk_seconds}; not MMSS or minute.second."
+            )
         models = [self.model_name]
         if self.fallback_model_name:
             models.append(self.fallback_model_name)
@@ -533,7 +539,7 @@ class GeminiTranscriber:
                         types,
                         model=model,
                         contents=contents,
-                        schema=TRANSCRIPT_SCHEMA,
+                        schema=bounded_schema,
                         observer=getattr(self, "audit_callback", None),
                     ), model
                 except Exception as exc:

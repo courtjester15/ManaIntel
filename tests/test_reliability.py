@@ -55,6 +55,14 @@ class ReliabilityTests(unittest.TestCase):
         return GeminiTranscriber("primary", 900, fallback_model_name="fallback", transient_retries=1,
                                  retry_delay_seconds=0, checkpoint_root=self.root / "checkpoints")
 
+    def test_transcription_schema_bounds_clock_to_audio_chunk(self):
+        with patch("ffw.production._gemini_generate_json", return_value={"segments": []}) as generate:
+            self.transcriber()._transcribe_chunk(object(), object(), [])
+        fields = generate.call_args.kwargs["schema"]["properties"]["segments"]["items"]["properties"]
+        for field in ("start", "end"):
+            self.assertEqual(900, fields[field]["maximum"])
+            self.assertEqual(0, fields[field]["minimum"])
+
     def test_incomplete_body_retries_and_falls_back(self):
         error = RuntimeError("peer closed connection without sending complete message body (incomplete chunked read)")
         with patch("ffw.production._gemini_generate_json", side_effect=[error, error, {"text": "ok"}]) as generate:

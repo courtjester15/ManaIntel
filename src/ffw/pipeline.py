@@ -477,6 +477,11 @@ class Pipeline:
             else:
                 transcript = self.transcriber.transcribe(episode, prepared_files)
             from .transcript_timing import suspect_timing_chunks
+            if self.settings.retain_transcripts and not episode.synthetic:
+                transcript_dir.mkdir(parents=True, exist_ok=True)
+                with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
+                    json.dump({"episode": self._episode_metadata(episode), "pipeline_version": PIPELINE_VERSION,
+                               "prompt_version": PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
             repaired_boundaries = {r["chunk"] * self.settings.audio_chunk_seconds for r in transcript.get("timing_repairs", [])}
             if repaired_boundaries:
                 transcript["segments"] = [s for s in transcript.get("segments", [])
@@ -484,7 +489,11 @@ class Pipeline:
                 for sequence, segment in enumerate(transcript["segments"]):
                     segment["sequence"] = sequence
             suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
-            if len(suspect_chunks) > 2:
+            repair_limit = int(os.getenv("FFW_TIMING_REPAIR_MAX_CHUNKS", "2"))
+            if repair_limit not in (2, 3):
+                raise ValueError("Timing repair budget must be 2 or 3 chunks.")
+            journal.record("timing_repair_plan", suspect_chunks=[i + 1 for i in suspect_chunks], repair_limit=repair_limit)
+            if len(suspect_chunks) > repair_limit:
                 raise ValueError("Multiple chunks have suspect timing; manual review required before spending more calls.")
             for index in suspect_chunks:
                 if index >= len(prepared_files):

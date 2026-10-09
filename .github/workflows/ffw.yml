@@ -55,6 +55,11 @@ on:
         description: Ignore automatically retained transcripts and transcribe fresh
         type: boolean
         default: false
+      timing_repair_limit:
+        description: Reviewed timing repair budget (default 2; 3 only for inspected recoveries)
+        type: choice
+        options: ["2", "3"]
+        default: "2"
       deploy:
         description: Deploy GitHub Pages after validation
         required: true
@@ -86,6 +91,7 @@ env:
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
   FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
   FFW_AUDIO_CHUNK_SECONDS: "900"
+  FFW_TIMING_REPAIR_MAX_CHUNKS: ${{ inputs.timing_repair_limit || '2' }}
   FFW_GEMINI_TRANSIENT_RETRIES: "1"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
   FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "300"
