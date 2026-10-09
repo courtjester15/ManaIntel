@@ -1,0 +1,35 @@
+name: Inspect MTGFF 520 recovery checkpoints
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/cache/restore@v4
+        with:
+          path: .ffw-work/chunk-checkpoints
+          key: inspect-chunks-${{ github.run_id }}
+          restore-keys: ffw-chunks-Linux-
+      - name: Summarize 520 clock diagnostics without exporting private content
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = list(Path('.ffw-work/chunk-checkpoints/16cd2ce2652c3e49dda67009').glob('chunk-*.json'))
+          if not paths:
+              raise SystemExit('No 520 checkpoints found')
+          for path in sorted(paths):
+              record = json.loads(path.read_text())
+              segments = record['payload'].get('segments', [])
+              values = [float(s.get(k, s.get('start', 0))) for s in segments for k in ('start', 'end')]
+              print(json.dumps({'file': path.name, 'chunk': record.get('chunk_index'),
+                  'segments': len(segments), 'words': sum(len(s.get('text', '').split()) for s in segments),
+                  'min': min(values, default=0), 'max': max(values, default=0),
+                  'first_clock_pairs': [[s.get('start'), s.get('end')] for s in segments[:5]],
+                  'last_clock_pairs': [[s.get('start'), s.get('end')] for s in segments[-5:]],
+                  'invalid_mmss_values': sum(int(v) % 100 >= 60 for v in values),
+                  'fractional_values': sum(not v.is_integer() for v in values)}))
+          PY
