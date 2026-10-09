@@ -1,0 +1,52 @@
+name: Locate MTGFF 520 missing pick
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  locate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Prepare focused public-source audio
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python -m pip install -q google-genai
+          ffmpeg -hide_banner -loglevel error -ss 600 -i 'https://feeds.soundcloud.com/stream/2305022402-user-519789566-mtg-fast-finance-ep-520-sos.mp3' -t 300 -vn -ac 1 -ar 16000 -b:a 32k clip.mp3
+      - name: Locate only the explicit Displacer Kitten recommendation
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from google import genai
+          from google.genai import types
+          schema = {'type': 'object', 'required': ['found', 'start', 'end', 'evidence', 'speaker'], 'properties': {
+              'found': {'type': 'boolean'}, 'start': {'type': ['number', 'null'], 'minimum': 0, 'maximum': 300},
+              'end': {'type': ['number', 'null'], 'minimum': 0, 'maximum': 300},
+              'evidence': {'type': 'string'}, 'speaker': {'type': ['string', 'null']}}}
+          client = genai.Client(api_key=os.environ['GEMINI_API_KEY'], http_options=types.HttpOptions(timeout=300000, retry_options={'attempts': 1}))
+          result = client.models.generate_content(model='gemini-3.5-flash', contents=[
+              'Locate the explicit current-week Displacer Kitten buy recommendation in this 300-second audio clip. Not a prior pick or casual mention. Report exact elapsed SECONDS relative to this clip, not MMSS. Identify when its recommendation begins and ends. If absent return found=false and null times. Evidence must quote the audible buy recommendation, no more than 30 words. Do not infer anything from the prompt.',
+              types.Part.from_bytes(data=Path('clip.mp3').read_bytes(), mime_type='audio/mpeg')],
+              config=types.GenerateContentConfig(response_mime_type='application/json', response_json_schema=schema))
+          payload = json.loads(result.text)
+          payload['clip_start_seconds'] = 600
+          if payload['found']:
+              assert 0 <= payload['start'] <= payload['end'] <= 300
+              payload['episode_start_seconds'] = 600 + payload['start']
+              payload['episode_end_seconds'] = 600 + payload['end']
+          Path('520-pick-timing.json').write_text(json.dumps(payload, indent=2), encoding='utf-8')
+          print('Explicit pick located:', payload['found'])
+          print('Episode start:', payload.get('episode_start_seconds'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 520-pick-timing
+          path: 520-pick-timing.json
+          retention-days: 1
