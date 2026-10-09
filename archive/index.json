@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-08T02:38:14Z",
-    "latest_successful_run_at": "2026-10-07T02:32:12Z",
+    "generated_at": "2026-10-09T02:28:26Z",
+    "latest_successful_run_at": "2026-10-09T02:28:26Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 101,
-    "real_pick_count": 397,
+    "real_pick_count": 400,
     "last_discovered_episode_date": "2026-10-02T19:29:03Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 101,
-    "picks": 397,
-    "needs_review": 35,
-    "failed": 2,
+    "picks": 400,
+    "needs_review": 36,
+    "failed": 1,
     "completed": 64
   },
   "status_counts": {
     "complete": 64,
-    "needs_review": 35,
-    "failed": 2
+    "needs_review": 36,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2412061842",
@@ -1983,31 +1983,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "pick_count": 3,
       "directory": "episodes/0520-sos-previews-in-focus",
       "outputs": {
         "metadata": "episodes/0520-sos-previews-in-focus/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0520-sos-previews-in-focus/summary.json",
+        "summary_markdown": "episodes/0520-sos-previews-in-focus/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-08T02:38:14Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
-        "category": "unknown",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 5,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
+      "processed_at": "2026-10-09T02:28:26Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.5",
-  "updated_at": "2026-10-08T02:38:14Z",
+  "updated_at": "2026-10-09T02:28:26Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -9324,6 +9324,50 @@
         {
           "status": "failed",
           "timestamp": "2026-10-08T02:38:14Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-09T02:15:54Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-09T02:15:54Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-09T02:15:54Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-09T02:15:54Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-09T02:16:17Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-09T02:27:53Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-09T02:27:53Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-09T02:28:26Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-09T02:28:26Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-09T02:28:26Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-09T02:28:26Z"
         }
       ],
       "title": "MTG Fast Finance Ep 520: SOS Previews In Focus",
@@ -9331,22 +9375,11 @@
       "published_at": "2026-04-18T19:18:33Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 5,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
-        "category": "unknown",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 5,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
-      "status": "failed",
-      "updated_at": "2026-10-08T02:38:14Z",
+      "attempt_count": 6,
+      "pick_count": 3,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-10-09T02:28:26Z",
       "output_directory": "episodes/0520-sos-previews-in-focus",
       "transcription": {
         "provider": "Gemini",
@@ -9362,27 +9395,28 @@
             "chunk_count": 5,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 136.69,
+            "request_seconds": 81.836,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 9347,
+              "candidates_token_count": 10724,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22620,
+              "prompt_token_count": 22653,
               "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 154
+                },
                 {
                   "modality": "AUDIO",
                   "token_count": 22499
-                },
-                {
-                  "modality": "TEXT",
-                  "token_count": 121
                 }
               ],
-              "thoughts_token_count": 12222,
+              "thoughts_token_count": 6248,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 44189,
+              "total_token_count": 39625,
               "traffic_type": null
             }
           },
@@ -9391,27 +9425,28 @@
             "chunk_count": 5,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 130.117,
+            "request_seconds": 161.914,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 10411,
+              "candidates_token_count": 10259,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22621,
+              "prompt_token_count": 22654,
               "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 154
+                },
                 {
                   "modality": "AUDIO",
                   "token_count": 22500
-                },
-                {
-                  "modality": "TEXT",
-                  "token_count": 121
                 }
               ],
-              "thoughts_token_count": 6123,
+              "thoughts_token_count": 6009,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 39155,
+              "total_token_count": 38922,
               "traffic_type": null
             }
           },
@@ -9420,27 +9455,28 @@
             "chunk_count": 5,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 169.092,
+            "request_seconds": 164.179,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 14061,
+              "candidates_token_count": 5739,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22621,
+              "prompt_token_count": 22654,
               "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 154
+                },
                 {
                   "modality": "AUDIO",
                   "token_count": 22500
-                },
-                {
-                  "modality": "TEXT",
-                  "token_count": 121
                 }
               ],
-              "thoughts_token_count": 8354,
+              "thoughts_token_count": 19899,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 45036,
+              "total_token_count": 48292,
               "traffic_type": null
             }
           },
@@ -9449,13 +9485,14 @@
             "chunk_count": 5,
             "model": "gemini-3.5-flash",
             "audio_seconds": 900,
-            "request_seconds": 34.288,
+            "request_seconds": 70.556,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 9217,
+              "candidates_token_count": 10887,
               "candidates_tokens_details": null,
-              "prompt_token_count": 22621,
+              "prompt_token_count": 22654,
               "prompt_tokens_details": [
                 {
                   "modality": "AUDIO",
@@ -9463,13 +9500,13 @@
                 },
                 {
                   "modality": "TEXT",
-                  "token_count": 121
+                  "token_count": 154
                 }
               ],
-              "thoughts_token_count": 64,
+              "thoughts_token_count": 9990,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 31902,
+              "total_token_count": 43531,
               "traffic_type": null
             }
           },
@@ -9478,13 +9515,14 @@
             "chunk_count": 5,
             "model": "gemini-3.5-flash",
             "audio_seconds": 111,
-            "request_seconds": 19.557,
+            "request_seconds": 31.415,
+            "checkpoint_reused": true,
             "provider_usage": {
               "cache_tokens_details": null,
               "cached_content_token_count": null,
-              "candidates_token_count": 1201,
+              "candidates_token_count": 1082,
               "candidates_tokens_details": null,
-              "prompt_token_count": 2901,
+              "prompt_token_count": 2934,
               "prompt_tokens_details": [
                 {
                   "modality": "AUDIO",
@@ -9492,38 +9530,39 @@
                 },
                 {
                   "modality": "TEXT",
-                  "token_count": 121
+                  "token_count": 154
                 }
               ],
-              "thoughts_token_count": 2050,
+              "thoughts_token_count": 1606,
               "tool_use_prompt_token_count": null,
               "tool_use_prompt_tokens_details": null,
-              "total_token_count": 6152,
+              "total_token_count": 5622,
               "traffic_type": null
             }
           }
         ],
-        "timing_adjustments": 108
+        "timing_adjustments": 84
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 926,
+        "candidates_token_count": 760,
         "candidates_tokens_details": null,
-        "prompt_token_count": 25903,
+        "prompt_token_count": 8063,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 25903
+            "token_count": 8063
           }
         ],
-        "thoughts_token_count": 3916,
+        "thoughts_token_count": 6958,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 30745,
+        "total_token_count": 15781,
         "traffic_type": null
       },
-      "review_reason": null
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "extraction_model": "gemini-3.5-flash"
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=17385": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=17385",
