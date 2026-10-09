@@ -1,5 +1,26 @@
 """Detect dense speech compressed into an implausibly short chunk clock."""
 from copy import deepcopy
+import re
+
+
+def missing_recommendation_content(transcript: dict) -> int:
+    """Flag recommendation windows lost between full text and timed segments.
+
+    This is a conservative review signal, never a source of invented timestamps.
+    Keep the original full text as recovery evidence rather than replacing it.
+    """
+    from .detection import PICK_CUE_PATTERNS
+    text = str(transcript.get("text", ""))
+    timed_words = set(re.findall(r"[a-z0-9]+", " ".join(
+        str(segment.get("text", "")) for segment in transcript.get("segments", [])
+    ).lower()))
+    missing = 0
+    for match in re.finditer("|".join(PICK_CUE_PATTERNS), text, re.IGNORECASE):
+        words = re.findall(r"[a-z0-9]+", text[match.start():].lower())[:100]
+        distinctive = {word for word in words if len(word) >= 4}
+        if len(distinctive) >= 10 and len(distinctive & timed_words) / len(distinctive) < .7:
+            missing += 1
+    return missing
 
 
 def normalize_integer_clock(payload: dict, duration: int) -> dict:

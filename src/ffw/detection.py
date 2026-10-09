@@ -19,6 +19,7 @@ END_PATTERNS = SECTION_END_PATTERNS + EPISODE_END_PATTERNS
 # MTG Fast Finance commonly names Cards to Watch while previewing the whole show.
 # That outline mention is not a reliable section boundary by itself.
 OUTLINE_PATTERNS = (
+    r"\b(?:lots to do|segment\s+(?:one|two|three|four|\d+))\b.{0,700}\bcards?\s+to\s+watch\b",
     r"\b(?:today|this week|on (?:today'?s|this) (?:show|episode)|coming up)\b.{0,500}\bcards?\s+to\s+watch\b",
     r"\b(?:including|we(?:'ll| will)|going to)\b.{0,500}\bcards?\s+to\s+watch\b.{0,300}\b(?:and|plus|before)\b",
     r"\b(?:meta|price) updates?\b.{0,500}\bcards?\s+to\s+watch\b",
@@ -26,6 +27,7 @@ OUTLINE_PATTERNS = (
     r"\b(?:first|then|finally)\b.{0,700}\bcards?\s+to\s+watch\b.{0,300}\b(?:and then|then|finally|after|wrap)\b",
 )
 PICK_CUE_PATTERNS = (
+    r"\bi(?:'ve| have)\s+got\s+(?:a\s+)?(?:good\s+)?pick\b",
     r"\bmy\s+(?:(?:first|second|next|other|last)\s+)?(?:card|pick)\b",
     r"\b(?:first|second|next|other|last)\s+(?:card|pick)(?:\s+this week)?\b",
     r"\b(?:my|our|the)\s+pick\s+(?:this week|is)\b",
@@ -34,6 +36,7 @@ PICK_CUE_PATTERNS = (
     r"\bi(?:'m| am)\s+(?:going|gonna)\s+with\b",
 )
 TOPIC_TRANSITION_PATTERNS = (
+    r"\btopic\s+of\s+the\s+week\b",
     r"\b(?:move|moving)\s+on\s+to\b",
     r"\b(?:main|weekly|featured?)\s+(?:topic|discussion|segment)\b",
     r"\b(?:time to|we(?:'re| are) going to)\b.{0,60}\b(?:discuss|talk|break down|dive|get into)\b",
@@ -157,7 +160,7 @@ def _topic_transition_index(
         # A strong generic label is sufficient. Otherwise require the transition
         # to agree with the advertised feature topic from the title/show notes.
         generic_label = re.search(
-            r"\b(?:main|weekly|featured?)\s+(?:topic|discussion|segment)\b",
+            r"\b(?:(?:main|weekly|featured?)\s+(?:topic|discussion|segment)|topic\s+of\s+the\s+week)\b",
             transition_text, re.IGNORECASE,
         )
         if generic_label or any(re.search(rf"\b{re.escape(term)}\b", lowered) for term in terms):

@@ -6,6 +6,7 @@ import os
 import sys
 import types
 import unittest
+from dataclasses import replace
 from contextlib import contextmanager
 from pathlib import Path
 from unittest.mock import Mock, patch
@@ -191,6 +192,27 @@ class ReliabilityTests(unittest.TestCase):
             result = pipeline.process_episode(item, force=True)
         self.assertEqual("failed", result.status)
         self.assertEqual(before, {path.name: path.read_bytes() for path in output.iterdir() if path.is_file()})
+
+    def test_successful_repair_saved_before_next_repair_fails(self):
+        pipeline, item, _ = self.published()
+        pipeline.settings = replace(pipeline.settings, retain_transcripts=True)
+        item = replace(item, fixture={})
+        compressed = {"text": "original evidence", "segments": [
+            {"start": offset + i / 2, "end": offset + i / 2 + .1, "text": "word " * 70}
+            for offset in (0, 900) for i in range(50)
+        ]}
+        healthy = {"segments": [{"start": 600, "end": 650, "text": "Recovered first chunk."}]}
+        with patch.object(pipeline.audio, "prepare", return_value=[Path("first"), Path("second")]), patch.object(
+            pipeline.transcriber, "transcribe", side_effect=[compressed, healthy, RuntimeError("503 UNAVAILABLE")]
+        ):
+            result = pipeline.process_episode(item, force=True)
+        self.assertEqual("failed", result.status)
+        retained = next((pipeline.settings.work_dir / "transcripts").glob("*.json.gz"))
+        with gzip.open(retained, "rt", encoding="utf-8") as source:
+            saved = json.load(source)["transcript"]
+        self.assertEqual([1], [repair["chunk"] for repair in saved["timing_repairs"]])
+        self.assertIn("Recovered first chunk.", [s["text"] for s in saved["segments"]])
+        self.assertEqual("original evidence", saved["text"])
 
     def test_nonzero_replacement_cannot_remove_published_card(self):
         pipeline, item, output = self.published()

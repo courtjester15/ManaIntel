@@ -516,6 +516,12 @@ class Pipeline:
                     segment["sequence"] = sequence
                 transcript.setdefault("timing_repairs", []).append({"chunk": index + 1, "method": "retranscribe_audio", "usage": repaired.get("usage")})
                 journal.record("transcript_timing_repaired", chunk=index + 1, method="retranscribe_audio", usage=repaired.get("usage"))
+                # Persist each successful repair so a later chunk failure cannot
+                # cause us to pay for the same successful repair on the next run.
+                if self.settings.retain_transcripts and not episode.synthetic:
+                    with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
+                        json.dump({"episode": self._episode_metadata(episode), "pipeline_version": PIPELINE_VERSION,
+                                   "prompt_version": PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
             if self.settings.retain_transcripts and not episode.synthetic:
                 transcript_dir.mkdir(parents=True, exist_ok=True)
                 with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
@@ -545,6 +551,11 @@ class Pipeline:
                     journal.record("verification_warning", exception_class=type(verification_error).__name__, message=str(verification_error))
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             warnings = [extraction.get("review_reason"), extraction.get("section", {}).get("review_reason")]
+            from .transcript_timing import missing_recommendation_content
+            missing_windows = missing_recommendation_content(transcript)
+            if missing_windows:
+                warnings.append("Full transcript contains recommendation content missing from timed segments; verify completeness against retained text/audio.")
+                journal.record("transcript_content_gap", missing_recommendation_windows=missing_windows)
             if episode.source_id == "mtg-fast-finance" and 0 < len(extraction.get("recommendations", [])) < 4:
                 warnings.append("Fewer than four MTG Fast Finance recommendations; verify section completeness.")
             extraction["review_reason"] = " ".join(dict.fromkeys(reason for reason in warnings if reason)) or None
