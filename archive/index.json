@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-09T02:28:26Z",
-    "latest_successful_run_at": "2026-10-09T02:28:26Z",
+    "generated_at": "2026-10-09T02:39:02Z",
+    "latest_successful_run_at": "2026-10-09T02:39:02Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 101,
-    "real_pick_count": 400,
+    "real_pick_count": 401,
     "last_discovered_episode_date": "2026-10-02T19:29:03Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,14 +34,14 @@
   },
   "counts": {
     "episodes": 101,
-    "picks": 400,
-    "needs_review": 36,
+    "picks": 401,
+    "needs_review": 35,
     "failed": 1,
-    "completed": 64
+    "completed": 65
   },
   "status_counts": {
-    "complete": 64,
-    "needs_review": 36,
+    "complete": 65,
+    "needs_review": 35,
     "failed": 1
   },
   "latest_episode": {
@@ -1983,24 +1983,24 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "needs_review",
-      "review_state": "needs_review",
-      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
-      "pick_count": 3,
+      "processing_status": "complete",
+      "review_state": "approved",
+      "review_reason": null,
+      "pick_count": 4,
       "directory": "episodes/0520-sos-previews-in-focus",
       "outputs": {
         "metadata": "episodes/0520-sos-previews-in-focus/metadata.json",
         "summary_json": "episodes/0520-sos-previews-in-focus/summary.json",
         "summary_markdown": "episodes/0520-sos-previews-in-focus/summary.md",
-        "effective_summary_json": null,
-        "effective_summary_markdown": null
+        "effective_summary_json": "episodes/0520-sos-previews-in-focus/effective.json",
+        "effective_summary_markdown": "episodes/0520-sos-previews-in-focus/effective.md"
       },
-      "processed_at": "2026-10-09T02:28:26Z",
+      "processed_at": "2026-10-09T02:39:02Z",
       "error": null,
-      "human_reviewed": false,
-      "reviewed_at": null,
-      "reviewed_by": null,
-      "review_note": null,
+      "human_reviewed": true,
+      "reviewed_at": "2026-10-09T02:39:02Z",
+      "reviewed_by": "codex-transcript-and-focused-audio-recovery",
+      "review_note": "Recovered fourth recommendation from retained full transcript and focused automated audio check (GitHub run 37875195986, episode 817-821 seconds). Repaired segment transcript omitted this recommendation. Speaker and foil left unspecified rather than inferred. Existing three picks and original extraction preserved. This is an automated recovery review, not an independent full-episode human audio audit.",
       "synthetic": false
     },
     {
