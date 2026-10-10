@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "attempt_id": "9b678bf5e86b4342824c19fd4c351147",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2256054647",
+    "number": 510,
+    "title": "MTG Fast Finance Ep 510: TMNT Leaked Card Mishap",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-10-10T01:28:43Z",
+  "pipeline_version": "0.5.5",
+  "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+  "run_id": "38013252984",
+  "run_attempt": "1",
+  "git_sha": "0bd62662a3f68dfdd220e50755946766d3ac882c",
+  "intervention": "Reviewed MTGFF 510 quarantine: Oct 6 failure was 503, timeout, and MAX_TOKENS malformed fallback output. Recover exact episode with current clock normalization, retained transcription, bounded repair, and publication guards.",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "prior_status": "failed",
+    "prior_attempt_count": 5,
+    "transcription_model": "gemini-3.5-flash",
+    "extraction_model": "gemini-3.5-flash",
+    "chunk_seconds": 900,
+    "transcription_fallback": "gemini-3.5-flash-lite",
+    "extraction_fallback": "gemini-3.5-flash-lite",
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-10T01:28:43Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-10T01:28:43Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-10T01:28:46Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-10T01:28:46Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-10T01:29:03Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-10T01:30:52Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 108.309
+    },
+    {
+      "timestamp": "2026-10-10T01:32:13Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "success",
+      "request_seconds": 50.728,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 128
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 18831
+          }
+        ],
+        "cached_content_token_count": 18959,
+        "candidates_token_count": 8873,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22653,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22499
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          }
+        ],
+        "thoughts_token_count": 2542,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 34068,
+        "traffic_type": null
+      },
+      "response_characters": 32202
+    },
+    {
+      "timestamp": "2026-10-10T01:32:19Z",
+      "event": "model_call",
+      "chunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 6.21
+    },
+    {
+      "timestamp": "2026-10-10T01:33:38Z",
+      "event": "model_call",
+      "chunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "success",
+      "request_seconds": 48.924,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 7906,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22654,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          }
+        ],
+        "thoughts_token_count": 4353,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 34913,
+        "traffic_type": null
+      },
+      "response_characters": 29155
+    },
+    {
+      "timestamp": "2026-10-10T01:33:44Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 6.304
+    },
+    {
+      "timestamp": "2026-10-10T01:34:22Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 8.276
+    },
+    {
+      "timestamp": "2026-10-10T01:34:37Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 14.482,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 5455,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22654,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 28109,
+        "traffic_type": null
+      },
+      "response_characters": 21583
+    },
+    {
+      "timestamp": "2026-10-10T01:34:42Z",
+      "event": "model_call",
+      "chunk": 4,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 4.997
+    },
+    {
+      "timestamp": "2026-10-10T01:35:44Z",
+      "event": "model_call",
+      "chunk": 4,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 31.752
+    },
+    {
+      "timestamp": "2026-10-10T01:36:08Z",
+      "event": "model_call",
+      "chunk": 4,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 24.412,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 10495,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22654,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 33149,
+        "traffic_type": null
+      },
+      "response_characters": 34437
+    },
+    {
+      "timestamp": "2026-10-10T01:36:25Z",
+      "event": "model_call",
+      "chunk": 5,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 17.238
+    },
+    {
+      "timestamp": "2026-10-10T01:37:04Z",
+      "event": "model_call",
+      "chunk": 5,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 8.96
+    },
+    {
+      "timestamp": "2026-10-10T01:37:13Z",
+      "event": "model_call",
+      "chunk": 5,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 8.36,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 3247,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 7401,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 7247
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 10648,
+        "traffic_type": null
+      },
+      "response_characters": 11383
+    },
+    {
+      "timestamp": "2026-10-10T01:37:13Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [
+        1
+      ],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-10-10T01:37:50Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 36.902
+    },
+    {
+      "timestamp": "2026-10-10T01:38:36Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 16.871
+    },
+    {
+      "timestamp": "2026-10-10T01:40:38Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "GeminiMalformedJSONError",
+      "message": "Gemini output truncated; finish reason: MAX_TOKENS.",
+      "http_status": null,
+      "request_seconds": 121.7,
+      "finish_reason": "MAX_TOKENS",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 65520,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22653,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 154
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22499
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 88173,
+        "traffic_type": null
+      },
+      "response_characters": 191416
+    },
+    {
+      "timestamp": "2026-10-10T01:40:38Z",
+      "event": "chunk_split",
+      "chunk": 1,
+      "reason": "MAX_TOKENS",
+      "additional_call_cap": 2
+    },
+    {
+      "timestamp": "2026-10-10T01:40:46Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 6.268
+    },
+    {
+      "timestamp": "2026-10-10T01:40:46Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Gemini transcription chunk 1/1 failed after 213.3s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
+      "timestamp": "2026-10-10T01:40:46Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/38013252984",
+  "finished_at": "2026-10-10T01:40:46Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}
