@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-10T01:40:46Z",
-    "latest_successful_run_at": "2026-10-09T17:06:04Z",
+    "generated_at": "2026-10-11T03:48:05Z",
+    "latest_successful_run_at": "2026-10-11T03:48:05Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 102,
-    "real_pick_count": 404,
+    "real_pick_count": 406,
     "last_discovered_episode_date": "2026-10-09T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,14 @@
   },
   "counts": {
     "episodes": 102,
-    "picks": 404,
-    "needs_review": 36,
-    "failed": 1,
+    "picks": 406,
+    "needs_review": 37,
+    "failed": 0,
     "completed": 65
   },
   "status_counts": {
-    "needs_review": 36,
-    "complete": 65,
-    "failed": 1
+    "needs_review": 37,
+    "complete": 65
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35509",
@@ -2845,31 +2844,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "pick_count": 2,
       "directory": "episodes/0510-tmnt-leaked-card-mishap",
       "outputs": {
         "metadata": "episodes/0510-tmnt-leaked-card-mishap/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0510-tmnt-leaked-card-mishap/summary.json",
+        "summary_markdown": "episodes/0510-tmnt-leaked-card-mishap/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-10T01:40:46Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/1 failed after 213.3s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": true,
-        "attempt": 6,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
+      "processed_at": "2026-10-11T03:48:05Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
