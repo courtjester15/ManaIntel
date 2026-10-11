@@ -1028,7 +1028,7 @@ class ProductionPipelineTests(unittest.TestCase):
 
         class Transcriber:
             model_name = "test-transcriber"
-            def transcribe(self, item, files): return {"provider": "test", "segments": [], "chunk_count": 1}
+            def transcribe(self, item, files): return {"provider": "test", "segments": [{"start": 600, "end": 700, "text": "Short evidence.", "speaker": None}], "chunk_count": 1}
 
         class Extractor:
             model_name = "test-extractor"
@@ -1145,7 +1145,7 @@ class ProductionPipelineTests(unittest.TestCase):
 
         class Transcriber:
             model_name = "test-transcriber"
-            def transcribe(self, item, files): return {"provider": "test", "segments": [], "chunk_count": 1}
+            def transcribe(self, item, files): return {"provider": "test", "segments": [{"start": 600, "end": 700, "text": "Short evidence.", "speaker": None}], "chunk_count": 1}
 
         class Extractor:
             model_name = "test-extractor"
@@ -1206,7 +1206,7 @@ class ProductionPipelineTests(unittest.TestCase):
 
         class Transcriber:
             model_name = "test-transcriber"
-            def transcribe(self, item, files): return {"provider": "test", "segments": [], "chunk_count": 1}
+            def transcribe(self, item, files): return {"provider": "test", "segments": [{"start": 600, "end": 700, "text": "Short evidence.", "speaker": None}], "chunk_count": 1}
 
         class Extractor:
             model_name = "test-extractor"

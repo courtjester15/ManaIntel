@@ -499,7 +499,11 @@ class Pipeline:
                 if index >= len(prepared_files):
                     raise ValueError("Transcript timing repair has no matching audio chunk.")
                 chunk_episode = replace(episode, guid=episode.guid + f":timing-repair-{index}", duration_seconds=self.settings.audio_chunk_seconds)
-                repaired = self.transcriber.transcribe(chunk_episode, [prepared_files[index]])
+                repair = getattr(self.transcriber, "repair", self.transcriber.transcribe)
+                try:
+                    repaired = repair(chunk_episode, [prepared_files[index]])
+                except Exception as exc:
+                    raise RuntimeError(f"Timing/coverage repair of original chunk {index + 1}/{len(prepared_files)} failed: {exc}") from exc
                 if not repaired.get("segments") or suspect_timing_chunks(repaired, self.settings.audio_chunk_seconds):
                     raise ValueError("Replacement transcript has missing segments or an implausibly compressed clock.")
                 offset = index * self.settings.audio_chunk_seconds

@@ -5,6 +5,19 @@ from ffw.detection import locate_recommendation_section
 
 
 class TranscriptTimingTests(unittest.TestCase):
+    def test_missing_middle_chunk_is_repaired_even_without_segments(self):
+        transcript = {"chunk_count": 3, "segments": [
+            {"start": 0, "end": 890, "text": "first chunk"},
+            {"start": 1800, "end": 2690, "text": "third chunk"},
+        ]}
+        self.assertEqual([1], suspect_timing_chunks(transcript))
+
+    def test_decimal_clock_requires_audio_repair_not_guessed_conversion(self):
+        transcript = {"segments": [{"start": i / 100, "end": (i + 1) / 100,
+                                     "text": "word " * 80} for i in range(30)]}
+        self.assertEqual([0], suspect_timing_chunks(transcript))
+        self.assertEqual(transcript, normalize_integer_clock(transcript, 900))
+
     def test_opening_marker_beats_fourth_pick_and_split_topic_transition(self):
         segments = [{"start": 636, "end": 650, "text": "Taking a look at our first cards to watch."}]
         segments += [{"start": 651 + i, "end": 652 + i, "text": "Discussion of collecting."} for i in range(10)]

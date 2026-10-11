@@ -52,6 +52,11 @@ def suspect_timing_chunks(transcript: dict, chunk_seconds: int = 900) -> list[in
             index = int(start // chunk_seconds) - 1
             boundary_counts[index] = boundary_counts.get(index, 0) + 1
     suspect = [index for index, count in boundary_counts.items() if count >= 5]
+    # A successful JSON response can contain full text but omit timed segments.
+    # Use the original audio chunk count rather than only inspecting groups
+    # that happen to exist in the provider response.
+    suspect.extend(index for index in range(int(transcript.get("chunk_count", 0)))
+                   if not groups.get(index))
     for index, segments in groups.items():
         offset = index * chunk_seconds
         maximum = max(float(s.get("end", s.get("start", 0))) - offset for s in segments)

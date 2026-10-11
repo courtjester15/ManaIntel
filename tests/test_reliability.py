@@ -112,7 +112,7 @@ class ReliabilityTests(unittest.TestCase):
         first = {"text": "first", "segments": [{"start": 1, "end": 2, "text": "first", "speaker": None}]}
         second = {"text": "second", "segments": [{"start": 3, "end": 4, "text": "second", "speaker": None}]}
         with fake_sdk() as sdk, patch("ffw.production.subprocess.run", side_effect=self.media), patch(
-            "ffw.production._gemini_generate_json", side_effect=[first, RuntimeError("503")]
+            "ffw.production._gemini_generate_json", side_effect=[first, RuntimeError("503"), RuntimeError("503")]
         ):
             with self.assertRaisesRegex(RuntimeError, "503"):
                 transcriber._rescue_chunk(object(), sdk, candidate(), audio, 0, 2, "fingerprint", "prompt")
@@ -124,6 +124,30 @@ class ReliabilityTests(unittest.TestCase):
         self.assertFalse(generate.call_args.kwargs["allow_schema_fallback"])
         self.assertEqual([1, 53], [segment["start"] for segment in payload["segments"]])
         self.assertFalse((self.root / "chunk-rescue").exists())
+
+    def test_split_repair_falls_back_and_bounds_half_clock(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        payload = {"text": "speech", "segments": [{"start": 1, "end": 40, "text": "speech"}]}
+        with fake_sdk() as sdk, patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=[RuntimeError("503 UNAVAILABLE"), payload, payload]
+        ) as generate:
+            result, model = transcriber._rescue_chunk(object(), sdk, candidate(), audio, 0, 1, "new", "prompt")
+        self.assertEqual(["primary", "fallback", "primary"], [c.kwargs["model"] for c in generate.call_args_list])
+        self.assertEqual("fallback + primary", model)
+        self.assertEqual([1, 51], [s["start"] for s in result["segments"]])
+        self.assertEqual(50, generate.call_args.kwargs["schema"]["properties"]["segments"]["items"]["properties"]["end"]["maximum"])
+
+    def test_timing_repair_starts_with_split_instead_of_full_request(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        with fake_sdk(), patch.object(transcriber, "_transcribe_chunk", side_effect=AssertionError("full request")), patch(
+            "ffw.production.GeminiTranscriber._rescue_chunk", return_value=({"text": "ok", "segments": []}, "fallback")
+        ) as rescue:
+            transcriber.repair(candidate(), [audio])
+        self.assertEqual(1, rescue.call_count)
 
     def test_rescue_budget_is_two_extra_calls_for_entire_episode(self):
         transcriber = self.transcriber()

@@ -561,7 +561,7 @@ class GeminiTranscriber:
 
     def _rescue_chunk(self, client: Any, types: Any, episode: EpisodeCandidate, path: Path,
                       index: int, chunk_count: int, fingerprint: str, prompt: str) -> tuple[dict[str, Any], str]:
-        """One level, one primary-model call per half; successful halves are checkpointed."""
+        """One split level, at most primary plus fallback per half; retain successes."""
         observer = getattr(self, "audit_callback", None)
         checkpoint_dir = self._checkpoint_dir(episode)
         plan_path = checkpoint_dir / f"chunk-{index:03d}-split.json" if checkpoint_dir else None
@@ -580,6 +580,7 @@ class GeminiTranscriber:
             from .utils import atomic_write_json
             atomic_write_json(plan_path, {"fingerprint": fingerprint, "duration": duration})
         payloads = []
+        used_models = []
         rescue_dir = path.parent / f"{path.stem}-rescue"
         rescue_dir.mkdir(parents=True, exist_ok=True)
         try:
@@ -603,14 +604,36 @@ class GeminiTranscriber:
                     def observe(event: str, **details: Any) -> None:
                         if observer:
                             observer(event, chunk=index + 1, subchunk=part + 1, stage="transcribing", **details)
-                    payload = _gemini_generate_json(
-                        client, types, model=self.model_name,
-                        contents=[prompt, types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
-                        schema=TRANSCRIPT_SCHEMA, observer=observe, allow_schema_fallback=False,
-                    )
-                    model, seconds = self.model_name, round(time.monotonic() - started, 3)
+                    schema = deepcopy(TRANSCRIPT_SCHEMA)
+                    for field in ("start", "end"):
+                        schema["properties"]["segments"]["items"]["properties"][field].update(minimum=0, maximum=half)
+                    errors = []
+                    for model in dict.fromkeys(filter(None, [self.model_name, self.fallback_model_name])):
+                        try:
+                            payload = _gemini_generate_json(
+                                client, types, model=model,
+                                contents=[prompt + f" This clip lasts {half} seconds. Return elapsed seconds within this clip, not a clock notation.",
+                                          types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
+                                schema=schema, observer=observe, allow_schema_fallback=False,
+                            )
+                            if getattr(self, "force_split", False):
+                                from .transcript_timing import normalize_integer_clock, suspect_timing_chunks
+                                checked = normalize_integer_clock(payload, half)
+                                if not checked.get("segments") or suspect_timing_chunks(checked, half):
+                                    raise GeminiMalformedJSONError("Malformed JSON transcript content: split repair has missing segments or compressed timestamps.")
+                            break
+                        except Exception as exc:
+                            if not _is_transient_gemini_error(exc):
+                                raise
+                            errors.append(f"{model}: {type(exc).__name__}: {exc}")
+                    else:
+                        raise RuntimeError(f"Split repair half {part + 1}/2 exhausted: {'; '.join(errors)}")
+                    seconds = round(time.monotonic() - started, 3)
                     self._save_chunk_checkpoint(episode, index, chunk_count, fingerprint + f":split-v1:{duration}", payload, model, seconds, suffix)
                 adjusted = deepcopy(payload)
+                used_models.append(model)
+                from .transcript_timing import normalize_integer_clock
+                adjusted = normalize_integer_clock(adjusted, half)
                 for segment in adjusted.get("segments", []):
                     start = min(max(float(segment.get("start", 0)), 0), half)
                     end = min(max(float(segment.get("end", start)), start), half)
@@ -618,9 +641,17 @@ class GeminiTranscriber:
                 payloads.append(adjusted)
             return {"text": "\n".join(str(item.get("text", "")) for item in payloads),
                     "segments": [segment for item in payloads for segment in item.get("segments", [])],
-                    "_usage": {"rescue_subchunks": [item.get("_usage") for item in payloads]}}, self.model_name
+                    "_usage": {"rescue_subchunks": [item.get("_usage") for item in payloads]}}, " + ".join(dict.fromkeys(used_models))
         finally:
             shutil.rmtree(rescue_dir, ignore_errors=True)
+
+    def repair(self, episode: EpisodeCandidate, audio_files: list[Path]) -> dict[str, Any]:
+        # Isolate repair checkpoints from failed full-chunk responses and avoid
+        # repeating the 15-minute request that already produced bad clocks.
+        from copy import copy
+        worker = copy(self)
+        worker.force_split = True
+        return worker.transcribe(episode, audio_files)
 
     def transcribe(self, episode: EpisodeCandidate, audio_files: list[Path]) -> dict[str, Any]:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
@@ -650,6 +681,8 @@ class GeminiTranscriber:
             "Keep card names and price phrases as spoken."
         )
         fingerprint = self._checkpoint_fingerprint(episode, audio_files, prompt)
+        if getattr(self, "force_split", False):
+            fingerprint += ":timing-coverage-split-v2"
         rescue_used = False
         observer = getattr(self, "audit_callback", None)
         for index, path in enumerate(audio_files):
@@ -667,7 +700,7 @@ class GeminiTranscriber:
                     plan_path = directory / f"chunk-{index:03d}-split.json" if directory else None
                     from .utils import load_json
                     split_planned = bool(plan_path and load_json(plan_path, {}).get("fingerprint") == fingerprint)
-                    if split_planned and not rescue_used:
+                    if (split_planned or getattr(self, "force_split", False)) and not rescue_used:
                         rescue_used = True
                         payload, used_model = self._rescue_chunk(client, types, episode, path, index, len(audio_files), fingerprint, prompt)
                     else:
@@ -683,7 +716,7 @@ class GeminiTranscriber:
                                 raise
                             rescue_used = True
                             if observer:
-                                observer("chunk_split", chunk=index + 1, reason="MAX_TOKENS", additional_call_cap=2)
+                                observer("chunk_split", chunk=index + 1, reason="MAX_TOKENS", additional_call_cap=4)
                             self.audit_callback = original_observer
                             payload, used_model = self._rescue_chunk(client, types, episode, path, index, len(audio_files), fingerprint, prompt)
                         finally:

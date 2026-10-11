@@ -66,7 +66,7 @@ class OutputDirectoryStabilityTests(unittest.TestCase):
             model_name = "test-transcriber"
 
             def transcribe(self, episode, files):
-                return {"provider": "test", "segments": [], "chunk_count": 1}
+                return {"provider": "test", "segments": [{"start": 10, "end": 20, "text": "Short evidence.", "speaker": None}], "chunk_count": 1}
 
         class Extractor:
             model_name = "test-extractor"
