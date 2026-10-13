@@ -142,13 +142,13 @@
 
 ## ADR-024 — Production provider is configurable; workflow default is Gemini
 
-**Decision:** Retain both Gemini and OpenAI adapters. The checked-in GitHub workflow pins `gemini-3.5-flash` for transcription and extraction. Transient transcription failures receive one short primary retry and then one same-key request to `gemini-3.5-flash-lite`; model/provider values remain environment configuration rather than product architecture.
+**Decision:** Retain both Gemini and OpenAI adapters. The checked-in GitHub workflow pins `gemini-3.6-flash` for transcription and extraction. Transient transcription failures receive one short primary retry and then one same-key request to `gemini-3.5-flash-lite`; model/provider values remain environment configuration rather than product architecture.
 
 **Reason:** Provider availability and cost change. A bounded same-provider fallback prevents temporary capacity trouble from consuming a full episode attempt while avoiding new credentials or an unbounded provider carousel. Operational documentation must describe the checked-in default without coupling the archive contract to it.
 
 ## ADR-025 — Fresh backfill and failed recovery use separate bounded schedules
 
-**Decision:** Run `next` at 10:17 UTC and `retry_then_next` at 20:17 UTC. The fresh run always selects the newest untouched episode and skips failed records. The evening run selects at most one episode: the newest due retryable failure after a six-hour cooldown, otherwise the newest untouched episode across both feeds. Automatic selectors ignore episodes older than the configured age window; only an explicit GUID can bypass it. Each episode receives at most three total attempts before quarantine. Transient provider failures remain retryable even when they stop the current batch; permanent provider configuration failures and episode-specific bad input do not loop.
+**Decision:** Run `next` at 10:17 UTC and `retry_then_next` at 20:17 UTC. The fresh run always selects the newest untouched episode and skips failed records. The evening run selects at most one episode: the newest due retryable failure after a six-hour cooldown, otherwise the newest untouched episode across both feeds. Selectors have no episode-age cutoff and continue through the full available feed history. Each episode receives at most three total attempts before quarantine. Transient provider failures remain retryable even when they stop the current batch; permanent provider configuration failures and episode-specific bad input do not loop.
 
 **Reason:** A broken episode must not stall historical progress, but transient network, capacity, and quota failures should recover without manual dispatch. Separate schedules preserve a guaranteed fresh-work slot, spread free-tier requests across the day, and cap wasted provider calls when an episode is genuinely bad.
 

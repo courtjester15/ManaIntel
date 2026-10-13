@@ -13,7 +13,7 @@ The project includes a fully runnable credential-free mock mode plus live RSS, t
 
 ## Normal user workflow
 
-Open <https://courtjester15.github.io/ManaIntel/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 20:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, it advances the same newest-to-oldest untouched cursor. Automatic selection ignores episodes older than `FFW_AUTOMATIC_MAX_EPISODE_AGE_DAYS` (365 by default); an explicit GUID can override the age limit.
+Open <https://courtjester15.github.io/ManaIntel/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 20:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, it advances the same newest-to-oldest untouched cursor. Episodes remain eligible regardless of age, so automatic processing continues through the full available feed history.
 
 For an episode marked **needs review**, open its details and choose **Review episode**. Keep, exclude, or correct extracted picks, add any missing picks, then prepare and copy the review payload. Paste that payload into **Actions -> Review one episode -> Run workflow**. The authenticated workflow validates and stores the review, rebuilds the effective archive, commits it, and deploys Pages while retaining the original AI extraction unchanged.
 

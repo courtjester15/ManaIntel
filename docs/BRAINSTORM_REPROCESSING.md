@@ -30,7 +30,7 @@ Use the `FFW automated archive` workflow with:
 - `batch_size`: `1`
 - `source`: `brainstorm-brewery`
 - `force_guid`: the exact canonical RSS GUID
-- `ai_model`: `gemini-3.5-flash`
+- `ai_model`: `gemini-3.6-flash`
 - `reuse_transcript_run_id`: the matching prior run ID when its transcript artifact is available; otherwise blank
 - `deploy`: enabled
 

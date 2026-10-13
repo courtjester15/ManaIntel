@@ -31,7 +31,7 @@ jobs:
               'end': {'type': ['number', 'null'], 'minimum': 0, 'maximum': 300},
               'evidence': {'type': 'string'}, 'speaker': {'type': ['string', 'null']}}}
           client = genai.Client(api_key=os.environ['GEMINI_API_KEY'], http_options=types.HttpOptions(timeout=300000, retry_options={'attempts': 1}))
-          result = client.models.generate_content(model='gemini-3.5-flash', contents=[
+          result = client.models.generate_content(model='gemini-3.6-flash', contents=[
               'Locate the explicit current-week Displacer Kitten buy recommendation in this 300-second audio clip. Not a prior pick or casual mention. Report exact elapsed SECONDS relative to this clip, not MMSS. Identify when its recommendation begins and ends. If absent return found=false and null times. Evidence must quote the audible buy recommendation, no more than 30 words. Do not infer anything from the prompt.',
               types.Part.from_bytes(data=Path('clip.mp3').read_bytes(), mime_type='audio/mpeg')],
               config=types.GenerateContentConfig(response_mime_type='application/json', response_json_schema=schema))

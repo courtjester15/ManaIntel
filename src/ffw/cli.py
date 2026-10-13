@@ -82,7 +82,6 @@ def _run_pipeline(settings: Settings, *, report_json: Path | None = None, **opti
     print(f"Skipped failed: {selection.failed_skipped}")
     print(f"Retry deferred: {selection.retry_deferred}")
     print(f"Retry exhausted/quarantined: {selection.retry_exhausted}")
-    print(f"Skipped outside automatic age window: {selection.age_skipped}")
     print(f"Eligible found: {selection.eligible_found}")
     if selection.selected:
         print(f"Selected newest eligible episode: {selection.selected[0].title}")

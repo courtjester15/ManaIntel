@@ -569,10 +569,10 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn('default: "1"', workflow)
         self.assertIn("batch_size must be a positive integer", workflow)
         self.assertIn("exceeds the safety cap", workflow)
-        self.assertIn("gemini-3.5-flash", workflow)
+        self.assertIn("gemini-3.6-flash", workflow)
         self.assertIn("gemini-3.5-flash-lite", workflow)
         self.assertIn("ai_model:", workflow)
-        self.assertIn("inputs.ai_model || 'gemini-3.5-flash'", workflow)
+        self.assertIn("inputs.ai_model || 'gemini-3.6-flash'", workflow)
         self.assertIn("reuse_transcript_run_id:", workflow)
         self.assertIn("Download retained transcript for recovery", workflow)
         self.assertIn("FFW_REUSE_TRANSCRIPTS", workflow)
@@ -1392,23 +1392,24 @@ class StateAwareSelectionTests(unittest.TestCase):
         self.assertEqual(6, report.feed_entries_scanned)
         self.assertEqual(["guid-1"], [item.guid for item in report.selected])
 
-    def test_automatic_selection_skips_very_old_episodes_but_exact_guid_can_override(self) -> None:
+    def test_scheduled_and_manual_backfill_continue_into_old_history(self) -> None:
         recent = self.candidates()[-1]
         old = EpisodeCandidate(
             "guid-old", 36, "Episode 36", "2016-10-09T00:00:00Z",
             "https://cdn.example.test/old.mp3", "https://example.test/old", [],
         )
+        for policy in ("next", "retry_then_next", "backfill"):
+            with self.subTest(policy=policy):
+                report = self.pipeline.select_candidates([old, recent], policy=policy, limit=1)
+                self.assertEqual([recent], report.selected)
+        self.set_status(recent, "complete")
+        for policy in ("next", "retry_then_next", "backfill"):
+            with self.subTest(policy=policy):
+                report = self.pipeline.select_candidates([old, recent], policy=policy, limit=1)
+                self.assertEqual([old], report.selected)
+        self.set_status(old, "complete")
+        self.assertEqual([], self.pipeline.select_candidates([old, recent], policy="next").selected)
 
-        progressive = self.pipeline.select_candidates([old, recent], policy="next")
-        automatic = self.pipeline.select_candidates([old], policy="next")
-        explicit = self.pipeline.select_candidates(
-            [old, recent], policy="exact_guid", force_guid="guid-old",
-        )
-
-        self.assertEqual([recent], progressive.selected)
-        self.assertEqual([], automatic.selected)
-        self.assertEqual(1, automatic.age_skipped)
-        self.assertEqual([old], explicit.selected)
     def test_reordered_feed_and_new_release_keep_guid_identity(self) -> None:
         candidates = self.candidates()
         self.set_status(candidates[5], "complete")

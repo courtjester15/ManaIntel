@@ -280,12 +280,6 @@ class Pipeline:
                 seen_guids.add(episode.guid)
         records = self.state.all()
         report = SelectionReport(policy=policy)
-        automatic_cutoff = datetime.now(timezone.utc) - timedelta(days=self.settings.automatic_max_episode_age_days)
-
-        def is_too_old(episode: EpisodeCandidate) -> bool:
-            published_at = _parse_timestamp(episode.published_at)
-            return published_at is None or published_at < automatic_cutoff
-
         if policy == "retry_then_next":
             fallback: EpisodeCandidate | None = None
             for episode in ordered:
@@ -294,9 +288,6 @@ class Pipeline:
                 status = record.get("status") if record else None
                 if status in TERMINAL_STATES:
                     report.completed_skipped += 1
-                    continue
-                if is_too_old(episode):
-                    report.age_skipped += 1
                     continue
                 if status == "failed":
                     error = record.get("error") or {}
@@ -330,9 +321,6 @@ class Pipeline:
                 continue
             if not include_completed and status in TERMINAL_STATES:
                 report.completed_skipped += 1
-                continue
-            if is_too_old(episode):
-                report.age_skipped += 1
                 continue
             if include_completed:
                 eligible.append(episode)
