@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "attempt_id": "cb52a2711c3b4c48b3cf5c4d95649e6e",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15718",
+    "number": 667,
+    "title": "Collector Booster Boosting | Brainstorm Brewery #667 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-10-13T17:36:02Z",
+  "pipeline_version": "0.5.5",
+  "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+  "run_id": "38439808839",
+  "run_attempt": "1",
+  "git_sha": "2a1ad0b6bf7324d39571d81a23d735b6d348c973",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.6-flash",
+    "extraction_model": "gemini-3.6-flash",
+    "chunk_seconds": 900,
+    "transcription_fallback": "gemini-3.5-flash-lite",
+    "extraction_fallback": "gemini-3.5-flash-lite",
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-13T17:36:02Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-13T17:36:02Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-13T17:36:05Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-13T17:36:05Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-13T17:36:21Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-13T17:36:31Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.6-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 9.343
+    },
+    {
+      "timestamp": "2026-10-13T17:37:03Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.6-flash",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 2.021
+    },
+    {
+      "timestamp": "2026-10-13T17:37:10Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 7.162
+    },
+    {
+      "timestamp": "2026-10-13T17:37:10Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Gemini transcription chunk 1/5 failed after 48.5s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.6-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.6-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
+      "timestamp": "2026-10-13T17:37:10Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/38439808839",
+  "finished_at": "2026-10-13T17:37:10Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}
