@@ -31,7 +31,7 @@
     "transcription_model": "gemini-3.6-flash",
     "extraction_model": "gemini-3.6-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-13T23:54:08Z",
+    "processed_at": "2026-10-14T23:13:38Z",
     "history": [
       {
         "status": "detected",
@@ -88,6 +88,30 @@
       {
         "status": "failed",
         "timestamp": "2026-10-13T23:54:08Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-14T23:13:14Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-14T23:13:14Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-14T23:13:15Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-14T23:13:15Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-14T23:13:38Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-14T23:13:38Z"
       }
     ],
     "error": {
@@ -95,12 +119,12 @@
       "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
       "category": "unknown",
       "synthetic": false,
-      "retryable": true,
+      "retryable": false,
       "provider_wide": false,
-      "attempt": 2,
+      "attempt": 3,
       "max_attempts": 3,
-      "next_retry_at": "2026-10-14T05:54:08Z",
-      "quarantined": false
+      "next_retry_at": null,
+      "quarantined": true
     },
     "transcription": null,
     "extraction_usage": null

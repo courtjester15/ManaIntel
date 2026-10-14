@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.5",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-14T15:13:23Z",
+    "generated_at": "2026-10-14T23:13:38Z",
     "latest_successful_run_at": "2026-10-13T02:58:16Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -4096,18 +4096,18 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-13T23:54:08Z",
+      "processed_at": "2026-10-14T23:13:38Z",
       "error": {
         "stage": "transcribing",
         "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
         "category": "unknown",
         "synthetic": false,
-        "retryable": true,
+        "retryable": false,
         "provider_wide": false,
-        "attempt": 2,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-10-14T05:54:08Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "human_reviewed": false,
       "reviewed_at": null,
