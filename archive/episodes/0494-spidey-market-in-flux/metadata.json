@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2172092631",
+    "episode_number": 494,
+    "title": "MTG Fast Finance Ep 494: Spidey Market In Flux",
+    "published_at": "2025-09-20T05:54:54Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2172092631-user-519789566-mtg-fast-finance-ep-494-spidey-market-in-flux.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-494-spidey-market-in-flux",
+    "duration_seconds": 2384,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys walk you through the latest meta shifts, fast moving cards, online action and take a look at the recent shifts in Spider-Man sealed product pricing.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.5",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.6-flash",
+    "extraction_model": "gemini-3.6-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-10-14T15:13:23Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-14T15:06:57Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-14T15:06:57Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-14T15:06:57Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-14T15:06:57Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-14T15:06:58Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-14T15:06:58Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-14T15:07:09Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-14T15:13:23Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 2/3 failed after 161.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.6-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.6-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini output truncated; finish reason: MAX_TOKENS.",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-14T21:13:23Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0494-spidey-market-in-flux/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

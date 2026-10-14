@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.5",
-  "updated_at": "2026-10-13T23:54:08Z",
+  "updated_at": "2026-10-14T15:13:23Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -26005,6 +26005,65 @@
       "status": "failed",
       "updated_at": "2026-10-13T23:54:08Z",
       "output_directory": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance"
+    },
+    "tag:soundcloud,2010:tracks/2172092631": {
+      "guid": "tag:soundcloud,2010:tracks/2172092631",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-14T15:06:57Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-14T15:06:57Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-14T15:06:57Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-14T15:06:57Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-14T15:06:58Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-14T15:06:58Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-14T15:07:09Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-14T15:13:23Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 494: Spidey Market In Flux",
+      "episode_number": 494,
+      "published_at": "2025-09-20T05:54:54Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 2/3 failed after 161.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.6-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.6-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini output truncated; finish reason: MAX_TOKENS.",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-14T21:13:23Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-14T15:13:23Z",
+      "output_directory": "episodes/0494-spidey-market-in-flux"
     }
   }
 }
