@@ -31,7 +31,7 @@
     "transcription_model": "gemini-3.6-flash",
     "extraction_model": "gemini-3.6-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-15T15:06:08Z",
+    "processed_at": "2026-10-15T23:05:06Z",
     "history": [
       {
         "status": "detected",
@@ -64,18 +64,42 @@
       {
         "status": "failed",
         "timestamp": "2026-10-15T15:06:08Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-15T23:04:22Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-15T23:04:22Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-15T23:04:24Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-15T23:04:24Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-15T23:04:40Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-15T23:05:06Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Timing/coverage repair of original chunk 2/3 failed: Gemini transcription chunk 1/1 failed after 49.3s: RuntimeError: Split repair half 2/2 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
-      "category": "transient_model_output",
+      "message": "Timing/coverage repair of original chunk 2/3 failed: Gemini transcription chunk 1/1 failed after 25.6s: RuntimeError: Split repair half 2/2 exhausted: gemini-3.6-flash: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+      "category": "transient_provider",
       "synthetic": false,
       "retryable": true,
-      "provider_wide": false,
-      "attempt": 1,
+      "provider_wide": true,
+      "attempt": 2,
       "max_attempts": 3,
-      "next_retry_at": "2026-10-15T21:06:08Z",
+      "next_retry_at": "2026-10-16T05:05:06Z",
       "quarantined": false
     },
     "transcription": null,
