@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.5",
+    "pipeline_version": "0.5.6",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-14T23:13:38Z",
-    "latest_successful_run_at": "2026-10-13T02:58:16Z",
+    "generated_at": "2026-10-15T03:11:34Z",
+    "latest_successful_run_at": "2026-10-15T03:11:33Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 105,
-    "real_pick_count": 410,
+    "real_pick_count": 413,
     "last_discovered_episode_date": "2026-10-09T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 105,
-    "picks": 410,
-    "needs_review": 38,
-    "failed": 2,
+    "picks": 413,
+    "needs_review": 39,
+    "failed": 1,
     "completed": 65
   },
   "status_counts": {
-    "needs_review": 38,
+    "needs_review": 39,
     "complete": 65,
-    "failed": 2
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35509",
@@ -4131,31 +4131,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Only the early show-outline mention of Cards to Watch was found; verify where the recommendation block begins. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "pick_count": 3,
       "directory": "episodes/0494-spidey-market-in-flux",
       "outputs": {
         "metadata": "episodes/0494-spidey-market-in-flux/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0494-spidey-market-in-flux/summary.json",
+        "summary_markdown": "episodes/0494-spidey-market-in-flux/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-14T15:13:23Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/3 failed after 161.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.6-flash attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.6-flash attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Gemini output truncated; finish reason: MAX_TOKENS.",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-14T21:13:23Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-15T03:11:33Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
