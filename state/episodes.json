@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.6",
-  "updated_at": "2026-10-15T03:11:33Z",
+  "updated_at": "2026-10-15T15:06:08Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -26269,6 +26269,65 @@
       },
       "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": "Only the early show-outline mention of Cards to Watch was found; verify where the recommendation block begins. Fewer than four MTG Fast Finance recommendations; verify section completeness."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15716": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15716",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-15T15:00:04Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-15T15:00:04Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-15T15:00:04Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-15T15:00:04Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-15T15:00:05Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-15T15:00:05Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-15T15:00:15Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-15T15:06:08Z"
+        }
+      ],
+      "title": "Measured Content | Brainstorm Brewery #666 | Magic Finance",
+      "episode_number": 666,
+      "published_at": "2025-09-19T06:01:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 2/3 failed: Gemini transcription chunk 1/1 failed after 49.3s: RuntimeError: Split repair half 2/2 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-15T21:06:08Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-15T15:06:08Z",
+      "output_directory": "episodes/0666-measured-content-brainstorm-brewery-666-magic-finance"
     }
   }
 }

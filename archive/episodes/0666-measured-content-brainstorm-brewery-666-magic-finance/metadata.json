@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15716",
+    "episode_number": 666,
+    "title": "Measured Content | Brainstorm Brewery #666 | Magic Finance",
+    "published_at": "2025-09-19T06:01:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_666_Measured_Content.mp3",
+    "episode_url": "https://brainstormbrewery.com/measured-content-brainstorm-brewery-666-magic-finance/",
+    "duration_seconds": 2683,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler) and Cass (@devotedDruid) hold down the fort, bringing you all the latest on small shows , collector booster bubble, and legacy Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "pipeline_version": "0.5.6",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.6-flash",
+    "extraction_model": "gemini-3.6-flash",
+    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
+    "processed_at": "2026-10-15T15:06:08Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-15T15:00:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-15T15:00:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-15T15:00:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-15T15:00:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-15T15:00:05Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-15T15:00:05Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-15T15:00:15Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-15T15:06:08Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing/coverage repair of original chunk 2/3 failed: Gemini transcription chunk 1/1 failed after 49.3s: RuntimeError: Split repair half 2/2 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+      "category": "transient_model_output",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-15T21:06:08Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0666-measured-content-brainstorm-brewery-666-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
