@@ -8,7 +8,7 @@ from typing import Any
 
 from .card_resolution import CardResolutionUnavailable, ScryfallCardResolver
 from .models import EpisodeCandidate
-from .production import _gemini_generate_json
+from .production import GeminiModelHealth, _gemini_generate_json
 
 
 VERIFICATION_SCHEMA: dict[str, Any] = {
@@ -42,6 +42,7 @@ class GeminiPickVerifier:
         self.max_picks = max(0, max_picks)
         self.clip_lead_seconds = max(0, clip_lead_seconds)
         self.clip_duration_seconds = max(10, clip_duration_seconds)
+        self.model_health = GeminiModelHealth()
 
     @staticmethod
     def _is_card_name_ambiguity(pick: dict[str, Any]) -> bool:
@@ -70,6 +71,11 @@ class GeminiPickVerifier:
         audio_files: list[Path],
     ) -> dict[str, Any]:
         if not audio_files or self.max_picks == 0:
+            return extraction
+        if self.model_health.failures.get(self.model_name, 0) >= 2:
+            if getattr(self, "audit_callback", None):
+                self.audit_callback("model_circuit_skipped", model=self.model_name, stage="verifying")
+            # Keep ambiguity reviewable when a second listen is unavailable.
             return extraction
         from google import genai
         from google.genai import types

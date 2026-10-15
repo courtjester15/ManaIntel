@@ -88,6 +88,10 @@ def render_attempt_log(root: Path) -> None:
         calls = sum(event.get("event") == "model_call" for event in events)
         reused = sum(event.get("event") == "checkpoint_reused" for event in events)
         line = f"- {item.get('started_at')} — {label}: **{item.get('outcome')}**; {action}; {item.get('pick_count', 0)} picks; {calls} observed model calls; {reused} checkpoints reused"
+        failed_calls = sum(event.get("event") == "model_call" and event.get("outcome") == "failed" for event in events)
+        circuit_skips = sum(event.get("event") == "model_circuit_skipped" for event in events)
+        if failed_calls or circuit_skips:
+            line += f"; {failed_calls} failed model calls; {circuit_skips} unavailable-model skips"
         if item.get("preserved_previous"):
             line += "; previous published result retained"
         if item.get("workflow_validation"):

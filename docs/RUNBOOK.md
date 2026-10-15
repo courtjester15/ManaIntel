@@ -112,6 +112,18 @@ In GitHub Actions, choose a normal processing mode, enter the exact canonical GU
 
 ## Retention and cost
 
+### Availability and bounded recovery
+
+Version 0.5.6 shares a model availability circuit across transcription, timing repair and extraction within each episode attempt. With a configured fallback, two transient primary failures or one quota response suppress further calls to that primary during the attempt. Output truncation and malformed JSON do not open the availability circuit. The next attempt starts with fresh model availability state. Optional second-listen verification preserves unresolved ambiguity if its model's circuit is open.
+
+Each original audio chunk can be split into two halves once. A transcription invocation permits at most eight actual rescue calls, including failed calls and fallback calls. Cached parent chunks and halves are reused without spending that budget. If it is exhausted, a later bounded retry resumes the saved progress. Timing repair still permits two chunks by default (three only for an inspected manual dispatch); its separate single-chunk transcription invocations remain bounded too.
+
+Timing budget exhaustion, incompatible retained transcripts and unusable replacement timing are classified `manual_intervention`, with no automatic retry date. Both normal retry selectors and the low-pick queue exclude those errors. Legacy records with the same manual-review message are also excluded even if their stored retryable flag is true. Exact-GUID dispatch remains the explicit recovery path after inspecting evidence. Do not raise the global repair limit or delete retained evidence to bypass this gate.
+
+For the October 14 incidents, BB 667 still requires inspection of retained chunks 1, 3 and 4 before a three-chunk repair dispatch. FF 494 can reuse completed chunk 1 and resume split recovery on subsequent truncated chunks after this version is deployed. These code changes do not themselves mark either episode recovered. The configured model names remain unchanged pending a live availability/quality evaluation; a circuit breaker bounds failed probes but cannot ensure provider availability.
+
+Attempt-log entries now show failed model-call counts and unavailable-model skips. Judge useful throughput by episode outcome and pick count; archive validation can succeed while persisting a failed episode record.
+
 Raw MP3s and normalized chunks remain disposable in `.ffw-work/`. When `FFW_RETAIN_TRANSCRIPTS=true`, the pipeline writes compressed full timestamped transcripts under `.ffw-work/transcripts/`; the production workflow uploads them as private Actions artifacts with 14-day retention. Transcripts are never committed or copied to Pages. Forced episode reruns also retain the previous summary and a compact before/after comparison as private 14-day workflow artifacts, allowing the replacement to be evaluated without manual transcription diffing. A forced rerun that falls from one or more published picks to zero cannot erase the previous recommendations: the prior picks remain published, the episode returns to `needs_review`, and the rejected comparison records the publication guard. Published records retain only source metadata, timestamps, short evidence excerpts, model/version audit data, JSON, and Markdown.
 
 A missing recommendation-section ending remains visible in section metadata but does not by itself require editorial review when all extracted picks are approved. Missing sections, empty extraction, and pick-level ambiguity still produce `needs_review`. Gemini segment timestamps are bounded to their source chunk and the count of timing corrections is retained in transcription metadata.

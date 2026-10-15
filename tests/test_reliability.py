@@ -4,10 +4,12 @@ import gzip
 import json
 import os
 import sys
+import textwrap
 import types
 import unittest
 from dataclasses import replace
-from contextlib import contextmanager
+from datetime import timezone
+from contextlib import chdir, contextmanager
 from pathlib import Path
 from unittest.mock import Mock, patch
 
@@ -15,8 +17,8 @@ from ffw.audit import AttemptJournal, main as finalize_audit
 from ffw.config import PROMPT_VERSION, Settings
 from ffw.models import EpisodeCandidate
 from ffw.pipeline import Pipeline, classify_failure
-from ffw.production import GeminiMalformedJSONError, GeminiTranscriber, _gemini_generate_json
-from ffw.utils import atomic_write_text, load_json
+from ffw.production import GeminiExtractor, GeminiMalformedJSONError, GeminiModelHealth, GeminiTranscriber, _gemini_generate_json
+from ffw.utils import atomic_write_json, atomic_write_text, load_json
 from ffw.validation import validate_archive
 from tests.workspace import workspace_temp
 
@@ -149,7 +151,7 @@ class ReliabilityTests(unittest.TestCase):
             transcriber.repair(candidate(), [audio])
         self.assertEqual(1, rescue.call_count)
 
-    def test_rescue_budget_is_two_extra_calls_for_entire_episode(self):
+    def test_multiple_truncated_chunks_recover_in_same_attempt(self):
         transcriber = self.transcriber()
         files = [self.root / f"chunk-{index}.mp3" for index in range(2)]
         for path in files:
@@ -157,9 +159,135 @@ class ReliabilityTests(unittest.TestCase):
         with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch.object(
             transcriber, "_transcribe_chunk", side_effect=RuntimeError("MAX_TOKENS")
         ), patch("ffw.production._gemini_generate_json", return_value={"text": "ok", "segments": []}) as generate:
-            with self.assertRaisesRegex(RuntimeError, "chunk 2/2"):
+            transcript = transcriber.transcribe(candidate(), files)
+        self.assertEqual(4, generate.call_count)
+        self.assertEqual(2, transcript["chunk_count"])
+        self.assertEqual([False, False], [item["checkpoint_reused"] for item in transcript["usage"]])
+
+    def test_split_call_budget_retains_half_and_resumes_without_repeating_parent(self):
+        transcriber = self.transcriber()
+        transcriber.rescue_call_limit = 3
+        files = [self.root / f"chunk-{index}.mp3" for index in range(2)]
+        for path in files:
+            path.write_bytes(b"parent")
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch.object(
+            transcriber, "_transcribe_chunk", side_effect=RuntimeError("MAX_TOKENS")
+        ), patch("ffw.production._gemini_generate_json", return_value={"text": "ok", "segments": []}) as generate:
+            with self.assertRaisesRegex(RuntimeError, "chunk 2/2.*call budget exhausted"):
                 transcriber.transcribe(candidate(), files)
-        self.assertEqual(2, generate.call_count)
+        self.assertEqual(3, generate.call_count)
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch.object(
+            transcriber, "_transcribe_chunk", side_effect=AssertionError("must reuse saved parent/split plan")
+        ), patch("ffw.production._gemini_generate_json", return_value={"text": "last half", "segments": []}) as generate:
+            transcript = transcriber.transcribe(candidate(), files)
+        self.assertEqual(1, generate.call_count)
+        self.assertTrue(transcript["usage"][0]["checkpoint_reused"])
+
+    def test_primary_circuit_skips_later_chunks_repairs_and_extraction(self):
+        transcriber = self.transcriber()
+        extractor = GeminiExtractor("primary", fallback_model_name="fallback", retry_delay_seconds=0)
+        extractor.model_health = transcriber.model_health
+        events = []
+        transcriber.audit_callback = lambda event, **details: events.append(event)
+        payload = {"text": "speech", "segments": [{"start": 1, "end": 40, "text": "speech"}]}
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        with fake_sdk() as sdk, patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json",
+            side_effect=[RuntimeError("503 UNAVAILABLE"), RuntimeError("503 UNAVAILABLE"), payload, payload, payload, payload, payload],
+        ) as generate:
+            transcriber._transcribe_chunk(object(), sdk, [])
+            transcriber._transcribe_chunk(object(), sdk, [])
+            transcriber.repair(candidate(), [audio])
+            extractor._generate(object(), sdk, [])
+        self.assertEqual(["primary", "primary"] + ["fallback"] * 5,
+                         [c.kwargs["model"] for c in generate.call_args_list])
+        self.assertIn("model_circuit_opened", events)
+        self.assertIn("model_circuit_skipped", events)
+
+    def test_output_errors_do_not_open_availability_circuit(self):
+        transcriber = self.transcriber()
+        with patch("ffw.production._gemini_generate_json", side_effect=[
+            GeminiMalformedJSONError("MAX_TOKENS"), {"text": "fallback"}, {"text": "primary recovered"},
+        ]) as generate:
+            transcriber._transcribe_chunk(object(), object(), [])
+            transcriber._transcribe_chunk(object(), object(), [])
+        self.assertEqual(["primary", "fallback", "primary"], [c.kwargs["model"] for c in generate.call_args_list])
+
+    def test_optional_verification_keeps_ambiguity_when_model_circuit_is_open(self):
+        from ffw.verification import GeminiPickVerifier
+        verifier = GeminiPickVerifier("primary", 900, Mock())
+        verifier.model_health.failed("primary", RuntimeError("503"))
+        verifier.model_health.failed("primary", RuntimeError("503"))
+        extraction = {"recommendations": [{"card": "Uncertain name", "review_status": "needs_review",
+                                            "review_reason": "card name transcription"}]}
+        with patch("ffw.verification._gemini_generate_json") as generate:
+            self.assertIs(extraction, verifier.verify(candidate(), extraction, [Path("audio.mp3")]))
+        generate.assert_not_called()
+        self.assertEqual("needs_review", extraction["recommendations"][0]["review_status"])
+
+    def test_pipeline_shares_circuit_and_resets_it_on_next_attempt(self):
+        pipeline, item, _ = self.published()
+        pipeline.transcriber.model_health = GeminiModelHealth()
+        pipeline.extractor.model_health = GeminiModelHealth()
+        observed = []
+        original = pipeline.transcriber.transcribe
+        def transcribe(*args):
+            health = pipeline.transcriber.model_health
+            self.assertIs(health, pipeline.extractor.model_health)
+            self.assertEqual({}, health.failures)
+            health.failed("primary", RuntimeError("503"))
+            health.failed("primary", RuntimeError("503"))
+            observed.append(health)
+            return original(*args)
+        with patch.object(pipeline.transcriber, "transcribe", side_effect=transcribe):
+            pipeline.process_episode(item, force=True)
+            pipeline.process_episode(item, force=True)
+        self.assertEqual(2, len(observed))
+        self.assertIsNot(observed[0], observed[1])
+
+    def test_manual_timing_gate_quarantines_and_skips_legacy_retryable_record(self):
+        pipeline = Pipeline.mock(self.settings)
+        item = candidate()
+        pipeline.feed = types.SimpleNamespace(episodes=lambda: [item])
+        transcript = {"chunk_count": 5, "segments": [
+            {"start": 900, "end": 1700, "text": "healthy second chunk"},
+            {"start": 3600, "end": 4400, "text": "healthy fifth chunk"},
+        ]}
+        with patch.object(pipeline.transcriber, "transcribe", return_value=transcript):
+            result = pipeline.process_episode(item)
+        self.assertEqual("failed", result.status)
+        error = pipeline.state.get(item.guid)["error"]
+        self.assertEqual("manual_intervention", error["category"])
+        self.assertFalse(error["retryable"])
+        self.assertTrue(error["quarantined"])
+        self.assertIsNone(error["next_retry_at"])
+        # Existing production records predate the new category.
+        pipeline.state.transition(item.guid, "failed", error={**error, "category": "unknown", "retryable": True})
+        for policy in ("retry_then_next", "failed_only"):
+            report = pipeline.select_candidates([item], policy=policy, limit=1)
+            self.assertEqual([], report.selected)
+            self.assertEqual(1, report.retry_exhausted)
+
+    def test_low_pick_workflow_does_not_force_legacy_manual_timing_failure(self):
+        workflow = (Path(__file__).resolve().parents[1] / ".github/workflows/reprocess-queue.yml").read_text(encoding="utf-8")
+        step = workflow.split("      - name: Select one unconfirmed low-pick episode\n", 1)[1].split("      - name:", 1)[0]
+        script = textwrap.dedent(step.split("<<'PY'\n", 1)[1].rsplit("          PY", 1)[0])
+        atomic_write_json(self.root / "state/reprocess-queue.json", {"entries": []})
+        base = {"source_id": "mtg-fast-finance", "pick_count": 0, "status": "failed", "attempt_count": 1}
+        atomic_write_json(self.settings.state_file, {"episodes": {
+            "manual": {**base, "error": {"retryable": True, "message": "Multiple chunks have suspect timing; manual review required before spending more calls."}},
+            "recoverable": {**base, "error": {"retryable": True, "message": "503 UNAVAILABLE"}},
+        }})
+        output = self.root / "github-output"
+        # Selection eligibility is independent of the production timezone;
+        # Windows test installs need not have an IANA timezone database.
+        with chdir(self.root), patch("zoneinfo.ZoneInfo", return_value=timezone.utc), patch.dict(
+            os.environ, {"GITHUB_OUTPUT": str(output), "FFW_DAILY_LOW_PICK_REPROCESS_LIMIT": "2"}
+        ):
+            exec(compile(script, "low-pick-selection", "exec"), {})
+        self.assertIn("guid=recoverable\n", output.read_text(encoding="utf-8"))
+        self.assertEqual(["recoverable"], [entry["guid"] for entry in load_json(self.root / "state/reprocess-queue.json")["entries"]])
 
     def test_completed_split_parent_checkpoint_reused_on_next_attempt(self):
         transcriber = self.transcriber()

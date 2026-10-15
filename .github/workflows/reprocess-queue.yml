@@ -98,6 +98,8 @@ jobs:
           from pathlib import Path
           from zoneinfo import ZoneInfo
 
+          from ffw.pipeline import classify_failure
+
           ledger_path = Path("state/reprocess-queue.json")
           ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
           pacific_day = datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
@@ -119,6 +121,8 @@ jobs:
               if not (pick_count == 0 or is_mtgff_partial) or episode.get("status") not in {"failed", "needs_review", "complete"}:
                   continue
               error = episode.get("error") or {}
+              if error.get("category") == "manual_intervention" or classify_failure(error.get("message", ""))[0] == "manual_intervention":
+                  continue
               candidates.append((0 if is_mtgff_partial else 1, 0 if episode.get("source_id") == "mtg-fast-finance" else 1, 0 if error.get("stage") == "extracting" else 1, episode.get("attempt_count", 0), episode.get("updated_at", ""), guid, episode))
 
           guid = ""

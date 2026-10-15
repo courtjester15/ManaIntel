@@ -411,6 +411,31 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
     raise RuntimeError(f"Gemini JSON generation failed: {last_error}")
 
 
+class GeminiModelHealth:
+    """Suppress a primary after repeated availability failures in one attempt."""
+
+    def __init__(self) -> None:
+        self.failures: dict[str, int] = {}
+
+    def failed(self, model: str, exc: Exception, observer: Any = None) -> None:
+        if isinstance(exc, (GeminiMalformedJSONError, json.JSONDecodeError)) or not _is_transient_gemini_error(exc):
+            return
+        count = self.failures.get(model, 0)
+        self.failures[model] = 2 if _is_gemini_quota_error(exc) else count + 1
+        if count < 2 <= self.failures[model] and observer:
+            observer("model_circuit_opened", model=model, reason="repeated availability failures")
+
+    def succeeded(self, model: str) -> None:
+        self.failures.pop(model, None)
+
+    def skip(self, model: str, primary: str, fallback: str | None, observer: Any = None) -> bool:
+        if fallback and model == primary and self.failures.get(model, 0) >= 2:
+            if observer:
+                observer("model_circuit_skipped", model=model)
+            return True
+        return False
+
+
 class GeminiTranscriber:
     def __init__(
         self,
@@ -429,6 +454,9 @@ class GeminiTranscriber:
         self.retry_delay_seconds = max(0.0, retry_delay_seconds)
         self.request_timeout_seconds = max(1.0, request_timeout_seconds)
         self.checkpoint_root = checkpoint_root
+        self.model_health = GeminiModelHealth()
+        self.rescue_call_limit = 8
+        self._rescue_calls_remaining = self.rescue_call_limit
 
     @staticmethod
     def _episode_checkpoint_name(episode: EpisodeCandidate) -> str:
@@ -531,20 +559,26 @@ class GeminiTranscriber:
         transient_errors: list[str] = []
         last_error: Exception | None = None
         for model_index, model in enumerate(models):
+            observer = getattr(self, "audit_callback", None)
+            if self.model_health.skip(model, self.model_name, self.fallback_model_name, observer):
+                continue
             attempts = 1 + self.transient_retries if model_index == 0 else 1
             for attempt in range(attempts):
                 try:
-                    return _gemini_generate_json(
+                    payload = _gemini_generate_json(
                         client,
                         types,
                         model=model,
                         contents=contents,
                         schema=bounded_schema,
                         observer=getattr(self, "audit_callback", None),
-                    ), model
+                    )
+                    self.model_health.succeeded(model)
+                    return payload, model
                 except Exception as exc:
                     if not _is_transient_gemini_error(exc):
                         raise
+                    self.model_health.failed(model, exc, observer)
                     last_error = exc
                     transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
                     # Truncated output will not improve by repeating the same chunk/model.
@@ -553,6 +587,8 @@ class GeminiTranscriber:
                     # A daily/model quota response will not recover by repeating
                     # the same model. Move directly to the same-key fallback.
                     if _is_gemini_quota_error(exc):
+                        break
+                    if self.fallback_model_name and self.model_health.failures.get(model, 0) >= 2:
                         break
                     if attempt + 1 < attempts and self.retry_delay_seconds:
                         time.sleep(self.retry_delay_seconds * (2 ** attempt))
@@ -609,6 +645,11 @@ class GeminiTranscriber:
                         schema["properties"]["segments"]["items"]["properties"][field].update(minimum=0, maximum=half)
                     errors = []
                     for model in dict.fromkeys(filter(None, [self.model_name, self.fallback_model_name])):
+                        if self.model_health.skip(model, self.model_name, self.fallback_model_name, observe):
+                            continue
+                        if self._rescue_calls_remaining <= 0:
+                            raise RuntimeError("Transcription split recovery call budget exhausted; retry resumes saved chunks and halves.")
+                        self._rescue_calls_remaining -= 1
                         try:
                             payload = _gemini_generate_json(
                                 client, types, model=model,
@@ -621,10 +662,12 @@ class GeminiTranscriber:
                                 checked = normalize_integer_clock(payload, half)
                                 if not checked.get("segments") or suspect_timing_chunks(checked, half):
                                     raise GeminiMalformedJSONError("Malformed JSON transcript content: split repair has missing segments or compressed timestamps.")
+                            self.model_health.succeeded(model)
                             break
                         except Exception as exc:
                             if not _is_transient_gemini_error(exc):
                                 raise
+                            self.model_health.failed(model, exc, observe)
                             errors.append(f"{model}: {type(exc).__name__}: {exc}")
                     else:
                         raise RuntimeError(f"Split repair half {part + 1}/2 exhausted: {'; '.join(errors)}")
@@ -683,7 +726,9 @@ class GeminiTranscriber:
         fingerprint = self._checkpoint_fingerprint(episode, audio_files, prompt)
         if getattr(self, "force_split", False):
             fingerprint += ":timing-coverage-split-v2"
-        rescue_used = False
+        # Each original chunk may be split once. A separate call budget bounds
+        # the whole invocation; cached parent chunks and halves cost no calls.
+        self._rescue_calls_remaining = self.rescue_call_limit
         observer = getattr(self, "audit_callback", None)
         for index, path in enumerate(audio_files):
             started = time.monotonic()
@@ -700,8 +745,7 @@ class GeminiTranscriber:
                     plan_path = directory / f"chunk-{index:03d}-split.json" if directory else None
                     from .utils import load_json
                     split_planned = bool(plan_path and load_json(plan_path, {}).get("fingerprint") == fingerprint)
-                    if (split_planned or getattr(self, "force_split", False)) and not rescue_used:
-                        rescue_used = True
+                    if split_planned or getattr(self, "force_split", False):
                         payload, used_model = self._rescue_chunk(client, types, episode, path, index, len(audio_files), fingerprint, prompt)
                     else:
                         original_observer = getattr(self, "audit_callback", None)
@@ -712,11 +756,11 @@ class GeminiTranscriber:
                                 client, types, contents=[prompt, types.Part.from_bytes(data=path.read_bytes(), mime_type="audio/mpeg")],
                             )
                         except Exception as exc:
-                            if rescue_used or "MAX_TOKENS" not in str(exc):
+                            if "MAX_TOKENS" not in str(exc):
                                 raise
-                            rescue_used = True
                             if observer:
-                                observer("chunk_split", chunk=index + 1, reason="MAX_TOKENS", additional_call_cap=4)
+                                observer("chunk_split", chunk=index + 1, reason="MAX_TOKENS", additional_call_cap=min(4, self._rescue_calls_remaining),
+                                         remaining_transcription_rescue_calls=self._rescue_calls_remaining)
                             self.audit_callback = original_observer
                             payload, used_model = self._rescue_chunk(client, types, episode, path, index, len(audio_files), fingerprint, prompt)
                         finally:
@@ -894,6 +938,7 @@ class GeminiExtractor:
         self.fallback_model_name = fallback_model_name if fallback_model_name != model_name else None
         self.transient_retries = max(0, transient_retries)
         self.retry_delay_seconds = max(0.0, retry_delay_seconds)
+        self.model_health = GeminiModelHealth()
 
     def _generate(self, client: Any, types: Any, contents: list[Any]) -> tuple[dict[str, Any], str]:
         models = [self.model_name]
@@ -902,6 +947,9 @@ class GeminiExtractor:
         transient_errors: list[str] = []
         last_error: Exception | None = None
         for model_index, model in enumerate(models):
+            observer = getattr(self, "audit_callback", None)
+            if self.model_health.skip(model, self.model_name, self.fallback_model_name, observer):
+                continue
             attempts = 1 + self.transient_retries if model_index == 0 else 1
             for attempt in range(attempts):
                 try:
@@ -910,13 +958,17 @@ class GeminiExtractor:
                         schema=_inline_json_schema_refs(EXTRACTION_SCHEMA),
                         observer=getattr(self, "audit_callback", None),
                     )
+                    self.model_health.succeeded(model)
                     return payload, model
                 except Exception as exc:
                     if not _is_transient_gemini_error(exc):
                         raise
+                    self.model_health.failed(model, exc, observer)
                     last_error = exc
                     transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
                     if _is_gemini_quota_error(exc):
+                        break
+                    if self.fallback_model_name and self.model_health.failures.get(model, 0) >= 2:
                         break
                     if attempt + 1 < attempts and self.retry_delay_seconds:
                         time.sleep(self.retry_delay_seconds * (2 ** attempt))

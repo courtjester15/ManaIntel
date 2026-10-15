@@ -102,6 +102,12 @@ ZERO_PICK_REPROCESS_REVIEW = (
 def classify_failure(message: str) -> tuple[str, bool, bool]:
     """Return (category, retryable, provider_wide) for durable scheduling state."""
     normalized = message.lower()
+    if any(pattern in normalized for pattern in (
+        "manual review required", "replacement transcript has missing segments",
+        "transcript timing repair has no matching audio chunk", "reusable transcript",
+        "timing repair budget must be",
+    )):
+        return "manual_intervention", False, False
     if any(pattern in normalized for pattern in PERMANENT_PROVIDER_ERROR_PATTERNS):
         return "provider_configuration", False, True
     if any(pattern in normalized for pattern in EPISODE_ERROR_PATTERNS):
@@ -291,7 +297,9 @@ class Pipeline:
                     continue
                 if status == "failed":
                     error = record.get("error") or {}
-                    if not error.get("retryable", False) or int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts:
+                    if (classify_failure(error.get("message", ""))[0] == "manual_intervention"
+                            or not error.get("retryable", False)
+                            or int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts):
                         report.retry_exhausted += 1
                         continue
                     retry_at = _parse_timestamp(error.get("next_retry_at"))
@@ -328,7 +336,9 @@ class Pipeline:
             if policy == "failed_only":
                 if status == "failed":
                     error = record.get("error") or {}
-                    if not error.get("retryable", False) or int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts:
+                    if (classify_failure(error.get("message", ""))[0] == "manual_intervention"
+                            or not error.get("retryable", False)
+                            or int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts):
                         report.retry_exhausted += 1
                         continue
                     retry_at = _parse_timestamp(error.get("next_retry_at"))
@@ -423,6 +433,13 @@ class Pipeline:
             audit_targets.append(self.transcriber.primary)
         if self.pick_verifier is not None:
             audit_targets.append(self.pick_verifier)
+        # Share availability observations across transcription, repairs and
+        # extraction, but probe models anew on the next episode attempt.
+        from .production import GeminiModelHealth
+        model_health = GeminiModelHealth()
+        for target in audit_targets:
+            if hasattr(target, "model_health"):
+                target.model_health = model_health
         prior_callbacks = [(target, getattr(target, "audit_callback", None)) for target in audit_targets]
         for target in audit_targets:
             target.audit_callback = journal.record
