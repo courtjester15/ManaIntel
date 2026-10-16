@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.9",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-16T02:43:47Z",
+    "generated_at": "2026-10-16T02:48:26Z",
     "latest_successful_run_at": "2026-10-16T02:43:45Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -4096,15 +4096,15 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-14T23:13:38Z",
+      "processed_at": "2026-10-16T02:48:26Z",
       "error": {
         "stage": "transcribing",
-        "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
-        "category": "unknown",
+        "message": "Timing/coverage repair of original chunk 2/5 failed: Gemini transcription chunk 1/1 failed after 30.2s: RuntimeError: Split repair clip 3/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+        "category": "transient_model_output",
         "synthetic": false,
         "retryable": false,
         "provider_wide": false,
-        "attempt": 3,
+        "attempt": 4,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true

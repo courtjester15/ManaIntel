@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.9",
-  "updated_at": "2026-10-16T02:43:45Z",
+  "updated_at": "2026-10-16T02:48:26Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -26005,6 +26005,30 @@
         {
           "status": "failed",
           "timestamp": "2026-10-14T23:13:38Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-16T02:46:48Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-16T02:46:48Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-16T02:46:51Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-16T02:46:51Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-16T02:47:07Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-16T02:48:26Z"
         }
       ],
       "title": "Collector Booster Boosting | Brainstorm Brewery #667 | Magic Finance",
@@ -26012,22 +26036,22 @@
       "published_at": "2025-09-26T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 3,
+      "attempt_count": 4,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
-        "category": "unknown",
+        "message": "Timing/coverage repair of original chunk 2/5 failed: Gemini transcription chunk 1/1 failed after 30.2s: RuntimeError: Split repair clip 3/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+        "category": "transient_model_output",
         "synthetic": false,
         "retryable": false,
         "provider_wide": false,
-        "attempt": 3,
+        "attempt": 4,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-10-14T23:13:38Z",
+      "updated_at": "2026-10-16T02:48:26Z",
       "output_directory": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance"
     },
     "tag:soundcloud,2010:tracks/2172092631": {
