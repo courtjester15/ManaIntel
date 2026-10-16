@@ -26,12 +26,12 @@
     "status": "failed",
     "review_state": "not_applicable",
     "review_reason": null,
-    "pipeline_version": "0.5.7",
+    "pipeline_version": "0.5.8",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.6-flash",
     "extraction_model": "gemini-3.6-flash",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-16T02:26:32Z",
+    "processed_at": "2026-10-16T02:37:37Z",
     "history": [
       {
         "status": "detected",
@@ -112,16 +112,40 @@
       {
         "status": "failed",
         "timestamp": "2026-10-16T02:26:32Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-16T02:36:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-16T02:36:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-16T02:36:05Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-16T02:36:05Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-16T02:36:21Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-16T02:37:37Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Timing/coverage repair of original chunk 2/3 failed: Gemini transcription chunk 1/1 failed after 24.6s: RuntimeError: Split repair clip 1/4 exhausted: gemini-3.6-flash: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
-      "category": "transient_provider",
+      "message": "Timing/coverage repair of original chunk 2/3 failed: Gemini transcription chunk 1/1 failed after 75.8s: RuntimeError: Split repair clip 3/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+      "category": "transient_model_output",
       "synthetic": false,
       "retryable": false,
-      "provider_wide": true,
-      "attempt": 3,
+      "provider_wide": false,
+      "attempt": 4,
       "max_attempts": 3,
       "next_retry_at": null,
       "quarantined": true
