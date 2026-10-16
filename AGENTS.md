@@ -3,3 +3,13 @@
 For routine ManaIntel fixes requested by the owner, carry the work through implementation, appropriate tests, commit, push to the production branch, and verification of the GitHub Actions/Pages deployment. Deployment is part of completing the fix; do not stop at local changes or ask again for approval already given for that work.
 
 Preserve current production archive/state changes when synchronizing with the remote. Keep live recovery attempts bounded, inspect retained evidence before overriding manual-review gates, and report actual deployment and episode outcomes clearly.
+
+## Active roadmap and owner involvement
+
+Read `docs/ROADMAP.md` and `docs/WORKING_AGREEMENT.md` before selecting improvements. The October 15, 2026 roadmap supersedes the old maintenance-only/five-hour final-pass restriction. Current focus: 0.6 reliability; next ready improvement: R1 unless production evidence changes the priority.
+
+For an authorized open-ended improvement pass, choose one useful bounded task from evidence and the queue. Own routine technical/product choices, implementation, checks, commit, push and deployment verification. A request for suggestions alone calls for recommendations; do not start unrelated feature work or create recurring automations without authorization.
+
+Protect the two-show static-archive scope and free-tier operation. New spending/accounts, sources, retention scope, destructive/incompatible migrations or major architecture changes need an owner decision with a concrete recommendation. Preserve uncertainty rather than inventing source claims or automatically approving ambiguous picks.
+
+Check active production writers before pushing; do not race a workflow's archive/state commit. Finish by updating the roadmap queue with results and next action. Documentation-only edits need no version bump or redundant Pages deployment.

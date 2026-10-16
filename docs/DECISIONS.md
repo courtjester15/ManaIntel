@@ -112,6 +112,8 @@
 
 ## ADR-019 — ManaIntel enters maintenance mode after a bounded final pass
 
+**Status:** Superseded by ADR-028 on October 15, 2026. Retained as historical context.
+
 **Decision:** Limit remaining feature development to approximately five hours focused on correction, playback, status clarity, exact recovery, and no-op behavior. Then stop unless a production failure prevents the utility from doing its basic job. This supersedes the active expansion implied by ADR-010 and ADR-015; their source-agnostic design remains historical context only.
 
 **Reason:** The single-source archive already proves the useful workflow. Additional abstraction and sources have lower portfolio value than getting ManaSpec into users' hands and moving primary development to GalleyFlow.
@@ -142,6 +144,8 @@
 
 ## ADR-024 — Production provider is configurable; workflow default is Gemini
 
+**Operational update (2026-10-15):** The production and low-pick workflow defaults now use the responding `gemini-3.5-flash-lite` model. Identical primary/fallback names are deduplicated. `gemini-3.6-flash` remains an explicit manual availability-test option. See the runbook and October 15 incident review for current behavior; the decision below records the earlier configuration.
+
 **Decision:** Retain both Gemini and OpenAI adapters. The checked-in GitHub workflow pins `gemini-3.6-flash` for transcription and extraction. Transient transcription failures receive one short primary retry and then one same-key request to `gemini-3.5-flash-lite`; model/provider values remain environment configuration rather than product architecture.
 
 **Reason:** Provider availability and cost change. A bounded same-provider fallback prevents temporary capacity trouble from consuming a full episode attempt while avoiding new credentials or an unbounded provider carousel. Operational documentation must describe the checked-in default without coupling the archive contract to it.
@@ -163,6 +167,14 @@
 **Decision:** Failed episode details copy the canonical GUID and link to the workflow dispatch page. The operator pastes that GUID into `force_guid`; exact selection bypasses cooldown and quarantine. Pages does not store a GitHub token or dispatch authenticated workflow writes.
 
 **Reason:** This removes GUID hunting while preserving the static site's security boundary. A true one-click retry would require an authenticated backend or GitHub App and is not justified for the current volume.
+
+## ADR-028 — Resume bounded, hands-off improvements toward 1.0
+
+**Decision (2026-10-15):** Adopt `docs/ROADMAP.md` as the active 0.6–1.0 plan and `docs/WORKING_AGREEMENT.md` as the session operating model. This supersedes ADR-019's maintenance-only/five-hour cap and reopens limited archive observations previously deferred in ADR-014. The current focus is reliability, followed by easier review, useful card histories/search, inspectable archive patterns and a dependable small product. The owner authorizes improvement passes without needing to supply technical specifications; routine authorized work includes verification, commit, push and deployment checks.
+
+**Reason:** ManaIntel is a deliberately small, hands-off project that the owner uses casually and improves through observed issues and occasional agent-led passes. A prioritized queue and evidence-based release gates make those passes useful and resumable without creating a large product-management burden.
+
+**Boundary:** Keep the existing two-show static architecture and free-tier operation. Additional sources, paid commitments, portfolios, price/performance analysis, new accounts/backend and destructive migrations remain separate decisions. A roadmap is not an instruction to create recurring development automation or spend calls merely to stay busy. Patch/minor releases follow actual behavior/capability changes, not time or commit count. Existing schedules remain episode-processing schedules.
 
 ## Known risks
 

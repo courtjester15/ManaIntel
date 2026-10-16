@@ -2,17 +2,17 @@
 
 ## Purpose
 
-ManaIntel is a small, maintenance-mode utility that extracts the Cards to Watch section from MTG Fast Finance into a readable, correctable archive. The canonical user question is:
+ManaIntel is a small, readable, correctable archive of explicit recommendation segments from MTG Fast Finance and Brainstorm Brewery. The canonical user question is:
 
 > Who recommended what, when, and why?
 
-The current FFW application is the supported product boundary. Earlier source-agnostic concepts remain design research; multi-source expansion is deferred indefinitely.
+The existing two-podcast FFW pipeline and static archive are the supported product boundary. Earlier cross-media/source-agnostic concepts remain research; additional source expansion is outside the active roadmap.
 
-## Maintenance-mode constraint
+## Active development scope
 
-After one final functional pass of approximately five development hours, feature development stops. Future work is limited to production failures that prevent automatic processing, review/correction, readable summaries, or timestamp playback. ManaIntel must not compete with ManaSpec adoption or GalleyFlow development for ongoing roadmap capacity.
+The October 15, 2026 [roadmap](ROADMAP.md) supersedes the maintenance-only/five-hour final-pass restriction. Improve reliability first (0.6), then review (0.7), card history/search (0.8), small evidence-linked archive observations (0.9), and overall readiness (1.0). These are incremental capabilities over the existing product, with acceptance evidence and no fixed release dates. The [working agreement](WORKING_AGREEMENT.md) defines bounded agent-led sessions and routine deployment; it creates no recurring development automation.
 
-## Final supported workflow
+## Current supported workflow
 
 1. A morning scheduled run selects the next untouched feed episode using durable state before applying its limit; a later bounded run retries at most one due transient failure.
 2. Successful episodes publish readable summaries; failed episodes publish understandable status without fabricated picks.
@@ -115,11 +115,11 @@ See [Data Model](DATA_MODEL.md) for the target contract and the mapping from the
 - Authenticated editing from the static site.
 - A hosted backend or database.
 - Broad visual redesign or framework conversion.
-- Trend, agreement, disagreement, or reliability analytics.
+- Market trends, financial-performance/reliability scoring, or inferred source opinions. The limited source-backed archive observations in roadmap 0.9 are in scope.
 
-## Current FFW acceptance criteria
+## Current archive acceptance criteria
 
-Until the common contract is implemented, the proof of concept retains its existing acceptance criteria:
+The current implementation retains these acceptance criteria without requiring a generic source-contract migration:
 
 - RSS GUID is the stable episode identity.
 - Terminal episodes are skipped on ordinary reruns.

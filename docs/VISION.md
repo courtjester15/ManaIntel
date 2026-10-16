@@ -1,10 +1,10 @@
 # ManaIntel Product Vision
 
-> **Maintenance-mode scope (2026-07-17):** The supported product is now the single-source MTG Fast Finance Cards to Watch utility. The broader multi-source vision below is retained as historical product thinking, not an active roadmap. After a bounded final functional pass, portfolio attention moves to ManaSpec adoption and GalleyFlow.
+> **Active scope (2026-10-15):** Improve the shipped MTG Fast Finance and Brainstorm Brewery archive through the [0.6–1.0 roadmap](ROADMAP.md), using the [hands-off working agreement](WORKING_AGREEMENT.md). This supersedes the July maintenance-only/five-hour restriction. Broader cross-media expansion remains historical product thinking.
 
 ## Product definition
 
-ManaIntel was conceived as a lightweight Magic: The Gathering finance intelligence platform aggregating recommendations from trusted sources into one consistent, searchable archive. Its shipped maintenance-mode form focuses on one trusted podcast source.
+ManaIntel is a lightweight archive organizing source-attributed Magic: The Gathering recommendations. The shipped product supports two podcasts. Its next improvements focus on reliability, correction, memory and small inspectable archive observations.
 
 Its primary job is to answer:
 
@@ -24,7 +24,7 @@ A user should be able to quickly answer:
 
 If these questions are easy to answer, ManaIntel has accomplished its mission.
 
-## MVP
+## Historical broader MVP concept
 
 For every recommendation, capture and display:
 
@@ -41,9 +41,9 @@ For every recommendation, capture and display:
 
 The MVP is a clean searchable archive over those records. It does not require analytics, live prices, accounts, portfolios, alerts, or automated investment judgments.
 
-## Source scope
+## Historical source-expansion ideas
 
-The architecture should support adapters for:
+The earlier broader vision proposed adapters for the following. Additional adapters are not an active commitment:
 
 - Podcasts, beginning with MTG Fast Finance and potentially other finance shows.
 - Videos from trusted MTG finance creators.
@@ -54,9 +54,9 @@ Adding a source must not require source-specific behavior in the archive UI. Eac
 
 Source support is not the same as permission to ingest. Paywalled, private, licensed, or community content must be handled according to its access terms and should store only the minimum evidence needed for verification.
 
-## Deferred analytics
+## Archive observations and deferred analytics
 
-Analytics become useful only after the archive has meaningful history. Possible later capabilities include:
+Roadmap 0.9 permits simple observations over recorded recommendations, with evidence links, coverage limitations and reproducible counts. Earlier broader ideas included:
 
 - Repeated mentions and first/most-recent mention dates.
 - Independent-source agreement or disagreement.
@@ -65,7 +65,7 @@ Analytics become useful only after the archive has meaningful history. Possible 
 - Mention frequency.
 - Carefully defined source reliability measures.
 
-These are projections over the archive, not part of ingestion and not MVP requirements. Reliability in particular requires an explicit methodology and appropriate price data; it must never be presented as an opaque AI score.
+These are projections rather than ingestion concerns. Only the limited observations named in the active roadmap are authorized; financial-performance/reliability scoring and external-price analysis remain deferred. An opaque AI score is not a substitute for evidence.
 
 ## Relationship with ManaSpec
 
@@ -77,8 +77,8 @@ ManaIntel recommendations -> versioned export/API -> ManaSpec decision workflow
 
 ManaSpec should not duplicate ManaIntel's collection pipeline, and ManaIntel should not absorb ManaSpec's portfolio or decision-making responsibilities.
 
-## Current proof of concept
+## Implementation direction
 
-The existing `ffw` package is the first source adapter and pipeline proof of concept. It is intentionally specialized for the Cards to Watch segment of MTG Fast Finance. Its episode schema, RSS identity, audio stages, generated Markdown, and static archive remain valid implementation assets, but they are not the final cross-source product contract.
+Keep the existing `ffw` package, two podcast adapters, durable episode identities, versioned JSON/Markdown, review overrides and static Pages frontend. Extend rebuildable views and focused workflows as the roadmap earns them.
 
-The transition to ManaIntel should be incremental: keep the working pipeline, introduce the common source-item model beside it, then adapt FFW output into that model before adding a second source.
+The product does not need a generic source-item migration, new backend or framework rewrite to reach 1.0. Future expansion requires a separate concrete product decision.

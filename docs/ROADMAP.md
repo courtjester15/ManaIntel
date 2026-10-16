@@ -1,59 +1,119 @@
-# ManaIntel Roadmap
+# ManaIntel roadmap: 0.6 to 1.0
 
-ManaIntel is entering maintenance mode. After the final functional pass below, active product work moves to putting ManaSpec in users' hands and then to GalleyFlow. ManaIntel should receive further development only when a real production failure prevents its basic utility.
+Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-## Current state
+**Current release: 0.5.10. Next milestone: 0.6 — dependable processing.**
 
-The unattended production foundation is in place:
+Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
-- Daily GitHub Actions processing and GitHub Pages publication.
-- Durable GUID-keyed state and eligibility-first selection.
-- Incremental historical backfill with limits applied after filtering.
-- Failed-only retry and exact-GUID processing.
-- Deterministic archive projections and a compact static UI.
-- Focused tests for selection, retry, and no-op pipeline behavior.
+See [Working agreement](WORKING_AGREEMENT.md) for how work is selected and shipped, and [Runbook](RUNBOOK.md) for production operations.
 
-This is enough foundation. The remaining work is a bounded usability and correction pass, not a platform expansion.
+## Existing foundation
 
-## Final functional pass — maximum approximately five development hours
+Already built: two podcast adapters; bounded processing/backfill/retries; private transcripts/checkpoints; auditable attempts; explicit clock parsing; searchable episode/card views; source/status filters; card images and name resolution; timestamp playback; a review editor and durable overrides; validation/tests; automated persistence and Pages deployment.
 
-Work in this order and stop when the budget is exhausted:
+These are foundations to improve, not features to rebuild. A successful workflow differs from a faithful extraction. Needs-review output is published uncertainty, not a human-approved result.
 
-1. **Manual review overrides (complete):** preserve extraction output, apply validated files from `data/reviews/`, and use a focused editor plus authenticated workflow for approve/update/add/exclude decisions.
-2. **Timestamp playback (complete):** use a shared in-page remote RSS audio player across summaries and review, seek after metadata loads, support `t` and pick deep links, and route archive Listen actions to the Cards to Watch context.
-3. **Readable status and failure detail:** expose attempts, last attempt, retryability, review state, and a small failure taxonomy without leading with raw exceptions.
-4. **Single-episode recovery:** retain exact-GUID backend processing and expose a copyable workflow input or command in the episode UI.
-5. **No-op publication guard (complete):** empty scheduled selections do not commit or deploy; validated changed failure state is still published so the live status does not appear frozen.
-6. **Small readability fixes:** omit empty pick fields, keep evidence/debug content collapsed, and make the card name, recommendation, and timestamp the scanning hierarchy.
+## Milestones
 
-Focused tests should cover override update/add/exclude behavior, override survival across rebuilds, invalid override rejection, timestamp parsing/seeking fallbacks, readable rendering, and the deployment-level no-op guard.
+| Version | Theme | What Jason should notice |
+| --- | --- | --- |
+| 0.6 | It runs reliably | Fewer failed episodes; understandable failures and deliberate recovery. |
+| 0.7 | Reviewing is easy | Check an odd pick against audio and correct it with little friction. |
+| 0.8 | Useful memory | Follow a card's history and return to useful searches. |
+| 0.9 | Interesting patterns | See repeat recommendations and overlaps with coverage stated clearly. |
+| 1.0 | A dependable small product | Give someone the link and expect them to understand and use it. |
 
-## Definition of done
+Version numbers follow delivered capability. Patch releases fix the current milestone; minor releases require the evidence below. Documentation edits and ordinary backfill do not earn version bumps. App/pipeline, schema and prompt versions remain separate audit concepts.
 
-ManaIntel is done when:
+## 0.6 — Dependable processing
 
-- Scheduled processing keeps advancing through eligible historical episodes.
-- Failed-only and exact-episode retry are deliberate and bounded.
-- Empty runs leave durable/generated files unchanged and do not redeploy.
-- Failed episodes are understandable from the site.
-- Picks are readable without inspecting extraction internals.
-- Manual corrections are separate, validated, and rebuild-safe.
-- Timestamp links seek remote podcast audio near the saved moment.
-- The runbook explains the normal, backfill, retry, review, and playback workflows.
+**Outcome:** Failures usually have an understandable cause and a bounded way forward, without Jason bringing every one to chat.
 
-## Deferred indefinitely
+Work in this order:
 
-- Additional podcasts, video, written, or community sources.
-- A source-agnostic schema migration or cross-source UI.
-- Accounts, hosted databases, authenticated browser writes, or complex GitHub auth.
-- Analytics, price tracking, scoring, alerts, portfolio features, and ManaSpec integration.
-- Large UI redesigns, framework migrations, and broad test refactors.
+1. **R1: Honest health baseline.** Summarize recent attempts by source and deployed version. Separate initial processing, retries, forced experiments, no-ops and deploy-only jobs. Show episode outcomes, review backlog, recurring failure reasons, model-call counts and checkpoint reuse. Start with existing journals; a report can precede a small status-page improvement.
+2. **R2: Representative evaluation.** Build on existing tests with small sanitized cases for both shows: content omissions, weak boundaries, ambiguous names and bad clocks. Include lessons from FF 494 and BB 666/667 without committing full private transcripts. Structural correctness and source-content accuracy are separate checks.
+3. **R3: Actionable failures.** Improve the existing status view with the last actual attempt, reason, retry/intervention state and next useful action. Distinguish an old displayed failure from a new regression. Preserve token-free static-site retry links.
+4. **R4: Deliberate model/prompt changes.** Compare a bounded representative sample before changing defaults. Preserve evidence and known-good results. Use the responding free-tier configuration; avoid repeatedly probing a model already shown unavailable.
+5. **R5: Predictable historical progress.** Check that new releases, backfill, retries and the low-pick queue share capacity sensibly. Explain processed coverage and remaining unknowns. An episode-number gap alone does not prove a feed item is missing.
 
-The earlier source-agnostic design remains useful research, but it is not an active delivery commitment.
+Working release gate:
 
-## Portfolio sequence after ManaIntel
+- Relevant regressions pass; there are no duplicate identities, lost published picks or silent acceptance of missing coverage.
+- Report at least ten real non-noop episode attempts across both shows and at least seven days. Initial target: at least nine reach a usable publication. Include failures and show retries separately; do not generate calls just to fill the sample.
+- Usable means evidence-backed picks or an explicitly verified no-recommendations disposition. An unexplained empty extraction does not count. Report needs-review publications and independently checked correctness separately.
+- Representative source/evidence spot checks document remaining quality limits. Green schema validation alone does not establish accuracy.
+- A user can understand a failure and recovery state from the app/runbook. Exact recovery, persistence and deployment have been exercised without damaging prior results.
 
-1. Complete only the bounded ManaIntel final pass.
-2. Put ManaSpec in users' hands and continue its adoption roadmap.
-3. Shift primary build attention to GalleyFlow.
-4. Return to ManaIntel only for production-breaking defects or very small maintenance fixes.
+These are working targets, not an uptime promise. Do not lower them merely to declare the milestone finished. Small clarity/review improvements can proceed while production evidence accumulates; stay on 0.5.x until the gate is met.
+
+## 0.7 — Reviewing is easy
+
+**Outcome:** Check an odd pick, listen nearby and correct it in one short visit.
+
+- Improve the existing review queue by grouping actionable reasons and prioritizing consequential uncertainty.
+- Keep audio context visible while checking a card, printing, recommendation or timestamp.
+- Make the prepared correction and its before/after effect obvious; support small related batches where useful.
+- Distinguish machine output, machine uncertainty and human correction. Preserve original extraction and overrides.
+- Improve card/image readability where actual use exposes problems; retain the working static interface.
+
+**Gate:** Demonstrate correct/exclude/add/approve flows; prove rebuild/reprocessing preserve overrides; exercise playback/error fallbacks; show a short before/after walkthrough. Keep the copied-payload/authenticated-workflow boundary unless Jason chooses a different architecture.
+
+## 0.8 — Useful memory
+
+**Outcome:** Understand a card's recommendation history without hunting through episodes.
+
+- Build clearer card timelines over existing canonical resolution and original extracted names.
+- Show first/most recent **recorded** recommendations, episode, known contributor, review state and evidence/audio links.
+- Add useful filter combinations, shareable filtered URLs and browser-local saved searches.
+- Compare the two shows and attributed contributors. A show-level host list does not establish who made a pick; unknown attribution stays unknown.
+
+**Gate:** Representative questions work across both shows; verified name variants do not fragment histories; links retain context; incomplete coverage and missing attribution are labelled. Existing URLs and pick identities remain usable.
+
+## 0.9 — Interesting patterns
+
+**Outcome:** Discover something interesting and inspect exactly what supports it.
+
+- Surface repeat recommendations, cards recommended on both shows and records worth revisiting.
+- Compare explicitly attributed changes of position only where the source supports them; preserve both statements.
+- Show processed date range, eligible-record count, review-state inclusion and coverage limitations beside each observation.
+- Count distinct recommendations/episodes rather than duplicate transcript fragments; make results reproducible from archive data.
+
+**Gate:** Every observation links to contributing records and explains its denominator. Check sparse coverage, uncertain attribution, overrides and duplicate mentions. These are archive observations, not financial-performance scores, investment predictions or source-reliability rankings.
+
+## 1.0 — A dependable small product
+
+**Outcome:** Send a friend the link; they can browse, verify a recommendation and understand uncertainty.
+
+- Clear first-visit explanation, useful empty/error states and readable desktop/mobile browsing.
+- An observed operating history with honest dispositions for recurring exceptions.
+- Review, playback, search, history and small observation features work together clearly.
+- Tested rebuild/export/restore preserves records, overrides, identities and links; private diagnostics retain their documented boundary.
+- A concise maintenance guide explains normal operation, credentials, bounded recovery and known limitations.
+
+**Gate:** A documented representative walkthrough, tested rebuild/restore, no unresolved data-loss/publication-corruption defect, and a recent thirty-day operating summary including failures/no-ops/reviews. Full historical coverage, accounts and a database are not prerequisites.
+
+## Current work queue
+
+One improvement batch is active at a time. Production defects interrupt this order.
+
+| ID | Priority | State | Next concrete result |
+| --- | --- | --- | --- |
+| R1 | First | Ready | Recent-run health report with source/version cohorts and honest outcome counts. |
+| R2 | Next | Ready | Compact evaluation inventory and the highest-value missing quality case. |
+| R3 | Next | Ready | One clear status/recovery UI improvement guided by R1. |
+| R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
+| R5 | Next | Ready | Check backfill/recovery fairness and expose a useful coverage limitation. |
+| 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
+| 0.8–1.0 | Later | Planned | Refine each milestone when earlier foundations support it. |
+
+The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as needs_review; BB 667 published three as complete. This proves recovery, not sustained reliability. Start the next authorized improvement pass with R1 unless new evidence changes the priority.
+
+After a batch, update its state, result, evidence/commit and next action here. Blocked work needs a specific prerequisite; choose independent useful work rather than repeating the same failed attempt.
+
+## Outside this roadmap
+
+Additional sources, generic source-schema migration, live prices, portfolios, performance scoring, alerts, ManaSpec integration, accounts, a hosted database/backend, paid-provider commitments and a large framework/redesign project remain separate product decisions. Limited archive observations in 0.9 are in scope; general market analytics are not.
+
+It is fine to stay on a minor version, skip an unhelpful idea or keep the project quiet between requests. This roadmap creates no scheduled feature-development runs; existing GitHub schedules continue processing episodes.

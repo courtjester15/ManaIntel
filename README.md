@@ -118,8 +118,10 @@ Implemented foundation:
 
 Still intentionally outside the product:
 
-- Additional source types beyond the two podcast adapters, generic source-item records, notifications, databases, price tracking, analytics, and ManaSpec integration.
+- Additional source types beyond the two podcast adapters, generic source-item records, notifications, databases, price tracking, financial-performance analytics, and ManaSpec integration.
 
-ManaIntel is entering maintenance mode after one bounded final functional pass of approximately five hours. That pass is limited to durable review overrides, in-page timestamp playback, clearer status/failure presentation, a copyable exact-episode retry path, and a deployment-level no-op guard. Multi-source normalization and expansion are deferred indefinitely. Afterward, portfolio attention moves to ManaSpec adoption and GalleyFlow; ManaIntel reopens only for production-breaking defects or very small maintenance fixes.
+ManaIntel now has a lightweight [0.6–1.0 roadmap](docs/ROADMAP.md): dependable processing, easier review, useful card histories, evidence-linked archive observations, and a dependable small product. The October 15, 2026 plan replaces the former maintenance-only/five-hour restriction. Current release is 0.5.10; the next improvement priority is an honest processing-health baseline, before more features.
+
+The [hands-off working agreement](docs/WORKING_AGREEMENT.md) explains how an authorized improvement pass works: the agent picks one useful task, verifies it, commits, pushes, checks production, and updates the queue. Jason can report an odd episode/card or simply authorize an improvement without writing a specification. This documentation does not create scheduled feature-development work or change the existing episode schedules.
 
 See [ManaIntel Vision](docs/VISION.md), [Product Spec](docs/PRODUCT_SPEC.md), [Architecture](docs/ARCHITECTURE.md), [Data Model](docs/DATA_MODEL.md), [Roadmap](docs/ROADMAP.md), [Decisions](docs/DECISIONS.md), and [Production Runbook](docs/RUNBOOK.md).

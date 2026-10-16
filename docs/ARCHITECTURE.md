@@ -1,12 +1,12 @@
 # ManaIntel Architecture
 
-## Maintenance-mode boundary
+## Current system boundary
 
-The supported system is the existing single-podcast FFW pipeline and static archive. The source-agnostic target below is retained as historical design context, not an active implementation roadmap. The final pass adds correction and playback seams without introducing a backend, database, authentication layer, or additional adapter.
+The supported system is the existing two-podcast FFW pipeline and static archive. The [active roadmap](ROADMAP.md) improves reliability, review and rebuildable archive views without requiring a backend, database, authentication layer or additional source adapter. The source-agnostic target below remains historical design context.
 
 ```mermaid
 flowchart LR
-    A["RSS feed"] --> B["Eligibility-first selector"]
+    A["Enabled podcast RSS feeds"] --> B["Eligibility-first selector"]
     S["Durable episode state"] <--> B
     B --> C["Podcast extraction pipeline"]
     C --> O["Original extraction"]
