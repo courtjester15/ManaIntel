@@ -41,8 +41,8 @@ on:
         description: Gemini model for transcription and extraction
         required: true
         type: choice
-        options: [gemini-3.6-flash, gemini-3.5-flash-lite]
-        default: gemini-3.6-flash
+        options: [gemini-3.5-flash-lite, gemini-3.6-flash]
+        default: gemini-3.5-flash-lite
       reuse_transcript_run_id:
         description: Optional prior Actions run ID whose retained transcript should be reused
         required: false
@@ -79,7 +79,7 @@ permissions:
 env:
   FFW_MODE: live
   FFW_AI_PROVIDER: gemini
-  FFW_TRANSCRIPTION_MODEL: ${{ inputs.ai_model || 'gemini-3.6-flash' }}
+  FFW_TRANSCRIPTION_MODEL: ${{ inputs.ai_model || 'gemini-3.5-flash-lite' }}
   FFW_TRANSCRIPTION_FALLBACK_MODEL: gemini-3.5-flash-lite
   # Production is intentionally Gemini free-tier only. The dormant OpenAI
   # adapter remains available for a future explicit, paid opt-in.
@@ -95,7 +95,7 @@ env:
   FFW_GEMINI_TRANSIENT_RETRIES: "1"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
   FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "300"
-  FFW_EXTRACTION_MODEL: ${{ inputs.ai_model || 'gemini-3.6-flash' }}
+  FFW_EXTRACTION_MODEL: ${{ inputs.ai_model || 'gemini-3.5-flash-lite' }}
   FFW_EXTRACTION_FALLBACK_MODEL: gemini-3.5-flash-lite
   FFW_MAX_LIVE_BATCH: "20"
   FFW_MAX_EPISODE_ATTEMPTS: "3"

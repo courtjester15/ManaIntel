@@ -28,6 +28,10 @@ The source fix and each live episode recovery are verified separately. See the a
 
 The 0.5.8 live validation (38841020667) successfully generated and cached two replacement quarters, then exposed an overly strict parser: an otherwise correctly structured clock `01:57.73000000000002` exceeded the three-fractional-digit regex. Version 0.5.9 accepts arbitrary fractional-second precision while retaining explicit MM:SS structure, range, coverage and backward-jump checks. The cached successful quarters remain compatible and reusable.
 
+Live validation on 0.5.9 recovered BB 666 in run 38841659910: three recommendations were published as needs_review because the recommendation section lacked an explicit ending. The timing/coverage repair succeeded and Pages deployed. Scheduled processing and the low-pick queue now default to the responding Flash Lite model; the repeatedly 503ing 3.6 model remains only an explicit manual option. This removes routine failed primary probes rather than assuming its availability recovered.
+
+BB 667's first inspected repair on 0.5.9 (38842081267) successfully saved repaired chunk 1 and two quarters of chunk 2, then stopped on a coherent last segment ending at 227.373 seconds in a 225-second clip. Version 0.5.10 permits only the final segment's end to be trimmed by at most three seconds, with its start strictly inside the clip. Larger overruns and out-of-range starts still fail; all corrections are counted, journaled, and force needs_review. This narrowly addresses inspected endpoint drift without restoring the old arbitrary timestamp clamping. Remaining inspected repairs are chunks 2, 3 and 4; saved progress is reused.
+
 ## Sources
 
 - [BB 666 initial attempt](https://github.com/courtjester15/ManaIntel/blob/master/state/attempts/26c7749a34fe4c49b68980604ddff5b2.json)

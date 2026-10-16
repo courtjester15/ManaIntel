@@ -694,6 +694,15 @@ class GeminiTranscriber:
                                                            {"clip_seconds": half, "reason": "invalid_clock_format"}, observe)
                             if getattr(self, "force_split", False):
                                 clocks = [(float(s.get("start", 0)), float(s.get("end", s.get("start", 0)))) for s in checked.get("segments", [])]
+                                # Audio models can put the final word just past
+                                # the physical clip end. Correct only this small
+                                # endpoint drift; never collapse arbitrary spans.
+                                if clocks and 0 <= clocks[-1][0] < half < clocks[-1][1] <= half + 3:
+                                    drift = clocks[-1][1] - half
+                                    checked["segments"][-1]["end"] = half
+                                    checked["_clip_end_trim"] = drift
+                                    clocks[-1] = (clocks[-1][0], half)
+                                    observe("clip_end_trimmed", model=model, overrun_seconds=drift, clip_seconds=half)
                                 invalid_bounds = sum(not (math.isfinite(start) and math.isfinite(end) and 0 <= start <= end <= half) for start, end in clocks)
                                 backward_jumps = sum(clocks[i][0] < clocks[i - 1][0] - 10 for i in range(1, len(clocks)))
                                 if not checked.get("segments") or suspect_timing_chunks(checked, half) or invalid_bounds or backward_jumps:
@@ -726,6 +735,7 @@ class GeminiTranscriber:
                 payloads.append(adjusted)
             return {"text": "\n".join(str(item.get("text", "")) for item in payloads),
                     "segments": [segment for item in payloads for segment in item.get("segments", [])],
+                    "timing_adjustments": sum(bool(item.get("_clip_end_trim")) for item in payloads),
                     "_usage": {"rescue_subchunks": [item.get("_usage") for item in payloads]}}, " + ".join(dict.fromkeys(used_models))
         finally:
             shutil.rmtree(rescue_dir, ignore_errors=True)
@@ -817,6 +827,7 @@ class GeminiTranscriber:
                 self._save_chunk_checkpoint(
                     episode, index, len(audio_files), fingerprint, payload, used_model, request_seconds,
                 )
+            timing_adjustments += int(payload.get("timing_adjustments", 0))
             chunk_usage = payload.pop("_usage", None)
             used_models.append(used_model)
             usage.append({

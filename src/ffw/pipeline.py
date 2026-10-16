@@ -524,6 +524,7 @@ class Pipeline:
                 for sequence, segment in enumerate(transcript["segments"]):
                     segment["sequence"] = sequence
                 transcript.setdefault("timing_repairs", []).append({"chunk": index + 1, "method": "retranscribe_audio", "usage": repaired.get("usage")})
+                transcript["timing_adjustments"] = int(transcript.get("timing_adjustments", 0)) + int(repaired.get("timing_adjustments", 0))
                 journal.record("transcript_timing_repaired", chunk=index + 1, method="retranscribe_audio", usage=repaired.get("usage"))
                 # Persist each successful repair so a later chunk failure cannot
                 # cause us to pay for the same successful repair on the next run.
@@ -564,6 +565,8 @@ class Pipeline:
                     journal.record("verification_warning", exception_class=type(verification_error).__name__, message=str(verification_error))
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             warnings = [extraction.get("review_reason"), extraction.get("section", {}).get("review_reason")]
+            if transcript.get("timing_adjustments"):
+                warnings.append("Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.")
             from .transcript_timing import missing_recommendation_content
             missing_windows = missing_recommendation_content(transcript)
             if missing_windows:

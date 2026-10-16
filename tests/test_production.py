@@ -572,7 +572,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("gemini-3.6-flash", workflow)
         self.assertIn("gemini-3.5-flash-lite", workflow)
         self.assertIn("ai_model:", workflow)
-        self.assertIn("inputs.ai_model || 'gemini-3.6-flash'", workflow)
+        self.assertIn("inputs.ai_model || 'gemini-3.5-flash-lite'", workflow)
         self.assertIn("reuse_transcript_run_id:", workflow)
         self.assertIn("Download retained transcript for recovery", workflow)
         self.assertIn("FFW_REUSE_TRANSCRIPTS", workflow)

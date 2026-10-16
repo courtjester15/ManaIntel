@@ -260,6 +260,34 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual(payload, saved["transcript"])
         self.assertEqual("rejected_timing_repair", saved["kind"])
 
+    def test_repair_trims_only_small_final_endpoint_drift_and_records_it(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        payload = {"text": "speech", "segments": [{"start": "00:20", "end": "00:27.373", "text": "speech"}]}
+        events = []
+        transcriber.audit_callback = lambda event, **details: events.append(event)
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *args, **kwargs: json.loads(json.dumps(payload))
+        ):
+            result = transcriber.repair(candidate(), [audio])
+        self.assertEqual([25, 50, 75, 100], [s["end"] for s in result["segments"]])
+        self.assertEqual(4, result["timing_adjustments"])
+        self.assertEqual(4, events.count("clip_end_trimmed"))
+
+    def test_repair_rejects_large_overrun_and_out_of_range_start(self):
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        for start, end in (("00:20", "00:29"), ("00:26", "00:27")):
+            with self.subTest(start=start, end=end):
+                transcriber = self.transcriber()
+                payload = {"segments": [{"start": start, "end": end, "text": "speech"}]}
+                with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+                    "ffw.production._gemini_generate_json", side_effect=lambda *args, **kwargs: json.loads(json.dumps(payload))
+                ):
+                    with self.assertRaisesRegex(RuntimeError, "split repair has missing segments or compressed timestamps"):
+                        transcriber.repair(candidate(), [audio])
+
     def test_output_errors_do_not_open_availability_circuit(self):
         transcriber = self.transcriber()
         with patch("ffw.production._gemini_generate_json", side_effect=[
