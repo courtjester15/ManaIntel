@@ -34,6 +34,8 @@ BB 667's first inspected repair on 0.5.9 (38842081267) successfully saved repair
 
 ## Sources
 
+Final verified outcome: [BB 666 run 38841659910](https://github.com/courtjester15/ManaIntel/actions/runs/38841659910) published three picks as needs_review for an uncertain recommendation-section ending. [BB 667 run 38842689643](https://github.com/courtjester15/ManaIntel/actions/runs/38842689643) reused saved progress, repaired the remaining chunks, and published three picks as complete; the final attempt required no endpoint trimming. Both Pages deployments succeeded. Source version 0.5.10 passed 150 local tests (three skipped), archive validation and production CI. Scheduled defaults now use Flash Lite.
+
 - [BB 666 initial attempt](https://github.com/courtjester15/ManaIntel/blob/master/state/attempts/26c7749a34fe4c49b68980604ddff5b2.json)
 - [BB 666 retry](https://github.com/courtjester15/ManaIntel/blob/master/state/attempts/1e2c6488b1b64ffc944333708ead4163.json)
 - [Attempt journal](https://github.com/courtjester15/ManaIntel/blob/master/state/episode-attempts.md)
