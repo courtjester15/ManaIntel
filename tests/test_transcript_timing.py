@@ -1,10 +1,19 @@
 import unittest
 
-from ffw.transcript_timing import normalize_integer_clock, suspect_timing_chunks
+from ffw.transcript_timing import clock_string_segments, normalize_integer_clock, suspect_timing_chunks
 from ffw.detection import locate_recommendation_section
 
 
 class TranscriptTimingTests(unittest.TestCase):
+    def test_explicit_clock_strings_convert_without_ambiguous_numeric_units(self):
+        source = {"segments": [{"start": "01:05.000", "end": "01:10.125", "text": "speech"}]}
+        result = clock_string_segments(source)
+        self.assertEqual((65, 70.125), (result["segments"][0]["start"], result["segments"][0]["end"]))
+        self.assertEqual("01:05.000", source["segments"][0]["start"])
+        for invalid in (110, "1.10", "01:65", "one minute"):
+            with self.subTest(value=invalid), self.assertRaises(ValueError):
+                clock_string_segments({"segments": [{"start": invalid, "end": "01:20"}]})
+
     def test_missing_middle_chunk_is_repaired_even_without_segments(self):
         transcript = {"chunk_count": 3, "segments": [
             {"start": 0, "end": 890, "text": "first chunk"},

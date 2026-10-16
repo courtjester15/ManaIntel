@@ -412,6 +412,16 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
     raise RuntimeError(f"Gemini JSON generation failed: {last_error}")
 
 
+def _clock_transcript_schema() -> dict[str, Any]:
+    schema = deepcopy(TRANSCRIPT_SCHEMA)
+    for field in ("start", "end"):
+        schema["properties"]["segments"]["items"]["properties"][field] = {
+            "type": "string", "pattern": r"^\d{1,2}:[0-5]\d(?:\.\d{1,3})?$",
+            "description": "Time relative to this clip as MM:SS.mmm, beginning at 00:00.000.",
+        }
+    return schema
+
+
 class GeminiModelHealth:
     """Suppress a primary after repeated availability failures in one attempt."""
 
@@ -548,12 +558,7 @@ class GeminiTranscriber:
         types: Any,
         contents: list[Any],
     ) -> tuple[dict[str, Any], str]:
-        bounded_schema = deepcopy(TRANSCRIPT_SCHEMA)
-        for field in ("start", "end"):
-            bounded_schema["properties"]["segments"]["items"]["properties"][field].update(
-                minimum=0, maximum=self.chunk_seconds,
-                description=f"Elapsed seconds in this audio chunk, from 0 to {self.chunk_seconds}; not MMSS or minute.second."
-            )
+        bounded_schema = _clock_transcript_schema()
         models = [self.model_name]
         if self.fallback_model_name:
             models.append(self.fallback_model_name)
@@ -574,6 +579,11 @@ class GeminiTranscriber:
                         schema=bounded_schema,
                         observer=getattr(self, "audit_callback", None),
                     )
+                    from .transcript_timing import clock_string_segments
+                    try:
+                        payload = clock_string_segments(payload)
+                    except ValueError as exc:
+                        raise GeminiMalformedJSONError("Malformed JSON transcript clock format; expected explicit MM:SS.mmm strings.") from exc
                     self.model_health.succeeded(model)
                     return payload, model
                 except Exception as exc:
@@ -595,6 +605,20 @@ class GeminiTranscriber:
                         time.sleep(self.retry_delay_seconds * (2 ** attempt))
         details = "; ".join(transient_errors)
         raise RuntimeError(f"Gemini transcription models exhausted after transient errors: {details}") from last_error
+
+    def _reject_timing_payload(self, episode: EpisodeCandidate, index: int, part: int,
+                               model: str, payload: dict, metrics: dict, observe: Any) -> None:
+        observe("repair_timing_rejected", model=model, **metrics)
+        if self.checkpoint_root:
+            evidence = self.checkpoint_root.parent / "transcripts"
+            evidence.mkdir(parents=True, exist_ok=True)
+            encoded = json.dumps(payload, ensure_ascii=False)
+            digest = hashlib.sha256(encoded.encode("utf-8")).hexdigest()[:16]
+            name = f"rejected-{self._episode_checkpoint_name(episode)}-{index}-{part}-{digest}.json.gz"
+            with gzip.open(evidence / name, "wt", encoding="utf-8") as output:
+                json.dump({"kind": "rejected_timing_repair", "episode_guid": episode.guid,
+                           "model": model, "metrics": metrics, "transcript": payload}, output, ensure_ascii=False)
+        raise GeminiMalformedJSONError("Malformed JSON transcript content: split repair has missing segments or compressed timestamps.")
 
     def _rescue_chunk(self, client: Any, types: Any, episode: EpisodeCandidate, path: Path,
                       index: int, chunk_count: int, fingerprint: str, prompt: str) -> tuple[dict[str, Any], str]:
@@ -642,11 +666,11 @@ class GeminiTranscriber:
                     def observe(event: str, **details: Any) -> None:
                         if observer:
                             observer(event, chunk=index + 1, subchunk=part + 1, stage="transcribing", **details)
-                    schema = deepcopy(TRANSCRIPT_SCHEMA)
-                    for field in ("start", "end"):
-                        schema["properties"]["segments"]["items"]["properties"][field].update(minimum=0, maximum=half)
-                        if parts == 4:
-                            schema["properties"]["segments"]["items"]["properties"][field].update(type="integer", maximum=math.floor(half))
+                    schema = _clock_transcript_schema()
+                    clock_instruction = (
+                        " Use explicit MM:SS.mmm clock strings, never numeric timestamps. "
+                        "One minute thirty seconds is 01:30.000. Start the clock at 00:00.000 for this clip."
+                    )
                     errors = []
                     for model in dict.fromkeys(filter(None, [self.model_name, self.fallback_model_name])):
                         if self.model_health.skip(model, self.model_name, self.fallback_model_name, observe):
@@ -657,33 +681,29 @@ class GeminiTranscriber:
                         try:
                             payload = _gemini_generate_json(
                                 client, types, model=model,
-                                contents=[prompt + f" This clip lasts {half} seconds. Reset the clock to zero for this clip. Return elapsed seconds within this clip, not a clock notation. Round timestamps to whole seconds: 1:30 is 90 seconds, never 1.30 or 130.",
+                                contents=[("Transcribe this Magic podcast audio clip, preserving spoken card names, prices and speakers."
+                                           if parts == 4 else prompt) + f" This clip lasts {half} seconds." + clock_instruction,
                                           types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
                                 schema=schema, observer=observe, allow_schema_fallback=False,
                             )
+                            from .transcript_timing import clock_string_segments, suspect_timing_chunks
+                            try:
+                                checked = clock_string_segments(payload)
+                            except ValueError:
+                                self._reject_timing_payload(episode, index, part, model, payload,
+                                                           {"clip_seconds": half, "reason": "invalid_clock_format"}, observe)
                             if getattr(self, "force_split", False):
-                                from .transcript_timing import normalize_integer_clock, suspect_timing_chunks
-                                checked = normalize_integer_clock(payload, half)
                                 clocks = [(float(s.get("start", 0)), float(s.get("end", s.get("start", 0)))) for s in checked.get("segments", [])]
                                 invalid_bounds = sum(not (math.isfinite(start) and math.isfinite(end) and 0 <= start <= end <= half) for start, end in clocks)
-                                if not checked.get("segments") or suspect_timing_chunks(checked, half) or invalid_bounds:
+                                backward_jumps = sum(clocks[i][0] < clocks[i - 1][0] - 10 for i in range(1, len(clocks)))
+                                if not checked.get("segments") or suspect_timing_chunks(checked, half) or invalid_bounds or backward_jumps:
                                     metrics = {"clip_seconds": half, "segment_count": len(clocks),
                                                "max_end": max((end for _, end in clocks), default=None),
                                                "invalid_bounds": invalid_bounds,
+                                               "backward_jumps": backward_jumps,
                                                "zero_length_segments": sum(start == end for start, end in clocks)}
-                                    observe("repair_timing_rejected", model=model, **metrics)
-                                    # Keep rejected evidence private, alongside retained transcripts,
-                                    # so a STOP response is not mistaken for usable timed speech.
-                                    if self.checkpoint_root:
-                                        evidence = self.checkpoint_root.parent / "transcripts"
-                                        evidence.mkdir(parents=True, exist_ok=True)
-                                        encoded = json.dumps(payload, ensure_ascii=False)
-                                        digest = hashlib.sha256(encoded.encode("utf-8")).hexdigest()[:16]
-                                        name = f"rejected-{self._episode_checkpoint_name(episode)}-{index}-{part}-{digest}.json.gz"
-                                        with gzip.open(evidence / name, "wt", encoding="utf-8") as output:
-                                            json.dump({"kind": "rejected_timing_repair", "episode_guid": episode.guid,
-                                                       "model": model, "metrics": metrics, "transcript": payload}, output, ensure_ascii=False)
-                                    raise GeminiMalformedJSONError("Malformed JSON transcript content: split repair has missing segments or compressed timestamps.")
+                                    self._reject_timing_payload(episode, index, part, model, payload, metrics, observe)
+                            payload = checked
                             self.model_health.succeeded(model)
                             break
                         except Exception as exc:
@@ -740,14 +760,14 @@ class GeminiTranscriber:
         prompt = (
             f"Transcribe this {episode.source_name} Magic: The Gathering podcast audio chunk. Return JSON only. "
             f"{episode_context} "
-            "Use seconds relative to the start of this chunk for start and end. "
-            "Use numeric elapsed seconds, never minute.second clock notation: 11:11 must be 671, not 11.11. "
+            "Use explicit MM:SS.mmm clock strings relative to this chunk for start and end. "
+            "Reset each chunk to 00:00.000; eleven minutes eleven seconds is 11:11.000, never 11.11 or 1111. "
             "Include speaker labels when they are obvious; otherwise use null. "
             "Keep card names and price phrases as spoken."
         )
         fingerprint = self._checkpoint_fingerprint(episode, audio_files, prompt)
         if getattr(self, "force_split", False):
-            fingerprint += ":timing-coverage-quarter-v3-integer"
+            fingerprint += ":timing-coverage-quarter-v4-clock-strings"
         # Each original chunk may be split once. A separate call budget bounds
         # the whole invocation; cached parent chunks and halves cost no calls.
         self._rescue_calls_remaining = self.rescue_call_limit

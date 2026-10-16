@@ -58,13 +58,21 @@ class ReliabilityTests(unittest.TestCase):
         return GeminiTranscriber("primary", 900, fallback_model_name="fallback", transient_retries=1,
                                  retry_delay_seconds=0, checkpoint_root=self.root / "checkpoints")
 
-    def test_transcription_schema_bounds_clock_to_audio_chunk(self):
+    def test_transcription_schema_requires_unambiguous_clock_strings(self):
         with patch("ffw.production._gemini_generate_json", return_value={"segments": []}) as generate:
             self.transcriber()._transcribe_chunk(object(), object(), [])
         fields = generate.call_args.kwargs["schema"]["properties"]["segments"]["items"]["properties"]
         for field in ("start", "end"):
-            self.assertEqual(900, fields[field]["maximum"])
-            self.assertEqual(0, fields[field]["minimum"])
+            self.assertEqual("string", fields[field]["type"])
+            self.assertIn("pattern", fields[field])
+
+    def test_initial_transcription_converts_clock_strings_to_elapsed_seconds(self):
+        with patch("ffw.production._gemini_generate_json", return_value={
+            "segments": [{"start": "11:11.000", "end": "11:12.500", "text": "speech"}]
+        }):
+            payload, _ = self.transcriber()._transcribe_chunk(object(), object(), [])
+        self.assertEqual(671, payload["segments"][0]["start"])
+        self.assertEqual(672.5, payload["segments"][0]["end"])
 
     def test_incomplete_body_retries_and_falls_back(self):
         error = RuntimeError("peer closed connection without sending complete message body (incomplete chunked read)")
@@ -111,8 +119,8 @@ class ReliabilityTests(unittest.TestCase):
         transcriber = self.transcriber()
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
-        first = {"text": "first", "segments": [{"start": 1, "end": 2, "text": "first", "speaker": None}]}
-        second = {"text": "second", "segments": [{"start": 3, "end": 4, "text": "second", "speaker": None}]}
+        first = {"text": "first", "segments": [{"start": "00:01", "end": "00:02", "text": "first", "speaker": None}]}
+        second = {"text": "second", "segments": [{"start": "00:03", "end": "00:04", "text": "second", "speaker": None}]}
         with fake_sdk() as sdk, patch("ffw.production.subprocess.run", side_effect=self.media), patch(
             "ffw.production._gemini_generate_json", side_effect=[first, RuntimeError("503"), RuntimeError("503")]
         ):
@@ -131,7 +139,7 @@ class ReliabilityTests(unittest.TestCase):
         transcriber = self.transcriber()
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
-        payload = {"text": "speech", "segments": [{"start": 1, "end": 40, "text": "speech"}]}
+        payload = {"text": "speech", "segments": [{"start": "00:01", "end": "00:40", "text": "speech"}]}
         with fake_sdk() as sdk, patch("ffw.production.subprocess.run", side_effect=self.media), patch(
             "ffw.production._gemini_generate_json", side_effect=[RuntimeError("503 UNAVAILABLE"), payload, payload]
         ) as generate:
@@ -139,7 +147,7 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual(["primary", "fallback", "primary"], [c.kwargs["model"] for c in generate.call_args_list])
         self.assertEqual("fallback + primary", model)
         self.assertEqual([1, 51], [s["start"] for s in result["segments"]])
-        self.assertEqual(50, generate.call_args.kwargs["schema"]["properties"]["segments"]["items"]["properties"]["end"]["maximum"])
+        self.assertEqual("string", generate.call_args.kwargs["schema"]["properties"]["segments"]["items"]["properties"]["end"]["type"])
 
     def test_timing_repair_starts_with_split_instead_of_full_request(self):
         transcriber = self.transcriber()
@@ -189,7 +197,7 @@ class ReliabilityTests(unittest.TestCase):
         extractor.model_health = transcriber.model_health
         events = []
         transcriber.audit_callback = lambda event, **details: events.append(event)
-        payload = {"text": "speech", "segments": [{"start": 1, "end": 20, "text": "speech"}]}
+        payload = {"text": "speech", "segments": [{"start": "00:01.000", "end": "00:20.000", "text": "speech"}]}
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
         with fake_sdk() as sdk, patch("ffw.production.subprocess.run", side_effect=self.media), patch(
@@ -205,11 +213,11 @@ class ReliabilityTests(unittest.TestCase):
         self.assertIn("model_circuit_opened", events)
         self.assertIn("model_circuit_skipped", events)
 
-    def test_timing_repair_uses_four_integer_second_clips_and_resumes_them(self):
+    def test_timing_repair_uses_four_explicit_clock_clips_and_resumes_them(self):
         transcriber = self.transcriber()
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
-        payload = {"text": "speech", "segments": [{"start": 1, "end": 20, "text": "speech"}]}
+        payload = {"text": "speech", "segments": [{"start": "00:01.000", "end": "00:20.000", "text": "speech"}]}
         with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
             "ffw.production._gemini_generate_json", side_effect=lambda *args, **kwargs: json.loads(json.dumps(payload))
         ) as generate:
@@ -218,8 +226,9 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual([1, 26, 51, 76], [s["start"] for s in result["segments"]])
         for request in generate.call_args_list:
             field = request.kwargs["schema"]["properties"]["segments"]["items"]["properties"]["start"]
-            self.assertEqual("integer", field["type"])
-            self.assertEqual(25, field["maximum"])
+            self.assertEqual("string", field["type"])
+            self.assertIn("pattern", field)
+            self.assertNotIn("maximum", field)
         with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
             "ffw.production._gemini_generate_json", side_effect=AssertionError("saved repair must be reused")
         ):
@@ -231,7 +240,7 @@ class ReliabilityTests(unittest.TestCase):
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
         payload = {"text": "private spoken content", "segments": [
-            {"start": 1, "end": 99, "text": "private spoken content"}
+            {"start": "00:01.000", "end": "01:39.000", "text": "private spoken content"}
         ]}
         events = []
         transcriber.audit_callback = lambda event, **details: events.append({"event": event, **details})

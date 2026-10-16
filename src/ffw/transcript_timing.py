@@ -3,6 +3,20 @@ from copy import deepcopy
 import re
 
 
+def clock_string_segments(payload: dict) -> dict:
+    """Convert explicit clip-local MM:SS clocks without guessing numeric units."""
+    result = deepcopy(payload)
+    for segment in result.get("segments", []):
+        for field in ("start", "end"):
+            value = segment.get(field)
+            match = re.fullmatch(r"(\d{1,2}):([0-5]\d)(?:\.(\d{1,3}))?", value) if isinstance(value, str) else None
+            if not match:
+                raise ValueError("Repair timestamp must be an explicit MM:SS or MM:SS.mmm clock.")
+            minutes, seconds, fraction = match.groups()
+            segment[field] = int(minutes) * 60 + int(seconds) + float("0." + (fraction or "0"))
+    return result
+
+
 def missing_recommendation_content(transcript: dict) -> int:
     """Flag recommendation windows lost between full text and timed segments.
 

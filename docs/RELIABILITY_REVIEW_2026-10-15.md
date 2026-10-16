@@ -18,6 +18,14 @@ The previous deployment fixed repeated primary probes, multi-chunk truncation re
 - Record sanitized timing rejection metrics and retain rejected repair payloads in private transcript storage/artifacts, never in the public archive.
 - Permit a manually selected four-chunk repair budget for inspected cases such as BB 667; the automatic default remains two.
 
+## Follow-up with retained rejection evidence
+
+The single inspected 0.5.7 BB 666 attempt (run 38840331812) failed on its first 225-second repair clip. The newly retained response proves the timing was invalid: 70 segments, 30 zero-length timestamps, and a segment running backward from 225 to 23. The sequence mixes second-like and clock-like values (65, 110, 123, then 225 and 23); valid JSON and numeric bounds did not make the time representation coherent. This evidence does not justify guessing a conversion for those numbers.
+
+Version 0.5.8 therefore requests explicit MM:SS.mmm string timestamps for all new Gemini transcription calls, including split rescue and targeted repair, and parses them deterministically into the existing numeric-second archive contract. New transcription fingerprints change with the prompt; retained legacy transcripts remain available for targeted repair. Timing bounds, missing coverage, collapsed tails and large backward jumps are still rejected. This replaces the ambiguous numeric protocol rather than relaxing validation.
+
+The source fix and each live episode recovery are verified separately. See the attempt journal for actual outcomes; deployment success alone is not episode recovery.
+
 ## Sources
 
 - [BB 666 initial attempt](https://github.com/courtjester15/ManaIntel/blob/master/state/attempts/26c7749a34fe4c49b68980604ddff5b2.json)
