@@ -1,0 +1,3890 @@
+{
+  "schema_version": 1,
+  "report_generator_version": "0.5.11",
+  "as_of": "2026-10-16T03:37:09Z",
+  "window": {
+    "start": "2026-10-02T03:37:09Z",
+    "end": "2026-10-16T03:37:09Z",
+    "days": 14
+  },
+  "journal_coverage": {
+    "first_recorded": "2026-10-06T22:48:37Z",
+    "last_recorded": "2026-10-16T02:54:41Z",
+    "dated_live_records": 22,
+    "excluded_invalid_dates": 0
+  },
+  "totals": {
+    "records": 22,
+    "finished": 22,
+    "complete": 3,
+    "needs_review": 8,
+    "failed": 11,
+    "interrupted": 0,
+    "running": 0,
+    "skipped": 0,
+    "validated_usable": 10,
+    "empty_unconfirmed": 0,
+    "preserved_previous": 1,
+    "validation_unknown": 0,
+    "publication_verified": 9,
+    "publication_not_observed": 1,
+    "publication_unknown": 0,
+    "model_calls": 148,
+    "failed_model_calls": 62,
+    "timing_rejections": 3,
+    "checkpoint_reuses": 12,
+    "transcript_reuses": 11,
+    "circuit_skips": 11
+  },
+  "kinds": {
+    "initial": {
+      "records": 5,
+      "finished": 5,
+      "complete": 0,
+      "needs_review": 2,
+      "failed": 3,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 2,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 2,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 42,
+      "failed_model_calls": 23,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 0,
+      "circuit_skips": 4
+    },
+    "retry": {
+      "records": 3,
+      "finished": 3,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 3,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 21,
+      "failed_model_calls": 14,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 1,
+      "transcript_reuses": 2,
+      "circuit_skips": 0
+    },
+    "forced": {
+      "records": 14,
+      "finished": 14,
+      "complete": 3,
+      "needs_review": 6,
+      "failed": 5,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 8,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 1,
+      "validation_unknown": 0,
+      "publication_verified": 7,
+      "publication_not_observed": 1,
+      "publication_unknown": 0,
+      "model_calls": 85,
+      "failed_model_calls": 25,
+      "timing_rejections": 3,
+      "checkpoint_reuses": 11,
+      "transcript_reuses": 9,
+      "circuit_skips": 7
+    },
+    "other": {
+      "records": 0,
+      "finished": 0,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 0,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 0,
+      "failed_model_calls": 0,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 0,
+      "circuit_skips": 0
+    },
+    "skipped": {
+      "records": 0,
+      "finished": 0,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 0,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 0,
+      "failed_model_calls": 0,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 0,
+      "circuit_skips": 0
+    }
+  },
+  "cohorts": [
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.10",
+      "kind": "forced",
+      "transcription_model": "gemini-3.5-flash-lite",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "records": 1,
+      "finished": 1,
+      "complete": 1,
+      "needs_review": 0,
+      "failed": 0,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 1,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 1,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 11,
+      "failed_model_calls": 0,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 2,
+      "transcript_reuses": 1,
+      "circuit_skips": 0
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.5",
+      "kind": "initial",
+      "transcription_model": "gemini-3.5-flash",
+      "extraction_model": "gemini-3.5-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 1,
+      "failed": 0,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 1,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 1,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 6,
+      "failed_model_calls": 0,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 0,
+      "circuit_skips": 0
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.5",
+      "kind": "initial",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 1,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 3,
+      "failed_model_calls": 3,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 0,
+      "circuit_skips": 0
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.5",
+      "kind": "retry",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 2,
+      "finished": 2,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 2,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 19,
+      "failed_model_calls": 13,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 1,
+      "circuit_skips": 0
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.6",
+      "kind": "initial",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 1,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 7,
+      "failed_model_calls": 2,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 0,
+      "circuit_skips": 4
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.6",
+      "kind": "retry",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 1,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 2,
+      "failed_model_calls": 1,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 1,
+      "transcript_reuses": 1,
+      "circuit_skips": 0
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.7",
+      "kind": "forced",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 1,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 2,
+      "failed_model_calls": 1,
+      "timing_rejections": 1,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 1,
+      "circuit_skips": 0
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.8",
+      "kind": "forced",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 1,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 5,
+      "failed_model_calls": 2,
+      "timing_rejections": 1,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 1,
+      "circuit_skips": 1
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.9",
+      "kind": "forced",
+      "transcription_model": "gemini-3.5-flash-lite",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 0,
+      "failed": 1,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 0,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 0,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 7,
+      "failed_model_calls": 0,
+      "timing_rejections": 1,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 1,
+      "circuit_skips": 0
+    },
+    {
+      "source": "brainstorm-brewery",
+      "pipeline_version": "0.5.9",
+      "kind": "forced",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 1,
+      "failed": 0,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 1,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 1,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 5,
+      "failed_model_calls": 2,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 2,
+      "transcript_reuses": 1,
+      "circuit_skips": 1
+    },
+    {
+      "source": "mtg-fast-finance",
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "transcription_model": "gemini-3.5-flash",
+      "extraction_model": "gemini-3.5-flash",
+      "records": 8,
+      "finished": 8,
+      "complete": 2,
+      "needs_review": 4,
+      "failed": 2,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 5,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 1,
+      "validation_unknown": 0,
+      "publication_verified": 4,
+      "publication_not_observed": 1,
+      "publication_unknown": 0,
+      "model_calls": 48,
+      "failed_model_calls": 18,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 6,
+      "transcript_reuses": 4,
+      "circuit_skips": 0
+    },
+    {
+      "source": "mtg-fast-finance",
+      "pipeline_version": "0.5.5",
+      "kind": "initial",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 2,
+      "finished": 2,
+      "complete": 0,
+      "needs_review": 1,
+      "failed": 1,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 1,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 1,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 26,
+      "failed_model_calls": 18,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 0,
+      "transcript_reuses": 0,
+      "circuit_skips": 0
+    },
+    {
+      "source": "mtg-fast-finance",
+      "pipeline_version": "0.5.6",
+      "kind": "forced",
+      "transcription_model": "gemini-3.6-flash",
+      "extraction_model": "gemini-3.6-flash",
+      "records": 1,
+      "finished": 1,
+      "complete": 0,
+      "needs_review": 1,
+      "failed": 0,
+      "interrupted": 0,
+      "running": 0,
+      "skipped": 0,
+      "validated_usable": 1,
+      "empty_unconfirmed": 0,
+      "preserved_previous": 0,
+      "validation_unknown": 0,
+      "publication_verified": 1,
+      "publication_not_observed": 0,
+      "publication_unknown": 0,
+      "model_calls": 7,
+      "failed_model_calls": 2,
+      "timing_rejections": 0,
+      "checkpoint_reuses": 1,
+      "transcript_reuses": 0,
+      "circuit_skips": 5
+    }
+  ],
+  "model_responses": [
+    {
+      "model": "gemini-3.5-flash",
+      "calls": 46,
+      "failed": 17,
+      "successful_response": 29
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "calls": 61,
+      "failed": 5,
+      "successful_response": 56,
+      "timing_rejections": 3
+    },
+    {
+      "model": "gemini-3.6-flash",
+      "calls": 41,
+      "failed": 40,
+      "successful_response": 1
+    }
+  ],
+  "failure_categories": {
+    "provider_availability": 2,
+    "transcript_timing_or_coverage": 8,
+    "truncated_model_output": 1
+  },
+  "recent_attempts": [
+    {
+      "started_at": "2026-10-16T02:54:41Z",
+      "attempt_id": "3e7a4dd9a1dd4bbebc4d4e518e7f095e",
+      "source": "brainstorm-brewery",
+      "episode_number": 667,
+      "pipeline_version": "0.5.10",
+      "kind": "forced",
+      "outcome": "complete",
+      "picks": 3,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "38842689643",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-16T02:46:48Z",
+      "attempt_id": "3f54d901dffc48788df8ae21cd1e1a54",
+      "source": "brainstorm-brewery",
+      "episode_number": 667,
+      "pipeline_version": "0.5.9",
+      "kind": "forced",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "38842081267",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-16T02:42:17Z",
+      "attempt_id": "869ba969f5c341ae9490ac44f6335bb2",
+      "source": "brainstorm-brewery",
+      "episode_number": 666,
+      "pipeline_version": "0.5.9",
+      "kind": "forced",
+      "outcome": "needs_review",
+      "picks": 3,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "38841659910",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-16T02:36:04Z",
+      "attempt_id": "d4cdc9174954462bb63dc40a8b21d703",
+      "source": "brainstorm-brewery",
+      "episode_number": 666,
+      "pipeline_version": "0.5.8",
+      "kind": "forced",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "38841020667",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-16T02:25:57Z",
+      "attempt_id": "d9073429a1894b8790a360109f62948c",
+      "source": "brainstorm-brewery",
+      "episode_number": 666,
+      "pipeline_version": "0.5.7",
+      "kind": "forced",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "38840331812",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-15T23:04:22Z",
+      "attempt_id": "1e2c6488b1b64ffc944333708ead4163",
+      "source": "brainstorm-brewery",
+      "episode_number": 666,
+      "pipeline_version": "0.5.6",
+      "kind": "retry",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "38821207857",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-15T15:00:04Z",
+      "attempt_id": "26c7749a34fe4c49b68980604ddff5b2",
+      "source": "brainstorm-brewery",
+      "episode_number": 666,
+      "pipeline_version": "0.5.6",
+      "kind": "initial",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "38756313025",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-15T03:09:04Z",
+      "attempt_id": "d21a6b53e3f1428691d3993f9326db08",
+      "source": "mtg-fast-finance",
+      "episode_number": 494,
+      "pipeline_version": "0.5.6",
+      "kind": "forced",
+      "outcome": "needs_review",
+      "picks": 3,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "38674664775",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-14T23:13:14Z",
+      "attempt_id": "2353a0c645a64af48f5f38f2d6264049",
+      "source": "brainstorm-brewery",
+      "episode_number": 667,
+      "pipeline_version": "0.5.5",
+      "kind": "retry",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "38652629206",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-14T15:06:57Z",
+      "attempt_id": "f940e36fe2fe4ff49084d04b27ead0ef",
+      "source": "mtg-fast-finance",
+      "episode_number": 494,
+      "pipeline_version": "0.5.5",
+      "kind": "initial",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "truncated_model_output",
+      "run_id": "38586382931",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-13T23:43:52Z",
+      "attempt_id": "1301bb48dd0c419f8ff00ddec98b34ce",
+      "source": "brainstorm-brewery",
+      "episode_number": 667,
+      "pipeline_version": "0.5.5",
+      "kind": "retry",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "38485922136",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-13T17:36:02Z",
+      "attempt_id": "cb52a2711c3b4c48b3cf5c4d95649e6e",
+      "source": "brainstorm-brewery",
+      "episode_number": 667,
+      "pipeline_version": "0.5.5",
+      "kind": "initial",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "provider_availability",
+      "run_id": "38439808839",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-13T02:52:42Z",
+      "attempt_id": "64b026cbeca041adba41156f2261dba5",
+      "source": "mtg-fast-finance",
+      "episode_number": 495,
+      "pipeline_version": "0.5.5",
+      "kind": "initial",
+      "outcome": "needs_review",
+      "picks": 4,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "38338866689",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-11T03:45:21Z",
+      "attempt_id": "a37d930b8e1f4677a654d653725dfb74",
+      "source": "mtg-fast-finance",
+      "episode_number": 510,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "needs_review",
+      "picks": 2,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "38109309180",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-10T01:28:43Z",
+      "attempt_id": "9b678bf5e86b4342824c19fd4c351147",
+      "source": "mtg-fast-finance",
+      "episode_number": 510,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "provider_availability",
+      "run_id": "38013252984",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-09T16:59:42Z",
+      "attempt_id": "d8a4073a94204ed3b46913198f62f9dd",
+      "source": "brainstorm-brewery",
+      "episode_number": 721,
+      "pipeline_version": "0.5.5",
+      "kind": "initial",
+      "outcome": "needs_review",
+      "picks": 3,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "37962960919",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-09T02:15:54Z",
+      "attempt_id": "b11b668cf20a49fd91b6b0c07051f160",
+      "source": "mtg-fast-finance",
+      "episode_number": 520,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "needs_review",
+      "picks": 3,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "37873567623",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-08T02:29:29Z",
+      "attempt_id": "92bad154d27d43c993609a6577da10d4",
+      "source": "mtg-fast-finance",
+      "episode_number": 520,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "failed",
+      "picks": 0,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": false,
+      "failure_category": "transcript_timing_or_coverage",
+      "run_id": "37716700802",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-07T02:29:27Z",
+      "attempt_id": "ab3c29c44b45448db0c2409a57f3ce56",
+      "source": "mtg-fast-finance",
+      "episode_number": 535,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "needs_review",
+      "picks": 4,
+      "validated_usable": false,
+      "publication": null,
+      "preserved_previous": true,
+      "failure_category": null,
+      "run_id": "37562072188",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-07T02:22:04Z",
+      "attempt_id": "61fc2fe13da5415cad0a6c68ec105fdc",
+      "source": "mtg-fast-finance",
+      "episode_number": 535,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "complete",
+      "picks": 4,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "37561434906",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-07T02:11:27Z",
+      "attempt_id": "86e2c0d3d163418894182f30a883e578",
+      "source": "mtg-fast-finance",
+      "episode_number": 535,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "needs_review",
+      "picks": 1,
+      "validated_usable": true,
+      "publication": "verified",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "37560646583",
+      "run_attempt": "1"
+    },
+    {
+      "started_at": "2026-10-06T22:48:37Z",
+      "attempt_id": "6a78849d6b6d497d92e2f1e8742fdfb4",
+      "source": "mtg-fast-finance",
+      "episode_number": 535,
+      "pipeline_version": "0.5.5",
+      "kind": "forced",
+      "outcome": "complete",
+      "picks": 1,
+      "validated_usable": true,
+      "publication": "not_observed",
+      "preserved_previous": false,
+      "failure_category": null,
+      "run_id": "37542157876",
+      "run_attempt": "1"
+    }
+  ],
+  "workflows": [
+    {
+      "run_id": "37032702733",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37071893429",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37079075213",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37088285587",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37130607839",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37155046347",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37160427268",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37165837675",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37212639994",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37236788223",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37242639607",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37249752651",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37362289868",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37392361770",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37398396539",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37402906446",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37404505426",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37498445368",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37542157876",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "37548492901",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37560643756",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37560646583",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37561434904",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37561434906",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37562072030",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "37562072188",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37562514163",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "37563164804",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "2",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37658844910",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37700693549",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "37706421861",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37716700802",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37716701313",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "37816154462",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37859408063",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "37864374168",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37873362908",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37873567076",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "37873567623",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "37875195986",
+      "run_attempt": "1",
+      "kind": "unclassified",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "unknown",
+      "pages": "unknown"
+    },
+    {
+      "run_id": "37875588738",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "37876533704",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "37962960919",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38000763896",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38007224598",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38013252984",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38065312975",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38089179031",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38095360541",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38100480771",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38109299365",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "38109309180",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38154901600",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38179081252",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38185041795",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38191737644",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38299959932",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38329076728",
+      "run_attempt": "1",
+      "kind": "queue_no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38334793465",
+      "run_attempt": "1",
+      "kind": "no_op",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38338856271",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "38338866689",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38439808839",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38480753561",
+      "run_attempt": "1",
+      "kind": "gated_skip",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38485922136",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38586382931",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38642909266",
+      "run_attempt": "1",
+      "kind": "gated_skip",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38652629206",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38660827893",
+      "run_attempt": "1",
+      "kind": "gated_skip",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38673216025",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "38674664775",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38756313025",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38810405259",
+      "run_attempt": "1",
+      "kind": "gated_skip",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38821207857",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38829629344",
+      "run_attempt": "1",
+      "kind": "gated_skip",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "skipped",
+      "journal_pipeline_exit": null,
+      "persistence": "success",
+      "pages": "no_deploy_job"
+    },
+    {
+      "run_id": "38840226126",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "38840331812",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38840997876",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "38841020667",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38841638263",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "38841659910",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38842081267",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "failure",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "1",
+      "persistence": "success",
+      "pages": "success"
+    },
+    {
+      "run_id": "38842674914",
+      "run_attempt": "1",
+      "kind": "deploy_only_push",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "unknown",
+      "journal_pipeline_exit": null,
+      "persistence": "skipped",
+      "pages": "success"
+    },
+    {
+      "run_id": "38842689643",
+      "run_attempt": "1",
+      "kind": "processing",
+      "workflow_conclusion": "success",
+      "workflow_status": "completed",
+      "journal_validation": "success",
+      "journal_pipeline_exit": "0",
+      "persistence": "success",
+      "pages": "success"
+    }
+  ],
+  "workflow_kinds": {
+    "unclassified": 18,
+    "deploy_only_push": 17,
+    "no_op": 13,
+    "processing": 22,
+    "queue_no_op": 8,
+    "gated_skip": 5
+  },
+  "workflow_conclusions": {
+    "failure": 15,
+    "success": 68
+  },
+  "pages_outcomes": {
+    "unknown": 23,
+    "no_deploy_job": 14,
+    "success": 46
+  },
+  "no_op_pages_publications": 11,
+  "github_evidence": {
+    "status": "available",
+    "observed_at": "2026-10-16T03:37:09Z",
+    "runs_listed": 83,
+    "job_requests": 60,
+    "job_errors": 0,
+    "truncated": true,
+    "error": null
+  },
+  "backlog": {
+    "available": true,
+    "catalog_generated_at": "2026-10-16T02:57:02Z",
+    "episodes": 106,
+    "picks": 419,
+    "needs_review": 40,
+    "failed": 0,
+    "human_reviewed": 2,
+    "sources": [
+      {
+        "source": "brainstorm-brewery",
+        "episodes": 55,
+        "picks": 213,
+        "needs_review": 15,
+        "failed": 0,
+        "human_reviewed": 0
+      },
+      {
+        "source": "mtg-fast-finance",
+        "episodes": 43,
+        "picks": 170,
+        "needs_review": 17,
+        "failed": 0,
+        "human_reviewed": 2
+      },
+      {
+        "source": "unknown",
+        "episodes": 8,
+        "picks": 36,
+        "needs_review": 8,
+        "failed": 0,
+        "human_reviewed": 0
+      }
+    ],
+    "review_reasons": {
+      "low_pick_count": 2,
+      "name_or_printing": 3,
+      "other_or_unspecified": 12,
+      "section_or_boundary": 26
+    }
+  },
+  "notes": [
+    "8 catalog entries lack an explicit supported source ID; grouped as Unknown rather than inferred."
+  ],
+  "workflow_evidence": {
+    "status": "available",
+    "observed_at": "2026-10-16T03:37:09Z",
+    "runs_listed": 83,
+    "job_requests": 60,
+    "job_errors": 0,
+    "truncated": true,
+    "runs": [
+      {
+        "run_id": "38842689643",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:52:55Z",
+        "updated_at": "2026-10-16T02:57:29Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38842081267",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:45:43Z",
+        "updated_at": "2026-10-16T02:48:53Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38841659910",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:40:51Z",
+        "updated_at": "2026-10-16T02:44:14Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38841020667",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:33:14Z",
+        "updated_at": "2026-10-16T02:38:01Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38840331812",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:25:14Z",
+        "updated_at": "2026-10-16T02:26:56Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38821207857",
+        "run_attempt": "1",
+        "created_at": "2026-10-15T23:03:31Z",
+        "updated_at": "2026-10-15T23:05:38Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38756313025",
+        "run_attempt": "1",
+        "created_at": "2026-10-15T14:59:21Z",
+        "updated_at": "2026-10-15T15:09:08Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38674664775",
+        "run_attempt": "1",
+        "created_at": "2026-10-15T03:08:01Z",
+        "updated_at": "2026-10-15T03:11:54Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38652629206",
+        "run_attempt": "1",
+        "created_at": "2026-10-14T23:12:24Z",
+        "updated_at": "2026-10-14T23:14:01Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38586382931",
+        "run_attempt": "1",
+        "created_at": "2026-10-14T15:06:17Z",
+        "updated_at": "2026-10-14T15:14:47Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38485922136",
+        "run_attempt": "1",
+        "created_at": "2026-10-13T23:43:02Z",
+        "updated_at": "2026-10-13T23:55:06Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38439808839",
+        "run_attempt": "1",
+        "created_at": "2026-10-13T17:34:56Z",
+        "updated_at": "2026-10-13T17:37:40Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38338866689",
+        "run_attempt": "1",
+        "created_at": "2026-10-13T02:51:09Z",
+        "updated_at": "2026-10-13T02:58:41Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38109309180",
+        "run_attempt": "1",
+        "created_at": "2026-10-11T03:43:35Z",
+        "updated_at": "2026-10-11T03:48:29Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38013252984",
+        "run_attempt": "1",
+        "created_at": "2026-10-10T01:27:35Z",
+        "updated_at": "2026-10-10T01:41:14Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37962960919",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T16:58:39Z",
+        "updated_at": "2026-10-09T17:06:36Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37873567623",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T02:13:50Z",
+        "updated_at": "2026-10-09T02:28:52Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37716700802",
+        "run_attempt": "1",
+        "created_at": "2026-10-08T02:12:09Z",
+        "updated_at": "2026-10-08T02:38:41Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37562072188",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:27:33Z",
+        "updated_at": "2026-10-07T02:30:52Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37561434906",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:19:31Z",
+        "updated_at": "2026-10-07T02:26:01Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37560646583",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:09:49Z",
+        "updated_at": "2026-10-07T02:14:42Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37542157876",
+        "run_attempt": "1",
+        "created_at": "2026-10-06T22:41:20Z",
+        "updated_at": "2026-10-06T22:55:01Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38842674914",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:52:45Z",
+        "updated_at": "2026-10-16T02:53:59Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38841638263",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:40:35Z",
+        "updated_at": "2026-10-16T02:41:37Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38840997876",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:32:58Z",
+        "updated_at": "2026-10-16T02:35:20Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38840226126",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T02:24:01Z",
+        "updated_at": "2026-10-16T02:25:00Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38829629344",
+        "run_attempt": "1",
+        "created_at": "2026-10-16T00:28:01Z",
+        "updated_at": "2026-10-16T00:28:53Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38810405259",
+        "run_attempt": "1",
+        "created_at": "2026-10-15T21:30:35Z",
+        "updated_at": "2026-10-15T21:31:18Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38673216025",
+        "run_attempt": "1",
+        "created_at": "2026-10-15T02:51:39Z",
+        "updated_at": "2026-10-15T02:52:34Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38660827893",
+        "run_attempt": "1",
+        "created_at": "2026-10-15T00:34:42Z",
+        "updated_at": "2026-10-15T00:35:54Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38642909266",
+        "run_attempt": "1",
+        "created_at": "2026-10-14T21:47:12Z",
+        "updated_at": "2026-10-14T21:48:00Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38480753561",
+        "run_attempt": "1",
+        "created_at": "2026-10-13T22:53:26Z",
+        "updated_at": "2026-10-13T22:54:09Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38338856271",
+        "run_attempt": "1",
+        "created_at": "2026-10-13T02:51:01Z",
+        "updated_at": "2026-10-13T02:52:02Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38334793465",
+        "run_attempt": "1",
+        "created_at": "2026-10-13T02:00:05Z",
+        "updated_at": "2026-10-13T02:01:35Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38329076728",
+        "run_attempt": "1",
+        "created_at": "2026-10-13T00:48:44Z",
+        "updated_at": "2026-10-13T00:49:34Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38299959932",
+        "run_attempt": "1",
+        "created_at": "2026-10-12T19:47:24Z",
+        "updated_at": "2026-10-12T19:48:38Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38191737644",
+        "run_attempt": "1",
+        "created_at": "2026-10-12T01:24:05Z",
+        "updated_at": "2026-10-12T01:24:47Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38185041795",
+        "run_attempt": "1",
+        "created_at": "2026-10-11T23:38:30Z",
+        "updated_at": "2026-10-11T23:39:34Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38179081252",
+        "run_attempt": "1",
+        "created_at": "2026-10-11T22:06:26Z",
+        "updated_at": "2026-10-11T22:07:13Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38154901600",
+        "run_attempt": "1",
+        "created_at": "2026-10-11T16:18:24Z",
+        "updated_at": "2026-10-11T16:19:34Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38109299365",
+        "run_attempt": "1",
+        "created_at": "2026-10-11T03:43:24Z",
+        "updated_at": "2026-10-11T03:44:28Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38100480771",
+        "run_attempt": "1",
+        "created_at": "2026-10-11T01:02:36Z",
+        "updated_at": "2026-10-11T01:03:37Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38095360541",
+        "run_attempt": "1",
+        "created_at": "2026-10-10T23:32:03Z",
+        "updated_at": "2026-10-10T23:33:16Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38089179031",
+        "run_attempt": "1",
+        "created_at": "2026-10-10T21:50:50Z",
+        "updated_at": "2026-10-10T21:51:31Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "38065312975",
+        "run_attempt": "1",
+        "created_at": "2026-10-10T15:51:39Z",
+        "updated_at": "2026-10-10T15:52:58Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38007224598",
+        "run_attempt": "1",
+        "created_at": "2026-10-10T00:01:46Z",
+        "updated_at": "2026-10-10T00:02:48Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "38000763896",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T22:43:43Z",
+        "updated_at": "2026-10-09T22:44:45Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "37876533704",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T02:51:18Z",
+        "updated_at": "2026-10-09T02:52:13Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37875588738",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T02:39:15Z",
+        "updated_at": "2026-10-09T02:40:32Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37875195986",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T02:34:12Z",
+        "updated_at": "2026-10-09T02:35:03Z",
+        "path": ".github/workflows/recover-520-timing.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37873567076",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T02:13:49Z",
+        "updated_at": "2026-10-09T02:15:09Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37873362908",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T02:11:13Z",
+        "updated_at": "2026-10-09T02:11:24Z",
+        "path": ".github/workflows/inspect-checkpoints.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37864374168",
+        "run_attempt": "1",
+        "created_at": "2026-10-09T00:21:43Z",
+        "updated_at": "2026-10-09T00:23:39Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37859408063",
+        "run_attempt": "1",
+        "created_at": "2026-10-08T23:26:04Z",
+        "updated_at": "2026-10-08T23:26:59Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "37816154462",
+        "run_attempt": "1",
+        "created_at": "2026-10-08T17:23:17Z",
+        "updated_at": "2026-10-08T17:24:47Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37716701313",
+        "run_attempt": "1",
+        "created_at": "2026-10-08T02:12:09Z",
+        "updated_at": "2026-10-08T02:13:08Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37706421861",
+        "run_attempt": "1",
+        "created_at": "2026-10-08T00:11:21Z",
+        "updated_at": "2026-10-08T00:12:29Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37700693549",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T23:10:18Z",
+        "updated_at": "2026-10-07T23:11:10Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "reprocess-one",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist queue and archive",
+                "conclusion": "success"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "run_id": "37658844910",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T17:24:41Z",
+        "updated_at": "2026-10-07T17:26:10Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37563164804",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:41:17Z",
+        "updated_at": "2026-10-07T02:42:40Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "failure",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "success"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37562514163",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:33:01Z",
+        "updated_at": "2026-10-07T02:34:09Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37562072030",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:27:32Z",
+        "updated_at": "2026-10-07T02:28:37Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": true,
+        "jobs": [
+          {
+            "name": "publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Persist durable state and archive",
+                "conclusion": "skipped"
+              }
+            ]
+          },
+          {
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": []
+          }
+        ]
+      },
+      {
+        "run_id": "37561434904",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:19:31Z",
+        "updated_at": "2026-10-07T02:20:58Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37560643756",
+        "run_attempt": "1",
+        "created_at": "2026-10-07T02:09:47Z",
+        "updated_at": "2026-10-07T02:10:48Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37548492901",
+        "run_attempt": "1",
+        "created_at": "2026-10-06T23:47:39Z",
+        "updated_at": "2026-10-06T23:48:50Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37498445368",
+        "run_attempt": "1",
+        "created_at": "2026-10-06T16:47:16Z",
+        "updated_at": "2026-10-06T16:48:49Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37404505426",
+        "run_attempt": "1",
+        "created_at": "2026-10-06T02:30:57Z",
+        "updated_at": "2026-10-06T02:32:06Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37402906446",
+        "run_attempt": "1",
+        "created_at": "2026-10-06T02:11:18Z",
+        "updated_at": "2026-10-06T02:12:38Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37398396539",
+        "run_attempt": "1",
+        "created_at": "2026-10-06T01:17:20Z",
+        "updated_at": "2026-10-06T01:18:02Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37392361770",
+        "run_attempt": "1",
+        "created_at": "2026-10-06T00:08:05Z",
+        "updated_at": "2026-10-06T00:20:21Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37362289868",
+        "run_attempt": "1",
+        "created_at": "2026-10-05T19:17:00Z",
+        "updated_at": "2026-10-05T19:18:36Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37249752651",
+        "run_attempt": "1",
+        "created_at": "2026-10-05T01:01:28Z",
+        "updated_at": "2026-10-05T01:09:59Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37242639607",
+        "run_attempt": "1",
+        "created_at": "2026-10-04T23:08:07Z",
+        "updated_at": "2026-10-04T23:09:00Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37236788223",
+        "run_attempt": "1",
+        "created_at": "2026-10-04T21:36:37Z",
+        "updated_at": "2026-10-04T21:41:57Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37212639994",
+        "run_attempt": "1",
+        "created_at": "2026-10-04T15:20:44Z",
+        "updated_at": "2026-10-04T15:21:38Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37165837675",
+        "run_attempt": "1",
+        "created_at": "2026-10-04T00:43:52Z",
+        "updated_at": "2026-10-04T00:48:31Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37160427268",
+        "run_attempt": "1",
+        "created_at": "2026-10-03T23:02:01Z",
+        "updated_at": "2026-10-03T23:02:46Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37155046347",
+        "run_attempt": "1",
+        "created_at": "2026-10-03T21:25:23Z",
+        "updated_at": "2026-10-03T21:29:53Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37130607839",
+        "run_attempt": "1",
+        "created_at": "2026-10-03T14:43:05Z",
+        "updated_at": "2026-10-03T14:50:49Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37088285587",
+        "run_attempt": "1",
+        "created_at": "2026-10-03T02:01:07Z",
+        "updated_at": "2026-10-03T02:11:11Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37079075213",
+        "run_attempt": "1",
+        "created_at": "2026-10-02T23:45:34Z",
+        "updated_at": "2026-10-02T23:59:30Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37071893429",
+        "run_attempt": "1",
+        "created_at": "2026-10-02T22:19:49Z",
+        "updated_at": "2026-10-02T22:20:27Z",
+        "path": ".github/workflows/reprocess-queue.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "jobs_observed": false,
+        "jobs": []
+      },
+      {
+        "run_id": "37032702733",
+        "run_attempt": "1",
+        "created_at": "2026-10-02T16:15:35Z",
+        "updated_at": "2026-10-02T16:18:54Z",
+        "path": ".github/workflows/ffw.yml",
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs_observed": false,
+        "jobs": []
+      }
+    ]
+  }
+}

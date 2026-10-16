@@ -56,6 +56,28 @@ The job attempts all three sequentially, validates the production-only catalog, 
 
 ## Recovery
 
+### Read the processing health report
+
+The dated baseline is [HEALTH_REPORT.md](HEALTH_REPORT.md); its structured report and saved GitHub metadata are [state/health-baseline.json](../state/health-baseline.json). A fresh report appears in the primary and low-pick workflow job summaries and `health-<run-id>-<attempt>` artifacts (30 days). It is read-only, uses no transcription/extraction calls, and writes only temporary report files during workflows, so it does not itself create archive changes or publication churn. Reporting is non-blocking if GitHub metadata is unavailable; unknown evidence stays unknown. The baseline in Git is a dated snapshot, not a continuously rewritten dashboard.
+
+```powershell
+$env:PYTHONPATH = 'src'
+python -m ffw health-report --days 14
+python -m ffw health-report --days 14 --github --output-json .ffw-work/health/report.json --output-markdown .ffw-work/health/report.md
+```
+
+`--github` requires an authenticated `gh` CLI (Actions supplies its existing read-only Actions permission through `GH_TOKEN`). Collection makes at most three run-list reads and sixty job-metadata reads, prioritizing attempt-linked runs, with a ninety-second observation budget and a stop after three consecutive failed job reads. Truncation and failed reads are reported; no run logs or transcripts are fetched. Use `--workflow-evidence state/health-baseline.json --as-of <the-saved-as_of>` to reuse the saved observation payload offline. Exact regeneration also requires the same source version and journal/catalog inputs; later archive snapshots can legitimately change the backlog. The stored JSON keeps the original report inspectable without refetching mutable GitHub results.
+
+Definitions:
+
+- Initial, retry and forced attempts have separate denominators; skips/in-progress records are excluded from finished attempts. The window uses UTC attempt start time. The journals do not reconstruct earlier unjournaled history.
+- A validated usable result is a new complete/needs-review extraction with picks, or an explicitly confirmed no-recommendations disposition, with successful validation. Preserved old output and unexplained empty results do not count. This measures processing, not independent transcription accuracy.
+- Publication is verified only when the exact run attempt has observed successful persistence and a successful Pages job. Archive validation or an overall workflow conclusion alone is insufficient. A reporting workflow cannot yet certify its own future deployment.
+- Current catalog/review counts are a separately dated snapshot. Machine approval is distinct from explicit human review. Legacy missing source IDs are reported as unknown rather than silently attributed.
+- Model-response success and semantic timing rejection are separate counts. Terminal error categories are message-based summaries, not independent root-cause diagnoses.
+
+The report exposes no-op/gated runs with successful Pages jobs so deployment churn is visible rather than counted as productive processing. Investigate that guard separately; R1 does not change selection/retry/publication behavior.
+
 - Process one next eligible episode: dispatch `next` with `batch_size=1`.
 - Process one source only: dispatch `next`, choose `mtg-fast-finance` or `brainstorm-brewery` in `source`, and keep `batch_size=1`.
 - Process a controlled eligible batch: dispatch `backfill` with `batch_size` from 1 through 20.

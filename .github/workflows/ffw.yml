@@ -402,6 +402,24 @@ jobs:
         if: ${{ always() && steps.validation.outcome == 'failure' }}
         run: exit 1
 
+      - name: Summarize recorded processing health
+        id: health
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python -m ffw health-report --days 14 --github --output-json /tmp/ffw-health/health.json --output-markdown /tmp/ffw-health/health.md
+          cat /tmp/ffw-health/health.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload health report
+        if: ${{ always() && steps.health.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/ffw-health/
+          retention-days: 30
+
 
   deploy:
     needs: publish

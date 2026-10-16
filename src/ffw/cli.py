@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import argparse
 import os
+import json
+import subprocess
+from datetime import datetime, timezone
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -12,7 +15,8 @@ from .config import Settings, VERSION
 from .pipeline import Pipeline
 from .reviews import persist_review
 from .validation import validate_archive
-from .utils import atomic_write_json
+from .utils import atomic_write_json, atomic_write_text
+from .health import build_health_report, fetch_github_evidence, read_json, render_health_markdown, timestamp, workflow_evidence_projection
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -29,6 +33,13 @@ def _parser() -> argparse.ArgumentParser:
     run.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
     subparsers.add_parser("validate", help="Validate state, episode outputs, and archive catalogs")
     subparsers.add_parser("render", help="Regenerate Markdown and archive catalogs from JSON")
+    health = subparsers.add_parser("health-report", help="Report recorded processing health without provider calls")
+    health.add_argument("--days", type=int, default=14, help="UTC lookback window (1-365 days)")
+    health.add_argument("--as-of", help="Timezone-aware ISO timestamp; defaults to current UTC")
+    health.add_argument("--github", action="store_true", help="Read bounded GitHub run/job metadata using gh authentication")
+    health.add_argument("--workflow-evidence", type=Path, help="Reuse saved GitHub evidence instead of network reads")
+    health.add_argument("--output-json", type=Path, help="Write structured report")
+    health.add_argument("--output-markdown", type=Path, help="Write readable report")
     subparsers.add_parser("repair-episode-numbers", help="Repair missing episode numbers from trusted title formats")
     next_episode = subparsers.add_parser("process-next", help="Process the newest eligible unprocessed episode")
     next_episode.add_argument("--live", action="store_true", help="Use the live feed and configured production adapters")
@@ -101,6 +112,47 @@ def _run_pipeline(settings: Settings, *, report_json: Path | None = None, **opti
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     settings = Settings.load()
+    if args.command == "health-report":
+        if not 1 <= args.days <= 365 or (args.as_of and not timestamp(args.as_of)):
+            print("Health report requires --days 1-365 and a timezone-aware ISO --as-of timestamp.")
+            return 2
+        if args.github and args.workflow_evidence:
+            print("Choose --github or --workflow-evidence, not both.")
+            return 2
+        as_of = timestamp(args.as_of) if args.as_of else datetime.now(timezone.utc)
+        evidence = None
+        try:
+            if args.workflow_evidence:
+                evidence = json.loads(args.workflow_evidence.read_text(encoding="utf-8"))
+                if not isinstance(evidence, dict):
+                    raise ValueError("Workflow evidence must be a JSON object.")
+                evidence = evidence.get("workflow_evidence", evidence)
+                if not isinstance(evidence, dict):
+                    raise ValueError("Workflow evidence must be a JSON object.")
+            elif args.github:
+                try:
+                    priority = {str(read_json(path, {}).get("run_id")) for path in (settings.state_file.parent / "attempts").glob("*.json")}
+                    evidence = fetch_github_evidence(os.getenv("GITHUB_REPOSITORY") or settings.repository_url.removeprefix("https://github.com/").rstrip("/"),
+                                                     as_of=as_of, days=args.days, priority_runs=priority)
+                except (OSError, RuntimeError, subprocess.TimeoutExpired, json.JSONDecodeError):
+                    evidence = {"status": "unavailable", "runs": [], "error": "GitHub metadata unavailable; no deployment conclusions inferred."}
+            report = build_health_report(settings.state_file.parent, settings.archive_dir, as_of=as_of, days=args.days, github=evidence)
+            # The observation payload is metadata-only and permits exact offline
+            # regeneration without fetching mutable workflow conclusions again.
+            report["workflow_evidence"] = workflow_evidence_projection(evidence or {"status": "not_requested", "runs": []})
+            markdown = render_health_markdown(report, settings.repository_url.removeprefix("https://github.com/").rstrip("/"))
+            if args.output_json:
+                atomic_write_json(args.output_json, report)
+            if args.output_markdown:
+                atomic_write_text(args.output_markdown, markdown)
+            if not args.output_markdown:
+                print(markdown, end="")
+            else:
+                print(f"Health report written to {args.output_markdown}; no inference calls were made.")
+            return 0
+        except (OSError, ValueError) as error:
+            print(f"Health report error: {error}")
+            return 2
     requested_live = bool(getattr(args, "live", False) or args.command == "retry-failed")
     if requested_live and settings.mode != "live":
         settings = Settings.load()

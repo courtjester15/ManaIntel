@@ -4,8 +4,8 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-VERSION = "0.5.10"
-PIPELINE_VERSION = "0.5.10"
+VERSION = "0.5.11"
+PIPELINE_VERSION = "0.5.11"
 SCHEMA_VERSION = "1.1.0"
 PROMPT_VERSION = "source-recommendations-v2-hybrid-boundaries"
 MOCK_TRANSCRIPTION_MODEL = "mock-transcriber-v1"

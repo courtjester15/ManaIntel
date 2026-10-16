@@ -2,7 +2,7 @@
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.10. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.11. Next milestone: 0.6 — dependable processing.**
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -100,15 +100,17 @@ One improvement batch is active at a time. Production defects interrupt this ord
 
 | ID | Priority | State | Next concrete result |
 | --- | --- | --- | --- |
-| R1 | First | Ready | Recent-run health report with source/version cohorts and honest outcome counts. |
-| R2 | Next | Ready | Compact evaluation inventory and the highest-value missing quality case. |
+| R1 | Shipped | Complete | Read-only health-report CLI, [baseline](HEALTH_REPORT.md), and reports in processing-workflow summaries/artifacts. Source/version/configuration cohorts, separate experiment/retry denominators, deployment evidence and backlog. |
+| R2 | First | Ready | Compact evaluation inventory and the highest-value missing quality case, guided by R1's timing/section-boundary findings. |
 | R3 | Next | Ready | One clear status/recovery UI improvement guided by R1. |
 | R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
-| R5 | Next | Ready | Check backfill/recovery fairness and expose a useful coverage limitation. |
+| R5 | Next | Ready | Check backfill/recovery fairness and publication churn: R1 observed no-op runs deploying Pages. |
 | 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
 | 0.8–1.0 | Later | Planned | Refine each milestone when earlier foundations support it. |
 
-The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as needs_review; BB 667 published three as complete. This proves recovery, not sustained reliability. Start the next authorized improvement pass with R1 unless new evidence changes the priority.
+The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as needs_review; BB 667 published three as complete. The R1 report shipped in 0.5.11 and adds no inference calls or scheduled development. Its first fourteen-day window contains only five initial attempts (two usable) alongside many forced recoveries; current catalog failures are zero but forty episodes need review. GitHub job reads are bounded, and unobserved deployment outcomes remain unknown. This does not satisfy the sustained-reliability gate. Start the next authorized improvement pass with R2 unless new evidence changes the priority.
+
+R1 follow-ups: inspect the observed no-op Pages churn under R5, and evaluate eight legacy catalog entries missing explicit source IDs without silently guessing attribution. Keep the current health snapshot separate from historical attempts and from independent source-accuracy evaluation. Implementation: `src/ffw/health.py`; validation: `tests/test_health.py`; baseline evidence: `state/health-baseline.json`.
 
 After a batch, update its state, result, evidence/commit and next action here. Blocked work needs a specific prerequisite; choose independent useful work rather than repeating the same failed attempt.
 

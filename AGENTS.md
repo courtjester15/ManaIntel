@@ -6,7 +6,7 @@ Preserve current production archive/state changes when synchronizing with the re
 
 ## Active roadmap and owner involvement
 
-Read `docs/ROADMAP.md` and `docs/WORKING_AGREEMENT.md` before selecting improvements. The October 15, 2026 roadmap supersedes the old maintenance-only/five-hour final-pass restriction. Current focus: 0.6 reliability; next ready improvement: R1 unless production evidence changes the priority.
+Read `docs/ROADMAP.md` and `docs/WORKING_AGREEMENT.md` before selecting improvements. The October 15, 2026 roadmap supersedes the old maintenance-only/five-hour final-pass restriction. Current focus: 0.6 reliability. R1 health reporting is shipped in 0.5.11; the next ready improvement is R2 unless production evidence changes the priority.
 
 For an authorized open-ended improvement pass, choose one useful bounded task from evidence and the queue. Own routine technical/product choices, implementation, checks, commit, push and deployment verification. A request for suggestions alone calls for recommendations; do not start unrelated feature work or create recurring automations without authorization.
 

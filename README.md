@@ -54,6 +54,7 @@ For development without installing the package, set `PYTHONPATH=src` before invo
 | `manaintel backfill` | Force-regenerate every synthetic fixture. |
 | `manaintel process-latest` | Process only the newest eligible synthetic fixture. |
 | `manaintel validate` | Validate identity, states, evidence, outputs, catalogs, and deterministic Markdown. |
+| `manaintel health-report --days 14` | Read recorded episode/workflow health without inference calls; add `--github` for observed persistence/Pages metadata. |
 | `manaintel render` | Re-render Markdown from JSON and rebuild `index.json` and `cards.json`. |
 | `manaintel serve` | Serve the repository and local archive on port 8765. |
 
@@ -120,7 +121,7 @@ Still intentionally outside the product:
 
 - Additional source types beyond the two podcast adapters, generic source-item records, notifications, databases, price tracking, financial-performance analytics, and ManaSpec integration.
 
-ManaIntel now has a lightweight [0.6–1.0 roadmap](docs/ROADMAP.md): dependable processing, easier review, useful card histories, evidence-linked archive observations, and a dependable small product. The October 15, 2026 plan replaces the former maintenance-only/five-hour restriction. Current release is 0.5.10; the next improvement priority is an honest processing-health baseline, before more features.
+ManaIntel now has a lightweight [0.6–1.0 roadmap](docs/ROADMAP.md): dependable processing, easier review, useful card histories, evidence-linked archive observations, and a dependable small product. The October 15, 2026 plan replaces the former maintenance-only/five-hour restriction. Current release is 0.5.11. The [health baseline](docs/HEALTH_REPORT.md) separates initial attempts, retries, recoveries, current review backlog and observed deployment results; it does not turn recoveries into an unattended reliability score.
 
 The [hands-off working agreement](docs/WORKING_AGREEMENT.md) explains how an authorized improvement pass works: the agent picks one useful task, verifies it, commits, pushes, checks production, and updates the queue. Jason can report an odd episode/card or simply authorize an improvement without writing a specification. This documentation does not create scheduled feature-development work or change the existing episode schedules.
 
