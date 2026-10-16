@@ -112,6 +112,8 @@ The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as
 
 R1 follow-ups: inspect the observed no-op Pages churn under R5, and evaluate eight legacy catalog entries missing explicit source IDs without silently guessing attribution. Keep the current health snapshot separate from historical attempts and from independent source-accuracy evaluation. Implementation: `src/ffw/health.py`; validation: `tests/test_health.py`; baseline evidence: `state/health-baseline.json`.
 
+R1 delivery evidence: implementation commit `87ab009`; [production run 38846756441](https://github.com/courtjester15/ManaIntel/actions/runs/38846756441) passed tests, archive validation, the health-summary step, report upload and Pages deployment. Downloaded and inspected `health-38846756441-1` (Markdown plus sanitized JSON; GitHub metadata available, bounded at 60 job reads with zero read errors). Locally, 168 tests ran successfully with three optional PyYAML skips; archive validation passed. No inference calls or episode retries were made for R1. Next authorized batch: R2's compact representative evaluation.
+
 After a batch, update its state, result, evidence/commit and next action here. Blocked work needs a specific prerequisite; choose independent useful work rather than repeating the same failed attempt.
 
 ## Outside this roadmap
