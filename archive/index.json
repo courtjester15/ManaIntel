@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.9",
+    "pipeline_version": "0.5.10",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-16T02:48:26Z",
-    "latest_successful_run_at": "2026-10-16T02:43:45Z",
+    "generated_at": "2026-10-16T02:57:02Z",
+    "latest_successful_run_at": "2026-10-16T02:57:02Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 106,
-    "real_pick_count": 416,
+    "real_pick_count": 419,
     "last_discovered_episode_date": "2026-10-09T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,14 @@
   },
   "counts": {
     "episodes": 106,
-    "picks": 416,
+    "picks": 419,
     "needs_review": 40,
-    "failed": 1,
-    "completed": 65
+    "failed": 0,
+    "completed": 66
   },
   "status_counts": {
     "needs_review": 40,
-    "complete": 65,
-    "failed": 1
+    "complete": 66
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35509",
@@ -4084,31 +4083,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 3,
       "directory": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance",
       "outputs": {
         "metadata": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/summary.json",
+        "summary_markdown": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-16T02:48:26Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 2/5 failed: Gemini transcription chunk 1/1 failed after 30.2s: RuntimeError: Split repair clip 3/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 4,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
+      "processed_at": "2026-10-16T02:57:02Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
