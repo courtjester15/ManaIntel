@@ -416,7 +416,7 @@ def _clock_transcript_schema() -> dict[str, Any]:
     schema = deepcopy(TRANSCRIPT_SCHEMA)
     for field in ("start", "end"):
         schema["properties"]["segments"]["items"]["properties"][field] = {
-            "type": "string", "pattern": r"^\d{1,2}:[0-5]\d(?:\.\d{1,3})?$",
+            "type": "string", "pattern": r"^\d{1,2}:[0-5]\d(?:\.\d+)?$",
             "description": "Time relative to this clip as MM:SS.mmm, beginning at 00:00.000.",
         }
     return schema

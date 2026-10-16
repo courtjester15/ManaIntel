@@ -9,7 +9,7 @@ def clock_string_segments(payload: dict) -> dict:
     for segment in result.get("segments", []):
         for field in ("start", "end"):
             value = segment.get(field)
-            match = re.fullmatch(r"(\d{1,2}):([0-5]\d)(?:\.(\d{1,3}))?", value) if isinstance(value, str) else None
+            match = re.fullmatch(r"(\d{1,2}):([0-5]\d)(?:\.(\d+))?", value) if isinstance(value, str) else None
             if not match:
                 raise ValueError("Repair timestamp must be an explicit MM:SS or MM:SS.mmm clock.")
             minutes, seconds, fraction = match.groups()

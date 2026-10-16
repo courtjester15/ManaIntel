@@ -10,6 +10,8 @@ class TranscriptTimingTests(unittest.TestCase):
         result = clock_string_segments(source)
         self.assertEqual((65, 70.125), (result["segments"][0]["start"], result["segments"][0]["end"]))
         self.assertEqual("01:05.000", source["segments"][0]["start"])
+        precise = clock_string_segments({"segments": [{"start": "01:53.050", "end": "01:57.73000000000002"}]})
+        self.assertAlmostEqual(117.73, precise["segments"][0]["end"])
         for invalid in (110, "1.10", "01:65", "one minute"):
             with self.subTest(value=invalid), self.assertRaises(ValueError):
                 clock_string_segments({"segments": [{"start": invalid, "end": "01:20"}]})

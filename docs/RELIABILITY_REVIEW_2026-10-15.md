@@ -26,6 +26,8 @@ Version 0.5.8 therefore requests explicit MM:SS.mmm string timestamps for all ne
 
 The source fix and each live episode recovery are verified separately. See the attempt journal for actual outcomes; deployment success alone is not episode recovery.
 
+The 0.5.8 live validation (38841020667) successfully generated and cached two replacement quarters, then exposed an overly strict parser: an otherwise correctly structured clock `01:57.73000000000002` exceeded the three-fractional-digit regex. Version 0.5.9 accepts arbitrary fractional-second precision while retaining explicit MM:SS structure, range, coverage and backward-jump checks. The cached successful quarters remain compatible and reusable.
+
 ## Sources
 
 - [BB 666 initial attempt](https://github.com/courtjester15/ManaIntel/blob/master/state/attempts/26c7749a34fe4c49b68980604ddff5b2.json)
