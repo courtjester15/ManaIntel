@@ -495,8 +495,8 @@ class Pipeline:
                     segment["sequence"] = sequence
             suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
             repair_limit = int(os.getenv("FFW_TIMING_REPAIR_MAX_CHUNKS", "2"))
-            if repair_limit not in (2, 3):
-                raise ValueError("Timing repair budget must be 2 or 3 chunks.")
+            if repair_limit not in (2, 3, 4):
+                raise ValueError("Timing repair budget must be 2, 3 or 4 chunks.")
             journal.record("timing_repair_plan", suspect_chunks=[i + 1 for i in suspect_chunks], repair_limit=repair_limit)
             if len(suspect_chunks) > repair_limit:
                 raise ValueError("Multiple chunks have suspect timing; manual review required before spending more calls.")
@@ -531,6 +531,10 @@ class Pipeline:
                     with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
                         json.dump({"episode": self._episode_metadata(episode), "pipeline_version": PIPELINE_VERSION,
                                    "prompt_version": PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
+            remaining_suspects = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
+            if remaining_suspects:
+                journal.record("timing_repair_incomplete", suspect_chunks=[i + 1 for i in remaining_suspects])
+                raise ValueError("Transcript timing repair left suspect coverage; manual review required.")
             if self.settings.retain_transcripts and not episode.synthetic:
                 transcript_dir.mkdir(parents=True, exist_ok=True)
                 with gzip.open(transcript_path, "wt", encoding="utf-8") as output:

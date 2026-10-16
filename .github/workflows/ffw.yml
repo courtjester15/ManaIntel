@@ -56,9 +56,9 @@ on:
         type: boolean
         default: false
       timing_repair_limit:
-        description: Reviewed timing repair budget (default 2; 3 only for inspected recoveries)
+        description: Reviewed timing repair budget (default 2; 3 or 4 only for inspected recoveries)
         type: choice
-        options: ["2", "3"]
+        options: ["2", "3", "4"]
         default: "2"
       deploy:
         description: Deploy GitHub Pages after validation

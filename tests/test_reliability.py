@@ -189,21 +189,67 @@ class ReliabilityTests(unittest.TestCase):
         extractor.model_health = transcriber.model_health
         events = []
         transcriber.audit_callback = lambda event, **details: events.append(event)
-        payload = {"text": "speech", "segments": [{"start": 1, "end": 40, "text": "speech"}]}
+        payload = {"text": "speech", "segments": [{"start": 1, "end": 20, "text": "speech"}]}
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
         with fake_sdk() as sdk, patch("ffw.production.subprocess.run", side_effect=self.media), patch(
             "ffw.production._gemini_generate_json",
-            side_effect=[RuntimeError("503 UNAVAILABLE"), RuntimeError("503 UNAVAILABLE"), payload, payload, payload, payload, payload],
+            side_effect=[RuntimeError("503 UNAVAILABLE"), RuntimeError("503 UNAVAILABLE")] + [payload] * 7,
         ) as generate:
             transcriber._transcribe_chunk(object(), sdk, [])
             transcriber._transcribe_chunk(object(), sdk, [])
             transcriber.repair(candidate(), [audio])
             extractor._generate(object(), sdk, [])
-        self.assertEqual(["primary", "primary"] + ["fallback"] * 5,
+        self.assertEqual(["primary", "primary"] + ["fallback"] * 7,
                          [c.kwargs["model"] for c in generate.call_args_list])
         self.assertIn("model_circuit_opened", events)
         self.assertIn("model_circuit_skipped", events)
+
+    def test_timing_repair_uses_four_integer_second_clips_and_resumes_them(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        payload = {"text": "speech", "segments": [{"start": 1, "end": 20, "text": "speech"}]}
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *args, **kwargs: json.loads(json.dumps(payload))
+        ) as generate:
+            result = transcriber.repair(candidate(), [audio])
+        self.assertEqual(4, generate.call_count)
+        self.assertEqual([1, 26, 51, 76], [s["start"] for s in result["segments"]])
+        for request in generate.call_args_list:
+            field = request.kwargs["schema"]["properties"]["segments"]["items"]["properties"]["start"]
+            self.assertEqual("integer", field["type"])
+            self.assertEqual(25, field["maximum"])
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=AssertionError("saved repair must be reused")
+        ):
+            reused = transcriber.repair(candidate(), [audio])
+        self.assertTrue(reused["usage"][0]["checkpoint_reused"])
+
+    def test_rejected_repair_retains_private_payload_and_sanitized_metrics(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        payload = {"text": "private spoken content", "segments": [
+            {"start": 1, "end": 99, "text": "private spoken content"}
+        ]}
+        events = []
+        transcriber.audit_callback = lambda event, **details: events.append({"event": event, **details})
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *args, **kwargs: json.loads(json.dumps(payload))
+        ):
+            with self.assertRaisesRegex(RuntimeError, "split repair has missing segments or compressed timestamps"):
+                transcriber.repair(candidate(), [audio])
+        rejected = [e for e in events if e["event"] == "repair_timing_rejected"]
+        self.assertEqual(2, len(rejected))
+        self.assertEqual(1, rejected[0]["invalid_bounds"])
+        self.assertNotIn("private spoken content", json.dumps(events))
+        files = list((self.root / "transcripts").glob("rejected-*.json.gz"))
+        self.assertEqual(1, len(files))
+        with gzip.open(files[0], "rt", encoding="utf-8") as source:
+            saved = json.load(source)
+        self.assertEqual(payload, saved["transcript"])
+        self.assertEqual("rejected_timing_repair", saved["kind"])
 
     def test_output_errors_do_not_open_availability_circuit(self):
         transcriber = self.transcriber()

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import gzip
 import json
 import math
 import os
@@ -597,7 +598,7 @@ class GeminiTranscriber:
 
     def _rescue_chunk(self, client: Any, types: Any, episode: EpisodeCandidate, path: Path,
                       index: int, chunk_count: int, fingerprint: str, prompt: str) -> tuple[dict[str, Any], str]:
-        """One split level, at most primary plus fallback per half; retain successes."""
+        """Halves for truncation, quarters for timing repair; retain successes."""
         observer = getattr(self, "audit_callback", None)
         checkpoint_dir = self._checkpoint_dir(episode)
         plan_path = checkpoint_dir / f"chunk-{index:03d}-split.json" if checkpoint_dir else None
@@ -610,7 +611,8 @@ class GeminiTranscriber:
         duration = float(measured.stdout.strip())
         if not math.isfinite(duration) or duration <= 2:
             raise ValueError("MAX_TOKENS rescue requires a finite audio duration greater than two seconds.")
-        half = duration / 2
+        parts = 4 if getattr(self, "force_split", False) else 2
+        half = duration / parts
         if plan_path:
             checkpoint_dir.mkdir(parents=True, exist_ok=True)
             from .utils import atomic_write_json
@@ -620,8 +622,8 @@ class GeminiTranscriber:
         rescue_dir = path.parent / f"{path.stem}-rescue"
         rescue_dir.mkdir(parents=True, exist_ok=True)
         try:
-            for part in range(2):
-                suffix = f"-half-{part}"
+            for part in range(parts):
+                suffix = f"-quarter-{part}" if parts == 4 else f"-half-{part}"
                 saved = self._load_chunk_checkpoint(episode, index, chunk_count, fingerprint + f":split-v1:{duration}", suffix)
                 if saved:
                     payload, model, seconds = saved
@@ -643,6 +645,8 @@ class GeminiTranscriber:
                     schema = deepcopy(TRANSCRIPT_SCHEMA)
                     for field in ("start", "end"):
                         schema["properties"]["segments"]["items"]["properties"][field].update(minimum=0, maximum=half)
+                        if parts == 4:
+                            schema["properties"]["segments"]["items"]["properties"][field].update(type="integer", maximum=math.floor(half))
                     errors = []
                     for model in dict.fromkeys(filter(None, [self.model_name, self.fallback_model_name])):
                         if self.model_health.skip(model, self.model_name, self.fallback_model_name, observe):
@@ -653,14 +657,32 @@ class GeminiTranscriber:
                         try:
                             payload = _gemini_generate_json(
                                 client, types, model=model,
-                                contents=[prompt + f" This clip lasts {half} seconds. Return elapsed seconds within this clip, not a clock notation.",
+                                contents=[prompt + f" This clip lasts {half} seconds. Reset the clock to zero for this clip. Return elapsed seconds within this clip, not a clock notation. Round timestamps to whole seconds: 1:30 is 90 seconds, never 1.30 or 130.",
                                           types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
                                 schema=schema, observer=observe, allow_schema_fallback=False,
                             )
                             if getattr(self, "force_split", False):
                                 from .transcript_timing import normalize_integer_clock, suspect_timing_chunks
                                 checked = normalize_integer_clock(payload, half)
-                                if not checked.get("segments") or suspect_timing_chunks(checked, half):
+                                clocks = [(float(s.get("start", 0)), float(s.get("end", s.get("start", 0)))) for s in checked.get("segments", [])]
+                                invalid_bounds = sum(not (math.isfinite(start) and math.isfinite(end) and 0 <= start <= end <= half) for start, end in clocks)
+                                if not checked.get("segments") or suspect_timing_chunks(checked, half) or invalid_bounds:
+                                    metrics = {"clip_seconds": half, "segment_count": len(clocks),
+                                               "max_end": max((end for _, end in clocks), default=None),
+                                               "invalid_bounds": invalid_bounds,
+                                               "zero_length_segments": sum(start == end for start, end in clocks)}
+                                    observe("repair_timing_rejected", model=model, **metrics)
+                                    # Keep rejected evidence private, alongside retained transcripts,
+                                    # so a STOP response is not mistaken for usable timed speech.
+                                    if self.checkpoint_root:
+                                        evidence = self.checkpoint_root.parent / "transcripts"
+                                        evidence.mkdir(parents=True, exist_ok=True)
+                                        encoded = json.dumps(payload, ensure_ascii=False)
+                                        digest = hashlib.sha256(encoded.encode("utf-8")).hexdigest()[:16]
+                                        name = f"rejected-{self._episode_checkpoint_name(episode)}-{index}-{part}-{digest}.json.gz"
+                                        with gzip.open(evidence / name, "wt", encoding="utf-8") as output:
+                                            json.dump({"kind": "rejected_timing_repair", "episode_guid": episode.guid,
+                                                       "model": model, "metrics": metrics, "transcript": payload}, output, ensure_ascii=False)
                                     raise GeminiMalformedJSONError("Malformed JSON transcript content: split repair has missing segments or compressed timestamps.")
                             self.model_health.succeeded(model)
                             break
@@ -670,7 +692,7 @@ class GeminiTranscriber:
                             self.model_health.failed(model, exc, observe)
                             errors.append(f"{model}: {type(exc).__name__}: {exc}")
                     else:
-                        raise RuntimeError(f"Split repair half {part + 1}/2 exhausted: {'; '.join(errors)}")
+                        raise RuntimeError(f"Split repair clip {part + 1}/{parts} exhausted: {'; '.join(errors)}")
                     seconds = round(time.monotonic() - started, 3)
                     self._save_chunk_checkpoint(episode, index, chunk_count, fingerprint + f":split-v1:{duration}", payload, model, seconds, suffix)
                 adjusted = deepcopy(payload)
@@ -725,7 +747,7 @@ class GeminiTranscriber:
         )
         fingerprint = self._checkpoint_fingerprint(episode, audio_files, prompt)
         if getattr(self, "force_split", False):
-            fingerprint += ":timing-coverage-split-v2"
+            fingerprint += ":timing-coverage-quarter-v3-integer"
         # Each original chunk may be split once. A separate call budget bounds
         # the whole invocation; cached parent chunks and halves cost no calls.
         self._rescue_calls_remaining = self.rescue_call_limit

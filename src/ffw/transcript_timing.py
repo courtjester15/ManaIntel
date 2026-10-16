@@ -44,7 +44,12 @@ def normalize_integer_clock(payload: dict, duration: int) -> dict:
 def suspect_timing_chunks(transcript: dict, chunk_seconds: int = 900) -> list[int]:
     groups: dict[int, list[dict]] = {}
     for segment in transcript.get("segments", []):
-        groups.setdefault(int(float(segment.get("start", 0)) // chunk_seconds), []).append(segment)
+        start = float(segment.get("start", 0))
+        # Clamped tails belong to the preceding chunk. They are evidence of
+        # damaged timing there, never coverage of the following audio chunk.
+        if start > 0 and start % chunk_seconds == 0 and float(segment.get("end", start)) == start:
+            continue
+        groups.setdefault(int(start // chunk_seconds), []).append(segment)
     boundary_counts: dict[int, int] = {}
     for segment in transcript.get("segments", []):
         start = float(segment.get("start", 0))
