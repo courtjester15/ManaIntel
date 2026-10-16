@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.10",
-  "updated_at": "2026-10-16T02:57:02Z",
+  "pipeline_version": "0.5.11",
+  "updated_at": "2026-10-16T14:52:01Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -26820,6 +26820,65 @@
       },
       "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=35920": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-16T14:50:51Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-16T14:50:51Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-16T14:50:51Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-16T14:50:51Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-16T14:50:52Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-16T14:50:52Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-16T14:51:12Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-16T14:52:01Z"
+        }
+      ],
+      "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+      "episode_number": 722,
+      "published_at": "2026-10-16T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 48.6s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-16T20:52:01Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-16T14:52:01Z",
+      "output_directory": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance"
     }
   }
 }
