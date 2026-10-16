@@ -2,7 +2,7 @@
 
 ## Automated service
 
-GitHub Actions runs `.github/workflows/ffw.yml` at 10:17 UTC for fresh backfill and at 20:17 UTC for bounded failed recovery. It reads both public podcast feeds:
+GitHub Actions runs `.github/workflows/ffw.yml` at 20:17 UTC for fresh backfill and at 00:17 UTC for bounded failed recovery. It reads both public podcast feeds:
 
 `https://feeds.soundcloud.com/users/soundcloud:users:201003125/sounds.rss`
 
@@ -18,7 +18,9 @@ MTG Fast Finance boundary detection is bidirectional. Show-outline mentions of C
 
 Brainstorm Brewery applies the same start-evidence rules to Breaking Bulk, Bulk to Binder, and Pick of the Week. Intro/agenda mentions are excluded, the first credible recommendation marker starts the section, and recommendation language can supply the start when the host does not repeat a segment label. Because Breaking Bulk and Pick of the Week can be separated by a long topic discussion, the detector preserves both blocks and trusts an ending only after the last recommendation marker or cue; otherwise it caps the tail at 20 minutes and leaves the result reviewable.
 
-One concurrency group serializes all writers. The 10:17 UTC `next` run scans newest to oldest and processes at most one untouched eligible episode. `complete`, `needs_review`, and `failed` records skip before download or provider calls, so new releases take priority. The 20:17 UTC `retry_then_next` run selects at most one episode: the newest due retry first, otherwise the newest untouched episode across both feeds. Both automatic runs therefore advance the same newest-to-oldest cursor without an episode-age cutoff. It never attempts both. Retryable errors cool down for six hours and stop after three total episode attempts. A runner crash after an external API response but before the next durable Git commit can cause a repeated API call; file-backed Git state cannot guarantee exactly-once external billing.
+One concurrency group serializes all writers. The 20:17 UTC `next` run scans newest to oldest and processes at most one untouched eligible episode. `complete`, `needs_review`, and `failed` records skip before download or provider calls, so new releases take priority. The 00:17 UTC `retry_then_next` run selects at most one episode: the newest due retry first, otherwise the newest untouched episode across both feeds. Both automatic runs therefore advance the same newest-to-oldest cursor without an episode-age cutoff. It never attempts both. Retryable errors cool down for six hours and stop after three total episode attempts. A runner crash after an external API response but before the next durable Git commit can cause a repeated API call; file-backed Git state cannot guarantee exactly-once external billing.
+
+The October 16 schedule experiment targets evening provider availability: triggers at 4:17 p.m. / 8:17 p.m. EDT aim for actual starts around 6–8 p.m. / 10 p.m.–midnight if the observed 2–4-hour GitHub delay persists. Fixed UTC schedules shift to 3:17 p.m. / 7:17 p.m. EST in winter. Starts may be prompt, much later, or missed; do not treat lag as a guaranteed offset. The two triggers are four hours apart: a new failure may still be cooling down at the second run, which then considers an untouched episode instead. The existing low-pick queue times and successful-primary gate remain in place. Compare actual model-call times and usable episode outcomes after two weeks of ordinary processing; do not manufacture calls to fill the sample.
 
 ## One-time GitHub setup
 

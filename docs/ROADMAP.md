@@ -2,7 +2,7 @@
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.11. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.12. Next milestone: 0.6 — dependable processing.**
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -113,6 +113,8 @@ The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as
 R1 follow-ups: inspect the observed no-op Pages churn under R5, and evaluate eight legacy catalog entries missing explicit source IDs without silently guessing attribution. Keep the current health snapshot separate from historical attempts and from independent source-accuracy evaluation. Implementation: `src/ffw/health.py`; validation: `tests/test_health.py`; baseline evidence: `state/health-baseline.json`.
 
 R1 delivery evidence: implementation commit `87ab009`; [production run 38846756441](https://github.com/courtjester15/ManaIntel/actions/runs/38846756441) passed tests, archive validation, the health-summary step, report upload and Pages deployment. Downloaded and inspected `health-38846756441-1` (Markdown plus sanitized JSON; GitHub metadata available, bounded at 60 job reads with zero read errors). Locally, 168 tests ran successfully with three optional PyYAML skips; archive validation passed. No inference calls or episode retries were made for R1. Next authorized batch: R2's compact representative evaluation.
+
+October 16 schedule experiment (0.5.12): shift main triggers to 20:17 / 00:17 UTC, aiming at evening processing after observed scheduler delays. Flash Lite recorded 39 successful and zero failed responses at 22:00–24:00 EDT across eight attempts on four dates; only five attempts produced usable results, and recovery/version selection bias prevents a causal claim. Preserve six-hour cooldown, three-attempt cap, optional-queue gates and free-tier defaults. No inference probes are needed for this change. Follow-up under R5: compare actual call times and episode outcomes after two weeks of ordinary work; UTC triggers shift an hour earlier locally in winter. R2 remains the next feature batch.
 
 After a batch, update its state, result, evidence/commit and next action here. Blocked work needs a specific prerequisite; choose independent useful work rather than repeating the same failed attempt.
 

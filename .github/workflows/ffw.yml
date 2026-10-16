@@ -13,8 +13,11 @@ on:
       - "pyproject.toml"
       - "web/**"
   schedule:
-    - cron: "17 10 * * *"
+    # UTC triggers: 16:17 / 20:17 EDT (15:17 / 19:17 EST).
+    # Observed 2-4h scheduler lag aims processing at 18-20 / 22-00 EDT.
+    # Delay is variable; the second run still respects the 6h retry cooldown.
     - cron: "17 20 * * *"
+    - cron: "17 0 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -199,7 +202,7 @@ jobs:
           EVENT_SCHEDULE: ${{ github.event.schedule || '' }}
         shell: bash
         run: |
-          if [[ "$EVENT_SCHEDULE" == "17 20 * * *" ]]; then
+          if [[ "$EVENT_SCHEDULE" == "17 0 * * *" ]]; then
             INPUT_MODE="evening"
           fi
           echo "mode=$INPUT_MODE" >> "$GITHUB_OUTPUT"

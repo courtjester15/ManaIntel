@@ -13,7 +13,7 @@ The project includes a fully runnable credential-free mock mode plus live RSS, t
 
 ## Normal user workflow
 
-Open <https://courtjester15.github.io/ManaIntel/>. Every day at 10:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 20:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, it advances the same newest-to-oldest untouched cursor. Episodes remain eligible regardless of age, so automatic processing continues through the full available feed history.
+Open <https://courtjester15.github.io/ManaIntel/>. Every day at 20:17 UTC, the archive processes the newest eligible untouched episode across both podcasts. A new release takes priority automatically; otherwise the workflow continues backward through combined history. At 00:17 UTC, a separate bounded run retries at most one due transient failure; when no retry is due, it advances the same newest-to-oldest untouched cursor. Episodes remain eligible regardless of age, so automatic processing continues through the full available feed history.
 
 For an episode marked **needs review**, open its details and choose **Review episode**. Keep, exclude, or correct extracted picks, add any missing picks, then prepare and copy the review payload. Paste that payload into **Actions -> Review one episode -> Run workflow**. The authenticated workflow validates and stores the review, rebuilds the effective archive, commits it, and deploys Pages while retaining the original AI extraction unchanged.
 
@@ -121,7 +121,7 @@ Still intentionally outside the product:
 
 - Additional source types beyond the two podcast adapters, generic source-item records, notifications, databases, price tracking, financial-performance analytics, and ManaSpec integration.
 
-ManaIntel now has a lightweight [0.6–1.0 roadmap](docs/ROADMAP.md): dependable processing, easier review, useful card histories, evidence-linked archive observations, and a dependable small product. The October 15, 2026 plan replaces the former maintenance-only/five-hour restriction. Current release is 0.5.11. The [health baseline](docs/HEALTH_REPORT.md) separates initial attempts, retries, recoveries, current review backlog and observed deployment results; it does not turn recoveries into an unattended reliability score.
+ManaIntel now has a lightweight [0.6–1.0 roadmap](docs/ROADMAP.md): dependable processing, easier review, useful card histories, evidence-linked archive observations, and a dependable small product. The October 15, 2026 plan replaces the former maintenance-only/five-hour restriction. Current release is 0.5.12. The [health baseline](docs/HEALTH_REPORT.md) separates initial attempts, retries, recoveries, current review backlog and observed deployment results; it does not turn recoveries into an unattended reliability score.
 
 The [hands-off working agreement](docs/WORKING_AGREEMENT.md) explains how an authorized improvement pass works: the agent picks one useful task, verifies it, commits, pushes, checks production, and updates the queue. Jason can report an odd episode/card or simply authorize an improvement without writing a specification. This documentation does not create scheduled feature-development work or change the existing episode schedules.
 
