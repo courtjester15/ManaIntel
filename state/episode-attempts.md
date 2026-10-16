@@ -78,3 +78,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-10-16T02:48:30Z — run 38842081267/1: preflight=success; pipeline=success; exit=1; validation=success; selected=1; . [Details](runs/38842081267-1.json)
 - 2026-10-16T02:57:05Z — run 38842689643/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/38842689643-1.json)
 - 2026-10-16T14:52:05Z — run 38918940349/1: preflight=success; pipeline=success; exit=1; validation=success; selected=1; . [Details](runs/38918940349-1.json)
+- 2026-10-16T21:21:00Z — run 38968659626/1: preflight=skipped; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=false; queue=. [Details](runs/38968659626-1.json)
