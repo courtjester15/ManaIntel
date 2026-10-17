@@ -127,3 +127,10 @@ class VerificationEligibilityTests(unittest.TestCase):
             "review_status": "needs_review", "review_reason": "This is not a known Magic card."}))
         self.assertFalse(GeminiPickVerifier._is_card_name_ambiguity({
             "review_status": "needs_review", "review_reason": "Hosts disagree about reprint risk."}))
+
+
+class IssueClassificationTests(unittest.TestCase):
+    def test_boundary_warning_is_not_an_intent_problem(self):
+        from ffw.review_issues import reason_codes
+        self.assertEqual(["coverage"], reason_codes(
+            "Recommendation segment found without an explicit ending; review the bounded extraction."))

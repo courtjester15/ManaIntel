@@ -5,10 +5,10 @@ import re
 from typing import Any
 
 _PATTERNS = {
-    "coverage": r"section|segment|ending|boundary|completeness|missing|omitted|retained|zero picks|fewer than",
+    "coverage": r"section|segment|ending|boundary|completeness|omitted|retained|zero picks|fewer than|missing\s+(?:chunks?|recommendation|content|coverage)",
     "timing": r"timestamp|timing|clock|cluster|audio bound",
     "printing": r"printing|foil|version|price point|price target",
-    "intent": r"disagree|debate|recommendation|endorsement|skeptic|risk|whether to buy",
+    "intent": r"disagree|debate|ambiguous recommendation|recommendation intent|direct endorsement|skeptic|risk|whether to buy|unsupported recommendation",
     "scope": r"non-magic|non-mtg|another game|joke|april fools|tcg|slay the spire",
     "identity": r"card name|transcription|misheard|likely refer|may refer|not a known|not standard|database entries",
 }
