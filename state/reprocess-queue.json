@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
-  "daily_date": "2026-10-06",
+  "daily_date": "2026-10-16",
   "daily_runs": 1,
   "entries": [
     {
@@ -95,6 +95,17 @@
       "finished_at": "2026-10-06T22:54:55.681047+00:00",
       "result_status": "complete",
       "result_pick_count": 1
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2172092631",
+      "episode_number": 494,
+      "title": "MTG Fast Finance Ep 494: Spidey Market In Flux",
+      "status": "blocked",
+      "started_at": "2026-10-17T00:34:48.434087+00:00",
+      "finished_at": "2026-10-17T00:35:12.771319+00:00",
+      "result_status": "needs_review",
+      "result_pick_count": 3,
+      "note": "Partial MTGFF result requires review; not a completed recovery."
     }
   ]
 }

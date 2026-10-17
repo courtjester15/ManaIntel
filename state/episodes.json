@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.12",
-  "updated_at": "2026-10-16T22:54:56Z",
+  "updated_at": "2026-10-17T00:35:10Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -26373,6 +26373,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-15T03:11:33Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-17T00:34:50Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-17T00:34:50Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-17T00:34:52Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-17T00:34:52Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-17T00:35:06Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-17T00:35:06Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-17T00:35:06Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-17T00:35:10Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-17T00:35:10Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-17T00:35:10Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-17T00:35:10Z"
         }
       ],
       "title": "MTG Fast Finance Ep 494: Spidey Market In Flux",
@@ -26380,11 +26424,11 @@
       "published_at": "2025-09-20T05:54:54Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-15T03:11:33Z",
+      "updated_at": "2026-10-17T00:35:10Z",
       "output_directory": "episodes/0494-spidey-market-in-flux",
       "transcription": {
         "provider": "Gemini",
@@ -26517,7 +26561,7 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1028,
+        "candidates_token_count": 1081,
         "candidates_tokens_details": null,
         "prompt_token_count": 9419,
         "prompt_tokens_details": [
@@ -26529,11 +26573,11 @@
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 10447,
+        "total_token_count": 10500,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Only the early show-outline mention of Cards to Watch was found; verify where the recommendation block begins. Fewer than four MTG Fast Finance recommendations; verify section completeness."
+      "review_reason": "Forced reprocessing omitted published recommendations; the previous recommendations were retained for review."
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15716": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15716",

@@ -22,13 +22,13 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Only the early show-outline mention of Cards to Watch was found; verify where the recommendation block begins. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
-    "pipeline_version": "0.5.6",
+    "review_reason": "Forced reprocessing omitted published recommendations; the previous recommendations were retained for review.",
+    "pipeline_version": "0.5.12",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-15T03:11:33Z",
+    "processed_at": "2026-10-17T00:35:10Z",
     "history": [
       {
         "status": "detected",
@@ -105,6 +105,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-15T03:11:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-17T00:34:50Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-17T00:34:50Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-17T00:34:52Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-17T00:34:52Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-17T00:35:06Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-17T00:35:06Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-17T00:35:06Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-17T00:35:10Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-17T00:35:10Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-17T00:35:10Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-17T00:35:10Z"
       }
     ],
     "error": null,
@@ -239,7 +283,7 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 1028,
+      "candidates_token_count": 1081,
       "candidates_tokens_details": null,
       "prompt_token_count": 9419,
       "prompt_tokens_details": [
@@ -251,7 +295,7 @@
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 10447,
+      "total_token_count": 10500,
       "traffic_type": null
     }
   },
