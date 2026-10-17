@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.13",
+    "pipeline_version": "0.5.14",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-17T03:47:47Z",
-    "latest_successful_run_at": "2026-10-17T03:45:07Z",
+    "generated_at": "2026-10-17T04:27:39Z",
+    "latest_successful_run_at": "2026-10-17T04:27:37Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 108,
-    "real_pick_count": 425,
+    "real_pick_count": 432,
     "last_discovered_episode_date": "2026-10-16T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,14 +34,13 @@
   },
   "counts": {
     "episodes": 108,
-    "picks": 425,
-    "needs_review": 40,
-    "failed": 1,
+    "picks": 432,
+    "needs_review": 41,
+    "failed": 0,
     "completed": 67
   },
   "status_counts": {
-    "failed": 1,
-    "needs_review": 40,
+    "needs_review": 41,
     "complete": 67
   },
   "latest_episode": {
@@ -63,31 +62,20 @@
     "source_name": "Brainstorm Brewery",
     "source_url": "https://brainstormbrewery.com/",
     "extraction_profile": "brainstorm_brewery",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "pick_count": 0,
+    "processing_status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "pick_count": 7,
     "directory": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance",
     "outputs": {
       "metadata": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "summary_json": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/summary.json",
+      "summary_markdown": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-10-16T14:52:01Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 1/4 failed after 48.6s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-10-16T20:52:01Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-10-17T04:27:37Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -96,188 +84,195 @@
   },
   "recent_picks": [
     {
-      "card": "The Indomitable",
-      "printing": "Commander: The Lost Caverns of Ixalan",
-      "printing_certainty": "confirmed",
+      "card": "Soltari Champion",
+      "printing": null,
+      "printing_certainty": "ambiguous",
       "foil": null,
       "hosts": [
-        "Corbin",
-        "DJ"
+        "Jason"
       ],
       "recommendation": "buy",
-      "mentioned_price": "$4 or $5",
+      "mentioned_price": null,
       "entry_target": {
-        "raw": "$4 or $5",
-        "currency": "USD",
-        "minimum": 4.0,
-        "maximum": 5.0
-      },
-      "hold": null,
-      "exit_target": null,
-      "reasoning": [
-        "Coastal Piracy with a bunch of upside",
-        "Has vehicle and Pirate lines that can jump the price up again in the future",
-        "Climbing in price for the second time this year"
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 2825,
-      "end_seconds": 3015,
-      "evidence_excerpt": "it's climbed from $3 to $4 to $5 um, in that range over the past month or so... it's a good buy for $4 or $5.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-9c1f6447acf15df6",
-      "timestamp": "00:47:05",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_721_Future_of_the_Reserve_List.mp3#t=2825",
-      "card_resolution": {
-        "raw_name": "The Indomitable",
-        "normalized_name": "the indomitable",
-        "status": "verified",
-        "canonical_name": "The Indomitable",
-        "scryfall_id": "e6456329-b521-474b-bfb5-bfcd7e52b5f8",
-        "oracle_id": "276dc5c8-c8cf-4b9c-ad75-31876e6e040a",
-        "scryfall_uri": "https://scryfall.com/card/lcc/75/the-indomitable?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/e/6/e6456329-b521-474b-bfb5-bfcd7e52b5f8.jpg?1783913913",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-09T17:06:05Z"
-      },
-      "resolved_card": "The Indomitable",
-      "oracle_id": "276dc5c8-c8cf-4b9c-ad75-31876e6e040a",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35509",
-        "episode_number": 721,
-        "title": "Future of the Reserve List | Brainstorm Brewery #721 | Magic Finance",
-        "published_at": "2026-10-09T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/future-of-the-reserve-list-brainstorm-brewery-721-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_721_Future_of_the_Reserve_List.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Felidar Guardian",
-      "printing": "Lo-Fi Beats Secret Lair",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "DJ",
-        "Corbin"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$11 or $12",
-      "entry_target": {
-        "raw": "$11 or $12",
-        "currency": "USD",
-        "minimum": 11.0,
-        "maximum": 12.0
-      },
-      "hold": null,
-      "exit_target": null,
-      "reasoning": [
-        "Secret Lair cards that have cats and playable cards on them can't be $10 as a rule",
-        "Anime girl and cat art is highly appealing",
-        "Displacer Kitten's Secret Lair did something similar where it went crazy"
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 2727,
-      "end_seconds": 2825,
-      "evidence_excerpt": "My pick is Lo-Fi Cat. Uh also known as Felidar Guardian... It is a $11 or $12 card... Secret Lair cards that have cats and playable cards on them can't be $10 as a rule.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-afd3f6b60fcb779c",
-      "timestamp": "00:45:27",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_721_Future_of_the_Reserve_List.mp3#t=2727",
-      "card_resolution": {
-        "raw_name": "Felidar Guardian",
-        "normalized_name": "felidar guardian",
-        "status": "verified",
-        "canonical_name": "Felidar Guardian",
-        "scryfall_id": "44bdbed8-5d21-4bf5-8a32-9623b1139c85",
-        "oracle_id": "33869ba6-13e5-4e48-8963-92f7965648fb",
-        "scryfall_uri": "https://scryfall.com/card/aer/19/felidar-guardian?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/4/4/44bdbed8-5d21-4bf5-8a32-9623b1139c85.jpg?1783936780",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-09T17:06:05Z"
-      },
-      "resolved_card": "Felidar Guardian",
-      "oracle_id": "33869ba6-13e5-4e48-8963-92f7965648fb",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35509",
-        "episode_number": 721,
-        "title": "Future of the Reserve List | Brainstorm Brewery #721 | Magic Finance",
-        "published_at": "2026-10-09T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/future-of-the-reserve-list-brainstorm-brewery-721-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_721_Future_of_the_Reserve_List.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Avatar of Burgeoning Echoes",
-      "printing": "Reality Fracture",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Liz",
-        "Corbin"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "under $3",
-      "entry_target": {
-        "raw": "under $3",
-        "currency": "USD",
+        "raw": "shadow creatures",
+        "currency": null,
         "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "shadow creatures",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Old creatures with shadow that have like one printing, like Soltari Champion, are good targets due to the new Liana Velo Vengeance mystery booster commander card."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3193,
+      "end_seconds": 3307,
+      "evidence_excerpt": "My pick of the week this week is based on a mystery booster commander card coming out... My pick is old creatures with shadow that have like one printing",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b09918ee8cbf08e0",
+      "timestamp": "00:53:13",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3193",
+      "card_resolution": {
+        "raw_name": "Soltari Champion",
+        "normalized_name": "soltari champion",
+        "status": "verified",
+        "canonical_name": "Soltari Champion",
+        "scryfall_id": "b160fb40-daa7-4269-9d9d-93a47ebf9999",
+        "oracle_id": "765017e5-b43d-4c77-a9a9-0fcf0c0cd098",
+        "scryfall_uri": "https://scryfall.com/card/tpr/29/soltari-champion?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/b/1/b160fb40-daa7-4269-9d9d-93a47ebf9999.jpg?1783938507",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-17T04:27:39Z"
+      },
+      "resolved_card": "Soltari Champion",
+      "oracle_id": "765017e5-b43d-4c77-a9a9-0fcf0c0cd098",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+        "episode_number": 722,
+        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+        "published_at": "2026-10-16T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Stronghold Overseer",
+      "printing": "Time Spiral",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "shadow creatures",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "shadow creatures",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Old creatures with shadow that have like one printing, like Stronghold Overseer from Time Spiral."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3193,
+      "end_seconds": 3307,
+      "evidence_excerpt": "That Stronghold Overseer, Stronghold Overseer from Time Spiral is a huge flying shadow creature",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cbc9122d463e165b",
+      "timestamp": "00:53:13",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3193",
+      "card_resolution": {
+        "raw_name": "Stronghold Overseer",
+        "normalized_name": "stronghold overseer",
+        "status": "verified",
+        "canonical_name": "Stronghold Overseer",
+        "scryfall_id": "e0722fa2-53df-4217-a592-fcaf239f717a",
+        "oracle_id": "bb77b63f-e679-463c-b983-4f2a4ef7bafe",
+        "scryfall_uri": "https://scryfall.com/card/tsp/133/stronghold-overseer?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/e/0/e0722fa2-53df-4217-a592-fcaf239f717a.jpg?1783943227",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-17T04:27:39Z"
+      },
+      "resolved_card": "Stronghold Overseer",
+      "oracle_id": "bb77b63f-e679-463c-b983-4f2a4ef7bafe",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+        "episode_number": 722,
+        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+        "published_at": "2026-10-16T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Cyber Conversion",
+      "printing": "Doctor Who",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "$3",
+        "currency": "USD",
+        "minimum": 3.0,
         "maximum": 3.0
       },
       "hold": null,
-      "exit_target": null,
+      "exit_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
       "reasoning": [
-        "One of the strongest cards in Reality Fracture",
-        "It has Legacy, Modern, Vintage, and probably Standard and Commander play",
-        "A mythic under $3 is too cheap"
+        "Generically very good.",
+        "Sooner or later, they'll do something weird with face down creatures again."
       ],
       "caveats": [],
       "confidence": null,
-      "start_seconds": 1814,
-      "end_seconds": 2722,
-      "evidence_excerpt": "It's a mythic under $3 that I think has legacy, modern, vintage, probably some standard play, too... $3, this card is too cheap. Buy a stack of them.",
+      "start_seconds": 3154,
+      "end_seconds": 3192,
+      "evidence_excerpt": "I got a pick of the week. It's a cyber conversion from Doctor Who... It's going to be $5, you know.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-b47306d6ca55b04f",
-      "timestamp": "00:30:14",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_721_Future_of_the_Reserve_List.mp3#t=1814",
+      "id": "pick-9750e655954a217e",
+      "timestamp": "00:52:34",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3154",
       "card_resolution": {
-        "raw_name": "Avatar of Burgeoning Echoes",
-        "normalized_name": "avatar of burgeoning echoes",
+        "raw_name": "Cyber Conversion",
+        "normalized_name": "cyber conversion",
         "status": "verified",
-        "canonical_name": "Avatar of Burgeoning Echoes",
-        "scryfall_id": "5905995b-7a20-4602-a7cc-90aa5089a082",
-        "oracle_id": "08e8a63c-9fcc-48cf-a9af-15cbaeec943f",
-        "scryfall_uri": "https://scryfall.com/card/fra/122/avatar-of-burgeoning-echoes?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/5/9/5905995b-7a20-4602-a7cc-90aa5089a082.jpg?1788878208",
+        "canonical_name": "Cyber Conversion",
+        "scryfall_id": "e4ce5aa7-70cb-4ab2-9a25-4363aa2b370f",
+        "oracle_id": "33761c1a-9848-45bf-b934-123cebab566b",
+        "scryfall_uri": "https://scryfall.com/card/who/38/cyber-conversion?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/e/4/e4ce5aa7-70cb-4ab2-9a25-4363aa2b370f.jpg?1783914673",
         "card_face_images": [],
         "method": "exact",
         "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-09T17:06:05Z"
+        "resolved_at": "2026-10-17T04:27:38Z"
       },
-      "resolved_card": "Avatar of Burgeoning Echoes",
-      "oracle_id": "08e8a63c-9fcc-48cf-a9af-15cbaeec943f",
+      "resolved_card": "Cyber Conversion",
+      "oracle_id": "33761c1a-9848-45bf-b934-123cebab566b",
       "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35509",
-        "episode_number": 721,
-        "title": "Future of the Reserve List | Brainstorm Brewery #721 | Magic Finance",
-        "published_at": "2026-10-09T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/future-of-the-reserve-list-brainstorm-brewery-721-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_721_Future_of_the_Reserve_List.mp3",
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+        "episode_number": 722,
+        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+        "published_at": "2026-10-16T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
         "source_id": "brainstorm-brewery",
         "source_name": "Brainstorm Brewery"
       },
@@ -285,210 +280,201 @@
       "human_reviewed": false
     },
     {
-      "card": "Transguild Courier",
-      "printing": "foil",
+      "card": "City of Brass",
+      "printing": "Final Fantasy store championship promo foil",
       "printing_certainty": "confirmed",
       "foil": true,
       "hosts": [
-        "Cliff Daigle"
+        "DJ"
       ],
-      "recommendation": "Buy foil copies of Transguild Courier.",
-      "mentioned_price": "$4",
+      "recommendation": "buy",
+      "mentioned_price": null,
       "entry_target": {
-        "raw": "somewhere between $3 to $6, I'm putting it down four and splitting the difference",
+        "raw": "a couple hundred dollars",
         "currency": "USD",
-        "minimum": 3.0,
-        "maximum": 6.0
+        "minimum": 200.0,
+        "maximum": 200.0
       },
       "hold": null,
       "exit_target": {
-        "raw": "10",
-        "currency": "USD",
-        "minimum": 10.0,
-        "maximum": 10.0
-      },
-      "reasoning": [
-        "Synergizes perfectly with the new five-color artifact commander Karn, the Gilded Guardian by providing all five colors on one card",
-        "Foils of this older uncommon are nearly nonexistent, with only 20 vendors having LP/NM copies"
-      ],
-      "caveats": [
-        "Karn may not be the top built commander from the set"
-      ],
-      "confidence": "medium",
-      "start_seconds": 1683,
-      "end_seconds": 1784,
-      "evidence_excerpt": "foils are nearly nonexistent... you can spend somewhere between $3 to $6, I'm putting it down four... this should become a $10 card",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-aee9fb38e0fb96fd",
-      "timestamp": "00:28:03",
-      "listen_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3#t=1683",
-      "card_resolution": {
-        "raw_name": "Transguild Courier",
-        "normalized_name": "transguild courier",
-        "status": "verified",
-        "canonical_name": "Transguild Courier",
-        "scryfall_id": "2496ab15-2a88-43fd-8d79-74758879157b",
-        "oracle_id": "86f94f8e-f45e-42fc-8ad6-e9bdfaaa997d",
-        "scryfall_uri": "https://scryfall.com/card/dmc/194/transguild-courier?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/2/4/2496ab15-2a88-43fd-8d79-74758879157b.jpg?1783921393",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-03T14:50:25Z"
-      },
-      "resolved_card": "Transguild Courier",
-      "oracle_id": "86f94f8e-f45e-42fc-8ad6-e9bdfaaa997d",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2412061842",
-        "episode_number": 536,
-        "title": "MTG Fast Finance EP 536: Reality Fracture Top Cards",
-        "published_at": "2026-10-02T19:29:03Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-536",
-        "audio_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
-    },
-    {
-      "card": "Thranduil",
-      "printing": "Book surge foil",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "James Chilcott"
-      ],
-      "recommendation": "Buy Thranduil Book surge foils.",
-      "mentioned_price": "$120",
-      "entry_target": {
-        "raw": "120",
-        "currency": "USD",
-        "minimum": 120.0,
-        "maximum": 120.0
-      },
-      "hold": "18 months",
-      "exit_target": {
-        "raw": "200",
+        "raw": "a couple hundred dollars",
         "currency": "USD",
         "minimum": 200.0,
         "maximum": 200.0
       },
       "reasoning": [
-        "Thranduil is the number two commander of the month and likely top 10 for the year",
-        "Considered a very strong elf commander option",
-        "High collectibility from Lord of the Rings book cards",
-        "Extremely expensive collector booster boxes limit future supply growth"
+        "Item is low stock.",
+        "People are now buying it to fill out their master sets."
       ],
-      "caveats": [
-        "Some players might prefer other elf commanders like Lathril",
-        "Book cover style cards can look like they are in light play condition"
-      ],
-      "confidence": "medium",
-      "start_seconds": 1340,
-      "end_seconds": 1683,
-      "evidence_excerpt": "My second selection this week is Thranduil Book surge foils... if I set a target at 120, I think it's pretty safe to say within 18 months that can crest 200",
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3022,
+      "end_seconds": 3059,
+      "evidence_excerpt": "His choice is Vujerba, the floating city, the store championship promo foil City of Brass with final fantasy skin.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-c9637d7166a2e5cb",
-      "timestamp": "00:22:20",
-      "listen_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3#t=1340",
+      "id": "pick-664f49ac8a2f47f8",
+      "timestamp": "00:50:22",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3022",
       "card_resolution": {
-        "raw_name": "Thranduil",
-        "normalized_name": "thranduil",
-        "status": "not_found",
-        "canonical_name": null,
-        "scryfall_id": null,
-        "oracle_id": null,
-        "scryfall_uri": null,
-        "image_uri": null,
-        "card_face_images": [],
-        "method": "fuzzy",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-03T14:50:25Z"
-      },
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2412061842",
-        "episode_number": 536,
-        "title": "MTG Fast Finance EP 536: Reality Fracture Top Cards",
-        "published_at": "2026-10-02T19:29:03Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-536",
-        "audio_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
-    },
-    {
-      "card": "Elminster",
-      "printing": "borderless foil",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "Cliff Daigle"
-      ],
-      "recommendation": "Buy foil borderless copies of Elminster.",
-      "mentioned_price": "$6",
-      "entry_target": {
-        "raw": "around six bucks",
-        "currency": "USD",
-        "minimum": 6.0,
-        "maximum": 6.0
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "20",
-        "currency": "USD",
-        "minimum": 20.0,
-        "maximum": 20.0
-      },
-      "reasoning": [
-        "Synergizes extremely well as peanut butter and jelly with the new Reality Fracture sphinx Denzilor",
-        "Very tiny supply of foils with only 22 listings available",
-        "Elminster is a major wizard in D&D lore with a dedicated fan base"
-      ],
-      "caveats": [
-        "Denzilor might not get widely built",
-        "Deep inventory exists on non-foil copies"
-      ],
-      "confidence": "medium",
-      "start_seconds": 1171,
-      "end_seconds": 1340,
-      "evidence_excerpt": "You can get foil borderless copies around six bucks... I think this goes from six to 20 just on the tiny supply available",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-54a5d43e8d96f524",
-      "timestamp": "00:19:31",
-      "listen_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3#t=1171",
-      "card_resolution": {
-        "raw_name": "Elminster",
-        "normalized_name": "elminster",
+        "raw_name": "City of Brass",
+        "normalized_name": "city of brass",
         "status": "verified",
-        "canonical_name": "Elminster",
-        "scryfall_id": "4eac2b49-6cb6-4ff4-8fac-2ba669326640",
-        "oracle_id": "56773795-bd8b-4ac4-8f2c-a9d6275989bb",
-        "scryfall_uri": "https://scryfall.com/card/clb/274/elminster?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/4/e/4eac2b49-6cb6-4ff4-8fac-2ba669326640.jpg?1783922693",
+        "canonical_name": "City of Brass",
+        "scryfall_id": "c21565d0-fc40-4d89-9b27-87c03385e0af",
+        "oracle_id": "f25351e3-539b-4bbc-b92d-6480acf4d722",
+        "scryfall_uri": "https://scryfall.com/card/tmc/62/city-of-brass?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/c/2/c21565d0-fc40-4d89-9b27-87c03385e0af.jpg?1783904153",
         "card_face_images": [],
         "method": "exact",
         "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-03T14:50:25Z"
+        "resolved_at": "2026-10-17T04:27:38Z"
       },
-      "resolved_card": "Elminster",
-      "oracle_id": "56773795-bd8b-4ac4-8f2c-a9d6275989bb",
+      "resolved_card": "City of Brass",
+      "oracle_id": "f25351e3-539b-4bbc-b92d-6480acf4d722",
       "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2412061842",
-        "episode_number": 536,
-        "title": "MTG Fast Finance EP 536: Reality Fracture Top Cards",
-        "published_at": "2026-10-02T19:29:03Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-536",
-        "audio_url": "https://feeds.soundcloud.com/stream/2412061842-user-519789566-mtg-fast-finance-ep-536.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+        "episode_number": 722,
+        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+        "published_at": "2026-10-16T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
       },
-      "processing_status": "complete",
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Prologue to Phyresis",
+      "printing": "Phyrexia: All Will Be One",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "85 cents",
+      "entry_target": {
+        "raw": "85 cents",
+        "currency": "USD",
+        "minimum": 0.85,
+        "maximum": 0.85
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "85 cents market price",
+        "currency": "USD",
+        "minimum": 0.85,
+        "maximum": 0.85
+      },
+      "reasoning": [
+        "Directly putting a poison counter on players is really good.",
+        "Instant speed too, which makes it important."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2158,
+      "end_seconds": 2248,
+      "evidence_excerpt": "My breaking bulk this week is from Firexia, all will be one... Prologue to Fysis um climbing right now up to 85 cents market price.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f156f33925acf008",
+      "timestamp": "00:35:58",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=2158",
+      "card_resolution": {
+        "raw_name": "Prologue to Phyresis",
+        "normalized_name": "prologue to phyresis",
+        "status": "verified",
+        "canonical_name": "Prologue to Phyresis",
+        "scryfall_id": "ac625f30-ed91-4b21-ada8-aaa5b2ad79b8",
+        "oracle_id": "3f661b58-e8ca-412c-bdac-af151162de12",
+        "scryfall_uri": "https://scryfall.com/card/one/65/prologue-to-phyresis?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/a/c/ac625f30-ed91-4b21-ada8-aaa5b2ad79b8.jpg?1783918058",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-17T04:27:38Z"
+      },
+      "resolved_card": "Prologue to Phyresis",
+      "oracle_id": "3f661b58-e8ca-412c-bdac-af151162de12",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+        "episode_number": 722,
+        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+        "published_at": "2026-10-16T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Crystal Barricade",
+      "printing": "Foundations",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "75 cents",
+      "entry_target": {
+        "raw": "75 cents",
+        "currency": "USD",
+        "minimum": 0.75,
+        "maximum": 0.75
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$1.30 buylist",
+        "currency": "USD",
+        "minimum": 1.3,
+        "maximum": 1.3
+      },
+      "reasoning": [
+        "Anti-burn cards are always going to be pretty good.",
+        "A Foundations rare, a set that kind of isn't getting open much anymore."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2083,
+      "end_seconds": 2156,
+      "evidence_excerpt": "It's Crystal Barricade... Card has a $1.30 by list to Card Kingdom and is 75 cents TCG low.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9be93065b7f95956",
+      "timestamp": "00:34:43",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=2083",
+      "card_resolution": {
+        "raw_name": "Crystal Barricade",
+        "normalized_name": "crystal barricade",
+        "status": "verified",
+        "canonical_name": "Crystal Barricade",
+        "scryfall_id": "905d3e02-ea06-45e7-9adb-c8e7583323a2",
+        "oracle_id": "291c7abf-9d64-4ba0-ae21-e3459edc9a95",
+        "scryfall_uri": "https://scryfall.com/card/fdn/7/crystal-barricade?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/9/0/905d3e02-ea06-45e7-9adb-c8e7583323a2.jpg?1783909129",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-17T04:27:37Z"
+      },
+      "resolved_card": "Crystal Barricade",
+      "oracle_id": "291c7abf-9d64-4ba0-ae21-e3459edc9a95",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+        "episode_number": 722,
+        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+        "published_at": "2026-10-16T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
       "human_reviewed": false
     }
   ],
@@ -512,31 +498,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "pick_count": 7,
       "directory": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance",
       "outputs": {
         "metadata": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/summary.json",
+        "summary_markdown": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-16T14:52:01Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/4 failed after 48.6s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-16T20:52:01Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-17T04:27:37Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

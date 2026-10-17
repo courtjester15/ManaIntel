@@ -1,0 +1,561 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
+    "episode_number": 722,
+    "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
+    "published_at": "2026-10-16T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
+    "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
+    "duration_seconds": 3364,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz&#160; (@devotedDruid) holds up the fort with a load bearing Corbin (@CHosler) who can’t stop thinking about just how important things are to their structure. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.14",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-17T04:27:37Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-16T14:50:51Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-16T14:50:51Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-16T14:50:51Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-16T14:50:51Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-16T14:50:52Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-16T14:50:52Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-16T14:51:12Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-16T14:52:01Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-17T04:24:31Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-17T04:24:31Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-17T04:24:33Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-17T04:24:33Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-17T04:24:47Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-17T04:27:31Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-17T04:27:31Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-17T04:27:36Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-17T04:27:36Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-17T04:27:37Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-17T04:27:37Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3364,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 12.299,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3675,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22694,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 26369,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.599,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17690,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40385,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 37.1,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18253,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40948,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 664,
+          "request_seconds": 28.268,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13957,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 16793,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 16598
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 30750,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 3
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2182,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 21926,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 21926
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 24108,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1927,
+    "end_seconds": 3349,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Noble's Purse",
+      "printing": "Baldur's Gate",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "15 cents",
+      "entry_target": {
+        "raw": "15 cents",
+        "currency": "USD",
+        "minimum": 0.15,
+        "maximum": 0.15
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "33 cent buylist",
+        "currency": "USD",
+        "minimum": 0.33,
+        "maximum": 0.33
+      },
+      "reasoning": [
+        "Makes treasures and goes with the proliferate mechanic.",
+        "Sometimes you can get sweet buylist on stuff like that."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1968,
+      "end_seconds": 2046,
+      "evidence_excerpt": "It's Noble's Purse... Has a 33 cent bylist to card Kingdom and a TCG low price of 15 cents.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-3642d5bb12c04f53",
+      "timestamp": "00:32:48",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=1968"
+    },
+    {
+      "card": "Crystal Barricade",
+      "printing": "Foundations",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "75 cents",
+      "entry_target": {
+        "raw": "75 cents",
+        "currency": "USD",
+        "minimum": 0.75,
+        "maximum": 0.75
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$1.30 buylist",
+        "currency": "USD",
+        "minimum": 1.3,
+        "maximum": 1.3
+      },
+      "reasoning": [
+        "Anti-burn cards are always going to be pretty good.",
+        "A Foundations rare, a set that kind of isn't getting open much anymore."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2083,
+      "end_seconds": 2156,
+      "evidence_excerpt": "It's Crystal Barricade... Card has a $1.30 by list to Card Kingdom and is 75 cents TCG low.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9be93065b7f95956",
+      "timestamp": "00:34:43",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=2083"
+    },
+    {
+      "card": "Prologue to Phyresis",
+      "printing": "Phyrexia: All Will Be One",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "85 cents",
+      "entry_target": {
+        "raw": "85 cents",
+        "currency": "USD",
+        "minimum": 0.85,
+        "maximum": 0.85
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "85 cents market price",
+        "currency": "USD",
+        "minimum": 0.85,
+        "maximum": 0.85
+      },
+      "reasoning": [
+        "Directly putting a poison counter on players is really good.",
+        "Instant speed too, which makes it important."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2158,
+      "end_seconds": 2248,
+      "evidence_excerpt": "My breaking bulk this week is from Firexia, all will be one... Prologue to Fysis um climbing right now up to 85 cents market price.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f156f33925acf008",
+      "timestamp": "00:35:58",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=2158"
+    },
+    {
+      "card": "City of Brass",
+      "printing": "Final Fantasy store championship promo foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "a couple hundred dollars",
+        "currency": "USD",
+        "minimum": 200.0,
+        "maximum": 200.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "a couple hundred dollars",
+        "currency": "USD",
+        "minimum": 200.0,
+        "maximum": 200.0
+      },
+      "reasoning": [
+        "Item is low stock.",
+        "People are now buying it to fill out their master sets."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3022,
+      "end_seconds": 3059,
+      "evidence_excerpt": "His choice is Vujerba, the floating city, the store championship promo foil City of Brass with final fantasy skin.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-664f49ac8a2f47f8",
+      "timestamp": "00:50:22",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3022"
+    },
+    {
+      "card": "Cyber Conversion",
+      "printing": "Doctor Who",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "$3",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "Generically very good.",
+        "Sooner or later, they'll do something weird with face down creatures again."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3154,
+      "end_seconds": 3192,
+      "evidence_excerpt": "I got a pick of the week. It's a cyber conversion from Doctor Who... It's going to be $5, you know.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9750e655954a217e",
+      "timestamp": "00:52:34",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3154"
+    },
+    {
+      "card": "Soltari Champion",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "shadow creatures",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "shadow creatures",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Old creatures with shadow that have like one printing, like Soltari Champion, are good targets due to the new Liana Velo Vengeance mystery booster commander card."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3193,
+      "end_seconds": 3307,
+      "evidence_excerpt": "My pick of the week this week is based on a mystery booster commander card coming out... My pick is old creatures with shadow that have like one printing",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b09918ee8cbf08e0",
+      "timestamp": "00:53:13",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3193"
+    },
+    {
+      "card": "Stronghold Overseer",
+      "printing": "Time Spiral",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Jason"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "shadow creatures",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "shadow creatures",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Old creatures with shadow that have like one printing, like Stronghold Overseer from Time Spiral."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3193,
+      "end_seconds": 3307,
+      "evidence_excerpt": "That Stronghold Overseer, Stronghold Overseer from Time Spiral is a huge flying shadow creature",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cbc9122d463e165b",
+      "timestamp": "00:53:13",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3193"
+    }
+  ]
+}

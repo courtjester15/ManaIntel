@@ -23,15 +23,35 @@
     "extraction_profile": "brainstorm_brewery"
   },
   "processing": {
-    "status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "pipeline_version": "0.5.11",
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.14",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
-    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-16T14:52:01Z",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-17T04:27:37Z",
     "history": [
       {
         "status": "detected",
@@ -64,26 +84,207 @@
       {
         "status": "failed",
         "timestamp": "2026-10-16T14:52:01Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-17T04:24:31Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-17T04:24:31Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-17T04:24:33Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-17T04:24:33Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-17T04:24:47Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-17T04:27:31Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-17T04:27:31Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-17T04:27:36Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-17T04:27:36Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-17T04:27:37Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-17T04:27:37Z"
       }
     ],
-    "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 1/4 failed after 48.6s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}; gemini-3.5-flash-lite attempt 2: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-10-16T20:52:01Z",
-      "quarantined": false
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3364,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 12.299,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3675,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22694,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 26369,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.599,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17690,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40385,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 37.1,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18253,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40948,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 664,
+          "request_seconds": 28.268,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13957,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 16793,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 16598
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 30750,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 3
     },
-    "transcription": null,
-    "extraction_usage": null
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2182,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 21926,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 21926
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 24108,
+      "traffic_type": null
+    }
   },
   "outputs": {
     "metadata": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/metadata.json",
-    "summary_json": null,
-    "summary_markdown": null
+    "summary_json": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/summary.json",
+    "summary_markdown": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance/summary.md"
   }
 }
