@@ -29,6 +29,7 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-10-17T00:34:50Z — mtg-fast-finance 494: **needs_review**; forced rerun; automatically retained transcript; 3 picks; 1 observed model calls; 0 checkpoints reused; previous published result retained; archive validation=success; Forced reprocessing omitted published recommendations; the previous recommendations were retained for review.; note: Automatic low-pick recovery. [Details](attempts/8a609e8e127347f99a86f258bf5d113c.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/38986963603)
 - 2026-10-17T03:44:49Z — mtg-fast-finance 495: **needs_review**; forced rerun; retained transcript; 4 picks; 1 observed model calls; 0 checkpoints reused; archive validation=success; note: Review automation pilot: reuse inspected FF495 transcript; test advertised topic boundary and evidence uncertainty policy; retain prior picks on regression.. [Details](attempts/746e2512150e4e9f812263939937d426.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/38999890733)
 - 2026-10-17T04:24:31Z — brainstorm-brewery 722: **needs_review**; retry; 7 picks; 9 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/c18c80653bda421fb0d3133a179201a2.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39002390018)
+- 2026-10-17T22:17:08Z — mtg-fast-finance 492: **needs_review**; initial processing; bounded chunk split; 4 picks; 9 observed model calls; 0 checkpoints reused; 1 failed model calls; 0 unavailable-model skips; archive validation=success. [Details](attempts/f0ef9dff69294bb3bec973683606697f.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39074388546)
 
 ## Workflow outcomes
 
@@ -88,3 +89,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-10-17T03:45:12Z — run 38999890733/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/38999890733-1.json)
 - 2026-10-17T04:27:43Z — run 39002390018/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/39002390018-1.json)
 - 2026-10-17T20:43:37Z — run 39067877823/1: preflight=skipped; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=false; queue=. [Details](runs/39067877823-1.json)
+- 2026-10-17T22:23:00Z — run 39074388546/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/39074388546-1.json)

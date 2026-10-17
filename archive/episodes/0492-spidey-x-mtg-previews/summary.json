@@ -1,0 +1,519 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2167914051",
+    "episode_number": 492,
+    "title": "MTG Fast Finance Ep 492: Spidey x MTG Previews",
+    "published_at": "2025-09-10T00:56:35Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2167914051-user-519789566-mtg-fast-finance-ep-492-spidey-x-mtg-previews.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-492-spidey-x-mtg-previews",
+    "duration_seconds": 4741,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, and take a look at all the newly revealed Spider-Man cards.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.14",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-17T22:22:55Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-17T22:17:08Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-17T22:17:08Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-17T22:17:08Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-17T22:17:08Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-17T22:17:10Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-17T22:17:10Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-17T22:17:39Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-17T22:22:51Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-17T22:22:51Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-17T22:22:55Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-17T22:22:55Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-17T22:22:55Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-17T22:22:55Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 6,
+      "duration_seconds": 4741,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 27.261,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12677,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22671,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 172
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35348,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 25.233,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10985,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22672,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 172
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33657,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 151.765,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 6056,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11481,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 231
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 17537,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 6236,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11481,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 231
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 17717,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 64.822,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 32038,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22672,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 172
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 54710,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.407,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15823,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22672,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 172
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38495,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 6,
+          "chunk_count": 6,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 241,
+          "request_seconds": 7.926,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3320,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 6192,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 172
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 6020
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 9512,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 5
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1487,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 9970,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 9970
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 11457,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 907,
+    "end_seconds": 2116,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Lightning Lone Commando",
+      "printing": "foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "speaker"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "70",
+      "entry_target": {
+        "raw": "around 70",
+        "currency": "USD",
+        "minimum": 70,
+        "maximum": 70
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "150",
+        "currency": "USD",
+        "minimum": 150,
+        "maximum": 150
+      },
+      "reasoning": [
+        "Low supply with only about 70-ish copies left on TCGplayer for foil copies",
+        "Popular character and commander",
+        "Collectors and commander players demand"
+      ],
+      "caveats": [
+        "Three-month average daily sold is four copies and dropped to two in the last month"
+      ],
+      "confidence": null,
+      "start_seconds": 911,
+      "end_seconds": 993,
+      "evidence_excerpt": "One of the cards that jumped out at me was Lightning Lone Commando... right now you can get it for around 70. And I think sometime in the next 6 to 12 months, it will crawl all the way up to $150",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-808f8792a90bee16",
+      "timestamp": "00:15:11",
+      "listen_url": "https://feeds.soundcloud.com/stream/2167914051-user-519789566-mtg-fast-finance-ep-492-spidey-x-mtg-previews.mp3#t=911"
+    },
+    {
+      "card": "Quantum Riddler",
+      "printing": "Borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "speaker"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "50",
+      "entry_target": {
+        "raw": "under 60",
+        "currency": "USD",
+        "minimum": 0,
+        "maximum": 60
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "100 plus",
+        "currency": "USD",
+        "minimum": 100,
+        "maximum": null
+      },
+      "reasoning": [
+        "Not all that easy to find",
+        "Under heavy pressure in paper and online",
+        "Only 16 listings left with a very steep ramp forming"
+      ],
+      "caveats": [
+        "Much of its demand is tied to Modern, and if it falls off in modern, it does not have EDH support to back it"
+      ],
+      "confidence": null,
+      "start_seconds": 1059,
+      "end_seconds": 1089,
+      "evidence_excerpt": "If you can find any Quantum Riddler Foiler foils under 60, I think you just snap those off looking for a $100 plus exit down the road.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-89d5b121f10b4ea2",
+      "timestamp": "00:17:39",
+      "listen_url": "https://feeds.soundcloud.com/stream/2167914051-user-519789566-mtg-fast-finance-ep-492-spidey-x-mtg-previews.mp3#t=1059"
+    },
+    {
+      "card": "Monument to Endurance",
+      "printing": "first-place foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "speaker"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "16",
+      "entry_target": {
+        "raw": "16",
+        "currency": "USD",
+        "minimum": 16,
+        "maximum": 16
+      },
+      "hold": "six months",
+      "exit_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30,
+        "maximum": 30
+      },
+      "reasoning": [
+        "Number four card on Aetherdrift and most popular non-land card",
+        "Great synergy with discard and Mayhem-based decks"
+      ],
+      "caveats": [
+        "Horrible mustard yellow color on the card art style"
+      ],
+      "confidence": null,
+      "start_seconds": 1326,
+      "end_seconds": 1361,
+      "evidence_excerpt": "You can get the first place foils for about $16 on TCG Player right now... I think that go this one going from 16 to 30 sometime in the next six months",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a30ef6c8bd5c389d",
+      "timestamp": "00:22:06",
+      "listen_url": "https://feeds.soundcloud.com/stream/2167914051-user-519789566-mtg-fast-finance-ep-492-spidey-x-mtg-previews.mp3#t=1326"
+    },
+    {
+      "card": "Pariah",
+      "printing": "OTP showcase foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "speaker"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "0.50",
+      "entry_target": {
+        "raw": "50 cents or a dollar",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": 1.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "1 to 5",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "93% inclusion rate with the top Spider-Man commander Anti-Venom",
+        "Synergizes to prevent damage and put plus one counters on Anti-Venom"
+      ],
+      "caveats": [
+        "Anti-venom popularity is not yet a completely settled matter as all cards from the set are not yet revealed",
+        "Shipping costs add to the base price of low-end cards"
+      ],
+      "confidence": null,
+      "start_seconds": 1510,
+      "end_seconds": 1538,
+      "evidence_excerpt": "These are only 50 cents or a dollar right now... So, I think for these to go a dollar to $5 on the back of anti-venom seems possible.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-acdf0232fd403cae",
+      "timestamp": "00:25:10",
+      "listen_url": "https://feeds.soundcloud.com/stream/2167914051-user-519789566-mtg-fast-finance-ep-492-spidey-x-mtg-previews.mp3#t=1510"
+    }
+  ]
+}
