@@ -101,7 +101,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | ID | Priority | State | Next concrete result |
 | --- | --- | --- | --- |
 | R1 | Shipped | Complete | Read-only health-report CLI, [baseline](HEALTH_REPORT.md), and reports in processing-workflow summaries/artifacts. Source/version/configuration cohorts, separate experiment/retry denominators, deployment evidence and backlog. |
-| R2 | First | Ready | Compact evaluation inventory and the highest-value missing quality case, guided by R1's timing/section-boundary findings. |
+| R2 | First | In progress | [Evaluation inventory](EVALUATION.md) and offline cross-show boundary/content regressions added. Next: independently checked expected-pick cases for both shows before model/prompt comparison. |
 | R3 | Next | Ready | One clear status/recovery UI improvement guided by R1. |
 | R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
 | R5 | Next | Ready | Check backfill/recovery fairness and publication churn: R1 observed no-op runs deploying Pages. |
@@ -123,3 +123,5 @@ After a batch, update its state, result, evidence/commit and next action here. B
 Additional sources, generic source-schema migration, live prices, portfolios, performance scoring, alerts, ManaSpec integration, accounts, a hosted database/backend, paid-provider commitments and a large framework/redesign project remain separate product decisions. Limited archive observations in 0.9 are in scope; general market analytics are not.
 
 It is fine to stay on a minor version, skip an unhelpful idea or keep the project quiet between requests. This roadmap creates no scheduled feature-development runs; existing GitHub schedules continue processing episodes.
+
+October 16 R2 first batch: added `tests/test_representative_evaluation.py` and [evaluation inventory](EVALUATION.md). Invented minimal cases cover separated BB recommendation windows, weak endings in both shows, and omitted content despite plausible timing. Existing timing/ambiguous-name/recovery tests are mapped explicitly; private transcripts remain private. No inference calls or runtime/default changes; no version bump. R2 remains in progress pending independently checked expected-pick cases. Deployment verification is recorded below after CI.
