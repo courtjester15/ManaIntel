@@ -2,7 +2,7 @@
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.12. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.13. Next milestone: 0.6 — dependable processing.**
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -125,3 +125,5 @@ Additional sources, generic source-schema migration, live prices, portfolios, pe
 It is fine to stay on a minor version, skip an unhelpful idea or keep the project quiet between requests. This roadmap creates no scheduled feature-development runs; existing GitHub schedules continue processing episodes.
 
 October 16 R2 first batch: added `tests/test_representative_evaluation.py` and [evaluation inventory](EVALUATION.md). Invented minimal cases cover separated BB recommendation windows, weak endings in both shows, and omitted content despite plausible timing. Existing timing/ambiguous-name/recovery tests are mapped explicitly; private transcripts remain private. No inference calls or runtime/default changes; no version bump. R2 remains in progress pending independently checked expected-pick cases. Delivered as `c2b6358`; [production run 38998021623](https://github.com/courtjester15/ManaIntel/actions/runs/38998021623) passed tests, archive validation, health reporting and Pages deployment. Local suite: 171 tests passed with three optional PyYAML skips; archive validation passed. No episode processing or inference calls were triggered.
+
+October 16 review-automation batch (0.5.13): [40-episode audit](NEEDS_REVIEW_AUDIT.md) guided an independent issue ledger, mixed-reason-safe name verification, out-of-audio clip abstention, and extraction guidance separating source caveats from extraction uncertainty. Added conservative advertised-topic casual handoffs (two topic terms, no new-pick cue), including final-selection language. Transcription cache identity is now separate from extraction prompt identity so extraction-only changes reuse audio evidence. Eleven new semantic/integration regressions cover mixed warnings, valid name-only resolution, audio bounds, boundaries and source caveats. Offline replay resolves FF 495's boundary while four other available snapshots remain uncertain; no blanket status migration. R2/R4 remain in progress: independent source accuracy and broader multi-window/alignment recovery are not established. Next: inspect the bounded FF 495 retained-transcript pilot, then implement quote-to-audio alignment before expanding to old records. Verification evidence follows after deployment.

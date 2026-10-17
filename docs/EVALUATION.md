@@ -17,3 +17,9 @@ Run with `PYTHONPATH=src python -m unittest discover -s tests -v` (set the envir
 Structural checks (JSON/schema/archive validation) and these semantic guard checks are distinct from independent source accuracy. This inventory is not a passing percentage for Gemini or a claim of representative statistical coverage. It does not establish that an entire episode is complete, or that names, attribution and quotations match audio.
 
 R2 remains in progress. Next: add a small independently checked expected-pick inventory for both shows, using only suitable sanitized evidence and explicit unknowns. Compare candidate extraction against that inventory before changing model/prompt defaults under R4. Do not generate inference calls simply to fill an evaluation sample. R3 can proceed independently while evidence is collected.
+
+## Review automation regression batch (0.5.13)
+
+`tests/test_review_issues.py` adds eleven tests: mixed identity/printing/intent/scope/timing reasons cannot be cleared by name confirmation; identity-only correction retains original reason; unknown prose abstains; boundary reasons survive; out-of-audio/out-of-section picks receive independent issues; explicit recommendations may retain source caveats; casual advertised-topic handoff needs supporting terms and cannot cut off another pick; wrong audio indices make no inference request. `test_reliability.py` checks extraction prompt changes do not invalidate unchanged transcription evidence.
+
+Offline replay of the five previously inspected retained snapshots changes FF 495 from an unbounded 638–1839 section to an advertised-topic-bounded 638–1406 section. FF 494, FF 510, BB 666 and BB 721 retain their warnings. This is boundary behavior evidence, not proof of transcript accuracy; FF 495's saved transcript contains interleaved material and its timing concerns remain unresolved.

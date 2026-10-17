@@ -28,14 +28,15 @@ OUTLINE_PATTERNS = (
 )
 PICK_CUE_PATTERNS = (
     r"\bi(?:'ve| have)\s+got\s+(?:a\s+)?(?:good\s+)?pick\b",
-    r"\bmy\s+(?:(?:first|second|next|other|last)\s+)?(?:card|pick)\b",
-    r"\b(?:first|second|next|other|last)\s+(?:card|pick)(?:\s+this week)?\b",
+    r"\bmy\s+(?:(?:first|second|next|other|last|final)\s+)?(?:card|pick)\b",
+    r"\b(?:first|second|next|other|last|final)\s+(?:card|pick)(?:\s+this week)?\b",
     r"\b(?:my|our|the)\s+pick\s+(?:this week|is)\b",
     r"\bwhat\s+(?:do|have)\s+you\s+(?:have|got)(?:\s+this week)?\b",
     r"\b(?:let(?:'s| us)|time to)\s+(?:get into|do|talk about)\s+(?:our\s+)?(?:cards?|picks?)\b",
     r"\bi(?:'m| am)\s+(?:going|gonna)\s+with\b",
 )
 TOPIC_TRANSITION_PATTERNS = (
+    r"^\s*(?:all righty|all right|okay)[,.!\s]+so\b",
     r"\btopic\s+of\s+the\s+week\b",
     r"\b(?:move|moving)\s+on\s+to\b",
     r"\b(?:main|weekly|featured?)\s+(?:topic|discussion|segment)\b",
@@ -163,6 +164,13 @@ def _topic_transition_index(
             r"\b(?:(?:main|weekly|featured?)\s+(?:topic|discussion|segment)|topic\s+of\s+the\s+week)\b",
             transition_text, re.IGNORECASE,
         )
+        # Casual handoffs need two advertised-topic terms and cannot themselves
+        # introduce another pick. A generic topic label remains independently strong.
+        casual = re.match(TOPIC_TRANSITION_PATTERNS[0], transition_text, re.IGNORECASE)
+        if casual:
+            topic_matches = sum(bool(re.search(rf"\b{re.escape(term)}\b", lowered)) for term in terms)
+            if topic_matches < 2 or _matches(PICK_CUE_PATTERNS, transition_text):
+                continue
         if generic_label or any(re.search(rf"\b{re.escape(term)}\b", lowered) for term in terms):
             return index
     return None

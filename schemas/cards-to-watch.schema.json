@@ -41,6 +41,7 @@
       "properties": {
         "status": {"enum": ["detected", "queued", "downloading", "downloaded", "preparing", "transcribing", "transcribed", "extracting", "extracted", "validating", "publishing", "needs_review", "complete", "failed"]},
         "review_state": {"type": "string"},
+        "review_issues": {"type": "array", "description": "Independent unresolved issues; name confirmation alone cannot clear other issue types.", "items": {"type": "object", "required": ["code", "path", "reason", "state"], "properties": {"code": {"enum": ["coverage", "timing", "printing", "intent", "scope", "identity", "unspecified"]}, "path": {"type": "string"}, "reason": {"type": "string"}, "state": {"const": "unresolved"}}}},
         "review_reason": {"$ref": "#/$defs/nullableString"},
         "pipeline_version": {"type": "string"},
         "schema_version": {"type": "string"},

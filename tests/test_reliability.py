@@ -14,7 +14,7 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from ffw.audit import AttemptJournal, main as finalize_audit
-from ffw.config import PROMPT_VERSION, Settings
+from ffw.config import PROMPT_VERSION, TRANSCRIPTION_PROMPT_VERSION, Settings
 from ffw.models import EpisodeCandidate
 from ffw.pipeline import Pipeline, classify_failure
 from ffw.production import GeminiExtractor, GeminiMalformedJSONError, GeminiModelHealth, GeminiTranscriber, _gemini_generate_json
@@ -571,7 +571,8 @@ class ReliabilityTests(unittest.TestCase):
         directory.mkdir(parents=True, exist_ok=True)
         with gzip.open(directory / f"{slug}.json.gz", "wt", encoding="utf-8") as output:
             json.dump({"episode": {"guid": item.guid, "audio_url": item.audio_url},
-                       "prompt_version": PROMPT_VERSION, "transcript": {"segments": []}}, output)
+                       "prompt_version": "older-extraction-policy", "transcription_prompt_version": TRANSCRIPTION_PROMPT_VERSION,
+                       "transcript": {"segments": []}}, output)
         with patch.dict(os.environ, {"FFW_AUTO_REUSE_TRANSCRIPTS": "true"}), patch.object(pipeline.transcriber, "transcribe") as transcribe:
             result = pipeline.process_episode(item, force=True)
         self.assertEqual("complete", result.status)

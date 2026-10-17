@@ -8,6 +8,7 @@ from typing import Any
 
 from .card_resolution import CardResolutionUnavailable, ScryfallCardResolver
 from .models import EpisodeCandidate
+from .review_issues import name_only_reason, reason_codes, resolve_verified_name
 from .production import GeminiModelHealth, _gemini_generate_json
 
 
@@ -49,7 +50,7 @@ class GeminiPickVerifier:
         if pick.get("review_status") == "approved":
             return False
         reason = str(pick.get("review_reason") or "").casefold()
-        return any(token in reason for token in ("card name", "transcription", "likely refer", "may refer"))
+        return "identity" in reason_codes(reason)
 
     def _clip(self, source: Path, destination: Path, relative_seconds: float) -> Path:
         start = max(0.0, relative_seconds - self.clip_lead_seconds)
@@ -91,7 +92,15 @@ class GeminiPickVerifier:
                 continue
             checked += 1
             start_seconds = float(pick.get("start_seconds") or 0)
-            chunk_index = min(max(int(start_seconds // self.chunk_seconds), 0), len(audio_files) - 1)
+            chunk_index = int(start_seconds // self.chunk_seconds)
+            if start_seconds < 0 or chunk_index >= len(audio_files) or (
+                episode.duration_seconds and start_seconds >= episode.duration_seconds
+            ):
+                pick["automated_verification"] = {
+                    "method": "focused_audio_scryfall", "decision": "unavailable", "accepted": False,
+                    "explanation": "Pick timestamp is outside available audio; repair alignment before name verification.",
+                }
+                continue
             relative_seconds = start_seconds - chunk_index * self.chunk_seconds
             clip_path = audio_files[chunk_index].parent / f"verify-{pick_index:02d}.mp3"
             original_name = str(pick.get("card") or "")
@@ -106,7 +115,9 @@ class GeminiPickVerifier:
                     f"The first extraction heard the Magic card name as {original_name!r}. "
                     f"A Scryfall spelling candidate is {suggestion!r}. "
                     "Identify only the exact card name audibly discussed. Do not infer a card from strategy context. "
-                    "Return ambiguous when the audio does not clearly support an exact name."
+                    "Return ambiguous when the audio does not clearly support an exact name. "
+                    "The catalog candidate is a spelling aid, not evidence of what was spoken. "
+                    "Do not infer which game a card belongs to or invent an expansion of a short name."
                 )
                 result = _gemini_generate_json(
                     client,
@@ -137,9 +148,7 @@ class GeminiPickVerifier:
                 }
                 if accepted:
                     accepted_count += 1
-                    pick["card"] = verified_resolution["canonical_name"]
-                    pick["review_status"] = "approved"
-                    pick["review_reason"] = None
+                    resolve_verified_name(pick, verified_resolution["canonical_name"])
             except (CardResolutionUnavailable, OSError, RuntimeError, ValueError, json.JSONDecodeError) as exc:
                 pick["automated_verification"] = {
                     "method": "focused_audio_scryfall",
@@ -157,7 +166,7 @@ class GeminiPickVerifier:
             accepted_count
             and extraction.get("recommendations")
             and all(pick.get("review_status") == "approved" for pick in extraction["recommendations"])
-            and any(token in overall_reason for token in ("card", "transcription", "ambiguous"))
+            and name_only_reason(overall_reason)
         ):
             extraction["review_reason"] = None
         return extraction

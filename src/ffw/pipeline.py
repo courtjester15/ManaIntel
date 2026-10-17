@@ -13,7 +13,7 @@ from typing import Any
 from .archive import rebuild_catalog
 from .audit import AttemptJournal, safe_message
 from .card_resolution import ScryfallCardResolver, resolve_archive_card_names
-from .config import PIPELINE_VERSION, PROMPT_VERSION, SCHEMA_VERSION, Settings
+from .config import PIPELINE_VERSION, PROMPT_VERSION, TRANSCRIPTION_PROMPT_VERSION, SCHEMA_VERSION, Settings
 from .interfaces import AudioDownloader, AudioProcessor, Extractor, FeedSource, Transcriber
 from .mocks import MockAudioProcessor, MockDownloader, MockExtractor, MockFeedSource, MockTranscriber
 from .models import EpisodeCandidate, PipelineResult, SelectionReport, TERMINAL_STATES, utc_now
@@ -22,6 +22,7 @@ from .rendering import render_episode_markdown
 from .state import JsonStateStore
 from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json, seconds_to_timestamp, stable_pick_id
 from .verification import GeminiPickVerifier
+from .review_issues import collect_review_issues
 from .validation import validate_archive
 
 PERMANENT_PROVIDER_ERROR_PATTERNS = (
@@ -463,7 +464,7 @@ class Pipeline:
                 if not self.settings.reuse_transcripts and (
                     retained.get("episode", {}).get("guid") != episode.guid
                     or retained.get("episode", {}).get("audio_url") != episode.audio_url
-                    or retained.get("prompt_version") != PROMPT_VERSION
+                    or retained.get("transcription_prompt_version", retained.get("prompt_version")) != TRANSCRIPTION_PROMPT_VERSION
                 ):
                     retained = None
             if self.settings.reuse_transcripts or retained is not None:
@@ -486,7 +487,7 @@ class Pipeline:
                 transcript_dir.mkdir(parents=True, exist_ok=True)
                 with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
                     json.dump({"episode": self._episode_metadata(episode), "pipeline_version": PIPELINE_VERSION,
-                               "prompt_version": PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
+                               "prompt_version": PROMPT_VERSION, "transcription_prompt_version": TRANSCRIPTION_PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
             repaired_boundaries = {r["chunk"] * self.settings.audio_chunk_seconds for r in transcript.get("timing_repairs", [])}
             if repaired_boundaries:
                 transcript["segments"] = [s for s in transcript.get("segments", [])
@@ -531,7 +532,7 @@ class Pipeline:
                 if self.settings.retain_transcripts and not episode.synthetic:
                     with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
                         json.dump({"episode": self._episode_metadata(episode), "pipeline_version": PIPELINE_VERSION,
-                                   "prompt_version": PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
+                                   "prompt_version": PROMPT_VERSION, "transcription_prompt_version": TRANSCRIPTION_PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
             remaining_suspects = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
             if remaining_suspects:
                 journal.record("timing_repair_incomplete", suspect_chunks=[i + 1 for i in remaining_suspects])
@@ -575,10 +576,15 @@ class Pipeline:
             if episode.source_id == "mtg-fast-finance" and 0 < len(extraction.get("recommendations", [])) < 4:
                 warnings.append("Fewer than four MTG Fast Finance recommendations; verify section completeness.")
             extraction["review_reason"] = " ".join(dict.fromkeys(reason for reason in warnings if reason)) or None
+            review_issues = collect_review_issues(extraction, episode.duration_seconds)
+            if review_issues:
+                extraction["review_reason"] = " ".join(dict.fromkeys(issue["reason"] for issue in review_issues))
+            journal.record("review_issues", issues=review_issues)
             extraction_usage = extraction.pop("_usage", None)
             extraction_model = extraction.pop("_extraction_model", self.extractor.model_name)
             self.state.transition(
                 episode.guid, "extracted", extraction_usage=extraction_usage, extraction_model=extraction_model,
+                review_reason=extraction.get("review_reason"), review_issues=review_issues,
             )
             final_status = episode.fixture.get("target_status", "complete") if episode.synthetic else (
                 "needs_review" if extraction.get("review_reason") or not extraction.get("recommendations")
@@ -617,6 +623,7 @@ class Pipeline:
                     output_directory=relative_output,
                     pick_count=preserved_pick_count,
                     review_reason=ZERO_PICK_REPROCESS_REVIEW,
+                    review_issues=collect_review_issues({**preserved, "review_reason": ZERO_PICK_REPROCESS_REVIEW}, episode.duration_seconds),
                     error=None,
                 )
                 preserved["processing"] = self._processing_metadata(episode, "needs_review")
@@ -716,7 +723,8 @@ class Pipeline:
                 self.state.transition(
                     episode.guid, published_status, pick_count=len(baseline_summary.get("recommendations", [])),
                     error=existing.get("error"), last_attempt_error=failed_error,
-                    review_reason=existing.get("review_reason"), transcription=existing.get("transcription"),
+                    review_reason=existing.get("review_reason"), review_issues=existing.get("review_issues", []),
+                    transcription=existing.get("transcription"),
                     extraction_model=existing.get("extraction_model"), extraction_usage=existing.get("extraction_usage"),
                 )
                 # Roll back even a failure partway through writing the replacement.
@@ -765,6 +773,7 @@ class Pipeline:
             "status": status,
             "review_state": "needs_review" if status == "needs_review" else ("not_applicable" if status == "failed" else "approved"),
             "review_reason": state_record.get("review_reason") or episode.fixture.get("review_reason"),
+            "review_issues": state_record.get("review_issues", []),
             "pipeline_version": PIPELINE_VERSION,
             "schema_version": SCHEMA_VERSION,
             "transcription_model": (state_record.get("transcription") or {}).get("model", self.transcriber.model_name),
