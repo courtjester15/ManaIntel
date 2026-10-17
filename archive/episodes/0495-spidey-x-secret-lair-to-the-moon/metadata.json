@@ -22,13 +22,21 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
-    "pipeline_version": "0.5.5",
+    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_issues": [
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.13",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
-    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-13T02:58:16Z",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-17T03:45:07Z",
     "history": [
       {
         "status": "detected",
@@ -81,6 +89,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-13T02:58:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-17T03:44:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-17T03:44:49Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-17T03:44:52Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-17T03:44:52Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-17T03:45:03Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-17T03:45:03Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-17T03:45:03Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-17T03:45:07Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-17T03:45:07Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-17T03:45:07Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-17T03:45:07Z"
       }
     ],
     "error": null,
@@ -189,19 +241,19 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 1399,
+      "candidates_token_count": 1287,
       "candidates_tokens_details": null,
-      "prompt_token_count": 18998,
+      "prompt_token_count": 11904,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 18998
+          "token_count": 11904
         }
       ],
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 20397,
+      "total_token_count": 13191,
       "traffic_type": null
     }
   },

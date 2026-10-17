@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "attempt_id": "746e2512150e4e9f812263939937d426",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2178094005",
+    "number": 495,
+    "title": "MTG Fast Finance Ep 495: Spidey x Secret Lair to the Moon",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-10-17T03:44:49Z",
+  "pipeline_version": "0.5.13",
+  "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+  "run_id": "38999890733",
+  "run_attempt": "1",
+  "git_sha": "86f032a86f71df63d2ccb6639621bc3553272fd5",
+  "intervention": "Review automation pilot: reuse inspected FF495 transcript; test advertised topic boundary and evidence uncertainty policy; retain prior picks on regression.",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": true,
+    "prior_status": "needs_review",
+    "prior_attempt_count": 1,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-17T03:44:49Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-17T03:44:49Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-17T03:44:52Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-17T03:44:52Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-17T03:45:03Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-17T03:45:03Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-17T03:45:03Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-10-17T03:45:03Z",
+      "event": "stage",
+      "stage": "transcribed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 2507,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 72.905,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13123,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22662,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 163
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 35785,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 88.691,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 22538,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22663,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 163
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 45201,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 707,
+            "request_seconds": 70.954,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11812,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 17853,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 17690
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 163
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 29665,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 3
+      }
+    },
+    {
+      "timestamp": "2026-10-17T03:45:03Z",
+      "event": "stage",
+      "stage": "extracting"
+    },
+    {
+      "timestamp": "2026-10-17T03:45:07Z",
+      "event": "model_call",
+      "stage": "extracting",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 3.077,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1287,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11904,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 11904
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 13191,
+        "traffic_type": null
+      },
+      "response_characters": 4230
+    },
+    {
+      "timestamp": "2026-10-17T03:45:07Z",
+      "event": "review_issues",
+      "issues": [
+        {
+          "code": "timing",
+          "path": "extraction",
+          "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-17T03:45:07Z",
+      "event": "stage",
+      "stage": "extracted",
+      "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1287,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11904,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 11904
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 13191,
+        "traffic_type": null
+      }
+    },
+    {
+      "timestamp": "2026-10-17T03:45:07Z",
+      "event": "extraction_summary",
+      "section": {
+        "located": true,
+        "label": "Cards to Watch",
+        "start_seconds": 638,
+        "end_seconds": 1406
+      },
+      "pick_count": 4,
+      "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "picks": [
+        {
+          "card": "Sylvan Library",
+          "printing": "Secret Lair",
+          "confidence": "high",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Glaring Fleshraker",
+          "printing": "Ripple foil",
+          "confidence": "high",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Faithless Looting",
+          "printing": "Secret Lair Dungeons and Dragons",
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Goldspan Dragon",
+          "printing": "Ripple Foil",
+          "confidence": "high",
+          "review_status": "approved",
+          "review_reason": null
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-17T03:45:07Z",
+      "event": "stage",
+      "stage": "validating"
+    },
+    {
+      "timestamp": "2026-10-17T03:45:07Z",
+      "event": "stage",
+      "stage": "publishing"
+    },
+    {
+      "timestamp": "2026-10-17T03:45:07Z",
+      "event": "stage",
+      "stage": "needs_review",
+      "pick_count": 4,
+      "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio."
+    }
+  ],
+  "outcome": "needs_review",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/38999890733",
+  "finished_at": "2026-10-17T03:45:07Z",
+  "pick_count": 4,
+  "local_outputs_written": true,
+  "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

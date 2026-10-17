@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.12",
-  "updated_at": "2026-10-17T00:35:10Z",
+  "pipeline_version": "0.5.13",
+  "updated_at": "2026-10-17T03:45:07Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -25787,6 +25787,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-13T02:58:16Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-17T03:44:49Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-17T03:44:49Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-17T03:44:52Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-17T03:44:52Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-17T03:45:03Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-17T03:45:03Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-17T03:45:03Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-17T03:45:07Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-17T03:45:07Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-17T03:45:07Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-17T03:45:07Z"
         }
       ],
       "title": "MTG Fast Finance Ep 495: Spidey x Secret Lair to the Moon",
@@ -25794,11 +25838,11 @@
       "published_at": "2025-09-28T17:39:22Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-13T02:58:16Z",
+      "updated_at": "2026-10-17T03:45:07Z",
       "output_directory": "episodes/0495-spidey-x-secret-lair-to-the-moon",
       "transcription": {
         "provider": "Gemini",
@@ -25905,23 +25949,31 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1399,
+        "candidates_token_count": 1287,
         "candidates_tokens_details": null,
-        "prompt_token_count": 18998,
+        "prompt_token_count": 11904,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 18998
+            "token_count": 11904
           }
         ],
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 20397,
+        "total_token_count": 13191,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
+      "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "review_issues": [
+        {
+          "code": "timing",
+          "path": "extraction",
+          "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+          "state": "unresolved"
+        }
+      ]
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15718": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15718",
