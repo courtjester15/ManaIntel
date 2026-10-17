@@ -1242,6 +1242,8 @@ class ProductionPipelineTests(unittest.TestCase):
             retained = json.load(source)
         self.assertEqual(candidate.guid, retained["episode"]["guid"])
         self.assertEqual("test", retained["transcript"]["provider"])
+        from ffw.config import TRANSCRIPTION_PROMPT_VERSION
+        self.assertEqual(TRANSCRIPTION_PROMPT_VERSION, retained["transcription_prompt_version"])
         second = pipeline.run(limit=1)
         self.assertEqual([], second)
         self.assertEqual(1, pipeline.last_selection.completed_skipped)

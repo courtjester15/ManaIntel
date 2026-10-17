@@ -544,6 +544,7 @@ class Pipeline:
                         "episode": self._episode_metadata(episode),
                         "pipeline_version": PIPELINE_VERSION,
                         "prompt_version": PROMPT_VERSION,
+                        "transcription_prompt_version": TRANSCRIPTION_PROMPT_VERSION,
                         "transcript": transcript,
                     }, output, ensure_ascii=False, separators=(",", ":"))
 
