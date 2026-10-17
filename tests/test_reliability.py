@@ -404,6 +404,21 @@ class ReliabilityTests(unittest.TestCase):
         output = self.settings.archive_dir / result.output_directory
         return pipeline, item, output
 
+    def test_forced_reprocess_preserves_specific_printing_and_pick_ids(self):
+        from copy import deepcopy
+        pipeline, item, output = self.published()
+        before = load_json(output / "summary.json")
+        self.assertTrue(before["recommendations"][0]["printing"])
+        candidate_output = {"section": deepcopy(before["section"]),
+                            "recommendations": deepcopy(before["recommendations"])}
+        candidate_output["recommendations"][0]["printing"] = None
+        with patch.object(pipeline.extractor, "extract", return_value=candidate_output):
+            result = pipeline.process_episode(item, force=True)
+        after = load_json(output / "summary.json")
+        self.assertEqual("needs_review", result.status)
+        self.assertEqual(before["recommendations"], after["recommendations"])
+        self.assertTrue(any(issue["code"] == "printing" for issue in after["processing"]["review_issues"]))
+
     def test_compressed_transcript_retranscribes_only_matching_chunk(self):
         pipeline, item, _ = self.published()
         healthy = {"segments": [{"start": 600, "end": 650, "text": "A correctly timed recommendation."}]}

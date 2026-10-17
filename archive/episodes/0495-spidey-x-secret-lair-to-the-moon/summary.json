@@ -22,8 +22,14 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification.",
     "review_issues": [
+      {
+        "code": "printing",
+        "path": "extraction",
+        "reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification.",
+        "state": "unresolved"
+      },
       {
         "code": "timing",
         "path": "extraction",
@@ -255,6 +261,12 @@
       "tool_use_prompt_tokens_details": null,
       "total_token_count": 13191,
       "traffic_type": null
+    },
+    "review_recovery": {
+      "method": "preserve_prior_publication",
+      "candidate_run_id": "38999890733",
+      "baseline_run_id": "38338866689",
+      "reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification."
     }
   },
   "section": {
@@ -270,7 +282,7 @@
   "recommendations": [
     {
       "card": "Sylvan Library",
-      "printing": "Secret Lair",
+      "printing": "Secret Lair Rainbow Foil",
       "printing_certainty": "confirmed",
       "foil": true,
       "hosts": [],
@@ -279,61 +291,62 @@
       "entry_target": {
         "raw": "$20",
         "currency": "USD",
-        "minimum": 20,
-        "maximum": 20
+        "minimum": 20.0,
+        "maximum": 20.0
       },
       "hold": "6 to 12 months",
       "exit_target": {
         "raw": "$40",
         "currency": "USD",
-        "minimum": 40,
-        "maximum": 40
+        "minimum": 40.0,
+        "maximum": 40.0
       },
       "reasoning": [
-        "Hit bottom and gotten cheap",
-        "In more than 300,000 Commander decks online",
-        "Only one other special version (Dominaria Remastered Mythic Borderless) which is safely at 50",
-        "Less than 40 listings left on TCG player",
-        "Vendors didn't go very deep on this drop"
+        "It has hit bottom and is a super staple in more than 300,000 Commander decks online.",
+        "There are less than 40 listings left on TCG player with low inventory because printers didn't go very deep."
       ],
       "caveats": [],
       "confidence": "high",
       "start_seconds": 654,
       "end_seconds": 743,
-      "evidence_excerpt": "the Secret Lair version that came out not too long ago, you can get the Rainbow Foils for $20.",
+      "evidence_excerpt": "the Secret Lair version that came out not too long ago, you can get the Rainbow Foils for $20... hit bottom and you should get your copies while they're cheap.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-be6fb12b35584481",
+      "id": "pick-9412014b4979db94",
       "timestamp": "00:10:54",
       "listen_url": "https://feeds.soundcloud.com/stream/2178094005-user-519789566-mtg-fast-finance-ep-495-spidey-x-secret-lair-to-the-moon.mp3#t=654"
     },
     {
       "card": "Glaring Fleshraker",
-      "printing": "Ripple foil",
+      "printing": "Ripple Foil",
       "printing_certainty": "confirmed",
       "foil": true,
       "hosts": [],
       "recommendation": "buy",
       "mentioned_price": null,
-      "entry_target": null,
-      "hold": "next few months",
-      "exit_target": {
-        "raw": "20 to 40",
+      "entry_target": {
+        "raw": "early to mid 20s",
         "currency": "USD",
-        "minimum": 20,
-        "maximum": 40
+        "minimum": 20.0,
+        "maximum": 25.0
+      },
+      "hold": "a few months",
+      "exit_target": {
+        "raw": "40",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
       },
       "reasoning": [
-        "Keeps showing up in six or seven different varieties of Eldrazi decks in modern and EDH",
-        "In 75,000 decks in just over a year since release",
-        "Unlikely to get a reprint anytime soon",
-        "Just 11 listings left hovering in the early to mid 20s"
+        "Keeps showing up in Eldrazi decks in modern and EDH.",
+        "Unlikely to get a reprint anytime soon without an Eldrazi themed set.",
+        "Only 11 listings left hovering in the early to mid 20s."
       ],
       "caveats": [],
       "confidence": "high",
       "start_seconds": 757,
-      "end_seconds": 858,
-      "evidence_excerpt": "my first selection this week is glaring fleshraker Ripple foil.",
+      "end_seconds": 812,
+      "evidence_excerpt": "glaring fleshraker Ripple foil... with just 11 listings left and they're all hovering in the like early to mid 20s",
       "review_status": "approved",
       "review_reason": null,
       "id": "pick-05c67c6cec2d3bc8",
@@ -342,31 +355,39 @@
     },
     {
       "card": "Faithless Looting",
-      "printing": "Secret Lair Dungeons and Dragons",
+      "printing": "Secret Lair Dungeons and Dragons Rainbow Foil",
       "printing_certainty": "confirmed",
       "foil": true,
       "hosts": [],
       "recommendation": "buy",
       "mentioned_price": "$6",
-      "entry_target": null,
+      "entry_target": {
+        "raw": "6",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
       "hold": null,
-      "exit_target": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
       "reasoning": [
-        "Top card for modern",
-        "Rainbow foil available cheaply with Advanced D&D handbook art from 1978",
-        "Potential to be targeted if a faithless looting deck puts multiple copies into the top eight of the Pro tour"
+        "Top card for Norman Osborne in modern with 63 listings left.",
+        "Potential for sudden buyouts by the four-of if a meta shift happens."
       ],
       "caveats": [
-        "63 listings left, so not going to dry up overnight",
-        "Does not have instant acceleration unless there is a meta shift"
+        "Does not have instant acceleration unless a meta shift happens."
       ],
       "confidence": "medium",
       "start_seconds": 861,
-      "end_seconds": 999,
-      "evidence_excerpt": "there is another one that is available in Rainbow Foil for lovely cheap, and that is the uh Secret Lair uh Dungeons and Dragons",
+      "end_seconds": 969,
+      "evidence_excerpt": "Secret Lair uh Dungeons and Dragons that has uh art from the Advanced D&D handbook from 1978... Rainbow Foil sells 1Z2Z copies a day or 63 listings left.",
       "review_status": "approved",
       "review_reason": null,
-      "id": "pick-8d3521d7c34579cf",
+      "id": "pick-e7f0403ee760d7e1",
       "timestamp": "00:14:21",
       "listen_url": "https://feeds.soundcloud.com/stream/2178094005-user-519789566-mtg-fast-finance-ep-495-spidey-x-secret-lair-to-the-moon.mp3#t=861"
     },
@@ -379,28 +400,27 @@
       "recommendation": "buy",
       "mentioned_price": "$12 to $13",
       "entry_target": {
-        "raw": "$12 to $13",
+        "raw": "12 to 13",
         "currency": "USD",
-        "minimum": 12,
-        "maximum": 13
+        "minimum": 12.0,
+        "maximum": 13.0
       },
       "hold": null,
       "exit_target": {
         "raw": "25 or 30",
         "currency": "USD",
-        "minimum": 25,
-        "maximum": 30
+        "minimum": 25.0,
+        "maximum": 30.0
       },
       "reasoning": [
-        "Ripple Foils are down to just 24 listings",
-        "Ripple Foils and Surge Foils eventually get hollowed out through attrition",
-        "Every treasure deck wants one"
+        "Ripple Foils are down to just 24 listings, which is half of secret lair listings.",
+        "Surge foils and ripple foils eventually get hollowed out through attrition."
       ],
       "caveats": [],
-      "confidence": "high",
+      "confidence": "medium",
       "start_seconds": 1043,
-      "end_seconds": 1126,
-      "evidence_excerpt": "my final selection this week is the Goldspan Dragon Ripple Foil out of the Modern Horizons 3 Dax.",
+      "end_seconds": 1128,
+      "evidence_excerpt": "Goldspan Dragon Ripple Foil out of the Modern Horizons 3 Dax... Ripple Foils are down to just 24 listings... and they are at $12 to $13.",
       "review_status": "approved",
       "review_reason": null,
       "id": "pick-c4ccf1a3ae548251",

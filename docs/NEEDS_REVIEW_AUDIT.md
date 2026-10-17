@@ -96,3 +96,9 @@ Flags below overlap. B = section boundary; P = flagged picks; T = recorded timin
 | 38 | mtg-fast-finance | 5 | B | None |
 | 37 | mtg-fast-finance | 4 | B | None |
 | 36 | mtg-fast-finance | 5 | B | None |
+
+## Implementation and pilot outcome
+
+0.5.13 shipped independent review issue codes, mixed-warning-safe name checks, out-of-audio abstention, source-caveat extraction guidance, separate transcription cache identity, and a conservative advertised-topic handoff rule. Pilot [38999890733](https://github.com/courtjester15/ManaIntel/actions/runs/38999890733) reused FF 495's retained transcript: the section now ends on supported topic-transition evidence, all four card names remained, and timestamp concerns remained reviewable. The candidate shortened two printing descriptions. The 0.5.14 follow-up protects known printing/foil identities and restores the exact original four recommendation records/IDs while retaining the supported boundary; both timing and the restoration are recorded. Candidate output/comparison stays in the private run artifact.
+
+This is the first implementation batch, not clearance of the forty-episode backlog. Multiple recommendation windows, quote/audio realignment and evidence-backed scope dispositions remain future bounded work. No broad claim of source accuracy follows from this pilot.

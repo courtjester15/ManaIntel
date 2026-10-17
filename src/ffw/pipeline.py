@@ -22,7 +22,7 @@ from .rendering import render_episode_markdown
 from .state import JsonStateStore
 from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json, seconds_to_timestamp, stable_pick_id
 from .verification import GeminiPickVerifier
-from .review_issues import collect_review_issues
+from .review_issues import collect_review_issues, published_version_regression
 from .validation import validate_archive
 
 PERMANENT_PROVIDER_ERROR_PATTERNS = (
@@ -95,7 +95,7 @@ EPISODE_ERROR_PATTERNS = (
 )
 
 ZERO_PICK_REPROCESS_REVIEW = (
-    "Forced reprocessing omitted published recommendations; "
+    "Forced reprocessing omitted published recommendations or changed their known printing identities; "
     "the previous recommendations were retained for review."
 )
 
@@ -609,7 +609,8 @@ class Pipeline:
                 baseline_summary is not None
                 and baseline_summary.get("recommendations")
                 and (
-                    len(summary.get("recommendations", [])) < len(baseline_summary["recommendations"])
+                    published_version_regression(baseline_summary, summary)
+                    or len(summary.get("recommendations", [])) < len(baseline_summary["recommendations"])
                     or not {str(p["card"]).casefold().strip() for p in baseline_summary["recommendations"]}.issubset(
                         {str(p["card"]).casefold().strip() for p in summary.get("recommendations", [])}
                     )

@@ -25965,15 +25965,27 @@
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "review_reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification.",
       "review_issues": [
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification.",
+          "state": "unresolved"
+        },
         {
           "code": "timing",
           "path": "extraction",
           "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "review_recovery": {
+        "method": "preserve_prior_publication",
+        "candidate_run_id": "38999890733",
+        "baseline_run_id": "38338866689",
+        "reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification."
+      }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15718": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15718",

@@ -60,3 +60,23 @@ def collect_review_issues(extraction: dict[str, Any], duration_seconds: float | 
             if not section["start_seconds"] <= start <= section["end_seconds"]:
                 add(path, "Pick starts outside the selected recommendation section; verify coverage and alignment.", ["coverage", "timing"])
     return issues
+
+
+def published_version_regression(baseline: dict[str, Any], candidate: dict[str, Any]) -> bool:
+    """Do not replace a known published variant with a different/unknown one.
+
+    A deliberate correction belongs in an evidence-backed override. Case-only
+    spelling differences are harmless; each candidate can account for one pick.
+    """
+    remaining = list(candidate.get("recommendations", []))
+    previous = sorted(baseline.get("recommendations", []),
+                      key=lambda p: (bool(p.get("printing")), p.get("foil") is not None), reverse=True)
+    for old in previous:
+        same_card = [p for p in remaining if str(p.get("card", "")).strip().casefold() == str(old.get("card", "")).strip().casefold()]
+        matches = [p for p in same_card
+                   if (not old.get("printing") or str(p.get("printing") or "").strip().casefold() == str(old["printing"]).strip().casefold())
+                   and (old.get("foil") is None or p.get("foil") == old["foil"])]
+        if not matches:
+            return True
+        remaining.remove(matches[0])
+    return False

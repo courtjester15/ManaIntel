@@ -22,8 +22,14 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification.",
     "review_issues": [
+      {
+        "code": "printing",
+        "path": "extraction",
+        "reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification.",
+        "state": "unresolved"
+      },
       {
         "code": "timing",
         "path": "extraction",
@@ -255,6 +261,12 @@
       "tool_use_prompt_tokens_details": null,
       "total_token_count": 13191,
       "traffic_type": null
+    },
+    "review_recovery": {
+      "method": "preserve_prior_publication",
+      "candidate_run_id": "38999890733",
+      "baseline_run_id": "38338866689",
+      "reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification."
     }
   },
   "outputs": {

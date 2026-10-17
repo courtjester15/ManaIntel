@@ -134,3 +134,26 @@ class IssueClassificationTests(unittest.TestCase):
         from ffw.review_issues import reason_codes
         self.assertEqual(["coverage"], reason_codes(
             "Recommendation segment found without an explicit ending; review the bounded extraction."))
+
+
+class PublishedVersionTests(unittest.TestCase):
+    def test_less_specific_printing_or_lost_foil_preserves_prior_publication(self):
+        from ffw.review_issues import published_version_regression
+        old = {"recommendations": [{"card": "Example", "printing": "Secret Lair Rainbow Foil", "foil": True}]}
+        for printing, foil in (("Secret Lair", True), (None, True), ("Secret Lair Rainbow Foil", None)):
+            with self.subTest(printing=printing, foil=foil):
+                self.assertTrue(published_version_regression(old, {"recommendations": [
+                    {"card": "Example", "printing": printing, "foil": foil}]}))
+        self.assertFalse(published_version_regression(old, {"recommendations": [
+            {"card": "example", "printing": "secret lair rainbow foil", "foil": True}]}))
+
+    def test_one_candidate_cannot_account_for_two_distinct_published_versions(self):
+        from ffw.review_issues import published_version_regression
+        old = {"recommendations": [{"card": "Example", "printing": printing} for printing in ("Regular", "Showcase")]}
+        self.assertTrue(published_version_regression(old, {"recommendations": [
+            {"card": "Example", "printing": "Regular"}]}))
+
+    def test_unknown_old_printing_can_gain_supported_specificity(self):
+        from ffw.review_issues import published_version_regression
+        self.assertFalse(published_version_regression({"recommendations": [{"card": "Example", "printing": None}]},
+            {"recommendations": [{"card": "Example", "printing": "Regular"}]}))
