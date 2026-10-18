@@ -1,0 +1,477 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15711",
+    "episode_number": 664,
+    "title": "Ban Proof Izzet Deck | Brainstorm Brewery #664 | Magic Finance",
+    "published_at": "2025-09-05T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Fizzless_Brainstorm_Brewery_664_Ban_Proof_Izzet_Deck.mp3",
+    "episode_url": "https://brainstormbrewery.com/ban-proof-izzet-deck-brainstorm-brewery-664-magic-finance/",
+    "duration_seconds": 3230,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) take on a new exciting sponsor price sensitivity, how to ban-proof your izzet deck and the effect of the metagame. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_issues": [
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.14",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-18T04:33:33Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-18T04:31:11Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-18T04:31:11Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-18T04:31:11Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-18T04:31:11Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-18T04:31:13Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-18T04:31:13Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-18T04:31:32Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-18T04:33:28Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-18T04:33:28Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-18T04:33:33Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-18T04:33:33Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-18T04:33:33Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-18T04:33:33Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3230,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 28.579,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12455,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22702,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 203
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35157,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 28.208,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13675,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22703,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 203
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36378,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.932,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17445,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22703,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 203
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40148,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 530,
+          "request_seconds": 21.719,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9861,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 13450,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 203
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 13247
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 23311,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 4
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1982,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 16684,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 16684
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 18666,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 2032,
+    "end_seconds": 3212,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Azure Beastbinder",
+      "printing": "Bloomburrow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "break bulk / buylist",
+      "mentioned_price": "50c",
+      "entry_target": {
+        "raw": "50c buylist",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": 0.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50c buylist",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": 0.5
+      },
+      "reasoning": [
+        "Card has a 50c buylist and TCG low is about 50 cents."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2118,
+      "end_seconds": 2135,
+      "evidence_excerpt": "It's Azure Beastbinder. Card has a 50c buylist, TCG low is about 50 cents.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-3763bf5ac92483e7",
+      "timestamp": "00:35:18",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Fizzless_Brainstorm_Brewery_664_Ban_Proof_Izzet_Deck.mp3#t=2118"
+    },
+    {
+      "card": "Fell Specter",
+      "printing": "Core Set 2019",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "break bulk / buylist",
+      "mentioned_price": "41 cents",
+      "entry_target": {
+        "raw": "40 cents",
+        "currency": "USD",
+        "minimum": 0.4,
+        "maximum": 0.4
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "a quarter",
+        "currency": "USD",
+        "minimum": 0.25,
+        "maximum": 0.25
+      },
+      "reasoning": [
+        "Card Kingdom will pay a quarter on up to 58 copies.",
+        "Market price is surprisingly low at 41 cents."
+      ],
+      "caveats": [
+        "Foils are worth about $5."
+      ],
+      "confidence": null,
+      "start_seconds": 2216,
+      "end_seconds": 2408,
+      "evidence_excerpt": "Fell Specter is a four mana 2 2 or four mana 1 3 flyer... market price on this is surprisingly low, it is 41 cents, but Card Kingdom will pay you a quarter",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fec95c1b2c06f807",
+      "timestamp": "00:36:56",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Fizzless_Brainstorm_Brewery_664_Ban_Proof_Izzet_Deck.mp3#t=2216"
+    },
+    {
+      "card": "Jace's Archivist",
+      "printing": "Commander 2015",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "pick of the week",
+      "mentioned_price": "$6",
+      "entry_target": {
+        "raw": "$6",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "reasoning": [
+        "People are willing to pay up to $20 for the list copy while the Commander 2015 copy is a third of that.",
+        "Ever increasing draw triggers happening in Magic."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2831,
+      "end_seconds": 2953,
+      "evidence_excerpt": "Jace's Archivist is one that went through a couple times recently... It was an M15 version that is worth roughly $6. And so, I am picking Jace's Archivist because people are willing to pay up to $20 for the list copy",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-29d66a6e9d8aeda8",
+      "timestamp": "00:47:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Fizzless_Brainstorm_Brewery_664_Ban_Proof_Izzet_Deck.mp3#t=2831"
+    },
+    {
+      "card": "Wheel of Fortune",
+      "printing": "Revised",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "pick of the week",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "underpriced",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "underpriced",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Wheel of Fortune is also criminally underpriced right now on TCG player."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2863,
+      "end_seconds": 2895,
+      "evidence_excerpt": "Wheel of Fortune is also criminally underpriced right now on TCG player. So you can put that in for I'll steel two picks of the week... Wheel of Fortune revised printing is the guest's pick",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-594d084bfcde7348",
+      "timestamp": "00:47:43",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Fizzless_Brainstorm_Brewery_664_Ban_Proof_Izzet_Deck.mp3#t=2863"
+    },
+    {
+      "card": "Nova Hellkite",
+      "printing": "Edge of Eternity",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "pick of the week",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "four to five",
+        "currency": "USD",
+        "minimum": 4.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "Card is like $2 right now, probably going to be four to five.",
+        "Good card for standard."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2956,
+      "end_seconds": 3019,
+      "evidence_excerpt": "Nova Hellkite from Edge of Eternity. Really, it's just it the card is like $2 right now. It's probably going to be four to five",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5048c27357545935",
+      "timestamp": "00:49:16",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Fizzless_Brainstorm_Brewery_664_Ban_Proof_Izzet_Deck.mp3#t=2956"
+    },
+    {
+      "card": "Swarmyard",
+      "printing": "Edge of Eternities",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "pick of the week",
+      "mentioned_price": "$2, $3",
+      "entry_target": {
+        "raw": "$2, $3",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 3.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$2, $3",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 3.0
+      },
+      "reasoning": [
+        "It was a bonus sheet card in Edge of Eternities, and it regenerates every Spider-Man.",
+        "It is a land that protects your commander."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3059,
+      "end_seconds": 3126,
+      "evidence_excerpt": "Swarmyard just got reprinted. It's dirt cheap. It was a bonus sheet card in Edge of Eternities, and it regenerates every Spider-Man. Swarmyard's like $2, $3.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-081d7a5624eb85b9",
+      "timestamp": "00:50:59",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Fizzless_Brainstorm_Brewery_664_Ban_Proof_Izzet_Deck.mp3#t=3059"
+    }
+  ]
+}
