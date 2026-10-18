@@ -31,6 +31,7 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-10-17T04:24:31Z — brainstorm-brewery 722: **needs_review**; retry; 7 picks; 9 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/c18c80653bda421fb0d3133a179201a2.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39002390018)
 - 2026-10-17T22:17:08Z — mtg-fast-finance 492: **needs_review**; initial processing; bounded chunk split; 4 picks; 9 observed model calls; 0 checkpoints reused; 1 failed model calls; 0 unavailable-model skips; archive validation=success. [Details](attempts/f0ef9dff69294bb3bec973683606697f.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39074388546)
 - 2026-10-18T04:31:11Z — brainstorm-brewery 664: **needs_review**; initial processing; 6 picks; 5 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/50f976687d3f484ca5f564301fb89a4c.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39097322757)
+- 2026-10-18T22:25:18Z — mtg-fast-finance 491: **needs_review**; initial processing; 8 picks; 5 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/4a65275a84e548df8800ce8f2958cadd.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39172088522)
 
 ## Workflow outcomes
 
@@ -94,3 +95,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-10-18T00:06:20Z — run 39081488130/1: preflight=success; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=true; queue=no eligible episode. [Details](runs/39081488130-1.json)
 - 2026-10-18T04:33:39Z — run 39097322757/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/39097322757-1.json)
 - 2026-10-18T20:53:22Z — run 39165308544/1: preflight=skipped; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=false; queue=. [Details](runs/39165308544-1.json)
+- 2026-10-18T22:28:12Z — run 39172088522/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/39172088522-1.json)

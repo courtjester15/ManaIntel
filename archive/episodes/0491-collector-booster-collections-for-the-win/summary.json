@@ -1,0 +1,578 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2161221663",
+    "episode_number": 491,
+    "title": "MTG Fast Finance Ep 491: Collector Booster Collections For The Win",
+    "published_at": "2025-08-29T14:49:49Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-491-collector-booster-collections-for-the-win",
+    "duration_seconds": 3459,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, their cards to watch for the week and end up surprised at how hard older Collector Booster box prices have been surging.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_issues": [
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.14",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-18T22:28:06Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-18T22:25:20Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-18T22:25:20Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-18T22:25:41Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-18T22:28:00Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-18T22:28:00Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-18T22:28:06Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-18T22:28:06Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-18T22:28:06Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-18T22:28:06Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3459,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.33,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13011,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22679,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35690,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 52.473,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 27241,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22680,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49921,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 27.692,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13157,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22680,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35837,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 759,
+          "request_seconds": 27.19,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12525,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 19159,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18979
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 31684,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 3
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2772,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 14849,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 14849
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17621,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 375,
+    "end_seconds": 1663,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": null,
+    "start_signal": "recommendation_language",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Lumra, Bellow of the Woods",
+      "printing": "borderless",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "30 to 50",
+      "entry_target": {
+        "raw": "30 to 50",
+        "currency": null,
+        "minimum": 30,
+        "maximum": 50
+      },
+      "hold": "six months",
+      "exit_target": {
+        "raw": "30 to 50",
+        "currency": null,
+        "minimum": 30,
+        "maximum": 50
+      },
+      "reasoning": [
+        "62,000 decks on EDHREC so far",
+        "Very good in lands-matter decks",
+        "Lands-related decks will have six months of action from Final Fantasy to Avatar"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 410,
+      "end_seconds": 435,
+      "evidence_excerpt": "Lumra, Bell of the Woods, 342, I think there was two borderless versions out of BLB collector boosters; uh this one is going 30 to 50",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fee234637197624c",
+      "timestamp": "00:06:50",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=410"
+    },
+    {
+      "card": "Soul Stone Sanctuary",
+      "printing": "extended art",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "4 to $8",
+      "entry_target": {
+        "raw": "4 to $8",
+        "currency": "$",
+        "minimum": 4,
+        "maximum": 8
+      },
+      "hold": "three to six months",
+      "exit_target": {
+        "raw": "4 to $8",
+        "currency": "$",
+        "minimum": 4,
+        "maximum": 8
+      },
+      "reasoning": [
+        "100% gains, draining out under solid standard pressure",
+        "Pretty much all versions of this card have been on an upswing for the last three to six months",
+        "Getting a ton of play in two-color decks in standard"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 436,
+      "end_seconds": 453,
+      "evidence_excerpt": "Soul Stone Sanctuary extended arts out of foundation, 4 to $8, 100% gains, draining out under solid standard pressure",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b69626846e558292",
+      "timestamp": "00:07:16",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=436"
+    },
+    {
+      "card": "Sunfall",
+      "printing": "first place foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "12 to 25",
+      "entry_target": {
+        "raw": "12 to 25",
+        "currency": null,
+        "minimum": 12,
+        "maximum": 25
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "40s",
+        "currency": null,
+        "minimum": 40,
+        "maximum": 40
+      },
+      "reasoning": [
+        "58,000 decks on EDHREC",
+        "Had to open up box topper packs to hit these, hard pull",
+        "Listings down to 17 from 25, headed quickly up into the 40s"
+      ],
+      "caveats": [
+        "Hideous mustard yellow color that does not look very good, bold and bright choice that not everybody agrees with"
+      ],
+      "confidence": null,
+      "start_seconds": 453,
+      "end_seconds": 507,
+      "evidence_excerpt": "Sun Bill of Verge, first place foil, this might surprise Cliff, 12 to 25, draining out 58,000 decks on EDH Rec.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-02c1ad55c66f289e",
+      "timestamp": "00:07:33",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=453"
+    },
+    {
+      "card": "Mind Sculptor",
+      "printing": "textured foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff",
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "20 to 45",
+      "entry_target": {
+        "raw": "20 to 45",
+        "currency": null,
+        "minimum": 20,
+        "maximum": 45
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "20 to 45",
+        "currency": null,
+        "minimum": 20,
+        "maximum": 45
+      },
+      "reasoning": [
+        "Discussed in the Discord today, looking like it could push higher"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 510,
+      "end_seconds": 557,
+      "evidence_excerpt": "Mind Slaver textured foil on the move was discussed in the in the Discord today, 20 to 45, and it looks like it could push higher.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-77e62d4809e24b8c",
+      "timestamp": "00:08:30",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=510"
+    },
+    {
+      "card": "Terra Eternal",
+      "printing": "non-foil",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "4 to 9",
+      "entry_target": {
+        "raw": "4 to 9",
+        "currency": null,
+        "minimum": 4,
+        "maximum": 9
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "4 to 9",
+        "currency": null,
+        "minimum": 4,
+        "maximum": 9
+      },
+      "reasoning": [
+        "Earthbending Avatar cards driving that motion"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 561,
+      "end_seconds": 576,
+      "evidence_excerpt": "Terra Eternal, your foil was your foil pick two weeks ago, I believe. Roadway copies got one to four last week, non foil. This week they got four to nine",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9d15bc263694848c",
+      "timestamp": "00:09:21",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=561"
+    },
+    {
+      "card": "Ancient Copper Dragon",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": false,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "65",
+      "entry_target": {
+        "raw": "65",
+        "currency": "$",
+        "minimum": 65,
+        "maximum": 65
+      },
+      "hold": "a year to a year and a half",
+      "exit_target": {
+        "raw": "100 plus",
+        "currency": "$",
+        "minimum": 100,
+        "maximum": 100
+      },
+      "reasoning": [
+        "Features uniquely produced Yoshitaka Amano art made just for the set",
+        "Final Fantasy product is expensive, vendors sell sealed rather than cracking for singles",
+        "Selling 10 a day with only 71 near mint listings left",
+        "In 140,000 decks on EDHREC"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1062,
+      "end_seconds": 1239,
+      "evidence_excerpt": "I'm taking a look at Dragon of Mount Gulge Ancient Copper Dragon... give this a year to a year and a half and it's going to go from 65 to $100 plus.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f41e8de3a543099a",
+      "timestamp": "00:17:42",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=1062"
+    },
+    {
+      "card": "Zuran Orb",
+      "printing": "Galaxy foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "20",
+      "entry_target": {
+        "raw": "20",
+        "currency": "$",
+        "minimum": 20,
+        "maximum": 20
+      },
+      "hold": "six months",
+      "exit_target": {
+        "raw": "50",
+        "currency": "$",
+        "minimum": 50,
+        "maximum": 50
+      },
+      "reasoning": [
+        "Sweet Galaxy foil version in the alien Aurora's set",
+        "Only 20 vendors with inventory",
+        "Synergy with Toff"
+      ],
+      "caveats": [
+        "Galaxy foils are sometimes considered too understated by buyers",
+        "Were going for under $10 two weeks ago during dump week",
+        "Full inventory receipt has not yet occurred for some packages"
+      ],
+      "confidence": null,
+      "start_seconds": 1244,
+      "end_seconds": 1373,
+      "evidence_excerpt": "The Zuren Orb is available in Galaxy foil right now for about $20... pop up to $50 sometime in the next six months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-08825983e7ef8992",
+      "timestamp": "00:20:44",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=1244"
+    },
+    {
+      "card": "Fatal Push",
+      "printing": "black and white foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "10 to 12",
+      "entry_target": {
+        "raw": "10 to 12",
+        "currency": "$",
+        "minimum": 10,
+        "maximum": 12
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "25",
+        "currency": "$",
+        "minimum": 25,
+        "maximum": 25
+      },
+      "reasoning": [
+        "Constant four-of in modern play",
+        "One of the rarest fatal pushes with only 40 listings left",
+        "Do not show up in buy lists very often, hard for vendors to restock"
+      ],
+      "caveats": [
+        "Only sells one a day",
+        "Not everyone in the market realizes these black and white foils were chase or knows they exist",
+        "Past premium fatal push versions haven't always panned out well"
+      ],
+      "confidence": null,
+      "start_seconds": 1373,
+      "end_seconds": 1663,
+      "evidence_excerpt": "let's take a look at the same black and white foil of fatal push... I can see those pretty easily going to 25",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-20415e65b1c9498c",
+      "timestamp": "00:22:53",
+      "listen_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3#t=1373"
+    }
+  ]
+}

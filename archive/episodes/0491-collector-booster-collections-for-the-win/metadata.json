@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2161221663",
+    "episode_number": 491,
+    "title": "MTG Fast Finance Ep 491: Collector Booster Collections For The Win",
+    "published_at": "2025-08-29T14:49:49Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2161221663-user-519789566-mtg-fast-finance-ep-491-collector-booster-collections-for-the-win.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-491-collector-booster-collections-for-the-win",
+    "duration_seconds": 3459,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, their cards to watch for the week and end up surprised at how hard older Collector Booster box prices have been surging.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_issues": [
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.14",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-18T22:28:06Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-18T22:25:18Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-18T22:25:20Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-18T22:25:20Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-18T22:25:41Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-18T22:28:00Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-18T22:28:00Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-18T22:28:06Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-18T22:28:06Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-18T22:28:06Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-18T22:28:06Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3459,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.33,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13011,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22679,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35690,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 52.473,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 27241,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22680,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 49921,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 27.692,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13157,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22680,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35837,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 759,
+          "request_seconds": 27.19,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12525,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 19159,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 180
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 18979
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 31684,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 3
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2772,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 14849,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 14849
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17621,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0491-collector-booster-collections-for-the-win/metadata.json",
+    "summary_json": "episodes/0491-collector-booster-collections-for-the-win/summary.json",
+    "summary_markdown": "episodes/0491-collector-booster-collections-for-the-win/summary.md"
+  }
+}
