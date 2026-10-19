@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.14",
-  "updated_at": "2026-10-19T04:42:37Z",
+  "updated_at": "2026-10-19T23:45:45Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28253,6 +28253,65 @@
       "status": "failed",
       "updated_at": "2026-10-19T04:42:37Z",
       "output_directory": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance"
+    },
+    "tag:soundcloud,2010:tracks/2422332303": {
+      "guid": "tag:soundcloud,2010:tracks/2422332303",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-19T23:39:39Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-19T23:39:39Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-19T23:39:39Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-19T23:39:39Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-19T23:39:40Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-19T23:39:40Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-19T23:40:07Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-19T23:45:45Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
+      "episode_number": 537,
+      "published_at": "2026-10-19T22:23:10Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
+        "category": "manual_intervention",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      },
+      "status": "failed",
+      "updated_at": "2026-10-19T23:45:45Z",
+      "output_directory": "episodes/0537-reality-fracture-deep-dive"
     }
   }
 }

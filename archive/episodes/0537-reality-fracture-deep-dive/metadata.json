@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2422332303",
+    "episode_number": 537,
+    "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
+    "published_at": "2026-10-19T22:23:10Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
+    "duration_seconds": 4423,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Your hosts break down the Magic the Gathering card price action of the week, including meta updates, cards to watch and a deeper dive on the best cards from Reality Fracture.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.14",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-19T23:45:45Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-19T23:39:39Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-19T23:39:39Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-19T23:39:39Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-19T23:39:39Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-19T23:39:40Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-19T23:39:40Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-19T23:40:07Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-19T23:45:45Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
+      "category": "manual_intervention",
+      "synthetic": false,
+      "retryable": false,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": null,
+      "quarantined": true
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0537-reality-fracture-deep-dive/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
