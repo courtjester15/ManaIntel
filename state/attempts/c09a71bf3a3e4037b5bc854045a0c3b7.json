@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "attempt_id": "c09a71bf3a3e4037b5bc854045a0c3b7",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
+    "number": 663,
+    "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-10-19T04:39:02Z",
+  "pipeline_version": "0.5.14",
+  "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+  "run_id": "39200466973",
+  "run_attempt": "1",
+  "git_sha": "0787a13cdfbc42913ece92875821ebd7eb2c5771",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-19T04:39:02Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-19T04:39:02Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-19T04:39:04Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-19T04:39:04Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-19T04:39:26Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-19T04:40:04Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 36.933,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 17130,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22697,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 198
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22499
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 39827,
+        "traffic_type": null
+      },
+      "response_characters": 46691
+    },
+    {
+      "timestamp": "2026-10-19T04:40:46Z",
+      "event": "model_call",
+      "chunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 42.58,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 19053,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22698,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 198
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 41751,
+        "traffic_type": null
+      },
+      "response_characters": 52098
+    },
+    {
+      "timestamp": "2026-10-19T04:41:20Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 33.893,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 14953,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22698,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 198
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 37651,
+        "traffic_type": null
+      },
+      "response_characters": 45444
+    },
+    {
+      "timestamp": "2026-10-19T04:42:04Z",
+      "event": "model_call",
+      "chunk": 4,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 44.04,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 19997,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22698,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 198
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 42695,
+        "traffic_type": null
+      },
+      "response_characters": 55368
+    },
+    {
+      "timestamp": "2026-10-19T04:42:12Z",
+      "event": "model_call",
+      "chunk": 5,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 7.585,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 3100,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 3749,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 3551
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 198
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 6849,
+        "traffic_type": null
+      },
+      "response_characters": 8566
+    },
+    {
+      "timestamp": "2026-10-19T04:42:12Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [
+        1,
+        4
+      ],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-10-19T04:42:26Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 12.717,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 5363,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 5702,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 5625
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 77
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 11065,
+        "traffic_type": null
+      },
+      "response_characters": 14511
+    },
+    {
+      "timestamp": "2026-10-19T04:42:37Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 9.77,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 3918,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 5702,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 77
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 5625
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 9620,
+        "traffic_type": null
+      },
+      "response_characters": 11821
+    },
+    {
+      "timestamp": "2026-10-19T04:42:37Z",
+      "event": "repair_timing_rejected",
+      "chunk": 1,
+      "subchunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "clip_seconds": 225.0,
+      "segment_count": 41,
+      "max_end": 266.54,
+      "invalid_bounds": 7,
+      "backward_jumps": 0,
+      "zero_length_segments": 0
+    },
+    {
+      "timestamp": "2026-10-19T04:42:37Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Timing/coverage repair of original chunk 1/5 failed: Gemini transcription chunk 1/1 failed after 25.0s: RuntimeError: Split repair clip 2/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps."
+    },
+    {
+      "timestamp": "2026-10-19T04:42:37Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/39200466973",
+  "finished_at": "2026-10-19T04:42:37Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

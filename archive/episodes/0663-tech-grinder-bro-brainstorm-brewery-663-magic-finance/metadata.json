@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
+    "episode_number": 663,
+    "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
+    "published_at": "2025-08-29T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_663_Tech_Grinder_Bro.mp3",
+    "episode_url": "https://brainstormbrewery.com/tech-grinder-bro-brainstorm-brewery-663-magic-finance/",
+    "duration_seconds": 3742,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) explore what is broken in Standard, Spider-Man speculation, and that collector booster crack.&#160; Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.14",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-19T04:42:37Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-19T04:39:04Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-19T04:39:04Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-19T04:39:26Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-19T04:42:37Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing/coverage repair of original chunk 1/5 failed: Gemini transcription chunk 1/1 failed after 25.0s: RuntimeError: Split repair clip 2/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+      "category": "transient_model_output",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-19T10:42:37Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

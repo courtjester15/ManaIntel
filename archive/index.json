@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.14",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-18T22:28:09Z",
+    "generated_at": "2026-10-19T04:42:37Z",
     "latest_successful_run_at": "2026-10-18T22:28:06Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 111,
+    "real_episode_count": 112,
     "real_pick_count": 450,
     "last_discovered_episode_date": "2026-10-16T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,15 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 111,
+    "episodes": 112,
     "picks": 450,
     "needs_review": 44,
-    "failed": 0,
+    "failed": 1,
     "completed": 67
   },
   "status_counts": {
     "needs_review": 44,
-    "complete": 67
+    "complete": 67,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
@@ -4359,6 +4360,56 @@
       },
       "processed_at": "2026-10-18T22:28:06Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
+      "episode_number": 663,
+      "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
+      "published_at": "2025-08-29T06:00:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_663_Tech_Grinder_Bro.mp3",
+      "episode_url": "https://brainstormbrewery.com/tech-grinder-bro-brainstorm-brewery-663-magic-finance/",
+      "duration_seconds": 3742,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) explore what is broken in Standard, Spider-Man speculation, and that collector booster crack.&#160; Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance",
+      "outputs": {
+        "metadata": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-10-19T04:42:37Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 1/5 failed: Gemini transcription chunk 1/1 failed after 25.0s: RuntimeError: Split repair clip 2/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-19T10:42:37Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

@@ -32,6 +32,7 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-10-17T22:17:08Z — mtg-fast-finance 492: **needs_review**; initial processing; bounded chunk split; 4 picks; 9 observed model calls; 0 checkpoints reused; 1 failed model calls; 0 unavailable-model skips; archive validation=success. [Details](attempts/f0ef9dff69294bb3bec973683606697f.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39074388546)
 - 2026-10-18T04:31:11Z — brainstorm-brewery 664: **needs_review**; initial processing; 6 picks; 5 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/50f976687d3f484ca5f564301fb89a4c.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39097322757)
 - 2026-10-18T22:25:18Z — mtg-fast-finance 491: **needs_review**; initial processing; 8 picks; 5 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/4a65275a84e548df8800ce8f2958cadd.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39172088522)
+- 2026-10-19T04:39:02Z — brainstorm-brewery 663: **failed**; initial processing; 0 picks; 7 observed model calls; 0 checkpoints reused; archive validation=success; Timing/coverage repair of original chunk 1/5 failed: Gemini transcription chunk 1/1 failed after 25.0s: RuntimeError: Split repair clip 2/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split. [Details](attempts/c09a71bf3a3e4037b5bc854045a0c3b7.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/39200466973)
 
 ## Workflow outcomes
 
@@ -97,3 +98,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-10-18T20:53:22Z — run 39165308544/1: preflight=skipped; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=false; queue=. [Details](runs/39165308544-1.json)
 - 2026-10-18T22:28:12Z — run 39172088522/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/39172088522-1.json)
 - 2026-10-19T00:15:18Z — run 39179880942/1: preflight=success; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=true; queue=no eligible episode. [Details](runs/39179880942-1.json)
+- 2026-10-19T04:42:40Z — run 39200466973/1: preflight=success; pipeline=success; exit=1; validation=success; selected=1; . [Details](runs/39200466973-1.json)

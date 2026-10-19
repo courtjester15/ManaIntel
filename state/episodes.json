@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.14",
-  "updated_at": "2026-10-18T22:28:06Z",
+  "updated_at": "2026-10-19T04:42:37Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28194,6 +28194,65 @@
           "state": "unresolved"
         }
       ]
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15708": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-19T04:39:02Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-19T04:39:02Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-19T04:39:02Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-19T04:39:02Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-19T04:39:04Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-19T04:39:04Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-19T04:39:26Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-19T04:42:37Z"
+        }
+      ],
+      "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
+      "episode_number": 663,
+      "published_at": "2025-08-29T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 1/5 failed: Gemini transcription chunk 1/1 failed after 25.0s: RuntimeError: Split repair clip 2/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-19T10:42:37Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-19T04:42:37Z",
+      "output_directory": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance"
     }
   }
 }
