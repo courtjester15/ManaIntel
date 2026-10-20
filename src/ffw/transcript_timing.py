@@ -96,7 +96,8 @@ def align_published_quotes(picks: list[dict], transcript: dict) -> list[dict] | 
     """Locate exact, unique source excerpts in newly audio-validated segments.
 
     No fuzzy name matching, clock scaling, or invented source evidence. Require
-    the complete normalized quote, and abstain on repeated/short excerpts.
+    every normalized quote fragment (explicit ellipses permit gaps), and abstain
+    on repeated/short excerpts.
     """
     words, spans = [], []
     for segment in transcript.get("segments", []):
@@ -105,14 +106,20 @@ def align_published_quotes(picks: list[dict], transcript: dict) -> list[dict] | 
         spans.extend([(segment["start"], segment["end"])] * len(tokens))
     result = deepcopy(picks)
     for pick in result:
-        quote = re.findall(r"[a-z0-9]+", str(pick.get("evidence_excerpt", "")).lower())
-        if len(quote) < 8:
+        fragments = [re.findall(r"[a-z0-9]+", part.lower()) for part in
+                     re.split(r"\.{3,}|\u2026", str(pick.get("evidence_excerpt", "")))]
+        fragments = [part for part in fragments if part]
+        if sum(map(len, fragments)) < 8 or any(len(part) < 3 for part in fragments):
             return None
-        matches = [i for i in range(len(words) - len(quote) + 1) if words[i:i+len(quote)] == quote]
-        if len(matches) != 1:
+        positions = []
+        for quote in fragments:
+            matches = [i for i in range(len(words) - len(quote) + 1) if words[i:i+len(quote)] == quote]
+            if len(matches) != 1:
+                return None
+            positions.append((matches[0], matches[0] + len(quote) - 1))
+        if any(positions[i][0] <= positions[i-1][1] for i in range(1, len(positions))):
             return None
-        index = matches[0]
-        start, end = spans[index][0], spans[index+len(quote)-1][1]
+        start, end = spans[positions[0][0]][0], spans[positions[-1][1]][1]
         if end < start or end - start > 180:
             return None
         pick.setdefault("identity_start_seconds", pick.get("start_seconds"))

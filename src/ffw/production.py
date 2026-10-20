@@ -615,7 +615,7 @@ class GeminiTranscriber:
         if self.checkpoint_root:
             evidence = self.checkpoint_root.parent / "transcripts"
             evidence.mkdir(parents=True, exist_ok=True)
-            encoded = json.dumps(payload, ensure_ascii=False)
+            encoded = json.dumps({"payload": payload, "metrics": metrics}, ensure_ascii=False, sort_keys=True)
             digest = hashlib.sha256(encoded.encode("utf-8")).hexdigest()[:16]
             name = f"rejected-{self._episode_checkpoint_name(episode)}-{index}-{part}-{digest}.json.gz"
             with gzip.open(evidence / name, "wt", encoding="utf-8") as output:
@@ -728,7 +728,7 @@ class GeminiTranscriber:
 
     def _repair_clip(self, client, types, episode, audio, duration, fingerprint, depth, observe):
         """Refine only rejected clips, retaining child progress and a hard call cap."""
-        from .transcript_timing import clock_string_segments, suspect_timing_chunks
+        from .transcript_timing import clock_string_segments, suspect_timing_chunks, missing_recommendation_content
         saved = self._load_chunk_checkpoint(episode, 0, 1, fingerprint, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
         if saved and saved[0].get("segments"):
             observe("checkpoint_reused", model=saved[1], repair_depth=depth)
@@ -763,19 +763,22 @@ class GeminiTranscriber:
                     clocks[-1] = (clocks[-1][0], duration)
                 invalid = sum(not (math.isfinite(a) and math.isfinite(b) and 0 <= a <= b <= duration) for a,b in clocks)
                 backward = sum(clocks[i][0] < clocks[i-1][0] - 10 for i in range(1,len(clocks)))
-                if not clocks or invalid or backward or suspect_timing_chunks(checked, duration):
+                missing = missing_recommendation_content(checked)
+                if not clocks or invalid or backward or missing or suspect_timing_chunks(checked, duration):
                     self._reject_timing_payload(episode, 0, depth, model, raw,
                         {"clip_seconds": duration, "invalid_bounds": invalid, "backward_jumps": backward,
-                         "segment_count": len(clocks)}, observe)
+                         "segment_count": len(clocks), "missing_recommendation_windows": missing}, observe)
+                self.model_health.succeeded(model)
                 self._save_chunk_checkpoint(episode, 0, 1, fingerprint, checked, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
                 return checked, model
             except GeminiMalformedJSONError:
-                if depth >= 1:
+                if depth >= 2:
                     raise
                 self._save_chunk_checkpoint(episode, 0, 1, fingerprint, {"split_planned": True}, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
             except Exception as exc:
                 self.model_health.failed(model, exc, observe)
                 raise
+        observe("repair_clip_subdivided", clip_seconds=duration, depth=depth, child_count=2)
         payloads, models = [], []
         for part in range(2):
             child = audio.with_name(audio.stem + f"-refined-{part}.mp3")

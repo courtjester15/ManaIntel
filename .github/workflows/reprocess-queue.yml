@@ -25,6 +25,7 @@ env:
   FFW_AUTO_REUSE_TRANSCRIPTS: "true"
   FFW_ATTEMPT_NOTE: Bounded nightly cleanup
   FFW_OPTIONAL_WORK: "true"
+  FFW_NIGHTLY_WINDOW: "true"
   FFW_INCREMENTAL_REPAIR: "true"
   FFW_REVIEW_REPAIR: "true"
   FFW_REQUIRE_RETAINED: "true"
@@ -67,6 +68,7 @@ jobs:
           FFW_MODE: mock
           FFW_CAPACITY_PATH: ""
           FFW_OPTIONAL_WORK: "false"
+          FFW_NIGHTLY_WINDOW: "false"
           FFW_CLEANUP_ENABLED: "false"
           FFW_INCREMENTAL_REPAIR: "false"
           FFW_REVIEW_REPAIR: "false"

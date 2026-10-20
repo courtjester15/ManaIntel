@@ -1,7 +1,6 @@
 """Select a small, inspectable cleanup cohort; never infer approval from counts."""
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-import json
 import os
 
 from .utils import atomic_write_json, load_json
@@ -14,6 +13,17 @@ def select(root=Path("."), now=None):
     ledger = load_json(ledger_path, {"entries": []})
     from zoneinfo import ZoneInfo
     day = now.astimezone(ZoneInfo("America/Los_Angeles")).date().isoformat()
+    from .capacity import nightly_window_open
+    if not nightly_window_open(now):
+        return "", "outside nightly cleanup window"
+    capacity = load_json(root / "state/request-capacity.json", {}).get("days", {}).get(day, {})
+    model = os.getenv("FFW_TRANSCRIPTION_MODEL", "gemini-3.5-flash-lite")
+    bucket = capacity.get(model, {})
+    optional_limit = int(os.getenv("FFW_REQUEST_DAILY_BUDGET", "48")) - int(os.getenv("FFW_PRIMARY_REQUEST_RESERVE", "16"))
+    if bucket.get("requests", 0) >= optional_limit or bucket.get("daily_exhausted") or (
+        bucket.get("blocked_until") and datetime.fromisoformat(bucket["blocked_until"]) > now
+    ):
+        return "", "shared request capacity unavailable"
     if ledger.get("daily_date") != day:
         ledger.update(daily_date=day, daily_runs=0)
     # Each episode gets one automatic cohort trial. Incomplete repairs are
@@ -25,11 +35,19 @@ def select(root=Path("."), now=None):
             continue
         if record.get("status") != "needs_review" or record.get("error"):
             continue
+        from .reviews import review_file_path
+        if review_file_path(root / "data/reviews", record["source_id"], guid).exists():
+            continue
         try:
             updated = datetime.fromisoformat(record["updated_at"].replace("Z", "+00:00"))
         except (KeyError, ValueError, TypeError):
             continue
         prior = [e for e in ledger.get("entries", []) if e.get("guid") == guid]
+        last_error = record.get("last_attempt_error") or {}
+        if last_error and not (prior and prior[-1].get("status") == "deferred"):
+            # A preserved publication can conceal a failed forced attempt.
+            # Respect its intervention gate as well as the current error field.
+            continue
         if prior:
             last = prior[-1]
             if len(prior) >= 3 or last.get("status") != "deferred":
@@ -67,7 +85,8 @@ def record(root=Path("."), now=None):
     entry = next(e for e in reversed(ledger["entries"]) if e["guid"] == guid and e["status"] == "running")
     state = load_json(root / "state/episodes.json", {})["episodes"][guid]
     attempts = [load_json(p, {}) for p in (root / "state/attempts").glob("*.json")]
-    attempts = [a for a in attempts if a.get("episode", {}).get("guid") == guid and a.get("started_at", "") >= entry["started_at"]]
+    attempts = [a for a in attempts if a.get("episode", {}).get("guid") == guid and a.get("started_at")
+                and datetime.fromisoformat(a["started_at"].replace("Z", "+00:00")) >= datetime.fromisoformat(entry["started_at"])]
     events = [e for a in attempts for e in a.get("events", [])]
     progress = sum(e.get("event") == "transcript_timing_repaired" for e in events)
     cleared = os.environ.get("OUTCOME") == "success" and state.get("status") == "complete"

@@ -16,7 +16,7 @@ class CapacityCleanupTests(unittest.TestCase):
         self.root = workspace_temp(self)
         self.env = patch.dict(os.environ, {"FFW_CAPACITY_PATH": str(self.root / "capacity.json"),
             "FFW_REQUEST_DAILY_BUDGET": "3", "FFW_PRIMARY_REQUEST_RESERVE": "1",
-            "FFW_OPTIONAL_WORK": "true", "GITHUB_RUN_ID": "test"})
+            "FFW_OPTIONAL_WORK": "true", "FFW_NIGHTLY_WINDOW": "false", "GITHUB_RUN_ID": "test"})
         self.env.start()
         self.addCleanup(self.env.stop)
         self.now = datetime(2026, 10, 20, 6, 59, tzinfo=timezone.utc)
@@ -47,6 +47,13 @@ class CapacityCleanupTests(unittest.TestCase):
             with self.assertRaises(CapacityStopped):
                 reserve("other", earlier + timedelta(minutes=40))
 
+    def test_late_cleanup_stops_without_call_or_selection(self):
+        with patch.dict(os.environ, {"FFW_NIGHTLY_WINDOW": "true"}):
+            with self.assertRaises(CapacityStopped):
+                reserve("lite", self.now)
+            self.assertEqual(("", "outside nightly cleanup window"), select(self.root, self.now))
+        self.assertFalse((self.root / "capacity.json").exists())
+
     def test_exact_quote_alignment_preserves_printings_and_abstains_on_repetition(self):
         quote = "this specific printing is cheap and you should buy a copy"
         picks = [{"card": "Invented card", "printing": "Rainbow Foil", "id": "stable", "evidence_excerpt": quote}]
@@ -56,6 +63,14 @@ class CapacityCleanupTests(unittest.TestCase):
                          (result[0]["start_seconds"], result[0]["printing"], result[0]["id"]))
         self.assertIsNone(align_published_quotes(picks, {"segments": [segment, segment]}))
         self.assertIsNone(align_published_quotes(picks, {"segments": [{**segment, "text": "something else"}]}))
+
+    def test_ellipsis_alignment_requires_each_unique_fragment_in_order(self):
+        pick = {"evidence_excerpt": "this particular printing is cheap ... you should buy a copy", "start_seconds": 5}
+        transcript = {"segments": [{"start": 40, "end": 50,
+            "text": "this particular printing is cheap because supply is high and you should buy a copy"}]}
+        self.assertEqual(40, align_published_quotes([pick], transcript)[0]["start_seconds"])
+        transcript["segments"][0]["text"] = "you should buy a copy and this particular printing is cheap"
+        self.assertIsNone(align_published_quotes([pick], transcript))
 
     def test_last_chunk_past_audio_end_is_suspect(self):
         transcript = {"duration_seconds": 2507, "chunk_count": 3, "segments": [

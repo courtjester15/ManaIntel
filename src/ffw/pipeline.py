@@ -109,6 +109,8 @@ def classify_failure(message: str) -> tuple[str, bool, bool]:
         "timing repair budget must be",
     )):
         return "manual_intervention", False, False
+    if "timing repair progress saved" in normalized:
+        return "repair_progress_saved", True, False
     if "shared capacity stop" in normalized:
         return "capacity_deferred", True, True
     if any(pattern in normalized for pattern in PERMANENT_PROVIDER_ERROR_PATTERNS):
@@ -500,7 +502,7 @@ class Pipeline:
                     segment["sequence"] = sequence
             suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
             if os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true" and transcript.get("timing_adjustments"):
-                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio")}
+                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio") and not r.get("timing_adjustments")}
                 suspect_chunks = sorted(set(suspect_chunks) | (set(range(len(prepared_files))) - validated))
             repair_limit = int(os.getenv("FFW_TIMING_REPAIR_MAX_CHUNKS", "2"))
             if repair_limit not in (2, 3, 4):
@@ -543,10 +545,12 @@ class Pipeline:
                                    "prompt_version": PROMPT_VERSION, "transcription_prompt_version": TRANSCRIPTION_PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
             remaining_suspects = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
             if os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true" and transcript.get("timing_adjustments"):
-                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio")}
+                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio") and not r.get("timing_adjustments")}
                 remaining_suspects = sorted(set(remaining_suspects) | (set(range(len(prepared_files))) - validated))
             if remaining_suspects:
                 journal.record("timing_repair_incomplete", suspect_chunks=[i + 1 for i in remaining_suspects])
+                if incremental and len(suspect_chunks) > repair_limit:
+                    raise RuntimeError("Timing repair progress saved; bounded continuation required for remaining chunks.")
                 raise ValueError("Transcript timing repair left suspect coverage; manual review required.")
             if self.settings.retain_transcripts and not episode.synthetic:
                 transcript_dir.mkdir(parents=True, exist_ok=True)
@@ -619,6 +623,9 @@ class Pipeline:
                     matches = [old for old in baseline_summary.get("recommendations", [])
                                if str(old.get("card", "")).casefold() == str(pick.get("card", "")).casefold()
                                and old.get("printing") == pick.get("printing") and old.get("foil") == pick.get("foil")]
+                    if len(matches) > 1:
+                        matches = [old for old in matches if old.get("evidence_excerpt") == pick.get("evidence_excerpt")
+                                   and old.get("start_seconds") == pick.get("start_seconds")]
                     if len(matches) == 1:
                         old = matches[0]
                         pick["identity_start_seconds"] = old.get("identity_start_seconds", old.get("start_seconds"))
@@ -638,6 +645,8 @@ class Pipeline:
                 and baseline_summary.get("recommendations")
                 and (
                     published_version_regression(baseline_summary, summary)
+                    or not {p["id"] for p in baseline_summary["recommendations"]}.issubset(
+                        {p["id"] for p in summary["recommendations"]})
                     or len(summary.get("recommendations", [])) < len(baseline_summary["recommendations"])
                     or not {str(p["card"]).casefold().strip() for p in baseline_summary["recommendations"]}.issubset(
                         {str(p["card"]).casefold().strip() for p in summary.get("recommendations", [])}

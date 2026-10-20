@@ -253,6 +253,27 @@ class ReliabilityTests(unittest.TestCase):
         ):
             self.assertEqual(repaired["segments"], transcriber.repair(candidate(), [audio])["segments"])
 
+    def test_adaptive_budget_stop_resumes_children_without_repeating_parent(self):
+        transcriber = self.transcriber()
+        transcriber.rescue_call_limit = 1
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        bad = {"text": "speech", "segments": [{"start": "00:00.000", "end": "01:39.000", "text": "speech"}]}
+        good = {"text": "speech", "segments": [{"start": "00:01.000", "end": "00:10.000", "text": "speech"}]}
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", return_value=bad
+        ) as generate:
+            with self.assertRaisesRegex(RuntimeError, "call budget exhausted"):
+                transcriber.repair(candidate(), [audio])
+        self.assertEqual(1, generate.call_count)
+        transcriber.rescue_call_limit = 8
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *a, **kw: json.loads(json.dumps(good))
+        ) as generate:
+            repaired = transcriber.repair(candidate(), [audio])
+        self.assertEqual(5, generate.call_count)
+        self.assertEqual(5, len(repaired["segments"]))
+
     def test_rejected_repair_retains_private_payload_and_sanitized_metrics(self):
         transcriber = self.transcriber()
         audio = self.root / "chunk.mp3"
@@ -268,11 +289,11 @@ class ReliabilityTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "split repair has missing segments or compressed timestamps"):
                 transcriber.repair(candidate(), [audio])
         rejected = [e for e in events if e["event"] == "repair_timing_rejected"]
-        self.assertEqual(2, len(rejected))
+        self.assertEqual(3, len(rejected))
         self.assertEqual(1, rejected[0]["invalid_bounds"])
         self.assertNotIn("private spoken content", json.dumps(events))
         files = list((self.root / "transcripts").glob("rejected-*.json.gz"))
-        self.assertEqual(2, len(files))
+        self.assertEqual(3, len(files))
         with gzip.open(files[0], "rt", encoding="utf-8") as source:
             saved = json.load(source)
         self.assertEqual(payload, saved["transcript"])
@@ -437,6 +458,19 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual(before["recommendations"], after["recommendations"])
         self.assertTrue(any(issue["code"] == "printing" for issue in after["processing"]["review_issues"]))
 
+    def test_forced_timestamp_repair_retains_published_ids(self):
+        pipeline, item, output = self.published()
+        before = load_json(output / "summary.json")
+        extraction = pipeline.extractor.extract(item, {})
+        for pick in extraction["recommendations"]:
+            pick["start_seconds"] += 1
+        with patch.object(pipeline.extractor, "extract", return_value=extraction):
+            pipeline.process_episode(item, force=True)
+        after = load_json(output / "summary.json")
+        self.assertEqual([p["id"] for p in before["recommendations"]], [p["id"] for p in after["recommendations"]])
+        self.assertEqual(before["recommendations"][0]["start_seconds"] + 1, after["recommendations"][0]["start_seconds"])
+        self.assertEqual([], validate_archive(self.settings.archive_dir, self.settings.state_file))
+
     def test_compressed_transcript_retranscribes_only_matching_chunk(self):
         pipeline, item, _ = self.published()
         healthy = {"segments": [{"start": 600, "end": 650, "text": "A correctly timed recommendation."}]}
@@ -497,6 +531,7 @@ class ReliabilityTests(unittest.TestCase):
             result = pipeline.process_episode(item, force=True)
         self.assertEqual("failed", result.status)
         self.assertEqual(3, transcribe.call_count)
+        self.assertEqual(("repair_progress_saved", True, False), classify_failure(result.message))
         extract.assert_not_called()
         saved = json.load(gzip.open(next((self.settings.work_dir / "transcripts").glob("*.json.gz")), "rt"))["transcript"]
         self.assertEqual([1,2], [r["chunk"] for r in saved["timing_repairs"]])
