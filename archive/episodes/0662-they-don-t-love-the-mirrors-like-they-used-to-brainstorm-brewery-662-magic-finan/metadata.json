@@ -1,0 +1,319 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15706",
+    "episode_number": 662,
+    "title": "They Don’t Love the Mirrors Like They Used To | Brainstorm Brewery #662 | Magic Finance",
+    "published_at": "2025-08-22T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_662_They_Dont_Love_the_Mirrors_Like_They_Used_To.mp3",
+    "episode_url": "https://brainstormbrewery.com/they-dont-love-the-mirrors-like-they-used-to-brainstorm-brewery-662-magic-finance/",
+    "duration_seconds": 3873,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) are all together again to chat about standard, Legacy, and rumors. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_issues": [
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.15",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-20T23:20:21Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-20T23:10:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-20T23:10:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-20T23:10:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-20T23:10:50Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-20T23:10:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-20T23:10:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-20T23:11:12Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-20T23:20:06Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-20T23:20:06Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-20T23:20:21Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-20T23:20:21Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-20T23:20:21Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-20T23:20:21Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3873,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 41.563,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17583,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 196
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40278,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 176.333,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 8941,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11505,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 255
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 20446,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7962,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11505,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 255
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 19467,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 127.699,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 177
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20357
+              }
+            ],
+            "cached_content_token_count": 20534,
+            "candidates_token_count": 27675,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22696,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 196
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 50371,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 47.102,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18134,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22696,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 196
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40830,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 273,
+          "request_seconds": 10.415,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4066,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 7026,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 6830
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 196
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 11092,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 107
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1347,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 23299,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 23299
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 24646,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0662-they-don-t-love-the-mirrors-like-they-used-to-brainstorm-brewery-662-magic-finan/metadata.json",
+    "summary_json": "episodes/0662-they-don-t-love-the-mirrors-like-they-used-to-brainstorm-brewery-662-magic-finan/summary.json",
+    "summary_markdown": "episodes/0662-they-don-t-love-the-mirrors-like-they-used-to-brainstorm-brewery-662-magic-finan/summary.md"
+  }
+}
