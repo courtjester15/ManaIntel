@@ -69,6 +69,7 @@ jobs:
           FFW_OPTIONAL_WORK: "false"
           FFW_NIGHTLY_WINDOW: "false"
           FFW_CLEANUP_ENABLED: "false"
+          FFW_CLEANUP_ISSUES: ""
           FFW_INCREMENTAL_REPAIR: "false"
           FFW_REVIEW_REPAIR: "false"
           FFW_REQUIRE_RETAINED: "false"
@@ -194,6 +195,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
       - name: Record queue outcome
+        id: queue_result
         if: ${{ always() && steps.queue.outputs.guid != '' }}
         env:
           GUID: ${{ steps.queue.outputs.guid }}
@@ -208,7 +210,16 @@ jobs:
 
           if os.environ.get("FFW_CLEANUP_ENABLED") == "true":
               from ffw.cleanup import record
-              record()
+              entry = record()
+              with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+                  output.write(f"disposition={entry['status']}\n")
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+                  summary.write("## Nightly cleanup disposition\n\n")
+                  for label, field in [("Disposition", "status"), ("Episode", "episode_number"),
+                                       ("Published status", "result_status"), ("Published picks", "result_pick_count"),
+                                       ("New repaired chunks", "repaired_chunks"), ("Saved checkpoints", "saved_clips"),
+                                       ("Next action", "note")]:
+                      summary.write(f"- {label}: {entry.get(field)}\n")
               raise SystemExit(0)
           path = Path("state/reprocess-queue.json")
           ledger = json.loads(path.read_text(encoding="utf-8"))
@@ -269,7 +280,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run ffw.yml -f mode=deploy_only -f deploy=true
       - name: Report blocked item
-        if: ${{ always() && (steps.pipeline.outcome == 'failure' || steps.validation.outcome == 'failure') }}
+        if: ${{ always() && ((steps.pipeline.outcome == 'failure' && steps.queue_result.outputs.disposition != 'deferred') || steps.validation.outcome == 'failure') }}
         run: exit 1
       - name: Summarize recorded processing health
         id: health

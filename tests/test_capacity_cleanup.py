@@ -16,7 +16,7 @@ class CapacityCleanupTests(unittest.TestCase):
         self.root = workspace_temp(self)
         self.env = patch.dict(os.environ, {"FFW_CAPACITY_PATH": str(self.root / "capacity.json"),
             "FFW_REQUEST_DAILY_BUDGET": "3", "FFW_PRIMARY_REQUEST_RESERVE": "1",
-            "FFW_OPTIONAL_WORK": "true", "FFW_NIGHTLY_WINDOW": "false", "GITHUB_RUN_ID": "test"})
+            "FFW_OPTIONAL_WORK": "true", "FFW_NIGHTLY_WINDOW": "false", "FFW_CLEANUP_ISSUES": "", "GITHUB_RUN_ID": "test"})
         self.env.start()
         self.addCleanup(self.env.stop)
         self.now = datetime(2026, 10, 20, 6, 59, tzinfo=timezone.utc)

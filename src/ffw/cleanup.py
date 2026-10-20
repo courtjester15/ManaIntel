@@ -115,6 +115,7 @@ def record(root=Path("."), now=None):
     if entry.get("inspected_pilot"):
         ledger["inspected_pilots"][guid]["status"] = entry["status"]
     atomic_write_json(path, ledger)
+    return entry
 
 
 def selected_mode(root=Path(".")):
