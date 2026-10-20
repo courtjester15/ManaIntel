@@ -28,7 +28,6 @@ env:
   FFW_NIGHTLY_WINDOW: "true"
   FFW_INCREMENTAL_REPAIR: "true"
   FFW_REVIEW_REPAIR: "true"
-  FFW_REQUIRE_RETAINED: "true"
   FFW_CLEANUP_ENABLED: ${{ vars.FFW_CLEANUP_ENABLED || 'false' }}
   FFW_CLEANUP_ISSUES: ${{ vars.FFW_CLEANUP_ISSUES || '' }}
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
@@ -96,6 +95,22 @@ jobs:
         id: preflight
         if: ${{ steps.primary.outputs.ready == 'true' || github.event_name == 'workflow_dispatch' }}
         run: python -m ffw validate
+      - name: Restore private transcription checkpoints and transcripts
+        if: ${{ steps.primary.outputs.ready == 'true' || github.event_name == 'workflow_dispatch' }}
+        uses: actions/cache/restore@v4
+        with:
+          path: .ffw-work/chunk-checkpoints
+          key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ffw-chunks-${{ runner.os }}-
+      - name: Restore private retained transcripts
+        if: ${{ steps.primary.outputs.ready == 'true' || github.event_name == 'workflow_dispatch' }}
+        uses: actions/cache/restore@v4
+        with:
+          path: .ffw-work/transcripts
+          key: ffw-transcripts-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ffw-transcripts-${{ runner.os }}-
       - name: Select one unconfirmed low-pick episode
         id: queue
         if: ${{ steps.primary.outputs.ready == 'true' || github.event_name == 'workflow_dispatch' }}
@@ -109,10 +124,10 @@ jobs:
 
           from ffw.pipeline import classify_failure
           if os.environ.get("FFW_CLEANUP_ENABLED") == "true":
-              from ffw.cleanup import select
+              from ffw.cleanup import select, selected_mode
               guid, reason = select()
               with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-                  output.write(f"guid={guid}\nreason={reason}\n")
+                  output.write(f"guid={guid}\nreason={reason}\nrepair_mode={selected_mode()}\n")
               raise SystemExit(0)
 
           ledger_path = Path("state/reprocess-queue.json")
@@ -150,28 +165,13 @@ jobs:
               output.write(f"guid={guid}\n")
               output.write(f"reason={'selected' if guid else 'daily cap reached' if ledger['daily_runs'] >= int(os.environ['FFW_DAILY_LOW_PICK_REPROCESS_LIMIT']) else 'no eligible episode'}\n")
           PY
-      - name: Restore private transcription checkpoints and transcripts
-        if: ${{ steps.queue.outputs.guid != '' }}
-        uses: actions/cache/restore@v4
-        with:
-          path: .ffw-work/chunk-checkpoints
-          key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            ffw-chunks-${{ runner.os }}-
-      - name: Restore private retained transcripts
-        if: ${{ steps.queue.outputs.guid != '' }}
-        uses: actions/cache/restore@v4
-        with:
-          path: .ffw-work/transcripts
-          key: ffw-transcripts-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            ffw-transcripts-${{ runner.os }}-
       - name: Reprocess selected episode
         id: pipeline
         if: ${{ steps.queue.outputs.guid != '' }}
         continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FFW_REVIEW_REPAIR: ${{ steps.queue.outputs.repair_mode == 'coverage' && 'false' || 'true' }}
         run: python -m ffw run --live --force-guid "${{ steps.queue.outputs.guid }}"
       - name: Save private transcription checkpoints and transcripts
         if: ${{ always() && steps.pipeline.outcome != 'skipped' && steps.queue.outputs.guid != '' }}

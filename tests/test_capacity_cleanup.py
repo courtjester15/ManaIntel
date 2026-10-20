@@ -96,3 +96,21 @@ class CapacityCleanupTests(unittest.TestCase):
             # No new progress in the later attempt: quarantine the unchanged case.
             record(self.root, self.now + timedelta(hours=7, minutes=1))
             self.assertEqual("blocked", load_json(self.root / "state/reprocess-queue.json")["entries"][-1]["status"])
+
+    def test_exact_inspected_pilot_does_not_open_other_failed_records(self):
+        records = {guid: {"status": "failed", "source_id": "mtg-fast-finance",
+            "error": {"category": "manual_intervention"}, "updated_at": self.now.isoformat()}
+            for guid in ("inspected", "other")}
+        atomic_write_json(self.root / "state/episodes.json", {"episodes": records})
+        atomic_write_json(self.root / "state/reprocess-queue.json", {"entries": [], "inspected_pilots": {
+            "inspected": {"status": "ready", "evidence": "inspected saved progress", "repair_mode": "coverage", "max_attempts": 1}}})
+        with patch.dict(os.environ, {"FFW_CLEANUP_ISSUES": "timing", "GUID": "inspected", "OUTCOME": "failure"}):
+            self.assertEqual("inspected", select(self.root, self.now)[0])
+            atomic_write_json(self.root / "state/attempts/progress.json", {
+                "episode": {"guid": "inspected"}, "started_at": (self.now + timedelta(seconds=1)).isoformat(),
+                "events": [{"event": "transcription_checkpoint_saved"},
+                           {"event": "failure", "message": "Shared capacity stop"}]})
+            record(self.root, self.now + timedelta(minutes=1))
+            ledger = load_json(self.root / "state/reprocess-queue.json")
+            self.assertEqual("blocked", ledger["inspected_pilots"]["inspected"]["status"])
+            self.assertEqual("", select(self.root, self.now + timedelta(days=1))[0])

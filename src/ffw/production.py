@@ -554,6 +554,8 @@ class GeminiTranscriber:
             "payload": payload,
         }, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         os.replace(temporary, path)
+        if payload.get("segments") and getattr(self, "audit_callback", None):
+            self.audit_callback("transcription_checkpoint_saved", chunk=index + 1, model=model)
 
     def _transcribe_chunk(
         self,

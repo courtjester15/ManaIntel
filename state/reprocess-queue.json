@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "purpose": "Durable ledger for dynamic, one-at-a-time low-pick reprocessing. Completed or blocked records are not selected again automatically.",
+  "purpose": "Bounded nightly review cleanup and exact inspected pilots; no automatic approval of ambiguous recommendations.",
   "daily_date": "2026-10-16",
   "daily_runs": 1,
   "entries": [
@@ -107,5 +107,19 @@
       "result_pick_count": 3,
       "note": "Partial MTGFF result requires review; not a completed recovery."
     }
-  ]
+  ],
+  "inspected_pilots": {
+    "tag:soundcloud,2010:tracks/2178094005": {
+      "status": "ready",
+      "repair_mode": "review",
+      "max_attempts": 3,
+      "evidence": "Owner authorized the Oct19 repair/cleanup batch. Retained transcript from run 39342857169 inspected: final chunk exceeds physical duration; legacy timing adjustments and prior printed pick identities retained. Full audio timing-review pilot, no forced approval."
+    },
+    "tag:soundcloud,2010:tracks/2422332303": {
+      "status": "ready",
+      "repair_mode": "coverage",
+      "max_attempts": 1,
+      "evidence": "Owner authorized the Oct19 repair/cleanup batch. Runs 39359069116/39359859403 inspected: first chunk repaired, further successful clip checkpoints saved, latest stop503 UNAVAILABLE. One additional retained-progress recovery after shared provider cooldown; no repeated attempt if unchanged or budget exhausted."
+    }
+  }
 }
