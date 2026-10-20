@@ -24,12 +24,12 @@
     "review_state": "not_applicable",
     "review_reason": null,
     "review_issues": [],
-    "pipeline_version": "0.5.14",
+    "pipeline_version": "0.5.15",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v3-evidence-uncertainty",
-    "processed_at": "2026-10-19T23:45:45Z",
+    "processed_at": "2026-10-20T02:33:06Z",
     "history": [
       {
         "status": "detected",
@@ -62,19 +62,43 @@
       {
         "status": "failed",
         "timestamp": "2026-10-19T23:45:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-20T02:28:54Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-20T02:28:54Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-20T02:28:55Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-20T02:28:55Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-20T02:29:22Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-20T02:33:06Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Multiple chunks have suspect timing; manual review required before spending more calls.",
-      "category": "manual_intervention",
+      "message": "Timing/coverage repair of original chunk 2/5 failed: Gemini transcription chunk 1/1 failed after 139.5s: GeminiMalformedJSONError: Gemini output truncated; finish reason: MAX_TOKENS.",
+      "category": "transient_model_output",
       "synthetic": false,
-      "retryable": false,
+      "retryable": true,
       "provider_wide": false,
-      "attempt": 1,
+      "attempt": 2,
       "max_attempts": 3,
-      "next_retry_at": null,
-      "quarantined": true
+      "next_retry_at": "2026-10-20T08:33:06Z",
+      "quarantined": false
     },
     "transcription": null,
     "extraction_usage": null
