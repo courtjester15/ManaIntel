@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "attempt_id": "c5f30523c83f4585b9a46f694f0855bd",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2157371364",
+    "number": 490,
+    "title": "MTG Fast Finance Ep 490: Top EDH Cards of Final Fantasy and EOE",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-10-20T04:48:50Z",
+  "pipeline_version": "0.5.15",
+  "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+  "run_id": "39371472108",
+  "run_attempt": "1",
+  "git_sha": "6cfb83528ca832a577ce3da6200be49c84f73905",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-20T04:48:50Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-20T04:48:50Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-20T04:48:51Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-20T04:48:51Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-20T04:49:05Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-20T04:49:33Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 27.509,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 11239,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22686,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22499
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 187
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 33925,
+        "traffic_type": null
+      },
+      "response_characters": 36834
+    },
+    {
+      "timestamp": "2026-10-20T04:49:33Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-20T04:50:12Z",
+      "event": "model_call",
+      "chunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 38.364,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 17589,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22687,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 187
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 40276,
+        "traffic_type": null
+      },
+      "response_characters": 58027
+    },
+    {
+      "timestamp": "2026-10-20T04:50:12Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 2,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-20T04:50:28Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 16.425,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 6860,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 13753,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 13566
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 187
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 20613,
+        "traffic_type": null
+      },
+      "response_characters": 22966
+    },
+    {
+      "timestamp": "2026-10-20T04:50:28Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 3,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-20T04:50:28Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-10-20T04:50:28Z",
+      "event": "stage",
+      "stage": "transcribed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 2342,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 27.511,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11239,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22686,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 187
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33925,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 38.366,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17589,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22687,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 187
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 40276,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 542,
+            "request_seconds": 16.427,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 6860,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 13753,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 13566
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 187
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 20613,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 1
+      }
+    },
+    {
+      "timestamp": "2026-10-20T04:50:28Z",
+      "event": "stage",
+      "stage": "extracting"
+    },
+    {
+      "timestamp": "2026-10-20T04:50:32Z",
+      "event": "model_call",
+      "stage": "extracting",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 3.386,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1360,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 3553,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 3553
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 4913,
+        "traffic_type": null
+      },
+      "response_characters": 4571
+    },
+    {
+      "timestamp": "2026-10-20T04:50:32Z",
+      "event": "review_issues",
+      "issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+          "state": "unresolved"
+        },
+        {
+          "code": "timing",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/0",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/1",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/2",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/4",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-20T04:50:32Z",
+      "event": "stage",
+      "stage": "extracted",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1360,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 3553,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 3553
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 4913,
+        "traffic_type": null
+      }
+    },
+    {
+      "timestamp": "2026-10-20T04:50:32Z",
+      "event": "extraction_summary",
+      "section": {
+        "located": true,
+        "label": "Cards to Watch",
+        "start_seconds": 1909,
+        "end_seconds": 2324
+      },
+      "pick_count": 5,
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+      "picks": [
+        {
+          "card": "Exploration Brudgedship",
+          "printing": null,
+          "confidence": null,
+          "review_status": "needs_review",
+          "review_reason": "Audible spelling/naming is unclear and requires verification."
+        },
+        {
+          "card": "Horizon Explorer",
+          "printing": null,
+          "confidence": null,
+          "review_status": "needs_review",
+          "review_reason": "Audible spelling/naming is unclear and requires verification."
+        },
+        {
+          "card": "Utheros Researchcraft",
+          "printing": null,
+          "confidence": null,
+          "review_status": "needs_review",
+          "review_reason": "Audible spelling/naming is unclear and requires verification."
+        },
+        {
+          "card": "Vernal Fen",
+          "printing": null,
+          "confidence": null,
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "patrolling Peacemaker",
+          "printing": null,
+          "confidence": null,
+          "review_status": "needs_review",
+          "review_reason": "Audible spelling/naming is unclear and requires verification."
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-20T04:50:32Z",
+      "event": "stage",
+      "stage": "validating"
+    },
+    {
+      "timestamp": "2026-10-20T04:50:32Z",
+      "event": "stage",
+      "stage": "publishing"
+    },
+    {
+      "timestamp": "2026-10-20T04:50:32Z",
+      "event": "stage",
+      "stage": "needs_review",
+      "pick_count": 5,
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification."
+    }
+  ],
+  "outcome": "needs_review",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/39371472108",
+  "finished_at": "2026-10-20T04:50:32Z",
+  "pick_count": 5,
+  "local_outputs_written": true,
+  "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

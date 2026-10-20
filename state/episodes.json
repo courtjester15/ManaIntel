@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.15",
-  "updated_at": "2026-10-20T02:39:48Z",
+  "updated_at": "2026-10-20T04:50:32Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28583,6 +28583,240 @@
       "status": "failed",
       "updated_at": "2026-10-20T02:39:48Z",
       "output_directory": "episodes/0537-reality-fracture-deep-dive"
+    },
+    "tag:soundcloud,2010:tracks/2157371364": {
+      "guid": "tag:soundcloud,2010:tracks/2157371364",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-20T04:48:50Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-20T04:48:50Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-20T04:48:50Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-20T04:48:50Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-20T04:48:51Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-20T04:48:51Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-20T04:49:05Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-20T04:50:28Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-20T04:50:28Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-20T04:50:32Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-20T04:50:32Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-20T04:50:32Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-20T04:50:32Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 490: Top EDH Cards of Final Fantasy and EOE",
+      "episode_number": 490,
+      "published_at": "2025-08-25T01:30:15Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 5,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-10-20T04:50:32Z",
+      "output_directory": "episodes/0490-top-edh-cards-of-final-fantasy-and-eoe",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 3,
+        "duration_seconds": 2342,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 27.511,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11239,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22686,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 187
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33925,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 38.366,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17589,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22687,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 187
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 40276,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 3,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 542,
+            "request_seconds": 16.427,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 6860,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 13753,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 13566
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 187
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 20613,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 1
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1360,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 3553,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 3553
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 4913,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+          "state": "unresolved"
+        },
+        {
+          "code": "timing",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/0",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/1",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/2",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/4",
+          "reason": "Audible spelling/naming is unclear and requires verification.",
+          "state": "unresolved"
+        }
+      ]
     }
   }
 }

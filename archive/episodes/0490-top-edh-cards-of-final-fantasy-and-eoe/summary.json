@@ -1,0 +1,406 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2157371364",
+    "episode_number": 490,
+    "title": "MTG Fast Finance Ep 490: Top EDH Cards of Final Fantasy and EOE",
+    "published_at": "2025-08-25T01:30:15Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2157371364-user-519789566-mtg-fast-finance-ep-490-top-edh-cards-of-final-fantasy-and-eoe.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-490-top-edh-cards-of-final-fantasy-and-eoe",
+    "duration_seconds": 2342,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, their cards to watch for the week and check with EDHREC to examine the top EDH cars from FIN and EOE.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      },
+      {
+        "code": "unspecified",
+        "path": "recommendations/0",
+        "reason": "Audible spelling/naming is unclear and requires verification.",
+        "state": "unresolved"
+      },
+      {
+        "code": "unspecified",
+        "path": "recommendations/1",
+        "reason": "Audible spelling/naming is unclear and requires verification.",
+        "state": "unresolved"
+      },
+      {
+        "code": "unspecified",
+        "path": "recommendations/2",
+        "reason": "Audible spelling/naming is unclear and requires verification.",
+        "state": "unresolved"
+      },
+      {
+        "code": "unspecified",
+        "path": "recommendations/4",
+        "reason": "Audible spelling/naming is unclear and requires verification.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.15",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-20T04:50:32Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-20T04:48:50Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-20T04:48:50Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-20T04:48:50Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-20T04:48:50Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-20T04:48:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-20T04:48:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-20T04:49:05Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-20T04:50:28Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-20T04:50:28Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-20T04:50:32Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-20T04:50:32Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-20T04:50:32Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-20T04:50:32Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2342,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 27.511,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11239,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22686,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 187
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33925,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.366,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17589,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22687,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 187
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40276,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 542,
+          "request_seconds": 16.427,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 6860,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 13753,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 13566
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 187
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 20613,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1360,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 3553,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 3553
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 4913,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1909,
+    "end_seconds": 2324,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Exploration Brudgedship",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "top five pick of the week",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "14000",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "14000",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Lands matter and artifacts matters, plus one plus one counters matters"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1909,
+      "end_seconds": 1922,
+      "evidence_excerpt": "Uh if we look at the EOC cards, it's Exploration Brudgedship, Horizon Explorer, Utheros Researchcraft, Vernal Fen, and patrolling Peacemaker my pick of the week as the top five.",
+      "review_status": "needs_review",
+      "review_reason": "Audible spelling/naming is unclear and requires verification.",
+      "id": "pick-10e1779d1a16b5be",
+      "timestamp": "00:31:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/2157371364-user-519789566-mtg-fast-finance-ep-490-top-edh-cards-of-final-fantasy-and-eoe.mp3#t=1909"
+    },
+    {
+      "card": "Horizon Explorer",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "top five pick of the week",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1909,
+      "end_seconds": 1922,
+      "evidence_excerpt": "Uh if we look at the EOC cards, it's Exploration Brudgedship, Horizon Explorer, Utheros Researchcraft, Vernal Fen, and patrolling Peacemaker my pick of the week as the top five.",
+      "review_status": "needs_review",
+      "review_reason": "Audible spelling/naming is unclear and requires verification.",
+      "id": "pick-99c97bd84edaaa40",
+      "timestamp": "00:31:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/2157371364-user-519789566-mtg-fast-finance-ep-490-top-edh-cards-of-final-fantasy-and-eoe.mp3#t=1909"
+    },
+    {
+      "card": "Utheros Researchcraft",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "top five pick of the week",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1909,
+      "end_seconds": 1922,
+      "evidence_excerpt": "Uh if we look at the EOC cards, it's Exploration Brudgedship, Horizon Explorer, Utheros Researchcraft, Vernal Fen, and patrolling Peacemaker my pick of the week as the top five.",
+      "review_status": "needs_review",
+      "review_reason": "Audible spelling/naming is unclear and requires verification.",
+      "id": "pick-2b7de09c8be9e628",
+      "timestamp": "00:31:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/2157371364-user-519789566-mtg-fast-finance-ep-490-top-edh-cards-of-final-fantasy-and-eoe.mp3#t=1909"
+    },
+    {
+      "card": "Vernal Fen",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "top five pick of the week",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Completion of a land cycle that was previously absent",
+        "Never put in a regular set and only available from commander decks"
+      ],
+      "caveats": [
+        "Could end up surprisingly expensive since you can only get them from the commander decks"
+      ],
+      "confidence": null,
+      "start_seconds": 1909,
+      "end_seconds": 1957,
+      "evidence_excerpt": "Uh if we look at the EOC cards, it's Exploration Brudgedship, Horizon Explorer, Utheros Researchcraft, Vernal Fen, and patrolling Peacemaker my pick of the week as the top five.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4386e06ea1fefd9e",
+      "timestamp": "00:31:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/2157371364-user-519789566-mtg-fast-finance-ep-490-top-edh-cards-of-final-fantasy-and-eoe.mp3#t=1909"
+    },
+    {
+      "card": "patrolling Peacemaker",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "top five pick of the week",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "10000",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "10000",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1909,
+      "end_seconds": 1928,
+      "evidence_excerpt": "Uh if we look at the EOC cards, it's Exploration Brudgedship, Horizon Explorer, Utheros Researchcraft, Vernal Fen, and patrolling Peacemaker my pick of the week as the top five.",
+      "review_status": "needs_review",
+      "review_reason": "Audible spelling/naming is unclear and requires verification.",
+      "id": "pick-f7fc3008f81a9860",
+      "timestamp": "00:31:49",
+      "listen_url": "https://feeds.soundcloud.com/stream/2157371364-user-519789566-mtg-fast-finance-ep-490-top-edh-cards-of-final-fantasy-and-eoe.mp3#t=1909"
+    }
+  ]
+}
