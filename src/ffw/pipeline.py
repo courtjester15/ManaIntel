@@ -109,6 +109,8 @@ def classify_failure(message: str) -> tuple[str, bool, bool]:
         "timing repair budget must be",
     )):
         return "manual_intervention", False, False
+    if "shared capacity stop" in normalized:
+        return "capacity_deferred", True, True
     if any(pattern in normalized for pattern in PERMANENT_PROVIDER_ERROR_PATTERNS):
         return "provider_configuration", False, True
     if any(pattern in normalized for pattern in EPISODE_ERROR_PATTERNS):
@@ -467,6 +469,8 @@ class Pipeline:
                     or retained.get("transcription_prompt_version", retained.get("prompt_version")) != TRANSCRIPTION_PROMPT_VERSION
                 ):
                     retained = None
+            if os.getenv("FFW_REQUIRE_RETAINED", "").lower() == "true" and retained is None:
+                raise ValueError("Reusable transcript unavailable; optional cleanup requires retained evidence.")
             if self.settings.reuse_transcripts or retained is not None:
                 if not transcript_path.exists():
                     raise FileNotFoundError(f"Reusable transcript was not found for {episode.guid}.")
@@ -495,16 +499,20 @@ class Pipeline:
                 for sequence, segment in enumerate(transcript["segments"]):
                     segment["sequence"] = sequence
             suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
+            if os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true" and transcript.get("timing_adjustments"):
+                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio")}
+                suspect_chunks = sorted(set(suspect_chunks) | (set(range(len(prepared_files))) - validated))
             repair_limit = int(os.getenv("FFW_TIMING_REPAIR_MAX_CHUNKS", "2"))
             if repair_limit not in (2, 3, 4):
                 raise ValueError("Timing repair budget must be 2, 3 or 4 chunks.")
             journal.record("timing_repair_plan", suspect_chunks=[i + 1 for i in suspect_chunks], repair_limit=repair_limit)
-            if len(suspect_chunks) > repair_limit:
+            incremental = os.getenv("FFW_INCREMENTAL_REPAIR", "").lower() == "true"
+            if len(suspect_chunks) > repair_limit and not incremental:
                 raise ValueError("Multiple chunks have suspect timing; manual review required before spending more calls.")
-            for index in suspect_chunks:
+            for index in suspect_chunks[:repair_limit]:
                 if index >= len(prepared_files):
                     raise ValueError("Transcript timing repair has no matching audio chunk.")
-                chunk_episode = replace(episode, guid=episode.guid + f":timing-repair-{index}", duration_seconds=self.settings.audio_chunk_seconds)
+                chunk_episode = replace(episode, guid=episode.guid + f":timing-repair-{index}", duration_seconds=min(self.settings.audio_chunk_seconds, max(1, (episode.duration_seconds or len(prepared_files) * self.settings.audio_chunk_seconds) - index * self.settings.audio_chunk_seconds)))
                 repair = getattr(self.transcriber, "repair", self.transcriber.transcribe)
                 try:
                     repaired = repair(chunk_episode, [prepared_files[index]])
@@ -524,7 +532,7 @@ class Pipeline:
                 transcript["segments"] = sorted(kept + repaired["segments"], key=lambda s: s["start"])
                 for sequence, segment in enumerate(transcript["segments"]):
                     segment["sequence"] = sequence
-                transcript.setdefault("timing_repairs", []).append({"chunk": index + 1, "method": "retranscribe_audio", "usage": repaired.get("usage")})
+                transcript.setdefault("timing_repairs", []).append({"chunk": index + 1, "method": "retranscribe_audio", "validated_audio": True, "timing_adjustments": repaired.get("timing_adjustments", 0), "usage": repaired.get("usage")})
                 transcript["timing_adjustments"] = int(transcript.get("timing_adjustments", 0)) + int(repaired.get("timing_adjustments", 0))
                 journal.record("transcript_timing_repaired", chunk=index + 1, method="retranscribe_audio", usage=repaired.get("usage"))
                 # Persist each successful repair so a later chunk failure cannot
@@ -534,6 +542,9 @@ class Pipeline:
                         json.dump({"episode": self._episode_metadata(episode), "pipeline_version": PIPELINE_VERSION,
                                    "prompt_version": PROMPT_VERSION, "transcription_prompt_version": TRANSCRIPTION_PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
             remaining_suspects = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
+            if os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true" and transcript.get("timing_adjustments"):
+                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio")}
+                remaining_suspects = sorted(set(remaining_suspects) | (set(range(len(prepared_files))) - validated))
             if remaining_suspects:
                 journal.record("timing_repair_incomplete", suspect_chunks=[i + 1 for i in remaining_suspects])
                 raise ValueError("Transcript timing repair left suspect coverage; manual review required.")
@@ -567,7 +578,16 @@ class Pipeline:
                     journal.record("verification_warning", exception_class=type(verification_error).__name__, message=str(verification_error))
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             warnings = [extraction.get("review_reason"), extraction.get("section", {}).get("review_reason")]
-            if transcript.get("timing_adjustments"):
+            validated_repairs = {r["chunk"]: r for r in transcript.get("timing_repairs", []) if r.get("validated_audio")}
+            fully_validated = len(validated_repairs) == len(prepared_files) and all(
+                not r.get("timing_adjustments") for r in validated_repairs.values())
+            if baseline_summary and fully_validated:
+                from .transcript_timing import align_published_quotes
+                aligned = align_published_quotes(baseline_summary.get("recommendations", []), transcript)
+                if aligned:
+                    extraction["recommendations"] = aligned
+                    journal.record("published_quotes_aligned", pick_count=len(aligned), method="unique_exact_audio_transcript_quote")
+            if transcript.get("timing_adjustments") and not fully_validated:
                 warnings.append("Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.")
             from .transcript_timing import missing_recommendation_content
             missing_windows = missing_recommendation_content(transcript)
@@ -594,6 +614,14 @@ class Pipeline:
             )
             if final_status not in {"complete", "needs_review"}:
                 final_status = "complete"
+            if baseline_summary:
+                for pick in extraction["recommendations"]:
+                    matches = [old for old in baseline_summary.get("recommendations", [])
+                               if str(old.get("card", "")).casefold() == str(pick.get("card", "")).casefold()
+                               and old.get("printing") == pick.get("printing") and old.get("foil") == pick.get("foil")]
+                    if len(matches) == 1:
+                        old = matches[0]
+                        pick["identity_start_seconds"] = old.get("identity_start_seconds", old.get("start_seconds"))
             summary = self._build_summary(episode, extraction, final_status)
             journal.record("extraction_summary", section={key: summary.get("section", {}).get(key) for key in
                            ("located", "label", "start_seconds", "end_seconds")},
@@ -815,7 +843,7 @@ class Pipeline:
             pick["id"] = stable_pick_id(
                 episode.guid,
                 pick["card"],
-                pick.get("start_seconds"),
+                pick.get("identity_start_seconds", pick.get("start_seconds")),
                 pick.get("printing"),
             )
             pick["timestamp"] = seconds_to_timestamp(pick.get("start_seconds"))

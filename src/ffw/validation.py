@@ -112,7 +112,7 @@ def validate_archive(
             missing_pick_fields = required_pick_fields - set(pick)
             if missing_pick_fields:
                 issues.append(ValidationIssue("error", "pick_schema", pick_path, f"Missing pick fields: {sorted(missing_pick_fields)}"))
-            expected_id = stable_pick_id(guid, pick.get("card", ""), pick.get("start_seconds"), pick.get("printing"))
+            expected_id = stable_pick_id(guid, pick.get("card", ""), pick.get("identity_start_seconds", pick.get("start_seconds")), pick.get("printing"))
             if pick.get("id") != expected_id:
                 issues.append(ValidationIssue("error", "unstable_pick_id", pick_path, "Pick ID does not match its stable identity."))
             if pick.get("id") in seen_pick_ids:

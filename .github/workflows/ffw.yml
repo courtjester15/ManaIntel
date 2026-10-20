@@ -59,9 +59,9 @@ on:
         type: boolean
         default: false
       timing_repair_limit:
-        description: Reviewed timing repair budget (default 2; 3 or 4 only for inspected recoveries)
+        description: Reviewed repair budget or mode (incremental/review repair at most two chunks)
         type: choice
-        options: ["2", "3", "4"]
+        options: ["2", "3", "4", incremental, review]
         default: "2"
       deploy:
         description: Deploy GitHub Pages after validation
@@ -94,7 +94,9 @@ env:
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
   FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
   FFW_AUDIO_CHUNK_SECONDS: "900"
-  FFW_TIMING_REPAIR_MAX_CHUNKS: ${{ inputs.timing_repair_limit || '2' }}
+  FFW_INCREMENTAL_REPAIR: ${{ (inputs.timing_repair_limit == 'incremental' || inputs.timing_repair_limit == 'review') && 'true' || 'false' }}
+  FFW_REVIEW_REPAIR: ${{ inputs.timing_repair_limit == 'review' && 'true' || 'false' }}
+  FFW_TIMING_REPAIR_MAX_CHUNKS: ${{ (inputs.timing_repair_limit == 'incremental' || inputs.timing_repair_limit == 'review') && '2' || inputs.timing_repair_limit || '2' }}
   FFW_GEMINI_TRANSIENT_RETRIES: "1"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
   FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "300"
@@ -104,6 +106,10 @@ env:
   FFW_MAX_EPISODE_ATTEMPTS: "3"
   FFW_RETRY_COOLDOWN_HOURS: "6"
   FFW_ENABLED_SOURCES: "mtg-fast-finance,brainstorm-brewery"
+  FFW_CAPACITY_PATH: state/request-capacity.json
+  FFW_REQUEST_DAILY_BUDGET: "48"
+  FFW_PRIMARY_REQUEST_RESERVE: "16"
+  FFW_OPTIONAL_RUN_REQUEST_BUDGET: "16"
   PYTHONUNBUFFERED: "1"
 
 jobs:
@@ -136,6 +142,12 @@ jobs:
       - name: Run network-free tests
         env:
           FFW_MODE: mock
+          FFW_CAPACITY_PATH: ""
+          FFW_OPTIONAL_WORK: "false"
+          FFW_CLEANUP_ENABLED: "false"
+          FFW_INCREMENTAL_REPAIR: "false"
+          FFW_REVIEW_REPAIR: "false"
+          FFW_REQUIRE_RETAINED: "false"
         run: python -m unittest discover -s tests -v
 
       - name: Verify AI provider credentials
@@ -306,6 +318,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/episode-attempts.md state/runs
+          if [[ -f state/request-capacity.json ]]; then git add state/request-capacity.json; fi
           if [[ -d state/attempts ]]; then git add state/attempts; fi
           if [[ "${{ steps.validation.outcome }}" == "success" ]]; then git add archive state; fi
           if git diff --cached --quiet; then

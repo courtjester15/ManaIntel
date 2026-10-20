@@ -235,6 +235,24 @@ class ReliabilityTests(unittest.TestCase):
             reused = transcriber.repair(candidate(), [audio])
         self.assertTrue(reused["usage"][0]["checkpoint_reused"])
 
+    def test_bad_quarter_refines_once_and_reuses_children(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        bad = {"text": "speech", "segments": [{"start": "00:00.000", "end": "01:39.000", "text": "speech"}]}
+        good = {"text": "speech", "segments": [{"start": "00:01.000", "end": "00:10.000", "text": "speech"}]}
+        responses = [bad, good, good, good, good, good]
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *a, **kw: json.loads(json.dumps(responses.pop(0)))
+        ) as generate:
+            repaired = transcriber.repair(candidate(), [audio])
+        self.assertEqual(6, generate.call_count)
+        self.assertEqual(5, len(repaired["segments"]))
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=AssertionError("reuse validated repair")
+        ):
+            self.assertEqual(repaired["segments"], transcriber.repair(candidate(), [audio])["segments"])
+
     def test_rejected_repair_retains_private_payload_and_sanitized_metrics(self):
         transcriber = self.transcriber()
         audio = self.root / "chunk.mp3"
@@ -254,7 +272,7 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual(1, rejected[0]["invalid_bounds"])
         self.assertNotIn("private spoken content", json.dumps(events))
         files = list((self.root / "transcripts").glob("rejected-*.json.gz"))
-        self.assertEqual(1, len(files))
+        self.assertEqual(2, len(files))
         with gzip.open(files[0], "rt", encoding="utf-8") as source:
             saved = json.load(source)
         self.assertEqual(payload, saved["transcript"])
@@ -463,6 +481,25 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual([1], [repair["chunk"] for repair in saved["timing_repairs"]])
         self.assertIn("Recovered first chunk.", [s["text"] for s in saved["segments"]])
         self.assertEqual("original evidence", saved["text"])
+
+    def test_incremental_mode_saves_two_chunks_instead_of_spending_on_three(self):
+        pipeline = Pipeline.mock(replace(self.settings, retain_transcripts=True))
+        item = replace(candidate(), duration_seconds=2700)
+        broken = {"text": "original evidence", "chunk_count": 3, "segments": [
+            {"start": c * 900 + i / 2, "end": c * 900 + i / 2 + .1, "text": "word " * 70}
+            for c in range(3) for i in range(50)]}
+        repaired = {"segments": [{"start": 100, "end": 200, "text": "Recovered speech"}]}
+        with patch.dict(os.environ, {"FFW_INCREMENTAL_REPAIR": "true"}), patch.object(
+            pipeline.audio, "prepare", return_value=[Path("one"), Path("two"), Path("three")]
+        ), patch.object(pipeline.downloader, "download", return_value=Path("download")), patch.object(
+            pipeline.transcriber, "transcribe", side_effect=[broken, json.loads(json.dumps(repaired)), json.loads(json.dumps(repaired))]
+        ) as transcribe, patch.object(pipeline.extractor, "extract") as extract:
+            result = pipeline.process_episode(item, force=True)
+        self.assertEqual("failed", result.status)
+        self.assertEqual(3, transcribe.call_count)
+        extract.assert_not_called()
+        saved = json.load(gzip.open(next((self.settings.work_dir / "transcripts").glob("*.json.gz")), "rt"))["transcript"]
+        self.assertEqual([1,2], [r["chunk"] for r in saved["timing_repairs"]])
 
     def test_nonzero_replacement_cannot_remove_published_card(self):
         pipeline, item, output = self.published()

@@ -376,6 +376,8 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
         request_contents = contents
         if "response_json_schema" not in config_kwargs and "response_schema" not in config_kwargs:
             request_contents = [*contents, "Required JSON schema:\n" + json.dumps(schema, ensure_ascii=False)]
+        from .capacity import reserve, record_failure
+        ticket = reserve(model)
         try:
             response = client.models.generate_content(
                 model=model,
@@ -401,6 +403,7 @@ def _gemini_generate_json(client: Any, types: Any, *, model: str, contents: list
                 observer("model_call", model=model, outcome="success", request_seconds=round(time.monotonic() - started, 3), **diagnostics)
             return payload
         except Exception as exc:
+            record_failure(ticket, exc)
             if observer:
                 status = getattr(exc, "code", None) or getattr(exc, "status_code", None)
                 status = int(status) if isinstance(status, (int, str)) and str(status).isdigit() else None
@@ -671,57 +674,40 @@ class GeminiTranscriber:
                         " Use explicit MM:SS.mmm clock strings, never numeric timestamps. "
                         "One minute thirty seconds is 01:30.000. Start the clock at 00:00.000 for this clip."
                     )
-                    errors = []
-                    for model in dict.fromkeys(filter(None, [self.model_name, self.fallback_model_name])):
-                        if self.model_health.skip(model, self.model_name, self.fallback_model_name, observe):
-                            continue
-                        if self._rescue_calls_remaining <= 0:
-                            raise RuntimeError("Transcription split recovery call budget exhausted; retry resumes saved chunks and halves.")
-                        self._rescue_calls_remaining -= 1
-                        try:
-                            payload = _gemini_generate_json(
-                                client, types, model=model,
-                                contents=[("Transcribe this Magic podcast audio clip, preserving spoken card names, prices and speakers."
-                                           if parts == 4 else prompt) + f" This clip lasts {half} seconds." + clock_instruction,
-                                          types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
-                                schema=schema, observer=observe, allow_schema_fallback=False,
-                            )
-                            from .transcript_timing import clock_string_segments, suspect_timing_chunks
-                            try:
-                                checked = clock_string_segments(payload)
-                            except ValueError:
-                                self._reject_timing_payload(episode, index, part, model, payload,
-                                                           {"clip_seconds": half, "reason": "invalid_clock_format"}, observe)
-                            if getattr(self, "force_split", False):
-                                clocks = [(float(s.get("start", 0)), float(s.get("end", s.get("start", 0)))) for s in checked.get("segments", [])]
-                                # Audio models can put the final word just past
-                                # the physical clip end. Correct only this small
-                                # endpoint drift; never collapse arbitrary spans.
-                                if clocks and 0 <= clocks[-1][0] < half < clocks[-1][1] <= half + 3:
-                                    drift = clocks[-1][1] - half
-                                    checked["segments"][-1]["end"] = half
-                                    checked["_clip_end_trim"] = drift
-                                    clocks[-1] = (clocks[-1][0], half)
-                                    observe("clip_end_trimmed", model=model, overrun_seconds=drift, clip_seconds=half)
-                                invalid_bounds = sum(not (math.isfinite(start) and math.isfinite(end) and 0 <= start <= end <= half) for start, end in clocks)
-                                backward_jumps = sum(clocks[i][0] < clocks[i - 1][0] - 10 for i in range(1, len(clocks)))
-                                if not checked.get("segments") or suspect_timing_chunks(checked, half) or invalid_bounds or backward_jumps:
-                                    metrics = {"clip_seconds": half, "segment_count": len(clocks),
-                                               "max_end": max((end for _, end in clocks), default=None),
-                                               "invalid_bounds": invalid_bounds,
-                                               "backward_jumps": backward_jumps,
-                                               "zero_length_segments": sum(start == end for start, end in clocks)}
-                                    self._reject_timing_payload(episode, index, part, model, payload, metrics, observe)
-                            payload = checked
-                            self.model_health.succeeded(model)
-                            break
-                        except Exception as exc:
-                            if not _is_transient_gemini_error(exc):
-                                raise
-                            self.model_health.failed(model, exc, observe)
-                            errors.append(f"{model}: {type(exc).__name__}: {exc}")
+                    if getattr(self, "force_split", False):
+                        payload, model = self._repair_clip(client, types, episode, audio, half, fingerprint + f":quarter:{part}", 0, observe)
                     else:
-                        raise RuntimeError(f"Split repair clip {part + 1}/{parts} exhausted: {'; '.join(errors)}")
+                        errors = []
+                        for model in dict.fromkeys(filter(None, [self.model_name, self.fallback_model_name])):
+                            if self.model_health.skip(model, self.model_name, self.fallback_model_name, observe):
+                                continue
+                            if self._rescue_calls_remaining <= 0:
+                                raise RuntimeError("Transcription split recovery call budget exhausted; retry resumes saved chunks and halves.")
+                            self._rescue_calls_remaining -= 1
+                            try:
+                                payload = _gemini_generate_json(
+                                    client, types, model=model,
+                                    contents=[("Transcribe this Magic podcast audio clip, preserving spoken card names, prices and speakers."
+                                               if parts == 4 else prompt) + f" This clip lasts {half} seconds." + clock_instruction,
+                                              types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
+                                    schema=schema, observer=observe, allow_schema_fallback=False,
+                                )
+                                from .transcript_timing import clock_string_segments, suspect_timing_chunks
+                                try:
+                                    checked = clock_string_segments(payload)
+                                except ValueError:
+                                    self._reject_timing_payload(episode, index, part, model, payload,
+                                                               {"clip_seconds": half, "reason": "invalid_clock_format"}, observe)
+                                payload = checked
+                                self.model_health.succeeded(model)
+                                break
+                            except Exception as exc:
+                                if not _is_transient_gemini_error(exc):
+                                    raise
+                                self.model_health.failed(model, exc, observe)
+                                errors.append(f"{model}: {type(exc).__name__}: {exc}")
+                        else:
+                            raise RuntimeError(f"Split repair clip {part + 1}/{parts} exhausted: {'; '.join(errors)}")
                     seconds = round(time.monotonic() - started, 3)
                     self._save_chunk_checkpoint(episode, index, chunk_count, fingerprint + f":split-v1:{duration}", payload, model, seconds, suffix)
                 adjusted = deepcopy(payload)
@@ -739,6 +725,82 @@ class GeminiTranscriber:
                     "_usage": {"rescue_subchunks": [item.get("_usage") for item in payloads]}}, " + ".join(dict.fromkeys(used_models))
         finally:
             shutil.rmtree(rescue_dir, ignore_errors=True)
+
+    def _repair_clip(self, client, types, episode, audio, duration, fingerprint, depth, observe):
+        """Refine only rejected clips, retaining child progress and a hard call cap."""
+        from .transcript_timing import clock_string_segments, suspect_timing_chunks
+        saved = self._load_chunk_checkpoint(episode, 0, 1, fingerprint, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
+        if saved and saved[0].get("segments"):
+            observe("checkpoint_reused", model=saved[1], repair_depth=depth)
+            return saved[0], saved[1]
+        split_planned = bool(saved and saved[0].get("split_planned"))
+        if not split_planned:
+            if self._rescue_calls_remaining <= 0:
+                raise RuntimeError("Transcription split recovery call budget exhausted; retry resumes saved clips.")
+            self._rescue_calls_remaining -= 1
+            model = self.model_name
+            if self.model_health.skip(model, model, self.fallback_model_name, observe):
+                model = self.fallback_model_name
+            if not model:
+                raise RuntimeError("Repair provider unavailable; stop optional work.")
+            try:
+                raw = _gemini_generate_json(client, types, model=model, contents=[
+                    f"Transcribe ALL speech in this {duration:.3f} second Magic podcast clip, including the end. "
+                    "Preserve card names, prices and speakers. Use explicit MM:SS.mmm strings relative to this clip, "
+                    "starting at 00:00.000. Keep timestamps aligned to the audible speech; do not compress or summarize.",
+                    types.Part.from_bytes(data=audio.read_bytes(), mime_type="audio/mpeg")],
+                    schema=_clock_transcript_schema(), observer=observe, allow_schema_fallback=False)
+                try:
+                    checked = clock_string_segments(raw)
+                except ValueError:
+                    self._reject_timing_payload(episode, 0, depth, model, raw,
+                                                {"clip_seconds": duration, "reason": "invalid_clock_format"}, observe)
+                clocks = [(float(s["start"]), float(s["end"])) for s in checked.get("segments", [])]
+                if clocks and 0 <= clocks[-1][0] < duration < clocks[-1][1] <= duration + 3:
+                    checked["segments"][-1]["end"] = duration
+                    checked["_clip_end_trim"] = clocks[-1][1] - duration
+                    observe("clip_end_trimmed", model=model, overrun_seconds=checked["_clip_end_trim"], clip_seconds=duration)
+                    clocks[-1] = (clocks[-1][0], duration)
+                invalid = sum(not (math.isfinite(a) and math.isfinite(b) and 0 <= a <= b <= duration) for a,b in clocks)
+                backward = sum(clocks[i][0] < clocks[i-1][0] - 10 for i in range(1,len(clocks)))
+                if not clocks or invalid or backward or suspect_timing_chunks(checked, duration):
+                    self._reject_timing_payload(episode, 0, depth, model, raw,
+                        {"clip_seconds": duration, "invalid_bounds": invalid, "backward_jumps": backward,
+                         "segment_count": len(clocks)}, observe)
+                self._save_chunk_checkpoint(episode, 0, 1, fingerprint, checked, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
+                return checked, model
+            except GeminiMalformedJSONError:
+                if depth >= 1:
+                    raise
+                self._save_chunk_checkpoint(episode, 0, 1, fingerprint, {"split_planned": True}, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
+            except Exception as exc:
+                self.model_health.failed(model, exc, observe)
+                raise
+        payloads, models = [], []
+        for part in range(2):
+            child = audio.with_name(audio.stem + f"-refined-{part}.mp3")
+            try:
+                result = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(audio),
+                    "-ss", str(part * duration / 2), "-t", str(duration / 2), "-vn", "-ac", "1", "-ar", "16000", "-b:a", "32k", str(child)],
+                    capture_output=True, text=True, timeout=180)
+                if result.returncode or not child.exists():
+                    raise RuntimeError("ffmpeg failed preparing refined repair clip.")
+                item, model = self._repair_clip(client, types, episode, child, duration / 2,
+                                               fingerprint + f":half:{part}", depth + 1, observe)
+                item = deepcopy(item)
+                for segment in item["segments"]:
+                    segment["start"] += part * duration / 2
+                    segment["end"] += part * duration / 2
+                payloads.append(item)
+                models.append(model)
+            finally:
+                child.unlink(missing_ok=True)
+        payload = {"text": "\n".join(p.get("text", "") for p in payloads),
+                   "segments": [s for p in payloads for s in p["segments"]],
+                   "_clip_end_trim": sum(p.get("_clip_end_trim", 0) for p in payloads)}
+        model = " + ".join(dict.fromkeys(models))
+        self._save_chunk_checkpoint(episode, 0, 1, fingerprint, payload, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
+        return payload, model
 
     def repair(self, episode: EpisodeCandidate, audio_files: list[Path]) -> dict[str, Any]:
         # Isolate repair checkpoints from failed full-chunk responses and avoid

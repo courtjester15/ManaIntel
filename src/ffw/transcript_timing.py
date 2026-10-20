@@ -84,4 +84,37 @@ def suspect_timing_chunks(transcript: dict, chunk_seconds: int = 900) -> list[in
             suspect.append(index)
         elif len(segments) >= 20 and sum(float(s.get("start", 0)) == offset + chunk_seconds for s in segments) >= 5:
             suspect.append(index)
+    duration = transcript.get("duration_seconds")
+    if duration and duration > 0:
+        suspect.extend(int(float(s.get("start", 0)) // chunk_seconds)
+                       for s in transcript.get("segments", [])
+                       if float(s.get("end", 0)) > duration + 3)
     return sorted(set(suspect))
+
+
+def align_published_quotes(picks: list[dict], transcript: dict) -> list[dict] | None:
+    """Locate exact, unique source excerpts in newly audio-validated segments.
+
+    No fuzzy name matching, clock scaling, or invented source evidence. Require
+    the complete normalized quote, and abstain on repeated/short excerpts.
+    """
+    words, spans = [], []
+    for segment in transcript.get("segments", []):
+        tokens = re.findall(r"[a-z0-9]+", str(segment.get("text", "")).lower())
+        words.extend(tokens)
+        spans.extend([(segment["start"], segment["end"])] * len(tokens))
+    result = deepcopy(picks)
+    for pick in result:
+        quote = re.findall(r"[a-z0-9]+", str(pick.get("evidence_excerpt", "")).lower())
+        if len(quote) < 8:
+            return None
+        matches = [i for i in range(len(words) - len(quote) + 1) if words[i:i+len(quote)] == quote]
+        if len(matches) != 1:
+            return None
+        index = matches[0]
+        start, end = spans[index][0], spans[index+len(quote)-1][1]
+        if end < start or end - start > 180:
+            return None
+        pick.setdefault("identity_start_seconds", pick.get("start_seconds"))
+        pick.update(start_seconds=int(start), end_seconds=int(end))
+    return result
