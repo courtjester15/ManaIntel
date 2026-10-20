@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.14",
+    "pipeline_version": "0.5.15",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-19T23:45:45Z",
-    "latest_successful_run_at": "2026-10-18T22:28:06Z",
+    "generated_at": "2026-10-20T02:26:50Z",
+    "latest_successful_run_at": "2026-10-20T02:26:50Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 113,
-    "real_pick_count": 450,
+    "real_pick_count": 453,
     "last_discovered_episode_date": "2026-10-19T22:23:10Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,14 +34,14 @@
   },
   "counts": {
     "episodes": 113,
-    "picks": 450,
-    "needs_review": 44,
-    "failed": 2,
+    "picks": 453,
+    "needs_review": 45,
+    "failed": 1,
     "completed": 67
   },
   "status_counts": {
-    "failed": 2,
-    "needs_review": 44,
+    "failed": 1,
+    "needs_review": 45,
     "complete": 67
   },
   "latest_episode": {
@@ -4440,31 +4440,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "pick_count": 3,
       "directory": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance",
       "outputs": {
         "metadata": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance/summary.json",
+        "summary_markdown": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-19T04:42:37Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 1/5 failed: Gemini transcription chunk 1/1 failed after 25.0s: RuntimeError: Split repair clip 2/4 exhausted: gemini-3.5-flash-lite: GeminiMalformedJSONError: Malformed JSON transcript content: split repair has missing segments or compressed timestamps.",
-        "category": "transient_model_output",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-19T10:42:37Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-20T02:26:50Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

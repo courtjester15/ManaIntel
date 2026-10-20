@@ -1,0 +1,422 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
+    "episode_number": 663,
+    "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
+    "published_at": "2025-08-29T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_663_Tech_Grinder_Bro.mp3",
+    "episode_url": "https://brainstormbrewery.com/tech-grinder-bro-brainstorm-brewery-663-magic-finance/",
+    "duration_seconds": 3742,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) explore what is broken in Standard, Spider-Man speculation, and that collector booster crack.&#160; Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_issues": [
+      {
+        "code": "timing",
+        "path": "extraction",
+        "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.15",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-20T02:26:50Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-19T04:39:02Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-19T04:39:04Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-19T04:39:04Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-19T04:39:26Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-19T04:42:37Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-20T02:24:55Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-20T02:24:55Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-20T02:24:56Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-20T02:24:56Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-20T02:25:19Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-20T02:26:46Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-20T02:26:47Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-20T02:26:50Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-20T02:26:50Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-20T02:26:50Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-20T02:26:50Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3742,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.936,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17130,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22697,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39827,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 42.583,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19053,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22698,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41751,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 33.896,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14953,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22698,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37651,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 44.042,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19997,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22698,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42695,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 142,
+          "request_seconds": 7.586,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3100,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 3749,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 3551
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 6849,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 56
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 955,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 35035,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 35035
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 35990,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 909,
+    "end_seconds": 3440,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Edgar Markov",
+      "printing": "Innistrad: Remastered",
+      "printing_certainty": "likely",
+      "foil": false,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$21",
+      "entry_target": {
+        "raw": "$20 to $25",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 25.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$50",
+        "currency": "USD",
+        "minimum": 50.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "Card has steadily declined and officially bottomed out from its $100 peak.",
+        "Comparable to a three-color Doubling Season."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2876,
+      "end_seconds": 3056,
+      "evidence_excerpt": "Edgar Markov TCG low is in fact $21. Market price is $23. We are talking about the Innistrad remastered version",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-9248999783cede54",
+      "timestamp": "00:47:56",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_663_Tech_Grinder_Bro.mp3#t=2876"
+    },
+    {
+      "card": "Overlord of the Hauntwoods",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "current price",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "higher",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Card is very strong, ramps, cheats on mana, and has several years left in standard."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3102,
+      "end_seconds": 3149,
+      "evidence_excerpt": "Overlord of the Hot Woods... This card is very strong. All the Overlords are really strong... I can't imagine this card getting much cheaper than it is, so buy them.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ce3251709c8a9d60",
+      "timestamp": "00:51:42",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_663_Tech_Grinder_Bro.mp3#t=3102"
+    },
+    {
+      "card": "Witch-king of Angmar",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "under $5",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 5.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "It is a mythic from a set not easy to reprint.",
+        "It is starting to move and second spikes usually go higher than the first."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3222,
+      "end_seconds": 3302,
+      "evidence_excerpt": "Witch King of Angmar... gone from $3 to $5 over the past month... Witch King of Angmar is a $10 card a couple months from now",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2115981b0e4dd90b",
+      "timestamp": "00:53:42",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_663_Tech_Grinder_Bro.mp3#t=3222"
+    }
+  ]
+}
