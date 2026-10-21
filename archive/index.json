@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.16",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-21T03:40:44Z",
-    "latest_successful_run_at": "2026-10-21T03:40:44Z",
+    "generated_at": "2026-10-21T03:57:06Z",
+    "latest_successful_run_at": "2026-10-21T03:57:05Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 115,
-    "real_pick_count": 463,
+    "real_pick_count": 466,
     "last_discovered_episode_date": "2026-10-19T22:23:10Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,14 +34,14 @@
   },
   "counts": {
     "episodes": 115,
-    "picks": 463,
-    "needs_review": 48,
+    "picks": 466,
+    "needs_review": 47,
     "failed": 0,
-    "completed": 67
+    "completed": 68
   },
   "status_counts": {
-    "needs_review": 48,
-    "complete": 67
+    "complete": 68,
+    "needs_review": 47
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2422332303",
@@ -59,10 +59,10 @@
     "source_name": "MTG Fast Finance",
     "source_url": "https://www.mtgfastfinance.com/",
     "extraction_profile": "cards_to_watch",
-    "processing_status": "needs_review",
-    "review_state": "needs_review",
-    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-    "pick_count": 1,
+    "processing_status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "pick_count": 4,
     "directory": "episodes/0537-reality-fracture-deep-dive",
     "outputs": {
       "metadata": "episodes/0537-reality-fracture-deep-dive/metadata.json",
@@ -71,7 +71,7 @@
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-10-21T03:40:44Z",
+    "processed_at": "2026-10-21T03:57:05Z",
     "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
@@ -83,38 +83,39 @@
     {
       "card": "Llanowar Elves",
       "printing": null,
-      "printing_certainty": "ambiguous",
+      "printing_certainty": null,
       "foil": true,
       "hosts": [],
       "recommendation": "buy",
       "mentioned_price": "$10",
       "entry_target": {
-        "raw": "10 to 20",
-        "currency": "USD",
+        "raw": "10",
+        "currency": "$",
         "minimum": 10,
-        "maximum": 20
+        "maximum": 10
       },
-      "hold": "six to 12 months",
+      "hold": "6 to 12 months",
       "exit_target": {
-        "raw": "10 to 20",
-        "currency": "USD",
-        "minimum": 10,
+        "raw": "20",
+        "currency": "$",
+        "minimum": 20,
         "maximum": 20
       },
       "reasoning": [
-        "Art quality is high on top of the thirst trap.",
-        "Traditional foil version."
+        "High art quality and popular art by Pauline Voss",
+        "Bonus card for the same set as the dark ritual Liliana"
       ],
       "caveats": [],
       "confidence": null,
-      "start_seconds": 1274,
+      "start_seconds": 1315,
       "end_seconds": 1325,
-      "evidence_excerpt": "42 listings currently, $10 pretty far up the ramp, but these are going to go 10 to 20 in a heartbeat. Give this six to 12 months and it's over.",
+      "evidence_excerpt": "Lanavar elves... 42 listings currently, $10 pretty far up the ramp, but these are going to go 10 to 20 in a heartbeat.",
       "review_status": "approved",
       "review_reason": null,
+      "identity_start_seconds": 1274,
       "id": "pick-e66afcdee199e602",
-      "timestamp": "00:21:14",
-      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1274",
+      "timestamp": "00:21:55",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1315",
       "card_resolution": {
         "raw_name": "Llanowar Elves",
         "normalized_name": "llanowar elves",
@@ -141,7 +142,200 @@
         "source_id": "mtg-fast-finance",
         "source_name": "MTG Fast Finance"
       },
-      "processing_status": "needs_review",
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Ojer Axonl, Deepest Might",
+      "printing": "showcase foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$35 or $40",
+      "entry_target": {
+        "raw": "35 or 40",
+        "currency": "$",
+        "minimum": 35,
+        "maximum": 40
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "60 to 80",
+        "currency": "$",
+        "minimum": 60,
+        "maximum": 80
+      },
+      "reasoning": [
+        "Insulated from reprint potential because of being a flip card",
+        "Synergizes well with Stinger Quill"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1080,
+      "end_seconds": 1100,
+      "evidence_excerpt": "Ozeer Axdil, deepest might showcase foils... push up from say this $35 or $40 price tag up to like 60 to 80",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-dd423c01a7738ae1",
+      "timestamp": "00:18:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1080",
+      "card_resolution": {
+        "raw_name": "Ojer Axonl, Deepest Might",
+        "normalized_name": "ojer axonl, deepest might",
+        "status": "not_found",
+        "canonical_name": null,
+        "scryfall_id": null,
+        "oracle_id": null,
+        "scryfall_uri": null,
+        "image_uri": null,
+        "card_face_images": [],
+        "method": "fuzzy",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-21T03:57:06Z"
+      },
+      "episode": {
+        "guid": "tag:soundcloud,2010:tracks/2422332303",
+        "episode_number": 537,
+        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
+        "published_at": "2026-10-19T22:23:10Z",
+        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
+        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
+        "source_id": "mtg-fast-finance",
+        "source_name": "MTG Fast Finance"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Yavimaya, Cradle of Growth",
+      "printing": "Valley Farmstead",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$16 or $17",
+      "entry_target": {
+        "raw": "16 or 17",
+        "currency": "$",
+        "minimum": 16,
+        "maximum": 17
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "40",
+        "currency": "$",
+        "minimum": 40,
+        "maximum": 40
+      },
+      "reasoning": [
+        "Yavimaya special version with Stardew Valley cred"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 947,
+      "end_seconds": 968,
+      "evidence_excerpt": "Valley Farmstead/Yavamaya Cradle of Growth... $16 or $17 right now, market price. For these to go to 40 seems pretty easy",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d6c4c0935ba834e6",
+      "timestamp": "00:15:47",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=947",
+      "card_resolution": {
+        "raw_name": "Yavimaya, Cradle of Growth",
+        "normalized_name": "yavimaya, cradle of growth",
+        "status": "verified",
+        "canonical_name": "Yavimaya, Cradle of Growth",
+        "scryfall_id": "4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c",
+        "oracle_id": "8dd5f5af-d2d8-4356-8617-8381081b930c",
+        "scryfall_uri": "https://scryfall.com/card/mh2/261/yavimaya-cradle-of-growth?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/4/e/4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c.jpg?1783926791",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-21T03:57:06Z"
+      },
+      "resolved_card": "Yavimaya, Cradle of Growth",
+      "oracle_id": "8dd5f5af-d2d8-4356-8617-8381081b930c",
+      "episode": {
+        "guid": "tag:soundcloud,2010:tracks/2422332303",
+        "episode_number": 537,
+        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
+        "published_at": "2026-10-19T22:23:10Z",
+        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
+        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
+        "source_id": "mtg-fast-finance",
+        "source_name": "MTG Fast Finance"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Sage of Hours",
+      "printing": "borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$17",
+      "entry_target": {
+        "raw": "10",
+        "currency": "$",
+        "minimum": 10,
+        "maximum": 10
+      },
+      "hold": "12 to 18 months",
+      "exit_target": {
+        "raw": "40",
+        "currency": "$",
+        "minimum": 40,
+        "maximum": 40
+      },
+      "reasoning": [
+        "Too many combos with the card",
+        "The only sweet version",
+        "Not a lot of vendors right now",
+        "+1/+1 counter themes are extremely prevalent in EDH"
+      ],
+      "caveats": [
+        "Number of vendors may go up as people get it in hand"
+      ],
+      "confidence": null,
+      "start_seconds": 800,
+      "end_seconds": 825,
+      "evidence_excerpt": "Sage of Hours... about $17. These ought to hit 40 sometime in the next 12, maybe 18 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-caadc94905e259d5",
+      "timestamp": "00:13:20",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=800",
+      "card_resolution": {
+        "raw_name": "Sage of Hours",
+        "normalized_name": "sage of hours",
+        "status": "verified",
+        "canonical_name": "Sage of Hours",
+        "scryfall_id": "8cb55caf-fc95-40dc-80af-5144f94333ee",
+        "oracle_id": "bdbf70da-af38-4827-9b8b-39f553ebd34a",
+        "scryfall_uri": "https://scryfall.com/card/jou/50/sage-of-hours?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/8/c/8cb55caf-fc95-40dc-80af-5144f94333ee.jpg?1783939443",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-21T03:57:05Z"
+      },
+      "resolved_card": "Sage of Hours",
+      "oracle_id": "bdbf70da-af38-4827-9b8b-39f553ebd34a",
+      "episode": {
+        "guid": "tag:soundcloud,2010:tracks/2422332303",
+        "episode_number": 537,
+        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
+        "published_at": "2026-10-19T22:23:10Z",
+        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
+        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
+        "source_id": "mtg-fast-finance",
+        "source_name": "MTG Fast Finance"
+      },
+      "processing_status": "complete",
       "human_reviewed": false
     },
     {
@@ -273,204 +467,6 @@
       },
       "processing_status": "needs_review",
       "human_reviewed": false
-    },
-    {
-      "card": "Cyber Conversion",
-      "printing": "Doctor Who",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Jason"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$3",
-      "entry_target": {
-        "raw": "$3",
-        "currency": "USD",
-        "minimum": 3.0,
-        "maximum": 3.0
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "$5",
-        "currency": "USD",
-        "minimum": 5.0,
-        "maximum": 5.0
-      },
-      "reasoning": [
-        "Generically very good.",
-        "Sooner or later, they'll do something weird with face down creatures again."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 3154,
-      "end_seconds": 3192,
-      "evidence_excerpt": "I got a pick of the week. It's a cyber conversion from Doctor Who... It's going to be $5, you know.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-9750e655954a217e",
-      "timestamp": "00:52:34",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3154",
-      "card_resolution": {
-        "raw_name": "Cyber Conversion",
-        "normalized_name": "cyber conversion",
-        "status": "verified",
-        "canonical_name": "Cyber Conversion",
-        "scryfall_id": "e4ce5aa7-70cb-4ab2-9a25-4363aa2b370f",
-        "oracle_id": "33761c1a-9848-45bf-b934-123cebab566b",
-        "scryfall_uri": "https://scryfall.com/card/who/38/cyber-conversion?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/e/4/e4ce5aa7-70cb-4ab2-9a25-4363aa2b370f.jpg?1783914673",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-17T04:27:38Z"
-      },
-      "resolved_card": "Cyber Conversion",
-      "oracle_id": "33761c1a-9848-45bf-b934-123cebab566b",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
-        "episode_number": 722,
-        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
-        "published_at": "2026-10-16T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "City of Brass",
-      "printing": "Final Fantasy store championship promo foil",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "DJ"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": null,
-      "entry_target": {
-        "raw": "a couple hundred dollars",
-        "currency": "USD",
-        "minimum": 200.0,
-        "maximum": 200.0
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "a couple hundred dollars",
-        "currency": "USD",
-        "minimum": 200.0,
-        "maximum": 200.0
-      },
-      "reasoning": [
-        "Item is low stock.",
-        "People are now buying it to fill out their master sets."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 3022,
-      "end_seconds": 3059,
-      "evidence_excerpt": "His choice is Vujerba, the floating city, the store championship promo foil City of Brass with final fantasy skin.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-664f49ac8a2f47f8",
-      "timestamp": "00:50:22",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3022",
-      "card_resolution": {
-        "raw_name": "City of Brass",
-        "normalized_name": "city of brass",
-        "status": "verified",
-        "canonical_name": "City of Brass",
-        "scryfall_id": "c21565d0-fc40-4d89-9b27-87c03385e0af",
-        "oracle_id": "f25351e3-539b-4bbc-b92d-6480acf4d722",
-        "scryfall_uri": "https://scryfall.com/card/tmc/62/city-of-brass?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/c/2/c21565d0-fc40-4d89-9b27-87c03385e0af.jpg?1783904153",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-17T04:27:38Z"
-      },
-      "resolved_card": "City of Brass",
-      "oracle_id": "f25351e3-539b-4bbc-b92d-6480acf4d722",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
-        "episode_number": 722,
-        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
-        "published_at": "2026-10-16T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Prologue to Phyresis",
-      "printing": "Phyrexia: All Will Be One",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Jason"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "85 cents",
-      "entry_target": {
-        "raw": "85 cents",
-        "currency": "USD",
-        "minimum": 0.85,
-        "maximum": 0.85
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "85 cents market price",
-        "currency": "USD",
-        "minimum": 0.85,
-        "maximum": 0.85
-      },
-      "reasoning": [
-        "Directly putting a poison counter on players is really good.",
-        "Instant speed too, which makes it important."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 2158,
-      "end_seconds": 2248,
-      "evidence_excerpt": "My breaking bulk this week is from Firexia, all will be one... Prologue to Fysis um climbing right now up to 85 cents market price.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-f156f33925acf008",
-      "timestamp": "00:35:58",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=2158",
-      "card_resolution": {
-        "raw_name": "Prologue to Phyresis",
-        "normalized_name": "prologue to phyresis",
-        "status": "verified",
-        "canonical_name": "Prologue to Phyresis",
-        "scryfall_id": "ac625f30-ed91-4b21-ada8-aaa5b2ad79b8",
-        "oracle_id": "3f661b58-e8ca-412c-bdac-af151162de12",
-        "scryfall_uri": "https://scryfall.com/card/one/65/prologue-to-phyresis?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/a/c/ac625f30-ed91-4b21-ada8-aaa5b2ad79b8.jpg?1783918058",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-17T04:27:38Z"
-      },
-      "resolved_card": "Prologue to Phyresis",
-      "oracle_id": "3f661b58-e8ca-412c-bdac-af151162de12",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
-        "episode_number": 722,
-        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
-        "published_at": "2026-10-16T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -490,10 +486,10 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "needs_review",
-      "review_state": "needs_review",
-      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-      "pick_count": 1,
+      "processing_status": "complete",
+      "review_state": "approved",
+      "review_reason": null,
+      "pick_count": 4,
       "directory": "episodes/0537-reality-fracture-deep-dive",
       "outputs": {
         "metadata": "episodes/0537-reality-fracture-deep-dive/metadata.json",
@@ -502,7 +498,7 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-21T03:40:44Z",
+      "processed_at": "2026-10-21T03:57:05Z",
       "error": null,
       "human_reviewed": false,
       "reviewed_at": null,

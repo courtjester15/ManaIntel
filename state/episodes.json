@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.16",
-  "updated_at": "2026-10-21T03:40:44Z",
+  "updated_at": "2026-10-21T03:57:05Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28675,6 +28675,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-21T03:40:44Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-21T03:56:40Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-21T03:56:40Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-21T03:56:41Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-21T03:56:41Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-21T03:57:00Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-21T03:57:00Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-21T03:57:00Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-21T03:57:05Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-21T03:57:05Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-21T03:57:05Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-10-21T03:57:05Z"
         }
       ],
       "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
@@ -28682,11 +28726,11 @@
       "published_at": "2026-10-19T22:23:10Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 6,
-      "pick_count": 1,
+      "attempt_count": 7,
+      "pick_count": 4,
       "error": null,
-      "status": "needs_review",
-      "updated_at": "2026-10-21T03:40:44Z",
+      "status": "complete",
+      "updated_at": "2026-10-21T03:57:05Z",
       "output_directory": "episodes/0537-reality-fracture-deep-dive",
       "transcription": {
         "provider": "Gemini",
@@ -28879,7 +28923,7 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1428,
+        "candidates_token_count": 1299,
         "candidates_tokens_details": null,
         "prompt_token_count": 8123,
         "prompt_tokens_details": [
@@ -28891,31 +28935,12 @@
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 9551,
+        "total_token_count": 9422,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-      "review_issues": [
-        {
-          "code": "coverage",
-          "path": "extraction",
-          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-          "state": "unresolved"
-        },
-        {
-          "code": "printing",
-          "path": "extraction",
-          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-          "state": "unresolved"
-        },
-        {
-          "code": "coverage",
-          "path": "section",
-          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
-          "state": "unresolved"
-        }
-      ],
+      "review_reason": null,
+      "review_issues": [],
       "last_attempt_error": {
         "stage": "transcribing",
         "message": "Transcript timing repair left suspect coverage; manual review required.",

@@ -20,35 +20,16 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "needs_review",
-    "review_state": "needs_review",
-    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-    "review_issues": [
-      {
-        "code": "coverage",
-        "path": "extraction",
-        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-        "state": "unresolved"
-      },
-      {
-        "code": "printing",
-        "path": "extraction",
-        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
-        "state": "unresolved"
-      },
-      {
-        "code": "coverage",
-        "path": "section",
-        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
-        "state": "unresolved"
-      }
-    ],
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
     "pipeline_version": "0.5.16",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v3-evidence-uncertainty",
-    "processed_at": "2026-10-21T03:40:44Z",
+    "processed_at": "2026-10-21T03:57:05Z",
     "history": [
       {
         "status": "detected",
@@ -245,6 +226,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-21T03:40:44Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-21T03:56:40Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-21T03:56:40Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-21T03:56:41Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-21T03:56:41Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-21T03:57:00Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-21T03:57:00Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-21T03:57:00Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-21T03:57:05Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-21T03:57:05Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-21T03:57:05Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-21T03:57:05Z"
       }
     ],
     "error": null,
@@ -439,7 +464,7 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 1428,
+      "candidates_token_count": 1299,
       "candidates_tokens_details": null,
       "prompt_token_count": 8123,
       "prompt_tokens_details": [
@@ -451,56 +476,168 @@
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 9551,
+      "total_token_count": 9422,
       "traffic_type": null
     }
   },
   "section": {
     "located": true,
-    "start_seconds": 1274,
-    "end_seconds": 2479,
+    "start_seconds": 782,
+    "end_seconds": 1370,
     "label": "Cards to Watch",
     "confidence": "medium",
-    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_reason": null,
     "start_signal": "recommendation_language",
-    "end_signal": null
+    "end_signal": "advertised_topic_transition"
   },
   "recommendations": [
     {
+      "card": "Sage of Hours",
+      "printing": "borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$17",
+      "entry_target": {
+        "raw": "10",
+        "currency": "$",
+        "minimum": 10,
+        "maximum": 10
+      },
+      "hold": "12 to 18 months",
+      "exit_target": {
+        "raw": "40",
+        "currency": "$",
+        "minimum": 40,
+        "maximum": 40
+      },
+      "reasoning": [
+        "Too many combos with the card",
+        "The only sweet version",
+        "Not a lot of vendors right now",
+        "+1/+1 counter themes are extremely prevalent in EDH"
+      ],
+      "caveats": [
+        "Number of vendors may go up as people get it in hand"
+      ],
+      "confidence": null,
+      "start_seconds": 800,
+      "end_seconds": 825,
+      "evidence_excerpt": "Sage of Hours... about $17. These ought to hit 40 sometime in the next 12, maybe 18 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-caadc94905e259d5",
+      "timestamp": "00:13:20",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=800"
+    },
+    {
+      "card": "Yavimaya, Cradle of Growth",
+      "printing": "Valley Farmstead",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$16 or $17",
+      "entry_target": {
+        "raw": "16 or 17",
+        "currency": "$",
+        "minimum": 16,
+        "maximum": 17
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "40",
+        "currency": "$",
+        "minimum": 40,
+        "maximum": 40
+      },
+      "reasoning": [
+        "Yavimaya special version with Stardew Valley cred"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 947,
+      "end_seconds": 968,
+      "evidence_excerpt": "Valley Farmstead/Yavamaya Cradle of Growth... $16 or $17 right now, market price. For these to go to 40 seems pretty easy",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d6c4c0935ba834e6",
+      "timestamp": "00:15:47",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=947"
+    },
+    {
+      "card": "Ojer Axonl, Deepest Might",
+      "printing": "showcase foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$35 or $40",
+      "entry_target": {
+        "raw": "35 or 40",
+        "currency": "$",
+        "minimum": 35,
+        "maximum": 40
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "60 to 80",
+        "currency": "$",
+        "minimum": 60,
+        "maximum": 80
+      },
+      "reasoning": [
+        "Insulated from reprint potential because of being a flip card",
+        "Synergizes well with Stinger Quill"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1080,
+      "end_seconds": 1100,
+      "evidence_excerpt": "Ozeer Axdil, deepest might showcase foils... push up from say this $35 or $40 price tag up to like 60 to 80",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-dd423c01a7738ae1",
+      "timestamp": "00:18:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1080"
+    },
+    {
       "card": "Llanowar Elves",
       "printing": null,
-      "printing_certainty": "ambiguous",
+      "printing_certainty": null,
       "foil": true,
       "hosts": [],
       "recommendation": "buy",
       "mentioned_price": "$10",
       "entry_target": {
-        "raw": "10 to 20",
-        "currency": "USD",
+        "raw": "10",
+        "currency": "$",
         "minimum": 10,
-        "maximum": 20
+        "maximum": 10
       },
-      "hold": "six to 12 months",
+      "hold": "6 to 12 months",
       "exit_target": {
-        "raw": "10 to 20",
-        "currency": "USD",
-        "minimum": 10,
+        "raw": "20",
+        "currency": "$",
+        "minimum": 20,
         "maximum": 20
       },
       "reasoning": [
-        "Art quality is high on top of the thirst trap.",
-        "Traditional foil version."
+        "High art quality and popular art by Pauline Voss",
+        "Bonus card for the same set as the dark ritual Liliana"
       ],
       "caveats": [],
       "confidence": null,
-      "start_seconds": 1274,
+      "start_seconds": 1315,
       "end_seconds": 1325,
-      "evidence_excerpt": "42 listings currently, $10 pretty far up the ramp, but these are going to go 10 to 20 in a heartbeat. Give this six to 12 months and it's over.",
+      "evidence_excerpt": "Lanavar elves... 42 listings currently, $10 pretty far up the ramp, but these are going to go 10 to 20 in a heartbeat.",
       "review_status": "approved",
       "review_reason": null,
+      "identity_start_seconds": 1274,
       "id": "pick-e66afcdee199e602",
-      "timestamp": "00:21:14",
-      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1274"
+      "timestamp": "00:21:55",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1315"
     }
   ]
 }
