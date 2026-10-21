@@ -8,6 +8,22 @@ from ffw.transcript_timing import missing_recommendation_content, suspect_timing
 class RepresentativeEvaluationTests(unittest.TestCase):
     """Invented minimal examples, not quotations or accuracy scores."""
 
+    def test_ff_selection_handoff_keeps_all_four_recommendations(self):
+        segments = [
+            {"start": 90, "end": 100, "text": "Then cards to watch, and then previews."},
+            {"start": 780, "end": 784, "text": "What is your first selection this week?"},
+            {"start": 790, "end": 900, "text": "Example Alpha at seventeen could reach forty."},
+            {"start": 950, "end": 1070, "text": "Example Beta foils are my next purchase."},
+            {"start": 1080, "end": 1280, "text": "I am picking Example Gamma for demand."},
+            {"start": 1290, "end": 1370, "text": "My pick is Example Delta, ten to twenty."},
+            {"start": 1374, "end": 1380, "text": "All righty, let's move on over to the latest reveals from Example Expansion."},
+        ]
+        result = locate_recommendation_section(segments, "cards_to_watch", title="Example Expansion Deep Dive")
+        self.assertEqual(780, result["start_seconds"])
+        self.assertEqual(1370, result["end_seconds"])
+        self.assertIsNone(result["review_reason"])
+        self.assertEqual(segments[1:6], result["segments"])
+
     def test_brainstorm_keeps_bulk_and_late_pick_across_topic_gap(self):
         segments = [
             {"start": 600, "end": 630, "text": "Time for Breaking Bulk."},

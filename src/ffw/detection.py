@@ -27,6 +27,7 @@ OUTLINE_PATTERNS = (
     r"\b(?:first|then|finally)\b.{0,700}\bcards?\s+to\s+watch\b.{0,300}\b(?:and then|then|finally|after|wrap)\b",
 )
 PICK_CUE_PATTERNS = (
+    r"\bwhat(?:'s| is)\s+your\s+(?:(?:first|second|next|last|final)\s+)?(?:selection|pick|card)\b",
     r"\bi(?:'ve| have)\s+got\s+(?:a\s+)?(?:good\s+)?pick\b",
     r"\bmy\s+(?:(?:first|second|next|other|last|final)\s+)?(?:card|pick)\b",
     r"\b(?:first|second|next|other|last|final)\s+(?:card|pick)(?:\s+this week)?\b",
@@ -38,7 +39,7 @@ PICK_CUE_PATTERNS = (
 TOPIC_TRANSITION_PATTERNS = (
     r"^\s*(?:all righty|all right|okay)[,.!\s]+so\b",
     r"\btopic\s+of\s+the\s+week\b",
-    r"\b(?:move|moving)\s+on\s+to\b",
+    r"\b(?:move|moving)\s+on\s+(?:over\s+)?to\b",
     r"\b(?:main|weekly|featured?)\s+(?:topic|discussion|segment)\b",
     r"\b(?:time to|we(?:'re| are) going to)\b.{0,60}\b(?:discuss|talk|break down|dive|get into)\b",
 )

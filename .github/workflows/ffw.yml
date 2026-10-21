@@ -201,8 +201,14 @@ jobs:
           repository: ${{ github.repository }}
           run-id: ${{ inputs.reuse_transcript_run_id }}
           pattern: transcripts-${{ inputs.reuse_transcript_run_id }}-*
-          path: .ffw-work/transcripts
+          path: .ffw-work/recovery-download
           merge-multiple: true
+
+      - name: Restore only selected historical episode
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_transcript_run_id != '' }}
+        env:
+          RECOVERY_GUID: ${{ inputs.force_guid }}
+        run: python -m ffw.retained --source .ffw-work/recovery-download --target .ffw-work/transcripts --guid "$RECOVERY_GUID"
 
       - name: Process live feed
         if: ${{ github.event_name != 'push' }}

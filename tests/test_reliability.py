@@ -529,6 +529,23 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual(2, transcribe.call_count)
         self.assertNotIn("audio boundaries", str(load_json(output / "summary.json")["processing"].get("review_reason")))
 
+    def test_quote_alignment_keeps_newly_recovered_recommendations(self):
+        from copy import deepcopy
+        pipeline, item, output = self.published()
+        original = load_json(output / "summary.json")["recommendations"]
+        extraction = pipeline.extractor.extract(item, {})
+        extra = deepcopy(extraction["recommendations"][0])
+        extra["card"] = "Newly Recovered Example"
+        extraction["recommendations"].append(extra)
+        transcript = {"segments": [], "timing_repairs": [{"chunk": 1, "validated_audio": True}]}
+        with patch.object(pipeline.transcriber, "transcribe", return_value=transcript), patch.object(
+            pipeline.extractor, "extract", return_value=extraction
+        ), patch("ffw.transcript_timing.align_published_quotes", return_value=deepcopy(original)):
+            pipeline.process_episode(item, force=True)
+        after = load_json(output / "summary.json")["recommendations"]
+        self.assertEqual(len(original) + 1, len(after))
+        self.assertIn("Newly Recovered Example", [p["card"] for p in after])
+
     def test_timing_repair_failure_preserves_published_files(self):
         pipeline, item, output = self.published()
         before = {path.name: path.read_bytes() for path in output.iterdir() if path.is_file()}

@@ -589,7 +589,15 @@ class Pipeline:
                 from .transcript_timing import align_published_quotes
                 aligned = align_published_quotes(baseline_summary.get("recommendations", []), transcript)
                 if aligned:
-                    extraction["recommendations"] = aligned
+                    # Align known records without discarding newly recovered picks.
+                    for old in aligned:
+                        matches = [pick for pick in extraction["recommendations"]
+                                   if str(pick.get("card", "")).casefold() == str(old.get("card", "")).casefold()
+                                   and pick.get("printing") == old.get("printing") and pick.get("foil") == old.get("foil")]
+                        if len(matches) == 1:
+                            for field in ("start_seconds", "end_seconds", "identity_start_seconds"):
+                                if field in old:
+                                    matches[0][field] = old[field]
                     journal.record("published_quotes_aligned", pick_count=len(aligned), method="unique_exact_audio_transcript_quote")
             if unresolved_timing_chunks(transcript, len(prepared_files)):
                 warnings.append("Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.")
