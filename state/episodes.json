@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.16",
-  "updated_at": "2026-10-21T03:57:05Z",
+  "updated_at": "2026-10-21T04:11:24Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28273,6 +28273,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-20T02:26:50Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-21T04:11:04Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-21T04:11:04Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-21T04:11:05Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-21T04:11:05Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-21T04:11:20Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-21T04:11:24Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-21T04:11:24Z"
         }
       ],
       "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
@@ -28280,11 +28308,11 @@
       "published_at": "2025-08-29T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-20T02:26:50Z",
+      "updated_at": "2026-10-21T04:11:24Z",
       "output_directory": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -28475,7 +28503,19 @@
           "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 5/5 failed: Gemini transcription chunk 1/1 failed after 3.4s: CapacityStopped: Shared capacity stop: configured request budget reached.",
+        "category": "capacity_deferred",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 3,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      }
     },
     "tag:soundcloud,2010:tracks/2422332303": {
       "guid": "tag:soundcloud,2010:tracks/2422332303",
