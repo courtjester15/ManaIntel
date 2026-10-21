@@ -314,6 +314,19 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual(4, result["timing_adjustments"])
         self.assertEqual(4, events.count("clip_end_trimmed"))
 
+    def test_subsecond_endpoint_rounding_does_not_taint_validated_repair(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        payload = {"text": "speech", "segments": [{"start": "00:20", "end": "00:25.049", "text": "speech"}]}
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *a, **kw: json.loads(json.dumps(payload))
+        ):
+            result = transcriber.repair(candidate(), [audio])
+        self.assertEqual([25, 50, 75, 100], [s["end"] for s in result["segments"]])
+        self.assertEqual(0, result["timing_adjustments"])
+        self.assertEqual([], result["timing_adjustment_chunks"])
+
     def test_repair_rejects_large_overrun_and_out_of_range_start(self):
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
@@ -485,6 +498,17 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual(1, len(transcribe.call_args.args[1]))
         self.assertIn(":timing-repair-0", transcribe.call_args.args[0].guid)
         self.assertNotIn("Stale clipped boundary", [s["text"] for s in extract.call_args.args[1]["segments"]])
+
+    def test_repair_of_only_affected_chunk_clears_historical_timing_warning(self):
+        pipeline, item, output = self.published()
+        transcript = {"timing_adjustments": 2, "timing_adjustment_chunks": [0],
+                      "segments": [{"start": 10, "end": 20, "text": "speech"}]}
+        repaired = {"timing_adjustments": 0, "segments": [{"start": 10, "end": 20, "text": "speech"}]}
+        with patch.object(pipeline.transcriber, "transcribe", side_effect=[transcript, repaired]) as transcribe:
+            result = pipeline.process_episode(item, force=True)
+        self.assertEqual("complete", result.status)
+        self.assertEqual(2, transcribe.call_count)
+        self.assertNotIn("audio boundaries", str(load_json(output / "summary.json")["processing"].get("review_reason")))
 
     def test_timing_repair_failure_preserves_published_files(self):
         pipeline, item, output = self.published()

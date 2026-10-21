@@ -125,3 +125,23 @@ def align_published_quotes(picks: list[dict], transcript: dict) -> list[dict] | 
         pick.setdefault("identity_start_seconds", pick.get("start_seconds"))
         pick.update(start_seconds=int(start), end_seconds=int(end))
     return result
+
+
+def unresolved_timing_chunks(transcript: dict, chunk_count: int) -> list[int]:
+    """Locate outstanding corrections; legacy aggregate counts stay conservative.
+
+    Repair history is append-only. Only the latest repair of a chunk establishes
+    its current timing, and unrelated clean chunks do not need retranscription.
+    """
+    if "timing_adjustment_chunks" in transcript:
+        pending = set(transcript["timing_adjustment_chunks"])
+    else:
+        pending = set(range(chunk_count)) if transcript.get("timing_adjustments") else set()
+    latest = {r["chunk"] - 1: r for r in transcript.get("timing_repairs", [])}
+    for index, repair in latest.items():
+        if repair.get("validated_audio"):
+            if repair.get("timing_adjustments"):
+                pending.add(index)
+            else:
+                pending.discard(index)
+    return sorted(pending)

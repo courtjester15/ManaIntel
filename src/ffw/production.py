@@ -256,6 +256,8 @@ class OpenAITranscriber:
                 segment["end"] = float(segment.get("end", segment["start"] - offset)) + offset
                 segment["sequence"] = len(segments)
                 segments.append(segment)
+            if timing_adjustments > prior_adjustments:
+                timing_adjustment_chunks.append(index)
         segments.sort(key=lambda item: item["start"])
         return {
             "synthetic": False,
@@ -723,7 +725,8 @@ class GeminiTranscriber:
                 payloads.append(adjusted)
             return {"text": "\n".join(str(item.get("text", "")) for item in payloads),
                     "segments": [segment for item in payloads for segment in item.get("segments", [])],
-                    "timing_adjustments": sum(bool(item.get("_clip_end_trim")) for item in payloads),
+                    "timing_adjustments": sum(item.get("_timing_adjustments", int(item.get("_clip_end_trim", 0) > .25)) for item in payloads),
+                    "boundary_trim_seconds": sum(item.get("_clip_end_trim", 0) for item in payloads),
                     "_usage": {"rescue_subchunks": [item.get("_usage") for item in payloads]}}, " + ".join(dict.fromkeys(used_models))
         finally:
             shutil.rmtree(rescue_dir, ignore_errors=True)
@@ -770,6 +773,7 @@ class GeminiTranscriber:
                     self._reject_timing_payload(episode, 0, depth, model, raw,
                         {"clip_seconds": duration, "invalid_bounds": invalid, "backward_jumps": backward,
                          "segment_count": len(clocks), "missing_recommendation_windows": missing}, observe)
+                checked["_timing_adjustments"] = int(checked.get("_clip_end_trim", 0) > .25)
                 self.model_health.succeeded(model)
                 self._save_chunk_checkpoint(episode, 0, 1, fingerprint, checked, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
                 return checked, model
@@ -802,7 +806,8 @@ class GeminiTranscriber:
                 child.unlink(missing_ok=True)
         payload = {"text": "\n".join(p.get("text", "") for p in payloads),
                    "segments": [s for p in payloads for s in p["segments"]],
-                   "_clip_end_trim": sum(p.get("_clip_end_trim", 0) for p in payloads)}
+                   "_clip_end_trim": sum(p.get("_clip_end_trim", 0) for p in payloads),
+                   "_timing_adjustments": sum(p.get("_timing_adjustments", int(p.get("_clip_end_trim", 0) > .25)) for p in payloads)}
         model = " + ".join(dict.fromkeys(models))
         self._save_chunk_checkpoint(episode, 0, 1, fingerprint, payload, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
         return payload, model
@@ -828,6 +833,7 @@ class GeminiTranscriber:
         )
         segments: list[dict[str, Any]] = []
         timing_adjustments = 0
+        timing_adjustment_chunks = []
         texts: list[str] = []
         usage: list[dict[str, Any]] = []
         used_models: list[str] = []
@@ -894,6 +900,7 @@ class GeminiTranscriber:
                 self._save_chunk_checkpoint(
                     episode, index, len(audio_files), fingerprint, payload, used_model, request_seconds,
                 )
+            prior_adjustments = timing_adjustments
             timing_adjustments += int(payload.get("timing_adjustments", 0))
             chunk_usage = payload.pop("_usage", None)
             used_models.append(used_model)
@@ -929,6 +936,8 @@ class GeminiTranscriber:
                 if segment.get("speaker"):
                     segment["speaker"] = str(segment["speaker"])
                 segments.append(segment)
+            if timing_adjustments > prior_adjustments:
+                timing_adjustment_chunks.append(index)
         segments.sort(key=lambda item: item["start"])
         distinct_models = list(dict.fromkeys(used_models))
         return {
@@ -942,6 +951,7 @@ class GeminiTranscriber:
             "duration_seconds": episode.duration_seconds,
             "usage": usage,
             "timing_adjustments": timing_adjustments,
+            "timing_adjustment_chunks": timing_adjustment_chunks,
         }
 
 

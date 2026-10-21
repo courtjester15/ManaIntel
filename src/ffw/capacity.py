@@ -15,13 +15,6 @@ class CapacityStopped(RuntimeError):
     pass
 
 
-def nightly_window_open(now):
-    if os.getenv("FFW_NIGHTLY_WINDOW", "").lower() != "true":
-        return True
-    eastern = now.astimezone(ZoneInfo("America/New_York"))
-    return eastern.hour in (23, 0, 1, 2) and not (eastern.hour == 2 and eastern.minute >= 50)
-
-
 def reserve(model: str, now=None):
     configured = os.getenv("FFW_CAPACITY_PATH")
     if not configured:
@@ -48,8 +41,6 @@ def reserve(model: str, now=None):
         models[model] = {"requests": count, "daily_exhausted": daily_exhausted}
     bucket = models[model]
     optional = os.getenv("FFW_OPTIONAL_WORK", "").lower() == "true"
-    if optional and not nightly_window_open(now):
-        raise CapacityStopped("Shared capacity stop: outside nightly cleanup window.")
     limit = int(os.getenv("FFW_REQUEST_DAILY_BUDGET", "48"))
     reserve_count = int(os.getenv("FFW_PRIMARY_REQUEST_RESERVE", "16")) if optional else 0
     if limit <= 0 or reserve_count < 0:

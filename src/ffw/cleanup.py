@@ -13,9 +13,6 @@ def select(root=Path("."), now=None):
     ledger = load_json(ledger_path, {"entries": []})
     from zoneinfo import ZoneInfo
     day = now.astimezone(ZoneInfo("America/Los_Angeles")).date().isoformat()
-    from .capacity import nightly_window_open
-    if not nightly_window_open(now):
-        return "", "outside nightly cleanup window"
     capacity = load_json(root / "state/request-capacity.json", {}).get("days", {}).get(day, {})
     model = os.getenv("FFW_TRANSCRIPTION_MODEL", "gemini-3.5-flash-lite")
     bucket = capacity.get(model, {})

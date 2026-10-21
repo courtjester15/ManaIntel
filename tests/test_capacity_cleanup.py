@@ -47,12 +47,31 @@ class CapacityCleanupTests(unittest.TestCase):
             with self.assertRaises(CapacityStopped):
                 reserve("other", earlier + timedelta(minutes=40))
 
-    def test_late_cleanup_stops_without_call_or_selection(self):
-        with patch.dict(os.environ, {"FFW_NIGHTLY_WINDOW": "true"}):
+    def test_delayed_cleanup_can_select_and_reserve_with_existing_limits(self):
+        atomic_write_json(self.root / "state/episodes.json", {"episodes": {"pilot": {
+            "source_id": "mtg-fast-finance", "status": "failed", "updated_at": self.now.isoformat()}}})
+        atomic_write_json(self.root / "state/reprocess-queue.json", {"inspected_pilots": {
+            "pilot": {"status": "ready", "evidence": "inspected saved progress"}}})
+        with patch.dict(os.environ, {"FFW_NIGHTLY_WINDOW": "true", "FFW_CLEANUP_ISSUES": "timing"}):
+            guid, reason = select(self.root, self.now)
+            self.assertEqual("pilot", guid)
+            reserve("lite", self.now)
+            reserve("lite", self.now)
             with self.assertRaises(CapacityStopped):
                 reserve("lite", self.now)
-            self.assertEqual(("", "outside nightly cleanup window"), select(self.root, self.now))
-        self.assertFalse((self.root / "capacity.json").exists())
+
+    def test_repairs_clear_only_current_affected_chunks(self):
+        from ffw.transcript_timing import unresolved_timing_chunks
+        transcript = {"timing_adjustments": 7, "timing_adjustment_chunks": [1, 3]}
+        self.assertEqual([1, 3], unresolved_timing_chunks(transcript, 5))
+        transcript["timing_repairs"] = [{"chunk": 2, "validated_audio": True, "timing_adjustments": 0}]
+        self.assertEqual([3], unresolved_timing_chunks(transcript, 5))
+        transcript["timing_repairs"].append({"chunk": 4, "validated_audio": True, "timing_adjustments": 0})
+        self.assertEqual([], unresolved_timing_chunks(transcript, 5))
+        transcript["timing_repairs"].append({"chunk": 2, "validated_audio": True, "timing_adjustments": 1})
+        self.assertEqual([1], unresolved_timing_chunks(transcript, 5))
+        del transcript["timing_adjustment_chunks"]
+        self.assertEqual([0, 1, 2, 4], unresolved_timing_chunks(transcript, 5))
 
     def test_exact_quote_alignment_preserves_printings_and_abstains_on_repetition(self):
         quote = "this specific printing is cheap and you should buy a copy"

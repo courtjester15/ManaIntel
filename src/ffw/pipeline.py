@@ -488,7 +488,7 @@ class Pipeline:
                     segment.setdefault("sequence", sequence)
             else:
                 transcript = self.transcriber.transcribe(episode, prepared_files)
-            from .transcript_timing import suspect_timing_chunks
+            from .transcript_timing import suspect_timing_chunks, unresolved_timing_chunks
             if self.settings.retain_transcripts and not episode.synthetic:
                 transcript_dir.mkdir(parents=True, exist_ok=True)
                 with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
@@ -501,9 +501,9 @@ class Pipeline:
                 for sequence, segment in enumerate(transcript["segments"]):
                     segment["sequence"] = sequence
             suspect_chunks = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
-            if os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true" and transcript.get("timing_adjustments"):
-                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio") and not r.get("timing_adjustments")}
-                suspect_chunks = sorted(set(suspect_chunks) | (set(range(len(prepared_files))) - validated))
+            if (os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true"
+                    or "timing_adjustment_chunks" in transcript) and transcript.get("timing_adjustments"):
+                suspect_chunks = sorted(set(suspect_chunks) | set(unresolved_timing_chunks(transcript, len(prepared_files))))
             repair_limit = int(os.getenv("FFW_TIMING_REPAIR_MAX_CHUNKS", "2"))
             if repair_limit not in (2, 3, 4):
                 raise ValueError("Timing repair budget must be 2, 3 or 4 chunks.")
@@ -544,9 +544,9 @@ class Pipeline:
                         json.dump({"episode": self._episode_metadata(episode), "pipeline_version": PIPELINE_VERSION,
                                    "prompt_version": PROMPT_VERSION, "transcription_prompt_version": TRANSCRIPTION_PROMPT_VERSION, "transcript": transcript}, output, ensure_ascii=False)
             remaining_suspects = suspect_timing_chunks(transcript, self.settings.audio_chunk_seconds)
-            if os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true" and transcript.get("timing_adjustments"):
-                validated = {r["chunk"] - 1 for r in transcript.get("timing_repairs", []) if r.get("validated_audio") and not r.get("timing_adjustments")}
-                remaining_suspects = sorted(set(remaining_suspects) | (set(range(len(prepared_files))) - validated))
+            if (os.getenv("FFW_REVIEW_REPAIR", "").lower() == "true"
+                    or "timing_adjustment_chunks" in transcript) and transcript.get("timing_adjustments"):
+                remaining_suspects = sorted(set(remaining_suspects) | set(unresolved_timing_chunks(transcript, len(prepared_files))))
             if remaining_suspects:
                 journal.record("timing_repair_incomplete", suspect_chunks=[i + 1 for i in remaining_suspects])
                 if incremental and len(suspect_chunks) > repair_limit:
@@ -591,7 +591,7 @@ class Pipeline:
                 if aligned:
                     extraction["recommendations"] = aligned
                     journal.record("published_quotes_aligned", pick_count=len(aligned), method="unique_exact_audio_transcript_quote")
-            if transcript.get("timing_adjustments") and not fully_validated:
+            if unresolved_timing_chunks(transcript, len(prepared_files)):
                 warnings.append("Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.")
             from .transcript_timing import missing_recommendation_content
             missing_windows = missing_recommendation_content(transcript)
