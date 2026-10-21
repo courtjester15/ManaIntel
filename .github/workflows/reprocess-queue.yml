@@ -270,7 +270,7 @@ jobs:
           if [[ "${{ steps.validation.outcome }}" == "success" ]]; then git add archive state; fi
           if ! git diff --cached --quiet; then
             git commit -m "chore(ffw): advance zero-pick reprocessing queue"
-            git push origin HEAD:${{ github.event.repository.default_branch }}
+            python -m ffw.persistence --branch "${{ github.event.repository.default_branch }}"
           fi
       - name: Publish cleanup archive
         if: ${{ steps.queue.outputs.guid != '' && steps.validation.outcome == 'success' }}
