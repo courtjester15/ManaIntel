@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2154709449",
+    "episode_number": 489,
+    "title": "MTG Fast Finance Ep 489: Avatar Bends The End of 2025 MTG",
+    "published_at": "2025-08-17T18:18:29Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2154709449-user-519789566-mtg-fast-finance-ep-489-avatar-bends-the-end-of-2025-mtg.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-489-avatar-bends-the-end-of-2025-mtg",
+    "duration_seconds": 3536,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, their cards to watch for the week and take a look at the hottest new Avatar x MTG cards revealed this week.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.16",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-21T04:45:13Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-21T04:44:54Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-21T04:44:54Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-21T04:44:55Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-21T04:44:55Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-21T04:44:57Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-21T04:44:57Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-21T04:45:12Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-21T04:45:13Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/4 failed after 0.0s: CapacityStopped: Shared capacity stop: configured request budget reached.",
+      "category": "capacity_deferred",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-21T10:45:13Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0489-avatar-bends-the-end-of-2025-mtg/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

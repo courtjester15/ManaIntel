@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "attempt_id": "cc5b623fb29943f2a94a7f20720be7f7",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2154709449",
+    "number": 489,
+    "title": "MTG Fast Finance Ep 489: Avatar Bends The End of 2025 MTG",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-10-21T04:44:55Z",
+  "pipeline_version": "0.5.16",
+  "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+  "run_id": "39545637621",
+  "run_attempt": "1",
+  "git_sha": "963a61d5563a6e797d74ef3184bd72d204c97621",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-21T04:44:55Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-21T04:44:55Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-21T04:44:57Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-21T04:44:57Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-21T04:45:12Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-21T04:45:13Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Gemini transcription chunk 1/4 failed after 0.0s: CapacityStopped: Shared capacity stop: configured request budget reached."
+    },
+    {
+      "timestamp": "2026-10-21T04:45:13Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/39545637621",
+  "finished_at": "2026-10-21T04:45:13Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

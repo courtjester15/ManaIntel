@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.16",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-21T04:11:24Z",
+    "generated_at": "2026-10-21T04:45:13Z",
     "latest_successful_run_at": "2026-10-21T03:57:05Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 115,
+    "real_episode_count": 116,
     "real_pick_count": 466,
     "last_discovered_episode_date": "2026-10-19T22:23:10Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,15 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 115,
+    "episodes": 116,
     "picks": 466,
     "needs_review": 47,
-    "failed": 0,
+    "failed": 1,
     "completed": 68
   },
   "status_counts": {
     "complete": 68,
-    "needs_review": 47
+    "needs_review": 47,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2422332303",
@@ -4527,6 +4528,53 @@
       },
       "processed_at": "2026-10-20T23:20:21Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2154709449",
+      "episode_number": 489,
+      "title": "MTG Fast Finance Ep 489: Avatar Bends The End of 2025 MTG",
+      "published_at": "2025-08-17T18:18:29Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2154709449-user-519789566-mtg-fast-finance-ep-489-avatar-bends-the-end-of-2025-mtg.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-489-avatar-bends-the-end-of-2025-mtg",
+      "duration_seconds": 3536,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, their cards to watch for the week and take a look at the hottest new Avatar x MTG cards revealed this week.\n\nIntro/Outro Music by Skylarka",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0489-avatar-bends-the-end-of-2025-mtg",
+      "outputs": {
+        "metadata": "episodes/0489-avatar-bends-the-end-of-2025-mtg/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-10-21T04:45:13Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 0.0s: CapacityStopped: Shared capacity stop: configured request budget reached.",
+        "category": "capacity_deferred",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-21T10:45:13Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
