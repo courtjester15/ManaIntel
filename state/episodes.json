@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.16",
-  "updated_at": "2026-10-21T03:34:19Z",
+  "updated_at": "2026-10-21T03:40:44Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28631,6 +28631,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-21T03:34:19Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-21T03:40:05Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-21T03:40:05Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-21T03:40:06Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-21T03:40:06Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-21T03:40:26Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-21T03:40:40Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-21T03:40:40Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-21T03:40:44Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-21T03:40:44Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-21T03:40:44Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-21T03:40:44Z"
         }
       ],
       "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
@@ -28638,11 +28682,11 @@
       "published_at": "2026-10-19T22:23:10Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 5,
+      "attempt_count": 6,
       "pick_count": 1,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-21T03:34:19Z",
+      "updated_at": "2026-10-21T03:40:44Z",
       "output_directory": "episodes/0537-reality-fracture-deep-dive",
       "transcription": {
         "provider": "Gemini",
@@ -28830,39 +28874,39 @@
             }
           }
         ],
-        "timing_adjustments": 115
+        "timing_adjustments": 116
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 346,
+        "candidates_token_count": 1428,
         "candidates_tokens_details": null,
-        "prompt_token_count": 17788,
+        "prompt_token_count": 8123,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 17788
+            "token_count": 8123
           }
         ],
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 18134,
+        "total_token_count": 9551,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
       "review_issues": [
         {
           "code": "coverage",
           "path": "extraction",
-          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
           "state": "unresolved"
         },
         {
-          "code": "timing",
+          "code": "printing",
           "path": "extraction",
-          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities; the previous recommendations were retained for review.",
           "state": "unresolved"
         },
         {
