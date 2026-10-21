@@ -318,7 +318,7 @@ class ReliabilityTests(unittest.TestCase):
         transcriber = self.transcriber()
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
-        payload = {"text": "speech", "segments": [{"start": "00:20", "end": "00:25.049", "text": "speech"}]}
+        payload = {"text": "speech", "segments": [{"start": "00:20", "end": "00:25.398", "text": "speech"}]}
         with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
             "ffw.production._gemini_generate_json", side_effect=lambda *a, **kw: json.loads(json.dumps(payload))
         ):
@@ -326,6 +326,25 @@ class ReliabilityTests(unittest.TestCase):
         self.assertEqual([25, 50, 75, 100], [s["end"] for s in result["segments"]])
         self.assertEqual(0, result["timing_adjustments"])
         self.assertEqual([], result["timing_adjustment_chunks"])
+
+    def test_legacy_repair_parent_rebuilds_from_children_without_model_calls(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        payload = {"text": "speech", "segments": [{"start": "00:20", "end": "00:25.398", "text": "speech"}]}
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *a, **kw: json.loads(json.dumps(payload))
+        ):
+            transcriber.repair(candidate(), [audio])
+        parent = transcriber._checkpoint_dir(candidate()) / "chunk-000.json"
+        saved = load_json(parent)
+        saved["payload"]["timing_adjustments"] = 4
+        atomic_write_json(parent, saved)
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=AssertionError("reuse children")
+        ):
+            result = transcriber.repair(candidate(), [audio])
+        self.assertEqual(0, result["timing_adjustments"])
 
     def test_repair_rejects_large_overrun_and_out_of_range_start(self):
         audio = self.root / "chunk.mp3"

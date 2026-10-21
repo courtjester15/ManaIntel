@@ -725,7 +725,7 @@ class GeminiTranscriber:
                 payloads.append(adjusted)
             return {"text": "\n".join(str(item.get("text", "")) for item in payloads),
                     "segments": [segment for item in payloads for segment in item.get("segments", [])],
-                    "timing_adjustments": sum(item.get("_timing_adjustments", int(item.get("_clip_end_trim", 0) > .25)) for item in payloads),
+                    "timing_adjustments": sum(item.get("_timing_adjustments", int(item.get("_clip_end_trim", 0) > 1.0)) for item in payloads),
                     "boundary_trim_seconds": sum(item.get("_clip_end_trim", 0) for item in payloads),
                     "_usage": {"rescue_subchunks": [item.get("_usage") for item in payloads]}}, " + ".join(dict.fromkeys(used_models))
         finally:
@@ -773,7 +773,7 @@ class GeminiTranscriber:
                     self._reject_timing_payload(episode, 0, depth, model, raw,
                         {"clip_seconds": duration, "invalid_bounds": invalid, "backward_jumps": backward,
                          "segment_count": len(clocks), "missing_recommendation_windows": missing}, observe)
-                checked["_timing_adjustments"] = int(checked.get("_clip_end_trim", 0) > .25)
+                checked["_timing_adjustments"] = int(checked.get("_clip_end_trim", 0) > 1.0)
                 self.model_health.succeeded(model)
                 self._save_chunk_checkpoint(episode, 0, 1, fingerprint, checked, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
                 return checked, model
@@ -807,7 +807,7 @@ class GeminiTranscriber:
         payload = {"text": "\n".join(p.get("text", "") for p in payloads),
                    "segments": [s for p in payloads for s in p["segments"]],
                    "_clip_end_trim": sum(p.get("_clip_end_trim", 0) for p in payloads),
-                   "_timing_adjustments": sum(p.get("_timing_adjustments", int(p.get("_clip_end_trim", 0) > .25)) for p in payloads)}
+                   "_timing_adjustments": sum(p.get("_timing_adjustments", int(p.get("_clip_end_trim", 0) > 1.0)) for p in payloads)}
         model = " + ".join(dict.fromkeys(models))
         self._save_chunk_checkpoint(episode, 0, 1, fingerprint, payload, model, 0, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
         return payload, model
@@ -858,6 +858,11 @@ class GeminiTranscriber:
         for index, path in enumerate(audio_files):
             started = time.monotonic()
             checkpoint = self._load_chunk_checkpoint(episode, index, len(audio_files), fingerprint)
+            # Rebuild a legacy repair aggregate from its validated child clips;
+            # older parents counted endpoint rounding as unresolved timing.
+            # Unadjusted parents remain directly reusable.
+            if checkpoint and getattr(self, "force_split", False) and checkpoint[0].get("timing_adjustments"):
+                checkpoint = None
             checkpoint_reused = checkpoint is not None
             if checkpoint is not None:
                 payload, used_model, request_seconds = checkpoint
