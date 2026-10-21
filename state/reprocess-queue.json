@@ -106,6 +106,24 @@
       "result_status": "needs_review",
       "result_pick_count": 3,
       "note": "Partial MTGFF result requires review; not a completed recovery."
+    },
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
+      "episode_number": 663,
+      "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
+      "status": "deferred",
+      "issue": "timing",
+      "inspected_pilot": true,
+      "repair_mode": "review",
+      "started_at": "2026-10-21T04:11:03Z",
+      "finished_at": "2026-10-21T04:11:24Z",
+      "result_status": "needs_review",
+      "result_pick_count": 3,
+      "repaired_chunks": 1,
+      "saved_clips": 3,
+      "run_id": "39542406624",
+      "selection": "inspected_manual_recovery",
+      "note": "Saved new validated repair progress before configured daily budget stop. One inspected continuation after six hours; reuse original chunks1-4 and successful final-chunk clips."
     }
   ],
   "inspected_pilots": {
@@ -122,6 +140,12 @@
       "evidence": "Owner authorized the Oct19 repair/cleanup batch. Runs 39359069116/39359859403 inspected: first chunk repaired, further successful clip checkpoints saved, latest stop503 UNAVAILABLE. One additional retained-progress recovery after shared provider cooldown; no repeated attempt if unchanged or budget exhausted.",
       "completed_run_id": "39541102549",
       "note": "Four recommendations published complete; all original chunks validated; do not reselect completed coverage pilot."
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15708": {
+      "status": "deferred",
+      "repair_mode": "review",
+      "max_attempts": 2,
+      "evidence": "Owner Oct20/21 fixes; inspected runs39358654854/39541488387/39542406624. Chunks1-4 now validated; chunk5 saved first clip before configured48-request stop. Exactly one further saved-progress attempt after six-hour cooldown and Pacific-day budget reset; no unchanged blind retry or broad approval."
     }
   }
 }
