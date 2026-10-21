@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.15",
+    "pipeline_version": "0.5.16",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-20T23:20:22Z",
-    "latest_successful_run_at": "2026-10-20T23:20:21Z",
+    "generated_at": "2026-10-21T03:25:15Z",
+    "latest_successful_run_at": "2026-10-21T03:25:15Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 115,
-    "real_pick_count": 462,
+    "real_pick_count": 463,
     "last_discovered_episode_date": "2026-10-19T22:23:10Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,14 +34,13 @@
   },
   "counts": {
     "episodes": 115,
-    "picks": 462,
-    "needs_review": 47,
-    "failed": 1,
+    "picks": 463,
+    "needs_review": 48,
+    "failed": 0,
     "completed": 67
   },
   "status_counts": {
-    "failed": 1,
-    "needs_review": 47,
+    "needs_review": 48,
     "complete": 67
   },
   "latest_episode": {
@@ -60,31 +59,20 @@
     "source_name": "MTG Fast Finance",
     "source_url": "https://www.mtgfastfinance.com/",
     "extraction_profile": "cards_to_watch",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "pick_count": 0,
+    "processing_status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "pick_count": 1,
     "directory": "episodes/0537-reality-fracture-deep-dive",
     "outputs": {
       "metadata": "episodes/0537-reality-fracture-deep-dive/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "summary_json": "episodes/0537-reality-fracture-deep-dive/summary.json",
+      "summary_markdown": "episodes/0537-reality-fracture-deep-dive/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-10-20T02:39:48Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Timing/coverage repair of original chunk 2/5 failed: Gemini transcription chunk 1/1 failed after 26.2s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The service is currently unavailable.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": false,
-      "provider_wide": true,
-      "attempt": 3,
-      "max_attempts": 3,
-      "next_retry_at": null,
-      "quarantined": true
-    },
+    "processed_at": "2026-10-21T03:25:15Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -92,6 +80,70 @@
     "synthetic": false
   },
   "recent_picks": [
+    {
+      "card": "Llanowar Elves",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$10",
+      "entry_target": {
+        "raw": "10 to 20",
+        "currency": "USD",
+        "minimum": 10,
+        "maximum": 20
+      },
+      "hold": "six to 12 months",
+      "exit_target": {
+        "raw": "10 to 20",
+        "currency": "USD",
+        "minimum": 10,
+        "maximum": 20
+      },
+      "reasoning": [
+        "Art quality is high on top of the thirst trap.",
+        "Traditional foil version."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1274,
+      "end_seconds": 1325,
+      "evidence_excerpt": "42 listings currently, $10 pretty far up the ramp, but these are going to go 10 to 20 in a heartbeat. Give this six to 12 months and it's over.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e66afcdee199e602",
+      "timestamp": "00:21:14",
+      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1274",
+      "card_resolution": {
+        "raw_name": "Llanowar Elves",
+        "normalized_name": "llanowar elves",
+        "status": "verified",
+        "canonical_name": "Llanowar Elves",
+        "scryfall_id": "6a0b230b-d391-4998-a3f7-7b158a0ec2cd",
+        "oracle_id": "68954295-54e3-4303-a6bc-fc4547a4e3a3",
+        "scryfall_uri": "https://scryfall.com/card/fdn/227/llanowar-elves?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/6/a/6a0b230b-d391-4998-a3f7-7b158a0ec2cd.jpg?1783909057",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-21T03:25:15Z"
+      },
+      "resolved_card": "Llanowar Elves",
+      "oracle_id": "68954295-54e3-4303-a6bc-fc4547a4e3a3",
+      "episode": {
+        "guid": "tag:soundcloud,2010:tracks/2422332303",
+        "episode_number": 537,
+        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
+        "published_at": "2026-10-19T22:23:10Z",
+        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
+        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
+        "source_id": "mtg-fast-finance",
+        "source_name": "MTG Fast Finance"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
     {
       "card": "Soltari Champion",
       "printing": null,
@@ -419,72 +471,6 @@
       },
       "processing_status": "needs_review",
       "human_reviewed": false
-    },
-    {
-      "card": "Crystal Barricade",
-      "printing": "Foundations",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Corbin"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "75 cents",
-      "entry_target": {
-        "raw": "75 cents",
-        "currency": "USD",
-        "minimum": 0.75,
-        "maximum": 0.75
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "$1.30 buylist",
-        "currency": "USD",
-        "minimum": 1.3,
-        "maximum": 1.3
-      },
-      "reasoning": [
-        "Anti-burn cards are always going to be pretty good.",
-        "A Foundations rare, a set that kind of isn't getting open much anymore."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 2083,
-      "end_seconds": 2156,
-      "evidence_excerpt": "It's Crystal Barricade... Card has a $1.30 by list to Card Kingdom and is 75 cents TCG low.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-9be93065b7f95956",
-      "timestamp": "00:34:43",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=2083",
-      "card_resolution": {
-        "raw_name": "Crystal Barricade",
-        "normalized_name": "crystal barricade",
-        "status": "verified",
-        "canonical_name": "Crystal Barricade",
-        "scryfall_id": "905d3e02-ea06-45e7-9adb-c8e7583323a2",
-        "oracle_id": "291c7abf-9d64-4ba0-ae21-e3459edc9a95",
-        "scryfall_uri": "https://scryfall.com/card/fdn/7/crystal-barricade?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/9/0/905d3e02-ea06-45e7-9adb-c8e7583323a2.jpg?1783909129",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-17T04:27:37Z"
-      },
-      "resolved_card": "Crystal Barricade",
-      "oracle_id": "291c7abf-9d64-4ba0-ae21-e3459edc9a95",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
-        "episode_number": 722,
-        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
-        "published_at": "2026-10-16T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -504,31 +490,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "pick_count": 1,
       "directory": "episodes/0537-reality-fracture-deep-dive",
       "outputs": {
         "metadata": "episodes/0537-reality-fracture-deep-dive/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0537-reality-fracture-deep-dive/summary.json",
+        "summary_markdown": "episodes/0537-reality-fracture-deep-dive/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-20T02:39:48Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 2/5 failed: Gemini transcription chunk 1/1 failed after 26.2s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The service is currently unavailable.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": true,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
+      "processed_at": "2026-10-21T03:25:15Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
