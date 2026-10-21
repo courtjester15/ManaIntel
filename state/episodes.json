@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.16",
-  "updated_at": "2026-10-21T03:25:15Z",
+  "updated_at": "2026-10-21T03:34:19Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28603,6 +28603,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-21T03:25:15Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-21T03:33:04Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-21T03:33:04Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-21T03:33:05Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-21T03:33:05Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-21T03:33:32Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-21T03:34:19Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-21T03:34:19Z"
         }
       ],
       "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
@@ -28610,11 +28638,11 @@
       "published_at": "2026-10-19T22:23:10Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 4,
+      "attempt_count": 5,
       "pick_count": 1,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-21T03:25:15Z",
+      "updated_at": "2026-10-21T03:34:19Z",
       "output_directory": "episodes/0537-reality-fracture-deep-dive",
       "transcription": {
         "provider": "Gemini",
@@ -28843,7 +28871,19 @@
           "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Transcript timing repair left suspect coverage; manual review required.",
+        "category": "manual_intervention",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": false,
+        "attempt": 5,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      }
     },
     "tag:soundcloud,2010:tracks/2157371364": {
       "guid": "tag:soundcloud,2010:tracks/2157371364",
