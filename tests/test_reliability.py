@@ -303,7 +303,7 @@ class ReliabilityTests(unittest.TestCase):
         transcriber = self.transcriber()
         audio = self.root / "chunk.mp3"
         audio.write_bytes(b"parent")
-        payload = {"text": "speech", "segments": [{"start": "00:20", "end": "00:27.373", "text": "speech"}]}
+        payload = {"text": "speech", "segments": [{"start": "00:20", "end": "00:25.750", "text": "speech"}]}
         events = []
         transcriber.audit_callback = lambda event, **details: events.append(event)
         with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
@@ -311,7 +311,7 @@ class ReliabilityTests(unittest.TestCase):
         ):
             result = transcriber.repair(candidate(), [audio])
         self.assertEqual([25, 50, 75, 100], [s["end"] for s in result["segments"]])
-        self.assertEqual(4, result["timing_adjustments"])
+        self.assertEqual(0, result["timing_adjustments"])
         self.assertEqual(4, events.count("clip_end_trimmed"))
 
     def test_subsecond_endpoint_rounding_does_not_taint_validated_repair(self):
@@ -345,6 +345,40 @@ class ReliabilityTests(unittest.TestCase):
         ):
             result = transcriber.repair(candidate(), [audio])
         self.assertEqual(0, result["timing_adjustments"])
+
+    def test_cached_material_endpoint_drift_refines_only_affected_clip(self):
+        transcriber = self.transcriber()
+        audio = self.root / "chunk.mp3"
+        audio.write_bytes(b"parent")
+        payload = {"text": "speech", "segments": [{"start": "00:01", "end": "00:10", "text": "speech"}]}
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *a, **kw: json.loads(json.dumps(payload))
+        ):
+            transcriber.repair(candidate(), [audio])
+        directory = transcriber._checkpoint_dir(candidate())
+        parent = directory / "chunk-000.json"
+        saved = load_json(parent)
+        saved["payload"]["timing_adjustments"] = 1
+        atomic_write_json(parent, saved)
+        quarter = directory / "chunk-000-quarter-0.json"
+        self.assertTrue(quarter.exists())
+        saved = load_json(quarter)
+        saved["payload"]["_clip_end_trim"] = 1.322
+        saved["payload"]["_timing_adjustments"] = 1
+        atomic_write_json(quarter, saved)
+        adaptive = next(p for p in directory.glob("*adaptive*.json")
+                        if load_json(p).get("fingerprint", "").endswith(":quarter:0"))
+        saved = load_json(adaptive)
+        saved["payload"]["_clip_end_trim"] = 1.322
+        saved["payload"]["_timing_adjustments"] = 1
+        atomic_write_json(adaptive, saved)
+        with fake_sdk(), patch("ffw.production.subprocess.run", side_effect=self.media), patch(
+            "ffw.production._gemini_generate_json", side_effect=lambda *a, **kw: json.loads(json.dumps(payload))
+        ) as generate:
+            result = transcriber.repair(candidate(), [audio])
+        self.assertEqual(2, generate.call_count)
+        self.assertEqual(0, result["timing_adjustments"])
+        self.assertEqual(5, len(result["segments"]))
 
     def test_repair_rejects_large_overrun_and_out_of_range_start(self):
         audio = self.root / "chunk.mp3"

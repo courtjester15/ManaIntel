@@ -656,6 +656,10 @@ class GeminiTranscriber:
             for part in range(parts):
                 suffix = f"-quarter-{part}" if parts == 4 else f"-half-{part}"
                 saved = self._load_chunk_checkpoint(episode, index, chunk_count, fingerprint + f":split-v1:{duration}", suffix)
+                if saved and getattr(self, "force_split", False) and (
+                    saved[0].get("_timing_adjustments", 0) or saved[0].get("_clip_end_trim", 0) > 1.0
+                ):
+                    saved = None
                 if saved:
                     payload, model, seconds = saved
                     if observer:
@@ -735,10 +739,14 @@ class GeminiTranscriber:
         """Refine only rejected clips, retaining child progress and a hard call cap."""
         from .transcript_timing import clock_string_segments, suspect_timing_chunks, missing_recommendation_content
         saved = self._load_chunk_checkpoint(episode, 0, 1, fingerprint, "-adaptive-" + hashlib.sha256(fingerprint.encode()).hexdigest()[:16])
-        if saved and saved[0].get("segments"):
+        needs_refinement = bool(saved and (saved[0].get("_timing_adjustments", 0)
+                                          or saved[0].get("_clip_end_trim", 0) > 1.0))
+        if saved and saved[0].get("segments") and not needs_refinement:
             observe("checkpoint_reused", model=saved[1], repair_depth=depth)
             return saved[0], saved[1]
-        split_planned = bool(saved and saved[0].get("split_planned"))
+        split_planned = bool(saved and (saved[0].get("split_planned") or needs_refinement))
+        if split_planned and depth >= 2:
+            raise GeminiMalformedJSONError("Repair clip still has material endpoint drift at maximum subdivision depth.")
         if not split_planned:
             if self._rescue_calls_remaining <= 0:
                 raise RuntimeError("Transcription split recovery call budget exhausted; retry resumes saved clips.")
@@ -761,7 +769,7 @@ class GeminiTranscriber:
                     self._reject_timing_payload(episode, 0, depth, model, raw,
                                                 {"clip_seconds": duration, "reason": "invalid_clock_format"}, observe)
                 clocks = [(float(s["start"]), float(s["end"])) for s in checked.get("segments", [])]
-                if clocks and 0 <= clocks[-1][0] < duration < clocks[-1][1] <= duration + 3:
+                if clocks and 0 <= clocks[-1][0] < duration < clocks[-1][1] <= duration + 1.0:
                     checked["segments"][-1]["end"] = duration
                     checked["_clip_end_trim"] = clocks[-1][1] - duration
                     observe("clip_end_trimmed", model=model, overrun_seconds=checked["_clip_end_trim"], clip_seconds=duration)
