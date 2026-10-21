@@ -593,8 +593,18 @@ class Pipeline:
                     for old in aligned:
                         matches = [pick for pick in extraction["recommendations"]
                                    if str(pick.get("card", "")).casefold() == str(old.get("card", "")).casefold()
-                                   and pick.get("printing") == old.get("printing") and pick.get("foil") == old.get("foil")]
-                        if len(matches) == 1:
+                                   and all(pick.get(field) is None or pick.get(field) == old.get(field)
+                                           for field in ("printing", "foil"))]
+                        old_variants = [p for p in aligned if str(p.get("card", "")).casefold() == str(old.get("card", "")).casefold()]
+                        if len(matches) == 1 and len(old_variants) == 1:
+                            retained_fields = []
+                            for field in ("printing", "foil"):
+                                if matches[0].get(field) is None and old.get(field) is not None:
+                                    matches[0][field] = old[field]
+                                    retained_fields.append(field)
+                            if retained_fields:
+                                journal.record("published_identity_retained", card=old.get("card"), fields=retained_fields,
+                                               method="unique_exact_audio_transcript_quote")
                             for field in ("start_seconds", "end_seconds", "identity_start_seconds"):
                                 if field in old:
                                     matches[0][field] = old[field]
