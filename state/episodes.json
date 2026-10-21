@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.16",
-  "updated_at": "2026-10-21T04:45:13Z",
+  "updated_at": "2026-10-21T09:26:11Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -25831,6 +25831,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-17T03:45:07Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-21T09:23:54Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-21T09:23:54Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-21T09:23:55Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-21T09:23:55Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-21T09:24:04Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-21T09:26:11Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-21T09:26:11Z"
         }
       ],
       "title": "MTG Fast Finance Ep 495: Spidey x Secret Lair to the Moon",
@@ -25838,11 +25866,11 @@
       "published_at": "2025-09-28T17:39:22Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-17T03:45:07Z",
+      "updated_at": "2026-10-21T09:26:11Z",
       "output_directory": "episodes/0495-spidey-x-secret-lair-to-the-moon",
       "transcription": {
         "provider": "Gemini",
@@ -25985,6 +26013,18 @@
         "candidate_run_id": "38999890733",
         "baseline_run_id": "38338866689",
         "reason": "Bounded reprocessing changed known printing identities; the original published picks were restored. Timing still requires verification."
+      },
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": false,
+        "attempt": 3,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
       }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15718": {

@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Bounded nightly review cleanup and exact inspected pilots; no automatic approval of ambiguous recommendations.",
-  "daily_date": "2026-10-16",
+  "daily_date": "2026-10-21",
   "daily_runs": 1,
   "entries": [
     {
@@ -124,11 +124,29 @@
       "run_id": "39542406624",
       "selection": "inspected_manual_recovery",
       "note": "Saved new validated repair progress before configured daily budget stop. One inspected continuation after six hours; reuse original chunks1-4 and successful final-chunk clips."
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2178094005",
+      "title": "MTG Fast Finance Ep 495: Spidey x Secret Lair to the Moon",
+      "episode_number": 495,
+      "status": "deferred",
+      "issue": "timing",
+      "inspected_pilot": true,
+      "repair_mode": "review",
+      "started_at": "2026-10-21T09:23:52.313770+00:00",
+      "before_status": "needs_review",
+      "before_pick_count": 4,
+      "finished_at": "2026-10-21T09:26:14.387520+00:00",
+      "result_status": "needs_review",
+      "result_pick_count": 4,
+      "repaired_chunks": 2,
+      "saved_clips": 26,
+      "note": "Saved new repair progress; bounded continuation"
     }
   ],
   "inspected_pilots": {
     "tag:soundcloud,2010:tracks/2178094005": {
-      "status": "ready",
+      "status": "deferred",
       "repair_mode": "review",
       "max_attempts": 3,
       "evidence": "Owner authorized the Oct19 repair/cleanup batch. Retained transcript from run 39342857169 inspected: retained final-chunk timestamps exceed the stated duration; verify actual audio alignment; legacy timing adjustments and prior printed pick identities retained. Full audio timing-review pilot, no forced approval."
