@@ -1,0 +1,376 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15703",
+    "episode_number": 661,
+    "title": "Cow Tipping is Earthbending | Brainstorm Brewery #661 | Magic Finance",
+    "published_at": "2025-08-15T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_661_Cow_Tipping_is_Earthbending.mp3",
+    "episode_url": "https://brainstormbrewery.com/cow-tipping-is-earthbending-brainstorm-brewery-661-magic-finance/",
+    "duration_seconds": 3310,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler) has some crazy new ideas on how DJ (@CardgardenMTG) can get ready for Avatar the Last Airbender set that is coming. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.16",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-21T23:22:41Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-21T23:18:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-21T23:18:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-21T23:18:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-21T23:18:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-21T23:18:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-21T23:18:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-21T23:18:39Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-21T23:22:38Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-21T23:22:38Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-21T23:22:41Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-21T23:22:41Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-21T23:22:41Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-21T23:22:41Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3310,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 39.707,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17734,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22689,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 190
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40423,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 33.941,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15256,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22690,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 190
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37946,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.877,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16026,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22690,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 190
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38716,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 610,
+          "request_seconds": 22.752,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9946,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 15438,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 190
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 15248
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 25384,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 2
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1075,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 36544,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 36544
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 37619,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 371,
+    "end_seconds": 3277,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Pursuit of Knowledge",
+      "printing": "Stronghold",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ",
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$1",
+      "entry_target": {
+        "raw": "bulk rares in bulk",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "worth like a dollar",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "It is a weird old enchantment worth about a dollar that can be found in bulk rares.",
+        "Does very neat things with proliferate and new ways to draw cards.",
+        "Spiking recently due to a new commander deck."
+      ],
+      "caveats": [
+        "Does not have a gold set symbol so it is easy to miss in bulk."
+      ],
+      "confidence": "high",
+      "start_seconds": 674,
+      "end_seconds": 735,
+      "evidence_excerpt": "We're talking about a card that does not describe you, which is Pursuit of Knowledge... pick it out of bulk rares in bulk.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cb0f20d18fa13098",
+      "timestamp": "00:11:14",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_661_Cow_Tipping_is_Earthbending.mp3#t=674"
+    },
+    {
+      "card": "Foundations Bundle",
+      "printing": "Foundations",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$75 to $100",
+      "entry_target": {
+        "raw": "$75 for the cheapest",
+        "currency": "USD",
+        "minimum": 75,
+        "maximum": 100
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$100",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Stock on the bundle is incredibly low right now.",
+        "Foundations is hugely popular."
+      ],
+      "caveats": [
+        "It will get reprinted eventually."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2664,
+      "end_seconds": 2760,
+      "evidence_excerpt": "My pick of the week this week is foundation booster boxes... range up to $100... stock on the bundle is just incredibly low right now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c91a0a8ca68ee255",
+      "timestamp": "00:44:24",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_661_Cow_Tipping_is_Earthbending.mp3#t=2664"
+    },
+    {
+      "card": "20 Ways to Win Commander Deck",
+      "printing": "20 Ways to Win",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$200",
+      "entry_target": {
+        "raw": "$180 to $200",
+        "currency": "USD",
+        "minimum": 180,
+        "maximum": 200
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "over $300",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Expected value of all the cards in the deck if you open it is over $300.",
+        "Card Kingdom buylist is around $190, so buying at around $180 to $200 seals a profitable break."
+      ],
+      "caveats": [
+        "Downside risk if high-value cards get reprinted and single values tank."
+      ],
+      "confidence": "high",
+      "start_seconds": 2834,
+      "end_seconds": 2916,
+      "evidence_excerpt": "My pick of the week is... 20 Ways to Win... available on TCGPlayer for around $200. The expected value... is over $300.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7af87a4eb39a033a",
+      "timestamp": "00:47:14",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_661_Cow_Tipping_is_Earthbending.mp3#t=2834"
+    }
+  ]
+}
