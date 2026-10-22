@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.17",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-22T02:39:10Z",
-    "latest_successful_run_at": "2026-10-21T23:22:41Z",
+    "generated_at": "2026-10-22T09:28:13Z",
+    "latest_successful_run_at": "2026-10-22T09:28:12Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 117,
-    "real_pick_count": 469,
+    "real_pick_count": 473,
     "last_discovered_episode_date": "2026-10-19T22:23:10Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,14 @@
   },
   "counts": {
     "episodes": 117,
-    "picks": 469,
+    "picks": 473,
     "needs_review": 47,
-    "failed": 1,
-    "completed": 69
+    "failed": 0,
+    "completed": 70
   },
   "status_counts": {
-    "complete": 69,
-    "needs_review": 47,
-    "failed": 1
+    "complete": 70,
+    "needs_review": 47
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2422332303",
@@ -4550,31 +4549,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 4,
       "directory": "episodes/0489-avatar-bends-the-end-of-2025-mtg",
       "outputs": {
         "metadata": "episodes/0489-avatar-bends-the-end-of-2025-mtg/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0489-avatar-bends-the-end-of-2025-mtg/summary.json",
+        "summary_markdown": "episodes/0489-avatar-bends-the-end-of-2025-mtg/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-22T02:39:10Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-22T08:39:10Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-22T09:28:12Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

@@ -20,8 +20,8 @@
     "extraction_profile": "cards_to_watch"
   },
   "processing": {
-    "status": "failed",
-    "review_state": "not_applicable",
+    "status": "complete",
+    "review_state": "approved",
     "review_reason": null,
     "review_issues": [],
     "pipeline_version": "0.5.17",
@@ -29,7 +29,7 @@
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v3-evidence-uncertainty",
-    "processed_at": "2026-10-22T02:39:10Z",
+    "processed_at": "2026-10-22T09:28:12Z",
     "history": [
       {
         "status": "detected",
@@ -86,26 +86,207 @@
       {
         "status": "failed",
         "timestamp": "2026-10-22T02:39:10Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-22T09:26:21Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-22T09:26:21Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-22T09:26:24Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-22T09:26:24Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-22T09:26:40Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-22T09:28:06Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-22T09:28:06Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-22T09:28:12Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-22T09:28:12Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-22T09:28:12Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-22T09:28:12Z"
       }
     ],
-    "error": {
-      "stage": "transcribing",
-      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-      "category": "repair_progress_saved",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": false,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-10-22T08:39:10Z",
-      "quarantined": false
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3536,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 58.355,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 25236,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22687,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 188
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 47923,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 12.081,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3662,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22688,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 188
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 26350,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 35.725,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14358,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22688,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 188
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37046,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 836,
+          "request_seconds": 36.737,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16176,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 21105,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 20917
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 188
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37281,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 13
     },
-    "transcription": null,
-    "extraction_usage": null
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1724,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 12654,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 12654
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 14378,
+      "traffic_type": null
+    }
   },
   "outputs": {
     "metadata": "episodes/0489-avatar-bends-the-end-of-2025-mtg/metadata.json",
-    "summary_json": null,
-    "summary_markdown": null
+    "summary_json": "episodes/0489-avatar-bends-the-end-of-2025-mtg/summary.json",
+    "summary_markdown": "episodes/0489-avatar-bends-the-end-of-2025-mtg/summary.md"
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Bounded nightly review cleanup and exact inspected pilots; no automatic approval of ambiguous recommendations.",
-  "daily_date": "2026-10-21",
+  "daily_date": "2026-10-22",
   "daily_runs": 1,
   "entries": [
     {
@@ -160,6 +160,24 @@
       "run_id": "39711837368",
       "selection": "inspected_manual_recovery",
       "note": "Two original chunks repaired; one inspected continuation after six hours, targeting real final audio chunk; failed unpublished coverage precedes old published review backlog."
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2154709449",
+      "title": "MTG Fast Finance Ep 489: Avatar Bends The End of 2025 MTG",
+      "episode_number": 489,
+      "status": "complete",
+      "issue": "timing",
+      "inspected_pilot": true,
+      "repair_mode": "coverage",
+      "started_at": "2026-10-22T09:26:19.460881+00:00",
+      "before_status": "failed",
+      "before_pick_count": 0,
+      "finished_at": "2026-10-22T09:28:16.404938+00:00",
+      "result_status": "complete",
+      "result_pick_count": 4,
+      "repaired_chunks": 1,
+      "saved_clips": 13,
+      "note": "Review cleared"
     }
   ],
   "inspected_pilots": {
@@ -184,7 +202,7 @@
       "evidence": "Owner Oct20/21 fixes; inspected runs39358654854/39541488387/39542406624. Chunks1-4 now validated; chunk5 saved first clip before configured48-request stop. Exactly one further saved-progress attempt after six-hour cooldown and Pacific-day budget reset; no unchanged blind retry or broad approval."
     },
     "tag:soundcloud,2010:tracks/2154709449": {
-      "status": "deferred",
+      "status": "complete",
       "repair_mode": "coverage",
       "max_attempts": 2,
       "evidence": "Owner FF489 incident; initial run39545637621 zero calls; inspected run39711837368 saved original chunks1/2, with final real chunk still outstanding. Fixed phantom fifth-chunk classification from a clamped final tail. One further saved-progress coverage attempt after six-hour cooldown and fresh Pacific-day capacity; keep uncertainty and all request/provider gates."

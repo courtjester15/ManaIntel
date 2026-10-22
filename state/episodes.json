@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.17",
-  "updated_at": "2026-10-22T02:39:10Z",
+  "updated_at": "2026-10-22T09:28:12Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -29619,6 +29619,50 @@
         {
           "status": "failed",
           "timestamp": "2026-10-22T02:39:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-22T09:26:21Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-22T09:26:21Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-22T09:26:24Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-22T09:26:24Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-22T09:26:40Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-22T09:28:06Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-22T09:28:06Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-22T09:28:12Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-22T09:28:12Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-22T09:28:12Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-10-22T09:28:12Z"
         }
       ],
       "title": "MTG Fast Finance Ep 489: Avatar Bends The End of 2025 MTG",
@@ -29626,27 +29670,169 @@
       "published_at": "2025-08-17T18:18:29Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-22T08:39:10Z",
-        "quarantined": false
-      },
-      "status": "failed",
-      "updated_at": "2026-10-22T02:39:10Z",
+      "attempt_count": 2,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-10-22T09:28:12Z",
       "output_directory": "episodes/0489-avatar-bends-the-end-of-2025-mtg",
       "attempt_count_correction": {
         "run_id": "39545637621",
         "reason": "Initial capacity stop made zero model requests; corrected scheduling attempt count from1 to0. Original attempt journal/history preserved."
-      }
+      },
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3536,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 58.355,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 25236,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22687,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 188
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 47923,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 12.081,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3662,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22688,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 188
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 26350,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 35.725,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14358,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22688,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 188
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37046,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 836,
+            "request_seconds": 36.737,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16176,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 21105,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20917
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 188
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37281,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 13
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1724,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 12654,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 12654
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 14378,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": null,
+      "review_issues": []
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15703": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15703",
