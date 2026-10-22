@@ -15,7 +15,7 @@ class CapacityStopped(RuntimeError):
     pass
 
 
-def reserve(model: str, now=None):
+def reserve(model: str, now=None, *, check_only=False):
     configured = os.getenv("FFW_CAPACITY_PATH")
     if not configured:
         return None
@@ -54,6 +54,8 @@ def reserve(model: str, now=None):
     run = bucket.setdefault("runs", {}).setdefault(run_id, {"requests": 0})
     if optional and run["requests"] >= int(os.getenv("FFW_OPTIONAL_RUN_REQUEST_BUDGET", "16")):
         raise CapacityStopped("Shared capacity stop: optional run request budget reached.")
+    if check_only:
+        return None
     bucket["requests"] += 1
     run["requests"] += 1
     atomic_write_json(path, ledger)

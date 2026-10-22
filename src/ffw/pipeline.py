@@ -235,6 +235,17 @@ class Pipeline:
                 raise ValueError("Archive preflight failed before provider calls: " + "; ".join(f"{issue.code}: {issue.message}" for issue in errors[:5]))
         results: list[PipelineResult] = []
         for episode in self.last_selection.selected:
+            # Check the shared gate before discovery, download, or incrementing
+            # attempts. An already-known budget stop is a run deferral.
+            if self.settings.mode == "live" and os.getenv("FFW_CAPACITY_PATH"):
+                from .capacity import CapacityStopped, reserve
+                try:
+                    for model in dict.fromkeys((self.settings.transcription_model, self.settings.extraction_model)):
+                        reserve(model, check_only=True)
+                except CapacityStopped as exc:
+                    self.last_selection.selected_mode = "capacity_deferred"
+                    self.last_selection.capacity_reason = str(exc)
+                    break
             self.state.discover(episode)
             existing = self.state.get(episode.guid) or {}
             result = self.process_episode(

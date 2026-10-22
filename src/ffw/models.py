@@ -64,6 +64,7 @@ class PipelineResult:
 class SelectionReport:
     policy: str
     selected_mode: str | None = None
+    capacity_reason: str | None = None
     feed_entries_scanned: int = 0
     completed_skipped: int = 0
     failed_skipped: int = 0
@@ -87,6 +88,7 @@ class SelectionReport:
         return {
             "policy": self.policy,
             "selected_mode": self.selected_mode,
+            "capacity_reason": self.capacity_reason,
             "feed_entries_scanned": self.feed_entries_scanned,
             "completed_skipped": self.completed_skipped,
             "failed_skipped": self.failed_skipped,

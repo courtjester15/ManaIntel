@@ -18,6 +18,7 @@ from ffw.archive import rebuild_catalog, repair_missing_episode_numbers
 from ffw.detection import locate_cards_to_watch, locate_recommendation_section
 from ffw.models import EpisodeCandidate, PipelineResult
 from ffw.config import Settings
+from ffw.capacity import CapacityStopped
 from ffw.pipeline import Pipeline, classify_failure, compare_episode_summaries
 from ffw.production import CombinedFeedSource, GeminiExtractor, GeminiMalformedJSONError, GeminiTranscriber, OpenAIExtractor, OpenAITranscriber, ProviderFallbackTranscriber, StreamingDownloader, _gemini_generate_json, parse_episode_number, parse_rss, production_adapters
 from ffw.state import JsonStateStore
@@ -1262,6 +1263,18 @@ class StateAwareSelectionTests(unittest.TestCase):
         )
         self.state = JsonStateStore(self.settings.state_file)
         self.pipeline = Pipeline(self.settings, object(), object(), object(), object(), object(), self.state)
+
+    def test_exhausted_capacity_defers_before_creating_episode_or_attempt(self):
+        from types import SimpleNamespace
+        self.pipeline.feed = SimpleNamespace(episodes=lambda: self.candidates())
+        with patch.dict(os.environ, {"FFW_CAPACITY_PATH": str(self.root / "capacity.json"), "FFW_REQUEST_DAILY_BUDGET": "1"}), patch(
+            "ffw.capacity.reserve", side_effect=CapacityStopped("Shared capacity stop: configured request budget reached.")
+        ), patch.object(self.pipeline, "process_episode") as process:
+            self.assertEqual([], self.pipeline.run(selection_policy="next"))
+        process.assert_not_called()
+        self.assertEqual({}, self.state.all())
+        self.assertEqual("capacity_deferred", self.pipeline.last_selection.as_dict()["selected_mode"])
+        self.assertIn("budget", self.pipeline.last_selection.as_dict()["capacity_reason"])
 
     @staticmethod
     def candidates() -> list[EpisodeCandidate]:

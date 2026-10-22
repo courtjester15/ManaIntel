@@ -62,6 +62,7 @@ def attempt_kind(record: dict) -> str:
 def failure_category(message: str) -> str:
     text = message.lower()
     for category, patterns in (
+        ("application_capacity", ("shared capacity stop",)),
         ("transcript_timing_or_coverage", ("timing", "compressed", "missing segments", "coverage")),
         ("provider_quota", ("429", "quota", "resource_exhausted")),
         ("truncated_model_output", ("max_tokens", "truncated")),
@@ -116,6 +117,8 @@ def _workflow_kind(journal: dict | None, observed: dict | None, has_attempt: boo
         return "processing"
     if journal:
         selection = journal.get("selection")
+        if isinstance(selection, dict) and selection.get("selected_mode") == "capacity_deferred":
+            return "gated_skip"
         if isinstance(selection, dict) and selection.get("selected_count") == 0:
             return "no_op"
         note = str(journal.get("note", "")).lower()

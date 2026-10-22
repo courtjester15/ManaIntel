@@ -21,6 +21,17 @@ class CapacityCleanupTests(unittest.TestCase):
         self.addCleanup(self.env.stop)
         self.now = datetime(2026, 10, 20, 6, 59, tzinfo=timezone.utc)
 
+    def test_capacity_preflight_is_read_only_and_still_enforces_limits(self):
+        reserve("lite", self.now, check_only=True)
+        self.assertFalse((self.root / "capacity.json").exists())
+        reserve("lite", self.now)
+        before = (self.root / "capacity.json").read_bytes()
+        reserve("lite", self.now, check_only=True)
+        self.assertEqual(before, (self.root / "capacity.json").read_bytes())
+        reserve("lite", self.now)
+        with self.assertRaises(CapacityStopped):
+            reserve("lite", self.now, check_only=True)
+
     def test_optional_reserves_primary_and_rolls_at_pacific_midnight(self):
         reserve("lite", self.now)
         reserve("lite", self.now)
