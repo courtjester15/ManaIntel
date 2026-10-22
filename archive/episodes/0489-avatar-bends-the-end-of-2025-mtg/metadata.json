@@ -24,12 +24,12 @@
     "review_state": "not_applicable",
     "review_reason": null,
     "review_issues": [],
-    "pipeline_version": "0.5.16",
+    "pipeline_version": "0.5.17",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v3-evidence-uncertainty",
-    "processed_at": "2026-10-21T04:45:13Z",
+    "processed_at": "2026-10-22T02:39:10Z",
     "history": [
       {
         "status": "detected",
@@ -62,18 +62,42 @@
       {
         "status": "failed",
         "timestamp": "2026-10-21T04:45:13Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-22T02:34:20Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-22T02:34:20Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-22T02:34:21Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-22T02:34:21Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-22T02:34:42Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-22T02:39:10Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Gemini transcription chunk 1/4 failed after 0.0s: CapacityStopped: Shared capacity stop: configured request budget reached.",
-      "category": "capacity_deferred",
+      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+      "category": "repair_progress_saved",
       "synthetic": false,
       "retryable": true,
-      "provider_wide": true,
-      "attempt": 0,
+      "provider_wide": false,
+      "attempt": 1,
       "max_attempts": 3,
-      "next_retry_at": "2026-10-21T10:45:13Z",
+      "next_retry_at": "2026-10-22T08:39:10Z",
       "quarantined": false
     },
     "transcription": null,
