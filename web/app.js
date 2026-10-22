@@ -259,13 +259,20 @@ function pickCard(pick, compact = false) {
     ${compact ? "" : `<div class="evidence-preview">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div>`}
   </article>`;
 }
+function deferredStatus(error) {
+  if (error?.category === "capacity_deferred") return "waiting for capacity";
+  if (error?.category === "repair_progress_saved") return "repair continuation queued";
+  return null;
+}
 function episodeBadge(episode) {
-  return episode?.processing_status === "failed" && episode?.error?.category === "capacity_deferred"
-    ? `<span class="status queued">waiting for capacity</span>`
+  const deferred = deferredStatus(episode?.error);
+  return episode?.processing_status === "failed" && deferred
+    ? `<span class="status queued">${deferred}</span>`
     : badge(episode?.processing_status);
 }
 function failureReason(error) {
-  if (error?.category === "capacity_deferred") return "Processing paused because the configured request budget was used. Recovery waits for available capacity.";
+  if (error?.category === "repair_progress_saved") return "Validated transcript repairs were saved. Processing can continue after the retry cooldown.";
+  if (error?.category === "capacity_deferred") return "Processing paused because the configured request budget cannot cover the next work. Recovery waits for available capacity.";
   const message = String(error?.message ?? "");
   if (!message) return "No failure message was recorded.";
   const lower = message.toLowerCase();
@@ -280,7 +287,7 @@ function episodeAction(episode) {
   if (!episode) return "";
   return canOpenSummary(episode)
     ? `<a class="button secondary" href="${episodeSummaryUrl(episode)}" target="_blank">Open summary</a>`
-    : `<button class="button secondary" type="button" data-episode-guid="${escapeHtml(episode.guid)}">View failure details</button>`;
+    : `<button class="button secondary" type="button" data-episode-guid="${escapeHtml(episode.guid)}">View processing details</button>`;
 }
 
 async function loadData() {
@@ -358,7 +365,7 @@ function metric(name, value, note) {
 
 function renderEpisodes() {
   return `
-    <div class="toolbar"><label class="search"><input id="episode-search" type="search" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.index.episodes, state.episodeSource)}</select><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
+    <div class="toolbar"><label class="search"><input id="episode-search" type="search" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.index.episodes, state.episodeSource)}</select><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${value === "failed" ? "unfinished" : label(value)}</option>`).join("")}</select></div>
     <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Episode", "episode_number")}${episodeSortHeader("Published", "published_at")}${episodeSortHeader("Activity", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Listen</th><th>Open</th></tr></thead><tbody id="episode-rows">${episodeRows()}</tbody></table></div>`;
 }
 
@@ -376,7 +383,7 @@ function episodeRows() {
 
 function renderPicks() {
   return `
-    <div class="toolbar"><label class="search"><input id="pick-search" type="search" placeholder="Search card, printing, host, recommendation…" value="${escapeHtml(state.query)}"></label><select id="pick-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.cards, state.pickSource)}</select><select id="pick-status" aria-label="Filter by review status"><option value="all">All review states</option>${["approved", "pending", "needs_review"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${label(value)}</option>`).join("")}</select></div>
+    <div class="toolbar"><label class="search"><input id="pick-search" type="search" placeholder="Search card, printing, host, recommendation…" value="${escapeHtml(state.query)}"></label><select id="pick-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.cards, state.pickSource)}</select><select id="pick-status" aria-label="Filter by review status"><option value="all">All review states</option>${["approved", "pending", "needs_review"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${value === "failed" ? "unfinished" : label(value)}</option>`).join("")}</select></div>
     <div id="pick-table" aria-label="Cards to Watch recommendations"></div>`;
 }
 
@@ -450,7 +457,7 @@ function renderDashboard() {
       ${metric("Episodes", counts.episodes, state.index.synthetic ? "fixtures" : "live")}
       ${metric("Picks", counts.picks, "records")}
       ${metric("Review", counts.needs_review, "needs review")}
-      ${metric("Failed", counts.failed, "attention")}
+      ${metric("Unfinished", counts.failed, "waiting or needs attention")}
       ${metric("Latest", latest?.episode_number ? `#${latest.episode_number}` : "None", latest ? formatDate(latest.published_at) : "pending")}
     </section>
     <section class="dashboard-console">
@@ -584,7 +591,7 @@ function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
   const picksSection = episodePicks.length
     ? `<div class="detail-section"><h3>Cards to Watch</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
     : `<div class="detail-section"><h3>Cards to Watch</h3><p>No structured picks were published for this episode.</p></div>`;
-  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(error.category === "capacity_deferred" ? "waiting for capacity" : label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>${error.category === "capacity_deferred" ? "Processing deferred" : "Failure details"}</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Attempted</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
+  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(deferredStatus(error) || label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(label(episode.review_state))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>${deferredStatus(error) ? "Processing deferred" : "Failure details"}</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Retry eligible</dt><dd>${error.next_retry_at ? escapeHtml(formatDateTime(error.next_retry_at)) : "Not scheduled"}</dd></div><div><dt>Attempted</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
   setDialogCloseAction(false);
   openDialog();
   if (returning) {

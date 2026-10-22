@@ -487,7 +487,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("web/review.js", workflow)
         self.assertIn("web/audio-player.js", workflow)
         self.assertIn("function showEpisode", app)
-        self.assertIn("View failure details", app)
+        self.assertIn("View processing details", app)
         self.assertIn("data-copy-guid", app)
         self.assertIn("Open retry workflow", app)
         self.assertIn("Review episode", app)

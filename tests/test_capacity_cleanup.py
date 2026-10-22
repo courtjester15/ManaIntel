@@ -27,6 +27,8 @@ class CapacityCleanupTests(unittest.TestCase):
         reserve("lite", self.now)
         before = (self.root / "capacity.json").read_bytes()
         reserve("lite", self.now, check_only=True)
+        with self.assertRaises(CapacityStopped):
+            reserve("lite", self.now, check_only=True, minimum_requests=2)
         self.assertEqual(before, (self.root / "capacity.json").read_bytes())
         reserve("lite", self.now)
         with self.assertRaises(CapacityStopped):
@@ -102,6 +104,13 @@ class CapacityCleanupTests(unittest.TestCase):
         transcript["segments"][0]["text"] = "you should buy a copy and this particular printing is cheap"
         self.assertIsNone(align_published_quotes([pick], transcript))
 
+    def test_clamped_last_tail_never_requests_nonexistent_next_audio_chunk(self):
+        transcript = {"duration_seconds": 3200, "chunk_count": 4, "segments": [
+            {"start": 10, "end": 20}, {"start": 910, "end": 920},
+            {"start": 1810, "end": 1820}, {"start": 2710, "end": 2720},
+            {"start": 3600, "end": 3600, "text": "Clamped final tail"}]}
+        self.assertEqual([3], suspect_timing_chunks(transcript))
+
     def test_last_chunk_past_audio_end_is_suspect(self):
         transcript = {"duration_seconds": 2507, "chunk_count": 3, "segments": [
             {"start": 0, "end": 10}, {"start": 900, "end": 910}, {"start": 2660, "end": 2673}]}
@@ -126,6 +135,16 @@ class CapacityCleanupTests(unittest.TestCase):
             # No new progress in the later attempt: quarantine the unchanged case.
             record(self.root, self.now + timedelta(hours=7, minutes=1))
             self.assertEqual("blocked", load_json(self.root / "state/reprocess-queue.json")["entries"][-1]["status"])
+
+    def test_inspected_missing_publication_precedes_existing_review_backlog(self):
+        records = {"coverage": {"status": "failed", "source_id": "mtg-fast-finance", "updated_at": self.now.isoformat()},
+                   "review": {"status": "needs_review", "source_id": "mtg-fast-finance", "updated_at": "2026-01-01T00:00:00Z"}}
+        atomic_write_json(self.root / "state/episodes.json", {"episodes": records})
+        atomic_write_json(self.root / "state/reprocess-queue.json", {"inspected_pilots": {
+            "coverage": {"status": "ready", "repair_mode": "coverage", "evidence": "inspected saved progress"},
+            "review": {"status": "ready", "repair_mode": "review", "evidence": "inspected old review"}}})
+        with patch.dict(os.environ, {"FFW_CLEANUP_ISSUES": "timing"}):
+            self.assertEqual("coverage", select(self.root, self.now)[0])
 
     def test_exact_inspected_pilot_does_not_open_other_failed_records(self):
         records = {guid: {"status": "failed", "source_id": "mtg-fast-finance",

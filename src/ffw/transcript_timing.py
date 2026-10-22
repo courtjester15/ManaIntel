@@ -86,9 +86,16 @@ def suspect_timing_chunks(transcript: dict, chunk_seconds: int = 900) -> list[in
             suspect.append(index)
     duration = transcript.get("duration_seconds")
     if duration and duration > 0:
-        suspect.extend(int(float(s.get("start", 0)) // chunk_seconds)
-                       for s in transcript.get("segments", [])
-                       if float(s.get("end", 0)) > duration + 3)
+        for segment in transcript.get("segments", []):
+            start = float(segment.get("start", 0))
+            end = float(segment.get("end", 0))
+            if end > duration + 3:
+                index = int(start // chunk_seconds)
+                # A clamped tail at the boundary belongs to the preceding
+                # audio chunk, never a nonexistent next chunk.
+                if start > 0 and start % chunk_seconds == 0 and end == start:
+                    index -= 1
+                suspect.append(index)
     return sorted(set(suspect))
 
 

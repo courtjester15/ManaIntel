@@ -240,8 +240,16 @@ class Pipeline:
             if self.settings.mode == "live" and os.getenv("FFW_CAPACITY_PATH"):
                 from .capacity import CapacityStopped, reserve
                 try:
-                    for model in dict.fromkeys((self.settings.transcription_model, self.settings.extraction_model)):
-                        reserve(model, check_only=True)
+                    planned = {self.settings.transcription_model: 1, self.settings.extraction_model: 1}
+                    prior = self.state.get(episode.guid) or {}
+                    if not prior.get("attempt_count") and prior.get("status") not in TERMINAL_STATES:
+                        # Fresh audio requires at least one call per chunk plus
+                        # extraction; one leftover request cannot publish it.
+                        chunks = max(1, ((episode.duration_seconds or 1) + self.settings.audio_chunk_seconds - 1) // self.settings.audio_chunk_seconds)
+                        planned = {self.settings.transcription_model: chunks}
+                        planned[self.settings.extraction_model] = planned.get(self.settings.extraction_model, 0) + 1
+                    for model, minimum in planned.items():
+                        reserve(model, check_only=True, minimum_requests=minimum)
                 except CapacityStopped as exc:
                     self.last_selection.selected_mode = "capacity_deferred"
                     self.last_selection.capacity_reason = str(exc)

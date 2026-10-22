@@ -15,7 +15,7 @@ class CapacityStopped(RuntimeError):
     pass
 
 
-def reserve(model: str, now=None, *, check_only=False):
+def reserve(model: str, now=None, *, check_only=False, minimum_requests=1):
     configured = os.getenv("FFW_CAPACITY_PATH")
     if not configured:
         return None
@@ -48,11 +48,13 @@ def reserve(model: str, now=None, *, check_only=False):
     until = bucket.get("blocked_until")
     if bucket.get("daily_exhausted") or (until and datetime.fromisoformat(until) > now):
         raise CapacityStopped("Shared capacity stop: provider limit observed; no further requests permitted.")
-    if bucket["requests"] >= max(0, limit - reserve_count):
-        raise CapacityStopped("Shared capacity stop: configured request budget reached.")
+    if minimum_requests < 1:
+        raise ValueError("Minimum request estimate must be positive")
+    if bucket["requests"] + minimum_requests > max(0, limit - reserve_count):
+        raise CapacityStopped(f"Shared capacity stop: configured request budget insufficient ({max(0, limit - reserve_count - bucket['requests'])} available; {minimum_requests} required).")
     run_id = os.getenv("GITHUB_RUN_ID", "local")
     run = bucket.setdefault("runs", {}).setdefault(run_id, {"requests": 0})
-    if optional and run["requests"] >= int(os.getenv("FFW_OPTIONAL_RUN_REQUEST_BUDGET", "16")):
+    if optional and run["requests"] + minimum_requests > int(os.getenv("FFW_OPTIONAL_RUN_REQUEST_BUDGET", "16")):
         raise CapacityStopped("Shared capacity stop: optional run request budget reached.")
     if check_only:
         return None

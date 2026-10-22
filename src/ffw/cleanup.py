@@ -62,7 +62,8 @@ def select(root=Path("."), now=None):
         if issue == "boundary" and not any(s in reason for s in ("section", "boundary", "ending")):
             continue
         retained = (root / ".ffw-work/transcripts" / (Path(record.get("output_directory", "")).name + ".json.gz")).exists()
-        candidates.append((-1 if inspected else 0 if retained else 1, updated, guid, record, issue))
+        candidates.append((-2 if inspected and pilot.get("repair_mode") == "coverage" and record.get("status") == "failed"
+                           else -1 if inspected else 0 if retained else 1, updated, guid, record, issue))
     guid, reason = "", "no eligible validated repair cohort"
     if ledger.get("daily_runs", 0) >= 2:
         reason = "daily cleanup episode cap reached"

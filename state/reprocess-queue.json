@@ -142,6 +142,24 @@
       "repaired_chunks": 2,
       "saved_clips": 26,
       "note": "Saved new repair progress; bounded continuation"
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2154709449",
+      "episode_number": 489,
+      "title": "MTG Fast Finance Ep 489: Avatar Bends The End of 2025 MTG",
+      "status": "deferred",
+      "issue": "timing",
+      "inspected_pilot": true,
+      "repair_mode": "coverage",
+      "started_at": "2026-10-22T02:34:19Z",
+      "finished_at": "2026-10-22T02:39:10Z",
+      "result_status": "failed",
+      "result_pick_count": 0,
+      "repaired_chunks": 2,
+      "saved_clips": 25,
+      "run_id": "39711837368",
+      "selection": "inspected_manual_recovery",
+      "note": "Two original chunks repaired; one inspected continuation after six hours, targeting real final audio chunk; failed unpublished coverage precedes old published review backlog."
     }
   ],
   "inspected_pilots": {
@@ -164,6 +182,12 @@
       "repair_mode": "review",
       "max_attempts": 2,
       "evidence": "Owner Oct20/21 fixes; inspected runs39358654854/39541488387/39542406624. Chunks1-4 now validated; chunk5 saved first clip before configured48-request stop. Exactly one further saved-progress attempt after six-hour cooldown and Pacific-day budget reset; no unchanged blind retry or broad approval."
+    },
+    "tag:soundcloud,2010:tracks/2154709449": {
+      "status": "deferred",
+      "repair_mode": "coverage",
+      "max_attempts": 2,
+      "evidence": "Owner FF489 incident; initial run39545637621 zero calls; inspected run39711837368 saved original chunks1/2, with final real chunk still outstanding. Fixed phantom fifth-chunk classification from a clamped final tail. One further saved-progress coverage attempt after six-hour cooldown and fresh Pacific-day capacity; keep uncertainty and all request/provider gates."
     }
   }
 }
