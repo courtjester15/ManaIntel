@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2151200886",
+    "episode_number": 488,
+    "title": "MTG Fast Finance Ep 488: How the Soul Stone Foreshadows Years of Marvel x MTG",
+    "published_at": "2025-08-11T05:58:45Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2151200886-user-519789566-mtg-fast-finance-ep-488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg",
+    "duration_seconds": 3468,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, their cards to watch for the week and explore how the reveal of the soul gem foreshadows years of MTG x Marvel.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.17",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+    "processed_at": "2026-10-22T23:28:19Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-22T23:22:18Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-22T23:22:18Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-22T23:22:41Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-22T23:28:19Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 3/4 failed after 153.0s: RuntimeError: Split repair clip 2/2 exhausted: gemini-3.5-flash-lite: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-23T05:28:19Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

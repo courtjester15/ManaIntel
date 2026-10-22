@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "attempt_id": "4f0b684649c740758436a469df62caba",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2151200886",
+    "number": 488,
+    "title": "MTG Fast Finance Ep 488: How the Soul Stone Foreshadows Years of Marvel x MTG",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-10-22T23:22:16Z",
+  "pipeline_version": "0.5.17",
+  "prompt_version": "source-recommendations-v3-evidence-uncertainty",
+  "run_id": "39871229338",
+  "run_attempt": "1",
+  "git_sha": "797f03e2b7f3143b8587d9be4ab22dee30b6c217",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-22T23:22:16Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-10-22T23:22:16Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-10-22T23:22:18Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-10-22T23:22:18Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-10-22T23:22:41Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-10-22T23:24:37Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "GeminiMalformedJSONError",
+      "message": "Gemini output truncated; finish reason: MAX_TOKENS.",
+      "http_status": null,
+      "request_seconds": 114.824,
+      "finish_reason": "MAX_TOKENS",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 65522,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22688,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22499
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 189
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 88210,
+        "traffic_type": null
+      },
+      "response_characters": 282931
+    },
+    {
+      "timestamp": "2026-10-22T23:24:37Z",
+      "event": "chunk_split",
+      "chunk": 1,
+      "reason": "MAX_TOKENS",
+      "additional_call_cap": 4,
+      "remaining_transcription_rescue_calls": 8
+    },
+    {
+      "timestamp": "2026-10-22T23:24:54Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 15.117,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 6416,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11498,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 11250
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 248
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 17914,
+        "traffic_type": null
+      },
+      "response_characters": 20902
+    },
+    {
+      "timestamp": "2026-10-22T23:24:54Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-22T23:25:13Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 16.55,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 7163,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11497,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 248
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 11249
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 18660,
+        "traffic_type": null
+      },
+      "response_characters": 22348
+    },
+    {
+      "timestamp": "2026-10-22T23:25:13Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-22T23:25:13Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-22T23:25:46Z",
+      "event": "model_call",
+      "chunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 32.886,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 15918,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22689,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 189
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 38607,
+        "traffic_type": null
+      },
+      "response_characters": 46118
+    },
+    {
+      "timestamp": "2026-10-22T23:25:46Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 2,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-22T23:27:52Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "GeminiMalformedJSONError",
+      "message": "Gemini output truncated; finish reason: MAX_TOKENS.",
+      "http_status": null,
+      "request_seconds": 125.806,
+      "finish_reason": "MAX_TOKENS",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 65521,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22689,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 189
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 88210,
+        "traffic_type": null
+      },
+      "response_characters": 267958
+    },
+    {
+      "timestamp": "2026-10-22T23:27:52Z",
+      "event": "chunk_split",
+      "chunk": 3,
+      "reason": "MAX_TOKENS",
+      "additional_call_cap": 4,
+      "remaining_transcription_rescue_calls": 6
+    },
+    {
+      "timestamp": "2026-10-22T23:28:15Z",
+      "event": "model_call",
+      "chunk": 3,
+      "subchunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 20.888,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 7786,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11498,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 11250
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 248
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 19284,
+        "traffic_type": null
+      },
+      "response_characters": 22673
+    },
+    {
+      "timestamp": "2026-10-22T23:28:15Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 3,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-10-22T23:28:19Z",
+      "event": "model_call",
+      "chunk": 3,
+      "subchunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 1.569
+    },
+    {
+      "timestamp": "2026-10-22T23:28:19Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Gemini transcription chunk 3/4 failed after 153.0s: RuntimeError: Split repair clip 2/2 exhausted: gemini-3.5-flash-lite: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
+      "timestamp": "2026-10-22T23:28:19Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/39871229338",
+  "finished_at": "2026-10-22T23:28:19Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}
