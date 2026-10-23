@@ -97,7 +97,7 @@ env:
   FFW_AUDIO_CHUNK_SECONDS: "900"
   FFW_INCREMENTAL_REPAIR: ${{ (inputs.timing_repair_limit == 'incremental' || inputs.timing_repair_limit == 'review' || (github.event_name == 'schedule' && vars.FFW_INCREMENTAL_REPAIR == 'true')) && 'true' || 'false' }}
   FFW_REVIEW_REPAIR: ${{ inputs.timing_repair_limit == 'review' && 'true' || 'false' }}
-  FFW_TIMING_REPAIR_MAX_CHUNKS: ${{ (inputs.timing_repair_limit == 'incremental' || inputs.timing_repair_limit == 'review') && '2' || inputs.timing_repair_limit || '2' }}
+  FFW_TIMING_REPAIR_MAX_CHUNKS: ${{ (inputs.timing_repair_limit == 'incremental' || inputs.timing_repair_limit == 'review' || inputs.timing_repair_limit == 'hosts') && '2' || inputs.timing_repair_limit || '2' }}
   FFW_GEMINI_TRANSIENT_RETRIES: "1"
   FFW_GEMINI_RETRY_DELAY_SECONDS: "30"
   FFW_GEMINI_REQUEST_TIMEOUT_SECONDS: "300"
@@ -151,6 +151,10 @@ jobs:
           FFW_INCREMENTAL_REPAIR: "false"
           FFW_REVIEW_REPAIR: "false"
           FFW_REQUIRE_RETAINED: "false"
+          FFW_RECOVER_HOSTS: "false"
+          FFW_REUSE_TRANSCRIPTS: "false"
+          FFW_AUTO_REUSE_TRANSCRIPTS: "false"
+          FFW_TIMING_REPAIR_MAX_CHUNKS: "2"
         run: python -m unittest discover -s tests -v
 
       - name: Verify AI provider credentials

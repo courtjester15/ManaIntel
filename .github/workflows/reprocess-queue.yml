@@ -71,6 +71,10 @@ jobs:
           FFW_INCREMENTAL_REPAIR: "false"
           FFW_REVIEW_REPAIR: "false"
           FFW_REQUIRE_RETAINED: "false"
+          FFW_RECOVER_HOSTS: "false"
+          FFW_REUSE_TRANSCRIPTS: "false"
+          FFW_AUTO_REUSE_TRANSCRIPTS: "false"
+          FFW_TIMING_REPAIR_MAX_CHUNKS: "2"
         run: python -m unittest discover -s tests -v
       - name: Check cleanup rollout gate
         id: primary

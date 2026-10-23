@@ -17,6 +17,13 @@ class WorkflowTests(unittest.TestCase):
         return [yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
                 for path in [root / ".github/workflows/ffw.yml", root / ".github/workflows/reprocess-queue.yml"]]
 
+    def test_manual_recovery_configuration_cannot_leak_into_offline_checks(self):
+        for workflow in self.workflows():
+            steps = next(iter(workflow["jobs"].values()))["steps"]
+            test_step = next(step for step in steps if step.get("name") == "Run network-free tests")
+            self.assertEqual("false", test_step["env"]["FFW_RECOVER_HOSTS"])
+            self.assertEqual("2", test_step["env"]["FFW_TIMING_REPAIR_MAX_CHUNKS"])
+
     def test_workflows_parse_and_step_references_exist(self):
         for workflow in self.workflows():
             self.assertIn("on", workflow)
