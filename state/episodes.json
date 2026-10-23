@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-23T03:28:02Z",
+  "updated_at": "2026-10-23T04:51:49Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -30127,6 +30127,65 @@
       "status": "failed",
       "updated_at": "2026-10-22T23:28:19Z",
       "output_directory": "episodes/0488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg"
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15700": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15700",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-23T04:47:23Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-23T04:47:23Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-23T04:47:23Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-23T04:47:23Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-23T04:47:25Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-23T04:47:25Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-23T04:47:38Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-23T04:51:49Z"
+        }
+      ],
+      "title": "Palate Cleanser | Brainstorm Brewery #660 | Magic Finance",
+      "episode_number": 660,
+      "published_at": "2025-08-08T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-23T10:51:49Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-23T04:51:49Z",
+      "output_directory": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance"
     }
   }
 }

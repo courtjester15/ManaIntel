@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15700",
+    "episode_number": 660,
+    "title": "Palate Cleanser | Brainstorm Brewery #660 | Magic Finance",
+    "published_at": "2025-08-08T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_660_Palate_Cleanser.mp3",
+    "episode_url": "https://brainstormbrewery.com/palate-cleanser-brainstorm-brewery-660-magic-finance/",
+    "duration_seconds": 3899,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass&#160; (@devotedDruid) and DJ (@CardgardenMTG) are back to talk about new card and rivals popping up in the card game space. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-23T04:51:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-23T04:47:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-23T04:47:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-23T04:47:38Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-23T04:51:49Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+      "category": "repair_progress_saved",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-23T10:51:49Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
