@@ -59,9 +59,9 @@ on:
         type: boolean
         default: false
       timing_repair_limit:
-        description: Reviewed repair budget or mode (incremental/review repair at most two chunks)
+        description: Reviewed repair mode (hosts recovers attribution only; timing modes retain chunk bounds)
         type: choice
-        options: ["2", "3", "4", incremental, review]
+        options: ["2", "3", "4", incremental, review, hosts]
         default: "2"
       deploy:
         description: Deploy GitHub Pages after validation
@@ -91,6 +91,7 @@ env:
   FFW_AUTO_REUSE_TRANSCRIPTS: ${{ inputs.fresh_transcript && 'false' || 'true' }}
   FFW_ATTEMPT_NOTE: ${{ inputs.attempt_note || '' }}
   FFW_REUSE_TRANSCRIPTS: ${{ inputs.reuse_transcript_run_id != '' }}
+  FFW_RECOVER_HOSTS: ${{ inputs.timing_repair_limit == 'hosts' && 'true' || 'false' }}
   FFW_TARGETED_VERIFICATION_ENABLED: "true"
   FFW_TARGETED_VERIFICATION_MAX_PICKS: "2"
   FFW_AUDIO_CHUNK_SECONDS: "900"
@@ -226,6 +227,10 @@ jobs:
             INPUT_MODE="evening"
           fi
           echo "mode=$INPUT_MODE" >> "$GITHUB_OUTPUT"
+          if [[ "$FFW_RECOVER_HOSTS" == "true" && ( -z "$INPUT_GUID" || "$INPUT_MODE" == "deploy_only" ) ]]; then
+            echo "::error::Host recovery requires an exact published episode GUID and a processing mode."
+            exit 2
+          fi
           if [[ "$INPUT_MODE" == "deploy_only" ]]; then
             echo "exit_code=0" >> "$GITHUB_OUTPUT"
             echo "Deploy-only mode selected; skipping live feed processing."

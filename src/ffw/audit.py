@@ -78,6 +78,8 @@ def render_attempt_log(root: Path) -> None:
         reason = safe_message(failures[-1].get("message", "")) if failures else item.get("note", "")
         context = item.get("context", {})
         action = "forced rerun" if context.get("force") else "retry" if context.get("retry_failed") else "initial processing"
+        if context.get("recover_hosts"):
+            action = "host attribution recovery; publication/timing preserved"
         if context.get("reuse_transcript"):
             action += "; retained transcript"
         events = item.get("events", [])

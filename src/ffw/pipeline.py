@@ -408,6 +408,7 @@ class Pipeline:
         journal = AttemptJournal(
             self.settings.state_file, episode, force=force, retry_failed=retry_failed,
             reuse_transcript=self.settings.reuse_transcripts,
+            recover_hosts=os.getenv("FFW_RECOVER_HOSTS", "").lower() == "true",
             prior_status=(existing or {}).get("status"), prior_attempt_count=(existing or {}).get("attempt_count", 0),
             transcription_model=self.transcriber.model_name, extraction_model=self.extractor.model_name,
             chunk_seconds=self.settings.audio_chunk_seconds,
@@ -447,6 +448,9 @@ class Pipeline:
             baseline_dir = self.settings.work_dir / "reprocess-baselines"
             baseline_dir.mkdir(parents=True, exist_ok=True)
             atomic_write_json(baseline_dir / f"{slug}.json", baseline_summary)
+        if os.getenv("FFW_RECOVER_HOSTS", "").lower() == "true":
+            return self._recover_published_hosts(episode, baseline_summary, baseline_outputs, output_dir,
+                                                 relative_output, slug, journal)
         work_dir = self.settings.work_dir / slug
         work_dir.mkdir(parents=True, exist_ok=True)
         if not existing:
@@ -832,6 +836,55 @@ class Pipeline:
         finally:
             for target, callback in prior_callbacks:
                 target.audit_callback = callback
+            if not episode.synthetic:
+                shutil.rmtree(work_dir, ignore_errors=True)
+
+    def _recover_published_hosts(self, episode, baseline, baseline_outputs, output_dir, relative_output, slug, journal):
+        """A metadata-only operation must never regenerate picks or timing."""
+        work_dir = self.settings.work_dir / slug
+        work_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            if not baseline or baseline.get("processing", {}).get("status") not in TERMINAL_STATES:
+                raise ValueError("Host recovery requires an exact forced published episode")
+            from .reviews import load_episode_review
+            if load_episode_review(self.settings.root / "data" / "reviews", baseline):
+                raise ValueError("Host recovery cannot replace an existing human review")
+            if not any(not p.get("hosts") for p in baseline["recommendations"]):
+                journal.finish("skipped", pick_count=len(baseline["recommendations"]), note="All published picks already have host attribution.")
+                return PipelineResult(episode.guid, baseline["processing"]["status"], relative_output,
+                                      len(baseline["recommendations"]), "No missing attribution; zero model calls.")
+            from .capacity import reserve
+            reserve(self.settings.extraction_model, check_only=True, minimum_requests=2)
+            transcript_path = self.settings.work_dir / "transcripts" / f"{slug}.json.gz"
+            if not transcript_path.exists():
+                raise ValueError("Host recovery requires the existing retained transcript")
+            from .metadata_recovery import recover_hosts
+            downloaded = self.downloader.download(episode, work_dir / "source-audio")
+            report_path = self.settings.work_dir / "reprocess-reports" / f"{slug}-hosts.json"
+            recovered, accepted = recover_hosts(episode, baseline, transcript_path, downloaded, work_dir,
+                                                report_path, self.settings.extraction_model, journal.record)
+            self._validate_before_publish(recovered)
+            if accepted:
+                metadata = load_json(output_dir / "metadata.json")
+                metadata["processing"]["metadata_recovery"] = recovered["processing"]["metadata_recovery"]
+                atomic_write_json(output_dir / "summary.json", recovered)
+                atomic_write_text(output_dir / "summary.md", render_episode_markdown(recovered))
+                atomic_write_json(output_dir / "metadata.json", metadata)
+                self.state.transition(episode.guid, baseline["processing"]["status"],
+                                      metadata_recovery=recovered["processing"]["metadata_recovery"])
+            message = f"Recovered {len(accepted)} missing pick hosts; picks, timing and review status preserved."
+            journal.finish(baseline["processing"]["status"], pick_count=len(baseline["recommendations"]),
+                           metadata_only=True, accepted_host_count=len(accepted), note=message)
+            return PipelineResult(episode.guid, baseline["processing"]["status"], relative_output,
+                                  len(baseline["recommendations"]), message)
+        except Exception as exc:
+            for name, contents in baseline_outputs.items():
+                atomic_write_text(output_dir / name, contents)
+            journal.record("failure", stage="host_recovery", exception_class=type(exc).__name__, message=str(exc))
+            journal.finish("failed", pick_count=len((baseline or {}).get("recommendations", [])),
+                           metadata_only=True, preserved_previous=baseline is not None)
+            return PipelineResult(episode.guid, "failed", relative_output, 0, str(exc))
+        finally:
             if not episode.synthetic:
                 shutil.rmtree(work_dir, ignore_errors=True)
 
