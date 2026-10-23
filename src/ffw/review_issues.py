@@ -75,7 +75,8 @@ def published_version_regression(baseline: dict[str, Any], candidate: dict[str, 
         same_card = [p for p in remaining if str(p.get("card", "")).strip().casefold() == str(old.get("card", "")).strip().casefold()]
         matches = [p for p in same_card
                    if (not old.get("printing") or str(p.get("printing") or "").strip().casefold() == str(old["printing"]).strip().casefold())
-                   and (old.get("foil") is None or p.get("foil") == old["foil"])]
+                   and (old.get("foil") is None or p.get("foil") == old["foil"])
+                   and (not old.get("hosts") or {h.casefold() for h in p.get("hosts", [])} == {h.casefold() for h in old["hosts"]})]
         if not matches:
             return True
         remaining.remove(matches[0])

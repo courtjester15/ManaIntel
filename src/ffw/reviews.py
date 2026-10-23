@@ -240,6 +240,7 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
             pick = picks.pop(original_id)
             pick.update(deepcopy(operation["changes"]))
             pick.pop("identity_start_seconds", None)
+            pick.pop("identity_printing", None)
             pick["id"] = stable_pick_id(
                 summary["episode"]["guid"],
                 pick["card"],

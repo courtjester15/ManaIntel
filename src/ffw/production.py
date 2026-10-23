@@ -1030,6 +1030,29 @@ EXTRACTION_SCHEMA: dict[str, Any] = {
 }
 
 
+def extraction_evidence(transcript: dict[str, Any], section: dict[str, Any]) -> str:
+    """Keep introductions and nearby variant details without expanding pick scope."""
+    segments = transcript.get("segments", [])
+    end = section.get("end_seconds") or 0
+    return json.dumps({
+        "recommendation_segments": section.pop("segments"),
+        "context_only": {
+            "introduction": [s for s in segments if 0 <= float(s.get("start", 0)) < 90],
+            "after_section": [s for s in segments if end <= float(s.get("start", 0)) < end + 45],
+        },
+    }, ensure_ascii=False)
+
+
+METADATA_INSTRUCTIONS = (
+    " Context-only segments may clarify speakers or printings of recommendations already inside the section; "
+    "never extract additional picks from context. Capture spoken set/drop names, bonus-card descriptions, "
+    "artists and treatments together in printing when they identify the recommended version. "
+    "Use explicit named handoffs or consistent named speaker labels for pick hosts. "
+    "An introduction identifies participants, not who recommended each card; never assign all participants "
+    "to every pick or infer attribution from alternating turns alone."
+)
+
+
 class OpenAIExtractor:
     def __init__(self, model_name: str, card_glossary: str = "") -> None:
         self.model_name = model_name
@@ -1046,7 +1069,7 @@ class OpenAIExtractor:
             return {"section": {key: value for key, value in section.items() if key != "segments"}, "recommendations": [], "review_reason": section["review_reason"]}
         from openai import OpenAI
         client = OpenAI()
-        evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
+        evidence = extraction_evidence(transcript, section)
         instructions = (
             f"Extract only explicit {episode.source_name} recommendations from the supplied timestamped {section['label']} section. "
             f"The episode is titled {episode.title!r}. The deterministic boundary signals are "
@@ -1063,6 +1086,7 @@ class OpenAIExtractor:
             "and state the specific uncertainty without inventing a replacement. "
             "An unknown optional printing can be null when card-level recommendation evidence is unambiguous."
         )
+        instructions += METADATA_INSTRUCTIONS
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
         response = client.responses.create(
@@ -1143,7 +1167,7 @@ class GeminiExtractor:
             api_key=api_key,
             http_options=types.HttpOptions(timeout=int(self.request_timeout_seconds * 1000), retry_options={"attempts": 1}),
         )
-        evidence = json.dumps(section.pop("segments"), ensure_ascii=False)
+        evidence = extraction_evidence(transcript, section)
         instructions = (
             f"Extract only explicit {episode.source_name} recommendations from the supplied timestamped {section['label']} section. "
             f"The episode is titled {episode.title!r}. The deterministic boundary signals are "
@@ -1163,6 +1187,7 @@ class GeminiExtractor:
             "Return JSON that exactly matches the supplied schema."
             " For sealed-product recommendations, preserve the spoken set and product names; do not substitute a different familiar product."
         )
+        instructions += METADATA_INSTRUCTIONS
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
         result, used_model = self._generate(client, types, [instructions, evidence])

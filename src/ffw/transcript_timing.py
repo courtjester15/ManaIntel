@@ -152,3 +152,24 @@ def unresolved_timing_chunks(transcript: dict, chunk_count: int) -> list[int]:
             else:
                 pending.discard(index)
     return sorted(pending)
+
+
+def retain_exact_speakers(previous: list[dict], replacement: list[dict]) -> int:
+    """Retain labels only for a unique unchanged utterance, never by timestamp."""
+    def key(segment):
+        return tuple(re.findall(r"[a-z0-9]+", str(segment.get("text", "")).casefold()))
+    old = {}
+    new = {}
+    for segment in previous:
+        old.setdefault(key(segment), []).append(segment)
+    for segment in replacement:
+        new.setdefault(key(segment), []).append(segment)
+    retained = 0
+    for quote, matches in new.items():
+        originals = old.get(quote, [])
+        if len(quote) < 8 or len(matches) != 1 or len(originals) != 1:
+            continue
+        if not matches[0].get("speaker") and originals[0].get("speaker"):
+            matches[0]["speaker"] = originals[0]["speaker"]
+            retained += 1
+    return retained

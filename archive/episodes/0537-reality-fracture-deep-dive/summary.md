@@ -87,8 +87,8 @@
 
 ### Llanowar Elves
 
-- Printing: Not stated
-- Printing certainty: Not stated
+- Printing: Secret Lair bonus card — Pauline Voss art
+- Printing certainty: confirmed
 - Finish: Foil
 - Host(s): 
 - Recommendation: buy

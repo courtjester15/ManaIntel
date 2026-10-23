@@ -51,7 +51,7 @@ def compare_episode_summaries(before: dict[str, Any], after: dict[str, Any]) -> 
         old = before_by_card[key]
         new = after_by_card[key]
         fields = [
-            field for field in ("printing", "foil", "recommendation", "start_seconds", "review_status", "review_reason")
+            field for field in ("printing", "foil", "hosts", "recommendation", "start_seconds", "review_status", "review_reason")
             if old.get(field) != new.get(field)
         ]
         if fields:
@@ -95,7 +95,7 @@ EPISODE_ERROR_PATTERNS = (
 )
 
 ZERO_PICK_REPROCESS_REVIEW = (
-    "Forced reprocessing omitted published recommendations or changed their known printing identities; "
+    "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; "
     "the previous recommendations were retained for review."
 )
 
@@ -550,6 +550,11 @@ class Pipeline:
                 for segment in repaired["segments"]:
                     segment["start"] += offset
                     segment["end"] += offset
+                from .transcript_timing import retain_exact_speakers
+                retained_speakers = retain_exact_speakers(transcript.get("segments", []), repaired["segments"])
+                if retained_speakers:
+                    journal.record("repair_speakers_retained", chunk=index + 1, segment_count=retained_speakers,
+                                   method="unique_exact_utterance")
                 transcript["segments"] = sorted(kept + repaired["segments"], key=lambda s: s["start"])
                 for sequence, segment in enumerate(transcript["segments"]):
                     segment["sequence"] = sequence
@@ -617,14 +622,15 @@ class Pipeline:
                         old_variants = [p for p in aligned if str(p.get("card", "")).casefold() == str(old.get("card", "")).casefold()]
                         if len(matches) == 1 and len(old_variants) == 1:
                             retained_fields = []
-                            for field in ("printing", "foil"):
-                                if matches[0].get(field) is None and old.get(field) is not None:
+                            for field in ("printing", "foil", "hosts"):
+                                missing = not matches[0].get(field) if field == "hosts" else matches[0].get(field) is None
+                                if missing and old.get(field) is not None and (field != "hosts" or old[field]):
                                     matches[0][field] = old[field]
                                     retained_fields.append(field)
                             if retained_fields:
                                 journal.record("published_identity_retained", card=old.get("card"), fields=retained_fields,
                                                method="unique_exact_audio_transcript_quote")
-                            for field in ("start_seconds", "end_seconds", "identity_start_seconds"):
+                            for field in ("start_seconds", "end_seconds", "identity_start_seconds", "identity_printing"):
                                 if field in old:
                                     matches[0][field] = old[field]
                     journal.record("published_quotes_aligned", pick_count=len(aligned), method="unique_exact_audio_transcript_quote")
@@ -666,6 +672,8 @@ class Pipeline:
                     if len(matches) == 1:
                         old = matches[0]
                         pick["identity_start_seconds"] = old.get("identity_start_seconds", old.get("start_seconds"))
+                        if "identity_printing" in old:
+                            pick["identity_printing"] = old["identity_printing"]
             summary = self._build_summary(episode, extraction, final_status)
             journal.record("extraction_summary", section={key: summary.get("section", {}).get(key) for key in
                            ("located", "label", "start_seconds", "end_seconds")},
@@ -890,7 +898,7 @@ class Pipeline:
                 episode.guid,
                 pick["card"],
                 pick.get("identity_start_seconds", pick.get("start_seconds")),
-                pick.get("printing"),
+                pick.get("identity_printing", pick.get("printing")),
             )
             pick["timestamp"] = seconds_to_timestamp(pick.get("start_seconds"))
             pick["listen_url"] = f"{episode.audio_url}#t={pick['start_seconds']}" if pick.get("start_seconds") is not None else episode.audio_url
