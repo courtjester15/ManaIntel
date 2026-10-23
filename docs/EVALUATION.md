@@ -25,3 +25,22 @@ R2 remains in progress. Next: add a small independently checked expected-pick in
 Offline replay of the five previously inspected retained snapshots changes FF 495 from an unbounded 638–1839 section to an advertised-topic-bounded 638–1406 section. FF 494, FF 510, BB 666 and BB 721 retain their warnings. This is boundary behavior evidence, not proof of transcript accuracy; FF 495's saved transcript contains interleaved material and its timing concerns remain unresolved.
 
 0.5.14 preservation cases cover lost/simplified printing, lost known foil state, case-only equivalence, candidate multiplicity, unknown-to-specific printing, and end-to-end forced rerun preservation of exact records/IDs. FF 495's live retained-transcript pilot exposed this gap; its old records were restored, with candidate evidence kept in the private comparison artifact. Timing remains unresolved and no human/source accuracy approval was manufactured.
+
+## October 23: scoped expected-pick inventory
+
+`tests/fixtures/evaluation_inventory.json` records seven expected picks: four from FF537's cards-to-watch discussion and three from BB667's late Pick of the Week. An agent inspected retained transcript discussion separately from candidate summaries, then wrote sanitized paraphrases, explicit field expectations, navigation windows and private-snapshot hashes. No private transcript excerpts or model response payloads are added. Explicit aliases preserve the known raw Ojer spelling and Fire Crystal naming variation without general fuzzy matching.
+
+This is **transcript-checked evidence, not independently verified audio ground truth**. Source transcripts remain model output. All per-pick voice attribution, exact audio alignment and full-episode completeness are unscored; BB667's earlier Breaking Bulk is outside this case. FF537's two-reading audio recovery remains separate model-derived evidence, not a gold host label. R2's independent source-accuracy gate remains open.
+
+Run the read-only comparison from the repository root:
+
+```powershell
+python tools/evaluate_picks.py
+python tools/evaluate_picks.py --case bb667-pick-of-the-week --candidate path/to/candidate-summary.json
+```
+
+The command emits JSON and exits 1 for findings, 0 when the scoped assertions match, and 2 for invalid input. A zero exit is not whole-episode approval. Candidates must match the case's episode GUID. Missing picks and ambiguous multiplicity are findings; the tool never chooses a convenient duplicate. Unlisted fields and additional recommendations are unscored rather than counted as correct or incorrect. Comparison does not mutate archive data, overrides or review states.
+
+Initial production comparison (October 23): FF537 matches 19 scoped assertions. BB667 has two findings across 12 assertions: Fire Crystal's 2.50-to-5 historical price movement is stored as an entry target, and its explicit full-art preference is absent from printing. These are retained-transcript findings, not audio-certified corrections; publication remains unchanged. The comparison intentionally exits 1 on this baseline. Unit tests exercise omissions despite unchanged pick count, lost variant details, historical-price confusion, bad clocks, duplicate ambiguity, wrong-episode rejection and explicit unknowns. Tests do not require the production baseline to be clean.
+
+Next: verify the two BB667 findings against source audio before a durable correction; extend independent checks to both shows before comparing model/prompt defaults. Do not spend inference calls merely to fill the sample.

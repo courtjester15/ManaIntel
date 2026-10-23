@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "notice": "Sanitized paraphrases checked against private retained model transcripts independently of candidate summaries. No independent audio certification, statistical accuracy score, or review approval is implied.",
+  "cases": [
+    {
+      "id": "ff537-cards-to-watch",
+      "episode_guid": "tag:soundcloud,2010:tracks/2422332303",
+      "summary_path": "episodes/0537-reality-fracture-deep-dive/summary.json",
+      "basis": "agent_checked_retained_transcript_not_independent_audio",
+      "scope": "Four named recommendations in the inspected cards-to-watch discussion; clocks are transcript navigation windows, not audio alignment certification.",
+      "evidence": {
+        "private_snapshot": "oct23-537-final-source/0537-reality-fracture-deep-dive.json.gz",
+        "inspection_date": "2026-10-23",
+        "windows_seconds": [
+          [
+            782,
+            930
+          ],
+          [
+            940,
+            974
+          ],
+          [
+            1080,
+            1285
+          ],
+          [
+            1294,
+            1352
+          ]
+        ],
+        "sha256": "ede8e72cf5dad7953e0f21efdb76c2fb9e30f6247d7f9211f0255d5f709854e4"
+      },
+      "expected_picks": [
+        {
+          "cards": [
+            "Sage of Hours"
+          ],
+          "printing_contains": [
+            "borderless"
+          ],
+          "equals": {
+            "foil": true,
+            "recommendation": "buy"
+          },
+          "start_window": [
+            786,
+            825
+          ],
+          "rationale": "Discounted borderless foil discussed as a purchase with a future price expectation."
+        },
+        {
+          "cards": [
+            "Yavimaya, Cradle of Growth"
+          ],
+          "printing_contains": [
+            "Valley Farmstead"
+          ],
+          "equals": {
+            "recommendation": "buy"
+          },
+          "start_window": [
+            940,
+            974
+          ],
+          "rationale": "Stardew Valley variant explicitly named and discussed as a purchase."
+        },
+        {
+          "cards": [
+            "Ojer Axonil, Deepest Might",
+            "Ojer Axonl, Deepest Might"
+          ],
+          "printing_contains": [
+            "showcase"
+          ],
+          "equals": {
+            "foil": true,
+            "recommendation": "buy"
+          },
+          "start_window": [
+            1080,
+            1145
+          ],
+          "rationale": "Raw extracted spelling retained as an explicit alias, not fuzzy approval; earlier catalog investigation established canonical mapping."
+        },
+        {
+          "cards": [
+            "Llanowar Elves"
+          ],
+          "printing_contains": [
+            "bonus",
+            "Pauline Voss"
+          ],
+          "equals": {
+            "recommendation": "buy"
+          },
+          "start_window": [
+            1294,
+            1335
+          ],
+          "rationale": "Artist and bonus-card details are explicit within the inspected recommendation discussion."
+        }
+      ],
+      "unscored": [
+        "All per-pick host identities: repaired transcript has no reliable speaker labels; two-reading model agreement is not independent voice verification.",
+        "Exact audio alignment, full-episode completeness, prices and unlisted variant details."
+      ]
+    },
+    {
+      "id": "bb667-pick-of-the-week",
+      "episode_guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15718",
+      "summary_path": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/summary.json",
+      "basis": "agent_checked_retained_transcript_not_independent_audio",
+      "scope": "Three late Pick of the Week recommendations only. Earlier Breaking Bulk and full-episode completeness are unscored.",
+      "evidence": {
+        "private_snapshot": "oct23-537-final-source/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance.json.gz",
+        "inspection_date": "2026-10-23",
+        "windows_seconds": [
+          [
+            3565,
+            3683
+          ],
+          [
+            3683,
+            3744
+          ],
+          [
+            3784,
+            3904
+          ]
+        ],
+        "sha256": "9fcd559ac2b32439b50cbddbe2bb78aafe0f1b19a170bead1df43536bf3880d5"
+      },
+      "expected_picks": [
+        {
+          "cards": [
+            "Psychic Frog"
+          ],
+          "equals": {
+            "recommendation": "buy"
+          },
+          "start_window": [
+            3565,
+            3600
+          ],
+          "rationale": "Purchase recommendation; initial promo pricing is corrected to the regular version later in the discussion."
+        },
+        {
+          "cards": [
+            "The Fire Crystal",
+            "Fire Crystal"
+          ],
+          "printing_contains": [
+            "full art"
+          ],
+          "equals": {
+            "recommendation": "buy",
+            "entry_target": null
+          },
+          "start_window": [
+            3683,
+            3703
+          ],
+          "rationale": "Full-art preference is explicit. The 2.50-to-5 movement describes past prices, not a proposed entry target."
+        },
+        {
+          "cards": [
+            "Suture Priest"
+          ],
+          "printing_contains": [
+            "New Phyrexia"
+          ],
+          "equals": {
+            "recommendation": "buy"
+          },
+          "start_window": [
+            3784,
+            3804
+          ],
+          "rationale": "Explicit recommendation of the New Phyrexia common; related life-gain cards mentioned later are context, not additional expected picks."
+        }
+      ],
+      "unscored": [
+        "Per-pick speaker identity: a DJ handoff is text evidence, not independently verified voice attribution.",
+        "Breaking Bulk recommendations, exact audio alignment, full-episode completeness, unlisted prices and foil state."
+      ]
+    }
+  ]
+}
