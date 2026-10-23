@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-23T04:51:49Z",
+  "updated_at": "2026-10-23T10:00:53Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28341,6 +28341,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-21T04:11:24Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-23T10:00:23Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-23T10:00:23Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-23T10:00:25Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-23T10:00:25Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-23T10:00:38Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-23T10:00:48Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-23T10:00:48Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-23T10:00:53Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-23T10:00:53Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-23T10:00:53Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-23T10:00:53Z"
         }
       ],
       "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
@@ -28348,11 +28392,11 @@
       "published_at": "2025-08-29T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 3,
+      "attempt_count": 4,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-21T04:11:24Z",
+      "updated_at": "2026-10-23T10:00:53Z",
       "output_directory": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -28519,28 +28563,34 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 955,
+        "candidates_token_count": 1384,
         "candidates_tokens_details": null,
-        "prompt_token_count": 35035,
+        "prompt_token_count": 41125,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 35035
+            "token_count": 41125
           }
         ],
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 35990,
+        "total_token_count": 42509,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
       "review_issues": [
         {
-          "code": "timing",
+          "code": "coverage",
           "path": "extraction",
-          "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
           "state": "unresolved"
         }
       ],

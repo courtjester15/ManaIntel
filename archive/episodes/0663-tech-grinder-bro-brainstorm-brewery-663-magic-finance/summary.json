@@ -25,21 +25,27 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
     "review_issues": [
       {
-        "code": "timing",
+        "code": "coverage",
         "path": "extraction",
-        "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "state": "unresolved"
+      },
+      {
+        "code": "printing",
+        "path": "extraction",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
         "state": "unresolved"
       }
     ],
-    "pipeline_version": "0.5.15",
+    "pipeline_version": "0.5.19",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
-    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
-    "processed_at": "2026-10-20T02:26:50Z",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-23T10:00:53Z",
     "history": [
       {
         "status": "detected",
@@ -116,6 +122,78 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-20T02:26:50Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-21T04:11:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-21T04:11:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-21T04:11:05Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-21T04:11:05Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-21T04:11:20Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-21T04:11:24Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-21T04:11:24Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-23T10:00:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-23T10:00:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-23T10:00:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-23T10:00:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-23T10:00:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-23T10:00:48Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-23T10:00:48Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-23T10:00:53Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-23T10:00:53Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-23T10:00:53Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-23T10:00:53Z"
       }
     ],
     "error": null,
@@ -284,19 +362,19 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 955,
+      "candidates_token_count": 1384,
       "candidates_tokens_details": null,
-      "prompt_token_count": 35035,
+      "prompt_token_count": 41125,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 35035
+          "token_count": 41125
         }
       ],
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 35990,
+      "total_token_count": 42509,
       "traffic_type": null
     }
   },

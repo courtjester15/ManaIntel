@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "purpose": "Bounded nightly review cleanup and exact inspected pilots; no automatic approval of ambiguous recommendations.",
-  "daily_date": "2026-10-22",
+  "daily_date": "2026-10-23",
   "daily_runs": 1,
   "entries": [
     {
@@ -178,6 +178,24 @@
       "repaired_chunks": 1,
       "saved_clips": 13,
       "note": "Review cleared"
+    },
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
+      "title": "Tech Grinder Bro | Brainstorm Brewery #663 | Magic Finance",
+      "episode_number": 663,
+      "status": "blocked",
+      "issue": "timing",
+      "inspected_pilot": true,
+      "repair_mode": "review",
+      "started_at": "2026-10-23T10:00:21.771398+00:00",
+      "before_status": "needs_review",
+      "before_pick_count": 3,
+      "finished_at": "2026-10-23T10:00:57.930511+00:00",
+      "result_status": "needs_review",
+      "result_pick_count": 3,
+      "repaired_chunks": 1,
+      "saved_clips": 7,
+      "note": "Inspect retained evidence before further automatic calls"
     }
   ],
   "inspected_pilots": {
@@ -196,7 +214,7 @@
       "note": "Four recommendations published complete; all original chunks validated; do not reselect completed coverage pilot."
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15708": {
-      "status": "deferred",
+      "status": "blocked",
       "repair_mode": "review",
       "max_attempts": 2,
       "evidence": "Owner Oct20/21 fixes; inspected runs39358654854/39541488387/39542406624. Chunks1-4 now validated; chunk5 saved first clip before configured48-request stop. Exactly one further saved-progress attempt after six-hour cooldown and Pacific-day budget reset; no unchanged blind retry or broad approval."
