@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "attempt_id": "9e6c8d3781d14762bd433411f8cf7559",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2422332303",
+    "number": 537,
+    "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-10-23T03:27:43Z",
+  "pipeline_version": "0.5.19",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "39894929146",
+  "run_attempt": "1",
+  "git_sha": "e7820d8c1da9871da6359fbbdfb988ce430a19e3",
+  "intervention": "FF537 host-only audio pilot after verified workflow test isolation fix e7820d8. Earlier setup/test-stopped jobs made zero model calls. Two readings maximum; preserve picks, IDs, printings, timestamps and review state.",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": true,
+    "recover_hosts": true,
+    "prior_status": "complete",
+    "prior_attempt_count": 7,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-10-23T03:27:58Z",
+      "event": "model_call",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 10.961,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 578,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 23876,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 19700
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 4176
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 24454,
+        "traffic_type": null
+      },
+      "response_characters": 2027
+    },
+    {
+      "timestamp": "2026-10-23T03:28:02Z",
+      "event": "model_call",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 3.543,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 608,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 23884,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 19700
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 4184
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 24492,
+        "traffic_type": null
+      },
+      "response_characters": 2121
+    },
+    {
+      "timestamp": "2026-10-23T03:28:02Z",
+      "event": "host_recovery_checked",
+      "accepted_pick_ids": [
+        "pick-d6c4c0935ba834e6",
+        "pick-e66afcdee199e602"
+      ],
+      "missing_remaining": 2,
+      "method": "introduction_and_section_audio_two_readings"
+    }
+  ],
+  "outcome": "complete",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/39894929146",
+  "finished_at": "2026-10-23T03:28:02Z",
+  "pick_count": 4,
+  "metadata_only": true,
+  "accepted_host_count": 2,
+  "note": "Recovered 2 missing pick hosts; picks, timing and review status preserved.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

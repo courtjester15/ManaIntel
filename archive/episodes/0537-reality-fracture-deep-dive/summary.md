@@ -41,7 +41,7 @@
 - Printing: Valley Farmstead
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Cliff
 - Recommendation: buy
 - Entry: 16 or 17
 - Hold: Not stated
@@ -90,7 +90,7 @@
 - Printing: Secret Lair bonus card — Pauline Voss art
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): James
 - Recommendation: buy
 - Entry: 10
 - Hold: 6 to 12 months
