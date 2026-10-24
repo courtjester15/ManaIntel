@@ -1,0 +1,458 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2151200886",
+    "episode_number": 488,
+    "title": "MTG Fast Finance Ep 488: How the Soul Stone Foreshadows Years of Marvel x MTG",
+    "published_at": "2025-08-11T05:58:45Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2151200886-user-519789566-mtg-fast-finance-ep-488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg",
+    "duration_seconds": 3468,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, their cards to watch for the week and explore how the reveal of the soul gem foreshadows years of MTG x Marvel.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-24T04:37:01Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-22T23:22:16Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-22T23:22:18Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-22T23:22:18Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-22T23:22:41Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-22T23:28:19Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-24T04:35:04Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-24T04:35:04Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-24T04:35:07Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-24T04:35:07Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-24T04:35:27Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-24T04:36:58Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-24T04:36:58Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-24T04:37:01Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-24T04:37:01Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-24T04:37:01Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-24T04:37:01Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3468,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 151.284,
+          "checkpoint_reused": true,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 6416,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11498,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 248
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 17914,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7163,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11497,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "TEXT",
+                    "token_count": 248
+                  },
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11249
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 18660,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 32.888,
+          "checkpoint_reused": true,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15918,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22689,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 189
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38607,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 19.254,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7786,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11498,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 248
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 19284,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 8126,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11498,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "TEXT",
+                    "token_count": 248
+                  },
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 19624,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 768,
+          "request_seconds": 28.604,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13631,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 19402,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 19213
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 189
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33033,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 18
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1093,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 17402,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 17402
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 18495,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1448,
+    "end_seconds": 2647,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Swarmyard",
+      "printing": "Galaxy foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy/Watch",
+      "mentioned_price": "$50",
+      "entry_target": {
+        "raw": "$50",
+        "currency": "USD",
+        "minimum": 50,
+        "maximum": 50
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$80",
+        "currency": "USD",
+        "minimum": 80,
+        "maximum": 80
+      },
+      "reasoning": [
+        "Spiders coming out in the new set will drive demand.",
+        "Very few available, taking 1,000 collector boosters to get one."
+      ],
+      "caveats": [
+        "Another Galaxy foil version is available for $30 and is twice as easy to pull."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1493,
+      "end_seconds": 1521,
+      "evidence_excerpt": "And uh we can go for a very uh sweet version in the Galaxy foil Swarmyard. Right now, there are 28 vendors who've got 32 listings and it'll cost you about $50 to get in.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-54b3f668f23ecee3",
+      "timestamp": "00:24:53",
+      "listen_url": "https://feeds.soundcloud.com/stream/2151200886-user-519789566-mtg-fast-finance-ep-488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg.mp3#t=1493"
+    },
+    {
+      "card": "Timeless Provisioner",
+      "printing": "La Abuela Rainbow Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$7",
+      "entry_target": {
+        "raw": "$5 to $7",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 7
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$15",
+        "currency": "USD",
+        "minimum": 15,
+        "maximum": 15
+      },
+      "reasoning": [
+        "Played in 331,000 Commander decks online.",
+        "The only special version of Timeless Provisioner."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2070,
+      "end_seconds": 2143,
+      "evidence_excerpt": "The La Abuela Rainbow Foil, Timeless Provisioner out of the um the Secret Layer drop... climbed up to about seven... 7 to 15 sometime in the next 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-aabd7d6c3c350678",
+      "timestamp": "00:34:30",
+      "listen_url": "https://feeds.soundcloud.com/stream/2151200886-user-519789566-mtg-fast-finance-ep-488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg.mp3#t=2070"
+    },
+    {
+      "card": "Heroic Intervention",
+      "printing": "Erith's Curaga Rainbow Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$18 to $20",
+      "entry_target": {
+        "raw": "$18 to $20",
+        "currency": "USD",
+        "minimum": 18,
+        "maximum": 20
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$40 plus",
+        "currency": "USD",
+        "minimum": 40,
+        "maximum": null
+      },
+      "reasoning": [
+        "One of the most popular cards in EDH.",
+        "Super cute Final Fantasy version."
+      ],
+      "caveats": [
+        "Japanese language foils available around $8 as a cheaper alternative."
+      ],
+      "confidence": "high",
+      "start_seconds": 2182,
+      "end_seconds": 2222,
+      "evidence_excerpt": "Arath's Curaga magic/heroic intervention rainbow foil has the benefit of being both one of the most popular cards in EDH... 20 to 40 plus. It's only going to take 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cd166333765b6b5f",
+      "timestamp": "00:36:22",
+      "listen_url": "https://feeds.soundcloud.com/stream/2151200886-user-519789566-mtg-fast-finance-ep-488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg.mp3#t=2182"
+    }
+  ]
+}

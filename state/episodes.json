@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-23T23:40:58Z",
+  "updated_at": "2026-10-24T04:37:01Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -30153,6 +30153,50 @@
         {
           "status": "failed",
           "timestamp": "2026-10-22T23:28:19Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-24T04:35:04Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-24T04:35:04Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-24T04:35:07Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-24T04:35:07Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-24T04:35:27Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-24T04:36:58Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-24T04:36:58Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-24T04:37:01Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-24T04:37:01Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-24T04:37:01Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-24T04:37:01Z"
         }
       ],
       "title": "MTG Fast Finance Ep 488: How the Soul Stone Foreshadows Years of Marvel x MTG",
@@ -30160,23 +30204,230 @@
       "published_at": "2025-08-11T05:58:45Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 3/4 failed after 153.0s: RuntimeError: Split repair clip 2/2 exhausted: gemini-3.5-flash-lite: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-23T05:28:19Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 3,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-10-24T04:37:01Z",
+      "output_directory": "episodes/0488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3468,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 151.284,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 6416,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11498,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 248
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 17914,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7163,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11497,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 248
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11249
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 18660,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 32.888,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15918,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22689,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 189
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38607,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 19.254,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7786,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11498,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 248
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19284,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8126,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11498,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 248
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19624,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 768,
+            "request_seconds": 28.604,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13631,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 19402,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 19213
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 189
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33033,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 18
       },
-      "status": "failed",
-      "updated_at": "2026-10-22T23:28:19Z",
-      "output_directory": "episodes/0488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1093,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 17402,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 17402
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 18495,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        }
+      ]
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15700": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15700",
