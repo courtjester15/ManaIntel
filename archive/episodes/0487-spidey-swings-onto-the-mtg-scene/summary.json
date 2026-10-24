@@ -1,0 +1,500 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2141487234",
+    "episode_number": 487,
+    "title": "MTG Fast Finance Ep 487: Spidey Swings Onto the MTG Scene",
+    "published_at": "2025-08-04T06:04:49Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2141487234-user-519789566-mtg-fast-finance-ep-487-spidey-swings-onto-the-mtg-scene.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-487-spidey-swings-onto-the-mtg-scene",
+    "duration_seconds": 3844,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the latest metagame results, and take a peak at the early Spider-man x MTG colab previews.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-24T22:36:47Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-24T22:28:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-24T22:28:26Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-24T22:28:26Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-24T22:28:26Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-24T22:28:27Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-24T22:28:28Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-24T22:28:43Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-24T22:36:43Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-24T22:36:43Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-24T22:36:47Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-24T22:36:47Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-24T22:36:47Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-24T22:36:47Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3844,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 159.705,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 6949,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11478,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "TEXT",
+                    "token_count": 228
+                  },
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 18427,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7360,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11477,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "TEXT",
+                    "token_count": 228
+                  },
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11249
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 18837,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 29.562,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14553,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22669,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 169
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37222,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 155.248,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7534,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11478,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "TEXT",
+                    "token_count": 228
+                  },
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 19012,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7754,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11478,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 228
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 19232,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 90.132,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14253,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22669,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 169
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36922,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 244,
+          "request_seconds": 8.556,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3526,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 6282,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 169
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 6113
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 9808,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 6
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1501,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 15597,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 15597
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17098,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 772,
+    "end_seconds": 1974,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Fabricate",
+      "printing": "Tails version",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$3",
+      "entry_target": {
+        "raw": "around three bucks",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 3.0
+      },
+      "hold": "1-2 years",
+      "exit_target": {
+        "raw": "seven to 10 range",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 10.0
+      },
+      "reasoning": [
+        "Every other special version of fabricate and foil is at least $11",
+        "Good for universes beyond decks and artifact decks"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 775,
+      "end_seconds": 839,
+      "evidence_excerpt": "this is easy money because every other special version of fabricate and foil, there's a special guest and another secret layer version, all of those are at least $11. So, I'm picking Tails to go from $3, conservatively, let's say seven",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ca25480ce878d98d",
+      "timestamp": "00:12:55",
+      "listen_url": "https://feeds.soundcloud.com/stream/2141487234-user-519789566-mtg-fast-finance-ep-487-spidey-swings-onto-the-mtg-scene.mp3#t=775"
+    },
+    {
+      "card": "Wild Magic Sorcerer",
+      "printing": "Extended Art",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$7",
+      "entry_target": {
+        "raw": "around seven",
+        "currency": "USD",
+        "minimum": 7.0,
+        "maximum": 7.0
+      },
+      "hold": "1-2 years",
+      "exit_target": {
+        "raw": "15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Synergizes well with Gwen Stacy / Ghost Spider commander from the Spider-Man set",
+        "Extended arts are the best version and unlikely to be reprinted often"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 989,
+      "end_seconds": 1025,
+      "evidence_excerpt": "if it does, I would be looking pretty hard at Wild Magic Sorcerer out of AFC. The extended arts of this are the best that you can get. It seems like the kind of card they will be unlikely to reprint all that often. They're currently available at around seven... and going 7 to 15",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f6fa9d02a2f237ae",
+      "timestamp": "00:16:29",
+      "listen_url": "https://feeds.soundcloud.com/stream/2141487234-user-519789566-mtg-fast-finance-ep-487-spidey-swings-onto-the-mtg-scene.mp3#t=989"
+    },
+    {
+      "card": "Sundial of the Infinite",
+      "printing": "M12 rare",
+      "printing_certainty": "likely",
+      "foil": true,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$18",
+      "entry_target": {
+        "raw": "18",
+        "currency": "USD",
+        "minimum": 18.0,
+        "maximum": 18.0
+      },
+      "hold": "1-2 years",
+      "exit_target": {
+        "raw": "35",
+        "currency": "USD",
+        "minimum": 35.0,
+        "maximum": 35.0
+      },
+      "reasoning": [
+        "Works well with the second most popular Edge of Eternities commander, Tenuk, the steadfast leader",
+        "Very low supply of foils left on TCGplayer"
+      ],
+      "caveats": [
+        "Tenuk is high in EOE command zone build share but lower overall because Final Fantasy commanders dominate"
+      ],
+      "confidence": null,
+      "start_seconds": 1284,
+      "end_seconds": 1322,
+      "evidence_excerpt": "you can get some lightly played foils and a couple of near mint foils in the, $18 range... buy it, for the 18 and you'll get somewhere like a double up around 35",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-0e6f0a6f04a1f20f",
+      "timestamp": "00:21:24",
+      "listen_url": "https://feeds.soundcloud.com/stream/2141487234-user-519789566-mtg-fast-finance-ep-487-spidey-swings-onto-the-mtg-scene.mp3#t=1284"
+    },
+    {
+      "card": "Elspeth, Storm Slayer",
+      "printing": "Japanese Halo Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$130",
+      "entry_target": {
+        "raw": "130",
+        "currency": "USD",
+        "minimum": 130.0,
+        "maximum": 130.0
+      },
+      "hold": "1-2 years",
+      "exit_target": {
+        "raw": "250",
+        "currency": "USD",
+        "minimum": 250.0,
+        "maximum": 250.0
+      },
+      "reasoning": [
+        "Massive price gap between English and Japanese versions on TCGplayer",
+        "Top three most played EDH card out of Tarkir/Dragonstorm as a universal token doubler"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1443,
+      "end_seconds": 1509,
+      "evidence_excerpt": "Elspeth Storm Slayer Halo foils, which are currently about 400 in English. But if you're willing to take on a copy in Japanese and hold it for a while, you can get them for 130... For this to go 130 to say 250, it would still be only 40% of the existing price on English.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-236b86766a7870d1",
+      "timestamp": "00:24:03",
+      "listen_url": "https://feeds.soundcloud.com/stream/2141487234-user-519789566-mtg-fast-finance-ep-487-spidey-swings-onto-the-mtg-scene.mp3#t=1443"
+    }
+  ]
+}
