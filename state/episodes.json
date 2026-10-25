@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-25T04:42:11Z",
+  "updated_at": "2026-10-25T09:13:12Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -25537,6 +25537,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-09T17:06:04Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-25T09:10:51Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-25T09:10:51Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-25T09:10:52Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-25T09:10:52Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-25T09:11:04Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-25T09:13:12Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-25T09:13:12Z"
         }
       ],
       "title": "Future of the Reserve List | Brainstorm Brewery #721 | Magic Finance",
@@ -25544,11 +25572,11 @@
       "published_at": "2026-10-09T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-09T17:06:04Z",
+      "updated_at": "2026-10-25T09:13:12Z",
       "output_directory": "episodes/0721-future-of-the-reserve-list-brainstorm-brewery-721-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -25731,7 +25759,20 @@
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash",
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 2,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-25T15:13:12Z",
+        "quarantined": false
+      },
+      "review_issues": []
     },
     "tag:soundcloud,2010:tracks/2178094005": {
       "guid": "tag:soundcloud,2010:tracks/2178094005",
