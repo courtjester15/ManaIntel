@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-25T09:13:12Z",
+  "updated_at": "2026-10-25T22:36:39Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -31126,6 +31126,240 @@
           "code": "coverage",
           "path": "section",
           "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15697": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15697",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-25T22:32:32Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-25T22:32:32Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-25T22:32:32Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-25T22:32:33Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-25T22:32:34Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-25T22:32:34Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-25T22:32:45Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-25T22:36:38Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-25T22:36:38Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-25T22:36:39Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-25T22:36:39Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-25T22:36:39Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-25T22:36:39Z"
+        }
+      ],
+      "title": "Graced with the Presence of Tannon | Brainstorm Brewery #659 | Magic Finance",
+      "episode_number": 659,
+      "published_at": "2025-08-01T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-10-25T22:36:39Z",
+      "output_directory": "episodes/0659-graced-with-the-presence-of-tannon-brainstorm-brewery-659-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2948,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 23.425,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3748,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22695,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 196
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 26443,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.089,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15411,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22696,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 196
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38107,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 50.913,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17276,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22696,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 196
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39972,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 248,
+            "request_seconds": 10.511,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 4430,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 6381,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 196
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 6185
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 10811,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 5
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 19,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 1457,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 1457
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 1476,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin.",
           "state": "unresolved"
         }
       ]
