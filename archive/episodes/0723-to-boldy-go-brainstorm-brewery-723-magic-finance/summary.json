@@ -1,0 +1,390 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
+    "episode_number": 723,
+    "title": "To Boldy Go | Brainstorm Brewery #723 | Magic Finance",
+    "published_at": "2026-10-23T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3",
+    "episode_url": "https://brainstormbrewery.com/to-boldy-go-brainstorm-brewery-723-magic-finance/",
+    "duration_seconds": 2291,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz  (@devotedDruid) brings her best Star Trek opening impression to the cast with Corbin (@CHosler) as they talk about stolen trucks, Magic: The Gathering Star Trek and more. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-25T04:42:11Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-23T23:37:27Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-23T23:37:27Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-23T23:37:27Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-23T23:37:27Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-23T23:37:28Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-23T23:37:28Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-23T23:37:36Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-23T23:40:58Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-25T04:39:24Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-25T04:39:24Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-25T04:39:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-25T04:39:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-25T04:39:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-25T04:42:08Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-25T04:42:08Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-25T04:42:11Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-25T04:42:11Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-25T04:42:11Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-25T04:42:11Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2291,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 167.914,
+          "checkpoint_reused": true,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7436,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11505,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 255
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 18941,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 6528,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11504,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "TEXT",
+                    "token_count": 255
+                  },
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11249
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 18032,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.593,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16018,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22696,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 196
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38714,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 491,
+          "request_seconds": 21.952,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10275,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 12463,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 12267
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 196
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 22738,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 972,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 7433,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 7433
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 8405,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1909,
+    "end_seconds": 2273,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Archon of Cruelty",
+      "printing": "Modern Horizons 2",
+      "printing_certainty": "likely",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "five",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "Card is messed up in modern and legacy",
+        "More likely to meet at five than all come down to three"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1932,
+      "end_seconds": 1983,
+      "evidence_excerpt": "DJ's pick of the week this week is Archon of cruelty. It was in reality fracture commander. It's done at $2.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-eaaecaccce35f206",
+      "timestamp": "00:32:12",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3#t=1932"
+    },
+    {
+      "card": "Lunar Convocation",
+      "printing": "Bloomburrow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2.25",
+      "entry_target": {
+        "raw": "a dollar to about $2.25",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 2.25
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "Starting to climb",
+        "Three months before rotation that this card could become $5"
+      ],
+      "caveats": [
+        "Rotates out of standard in February"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1999,
+      "end_seconds": 2045,
+      "evidence_excerpt": "Lunar Convocation from Bloomburrow is starting to climb. It's up from a dollar to about $2.25",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-71ca7bf045e42110",
+      "timestamp": "00:33:19",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3#t=1999"
+    },
+    {
+      "card": "Purphoros, God of the Forge",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$6.16",
+      "entry_target": {
+        "raw": "$5 low, 6 16 market",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 6.16
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Card is really strong",
+        "Buylists of $6 and $7 and another buylist of over $5"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2056,
+      "end_seconds": 2107,
+      "evidence_excerpt": "It's Thor God of Thunder. Okay. $5 low, 6 16 market with a buy list of $6 and a buy list of $7",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-bf143e86dd476755",
+      "timestamp": "00:34:16",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3#t=2056"
+    }
+  ]
+}

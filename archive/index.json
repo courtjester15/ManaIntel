@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.19",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-24T22:36:50Z",
-    "latest_successful_run_at": "2026-10-24T22:36:47Z",
+    "generated_at": "2026-10-25T04:42:11Z",
+    "latest_successful_run_at": "2026-10-25T04:42:11Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 121,
-    "real_pick_count": 480,
+    "real_pick_count": 483,
     "last_discovered_episode_date": "2026-10-23T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 121,
-    "picks": 480,
+    "picks": 483,
     "needs_review": 49,
-    "failed": 2,
-    "completed": 70
+    "failed": 1,
+    "completed": 71
   },
   "status_counts": {
-    "failed": 2,
-    "complete": 70,
-    "needs_review": 49
+    "complete": 71,
+    "needs_review": 49,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
@@ -63,31 +63,20 @@
     "source_name": "Brainstorm Brewery",
     "source_url": "https://brainstormbrewery.com/",
     "extraction_profile": "brainstorm_brewery",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
+    "processing_status": "complete",
+    "review_state": "approved",
     "review_reason": null,
-    "pick_count": 0,
+    "pick_count": 3,
     "directory": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance",
     "outputs": {
       "metadata": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "summary_json": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance/summary.json",
+      "summary_markdown": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-10-23T23:40:58Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 2/3 failed after 33.8s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
-      "category": "capacity_deferred",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-10-24T05:40:58Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-10-25T04:42:11Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -95,6 +84,206 @@
     "synthetic": false
   },
   "recent_picks": [
+    {
+      "card": "Purphoros, God of the Forge",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$6.16",
+      "entry_target": {
+        "raw": "$5 low, 6 16 market",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 6.16
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Card is really strong",
+        "Buylists of $6 and $7 and another buylist of over $5"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2056,
+      "end_seconds": 2107,
+      "evidence_excerpt": "It's Thor God of Thunder. Okay. $5 low, 6 16 market with a buy list of $6 and a buy list of $7",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-bf143e86dd476755",
+      "timestamp": "00:34:16",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3#t=2056",
+      "card_resolution": {
+        "raw_name": "Purphoros, God of the Forge",
+        "normalized_name": "purphoros, god of the forge",
+        "status": "verified",
+        "canonical_name": "Purphoros, God of the Forge",
+        "scryfall_id": "4736a2c4-c89c-48db-a104-6303e7e2eee8",
+        "oracle_id": "4fdbbec2-e921-4b63-958d-f9ba1e417197",
+        "scryfall_uri": "https://scryfall.com/card/cmm/246/purphoros-god-of-the-forge?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/4/7/4736a2c4-c89c-48db-a104-6303e7e2eee8.jpg?1783915646",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-25T04:42:11Z"
+      },
+      "resolved_card": "Purphoros, God of the Forge",
+      "oracle_id": "4fdbbec2-e921-4b63-958d-f9ba1e417197",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
+        "episode_number": 723,
+        "title": "To Boldy Go | Brainstorm Brewery #723 | Magic Finance",
+        "published_at": "2026-10-23T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/to-boldy-go-brainstorm-brewery-723-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Lunar Convocation",
+      "printing": "Bloomburrow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2.25",
+      "entry_target": {
+        "raw": "a dollar to about $2.25",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": 2.25
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "Starting to climb",
+        "Three months before rotation that this card could become $5"
+      ],
+      "caveats": [
+        "Rotates out of standard in February"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1999,
+      "end_seconds": 2045,
+      "evidence_excerpt": "Lunar Convocation from Bloomburrow is starting to climb. It's up from a dollar to about $2.25",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-71ca7bf045e42110",
+      "timestamp": "00:33:19",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3#t=1999",
+      "card_resolution": {
+        "raw_name": "Lunar Convocation",
+        "normalized_name": "lunar convocation",
+        "status": "verified",
+        "canonical_name": "Lunar Convocation",
+        "scryfall_id": "a9ee50d4-c878-457b-964d-29c039ce9852",
+        "oracle_id": "cb68d1e4-36aa-4a00-b671-8959e7d526d4",
+        "scryfall_uri": "https://scryfall.com/card/blb/223/lunar-convocation?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/a/9/a9ee50d4-c878-457b-964d-29c039ce9852.jpg?1783910794",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-25T04:42:11Z"
+      },
+      "resolved_card": "Lunar Convocation",
+      "oracle_id": "cb68d1e4-36aa-4a00-b671-8959e7d526d4",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
+        "episode_number": 723,
+        "title": "To Boldy Go | Brainstorm Brewery #723 | Magic Finance",
+        "published_at": "2026-10-23T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/to-boldy-go-brainstorm-brewery-723-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Archon of Cruelty",
+      "printing": "Modern Horizons 2",
+      "printing_certainty": "likely",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "five",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 5.0
+      },
+      "reasoning": [
+        "Card is messed up in modern and legacy",
+        "More likely to meet at five than all come down to three"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1932,
+      "end_seconds": 1983,
+      "evidence_excerpt": "DJ's pick of the week this week is Archon of cruelty. It was in reality fracture commander. It's done at $2.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-eaaecaccce35f206",
+      "timestamp": "00:32:12",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3#t=1932",
+      "card_resolution": {
+        "raw_name": "Archon of Cruelty",
+        "normalized_name": "archon of cruelty",
+        "status": "verified",
+        "canonical_name": "Archon of Cruelty",
+        "scryfall_id": "95ff951b-a098-409c-86c8-373b6c9f8331",
+        "oracle_id": "aa1a6646-c1e6-4bff-9092-43ee3e137914",
+        "scryfall_uri": "https://scryfall.com/card/frc/47/archon-of-cruelty?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/9/5/95ff951b-a098-409c-86c8-373b6c9f8331.jpg?1789599818",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-10-25T04:42:11Z"
+      },
+      "resolved_card": "Archon of Cruelty",
+      "oracle_id": "aa1a6646-c1e6-4bff-9092-43ee3e137914",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
+        "episode_number": 723,
+        "title": "To Boldy Go | Brainstorm Brewery #723 | Magic Finance",
+        "published_at": "2026-10-23T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/to-boldy-go-brainstorm-brewery-723-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_723_To_Boldly_Go.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
     {
       "card": "Llanowar Elves",
       "printing": "Secret Lair bonus card — Pauline Voss art",
@@ -334,204 +523,6 @@
       },
       "processing_status": "complete",
       "human_reviewed": false
-    },
-    {
-      "card": "Sage of Hours",
-      "printing": "borderless foil",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [],
-      "recommendation": "buy",
-      "mentioned_price": "$17",
-      "entry_target": {
-        "raw": "10",
-        "currency": "$",
-        "minimum": 10,
-        "maximum": 10
-      },
-      "hold": "12 to 18 months",
-      "exit_target": {
-        "raw": "40",
-        "currency": "$",
-        "minimum": 40,
-        "maximum": 40
-      },
-      "reasoning": [
-        "Too many combos with the card",
-        "The only sweet version",
-        "Not a lot of vendors right now",
-        "+1/+1 counter themes are extremely prevalent in EDH"
-      ],
-      "caveats": [
-        "Number of vendors may go up as people get it in hand"
-      ],
-      "confidence": null,
-      "start_seconds": 800,
-      "end_seconds": 825,
-      "evidence_excerpt": "Sage of Hours... about $17. These ought to hit 40 sometime in the next 12, maybe 18 months.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-caadc94905e259d5",
-      "timestamp": "00:13:20",
-      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=800",
-      "card_resolution": {
-        "raw_name": "Sage of Hours",
-        "normalized_name": "sage of hours",
-        "status": "verified",
-        "canonical_name": "Sage of Hours",
-        "scryfall_id": "8cb55caf-fc95-40dc-80af-5144f94333ee",
-        "oracle_id": "bdbf70da-af38-4827-9b8b-39f553ebd34a",
-        "scryfall_uri": "https://scryfall.com/card/jou/50/sage-of-hours?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/8/c/8cb55caf-fc95-40dc-80af-5144f94333ee.jpg?1783939443",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-21T03:57:05Z"
-      },
-      "resolved_card": "Sage of Hours",
-      "oracle_id": "bdbf70da-af38-4827-9b8b-39f553ebd34a",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2422332303",
-        "episode_number": 537,
-        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
-        "published_at": "2026-10-19T22:23:10Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
-        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
-    },
-    {
-      "card": "Soltari Champion",
-      "printing": null,
-      "printing_certainty": "ambiguous",
-      "foil": null,
-      "hosts": [
-        "Jason"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": null,
-      "entry_target": {
-        "raw": "shadow creatures",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "shadow creatures",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "Old creatures with shadow that have like one printing, like Soltari Champion, are good targets due to the new Liana Velo Vengeance mystery booster commander card."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 3193,
-      "end_seconds": 3307,
-      "evidence_excerpt": "My pick of the week this week is based on a mystery booster commander card coming out... My pick is old creatures with shadow that have like one printing",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-b09918ee8cbf08e0",
-      "timestamp": "00:53:13",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3193",
-      "card_resolution": {
-        "raw_name": "Soltari Champion",
-        "normalized_name": "soltari champion",
-        "status": "verified",
-        "canonical_name": "Soltari Champion",
-        "scryfall_id": "b160fb40-daa7-4269-9d9d-93a47ebf9999",
-        "oracle_id": "765017e5-b43d-4c77-a9a9-0fcf0c0cd098",
-        "scryfall_uri": "https://scryfall.com/card/tpr/29/soltari-champion?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/b/1/b160fb40-daa7-4269-9d9d-93a47ebf9999.jpg?1783938507",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-17T04:27:39Z"
-      },
-      "resolved_card": "Soltari Champion",
-      "oracle_id": "765017e5-b43d-4c77-a9a9-0fcf0c0cd098",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
-        "episode_number": 722,
-        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
-        "published_at": "2026-10-16T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Stronghold Overseer",
-      "printing": "Time Spiral",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Jason"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": null,
-      "entry_target": {
-        "raw": "shadow creatures",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "shadow creatures",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "Old creatures with shadow that have like one printing, like Stronghold Overseer from Time Spiral."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 3193,
-      "end_seconds": 3307,
-      "evidence_excerpt": "That Stronghold Overseer, Stronghold Overseer from Time Spiral is a huge flying shadow creature",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-cbc9122d463e165b",
-      "timestamp": "00:53:13",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3#t=3193",
-      "card_resolution": {
-        "raw_name": "Stronghold Overseer",
-        "normalized_name": "stronghold overseer",
-        "status": "verified",
-        "canonical_name": "Stronghold Overseer",
-        "scryfall_id": "e0722fa2-53df-4217-a592-fcaf239f717a",
-        "oracle_id": "bb77b63f-e679-463c-b983-4f2a4ef7bafe",
-        "scryfall_uri": "https://scryfall.com/card/tsp/133/stronghold-overseer?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/e/0/e0722fa2-53df-4217-a592-fcaf239f717a.jpg?1783943227",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-17T04:27:39Z"
-      },
-      "resolved_card": "Stronghold Overseer",
-      "oracle_id": "bb77b63f-e679-463c-b983-4f2a4ef7bafe",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
-        "episode_number": 722,
-        "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
-        "published_at": "2026-10-16T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/load-bearing-corbin-brainstorm-brewery-722-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_722_Load_Bearing_Corbin.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -554,31 +545,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 3,
       "directory": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance",
       "outputs": {
         "metadata": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance/summary.json",
+        "summary_markdown": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-23T23:40:58Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/3 failed after 33.8s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
-        "category": "capacity_deferred",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-24T05:40:58Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-25T04:42:11Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
