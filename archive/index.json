@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.19",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-25T22:36:39Z",
-    "latest_successful_run_at": "2026-10-25T22:36:39Z",
+    "generated_at": "2026-10-26T04:46:27Z",
+    "latest_successful_run_at": "2026-10-26T04:46:26Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 122,
-    "real_pick_count": 483,
+    "real_pick_count": 486,
     "last_discovered_episode_date": "2026-10-23T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,14 @@
   },
   "counts": {
     "episodes": 122,
-    "picks": 483,
+    "picks": 486,
     "needs_review": 50,
-    "failed": 1,
-    "completed": 71
+    "failed": 0,
+    "completed": 72
   },
   "status_counts": {
-    "complete": 71,
-    "needs_review": 50,
-    "failed": 1
+    "complete": 72,
+    "needs_review": 50
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
@@ -4731,31 +4730,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 3,
       "directory": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance",
       "outputs": {
         "metadata": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance/summary.json",
+        "summary_markdown": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-23T04:51:49Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-23T10:51:49Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-26T04:46:26Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

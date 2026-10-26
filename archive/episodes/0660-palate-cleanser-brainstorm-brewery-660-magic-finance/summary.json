@@ -1,0 +1,413 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15700",
+    "episode_number": 660,
+    "title": "Palate Cleanser | Brainstorm Brewery #660 | Magic Finance",
+    "published_at": "2025-08-08T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_660_Palate_Cleanser.mp3",
+    "episode_url": "https://brainstormbrewery.com/palate-cleanser-brainstorm-brewery-660-magic-finance/",
+    "duration_seconds": 3899,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass&#160; (@devotedDruid) and DJ (@CardgardenMTG) are back to talk about new card and rivals popping up in the card game space. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-26T04:46:26Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-23T04:47:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-23T04:47:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-23T04:47:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-23T04:47:38Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-23T04:51:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-26T04:45:10Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-26T04:45:10Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-26T04:45:12Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-26T04:45:12Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-26T04:45:34Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-26T04:46:21Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-26T04:46:21Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-26T04:46:25Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-26T04:46:26Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-26T04:46:26Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-26T04:46:26Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3899,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 41.578,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18765,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22690,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41455,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.907,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16359,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22691,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39050,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 37.644,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17167,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22691,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39858,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.132,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16371,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22691,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39062,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 299,
+          "request_seconds": 10.796,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4205,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 7665,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 7474
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 11870,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 6
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 912,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 40744,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 40744
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 41656,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1009,
+    "end_seconds": 3887,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Fire Magic",
+      "printing": "Magic the Gathering X Final Fantasy",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "25¢ to 50¢ on TCG",
+      "entry_target": {
+        "raw": "25¢ to 50¢",
+        "currency": "USD",
+        "minimum": 0.25,
+        "maximum": 0.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Uncommon from a set being heavily cracked by people opening boxes looking for favorite characters, leading to uncommons going in the bin."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1031,
+      "end_seconds": 1198,
+      "evidence_excerpt": "Uh my Breaking Bulk is a red uncommon from Magic the Gathering X Final Fantasy.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-df308b34078743b1",
+      "timestamp": "00:17:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_660_Palate_Cleanser.mp3#t=1031"
+    },
+    {
+      "card": "Soot Imp",
+      "printing": "Eventide",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$2",
+      "entry_target": {
+        "raw": "$2",
+        "currency": "USD",
+        "minimum": 2.0,
+        "maximum": 2.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "One of the last remaining Eventide cards that has dodged the mass reprint cycle."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1203,
+      "end_seconds": 1390,
+      "evidence_excerpt": "My Breaking Bulk is also just a little guy. Uh it is a black uncommon creature from Eventide.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ae3544566fa39ee1",
+      "timestamp": "00:20:03",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_660_Palate_Cleanser.mp3#t=1203"
+    },
+    {
+      "card": "Volt Key",
+      "printing": "Urza's block",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$5 to $8",
+      "entry_target": {
+        "raw": "$5 to $8",
+        "currency": "USD",
+        "minimum": 5.0,
+        "maximum": 8.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Playable in pre-modern and vintage, and clean original printing copies are hard to find."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 3449,
+      "end_seconds": 3568,
+      "evidence_excerpt": "Volc key, I think, is a card that is secretly going to be very expensive and kind of already is very expensive, that nobody knows about.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-fba4792e9daa5f93",
+      "timestamp": "00:57:29",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_660_Palate_Cleanser.mp3#t=3449"
+    }
+  ]
+}

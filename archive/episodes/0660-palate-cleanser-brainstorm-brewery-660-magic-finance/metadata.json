@@ -23,8 +23,8 @@
     "extraction_profile": "brainstorm_brewery"
   },
   "processing": {
-    "status": "failed",
-    "review_state": "not_applicable",
+    "status": "complete",
+    "review_state": "approved",
     "review_reason": null,
     "review_issues": [],
     "pipeline_version": "0.5.19",
@@ -32,7 +32,7 @@
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-10-23T04:51:49Z",
+    "processed_at": "2026-10-26T04:46:26Z",
     "history": [
       {
         "status": "detected",
@@ -65,26 +65,237 @@
       {
         "status": "failed",
         "timestamp": "2026-10-23T04:51:49Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-26T04:45:10Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-26T04:45:10Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-26T04:45:12Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-26T04:45:12Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-26T04:45:34Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-26T04:46:21Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-26T04:46:21Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-26T04:46:25Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-26T04:46:26Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-26T04:46:26Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-26T04:46:26Z"
       }
     ],
-    "error": {
-      "stage": "transcribing",
-      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-      "category": "repair_progress_saved",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": false,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-10-23T10:51:49Z",
-      "quarantined": false
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3899,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 41.578,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18765,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22690,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41455,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.907,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16359,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22691,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39050,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 37.644,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17167,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22691,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39858,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.132,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16371,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22691,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39062,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 299,
+          "request_seconds": 10.796,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4205,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 7665,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 191
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 7474
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 11870,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 6
     },
-    "transcription": null,
-    "extraction_usage": null
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 912,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 40744,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 40744
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 41656,
+      "traffic_type": null
+    }
   },
   "outputs": {
     "metadata": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance/metadata.json",
-    "summary_json": null,
-    "summary_markdown": null
+    "summary_json": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance/summary.json",
+    "summary_markdown": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance/summary.md"
   }
 }
