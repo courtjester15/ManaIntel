@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-26T04:46:26Z",
+  "updated_at": "2026-10-26T10:11:56Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -25565,6 +25565,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-25T09:13:12Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-26T10:10:16Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-26T10:10:16Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-26T10:10:17Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-26T10:10:18Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-26T10:10:37Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-26T10:11:56Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-26T10:11:56Z"
         }
       ],
       "title": "Future of the Reserve List | Brainstorm Brewery #721 | Magic Finance",
@@ -25572,11 +25600,11 @@
       "published_at": "2026-10-09T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-25T09:13:12Z",
+      "updated_at": "2026-10-26T10:11:56Z",
       "output_directory": "episodes/0721-future-of-the-reserve-list-brainstorm-brewery-721-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -25765,12 +25793,12 @@
         "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
         "category": "repair_progress_saved",
         "synthetic": false,
-        "retryable": true,
+        "retryable": false,
         "provider_wide": false,
-        "attempt": 2,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-10-25T15:13:12Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "review_issues": []
     },
