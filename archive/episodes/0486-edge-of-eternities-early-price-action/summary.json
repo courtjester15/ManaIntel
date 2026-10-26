@@ -1,0 +1,463 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2137216164",
+    "episode_number": 486,
+    "title": "MTG Fast Finance Ep 486: Edge of Eternities Early Price Action",
+    "published_at": "2025-07-27T06:42:11Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2137216164-user-519789566-mtg-fast-finance-ep-486-edge-of-eternities-early-price-action.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-486-edge-of-eternities-early-price-action",
+    "duration_seconds": 2833,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James break down all the latest MTG price movement, meta shifts, make some hot cardboard calls and take a look at the early price action on the new set Edge of Eternities.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-26T23:55:02Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-26T23:51:57Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-26T23:51:57Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-26T23:51:57Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-26T23:51:57Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-26T23:51:59Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-26T23:51:59Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-26T23:52:16Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-26T23:54:58Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-26T23:54:58Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-26T23:55:02Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-26T23:55:02Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-26T23:55:02Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-26T23:55:02Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2833,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 32.491,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14645,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22666,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37311,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.101,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13410,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22667,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36077,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.846,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15902,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22667,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38569,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 133,
+          "request_seconds": 3.702,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1196,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 3489,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 3322
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 4685,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1808,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 14728,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 14728
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 16536,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1216,
+    "end_seconds": 2422,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Forge New",
+      "printing": "Final Fantasy Secret Lair, Rainbow Foil, Prince Noctis",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$11",
+      "entry_target": {
+        "raw": "around $11 in Rainbow Foil",
+        "currency": "USD",
+        "minimum": 11.0,
+        "maximum": 11.0
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "around $25",
+        "currency": "USD",
+        "minimum": 25.0,
+        "maximum": 25.0
+      },
+      "reasoning": [
+        "Secret Lair supply has maxed out",
+        "Appears in 71,000 decks already",
+        "Equipment theme support continues to grow"
+      ],
+      "caveats": [
+        "Regular versions are likely to pop up in any white equipment commander deck they print"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1222,
+      "end_seconds": 1311,
+      "evidence_excerpt": "It's around $11 in Rainbow Foil... I'm looking for him to hit around $25 sometime in the next 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c615dca1a7a3f46d",
+      "timestamp": "00:20:22",
+      "listen_url": "https://feeds.soundcloud.com/stream/2137216164-user-519789566-mtg-fast-finance-ep-486-edge-of-eternities-early-price-action.mp3#t=1222"
+    },
+    {
+      "card": "Forge New",
+      "printing": "Showcase Scrolls Foils",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$14 to $15",
+      "entry_target": {
+        "raw": "$14 to $15",
+        "currency": "USD",
+        "minimum": 14.0,
+        "maximum": 15.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "solid buy",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Only 33 listings left on TCG Player",
+        "Strong equipment commander support"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1304,
+      "end_seconds": 1344,
+      "evidence_excerpt": "The other version of this worth looking at is the showcase Scrolls Foils, which are almost certainly underpriced at the $14 to $15 range.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-286090b9c2ed29ab",
+      "timestamp": "00:21:44",
+      "listen_url": "https://feeds.soundcloud.com/stream/2137216164-user-519789566-mtg-fast-finance-ep-486-edge-of-eternities-early-price-action.mp3#t=1304"
+    },
+    {
+      "card": "Ajani, Nacatl Pariah // Ajani, Nacatl Avenger",
+      "printing": "Borderless textured foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$35",
+      "entry_target": {
+        "raw": "$35",
+        "currency": "USD",
+        "minimum": 35.0,
+        "maximum": 35.0
+      },
+      "hold": "6 to 12 month timeline",
+      "exit_target": {
+        "raw": "$70",
+        "currency": "USD",
+        "minimum": 70.0,
+        "maximum": 70.0
+      },
+      "reasoning": [
+        "Heart and soul of Boros energy deck in Modern and sees Mardu play",
+        "Low drop rate in collector boosters",
+        "Textured foils do not curl and are tournament legal",
+        "Only 26 listings left"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1443,
+      "end_seconds": 1517,
+      "evidence_excerpt": "First one I'm looking at here is a Johnny Noctilparaya borderless textured foil... So, I'm calling these $35 to $70 on a 6 to 12 month timeline",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4b07f32de9ed0104",
+      "timestamp": "00:24:03",
+      "listen_url": "https://feeds.soundcloud.com/stream/2137216164-user-519789566-mtg-fast-finance-ep-486-edge-of-eternities-early-price-action.mp3#t=1443"
+    },
+    {
+      "card": "Apothecary White",
+      "printing": "Clue set",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chillcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$2.50",
+      "entry_target": {
+        "raw": "around 250 average per copy",
+        "currency": "USD",
+        "minimum": 2.5,
+        "maximum": 2.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "6",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
+      "reasoning": [
+        "Creates food repeatedly for food commanders like Ragost",
+        "Not easy to restock from the clue set board game",
+        "High inclusion rate in Ragost decks"
+      ],
+      "caveats": [
+        "Big walls of copies from major vendors"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1691,
+      "end_seconds": 1730,
+      "evidence_excerpt": "a card that I'm looking to pick up for around 250 average per copy and I want to resell it around 6",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f7b60a16d2174e81",
+      "timestamp": "00:28:11",
+      "listen_url": "https://feeds.soundcloud.com/stream/2137216164-user-519789566-mtg-fast-finance-ep-486-edge-of-eternities-early-price-action.mp3#t=1691"
+    },
+    {
+      "card": "Ugin's Labyrinth",
+      "printing": "Borderless foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$50",
+      "entry_target": {
+        "raw": "$50",
+        "currency": "USD",
+        "minimum": 50.0,
+        "maximum": 50.0
+      },
+      "hold": "12 months",
+      "exit_target": {
+        "raw": "85 to 100",
+        "currency": "USD",
+        "minimum": 85.0,
+        "maximum": 100.0
+      },
+      "reasoning": [
+        "Four-of in every Eldrazi deck in Modern",
+        "Low inventory with only 35 listings left on TCG Player",
+        "Unlikely to see a reprint soon"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1845,
+      "end_seconds": 1913,
+      "evidence_excerpt": "Ugan's Labyrinth borderless foils... $50 foil borderless copies that are available today are going to get to 85 to 100, and that's likely to happen in the next 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1b60bc9f5722c172",
+      "timestamp": "00:30:45",
+      "listen_url": "https://feeds.soundcloud.com/stream/2137216164-user-519789566-mtg-fast-finance-ep-486-edge-of-eternities-early-price-action.mp3#t=1845"
+    }
+  ]
+}

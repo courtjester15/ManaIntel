@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-26T10:11:56Z",
+  "updated_at": "2026-10-26T23:55:02Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -31604,6 +31604,240 @@
           "code": "coverage",
           "path": "section",
           "reason": "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    "tag:soundcloud,2010:tracks/2137216164": {
+      "guid": "tag:soundcloud,2010:tracks/2137216164",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-26T23:51:57Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-26T23:51:57Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-26T23:51:57Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-26T23:51:57Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-26T23:51:59Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-26T23:51:59Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-26T23:52:16Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-26T23:54:58Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-26T23:54:58Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-26T23:55:02Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-26T23:55:02Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-26T23:55:02Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-26T23:55:02Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 486: Edge of Eternities Early Price Action",
+      "episode_number": 486,
+      "published_at": "2025-07-27T06:42:11Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 5,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-10-26T23:55:02Z",
+      "output_directory": "episodes/0486-edge-of-eternities-early-price-action",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2833,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 32.491,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14645,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22666,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37311,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 30.101,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13410,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22667,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36077,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.846,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15902,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22667,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38569,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 133,
+            "request_seconds": 3.702,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 1196,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 3489,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 3322
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 4685,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 1
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1808,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 14728,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 14728
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 16536,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
           "state": "unresolved"
         }
       ]
