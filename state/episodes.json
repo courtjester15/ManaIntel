@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-27T10:06:30Z",
+  "updated_at": "2026-10-27T23:50:58Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32125,6 +32125,65 @@
       "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": null,
       "review_issues": []
+    },
+    "tag:soundcloud,2010:tracks/2132965206": {
+      "guid": "tag:soundcloud,2010:tracks/2132965206",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-27T23:46:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-27T23:46:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-27T23:46:25Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-27T23:46:25Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-27T23:46:28Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-27T23:46:29Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-27T23:46:50Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-27T23:50:58Z"
+        }
+      ],
+      "title": "MTGFastFinance Ep 485: Sonic Speeds Into Secret Lair Success",
+      "episode_number": 485,
+      "published_at": "2025-07-19T16:54:25Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-28T05:50:58Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-27T23:50:58Z",
+      "output_directory": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success"
     }
   }
 }

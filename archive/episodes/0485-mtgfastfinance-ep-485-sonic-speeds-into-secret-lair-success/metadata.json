@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2132965206",
+    "episode_number": 485,
+    "title": "MTGFastFinance Ep 485: Sonic Speeds Into Secret Lair Success",
+    "published_at": "2025-07-19T16:54:25Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2132965206-user-519789566-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success",
+    "duration_seconds": 3517,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the outcome of the Sonic the Hedgehog x Secret Lair drop and take another look at Edge of Eternities previews.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-27T23:50:58Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-27T23:46:28Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-27T23:46:29Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-27T23:46:50Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-27T23:50:58Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+      "category": "repair_progress_saved",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-10-28T05:50:58Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
