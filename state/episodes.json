@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-27T05:04:53Z",
+  "updated_at": "2026-10-27T10:06:30Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -25593,6 +25593,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-26T10:11:56Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-27T10:05:56Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-27T10:05:56Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-27T10:05:57Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-27T10:05:57Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-27T10:06:17Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-27T10:06:25Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-27T10:06:25Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-27T10:06:30Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-27T10:06:30Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-27T10:06:30Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-27T10:06:30Z"
         }
       ],
       "title": "Future of the Reserve List | Brainstorm Brewery #721 | Magic Finance",
@@ -25600,11 +25644,11 @@
       "published_at": "2026-10-09T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 3,
+      "attempt_count": 4,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-26T10:11:56Z",
+      "updated_at": "2026-10-27T10:06:30Z",
       "output_directory": "episodes/0721-future-of-the-reserve-list-brainstorm-brewery-721-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -25771,23 +25815,23 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 970,
+        "candidates_token_count": 1882,
         "candidates_tokens_details": null,
-        "prompt_token_count": 32151,
+        "prompt_token_count": 26378,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 32151
+            "token_count": 26378
           }
         ],
-        "thoughts_token_count": 4187,
+        "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 37308,
+        "total_token_count": 28260,
         "traffic_type": null
       },
-      "extraction_model": "gemini-3.5-flash",
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
       "last_attempt_error": {
         "stage": "transcribing",
         "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
@@ -25800,7 +25844,26 @@
         "next_retry_at": null,
         "quarantined": true
       },
-      "review_issues": []
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        }
+      ]
     },
     "tag:soundcloud,2010:tracks/2178094005": {
       "guid": "tag:soundcloud,2010:tracks/2178094005",

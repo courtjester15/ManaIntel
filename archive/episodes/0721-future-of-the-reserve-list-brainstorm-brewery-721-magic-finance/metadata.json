@@ -25,13 +25,33 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
-    "pipeline_version": "0.5.5",
+    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "state": "unresolved"
+      },
+      {
+        "code": "printing",
+        "path": "extraction",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.19",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash",
-    "extraction_model": "gemini-3.5-flash",
-    "prompt_version": "source-recommendations-v2-hybrid-boundaries",
-    "processed_at": "2026-10-09T17:06:04Z",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-27T10:06:30Z",
     "history": [
       {
         "status": "detected",
@@ -84,6 +104,106 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-09T17:06:04Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-25T09:10:51Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-25T09:10:51Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-25T09:10:52Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-25T09:10:52Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-25T09:11:04Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-25T09:13:12Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-25T09:13:12Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-26T10:10:16Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-26T10:10:16Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-26T10:10:17Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-26T10:10:18Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-26T10:10:37Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-26T10:11:56Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-26T10:11:56Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-27T10:05:56Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-27T10:05:56Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-27T10:05:57Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-27T10:05:57Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-27T10:06:17Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-27T10:06:25Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-27T10:06:25Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-27T10:06:30Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-27T10:06:30Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-27T10:06:30Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-27T10:06:30Z"
       }
     ],
     "error": null,
@@ -252,19 +372,19 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 970,
+      "candidates_token_count": 1882,
       "candidates_tokens_details": null,
-      "prompt_token_count": 32151,
+      "prompt_token_count": 26378,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 32151
+          "token_count": 26378
         }
       ],
-      "thoughts_token_count": 4187,
+      "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 37308,
+      "total_token_count": 28260,
       "traffic_type": null
     }
   },

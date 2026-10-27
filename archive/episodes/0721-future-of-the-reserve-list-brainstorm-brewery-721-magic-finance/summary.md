@@ -89,4 +89,4 @@
 
 ---
 
-Schema 1.1.0 · Pipeline 0.5.5 · Prompt source-recommendations-v2-hybrid-boundaries
+Schema 1.1.0 · Pipeline 0.5.19 · Prompt source-recommendations-v4-metadata-context
