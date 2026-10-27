@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15694",
+    "episode_number": 658,
+    "title": "Gays, Goad, & Game Changers | Brainstorm Brewery #658 | Magic Finance",
+    "published_at": "2025-07-25T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_658_Gays_Goad_and_Game_Changers.mp3",
+    "episode_url": "https://brainstormbrewery.com/gays-goad-game-changers-brainstorm-brewery-658-magic-finance/",
+    "duration_seconds": 3190,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Jason (@jasonEAlt), DJ (@CardgardenMTG), and Cass (@devotedDruid) ramp up for the edge of eternities release, Game Changers, and commandersherald.com Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-27T05:04:53Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-27T05:02:09Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-27T05:02:09Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-27T05:02:09Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-27T05:02:09Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-27T05:02:11Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-27T05:02:11Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-27T05:02:30Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-27T05:04:48Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-27T05:04:48Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-27T05:04:52Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-27T05:04:53Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-27T05:04:53Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-27T05:04:53Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3190,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 35.573,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15073,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22700,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37773,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 44.353,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18115,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22701,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40816,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.164,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17725,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22701,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40426,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 490,
+          "request_seconds": 21.475,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 10066,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 12439,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 12238
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 22505,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 0
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1226,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 36583,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 36583
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 37809,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0658-gays-goad-game-changers-brainstorm-brewery-658-magic-finance/metadata.json",
+    "summary_json": "episodes/0658-gays-goad-game-changers-brainstorm-brewery-658-magic-finance/summary.json",
+    "summary_markdown": "episodes/0658-gays-goad-game-changers-brainstorm-brewery-658-magic-finance/summary.md"
+  }
+}
