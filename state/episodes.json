@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-29T05:47:27Z",
+  "updated_at": "2026-10-29T11:02:49Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -5475,6 +5475,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-08-06T12:31:20Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-29T10:54:47Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-29T10:54:47Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-29T10:54:49Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T10:54:49Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-29T10:55:03Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-29T11:02:49Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-29T11:02:49Z"
         }
       ],
       "title": "Corbin and DJ have Beef | Brainstorm Brewery #701 | Magic Finance",
@@ -5482,11 +5510,11 @@
       "published_at": "2026-05-22T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-08-06T12:31:20Z",
+      "updated_at": "2026-10-29T11:02:49Z",
       "output_directory": "episodes/0000-corbin-and-dj-have-beef-brainstorm-brewery-701-magic-finance-bc7bc602",
       "transcription": {
         "provider": "Gemini",
@@ -5662,7 +5690,21 @@
         "total_token_count": 18728,
         "traffic_type": null
       },
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 5/5 failed after 93.0s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.5-flash-lite attempt 1: GeminiMalformedJSONError: Malformed JSON transcript clock format; expected explicit MM:SS.mmm strings.; gemini-3.5-flash-lite attempt 2: GeminiMalformedJSONError: Malformed JSON transcript clock format; expected explicit MM:SS.mmm strings.",
+        "category": "transient_model_output",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 2,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-29T17:02:49Z",
+        "quarantined": false
+      },
+      "review_issues": [],
+      "extraction_model": null
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=29858": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=29858",
