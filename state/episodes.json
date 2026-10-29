@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-28T10:41:25Z",
+  "updated_at": "2026-10-29T00:11:16Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32503,6 +32503,65 @@
       "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": null,
       "review_issues": []
+    },
+    "tag:soundcloud,2010:tracks/2128625847": {
+      "guid": "tag:soundcloud,2010:tracks/2128625847",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-29T00:00:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-29T00:00:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-29T00:00:10Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-29T00:00:10Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-29T00:00:12Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T00:00:12Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-29T00:00:38Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-29T00:11:16Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 484: Edge of Eternities Previews Part 2",
+      "episode_number": 484,
+      "published_at": "2025-07-11T23:21:48Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 2/7 failed: Gemini transcription chunk 1/1 failed after 65.5s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
+        "category": "unknown",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-29T06:11:16Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-29T00:11:16Z",
+      "output_directory": "episodes/0484-edge-of-eternities-previews-part-2"
     }
   }
 }

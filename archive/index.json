@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.19",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-28T10:41:25Z",
+    "generated_at": "2026-10-29T00:11:17Z",
     "latest_successful_run_at": "2026-10-28T05:47:43Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 126,
+    "real_episode_count": 127,
     "real_pick_count": 500,
     "last_discovered_episode_date": "2026-10-23T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,16 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 126,
+    "episodes": 127,
     "picks": 500,
     "needs_review": 51,
-    "failed": 1,
+    "failed": 2,
     "completed": 74
   },
   "status_counts": {
     "complete": 74,
     "needs_review": 51,
-    "failed": 1
+    "failed": 2
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
@@ -4981,6 +4981,53 @@
       },
       "processed_at": "2026-10-28T05:47:43Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2128625847",
+      "episode_number": 484,
+      "title": "MTG Fast Finance Ep 484: Edge of Eternities Previews Part 2",
+      "published_at": "2025-07-11T23:21:48Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2128625847-user-519789566-mtg-fast-finance-ep-484-edge-of-eternities-previews-part-2.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-484-edge-of-eternities-previews-part-2",
+      "duration_seconds": 6254,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "The guys go over the hottest paper and digital cardboard this week, the newly announce Sonic the Hedgehog x Secret Lair drop and continue on with all the new Edge of Eternities previews.",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0484-edge-of-eternities-previews-part-2",
+      "outputs": {
+        "metadata": "episodes/0484-edge-of-eternities-previews-part-2/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-10-29T00:11:16Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 2/7 failed: Gemini transcription chunk 1/1 failed after 65.5s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
+        "category": "unknown",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-10-29T06:11:16Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
