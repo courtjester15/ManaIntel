@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.19",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-29T00:11:17Z",
-    "latest_successful_run_at": "2026-10-28T05:47:43Z",
+    "generated_at": "2026-10-29T05:47:27Z",
+    "latest_successful_run_at": "2026-10-29T05:47:27Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 127,
-    "real_pick_count": 500,
+    "real_pick_count": 502,
     "last_discovered_episode_date": "2026-10-23T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 127,
-    "picks": 500,
-    "needs_review": 51,
-    "failed": 2,
+    "picks": 502,
+    "needs_review": 52,
+    "failed": 1,
     "completed": 74
   },
   "status_counts": {
     "complete": 74,
-    "needs_review": 51,
-    "failed": 2
+    "needs_review": 52,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36389",
@@ -4917,31 +4917,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "pick_count": 2,
       "directory": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success",
       "outputs": {
         "metadata": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success/summary.json",
+        "summary_markdown": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-27T23:50:58Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-28T05:50:58Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-10-29T05:47:27Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

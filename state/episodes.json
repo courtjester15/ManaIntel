@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-29T00:11:16Z",
+  "updated_at": "2026-10-29T05:47:27Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32202,6 +32202,50 @@
         {
           "status": "failed",
           "timestamp": "2026-10-27T23:50:58Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-29T05:45:57Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-29T05:45:57Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-29T05:45:58Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T05:45:58Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-29T05:46:18Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-29T05:47:23Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-29T05:47:23Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-29T05:47:26Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-29T05:47:26Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-29T05:47:26Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-29T05:47:27Z"
         }
       ],
       "title": "MTGFastFinance Ep 485: Sonic Speeds Into Secret Lair Success",
@@ -32209,23 +32253,172 @@
       "published_at": "2025-07-19T16:54:25Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-10-28T05:50:58Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 2,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-10-29T05:47:27Z",
+      "output_directory": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3517,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 30.816,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12990,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22665,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 166
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 35655,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.624,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15073,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22666,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 166
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37739,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 35.973,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16418,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22666,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 166
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39084,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 817,
+            "request_seconds": 30.017,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13296,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 20609,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 166
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20443
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33905,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 42
       },
-      "status": "failed",
-      "updated_at": "2026-10-27T23:50:58Z",
-      "output_directory": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 775,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 6274,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 6274
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 7049,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+          "state": "unresolved"
+        }
+      ]
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15690": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15690",

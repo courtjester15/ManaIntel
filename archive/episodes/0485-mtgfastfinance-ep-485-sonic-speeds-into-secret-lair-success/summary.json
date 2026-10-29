@@ -1,0 +1,364 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2132965206",
+    "episode_number": 485,
+    "title": "MTGFastFinance Ep 485: Sonic Speeds Into Secret Lair Success",
+    "published_at": "2025-07-19T16:54:25Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2132965206-user-519789566-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success",
+    "duration_seconds": 3517,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff go over the hottest paper and digital cardboard this week, the outcome of the Sonic the Hedgehog x Secret Lair drop and take another look at Edge of Eternities previews.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-29T05:47:27Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-27T23:46:25Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-27T23:46:28Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-27T23:46:29Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-27T23:46:50Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-27T23:50:58Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-29T05:45:57Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-29T05:45:57Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-29T05:45:58Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-29T05:45:58Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-29T05:46:18Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-29T05:47:23Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-29T05:47:23Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-29T05:47:26Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-29T05:47:26Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-29T05:47:26Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-29T05:47:27Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3517,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.816,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12990,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22665,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 166
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35655,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.624,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15073,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22666,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 166
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37739,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 35.973,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16418,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22666,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 166
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39084,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 817,
+          "request_seconds": 30.017,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13296,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 20609,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 166
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20443
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33905,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 42
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 775,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 6274,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 6274
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 7049,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 797,
+    "end_seconds": 1259,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Ancient Greenwarden",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "lows around $6.50 or $7",
+        "currency": "USD",
+        "minimum": 6.5,
+        "maximum": 7.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "mid 20s",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 29.0
+      },
+      "reasoning": [
+        "Card allows playing lands from your graveyard and doubles land triggers.",
+        "Benefits from landfall mechanics and recent synergies."
+      ],
+      "caveats": [
+        "Very few listings and low inventory available on TCGPlayer.",
+        "Uncertainty around whether current low is the correct entry point since inventory has not fully landed."
+      ],
+      "confidence": "medium",
+      "start_seconds": 843,
+      "end_seconds": 984,
+      "evidence_excerpt": "One of those cards is ancient Greenwarden... target in the mid 20s is sounds correct to me.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f7deb535c00519a7",
+      "timestamp": "00:14:03",
+      "listen_url": "https://feeds.soundcloud.com/stream/2132965206-user-519789566-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success.mp3#t=843"
+    },
+    {
+      "card": "Starting Town",
+      "printing": "Final Fantasy",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$16 to $18",
+      "entry_target": {
+        "raw": "$17 range",
+        "currency": "USD",
+        "minimum": 16.0,
+        "maximum": 18.0
+      },
+      "hold": "the next year or so",
+      "exit_target": {
+        "raw": "35",
+        "currency": "USD",
+        "minimum": 35.0,
+        "maximum": 35.0
+      },
+      "reasoning": [
+        "High commander demand, appearing in 26,000 decks on EDHREC.",
+        "Strong performance and presence in standard multi-colored decks post-rotation.",
+        "IP-related card with limited probability of direct reprints under the same name."
+      ],
+      "caveats": [
+        "Suspicion that special versions might appear in Final Fantasy bundles around Christmas."
+      ],
+      "confidence": "high",
+      "start_seconds": 987,
+      "end_seconds": 1257,
+      "evidence_excerpt": "Starting Town is going to get some time to inflate, and I'm calling it that even if you pick up these foils in the 17 range, to get to 35 in the next year or so seems pretty likely.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b3d97cf2266997a9",
+      "timestamp": "00:16:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2132965206-user-519789566-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success.mp3#t=987"
+    }
+  ]
+}
