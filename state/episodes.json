@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.20",
-  "updated_at": "2026-10-30T05:52:16Z",
+  "updated_at": "2026-10-30T10:56:04Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -27093,6 +27093,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-16T02:43:45Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-30T10:53:27Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-30T10:53:27Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-30T10:53:29Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-30T10:53:29Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-30T10:53:38Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-30T10:56:04Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-30T10:56:04Z"
         }
       ],
       "title": "Measured Content | Brainstorm Brewery #666 | Magic Finance",
@@ -27100,11 +27128,11 @@
       "published_at": "2025-09-19T06:01:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 5,
+      "attempt_count": 6,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-16T02:43:45Z",
+      "updated_at": "2026-10-30T10:56:04Z",
       "output_directory": "episodes/0666-measured-content-brainstorm-brewery-666-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -27227,7 +27255,20 @@
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": false,
+        "attempt": 6,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      },
+      "review_issues": []
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=35920": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=35920",
