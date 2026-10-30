@@ -1,0 +1,497 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15684",
+    "episode_number": 655,
+    "title": "I Know Yawgmoth When I See It | Brainstorm Brewery #655 | Magic Finance",
+    "published_at": "2025-07-04T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_655__I_Know_Yawgmoth_When_I_See_It.mp3",
+    "episode_url": "https://brainstormbrewery.com/i-know-yawgmoth-when-i-see-it-brainstorm-brewery-655-magic-finance/",
+    "duration_seconds": 3770,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler), DJ (@CardgardenMTG), and Cass (@devotedDruid) are all shaken up about the standard shake ups and the eternal formats lack of shake ups. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Full transcript contains recommendation content missing from timed segments; verify completeness against retained text/audio. Card identity is actually Burn Offerings rather than Brimstone Volley, and dialogue identifies it as a guessing game rather than a firm financial pick.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Full transcript contains recommendation content missing from timed segments; verify completeness against retained text/audio.",
+        "state": "unresolved"
+      },
+      {
+        "code": "unspecified",
+        "path": "recommendations/0",
+        "reason": "Card identity is actually Burn Offerings rather than Brimstone Volley, and dialogue identifies it as a guessing game rather than a firm financial pick.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.20",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-30T05:52:16Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-30T05:46:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-30T05:46:23Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-30T05:46:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-30T05:46:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-30T05:46:25Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-30T05:46:25Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-30T05:46:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-30T05:52:12Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-30T05:52:12Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-30T05:52:16Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-30T05:52:16Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-30T05:52:16Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-30T05:52:16Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3770,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 41.036,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18437,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22697,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41134,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 5.911,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1290,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22698,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 23988,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 168.228,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 8651,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11507,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 257
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 20158,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 10809,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11507,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 257
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 22316,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 48.175,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 20108,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22698,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42806,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 170,
+          "request_seconds": 9.254,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3493,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 4442,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 4244
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 198
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 7935,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1522,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 25795,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 25795
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 27317,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 2216,
+    "end_seconds": 3645,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Brimstone Volley",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "breaking bulk",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2247,
+      "end_seconds": 2360,
+      "evidence_excerpt": "So with that said, uh let's jump into some breaking bulk. ... birth offering.",
+      "review_status": "needs_review",
+      "review_reason": "Card identity is actually Burn Offerings rather than Brimstone Volley, and dialogue identifies it as a guessing game rather than a firm financial pick.",
+      "id": "pick-9e2997bf87cf6b8d",
+      "timestamp": "00:37:27",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_655__I_Know_Yawgmoth_When_I_See_It.mp3#t=2247"
+    },
+    {
+      "card": "Glimmer Lens",
+      "printing": "Phyrexia: All Will Be One Commander",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "breaking bulk",
+      "mentioned_price": "2.50",
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Modest card draw on an equipment that creates a body."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2422,
+      "end_seconds": 2504,
+      "evidence_excerpt": "It's glimmer lens. It's one in a white for an artifact equipment ... like coming up a little bit, it's like two and a half bucks on direct.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-05a58d4332781daf",
+      "timestamp": "00:40:22",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_655__I_Know_Yawgmoth_When_I_See_It.mp3#t=2422"
+    },
+    {
+      "card": "Fracture",
+      "printing": "Strixhaven: School of Mages",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "breaking bulk",
+      "mentioned_price": "1.00",
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2554,
+      "end_seconds": 2605,
+      "evidence_excerpt": "I'll wrap up the breaking bolt this week with a card that you all will not get. It's a multi-colored gold card ... Fracture.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-2e2138398625c570",
+      "timestamp": "00:42:34",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_655__I_Know_Yawgmoth_When_I_See_It.mp3#t=2554"
+    },
+    {
+      "card": "Agatha's Soul Cauldron",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [],
+      "recommendation": "pick of the week",
+      "mentioned_price": "50.00",
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "It's just going to be $50.",
+        "Wild Eldraine proves that cards can be $70 in standard for 3 years."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2868,
+      "end_seconds": 2890,
+      "evidence_excerpt": "This card has been climbing. And it's going to keep climbing. It's called Agatha's Soul Cauldron, you might have heard of it. It's broken. That's really all there is to it. It's it's just going to be $50.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4c554b380ab1fe76",
+      "timestamp": "00:47:48",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_655__I_Know_Yawgmoth_When_I_See_It.mp3#t=2868"
+    },
+    {
+      "card": "Craterhoof Behemoth",
+      "printing": "Commander Masters",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "reprint discussion",
+      "mentioned_price": "35.00",
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Roller coaster price movement but gets reprinted."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3611,
+      "end_seconds": 3637,
+      "evidence_excerpt": "Also, the the corollary for Creator Hoof Behemoth being reprinted is also Creator Hoof Behemoth. Card was in Commander Masters in the summer of 20 23. It was like $35. It went down to 25, then it went back to 35, then it got reprinted.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7ff15cbcd03734d2",
+      "timestamp": "01:00:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_655__I_Know_Yawgmoth_When_I_See_It.mp3#t=3611"
+    }
+  ]
+}

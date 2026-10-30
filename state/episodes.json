@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.20",
-  "updated_at": "2026-10-30T02:39:40Z",
+  "updated_at": "2026-10-30T05:52:16Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -33138,6 +33138,296 @@
           "code": "coverage",
           "path": "section",
           "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15684": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15684",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-30T05:46:23Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-30T05:46:23Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-30T05:46:23Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-30T05:46:23Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-30T05:46:25Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-30T05:46:25Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-30T05:46:38Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-30T05:52:12Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-30T05:52:12Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-30T05:52:16Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-30T05:52:16Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-30T05:52:16Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-30T05:52:16Z"
+        }
+      ],
+      "title": "I Know Yawgmoth When I See It | Brainstorm Brewery #655 | Magic Finance",
+      "episode_number": 655,
+      "published_at": "2025-07-04T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 5,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-10-30T05:52:16Z",
+      "output_directory": "episodes/0655-i-know-yawgmoth-when-i-see-it-brainstorm-brewery-655-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 3770,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 41.036,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 18437,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22697,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 198
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41134,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 5.911,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 1290,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22698,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 198
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 23988,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 168.228,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8651,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11507,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 257
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 20158,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 10809,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11507,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 257
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 22316,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 48.175,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 20108,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22698,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 198
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42806,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 170,
+            "request_seconds": 9.254,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3493,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 4442,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 4244
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 198
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 7935,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 1
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1522,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 25795,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 25795
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 27317,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Full transcript contains recommendation content missing from timed segments; verify completeness against retained text/audio. Card identity is actually Burn Offerings rather than Brimstone Volley, and dialogue identifies it as a guessing game rather than a firm financial pick.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Full transcript contains recommendation content missing from timed segments; verify completeness against retained text/audio.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations/0",
+          "reason": "Card identity is actually Burn Offerings rather than Brimstone Volley, and dialogue identifies it as a guessing game rather than a firm financial pick.",
           "state": "unresolved"
         }
       ]
