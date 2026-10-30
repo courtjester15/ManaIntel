@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.19",
-  "updated_at": "2026-10-30T00:00:31Z",
+  "pipeline_version": "0.5.20",
+  "updated_at": "2026-10-30T02:36:08Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32288,6 +32288,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-29T05:47:27Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-30T02:35:39Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-30T02:35:39Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-30T02:35:41Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-30T02:35:41Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-30T02:36:02Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-10-30T02:36:02Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-10-30T02:36:02Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-10-30T02:36:08Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-10-30T02:36:08Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-10-30T02:36:08Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-30T02:36:08Z"
         }
       ],
       "title": "MTGFastFinance Ep 485: Sonic Speeds Into Secret Lair Success",
@@ -32295,11 +32339,11 @@
       "published_at": "2025-07-19T16:54:25Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 2,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-29T05:47:27Z",
+      "updated_at": "2026-10-30T02:36:08Z",
       "output_directory": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success",
       "transcription": {
         "provider": "Gemini",
@@ -32436,28 +32480,34 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 775,
+        "candidates_token_count": 1409,
         "candidates_tokens_details": null,
-        "prompt_token_count": 6274,
+        "prompt_token_count": 15450,
         "prompt_tokens_details": [
           {
             "modality": "TEXT",
-            "token_count": 6274
+            "token_count": 15450
           }
         ],
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 7049,
+        "total_token_count": 16859,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
       "review_issues": [
         {
           "code": "coverage",
           "path": "extraction",
-          "reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
           "state": "unresolved"
         }
       ]
