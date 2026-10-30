@@ -155,6 +155,13 @@ def _topic_transition_index(
         )
         if transition_match is None:
             continue
+        # An advertised topic can explain a pick's demand thesis. It is not
+        # a handoff while the speaker is explicitly introducing another pick.
+        cue_context = " ".join(str(s.get("text", ""))
+                               for s in ordered[max(start_index, index - 1):index + 2]
+                               if abs(float(s.get("start", 0)) - float(ordered[index].get("start", 0))) <= 30)
+        if _matches(PICK_CUE_PATTERNS, cue_context):
+            continue
         next_text = " ".join(str(s.get("text", "")) for s in ordered[index + 1:index + 4]
                              if float(s.get("start", 0)) - float(ordered[index].get("start", 0)) <= 60)
         context = f"{transition_text[transition_match.start():transition_match.end() + 200]} {next_text[:200]}"

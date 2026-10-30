@@ -591,7 +591,7 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn('FFW_AUDIO_CHUNK_SECONDS: "900"', workflow)
         self.assertIn('cron: "17 20 * * *"', workflow)
         self.assertIn('cron: "17 0 * * *"', workflow)
-        self.assertIn('if [[ "$EVENT_SCHEDULE" == "17 0 * * *" ]]; then', workflow)
+        self.assertIn('if [[ -n "$EVENT_SCHEDULE" ]]; then', workflow)
         self.assertNotIn('if [[ "$EVENT_SCHEDULE" == "17 20 * * *" ]]; then', workflow)
         self.assertIn('INPUT_MODE="evening"', workflow)
         self.assertIn('FFW_MAX_EPISODE_ATTEMPTS: "3"', workflow)
@@ -1331,6 +1331,22 @@ class StateAwareSelectionTests(unittest.TestCase):
         self.assertEqual(["guid-5"], [item.guid for item in report.selected])
         self.assertEqual(1, report.eligible_found)
         self.assertEqual(2, report.feed_entries_scanned)
+
+    def test_new_release_precedes_due_historical_retry(self):
+        from dataclasses import replace
+        from datetime import datetime, timezone, timedelta
+        candidates = self.candidates()
+        now = datetime.now(timezone.utc)
+        failed = replace(candidates[4], published_at=now.isoformat())
+        self.set_status(failed, "failed")
+        fresh = replace(candidates[5], published_at=(now - timedelta(days=1)).isoformat())
+        report = self.pipeline.select_candidates([fresh, failed], policy="retry_then_next")
+        self.assertEqual([fresh], report.selected)
+        self.assertEqual("new_release", report.selected_mode)
+
+    def test_saved_split_budget_stop_is_a_local_continuation(self):
+        self.assertEqual(("repair_progress_saved", True, False), classify_failure(
+            "Timing/coverage repair failed: Transcription split recovery call budget exhausted; retry resumes saved clips."))
 
     def test_evening_prefers_one_due_retry_over_newer_unseen_episode(self) -> None:
         candidates = self.candidates()

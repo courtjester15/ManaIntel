@@ -195,3 +195,8 @@ Production persistence fetches and rebases the workflow commit before pushing, w
 ### Missing host attribution on a published episode
 
 Use the main workflow's manual `timing_repair_limit=hosts` only with an exact `force_guid` after inspecting retained evidence. It preserves the current publication and uses two bounded readings of the original introduction and recommendation section to recover empty host fields. It does not re-extract cards or repair timestamps. An existing retained transcript with established, clean timing is required; human-reviewed episodes are refused. Both readings must agree, with transcript-supported source quotes; unresolved attribution stays empty. Existing known hosts are never overwritten. Shared capacity stops apply before download and before each model call. Inspect the private `reprocessing` artifact and public accepted `host_attribution` evidence before any further attempt; no unchanged blind retries. Successful metadata recovery does not clear other review reasons or certify the full episode.
+
+
+### Scheduled recovery priority (0.5.20)
+
+Both scheduled triggers use the retry-aware selector. Unprocessed releases published within seven days take priority; otherwise the next eligible failed episode precedes older untouched backfill. Retries retain the six-hour cooldown, three-attempt cap, manual-intervention gates and shared request accounting. A saved-progress pause means durable transcript work can resume, not that an Actions job is currently queued or running. Split-recovery call-budget exhaustion with saved resumable clips is a local bounded pause, not provider quota exhaustion. Inspect the latest attempt and source evidence before forcing a continuation or changing any limits.

@@ -4,7 +4,7 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.19. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.20. Next milestone: 0.6 — dependable processing.**
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -192,3 +192,6 @@ October 23 R2 evaluation batch: added a sanitized seven-pick inventory for FF537
 R2 batch local verification: full suite 234 tests passed with the existing local tzdata/PyYAML dependencies and Git subprocess access; the subsequently added malformed-candidate regression also passes (eight focused evaluator tests, 235 total now). Archive validation and diff whitespace checks pass. The initial sandbox run exposed missing dependency paths and sandbox-blocked Git/tempfile operations; rerunning with the existing dependencies and appropriate execution permissions passed. No production data edits or inference calls.
 
 R2 batch shipped as `fba67e4`; [production run 40036928729](https://github.com/courtjester15/ManaIntel/actions/runs/40036928729) passed network-free tests, archive validation and Pages deployment. This ships offline evaluation support, not a change to episode recommendations or model defaults. Required scratch preview/apply reclaimed 0 MiB. Remaining next action: independently audio-check the BB667 field findings, then extend the source-checked evaluation sample; FF537's other two hosts remain unknown.
+
+
+October 29 FF484/485 recovery fix (0.5.20): retained FF485 evidence proved an advertised-topic mention inside the next-pick introduction cut Cards to Watch at 1259 seconds, omitting Academy Manufactor and The Earth Crystal. Topic handoffs now abstain when nearby explicit pick-introduction language contradicts the boundary. Offline replay includes both omitted discussions; the unproven ending remains needs_review. Both scheduled runs now use retry-aware selection: releases within seven days first, due bounded retries next, untouched historical backfill last. Cooldown, attempt caps, manual gates and shared capacity remain enforced. Saved split-recovery call-budget stops are classified as local repair progress; UI says paused with saved progress and explains that eligibility is not a running job. No model/prompt defaults or chunk sizes changed. Next: verify deployment, run one retained-transcript FF485 recovery preserving existing picks, then inspect one FF484 continuation; record actual outcomes below. R2 remains in progress; this production omission takes priority over new evaluation expansion.

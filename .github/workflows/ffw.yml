@@ -227,7 +227,7 @@ jobs:
           EVENT_SCHEDULE: ${{ github.event.schedule || '' }}
         shell: bash
         run: |
-          if [[ "$EVENT_SCHEDULE" == "17 0 * * *" ]]; then
+          if [[ -n "$EVENT_SCHEDULE" ]]; then
             INPUT_MODE="evening"
           fi
           echo "mode=$INPUT_MODE" >> "$GITHUB_OUTPUT"

@@ -265,7 +265,7 @@ function pickCard(pick, compact = false) {
 }
 function deferredStatus(error) {
   if (error?.category === "capacity_deferred") return "waiting for capacity";
-  if (error?.category === "repair_progress_saved") return "repair continuation queued";
+  if (error?.category === "repair_progress_saved") return "paused — progress saved";
   return null;
 }
 function episodeBadge(episode) {
@@ -275,7 +275,7 @@ function episodeBadge(episode) {
     : badge(episode?.processing_status);
 }
 function failureReason(error) {
-  if (error?.category === "repair_progress_saved") return "Validated transcript repairs were saved. Processing can continue after the retry cooldown.";
+  if (error?.category === "repair_progress_saved") return "Transcript repair progress was saved. No repair job is running from this status alone. A scheduled run can resume after cooldown and capacity checks.";
   if (error?.category === "capacity_deferred") return "Processing paused because the configured request budget cannot cover the next work. Recovery waits for available capacity.";
   const message = String(error?.message ?? "");
   if (!message) return "No failure message was recorded.";

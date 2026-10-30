@@ -66,3 +66,19 @@ class RepresentativeEvaluationTests(unittest.TestCase):
         self.assertEqual(original, transcript)
         transcript["segments"][0]["text"] = missing
         self.assertEqual(0, missing_recommendation_content(transcript))
+
+    def test_ff_advertised_topic_inside_next_pick_is_not_section_end(self):
+        segments = [
+            {"start": 790, "end": 800, "text": "Cards to watch."},
+            {"start": 810, "end": 980, "text": "My first pick is Example Alpha."},
+            {"start": 990, "end": 1257, "text": "Example Beta is our second choice."},
+            {"start": 1258, "end": 1259, "text": "What about your next selection?"},
+            {"start": 1260, "end": 1272, "text": "My other pick this week, so we are going to talk about the Sonic results."},
+            {"start": 1280, "end": 1440, "text": "Example Gamma foils benefit from that demand."},
+            {"start": 1450, "end": 1880, "text": "My final pick is Example Delta."},
+            {"start": 1900, "end": 1910, "text": "Now moving on to the Sonic Secret Lair results."},
+        ]
+        result = locate_recommendation_section(segments, "cards_to_watch", title="Sonic Secret Lair Results")
+        self.assertEqual(1880, result["end_seconds"])
+        self.assertIn(segments[5], result["segments"])
+        self.assertIn(segments[6], result["segments"])

@@ -109,7 +109,9 @@ def classify_failure(message: str) -> tuple[str, bool, bool]:
         "timing repair budget must be",
     )):
         return "manual_intervention", False, False
-    if "timing repair progress saved" in normalized:
+    if "timing repair progress saved" in normalized or (
+        "split recovery call budget exhausted" in normalized and "retry resumes saved" in normalized
+    ):
         return "repair_progress_saved", True, False
     if "shared capacity stop" in normalized:
         return "capacity_deferred", True, True
@@ -311,6 +313,16 @@ class Pipeline:
         records = self.state.all()
         report = SelectionReport(policy=policy)
         if policy == "retry_then_next":
+            release_cutoff = datetime.now(timezone.utc) - timedelta(days=7)
+            for episode in ordered:
+                published = _parse_timestamp(episode.published_at)
+                status = (records.get(episode.guid) or {}).get("status")
+                if status not in TERMINAL_STATES and status != "failed" and published and published >= release_cutoff:
+                    report.selected = [episode]
+                    report.selected_mode = "new_release"
+                    report.eligible_found = 1
+                    report.feed_entries_scanned = ordered.index(episode) + 1
+                    return report
             fallback: EpisodeCandidate | None = None
             for episode in ordered:
                 report.feed_entries_scanned += 1
