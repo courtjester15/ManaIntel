@@ -22,18 +22,24 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+    "review_reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
     "review_issues": [
       {
         "code": "coverage",
-        "path": "extraction",
-        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "path": "section",
+        "reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
         "state": "unresolved"
       },
       {
-        "code": "printing",
-        "path": "extraction",
-        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "code": "unspecified",
+        "path": "recommendations.pick-c3453f983643ed5c",
+        "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
+        "state": "unresolved"
+      },
+      {
+        "code": "unspecified",
+        "path": "recommendations.pick-038409f3f3e3c2da",
+        "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
         "state": "unresolved"
       }
     ],
@@ -315,7 +321,8 @@
       "tool_use_prompt_tokens_details": null,
       "total_token_count": 16859,
       "traffic_type": null
-    }
+    },
+    "recovery_note": "Oct29 inspected merge from run40992294229: preserve original records exactly; add only Academy Manufactor and Earth Crystal. Candidate Starting Town printing change rejected. No human approval or independent audio verification."
   },
   "outputs": {
     "metadata": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success/metadata.json",

@@ -22,18 +22,24 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+    "review_reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
     "review_issues": [
       {
         "code": "coverage",
-        "path": "extraction",
-        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "path": "section",
+        "reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
         "state": "unresolved"
       },
       {
-        "code": "printing",
-        "path": "extraction",
-        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "code": "unspecified",
+        "path": "recommendations.pick-c3453f983643ed5c",
+        "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
+        "state": "unresolved"
+      },
+      {
+        "code": "unspecified",
+        "path": "recommendations.pick-038409f3f3e3c2da",
+        "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
         "state": "unresolved"
       }
     ],
@@ -315,17 +321,18 @@
       "tool_use_prompt_tokens_details": null,
       "total_token_count": 16859,
       "traffic_type": null
-    }
+    },
+    "recovery_note": "Oct29 inspected merge from run40992294229: preserve original records exactly; add only Academy Manufactor and Earth Crystal. Candidate Starting Town printing change rejected. No human approval or independent audio verification."
   },
   "section": {
     "located": true,
     "start_seconds": 797,
-    "end_seconds": 1259,
+    "end_seconds": 1998,
     "label": "Cards to Watch",
-    "confidence": "high",
-    "review_reason": null,
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
     "start_signal": "explicit_section_marker",
-    "end_signal": "advertised_topic_transition"
+    "end_signal": null
   },
   "recommendations": [
     {
@@ -409,6 +416,85 @@
       "id": "pick-b3d97cf2266997a9",
       "timestamp": "00:16:27",
       "listen_url": "https://feeds.soundcloud.com/stream/2132965206-user-519789566-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success.mp3#t=987"
+    },
+    {
+      "card": "Academy Manufactor",
+      "printing": "Pack foil / cheaper foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$7.50",
+      "entry_target": {
+        "raw": "$7.50",
+        "currency": "USD",
+        "minimum": 7.5,
+        "maximum": 7.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "higher",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "The speaker favors the cheaper regular-frame foils for treasure, clue and food synergies; notes repeated nonfoil reprints."
+      ],
+      "caveats": [
+        "Non-foil versions have received repetitive reprints acting as a price anchor."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1260,
+      "end_seconds": 1453,
+      "evidence_excerpt": "I want to pick up the cheaper foil so it can rise up cuz I don't know that the FAE copies... would be the one where we could make the most profit.",
+      "review_status": "needs_review",
+      "review_reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
+      "id": "pick-c3453f983643ed5c",
+      "timestamp": "00:21:00",
+      "listen_url": "https://feeds.soundcloud.com/stream/2132965206-user-519789566-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success.mp3#t=1260"
+    },
+    {
+      "card": "Earth Crystal",
+      "printing": "Borderless Foils",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$12 or $13",
+      "entry_target": {
+        "raw": "$12 or $13",
+        "currency": "USD",
+        "minimum": 12,
+        "maximum": 13
+      },
+      "hold": "6 to 18 month timeline",
+      "exit_target": {
+        "raw": "25 plus",
+        "currency": "USD",
+        "minimum": 25,
+        "maximum": null
+      },
+      "reasoning": [
+        "Functional mana rock that reduces green spell costs and doubles counters.",
+        "+1/+1 counters theme is massive in Commander and continually supported."
+      ],
+      "caveats": [
+        "Japanese versions may be found cheaper."
+      ],
+      "confidence": "high",
+      "start_seconds": 1453,
+      "end_seconds": 1878,
+      "evidence_excerpt": "6 to 12, maybe even 18 month timeline to call these 13 to 25 plus seems pretty likely.",
+      "review_status": "needs_review",
+      "review_reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
+      "id": "pick-038409f3f3e3c2da",
+      "timestamp": "00:24:13",
+      "listen_url": "https://feeds.soundcloud.com/stream/2132965206-user-519789566-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success.mp3#t=1453"
     }
   ]
 }

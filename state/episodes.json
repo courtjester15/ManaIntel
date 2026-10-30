@@ -32340,7 +32340,7 @@
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
       "attempt_count": 3,
-      "pick_count": 2,
+      "pick_count": 4,
       "error": null,
       "status": "needs_review",
       "updated_at": "2026-10-30T02:36:08Z",
@@ -32496,18 +32496,24 @@
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
       "review_issues": [
         {
           "code": "coverage",
-          "path": "extraction",
-          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "path": "section",
+          "reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
           "state": "unresolved"
         },
         {
-          "code": "printing",
-          "path": "extraction",
-          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "code": "unspecified",
+          "path": "recommendations.pick-c3453f983643ed5c",
+          "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
+          "state": "unresolved"
+        },
+        {
+          "code": "unspecified",
+          "path": "recommendations.pick-038409f3f3e3c2da",
+          "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
           "state": "unresolved"
         }
       ]
