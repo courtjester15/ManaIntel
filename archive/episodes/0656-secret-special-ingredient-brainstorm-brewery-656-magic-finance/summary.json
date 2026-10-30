@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15688",
+    "episode_number": 656,
+    "title": "Secret Special Ingredient | Brainstorm Brewery #656 | Magic Finance",
+    "published_at": "2025-07-11T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_656_Secret_Special_Ingredient.mp3",
+    "episode_url": "https://brainstormbrewery.com/secret-special-ingredient-brainstorm-brewery-656-magic-finance/",
+    "duration_seconds": 3814,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "DJ (@CardgardenMTG), and Cass (@devotedDruid) are off the rails and finding new ways to supplement human nutrition as they deliver you all the latest on Edge of Eternities, rumors on secret lairs, and more. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.19",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-30T00:00:31Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-29T23:56:42Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-29T23:56:42Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-29T23:56:43Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-29T23:56:43Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-29T23:56:44Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-29T23:56:45Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-29T23:57:04Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-30T00:00:27Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-30T00:00:27Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-30T00:00:31Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-30T00:00:31Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-30T00:00:31Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-30T00:00:31Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3814,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 37.764,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17246,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22696,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 197
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39942,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.166,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17534,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22697,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 197
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 40231,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 40.148,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18626,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22697,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 197
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41323,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 31.445,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14545,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22697,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 197
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37242,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 214,
+          "request_seconds": 7.945,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2978,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 5530,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 197
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 5333
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 8508,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1066,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 23209,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 23209
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 24275,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 2075,
+    "end_seconds": 3798,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Sol Ring",
+      "printing": "Elven text / non-serialized from Lord of the Rings",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "now is probably a good time to grab them",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "liable to go up",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "We know the print runs on them and there are not many.",
+        "There is not a ton of universes beyond stuff in this category, and all of it seems liable to go up."
+      ],
+      "caveats": [
+        "Counterfeit risk exists for high-end cards."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2079,
+      "end_seconds": 2132,
+      "evidence_excerpt": "I think actually the kind of card from this this grouping that is the most under-explored right now is the non-serialized sol rings from Lord of the Rings, just like the Elven text ones.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-17dec4845d8c0bc6",
+      "timestamp": "00:34:39",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_656_Secret_Special_Ingredient.mp3#t=2079"
+    },
+    {
+      "card": "Mechanized Production",
+      "printing": "Secret Lair version that has the enchantment frame",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "unprinted long enough",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "potential to do so",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "The enchantment-framed Secret Lair version will have the lowest supply and scale best with card optimization.",
+        "New sets deal with food tokens and utilities like treasure, food, and clue, providing easy win conditions."
+      ],
+      "caveats": [
+        "It has been hit by the reprint hammer a lot more."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2955,
+      "end_seconds": 3082,
+      "evidence_excerpt": "My pick of the week is mechanized production... My subversion specific pick of this that I think I would go with is the non-foil Secret Lair version that has the enchantment frame.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-79d319a3ff0157e7",
+      "timestamp": "00:49:15",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_656_Secret_Special_Ingredient.mp3#t=2955"
+    },
+    {
+      "card": "Yuna, Hope of Spira",
+      "printing": "Final Fantasy mythic",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$15",
+      "entry_target": {
+        "raw": "get four of them now",
+        "currency": "USD",
+        "minimum": 14,
+        "maximum": 15
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "buy it for 15 and then you get your 25% just very very easily later on",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Seeing play in standard now in the post-ban world as part of green-white enchantress decks.",
+        "Card does all the green-white enchantress things and is hard to remove efficiently."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 3126,
+      "end_seconds": 3400,
+      "evidence_excerpt": "Yuna Hope of Spira is a card seeing playing standard now in the post ban world... if you're going to try and play standard with this card, get four of them now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1f62dff272a5c76a",
+      "timestamp": "00:52:06",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_656_Secret_Special_Ingredient.mp3#t=3126"
+    }
+  ]
+}
