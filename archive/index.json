@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.20",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-30T10:56:04Z",
+    "generated_at": "2026-10-30T23:46:11Z",
     "latest_successful_run_at": "2026-10-30T05:52:16Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -5004,18 +5004,18 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-30T02:39:40Z",
+      "processed_at": "2026-10-30T23:46:10Z",
       "error": {
         "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "message": "Timing/coverage repair of original chunk 7/7 failed: Gemini transcription chunk 1/1 failed after 42.1s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
         "category": "repair_progress_saved",
         "synthetic": false,
-        "retryable": true,
+        "retryable": false,
         "provider_wide": false,
-        "attempt": 2,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-10-30T08:39:40Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "human_reviewed": false,
       "reviewed_at": null,

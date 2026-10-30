@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.20",
-  "updated_at": "2026-10-30T10:56:04Z",
+  "updated_at": "2026-10-30T23:46:10Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32894,6 +32894,30 @@
         {
           "status": "failed",
           "timestamp": "2026-10-30T02:39:40Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-30T23:45:00Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-30T23:45:00Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-30T23:45:02Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-30T23:45:02Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-30T23:45:28Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-30T23:46:10Z"
         }
       ],
       "title": "MTG Fast Finance Ep 484: Edge of Eternities Previews Part 2",
@@ -32901,22 +32925,22 @@
       "published_at": "2025-07-11T23:21:48Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "message": "Timing/coverage repair of original chunk 7/7 failed: Gemini transcription chunk 1/1 failed after 42.1s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
         "category": "repair_progress_saved",
         "synthetic": false,
-        "retryable": true,
+        "retryable": false,
         "provider_wide": false,
-        "attempt": 2,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-10-30T08:39:40Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-10-30T02:39:40Z",
+      "updated_at": "2026-10-30T23:46:10Z",
       "output_directory": "episodes/0484-edge-of-eternities-previews-part-2"
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15688": {
