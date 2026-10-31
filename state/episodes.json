@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.20",
-  "updated_at": "2026-10-31T10:26:34Z",
+  "updated_at": "2026-10-31T23:28:21Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -33757,6 +33757,65 @@
       "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": null,
       "review_issues": []
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=36651": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-10-31T23:24:34Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-31T23:24:34Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-31T23:24:34Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-31T23:24:34Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-31T23:24:35Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-31T23:24:35Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-31T23:24:52Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-31T23:28:21Z"
+        }
+      ],
+      "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
+      "episode_number": 724,
+      "published_at": "2026-10-31T06:10:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 5/5 failed: Gemini transcription chunk 1/1 failed after 14.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-01T05:28:21Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-10-31T23:28:21Z",
+      "output_directory": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance"
     }
   }
 }
