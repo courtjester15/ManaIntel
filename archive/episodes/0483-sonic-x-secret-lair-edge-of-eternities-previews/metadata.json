@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2123582118",
+    "episode_number": 483,
+    "title": "MTG Fast Finance Ep 483: Sonic x Secret Lair + Edge of Eternities Previews",
+    "published_at": "2025-07-03T17:20:55Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2123582118-user-519789566-mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews",
+    "duration_seconds": 3273,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys go over the hottest paper and digital cardboard this week, the newly announce Sonic the Hedgehog x Secret Lair drop and the early previews for Edge of Eternities.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.20",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-31T05:42:04Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-31T05:38:34Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-31T05:38:54Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-31T05:42:00Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-31T05:42:00Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-31T05:42:04Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-31T05:42:04Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-31T05:42:04Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-31T05:42:04Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3273,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 29.122,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11118,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22666,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33784,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 32.233,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14593,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22667,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37260,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.179,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14426,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22667,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37093,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 573,
+          "request_seconds": 34.165,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8971,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 14494,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 14327
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 23465,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1719,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 11291,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 11291
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 13010,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0483-sonic-x-secret-lair-edge-of-eternities-previews/metadata.json",
+    "summary_json": "episodes/0483-sonic-x-secret-lair-edge-of-eternities-previews/summary.json",
+    "summary_markdown": "episodes/0483-sonic-x-secret-lair-edge-of-eternities-previews/summary.md"
+  }
+}

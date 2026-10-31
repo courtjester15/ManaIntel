@@ -1,0 +1,421 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2123582118",
+    "episode_number": 483,
+    "title": "MTG Fast Finance Ep 483: Sonic x Secret Lair + Edge of Eternities Previews",
+    "published_at": "2025-07-03T17:20:55Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2123582118-user-519789566-mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews",
+    "duration_seconds": 3273,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys go over the hottest paper and digital cardboard this week, the newly announce Sonic the Hedgehog x Secret Lair drop and the early previews for Edge of Eternities.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.20",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-10-31T05:42:04Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-31T05:38:34Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-31T05:38:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-31T05:38:54Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-10-31T05:42:00Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-10-31T05:42:00Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-10-31T05:42:04Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-10-31T05:42:04Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-10-31T05:42:04Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-10-31T05:42:04Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3273,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 29.122,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11118,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22666,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33784,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 32.233,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14593,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22667,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37260,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.179,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14426,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22667,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37093,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 573,
+          "request_seconds": 34.165,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 8971,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 14494,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 14327
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 167
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 23465,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1719,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 11291,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 11291
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 13010,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 806,
+    "end_seconds": 1699,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Sire of Seven Deaths",
+      "printing": "manafoil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Ted Wong"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "170",
+      "entry_target": {
+        "raw": "170",
+        "currency": "USD",
+        "minimum": 170,
+        "maximum": 170
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "300",
+        "currency": "USD",
+        "minimum": 300,
+        "maximum": 300
+      },
+      "reasoning": [
+        "There are not that many copies lying around.",
+        "It is the best treatment of a top foundations card, so there are not a lot of collector boosters around to pull it.",
+        "Eldrazi are back on the menu with leaks from Edge of Eternities, which could bring resurgent interest.",
+        "It is an auto include in every Eldrazi deck in EDH.",
+        "It just got printed six months ago, so a reprint is unlikely anytime soon."
+      ],
+      "caveats": [
+        "It doesn't even sell one copy a day.",
+        "Mostly only one variant of Eldrazi decks in Modern is running it, alongside EDHREC demand."
+      ],
+      "confidence": "medium",
+      "start_seconds": 812,
+      "end_seconds": 982,
+      "evidence_excerpt": "I chose the manafoil, which is um as the rarest and most premium version and um they're pretty pricey, to be clear. Um the TCG low right now is about 170 and I have it going up to 300 probably in the next 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-304bdda32958d082",
+      "timestamp": "00:13:32",
+      "listen_url": "https://feeds.soundcloud.com/stream/2123582118-user-519789566-mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews.mp3#t=812"
+    },
+    {
+      "card": "The One Ring",
+      "printing": "Extended Art Surge Foils",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Ted Wong"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "140",
+      "entry_target": {
+        "raw": "150, 160, 170",
+        "currency": "USD",
+        "minimum": 150,
+        "maximum": 170
+      },
+      "hold": "within the year",
+      "exit_target": {
+        "raw": "250 to 300",
+        "currency": "USD",
+        "minimum": 250,
+        "maximum": 300
+      },
+      "reasoning": [
+        "Steep ramp up over 200 is looking pretty strong.",
+        "Only 18 listings left and almost no vendor has more than one copy.",
+        "It is a staple in pretty much every EDH deck.",
+        "Players just want nice looking versions of this key card in their decks."
+      ],
+      "caveats": [
+        "At some point they are going to reprint The One Ring, though it might have a different name."
+      ],
+      "confidence": "medium",
+      "start_seconds": 985,
+      "end_seconds": 1115,
+      "evidence_excerpt": "I'm looking at the one ring Extended Art Surge foils... So if you can get anything near 150, 160, 170, I have a feeling these end up in the 250 to 300 range again, far enough down the road.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-a8469924b52f93a0",
+      "timestamp": "00:16:25",
+      "listen_url": "https://feeds.soundcloud.com/stream/2123582118-user-519789566-mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews.mp3#t=985"
+    },
+    {
+      "card": "Scapeshift",
+      "printing": "special guest version in foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Ted Wong"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "85",
+      "entry_target": {
+        "raw": "85",
+        "currency": "USD",
+        "minimum": 85,
+        "maximum": 85
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "150",
+        "currency": "USD",
+        "minimum": 150,
+        "maximum": 150
+      },
+      "reasoning": [
+        "It is a staple card in Landfall decks and this is the fanciest version.",
+        "We are seeing quite a bit of the Landfall mechanic in Final Fantasy and Edge of Eternities.",
+        "Only 10 listings left on TCGplayer.",
+        "In the first year since release they have sold 252 copies."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1120,
+      "end_seconds": 1275,
+      "evidence_excerpt": "This is uh the special guest version in foil of scape shift... there's only like a dozen listings on TCG. Though you can get in at $85 right now and there's a pretty steep ramp um upwards and I have a sell target of 150 on it.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-7a1c320d6e580663",
+      "timestamp": "00:18:40",
+      "listen_url": "https://feeds.soundcloud.com/stream/2123582118-user-519789566-mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews.mp3#t=1120"
+    },
+    {
+      "card": "Stoneforge Mystic",
+      "printing": "Rebecca Guay Secret Lair Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Ted Wong"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "30",
+      "entry_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30,
+        "maximum": 30
+      },
+      "hold": "this year",
+      "exit_target": {
+        "raw": "50",
+        "currency": "USD",
+        "minimum": 50,
+        "maximum": 50
+      },
+      "reasoning": [
+        "Down to just 12 listings on TCGplayer.",
+        "Equipment decks are getting strong support with Cloud plus Captain America and other equipment commanders.",
+        "Rebecca Guay is a popular artist with unique art.",
+        "Steady sales of roughly one copy a day."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 1276,
+      "end_seconds": 1433,
+      "evidence_excerpt": "I'm talking about the Rebecca Guay Stoneforge Mystic Foils from Secret Layer. We're down to just 12 listings on these. They're at about 30 bucks... go from 30 to 50.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8ec48050cf8421a1",
+      "timestamp": "00:21:16",
+      "listen_url": "https://feeds.soundcloud.com/stream/2123582118-user-519789566-mtg-fast-finance-ep-483-sonic-x-secret-lair-edge-of-eternities-previews.mp3#t=1276"
+    }
+  ]
+}
