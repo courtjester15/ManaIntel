@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.20",
-  "updated_at": "2026-10-31T05:42:04Z",
+  "updated_at": "2026-10-31T10:26:34Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -27348,6 +27348,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-17T04:27:37Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-10-31T10:25:18Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-10-31T10:25:18Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-10-31T10:25:19Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-31T10:25:19Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-10-31T10:25:37Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-10-31T10:26:34Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-10-31T10:26:34Z"
         }
       ],
       "title": "Load Bearing Corbin | Brainstorm Brewery #722 | Magic Finance",
@@ -27355,11 +27383,11 @@
       "published_at": "2026-10-16T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 7,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-17T04:27:37Z",
+      "updated_at": "2026-10-31T10:26:34Z",
       "output_directory": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -27532,7 +27560,19 @@
           "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": false,
+        "attempt": 3,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15713": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15713",
