@@ -203,7 +203,7 @@ FF484 [40992782564](https://github.com/courtjester15/ManaIntel/actions/runs/4099
 
 FF485 inspected correction committed as 05b387f; final [deployment40993140777](https://github.com/courtjester15/ManaIntel/actions/runs/40993140777) passed checks and Pages. Served summary verified four recommendations: original IDs pick-f7deb535c00519a7 / pick-b3d97cf2266997a9 preserved; Academy Manufactor and Earth Crystal remain needs_review with no per-pick host asserted. Checkout synchronized; scratch preview/apply reclaimed0 MiB, session test logs removed and incident evidence protected. No additional recovery calls or cooldown bypass. Next: inspect FF484 normal saved-progress continuation after04:39 EDT October30; keep remaining review work explicit.
 
-October 31 authorized three-item pass (0.5.21, deployment pending): synchronized
+October 31 authorized three-item pass (0.5.21, deployment verified): synchronized
 production archive/state through b1a70ab. FF484 normal continuation
 [41146214025](https://github.com/courtjester15/ManaIntel/actions/runs/41146214025)
 ran October 30 at 19:45 EDT, spent eight successful model calls and stopped on
@@ -232,3 +232,15 @@ prompt, retry budget or processing-default changes. Local suite239 passing,
 including five Node behavioral/rendering checks; archive validation passed.
 Codex in-app browser timed out; no external-browser/desktop fallback.
 Deployment evidence follows after production verification.
+
+0.5.21 closeout: implementation6743b98;
+[production41270224978](https://github.com/courtjester15/ManaIntel/actions/runs/41270224978)
+passed production tests, archive validation, persistence/publication and Pages.
+Served catalog reports0.5.21 and served app includes exhausted-retry guidance
+and recovery-detail controls. Served FF484 remains failed with zero picks,
+attempt3/3, quarantined and no next retry; BB667 remains complete with its
+original three picks. The two suspected BB667 fields are unchanged. No new
+inference calls or episode retries were made in this pass. Scratch preview/apply
+reclaimed0 MiB; new test logs removed, incident/proposal evidence pinned.
+Next: independent BB667 source listening; FF484 final-clip diagnosis before
+any further recovery. In-app browser visual verification remains unavailable.
