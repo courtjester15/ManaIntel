@@ -1,0 +1,429 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
+    "episode_number": 724,
+    "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
+    "published_at": "2026-10-31T06:10:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3",
+    "episode_url": "https://brainstormbrewery.com/that-game-one-shots-peoples-moms-brainstorm-brewery-724-magic-finance/",
+    "duration_seconds": 3721,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "DJ (@CardgardenMTG) is back and has a truck load of new product while Liz&#160; (@devotedDruid) tries to prepare Corbin (@CHosler) for MagicCon Atlanta Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.21",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-01T06:00:45Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-10-31T23:24:34Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-31T23:24:34Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-31T23:24:34Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-31T23:24:34Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-31T23:24:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-31T23:24:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-31T23:24:52Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-31T23:28:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-01T06:00:14Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-01T06:00:14Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-01T06:00:16Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-01T06:00:16Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-01T06:00:33Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-01T06:00:40Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-01T06:00:40Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-01T06:00:44Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-01T06:00:45Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-01T06:00:45Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-01T06:00:45Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3721,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 33.126,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15241,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22700,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37941,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 42.629,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16777,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22701,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39478,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 31.338,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14168,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22701,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36869,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 16.664,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7224,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22701,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 29925,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 121,
+          "request_seconds": 5.457,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 3218,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 201
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 3017
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 3233,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1020,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 35198,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 35198
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 36218,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 771,
+    "end_seconds": 3706,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Blur",
+      "printing": "Commander Legends: Battle for Baldur's Gate",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "Buy bulk / pick through bulk",
+      "mentioned_price": "40 cents",
+      "entry_target": {
+        "raw": "40 cents TCG market",
+        "currency": "USD",
+        "minimum": 0.4,
+        "maximum": 0.4
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50 cents",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": 0.5
+      },
+      "reasoning": [
+        "Exiles target creature you control, returns it, and draws a card.",
+        "Triggers enter-the-battlefield abilities and works in response to removal."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 900,
+      "end_seconds": 948,
+      "evidence_excerpt": "It is blur. That's stupid. It's like 40 cents TCG market. And you can list these all day at 50 cents, and they will sell every now and again.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5a2a41fe6931b82a",
+      "timestamp": "00:15:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=900"
+    },
+    {
+      "card": "Nethergoyf",
+      "printing": "Modern Horizons 3",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "Buy",
+      "mentioned_price": "$7 or $8",
+      "entry_target": {
+        "raw": "$7 or $8",
+        "currency": "USD",
+        "minimum": 7,
+        "maximum": 8
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10,
+        "maximum": 10
+      },
+      "reasoning": [
+        "It is a mythic rare.",
+        " Rakdos graveyard decks are a real archetype in Modern seeing a lot of success."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2214,
+      "end_seconds": 2244,
+      "evidence_excerpt": "That pick of the week is for Modern Horizons 3, it's Nethergoyf. This card is sweet, it's about $7 or $8... Nethergoyf is going to go to at least $10.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-71c762bc9d8a44f7",
+      "timestamp": "00:36:54",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=2214"
+    },
+    {
+      "card": "Flame Fusillade",
+      "printing": "Ravnica: City of Guilds",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "Buy",
+      "mentioned_price": "a buck 50 or two bucks",
+      "entry_target": {
+        "raw": "a buck 50 or two bucks",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 2
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "pop eventually",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "No reprints in 20 years.",
+        "Allows permanents like tokens, clues, food, and lands to tap for damage."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2291,
+      "end_seconds": 2331,
+      "evidence_excerpt": "And I came across the old brainstorm grew a classic pick of the week, flame fusillade... and it's still only like a buck 50 or two bucks. This card has to pop eventually.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-668964dcb0805e37",
+      "timestamp": "00:38:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=2291"
+    }
+  ]
+}

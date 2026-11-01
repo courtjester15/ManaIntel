@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.20",
+    "pipeline_version": "0.5.21",
     "schema_version": "1.1.0",
-    "generated_at": "2026-10-31T23:28:21Z",
-    "latest_successful_run_at": "2026-10-31T05:42:04Z",
+    "generated_at": "2026-11-01T06:00:45Z",
+    "latest_successful_run_at": "2026-11-01T06:00:45Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 131,
-    "real_pick_count": 516,
+    "real_pick_count": 519,
     "last_discovered_episode_date": "2026-10-31T06:10:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 131,
-    "picks": 516,
-    "needs_review": 54,
-    "failed": 2,
+    "picks": 519,
+    "needs_review": 55,
+    "failed": 1,
     "completed": 75
   },
   "status_counts": {
-    "failed": 2,
+    "needs_review": 55,
     "complete": 75,
-    "needs_review": 54
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
@@ -63,31 +63,20 @@
     "source_name": "Brainstorm Brewery",
     "source_url": "https://brainstormbrewery.com/",
     "extraction_profile": "brainstorm_brewery",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "pick_count": 0,
+    "processing_status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "pick_count": 3,
     "directory": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance",
     "outputs": {
       "metadata": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "summary_json": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance/summary.json",
+      "summary_markdown": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-10-31T23:28:21Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Timing/coverage repair of original chunk 5/5 failed: Gemini transcription chunk 1/1 failed after 14.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 1,
-      "max_attempts": 3,
-      "next_retry_at": "2026-11-01T05:28:21Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-11-01T06:00:45Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -95,6 +84,198 @@
     "synthetic": false
   },
   "recent_picks": [
+    {
+      "card": "Flame Fusillade",
+      "printing": "Ravnica: City of Guilds",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "Buy",
+      "mentioned_price": "a buck 50 or two bucks",
+      "entry_target": {
+        "raw": "a buck 50 or two bucks",
+        "currency": "USD",
+        "minimum": 1.5,
+        "maximum": 2
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "pop eventually",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "No reprints in 20 years.",
+        "Allows permanents like tokens, clues, food, and lands to tap for damage."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2291,
+      "end_seconds": 2331,
+      "evidence_excerpt": "And I came across the old brainstorm grew a classic pick of the week, flame fusillade... and it's still only like a buck 50 or two bucks. This card has to pop eventually.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-668964dcb0805e37",
+      "timestamp": "00:38:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=2291",
+      "card_resolution": {
+        "raw_name": "Flame Fusillade",
+        "normalized_name": "flame fusillade",
+        "status": "verified",
+        "canonical_name": "Flame Fusillade",
+        "scryfall_id": "7fcad5f0-53c4-4b72-ac05-ef9ca5b55611",
+        "oracle_id": "b45cb1b8-091a-40d2-a53a-2fa95845f4fa",
+        "scryfall_uri": "https://scryfall.com/card/rav/123/flame-fusillade?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/7/f/7fcad5f0-53c4-4b72-ac05-ef9ca5b55611.jpg?1783943654",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-01T06:00:45Z"
+      },
+      "resolved_card": "Flame Fusillade",
+      "oracle_id": "b45cb1b8-091a-40d2-a53a-2fa95845f4fa",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
+        "episode_number": 724,
+        "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
+        "published_at": "2026-10-31T06:10:00Z",
+        "episode_url": "https://brainstormbrewery.com/that-game-one-shots-peoples-moms-brainstorm-brewery-724-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Nethergoyf",
+      "printing": "Modern Horizons 3",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "Buy",
+      "mentioned_price": "$7 or $8",
+      "entry_target": {
+        "raw": "$7 or $8",
+        "currency": "USD",
+        "minimum": 7,
+        "maximum": 8
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10,
+        "maximum": 10
+      },
+      "reasoning": [
+        "It is a mythic rare.",
+        " Rakdos graveyard decks are a real archetype in Modern seeing a lot of success."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2214,
+      "end_seconds": 2244,
+      "evidence_excerpt": "That pick of the week is for Modern Horizons 3, it's Nethergoyf. This card is sweet, it's about $7 or $8... Nethergoyf is going to go to at least $10.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-71c762bc9d8a44f7",
+      "timestamp": "00:36:54",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=2214",
+      "card_resolution": {
+        "raw_name": "Nethergoyf",
+        "normalized_name": "nethergoyf",
+        "status": "verified",
+        "canonical_name": "Nethergoyf",
+        "scryfall_id": "3ee3945e-5089-4751-b7b3-5961c39d2a33",
+        "oracle_id": "040cbd8a-a9e5-454b-a5ae-9b66bb66b8e9",
+        "scryfall_uri": "https://scryfall.com/card/mh3/103/nethergoyf?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/3/e/3ee3945e-5089-4751-b7b3-5961c39d2a33.jpg?1783911277",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-01T06:00:45Z"
+      },
+      "resolved_card": "Nethergoyf",
+      "oracle_id": "040cbd8a-a9e5-454b-a5ae-9b66bb66b8e9",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
+        "episode_number": 724,
+        "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
+        "published_at": "2026-10-31T06:10:00Z",
+        "episode_url": "https://brainstormbrewery.com/that-game-one-shots-peoples-moms-brainstorm-brewery-724-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Blur",
+      "printing": "Commander Legends: Battle for Baldur's Gate",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "Buy bulk / pick through bulk",
+      "mentioned_price": "40 cents",
+      "entry_target": {
+        "raw": "40 cents TCG market",
+        "currency": "USD",
+        "minimum": 0.4,
+        "maximum": 0.4
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50 cents",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": 0.5
+      },
+      "reasoning": [
+        "Exiles target creature you control, returns it, and draws a card.",
+        "Triggers enter-the-battlefield abilities and works in response to removal."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 900,
+      "end_seconds": 948,
+      "evidence_excerpt": "It is blur. That's stupid. It's like 40 cents TCG market. And you can list these all day at 50 cents, and they will sell every now and again.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5a2a41fe6931b82a",
+      "timestamp": "00:15:00",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=900",
+      "card_resolution": {
+        "raw_name": "Blur",
+        "normalized_name": "blur",
+        "status": "verified",
+        "canonical_name": "Blur",
+        "scryfall_id": "77a43413-3ab0-4ef6-83de-192a11d48f00",
+        "oracle_id": "00b36996-43c6-42a5-892c-c7c8864cf973",
+        "scryfall_uri": "https://scryfall.com/card/clb/58/blur?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/7/7/77a43413-3ab0-4ef6-83de-192a11d48f00.jpg?1783922795",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-01T06:00:45Z"
+      },
+      "resolved_card": "Blur",
+      "oracle_id": "00b36996-43c6-42a5-892c-c7c8864cf973",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
+        "episode_number": 724,
+        "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
+        "published_at": "2026-10-31T06:10:00Z",
+        "episode_url": "https://brainstormbrewery.com/that-game-one-shots-peoples-moms-brainstorm-brewery-724-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
     {
       "card": "Purphoros, God of the Forge",
       "printing": null,
@@ -294,246 +475,6 @@
       },
       "processing_status": "complete",
       "human_reviewed": false
-    },
-    {
-      "card": "Llanowar Elves",
-      "printing": "Secret Lair bonus card — Pauline Voss art",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "James"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$10",
-      "entry_target": {
-        "raw": "10",
-        "currency": "$",
-        "minimum": 10,
-        "maximum": 10
-      },
-      "hold": "6 to 12 months",
-      "exit_target": {
-        "raw": "20",
-        "currency": "$",
-        "minimum": 20,
-        "maximum": 20
-      },
-      "reasoning": [
-        "High art quality and popular art by Pauline Voss",
-        "Bonus card for the same set as the dark ritual Liliana"
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 1315,
-      "end_seconds": 1325,
-      "evidence_excerpt": "Lanavar elves... 42 listings currently, $10 pretty far up the ramp, but these are going to go 10 to 20 in a heartbeat.",
-      "review_status": "approved",
-      "review_reason": null,
-      "identity_start_seconds": 1274,
-      "id": "pick-e66afcdee199e602",
-      "timestamp": "00:21:55",
-      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1315",
-      "identity_printing": null,
-      "host_attribution": {
-        "method": "introduction_and_section_audio_two_readings",
-        "model": "gemini-3.5-flash-lite",
-        "recovered_at": "2026-10-23T03:28:02Z",
-        "audio_confirmed": true,
-        "anchor_quote": "I am your host James Chillcott",
-        "recommendation_quote": "This next one, it was obvious to me, it was a brick the second I saw it.",
-        "confirmation_quote": "This next one, it was obvious to me, it was a brick the second I saw it."
-      },
-      "card_resolution": {
-        "raw_name": "Llanowar Elves",
-        "normalized_name": "llanowar elves",
-        "status": "verified",
-        "canonical_name": "Llanowar Elves",
-        "scryfall_id": "6a0b230b-d391-4998-a3f7-7b158a0ec2cd",
-        "oracle_id": "68954295-54e3-4303-a6bc-fc4547a4e3a3",
-        "scryfall_uri": "https://scryfall.com/card/fdn/227/llanowar-elves?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/6/a/6a0b230b-d391-4998-a3f7-7b158a0ec2cd.jpg?1783909057",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-21T03:25:15Z"
-      },
-      "resolved_card": "Llanowar Elves",
-      "oracle_id": "68954295-54e3-4303-a6bc-fc4547a4e3a3",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2422332303",
-        "episode_number": 537,
-        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
-        "published_at": "2026-10-19T22:23:10Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
-        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
-    },
-    {
-      "card": "Ojer Axonl, Deepest Might",
-      "printing": "showcase foil",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [],
-      "recommendation": "buy",
-      "mentioned_price": "$35 or $40",
-      "entry_target": {
-        "raw": "35 or 40",
-        "currency": "$",
-        "minimum": 35,
-        "maximum": 40
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "60 to 80",
-        "currency": "$",
-        "minimum": 60,
-        "maximum": 80
-      },
-      "reasoning": [
-        "Insulated from reprint potential because of being a flip card",
-        "Synergizes well with Stinger Quill"
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 1080,
-      "end_seconds": 1100,
-      "evidence_excerpt": "Ozeer Axdil, deepest might showcase foils... push up from say this $35 or $40 price tag up to like 60 to 80",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-dd423c01a7738ae1",
-      "timestamp": "00:18:00",
-      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=1080",
-      "card_resolution": {
-        "raw_name": "Ojer Axonl, Deepest Might",
-        "normalized_name": "ojer axonl, deepest might",
-        "status": "verified",
-        "canonical_name": "Ojer Axonil, Deepest Might // Temple of Power",
-        "scryfall_id": "50f8e2b6-98c7-4f28-bb39-e1fbe841f1ee",
-        "oracle_id": "d3b7b541-6f05-46c1-8031-c848c4bd4635",
-        "scryfall_uri": "https://scryfall.com/card/lci/158/ojer-axonil-deepest-might-temple-of-power?utm_source=api",
-        "image_uri": null,
-        "card_face_images": [
-          {
-            "name": "Ojer Axonil, Deepest Might",
-            "image_uri": "https://cards.scryfall.io/normal/front/5/0/50f8e2b6-98c7-4f28-bb39-e1fbe841f1ee.jpg?1783913761"
-          },
-          {
-            "name": "Temple of Power",
-            "image_uri": "https://cards.scryfall.io/normal/back/5/0/50f8e2b6-98c7-4f28-bb39-e1fbe841f1ee.jpg?1783913761"
-          }
-        ],
-        "method": "inspected_source_rules_and_exact_catalog",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-21T04:07:05Z",
-        "verification_evidence": {
-          "episode_guid": "tag:soundcloud,2010:tracks/2422332303",
-          "retained_run_id": "39539613456",
-          "source_window_seconds": [
-            1145,
-            1180
-          ],
-          "matched_characteristics": [
-            "2RR mana cost",
-            "4/4",
-            "red noncombat damage replaced by power",
-            "transforms into land"
-          ],
-          "canonical_source": "https://media.wizards.com/2023/downloads/LCI_Release_Notes_kUj28nYwbydD/EN_MTGLCI_ReleaseNotes_20231107.pdf#page=39",
-          "scope": "One inspected spelling correction; original extraction and pick ID preserved. No general fuzzy-name approval."
-        }
-      },
-      "resolved_card": "Ojer Axonil, Deepest Might // Temple of Power",
-      "oracle_id": "d3b7b541-6f05-46c1-8031-c848c4bd4635",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2422332303",
-        "episode_number": 537,
-        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
-        "published_at": "2026-10-19T22:23:10Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
-        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
-    },
-    {
-      "card": "Yavimaya, Cradle of Growth",
-      "printing": "Valley Farmstead",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "Cliff"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$16 or $17",
-      "entry_target": {
-        "raw": "16 or 17",
-        "currency": "$",
-        "minimum": 16,
-        "maximum": 17
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "40",
-        "currency": "$",
-        "minimum": 40,
-        "maximum": 40
-      },
-      "reasoning": [
-        "Yavimaya special version with Stardew Valley cred"
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 947,
-      "end_seconds": 968,
-      "evidence_excerpt": "Valley Farmstead/Yavamaya Cradle of Growth... $16 or $17 right now, market price. For these to go to 40 seems pretty easy",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-d6c4c0935ba834e6",
-      "timestamp": "00:15:47",
-      "listen_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3#t=947",
-      "host_attribution": {
-        "method": "introduction_and_section_audio_two_readings",
-        "model": "gemini-3.5-flash-lite",
-        "recovered_at": "2026-10-23T03:28:02Z",
-        "audio_confirmed": true,
-        "anchor_quote": "My co-host is Cliff Dagel",
-        "recommendation_quote": "I'm pretty sure everybody's got their Stardew Valley drops. Yes. from this summer, because I know I have mine in hand",
-        "confirmation_quote": "On the other hand, I'm pretty sure everybody's got their Stardew Valley drops. Yes. from this summer, because I know I have mine in hand."
-      },
-      "card_resolution": {
-        "raw_name": "Yavimaya, Cradle of Growth",
-        "normalized_name": "yavimaya, cradle of growth",
-        "status": "verified",
-        "canonical_name": "Yavimaya, Cradle of Growth",
-        "scryfall_id": "4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c",
-        "oracle_id": "8dd5f5af-d2d8-4356-8617-8381081b930c",
-        "scryfall_uri": "https://scryfall.com/card/mh2/261/yavimaya-cradle-of-growth?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/4/e/4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c.jpg?1783926791",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-10-21T03:57:06Z"
-      },
-      "resolved_card": "Yavimaya, Cradle of Growth",
-      "oracle_id": "8dd5f5af-d2d8-4356-8617-8381081b930c",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2422332303",
-        "episode_number": 537,
-        "title": "MTG Fast Finance Ep 537: Reality Fracture Deep Dive",
-        "published_at": "2026-10-19T22:23:10Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-537",
-        "audio_url": "https://feeds.soundcloud.com/stream/2422332303-user-519789566-mtg-fast-finance-ep-537.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -556,31 +497,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "pick_count": 3,
       "directory": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance",
       "outputs": {
         "metadata": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance/summary.json",
+        "summary_markdown": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-31T23:28:21Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 5/5 failed: Gemini transcription chunk 1/1 failed after 14.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-11-01T05:28:21Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-11-01T06:00:45Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
