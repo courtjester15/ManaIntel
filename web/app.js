@@ -275,7 +275,7 @@ function episodeBadge(episode) {
     : badge(episode?.processing_status);
 }
 function failureReason(error) {
-  if (error?.category === "repair_progress_saved") return "Transcript repair progress was saved. No repair job is running from this status alone. A scheduled run can resume after cooldown and capacity checks.";
+  if (error?.category === "repair_progress_saved") return "Transcript repair progress was saved. No repair job is running from this status alone.";
   if (error?.category === "capacity_deferred") return "Processing paused because the configured request budget cannot cover the next work. Recovery waits for available capacity.";
   const message = String(error?.message ?? "");
   if (!message) return "No failure message was recorded.";
@@ -287,6 +287,26 @@ function failureReason(error) {
   if (lower.includes("response_schema") || lower.includes("response_json_schema")) return "The AI provider rejected the structured JSON schema.";
   return message.length > 220 ? `${escapeHtml(message.slice(0, 220))}â€¦` : escapeHtml(message);
 }
+function recoveryAction(error, now = Date.now()) {
+  if (!error) return "";
+  const attempt = Number(error.attempt);
+  const maximum = Number(error.max_attempts);
+  if (maximum > 0 && attempt >= maximum) {
+    return "Automatic retry limit reached. Inspect retained evidence before a manual recovery; saved progress is preserved.";
+  }
+  if (error.quarantined || error.retryable !== true || error.category === "manual_intervention") {
+    return "Manual intervention required. Inspect the failure and retained evidence before an exact-episode recovery.";
+  }
+  const eligible = Date.parse(error.next_retry_at);
+  if (!Number.isFinite(eligible)) {
+    return "Retry timing is not recorded. Check the workflow and recovery settings before retrying.";
+  }
+  if (eligible > now) {
+    return `Cooldown until ${formatDateTime(error.next_retry_at)}. A later scheduled run may select this episode, subject to capacity and priority.`;
+  }
+  return "Eligible for a later scheduled run, subject to capacity and priority. Eligibility does not mean a job is queued or running.";
+}
+
 function episodeAction(episode) {
   if (!episode) return "";
   return canOpenSummary(episode)
@@ -442,7 +462,7 @@ function renderPickTable() {
 
 function renderStatus() {
   const episodes = sortRows(state.index.episodes, { key: "processed_at", direction: "desc" }, episodeSortAccessors);
-  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes · newest activity first</span></div><div class="panel-body status-timeline">${episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)} ${recentBadge(episode)}</strong><small>${episode.review_reason ? `${escapeHtml(episode.review_reason)} · ${activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}` : `${episode.pick_count} structured picks · published ${formatDate(episode.published_at)} · ${activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}`}</small></div>${episodeBadge(episode)}</div>`).join("")}</div></article>`;
+  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes · newest activity first</span></div><div class="panel-body status-timeline">${episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)} ${recentBadge(episode)}</strong><small>${episode.review_reason ? `${escapeHtml(episode.review_reason)} · ${episode.error ? "last attempt" : activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}` : `${episode.pick_count} structured picks · published ${formatDate(episode.published_at)} · ${episode.error ? "last attempt" : activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}`}</small>${episode.error ? `<small class="status-recovery">${failureReason(episode.error)}<br><strong>Next action:</strong> ${escapeHtml(recoveryAction(episode.error))}</small>` : ""}<div class="latest-actions"><button class="button secondary" type="button" data-episode-guid="${escapeHtml(episode.guid)}">View ${episode.error ? "recovery" : "episode"} details</button></div></div>${episodeBadge(episode)}</div>`).join("")}</div></article>`;
 }
 
 function renderAbout() {
@@ -586,7 +606,7 @@ function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
   const summaryLink = canOpenSummary(episode) ? `<a class="button secondary" href="${episodeSummaryUrl(episode)}" target="_blank">Open summary</a>` : "";
   const episodePicks = state.cards.filter((pick) => pick.episode.guid === episode.guid);
   const workflowUrl = safeUrl(state.index.metadata.workflow_url);
-  const retryControls = episode.error ? `<div class="detail-section"><h3>Retry this exact episode</h3><p>Copy the GUID, open Actions, choose <strong>Run workflow</strong>, leave mode at <strong>next</strong>, and paste it into <strong>force_guid</strong>. Exact retry bypasses cooldown and quarantine.</p><div class="latest-actions"><button class="button secondary" type="button" data-copy-guid="${escapeHtml(episode.guid)}">Copy retry GUID</button><a class="button secondary" href="${workflowUrl}" target="_blank" rel="noreferrer">Open retry workflow</a></div></div>` : "";
+  const retryControls = episode.error ? `<div class="detail-section"><h3>Retry this exact episode</h3><p>Copy the GUID, open Actions, choose <strong>Run workflow</strong>, leave mode at <strong>next</strong>, and paste it into <strong>force_guid</strong>. Inspect retained evidence first: exact retry bypasses cooldown and quarantine. Copying the GUID or opening Actions does not start a job.</p><div class="latest-actions"><button class="button secondary" type="button" data-copy-guid="${escapeHtml(episode.guid)}">Copy retry GUID</button><a class="button secondary" href="${workflowUrl}" target="_blank" rel="noreferrer">Open retry workflow</a></div></div>` : "";
   const reviewControls = episode.processing_status === "needs_review" && canOpenSummary(episode)
     ? `<div class="detail-section"><h3>Human review</h3><p>Verify the extracted picks against the source, then keep, exclude, correct, or add picks through a durable review override.</p><div class="latest-actions"><a class="button" href="${episodeReviewUrl(episode)}">Review episode</a></div></div>`
     : episode.human_reviewed
@@ -595,7 +615,7 @@ function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
   const picksSection = episodePicks.length
     ? `<div class="detail-section"><h3>Cards to Watch</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
     : `<div class="detail-section"><h3>Cards to Watch</h3><p>No structured picks were published for this episode.</p></div>`;
-  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(deferredStatus(error) || label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(episodeReviewLabel(episode))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>${deferredStatus(error) ? "Processing deferred" : "Failure details"}</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Retry eligible</dt><dd>${error.next_retry_at ? escapeHtml(formatDateTime(error.next_retry_at)) : "Not scheduled"}</dd></div><div><dt>Attempted</dt><dd>${display(formatDate(episode.processed_at, true), "Not recorded")}</dd></div></dl><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
+  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(deferredStatus(error) || label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(episodeReviewLabel(episode))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>${deferredStatus(error) ? "Processing deferred" : "Failure details"}</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Retry eligible</dt><dd>${error.retryable === true && !error.quarantined && error.next_retry_at ? escapeHtml(formatDateTime(error.next_retry_at)) : "No automatic retry recorded"}</dd></div><div><dt>Last attempt</dt><dd>${display(formatDateTime(episode.processed_at), "Not recorded")}</dd></div></dl><p><strong>Next action:</strong> ${escapeHtml(recoveryAction(error))}</p><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
   setDialogCloseAction(false);
   openDialog();
   if (returning) {

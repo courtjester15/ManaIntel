@@ -44,3 +44,10 @@ The command emits JSON and exits 1 for findings, 0 when the scoped assertions ma
 Initial production comparison (October 23): FF537 matches 19 scoped assertions. BB667 has two findings across 12 assertions: Fire Crystal's 2.50-to-5 historical price movement is stored as an entry target, and its explicit full-art preference is absent from printing. These are retained-transcript findings, not audio-certified corrections; publication remains unchanged. The comparison intentionally exits 1 on this baseline. Unit tests exercise omissions despite unchanged pick count, lost variant details, historical-price confusion, bad clocks, duplicate ambiguity, wrong-episode rejection and explicit unknowns. Tests do not require the production baseline to be clean.
 
 Next: verify the two BB667 findings against source audio before a durable correction; extend independent checks to both shows before comparing model/prompt defaults. Do not spend inference calls merely to fill the sample.
+
+October 31 follow-up: the retained BB667 snapshot still matches the recorded hash;
+both findings were reproduced. A [prepared review packet](BB667_REVIEW.md) now
+records exact before/after fields and the source listening window. A local
+unapplied candidate passes the 12 scoped assertions while preserving all three
+recommendation identities and other fields. Independent audio listening is not
+available in this session, so publication and review states remain unchanged.

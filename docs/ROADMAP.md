@@ -4,7 +4,7 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.20. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.21. Next milestone: 0.6 — dependable processing.**
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -104,7 +104,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | --- | --- | --- | --- |
 | R1 | Shipped | Complete | Read-only health-report CLI, [baseline](HEALTH_REPORT.md), and reports in processing-workflow summaries/artifacts. Source/version/configuration cohorts, separate experiment/retry denominators, deployment evidence and backlog. |
 | R2 | First | In progress | [Evaluation inventory](EVALUATION.md) now includes seven transcript-checked expected picks across both shows and a read-only candidate comparator. Two BB667 field findings remain; independent audio verification is still required before source-accuracy/model comparison claims. |
-| R3 | Next | Ready | One clear status/recovery UI improvement guided by R1. |
+| R3 | Shipped | First batch complete | Status view now shows failure reason, latest published failed-attempt time, next action and details. Exhausted automatic retries cannot promise scheduled recovery. |
 | R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
 | 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
@@ -202,3 +202,33 @@ October 29 FF484/485 recovery fix (0.5.20): retained FF485 evidence proved an ad
 FF484 [40992782564](https://github.com/courtjester15/ManaIntel/actions/runs/40992782564) made six calls, reused three checkpoints and validated repairs of original chunks2/5. Remaining chunk7 triggered the intended two-chunk saved-progress pause. Episode remains unpublished with zero picks; workflow reports failure while validation/persistence/Pages succeeded. Next eligible retry2026-10-30 04:39 EDT under unchanged cooldown/three-attempt cap and the new retry-aware schedule; no immediate forced continuation. Next action: inspect that normal continuation's actual result, retaining manual review if it stops again. BB667 audio checks and broader R2 evaluation remain outstanding.
 
 FF485 inspected correction committed as 05b387f; final [deployment40993140777](https://github.com/courtjester15/ManaIntel/actions/runs/40993140777) passed checks and Pages. Served summary verified four recommendations: original IDs pick-f7deb535c00519a7 / pick-b3d97cf2266997a9 preserved; Academy Manufactor and Earth Crystal remain needs_review with no per-pick host asserted. Checkout synchronized; scratch preview/apply reclaimed0 MiB, session test logs removed and incident evidence protected. No additional recovery calls or cooldown bypass. Next: inspect FF484 normal saved-progress continuation after04:39 EDT October30; keep remaining review work explicit.
+
+October 31 authorized three-item pass (0.5.21, deployment pending): synchronized
+production archive/state through b1a70ab. FF484 normal continuation
+[41146214025](https://github.com/courtjester15/ManaIntel/actions/runs/41146214025)
+ran October 30 at 19:45 EDT, spent eight successful model calls and stopped on
+chunk7's final repair clip after repeated empty segment responses and bounded
+subdivision. Retained transcript preserves validated repairs of chunks2/5;
+attempt3/3 is quarantined, no automatic retry date, zero published picks.
+Persistence, archive validation and Pages succeeded despite episode/workflow
+failure. Inspected retained transcript and journal; no unchanged forced retry
+or gate override is justified. Private diagnostics are pinned locally under
+.tmp/ff484-closeout. Next recovery prerequisite: a source check of the empty
+final clip or a demonstrated repair-input/algorithm correction, preserving
+checkpoints and the three-attempt global limit.
+
+R2: BB667 retained snapshot hash matches the existing evaluation inventory.
+Prepared [field-level review packet](BB667_REVIEW.md) and an unapplied local
+candidate clearing the two findings in twelve scoped assertions. Independent
+audio listening is unavailable in this session; no durable correction, review
+approval or source-accuracy claim was made. Next: independently check the
+1:01:23-1:02:25 source window before applying the proposed two-field correction.
+
+R3: status timeline and episode details now distinguish cooldown, due eligibility,
+exhausted retries and manual intervention, with reason, next action, full failed
+attempt timestamp and details access. Static eligibility never implies queued or
+running work. Existing token-free copy-GUID/workflow controls remain. No provider,
+prompt, retry budget or processing-default changes. Local suite239 passing,
+including five Node behavioral/rendering checks; archive validation passed.
+Codex in-app browser timed out; no external-browser/desktop fallback.
+Deployment evidence follows after production verification.

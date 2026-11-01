@@ -126,6 +126,13 @@ The original `summary.json` and `summary.md` are immutable machine output. Revie
 
 ## Retry one exact episode
 
+The status page shows each published failed attempt's reason, full attempt time,
+and next action. Cooldown and eligibility are distinct from a queued/running job;
+a later scheduled run still applies capacity and priority checks. Exhausted
+attempts and quarantined/manual-intervention failures require retained-evidence
+inspection before exact recovery. Saved repair progress does not itself reopen
+automatic retries. The static page does not observe live workflow state.
+
 The exact-episode backend is already available:
 
 ```bash
