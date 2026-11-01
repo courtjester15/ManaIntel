@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.21",
-  "updated_at": "2026-11-01T11:19:37Z",
+  "updated_at": "2026-11-01T23:41:00Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -34085,6 +34085,65 @@
           "state": "unresolved"
         }
       ]
+    },
+    "tag:soundcloud,2010:tracks/2121602751": {
+      "guid": "tag:soundcloud,2010:tracks/2121602751",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-01T23:34:33Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-01T23:34:33Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-01T23:34:33Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-01T23:34:33Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-01T23:34:35Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-01T23:34:35Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-01T23:34:48Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-01T23:41:00Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 482: Pro Tour Final Fantasy Promos",
+      "episode_number": 482,
+      "published_at": "2025-06-29T17:59:24Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-02T05:41:00Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-01T23:41:00Z",
+      "output_directory": "episodes/0482-pro-tour-final-fantasy-promos"
     }
   }
 }

@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.21",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-01T11:19:38Z",
+    "generated_at": "2026-11-01T23:41:01Z",
     "latest_successful_run_at": "2026-11-01T06:00:45Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 131,
+    "real_episode_count": 132,
     "real_pick_count": 519,
     "last_discovered_episode_date": "2026-10-31T06:10:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,16 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 131,
+    "episodes": 132,
     "picks": 519,
     "needs_review": 55,
-    "failed": 1,
+    "failed": 2,
     "completed": 75
   },
   "status_counts": {
     "needs_review": 55,
     "complete": 75,
-    "failed": 1
+    "failed": 2
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
@@ -5122,6 +5122,53 @@
       },
       "processed_at": "2026-10-31T05:42:04Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2121602751",
+      "episode_number": 482,
+      "title": "MTG Fast Finance Ep 482: Pro Tour Final Fantasy Promos",
+      "published_at": "2025-06-29T17:59:24Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2121602751-user-519789566-mtg-fast-finance-ep-482-pro-tour-final-fantasy-promos.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-482-pro-tour-final-fantasy-promos",
+      "duration_seconds": 3926,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "The guys discuss the outcomes from the Final Fantasy Pro Tour, the hottest cardboard of the week and how crazy the prices are on the promo cards handed out at the event.",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0482-pro-tour-final-fantasy-promos",
+      "outputs": {
+        "metadata": "episodes/0482-pro-tour-final-fantasy-promos/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-11-01T23:41:00Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-02T05:41:00Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
