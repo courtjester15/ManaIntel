@@ -103,7 +103,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | ID | Priority | State | Next concrete result |
 | --- | --- | --- | --- |
 | R1 | Shipped | Complete | Read-only health-report CLI, [baseline](HEALTH_REPORT.md), and reports in processing-workflow summaries/artifacts. Source/version/configuration cohorts, separate experiment/retry denominators, deployment evidence and backlog. |
-| R2 | First | In progress | [Evaluation inventory](EVALUATION.md) now includes seven transcript-checked expected picks across both shows and a read-only candidate comparator. Two BB667 field findings remain; independent audio verification is still required before source-accuracy/model comparison claims. |
+| R2 | First | In progress | [Evaluation inventory](EVALUATION.md) now includes seven transcript-checked expected picks across both shows and a read-only candidate comparator. BB667 fields corrected with separate local ASR corroboration; human/source-certified labels and broader accuracy checks remain outstanding. |
 | R3 | Shipped | First batch complete | Status view now shows failure reason, latest published failed-attempt time, next action and details. Exhausted automatic retries cannot promise scheduled recovery. |
 | R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
@@ -245,7 +245,7 @@ reclaimed0 MiB; new test logs removed, incident/proposal evidence pinned.
 Next: independent BB667 source listening; FF484 final-clip diagnosis before
 any further recovery. In-app browser visual verification remains unavailable.
 
-November 1 combined reliability pass (0.5.22, deployment/pilot pending):
+November 1 combined reliability pass (0.5.22, deployment and pilots inspected):
 FF484 final original chunk7 (5400-6254.58 seconds) has no speech spans from local
 Silero VAD v6 at thresholds0.25/0.5; local Whisper small.en without VAD repeats
 spurious isolated filler with high no-speech probability. This supports an
@@ -286,3 +286,41 @@ running, so that run did not cover the final inventory. Updated the assertion
 to validate separate ASR source/evidence hashes and method while retaining
 not-human-verified limits; twelve focused inventory/workflow tests pass.
 Runtime/correction safeguards were not changed by this test fix.
+
+0.5.22 closeout: implementation3c0ad3d plus inventory assertion74271f8;
+[release41373878662](https://github.com/courtjester15/ManaIntel/actions/runs/41373878662)
+passed all246 production tests, archive validation and Pages. Served catalog
+reports0.5.22. BB667 effective Fire Crystal printing is Final Fantasy full art,
+entry_target is null, original pick900c62db8f07363f retained, needs_review and
+human_reviewed=false. Both representative cases pass31 scoped assertions.
+
+[FF484 pilot41374027074](https://github.com/courtjester15/ManaIntel/actions/runs/41374027074)
+reused retained evidence, verified the exact-source tail disposition and spent
+exactly one extraction call, zero new transcription calls. Four recommendations
+published as needs_review; checks/persistence/Pages passed and served outcome
+verified. Two raw names remain unresolved in catalog resolution: Asha, God of
+the Wild is not_found; Lathrol, Blade of the Elves has only a fuzzy Lathril
+suggestion. No fuzzy suggestion was promoted to source certainty. Source/card
+printing/voice accuracy is not established by this recovery.
+
+[FF492 continuation41374375058](https://github.com/courtjester15/ManaIntel/actions/runs/41374375058)
+made nine successful model calls, completed chunk3 and saved the first clip of
+chunk4 before the optional capacity gate stopped at32/48, preserving all16
+primary requests. Episode attempt/workflow failed; retained evidence, archive
+validation, persistence and Pages succeeded. Inspected retained transcript has
+validated repairs1/2/3; chunks4/5/6 remain. Four original published picks are
+unchanged. Recorded this exact manual continuation in the existing cohort ledger
+(attempt2/3) and daily optional episode cap (2/2), avoiding hidden extra attempts.
+No further optional calls tonight; FF482 normal retry remains eligible
+November2 at00:41 EST, subject to scheduling/capacity/priority. No cooldown bypass.
+
+After report at November1 20:52 EST: initial6/10 usable, retry3/4, forced1/11
+(with nine prior publications preserved),230 calls,221 successful responses and
+21 timing rejections. Ten new usable publications have verified persistence and
+Pages. Current132 episodes,523 picks,57 needs_review, one failed; two human
+reviews unchanged. This pass spent ten provider calls total. No0.6 milestone or
+source-accuracy claim. See [dated review](RECOVERY_REVIEW_2026-11-01.md).
+Next: normal FF482 retry; FF492 only after capacity/cooldown and remaining cohort
+limit checks; source-check FF484 unresolved names/variants before correction.
+Private diagnostic/evaluation evidence retained locally, downloaded model/libs
+and temporary source audio removed after inspection.
