@@ -207,3 +207,24 @@ Use the main workflow's manual `timing_repair_limit=hosts` only with an exact `f
 ### Scheduled recovery priority (0.5.20)
 
 Both scheduled triggers use the retry-aware selector. Unprocessed releases published within seven days take priority; otherwise the next eligible failed episode precedes older untouched backfill. Retries retain the six-hour cooldown, three-attempt cap, manual-intervention gates and shared request accounting. A saved-progress pause means durable transcript work can resume, not that an Actions job is currently queued or running. Split-recovery call-budget exhaustion with saved resumable clips is a local bounded pause, not provider quota exhaustion. Inspect the latest attempt and source evidence before forcing a continuation or changing any limits.
+
+### Inspected non-speech tails and corrections without approval
+
+A manually inspected final audio chunk may have a durable record under
+`data/audio-dispositions/`. It is bound to episode GUID, source URL, SHA-256 of
+all downloaded source bytes, final chunk index and measured physical duration.
+A changed source, conflicting retained speech or wrong interval fails closed.
+Retained/model-supplied markers are cleared and revalidated on every attempt.
+This is an explicit episode-specific technical disposition, never a general
+empty-transcript acceptance rule. It always leaves a source-coverage review warning.
+No local VAD/Whisper dependency is added to production; compact inspected evidence
+is durable and raw audio/transcripts stay private.
+
+A durable review can use `decision=correct_without_approval` for an evidence-backed
+printing update or clearing an unsupported entry target. It cannot add/exclude
+picks, invent prices, change hosts or replace an existing human review. It retains
+original extraction, stable identities and uncertainty; effective output contains
+machine-correction provenance and is needs_review, with no human-review marker.
+Existing `approve` reviews and their UI are unchanged. Source-certified evaluation
+and full-episode approval remain separate. Manual `review` timing runs honor the
+optional-work primary reserve and existing per-run/shared request caps.

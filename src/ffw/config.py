@@ -4,8 +4,8 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-VERSION = "0.5.21"
-PIPELINE_VERSION = "0.5.21"
+VERSION = "0.5.22"
+PIPELINE_VERSION = "0.5.22"
 SCHEMA_VERSION = "1.1.0"
 TRANSCRIPTION_PROMPT_VERSION = "source-recommendations-v2-hybrid-boundaries"
 PROMPT_VERSION = "source-recommendations-v4-metadata-context"

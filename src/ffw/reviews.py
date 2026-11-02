@@ -169,8 +169,13 @@ def normalize_review(
         raise ValueError("Review episode_guid does not match the selected episode.")
     if review.get("source_id") != source_id:
         raise ValueError("Review source_id does not match the selected episode.")
-    if review.get("decision") != "approve":
-        raise ValueError("Review decision must be 'approve'.")
+    decision = review.get("decision")
+    correction_only = decision == "correct_without_approval"
+    if decision not in {"approve", "correct_without_approval"}:
+        raise ValueError("Review decision must be 'approve' or 'correct_without_approval'.")
+    if correction_only and (not str(review.get("note") or "").strip()
+                            or summary.get("processing", {}).get("human_review")):
+        raise ValueError("Unapproved correction needs an evidence note and cannot replace a human review.")
     if review.get("expected") != review_expectation(summary):
         raise ValueError("Review payload is stale because the extracted episode changed.")
 
@@ -181,6 +186,12 @@ def normalize_review(
         if not isinstance(operation, dict) or operation.get("action") not in REVIEW_ACTIONS:
             raise ValueError("Each review operation needs a supported action.")
         action = operation["action"]
+        if correction_only:
+            changes = operation.get("changes")
+            if (action != "update" or not isinstance(changes, dict) or not changes
+                    or set(changes) - {"printing", "entry_target"}
+                    or ("entry_target" in changes and changes["entry_target"] is not None)):
+                raise ValueError("Unapproved corrections may only update printing or clear an unsupported entry target.")
         if action == "add":
             pick = _new_pick(summary, operation.get("pick"))
             operations.append({"action": "add", "pick": {
@@ -196,10 +207,17 @@ def normalize_review(
         if action == "exclude":
             operations.append({"action": "exclude", "pick_id": pick_id})
         else:
+            if correction_only:
+                normalized = (_normalize_changes({k: v for k, v in changes.items() if k != "entry_target"})
+                              if "printing" in changes else {})
+                if "entry_target" in changes:
+                    normalized["entry_target"] = None
+            else:
+                normalized = _normalize_changes(operation.get("changes"))
             operations.append({
                 "action": "update",
                 "pick_id": pick_id,
-                "changes": _normalize_changes(operation.get("changes")),
+                "changes": normalized,
             })
 
     note = str(review.get("note") or "").strip() or None
@@ -211,7 +229,7 @@ def normalize_review(
         "source_id": source_id,
         "episode_guid": episode["guid"],
         "expected": review_expectation(summary),
-        "decision": "approve",
+        "decision": decision,
         "note": note,
         "operations": operations,
         "reviewed_by": reviewer,
@@ -223,6 +241,10 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
     effective = deepcopy(summary)
     if not review:
         return effective
+    correction_only = review.get("decision") == "correct_without_approval"
+    if correction_only:
+        review = normalize_review(summary, review, actor=review.get("reviewed_by"),
+                                  reviewed_at=review.get("reviewed_at"))
     if review.get("expected") != review_expectation(summary):
         raise ValueError("Stored review is stale because the extracted episode changed.")
     if review.get("episode_guid") != summary.get("episode", {}).get("guid"):
@@ -238,15 +260,19 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
         elif action == "update":
             original_id = operation["pick_id"]
             pick = picks.pop(original_id)
+            if correction_only and "printing" in operation["changes"]:
+                pick.setdefault("identity_printing", pick.get("printing"))
             pick.update(deepcopy(operation["changes"]))
-            pick.pop("identity_start_seconds", None)
-            pick.pop("identity_printing", None)
-            pick["id"] = stable_pick_id(
-                summary["episode"]["guid"],
-                pick["card"],
-                pick.get("start_seconds"),
-                pick.get("printing"),
-            )
+            if not correction_only:
+                pick.pop("identity_start_seconds", None)
+                pick.pop("identity_printing", None)
+                pick["id"] = stable_pick_id(
+                    summary["episode"]["guid"], pick["card"],
+                    pick.get("start_seconds"), pick.get("printing"),
+                )
+            else:
+                pick["review_status"] = "needs_review"
+                pick["review_reason"] = review["note"]
             pick["timestamp"] = seconds_to_timestamp(pick.get("start_seconds"))
             pick["listen_url"] = (
                 f"{summary['episode']['audio_url']}#t={pick['start_seconds']}"
@@ -264,6 +290,16 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
             order.append(pick["id"])
 
     effective_picks = [picks[pick_id] for pick_id in order]
+    if correction_only:
+        effective["recommendations"] = effective_picks
+        processing = effective["processing"]
+        processing.update(status="needs_review", review_state="needs_review",
+                          review_reason=" ".join(filter(None, [processing.get("review_reason"), review["note"]])))
+        processing["machine_correction"] = {
+            "reviewed_by": review["reviewed_by"], "reviewed_at": review["reviewed_at"],
+            "note": review["note"], "operation_count": len(review["operations"]),
+        }
+        return effective
     for pick in effective_picks:
         pick["review_status"] = "approved"
         pick["review_reason"] = None

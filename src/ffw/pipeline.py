@@ -524,6 +524,14 @@ class Pipeline:
             else:
                 transcript = self.transcriber.transcribe(episode, prepared_files)
             from .transcript_timing import suspect_timing_chunks, unresolved_timing_chunks
+            from .audio_dispositions import apply_non_speech_tail
+            disposition = apply_non_speech_tail(
+                self.settings.root, episode, downloaded, prepared_files, transcript,
+                self.settings.audio_chunk_seconds,
+            )
+            if disposition:
+                journal.record("inspected_non_speech_tail", chunk=disposition["chunk_index"] + 1,
+                               source_sha256=disposition["source_sha256"], method=disposition["method"])
             if self.settings.retain_transcripts and not episode.synthetic:
                 transcript_dir.mkdir(parents=True, exist_ok=True)
                 with gzip.open(transcript_path, "wt", encoding="utf-8") as output:
@@ -611,6 +619,7 @@ class Pipeline:
                 "duration_seconds": transcript.get("duration_seconds", episode.duration_seconds),
                 "usage": transcript.get("usage"),
                 "timing_adjustments": transcript.get("timing_adjustments", 0),
+                "audio_dispositions": transcript.get("audio_dispositions", []),
             })
 
             self.state.transition(episode.guid, "extracting")
@@ -622,6 +631,8 @@ class Pipeline:
                     journal.record("verification_warning", exception_class=type(verification_error).__name__, message=str(verification_error))
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             warnings = [extraction.get("review_reason"), extraction.get("section", {}).get("review_reason")]
+            if disposition:
+                warnings.append("Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.")
             validated_repairs = {r["chunk"]: r for r in transcript.get("timing_repairs", []) if r.get("validated_audio")}
             fully_validated = len(validated_repairs) == len(prepared_files) and all(
                 not r.get("timing_adjustments") for r in validated_repairs.values())

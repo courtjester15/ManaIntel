@@ -74,8 +74,9 @@ def suspect_timing_chunks(transcript: dict, chunk_seconds: int = 900) -> list[in
     # A successful JSON response can contain full text but omit timed segments.
     # Use the original audio chunk count rather than only inspecting groups
     # that happen to exist in the provider response.
+    inspected_non_speech = transcript.get("source_bound_non_speech_chunks", [])
     suspect.extend(index for index in range(int(transcript.get("chunk_count", 0)))
-                   if not groups.get(index))
+                   if not groups.get(index) and index not in inspected_non_speech)
     for index, segments in groups.items():
         offset = index * chunk_seconds
         maximum = max(float(s.get("end", s.get("start", 0))) - offset for s in segments)
@@ -151,7 +152,7 @@ def unresolved_timing_chunks(transcript: dict, chunk_count: int) -> list[int]:
                 pending.add(index)
             else:
                 pending.discard(index)
-    return sorted(pending)
+    return sorted(pending - set(transcript.get("source_bound_non_speech_chunks", [])))
 
 
 def retain_exact_speakers(previous: list[dict], replacement: list[dict]) -> int:

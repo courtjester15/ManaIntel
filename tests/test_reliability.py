@@ -509,6 +509,35 @@ class ReliabilityTests(unittest.TestCase):
         output = self.settings.archive_dir / result.output_directory
         return pipeline, item, output
 
+    def test_inspected_non_speech_tail_allows_extraction_but_never_approval(self):
+        import hashlib
+        pipeline, item, output = self.published()
+        extraction = pipeline.extractor.extract(item, {})
+        item = replace(item, fixture={}, duration_seconds=1800)
+        source = self.root / "exact-source.mp3"
+        source.write_bytes(b"inspected source")
+        record = {"episode_guid": item.guid, "audio_url": item.audio_url,
+                  "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+                  "chunk_index": 1, "start_seconds": 900, "end_seconds": 1800,
+                  "method": "inspected_local_asr_and_vad_v1", "evidence_note": "No speech supported by local checks.",
+                  "inspected_at": "2026-11-01"}
+        atomic_write_json(self.root / "data/audio-dispositions" / (hashlib.sha256(item.guid.encode()).hexdigest()[:24] + ".json"), record)
+        transcript = {"chunk_count": 2, "duration_seconds": 1800,
+                      "segments": [{"start": 10, "end": 20, "text": "Existing recommendation discussion."}]}
+        with patch.object(pipeline.downloader, "download", return_value=source), patch.object(
+            pipeline.audio, "prepare", return_value=[self.root / "one.mp3", self.root / "two.mp3"]
+        ), patch.object(pipeline.extractor, "extract", return_value=extraction), patch.object(
+            pipeline.transcriber, "transcribe", return_value=transcript
+        ) as transcribe, patch(
+            "ffw.audio_dispositions.subprocess.run", return_value=types.SimpleNamespace(returncode=0, stdout="900")
+        ):
+            result = pipeline.process_episode(item, force=True)
+        self.assertEqual(1, transcribe.call_count)
+        self.assertEqual("needs_review", result.status)
+        saved = load_json(output / "summary.json")
+        self.assertIn("non-speech disposition", saved["processing"]["review_reason"])
+        self.assertEqual([record], saved["processing"]["transcription"]["audio_dispositions"])
+
     def test_forced_reprocess_preserves_specific_printing_and_pick_ids(self):
         from copy import deepcopy
         pipeline, item, output = self.published()

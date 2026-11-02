@@ -51,3 +51,12 @@ records exact before/after fields and the source listening window. A local
 unapplied candidate passes the 12 scoped assertions while preserving all three
 recommendation identities and other fields. Independent audio listening is not
 available in this session, so publication and review states remain unchanged.
+
+November 1 audio follow-up: a separate local Whisper small.en reading of BB667
+source seconds3680-3750 corroborated the historical-price interpretation and
+full-art preference. A durable correction without approval now changes only
+printing and entry_target; original extraction and all pick IDs are preserved.
+The corrected pick/episode remain needs_review and are not human reviewed.
+The inventory points to the effective summary: all12 scoped BB assertions pass,
+as do FF537's19. This does not establish independent human gold labels, host
+accuracy or full-episode coverage. See BB667_REVIEW.md for method and limits.

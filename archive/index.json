@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.21",
+    "pipeline_version": "0.5.22",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-01T23:41:01Z",
+    "generated_at": "2026-11-02T01:35:53Z",
     "latest_successful_run_at": "2026-11-01T06:00:45Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -35,13 +35,13 @@
   "counts": {
     "episodes": 132,
     "picks": 519,
-    "needs_review": 55,
+    "needs_review": 56,
     "failed": 2,
-    "completed": 75
+    "completed": 74
   },
   "status_counts": {
-    "needs_review": 55,
-    "complete": 75,
+    "needs_review": 56,
+    "complete": 74,
     "failed": 2
   },
   "latest_episode": {
@@ -4233,17 +4233,17 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "complete",
-      "review_state": "approved",
-      "review_reason": null,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Machine audio check (local Whisper small.en, 61:20-62:30) corroborates the full-art preference and historical price movement. Printing corrected; unsupported entry target cleared. Full episode and host attribution remain unverified; not human reviewed.",
       "pick_count": 3,
       "directory": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance",
       "outputs": {
         "metadata": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/metadata.json",
         "summary_json": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/summary.json",
         "summary_markdown": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/summary.md",
-        "effective_summary_json": null,
-        "effective_summary_markdown": null
+        "effective_summary_json": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/effective.json",
+        "effective_summary_markdown": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/effective.md"
       },
       "processed_at": "2026-10-16T02:57:02Z",
       "error": null,

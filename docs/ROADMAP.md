@@ -4,7 +4,7 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.21. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.22. Next milestone: 0.6 — dependable processing.**
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -244,3 +244,37 @@ inference calls or episode retries were made in this pass. Scratch preview/apply
 reclaimed0 MiB; new test logs removed, incident/proposal evidence pinned.
 Next: independent BB667 source listening; FF484 final-clip diagnosis before
 any further recovery. In-app browser visual verification remains unavailable.
+
+November 1 combined reliability pass (0.5.22, deployment/pilot pending):
+FF484 final original chunk7 (5400-6254.58 seconds) has no speech spans from local
+Silero VAD v6 at thresholds0.25/0.5; local Whisper small.en without VAD repeats
+spurious isolated filler with high no-speech probability. This supports an
+inspected non-speech-noise disposition alongside the prior empty Gemini
+responses; it is not human listening. Added a durable exact-source-SHA, exact
+final-chunk/time-bound disposition, reverified against downloaded source bytes
+and measured prepared duration on each attempt. Retained/model claims cannot
+authorize themselves, conflicting speech fails closed, and the coverage warning
+forces needs_review. Missing chunks still fail by default. One exact retained
+FF484 pilot is justified by these changed, inspected inputs; no global retry,
+model, prompt or repair-limit change.
+
+BB667: independent local ASR corroborates the two field findings. Added bounded
+correct_without_approval reviews (printing updates/unsupported entry-target
+clearing only): preserve original extraction, pick IDs and other picks; keep
+needs_review and machine provenance without human approval. Applied the BB667
+override; twelve effective-summary assertions now pass. R2 remains in progress
+without human/source-certified gold labels.
+
+FF482 retained evidence preserves repaired chunks2/3 and needs chunk4; its
+ordinary retry is eligible November2 at00:41 EST. No early retry is needed.
+FF492 repaired chunks1/2 and still needs3-6: a bounded continuation may make
+progress but cannot promise completion within the two-chunk/run cap. Manual
+review-mode recovery now honors the same16-request primary reserve as optional
+nightly review. Do not bypass provider cooldown or the shared48-request ceiling.
+
+Seven-day baseline (as of November1 at20:25 EST): initial6/10 usable, retry3/4,
+forced0/9 new usable publications (eight preserved prior results),220 model calls
+with211 successful responses and19 timing rejections. Nine usable publications
+have verified persistence/Pages. Current archive519 picks,55 episodes needing
+review, two failed. These are recorded processing outcomes, not source accuracy;
+the0.6 reliability gate is not satisfied. No no-op Pages churn observed.

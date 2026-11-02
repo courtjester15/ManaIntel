@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "episode_guid": "tag:soundcloud,2010:tracks/2128625847",
+  "audio_url": "https://feeds.soundcloud.com/stream/2128625847-user-519789566-mtg-fast-finance-ep-484-edge-of-eternities-previews-part-2.mp3",
+  "source_sha256": "5448e2f9fbb25782d1a86effe1ce26f0ca6eb659d682a91a3c42c9db329eacfb",
+  "chunk_index": 6,
+  "start_seconds": 5400,
+  "end_seconds": 6254.58,
+  "method": "inspected_local_asr_and_vad_v1",
+  "inspected_at": "2026-11-02T01:37:40.700964+00:00",
+  "evidence_note": "Manual technical inspection of exact source audio. Silero VAD v6 found no speech at thresholds 0.25 and 0.5 over the entire final 854.53-second decoded chunk; local Whisper small.en without VAD repeated isolated filler with high no-speech probability, consistent with non-speech noise; prior Gemini responses were empty. Machine-supported disposition, not human listening or whole-episode accuracy approval. Retain coverage review.",
+  "private_evidence_sha256": {
+    "ff484-last-chunk.wav": "1fd52b92eaaed424846f2024f2514802088bf9ba6c887a0e9895d9ffa1394ca6",
+    "ff484-last-chunk-asr-no-vad.json": "42e65c8a84c44d9fafea498958079ffe011df9d27a6ec8ce49c6ff31a1ea43cb",
+    "ff484-last-chunk-vad-0.25.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  }
+}

@@ -109,8 +109,8 @@
     {
       "id": "bb667-pick-of-the-week",
       "episode_guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15718",
-      "summary_path": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/summary.json",
-      "basis": "agent_checked_retained_transcript_not_independent_audio",
+      "summary_path": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance/effective.json",
+      "basis": "retained_transcript_plus_independent_local_asr_not_human_verified",
       "scope": "Three late Pick of the Week recommendations only. Earlier Breaking Bulk and full-episode completeness are unscored.",
       "evidence": {
         "private_snapshot": "oct23-537-final-source/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance.json.gz",
@@ -129,7 +129,21 @@
             3904
           ]
         ],
-        "sha256": "9fcd559ac2b32439b50cbddbe2bb78aafe0f1b19a170bead1df43536bf3880d5"
+        "sha256": "9fcd559ac2b32439b50cbddbe2bb78aafe0f1b19a170bead1df43536bf3880d5",
+        "audio_check": {
+          "inspection_date": "2026-11-01",
+          "method": "local Whisper small.en on source audio; separate from prior Gemini transcript",
+          "window_seconds": [
+            3680,
+            3750
+          ],
+          "source_sha256": "2a9325729d49041131e62508069efe61c466b78fe3d07785378b362661ad59ed",
+          "audio_window_seconds": [
+            3680,
+            3750
+          ],
+          "asr_sha256": "ef13ac0c927b1aadb0f2b8fb2477f772580af83a1abb950179b96aaa65fea58a"
+        }
       },
       "expected_picks": [
         {

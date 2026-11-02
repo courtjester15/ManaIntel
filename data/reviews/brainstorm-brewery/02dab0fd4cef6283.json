@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "brainstorm-brewery",
+  "episode_guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15718",
+  "expected": {
+    "processed_at": "2026-10-16T02:57:02Z",
+    "pick_ids": [
+      "pick-c21a228c2a428d01",
+      "pick-900c62db8f07363f",
+      "pick-64d396ed8b95d14d"
+    ]
+  },
+  "decision": "correct_without_approval",
+  "note": "Machine audio check (local Whisper small.en, 61:20-62:30) corroborates the full-art preference and historical price movement. Printing corrected; unsupported entry target cleared. Full episode and host attribution remain unverified; not human reviewed.",
+  "operations": [
+    {
+      "action": "update",
+      "pick_id": "pick-900c62db8f07363f",
+      "changes": {
+        "printing": "Final Fantasy full art",
+        "entry_target": null
+      }
+    }
+  ],
+  "reviewed_by": "Codex: independent local ASR audio corroboration",
+  "reviewed_at": "2026-11-02T01:35:51Z"
+}
