@@ -62,7 +62,14 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
         for case in self.inventory["cases"]:
             self.assertEqual(64, len(case["evidence"]["sha256"]))
             self.assertTrue(case["unscored"])
-            self.assertIn("not_independent_audio", case["basis"])
+            if case["basis"] == "retained_transcript_plus_independent_local_asr_not_human_verified":
+                check = case["evidence"]["audio_check"]
+                self.assertEqual([3680, 3750], check["window_seconds"])
+                self.assertEqual(64, len(check["source_sha256"]))
+                self.assertEqual(64, len(check["asr_sha256"]))
+                self.assertIn("separate from prior Gemini", check["method"])
+            else:
+                self.assertIn("not_independent_audio", case["basis"])
             for pick in case["expected_picks"]:
                 self.assertTrue(pick["rationale"])
                 self.assertLess(pick["start_window"][0], pick["start_window"][1])

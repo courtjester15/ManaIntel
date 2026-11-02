@@ -278,3 +278,11 @@ with211 successful responses and19 timing rejections. Nine usable publications
 have verified persistence/Pages. Current archive519 picks,55 episodes needing
 review, two failed. These are recorded processing outcomes, not source accuracy;
 the0.6 reliability gate is not satisfied. No no-op Pages churn observed.
+
+Initial release41373671729 stopped in tests before deployment or model calls:
+the existing inventory test required all cases to be transcript-only. The
+BB667 evidence-basis update was written while the local full suite was already
+running, so that run did not cover the final inventory. Updated the assertion
+to validate separate ASR source/evidence hashes and method while retaining
+not-human-verified limits; twelve focused inventory/workflow tests pass.
+Runtime/correction safeguards were not changed by this test fix.
