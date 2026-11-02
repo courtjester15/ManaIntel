@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.22",
-  "updated_at": "2026-11-02T01:50:36Z",
+  "updated_at": "2026-11-02T06:01:38Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -34528,6 +34528,50 @@
         {
           "status": "failed",
           "timestamp": "2026-11-01T23:41:00Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-02T06:00:33Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-02T06:00:33Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-02T06:00:36Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-02T06:00:36Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-02T06:00:53Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-02T06:01:35Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-02T06:01:35Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-02T06:01:38Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-02T06:01:38Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-02T06:01:38Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-02T06:01:38Z"
         }
       ],
       "title": "MTG Fast Finance Ep 482: Pro Tour Final Fantasy Promos",
@@ -34535,23 +34579,218 @@
       "published_at": "2025-06-29T17:59:24Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-11-02T05:41:00Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 2,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-11-02T06:01:38Z",
+      "output_directory": "episodes/0482-pro-tour-final-fantasy-promos",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 3926,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 39.021,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15286,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22660,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37946,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 173.037,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 145
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20381
+                }
+              ],
+              "cached_content_token_count": 20526,
+              "candidates_token_count": 13432,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22661,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36093,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 27.62,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13109,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22661,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 35770,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 37.001,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17044,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22661,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39705,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 326,
+            "request_seconds": 11.597,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 4931,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 8324,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 161
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 8163
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 13255,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 10,
+        "audio_dispositions": []
       },
-      "status": "failed",
-      "updated_at": "2026-11-01T23:41:00Z",
-      "output_directory": "episodes/0482-pro-tour-final-fantasy-promos"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 724,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 16385,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 16385
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 17109,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        }
+      ]
     }
   }
 }

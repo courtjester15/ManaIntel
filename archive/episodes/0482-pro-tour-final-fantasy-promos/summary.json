@@ -1,0 +1,410 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2121602751",
+    "episode_number": 482,
+    "title": "MTG Fast Finance Ep 482: Pro Tour Final Fantasy Promos",
+    "published_at": "2025-06-29T17:59:24Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2121602751-user-519789566-mtg-fast-finance-ep-482-pro-tour-final-fantasy-promos.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-482-pro-tour-final-fantasy-promos",
+    "duration_seconds": 3926,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "The guys discuss the outcomes from the Final Fantasy Pro Tour, the hottest cardboard of the week and how crazy the prices are on the promo cards handed out at the event.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.22",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-02T06:01:38Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-01T23:34:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-01T23:34:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-01T23:34:33Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-01T23:34:33Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-01T23:34:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-01T23:34:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-01T23:34:48Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-01T23:41:00Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-02T06:00:33Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-02T06:00:33Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-02T06:00:36Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-02T06:00:36Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-02T06:00:53Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-02T06:01:35Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-02T06:01:35Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-02T06:01:38Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-02T06:01:38Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-02T06:01:38Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-02T06:01:38Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3926,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 39.021,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15286,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22660,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 161
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37946,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 173.037,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 145
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20381
+              }
+            ],
+            "cached_content_token_count": 20526,
+            "candidates_token_count": 13432,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22661,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 161
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36093,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 27.62,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13109,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22661,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 161
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35770,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 37.001,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17044,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22661,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 161
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39705,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 326,
+          "request_seconds": 11.597,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4931,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 8324,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 161
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 8163
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 13255,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 10,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 724,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 16385,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 16385
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17109,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1268,
+    "end_seconds": 2469,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Doomsday",
+      "printing": "Secret Lair - Junji Ito",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "20",
+      "entry_target": {
+        "raw": "20",
+        "currency": "USD",
+        "minimum": 20,
+        "maximum": 20
+      },
+      "hold": "within the year",
+      "exit_target": {
+        "raw": "20 to 40",
+        "currency": "USD",
+        "minimum": 20,
+        "maximum": 40
+      },
+      "reasoning": [
+        "Only 17 listings left for this version on TCGplayer",
+        "Foil etched version means no curling in competitive decks",
+        "Strong legacy deck staple where players run four"
+      ],
+      "caveats": [
+        "Mainstream Commander play is low, mostly a legacy or CEDH card"
+      ],
+      "confidence": null,
+      "start_seconds": 1322,
+      "end_seconds": 1354,
+      "evidence_excerpt": "How about Doomsday foil etched secret layer Junji Ito? ... 20 to 40 within the year seems very likely to occur.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-88c24da04ef171bf",
+      "timestamp": "00:22:02",
+      "listen_url": "https://feeds.soundcloud.com/stream/2121602751-user-519789566-mtg-fast-finance-ep-482-pro-tour-final-fantasy-promos.mp3#t=1322"
+    },
+    {
+      "card": "Cyclonic Rift",
+      "printing": "Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "29",
+      "entry_target": {
+        "raw": "29",
+        "currency": "USD",
+        "minimum": 29,
+        "maximum": 29
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50",
+        "currency": "USD",
+        "minimum": 50,
+        "maximum": 50
+      },
+      "reasoning": [
+        "Floor found as people crack secret layers and sell off the rest",
+        "Other borderless foil versions are much higher like 60 to 85",
+        "High demand staple"
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 1458,
+      "end_seconds": 1488,
+      "evidence_excerpt": "the new the reprint of Cyclonic Rift ... You can get the foils for around 29 bucks ... getting your foils in for 29 just seems like a real steel",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-cd407597efad7f40",
+      "timestamp": "00:24:18",
+      "listen_url": "https://feeds.soundcloud.com/stream/2121602751-user-519789566-mtg-fast-finance-ep-482-pro-tour-final-fantasy-promos.mp3#t=1458"
+    }
+  ]
+}
