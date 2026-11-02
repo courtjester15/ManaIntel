@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.22",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-02T01:35:53Z",
-    "latest_successful_run_at": "2026-11-01T06:00:45Z",
+    "generated_at": "2026-11-02T01:46:32Z",
+    "latest_successful_run_at": "2026-11-02T01:46:30Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 132,
-    "real_pick_count": 519,
+    "real_pick_count": 523,
     "last_discovered_episode_date": "2026-10-31T06:10:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 132,
-    "picks": 519,
-    "needs_review": 56,
-    "failed": 2,
+    "picks": 523,
+    "needs_review": 57,
+    "failed": 1,
     "completed": 74
   },
   "status_counts": {
-    "needs_review": 56,
+    "needs_review": 57,
     "complete": 74,
-    "failed": 2
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
@@ -4983,31 +4983,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
-      "review_reason": null,
-      "pick_count": 0,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.",
+      "pick_count": 4,
       "directory": "episodes/0484-edge-of-eternities-previews-part-2",
       "outputs": {
         "metadata": "episodes/0484-edge-of-eternities-previews-part-2/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0484-edge-of-eternities-previews-part-2/summary.json",
+        "summary_markdown": "episodes/0484-edge-of-eternities-previews-part-2/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-10-30T23:46:10Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 7/7 failed: Gemini transcription chunk 1/1 failed after 42.1s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
-      },
+      "processed_at": "2026-11-02T01:46:30Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

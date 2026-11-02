@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.21",
-  "updated_at": "2026-11-01T23:41:00Z",
+  "pipeline_version": "0.5.22",
+  "updated_at": "2026-11-02T01:46:30Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32998,6 +32998,50 @@
         {
           "status": "failed",
           "timestamp": "2026-10-30T23:46:10Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-02T01:45:47Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-02T01:45:47Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-02T01:45:50Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-02T01:45:50Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-02T01:46:25Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-02T01:46:25Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-02T01:46:25Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-02T01:46:30Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-02T01:46:30Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-02T01:46:30Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-02T01:46:30Z"
         }
       ],
       "title": "MTG Fast Finance Ep 484: Edge of Eternities Previews Part 2",
@@ -33005,23 +33049,359 @@
       "published_at": "2025-07-11T23:21:48Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 3,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 7/7 failed: Gemini transcription chunk 1/1 failed after 42.1s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": false,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
+      "attempt_count": 4,
+      "pick_count": 4,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-11-02T01:46:30Z",
+      "output_directory": "episodes/0484-edge-of-eternities-previews-part-2",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 7,
+        "duration_seconds": 6254,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 7,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 160.195,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7103,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11476,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 226
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 18579,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 6813,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11475,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 226
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11249
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 18288,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 7,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 31.306,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14699,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22667,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37366,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 7,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 162.29,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7863,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11476,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 226
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19339,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8389,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11476,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 226
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19865,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 7,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 165.809,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8233,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11476,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 226
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19709,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8556,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11476,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 226
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 20032,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 7,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 33.9,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16161,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22667,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38828,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 6,
+            "chunk_count": 7,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 15.636,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 6524,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22667,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 29191,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 7,
+            "chunk_count": 7,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 854,
+            "request_seconds": 2.82,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 21526,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 21359
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 21541,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 3,
+        "audio_dispositions": [
+          {
+            "schema_version": 1,
+            "episode_guid": "tag:soundcloud,2010:tracks/2128625847",
+            "audio_url": "https://feeds.soundcloud.com/stream/2128625847-user-519789566-mtg-fast-finance-ep-484-edge-of-eternities-previews-part-2.mp3",
+            "source_sha256": "5448e2f9fbb25782d1a86effe1ce26f0ca6eb659d682a91a3c42c9db329eacfb",
+            "chunk_index": 6,
+            "start_seconds": 5400,
+            "end_seconds": 6254.58,
+            "method": "inspected_local_asr_and_vad_v1",
+            "inspected_at": "2026-11-02T01:37:40.700964+00:00",
+            "evidence_note": "Manual technical inspection of exact source audio. Silero VAD v6 found no speech at thresholds 0.25 and 0.5 over the entire final 854.53-second decoded chunk; local Whisper small.en without VAD repeated isolated filler with high no-speech probability, consistent with non-speech noise; prior Gemini responses were empty. Machine-supported disposition, not human listening or whole-episode accuracy approval. Retain coverage review.",
+            "private_evidence_sha256": {
+              "ff484-last-chunk.wav": "1fd52b92eaaed424846f2024f2514802088bf9ba6c887a0e9895d9ffa1394ca6",
+              "ff484-last-chunk-asr-no-vad.json": "42e65c8a84c44d9fafea498958079ffe011df9d27a6ec8ce49c6ff31a1ea43cb",
+              "ff484-last-chunk-vad-0.25.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            }
+          }
+        ]
       },
-      "status": "failed",
-      "updated_at": "2026-10-30T23:46:10Z",
-      "output_directory": "episodes/0484-edge-of-eternities-previews-part-2"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1482,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 8202,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 8202
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 9684,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.",
+      "review_issues": [
+        {
+          "code": "unspecified",
+          "path": "extraction",
+          "reason": "Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.",
+          "state": "unresolved"
+        }
+      ]
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15688": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15688",
