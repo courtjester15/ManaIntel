@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.22",
-  "updated_at": "2026-11-02T01:46:30Z",
+  "updated_at": "2026-11-02T01:50:36Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -27876,6 +27876,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-11-01T11:19:37Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-02T01:49:03Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-02T01:49:03Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-02T01:49:04Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-02T01:49:04Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-02T01:49:20Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-02T01:50:36Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-02T01:50:36Z"
         }
       ],
       "title": "MTG Fast Finance Ep 492: Spidey x MTG Previews",
@@ -27883,11 +27911,11 @@
       "published_at": "2025-09-10T00:56:35Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-11-01T11:19:37Z",
+      "updated_at": "2026-11-02T01:50:36Z",
       "output_directory": "episodes/0492-spidey-x-mtg-previews",
       "transcription": {
         "provider": "Gemini",
@@ -28149,15 +28177,15 @@
       ],
       "last_attempt_error": {
         "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
+        "message": "Timing/coverage repair of original chunk 4/6 failed: Gemini transcription chunk 1/1 failed after 11.1s: CapacityStopped: Shared capacity stop: configured request budget insufficient (0 available; 1 required).",
+        "category": "capacity_deferred",
         "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 2,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-01T17:19:37Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15711": {
