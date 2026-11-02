@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.22",
-  "updated_at": "2026-11-02T06:01:38Z",
+  "updated_at": "2026-11-02T12:30:24Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28242,6 +28242,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-18T04:33:33Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-02T12:27:22Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-02T12:27:22Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-02T12:27:23Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-02T12:27:23Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-02T12:27:41Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-02T12:30:24Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-02T12:30:24Z"
         }
       ],
       "title": "Ban Proof Izzet Deck | Brainstorm Brewery #664 | Magic Finance",
@@ -28249,11 +28277,11 @@
       "published_at": "2025-09-05T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 6,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-18T04:33:33Z",
+      "updated_at": "2026-11-02T12:30:24Z",
       "output_directory": "episodes/0664-ban-proof-izzet-deck-brainstorm-brewery-664-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -28414,7 +28442,19 @@
           "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 2,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-02T18:30:24Z",
+        "quarantined": false
+      }
     },
     "tag:soundcloud,2010:tracks/2161221663": {
       "guid": "tag:soundcloud,2010:tracks/2161221663",
