@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.22",
-  "updated_at": "2026-11-03T06:49:33Z",
+  "updated_at": "2026-11-03T12:02:14Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28510,6 +28510,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-18T22:28:06Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-03T11:57:38Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-03T11:57:38Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-03T11:57:39Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-03T11:57:40Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-03T11:58:00Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-03T12:02:14Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-03T12:02:14Z"
         }
       ],
       "title": "MTG Fast Finance Ep 491: Collector Booster Collections For The Win",
@@ -28517,11 +28545,11 @@
       "published_at": "2025-08-29T14:49:49Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 8,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-18T22:28:06Z",
+      "updated_at": "2026-11-03T12:02:14Z",
       "output_directory": "episodes/0491-collector-booster-collections-for-the-win",
       "transcription": {
         "provider": "Gemini",
@@ -28682,7 +28710,19 @@
           "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 2,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-03T18:02:14Z",
+        "quarantined": false
+      }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15708": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15708",
