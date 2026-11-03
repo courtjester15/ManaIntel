@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2430946797",
+    "episode_number": 538,
+    "title": "MTG Fast Finance Ep 538: God Packs Enter the Chat",
+    "published_at": "2026-11-02T17:07:30Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-538-god",
+    "duration_seconds": 2881,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James dive deep on the Magic the Gathering card price action of the week, including meta updates, cards to watch and a closer look at the newly announced God Packs landing in 2027.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.22",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-03T02:25:11Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-03T02:17:53Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-03T02:17:53Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-03T02:18:05Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-03T02:25:11Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+      "category": "repair_progress_saved",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-11-03T08:25:11Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0538-god-packs-enter-the-chat/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

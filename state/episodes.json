@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.22",
-  "updated_at": "2026-11-02T12:30:24Z",
+  "updated_at": "2026-11-03T02:25:11Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -34831,6 +34831,65 @@
           "state": "unresolved"
         }
       ]
+    },
+    "tag:soundcloud,2010:tracks/2430946797": {
+      "guid": "tag:soundcloud,2010:tracks/2430946797",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-03T02:17:52Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-03T02:17:52Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-03T02:17:52Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-03T02:17:52Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-03T02:17:53Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-03T02:17:53Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-03T02:18:05Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-03T02:25:11Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 538: God Packs Enter the Chat",
+      "episode_number": 538,
+      "published_at": "2026-11-02T17:07:30Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-03T08:25:11Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-03T02:25:11Z",
+      "output_directory": "episodes/0538-god-packs-enter-the-chat"
     }
   }
 }
