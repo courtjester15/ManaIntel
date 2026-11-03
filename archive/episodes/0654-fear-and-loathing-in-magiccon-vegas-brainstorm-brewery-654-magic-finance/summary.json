@@ -1,0 +1,323 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15682",
+    "episode_number": 654,
+    "title": "Fear and Loathing in MagicCon Vegas | Brainstorm Brewery #654 | Magic Finance",
+    "published_at": "2025-06-27T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_654_Fear_and_Loathing_in_MagicCon_Vegas.mp3",
+    "episode_url": "https://brainstormbrewery.com/fear-and-loathing-in-magiccon-vegas-brainstorm-brewery-654-magic-finance/",
+    "duration_seconds": 3143,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Corbin (@CHosler) and Cass (@devotedDruid) are back from MagicCon Vegas and they have a lot to say about Final Fantasy, Supply and Demand and more Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.22",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-03T06:49:33Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-03T06:45:37Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-03T06:45:37Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-03T06:45:37Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-03T06:45:37Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-03T06:45:39Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-03T06:45:39Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-03T06:45:52Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-03T06:49:31Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-03T06:49:31Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-03T06:49:33Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-03T06:49:33Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-03T06:49:33Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-11-03T06:49:33Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3143,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 14.05,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3517,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22693,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 194
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 26210,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.808,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15881,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22694,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 194
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38575,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 46.392,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18984,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22694,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 194
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41678,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 443,
+          "request_seconds": 17.659,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 7152,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 11256,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 194
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 11062
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 18408,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 23,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 619,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 3446,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 3446
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 4065,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 2975,
+    "end_seconds": 3142,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Final Fantasy Secret Lair",
+      "printing": "Final Fantasy Secret Lair",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$25",
+      "entry_target": {
+        "raw": "$25",
+        "currency": "USD",
+        "minimum": 25,
+        "maximum": 25
+      },
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Secret Lair products have all done well."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2975,
+      "end_seconds": 2987,
+      "evidence_excerpt": "$25 cyclonic rift with Final Fantasy skin cannot be correct forever, right?",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6a4d15da49427ad8",
+      "timestamp": "00:49:35",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_654_Fear_and_Loathing_in_MagicCon_Vegas.mp3#t=2975"
+    },
+    {
+      "card": "Kellen, the Fae-Blooded",
+      "printing": "Wilds of Eldraine",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$6",
+      "entry_target": {
+        "raw": "$3 to $6",
+        "currency": "USD",
+        "minimum": 3,
+        "maximum": 6
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10,
+        "maximum": 10
+      },
+      "reasoning": [
+        "It is a mythic.",
+        "It goes and gets equipment out of your library.",
+        "It has additional abilities once you get off the adventure side.",
+        "Could find standard playability and commander playability."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3005,
+      "end_seconds": 3057,
+      "evidence_excerpt": "Kellen the Fabled from Wilds of Eldraine has climbed from uh about $3 to about $6 recently. So it's already had some movement. Um, but it's a mythic. And I think it's just probably going to be 10.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c3b54a5ae4580a9d",
+      "timestamp": "00:50:05",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_654_Fear_and_Loathing_in_MagicCon_Vegas.mp3#t=3005"
+    }
+  ]
+}
