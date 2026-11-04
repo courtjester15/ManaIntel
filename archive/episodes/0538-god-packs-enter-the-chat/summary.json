@@ -1,0 +1,447 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2430946797",
+    "episode_number": 538,
+    "title": "MTG Fast Finance Ep 538: God Packs Enter the Chat",
+    "published_at": "2026-11-02T17:07:30Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-538-god",
+    "duration_seconds": 2881,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James dive deep on the Magic the Gathering card price action of the week, including meta updates, cards to watch and a closer look at the newly announced God Packs landing in 2027.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.22",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-04T00:37:33Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-03T02:17:52Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-03T02:17:53Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-03T02:17:53Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-03T02:18:05Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-03T02:25:11Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-04T00:36:23Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-04T00:36:23Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-04T00:36:23Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-04T00:36:23Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-04T00:36:40Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-04T00:37:29Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-04T00:37:29Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-04T00:37:33Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-04T00:37:33Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-04T00:37:33Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-11-04T00:37:33Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2881,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 159.93,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 160
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20370
+              }
+            ],
+            "cached_content_token_count": 20530,
+            "candidates_token_count": 3486,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22676,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 177
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 26162,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 42.989,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18871,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22677,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 177
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41548,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 112.396,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16561,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22677,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 177
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39238,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 181,
+          "request_seconds": 7.805,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3076,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 4718,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 4541
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 177
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 7794,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 11,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1432,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 11616,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 11616
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 13048,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1244,
+    "end_seconds": 2055,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Avacyn Angel of Horror",
+      "printing": "Extended Art",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$25",
+      "entry_target": {
+        "raw": "$12 to $20",
+        "currency": "USD",
+        "minimum": 12,
+        "maximum": 20
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "25 to 50",
+        "currency": "USD",
+        "minimum": 25,
+        "maximum": 50
+      },
+      "reasoning": [
+        "Selling very fast with high volume relative to low listing count",
+        "Extended arts only come out of collector boosters and hold steady at 25"
+      ],
+      "caveats": [
+        "Likely to get cheaper in price over time",
+        "Might get a reprint deck in the future"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1244,
+      "end_seconds": 1445,
+      "evidence_excerpt": "This is going to be 25 to 50 for the extended arts that only come out of the collector boosters. Maybe these get down to like, you know, 12 to $20 sometime this fall.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c5304f593743912e",
+      "timestamp": "00:20:44",
+      "listen_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3#t=1244"
+    },
+    {
+      "card": "Chroma's Will",
+      "printing": "Japanese Silver Scroll Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$95",
+      "entry_target": {
+        "raw": "sub-$100",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 100
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "$200",
+        "currency": "USD",
+        "minimum": 200,
+        "maximum": 200
+      },
+      "reasoning": [
+        "At about a six-month period which is when prices bottom out",
+        "Included in a bazillion EDH decks"
+      ],
+      "caveats": [
+        "English foil copies are much cheaper around $26 to $27"
+      ],
+      "confidence": "high",
+      "start_seconds": 1445,
+      "end_seconds": 1665,
+      "evidence_excerpt": "I think getting your copies sub-$100 when these will hit $200 in the next six 12 months seems to be really where I want to be.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-335bcf76483522ca",
+      "timestamp": "00:24:05",
+      "listen_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3#t=1445"
+    },
+    {
+      "card": "Darksteel Angel",
+      "printing": "Extended Art",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Colorless card that can show up almost anywhere with high inclusion in 14,000 decks",
+        "Unique effect printed only one or two times before"
+      ],
+      "caveats": [
+        "High inclusion rate partly due to precon upgrade registrations on EDHREC"
+      ],
+      "confidence": "medium",
+      "start_seconds": 1665,
+      "end_seconds": 1875,
+      "evidence_excerpt": "Dark Steel Angels only five bucks, there's just no way. ... at five bucks this is a no-brainer.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-416063d3cbf64602",
+      "timestamp": "00:27:45",
+      "listen_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3#t=1665"
+    },
+    {
+      "card": "Trouble in Pairs",
+      "printing": "Turtles version",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$20",
+      "entry_target": {
+        "raw": "$17 to $20",
+        "currency": "USD",
+        "minimum": 17,
+        "maximum": 20
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Only special art version and only foil version available",
+        "Ridiculous card included in 216,000 decks"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1875,
+      "end_seconds": 2058,
+      "evidence_excerpt": "that version is available for foils for around $20. The bottom was $17, so it's trending up a little bit. I missed the absolute bottom. But getting in pretty close to the bottom here",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8285d79b330ace4d",
+      "timestamp": "00:31:15",
+      "listen_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3#t=1875"
+    }
+  ]
+}

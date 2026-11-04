@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.22",
-  "updated_at": "2026-11-03T12:02:14Z",
+  "updated_at": "2026-11-04T00:37:33Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -34906,6 +34906,50 @@
         {
           "status": "failed",
           "timestamp": "2026-11-03T02:25:11Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-04T00:36:23Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-04T00:36:23Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-04T00:36:23Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-04T00:36:23Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-04T00:36:40Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-04T00:37:29Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-04T00:37:29Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-04T00:37:33Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-04T00:37:33Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-04T00:37:33Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-11-04T00:37:33Z"
         }
       ],
       "title": "MTG Fast Finance Ep 538: God Packs Enter the Chat",
@@ -34913,23 +34957,175 @@
       "published_at": "2026-11-02T17:07:30Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
-        "max_attempts": 3,
-        "next_retry_at": "2026-11-03T08:25:11Z",
-        "quarantined": false
+      "attempt_count": 2,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-11-04T00:37:33Z",
+      "output_directory": "episodes/0538-god-packs-enter-the-chat",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2881,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 159.93,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 160
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20370
+                }
+              ],
+              "cached_content_token_count": 20530,
+              "candidates_token_count": 3486,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22676,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 177
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 26162,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 42.989,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 18871,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22677,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 177
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41548,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 112.396,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16561,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22677,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 177
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39238,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 181,
+            "request_seconds": 7.805,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3076,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 4718,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 4541
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 177
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 7794,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 11,
+        "audio_dispositions": []
       },
-      "status": "failed",
-      "updated_at": "2026-11-03T02:25:11Z",
-      "output_directory": "episodes/0538-god-packs-enter-the-chat"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1432,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11616,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 11616
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 13048,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": null,
+      "review_issues": []
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15682": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15682",
