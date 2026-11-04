@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2118567630",
+    "episode_number": 481,
+    "title": "MTG Fast Finance EP 481: Final Fantasy Takes Control",
+    "published_at": "2025-06-24T06:24:58Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2118567630-user-519789566-mtg-fast-finance-ep-481-final-fantasy-takes-control.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-481-final-fantasy-takes-control",
+    "duration_seconds": 2572,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James take a look at the meta impact from FIN, the hottest cardboard of the week and run through all the wild price movement on chase cards and sealed product from the most popular Magic set of all time: Final Fantasy x MTG",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.22",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-04T06:21:52Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-04T06:18:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-04T06:18:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-04T06:18:50Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-04T06:21:52Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing/coverage repair of original chunk 1/3 failed: Gemini transcription chunk 1/1 failed after 58.3s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
+      "category": "repair_progress_saved",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-11-04T12:21:52Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0481-final-fantasy-takes-control/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

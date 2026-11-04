@@ -93,6 +93,7 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-03T06:45:37Z — brainstorm-brewery 654: **complete**; initial processing; 2 picks; 13 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/54499735717249bd9d8810cb6794639c.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/41591825111)
 - 2026-11-03T11:57:38Z — mtg-fast-finance 491: **failed**; forced rerun; automatically retained transcript; 8 picks; 8 observed model calls; 0 checkpoints reused; previous published result retained; archive validation=success; Timing repair progress saved; bounded continuation required for remaining chunks.; note: Bounded nightly cleanup. [Details](attempts/1be64b52b58e4311931c5880617d4bf4.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/41631615095)
 - 2026-11-04T00:36:23Z — mtg-fast-finance 538: **complete**; retry; automatically retained transcript; 4 picks; 5 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/1a6200652e59465fa2f0efaccc9250e9.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/41747990182)
+- 2026-11-04T06:18:33Z — mtg-fast-finance 481: **failed**; initial processing; 0 picks; 12 observed model calls; 0 checkpoints reused; archive validation=success; Timing/coverage repair of original chunk 1/3 failed: Gemini transcription chunk 1/1 failed after 58.3s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.. [Details](attempts/4b9f8b51c00d4ac6ac3da48e037467c1.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/41784545957)
 
 ## Workflow outcomes
 
@@ -226,3 +227,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-03T06:49:41Z — run 41591825111/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/41591825111-1.json)
 - 2026-11-03T12:02:17Z — run 41631615095/1: preflight=success; pipeline=failure; exit=None; validation=success; selected=see queue note; Primary gate=true; queue=older than fourteen days; bounded repair cohort. [Details](runs/41631615095-1.json)
 - 2026-11-04T00:37:37Z — run 41747990182/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/41747990182-1.json)
+- 2026-11-04T06:21:57Z — run 41784545957/1: preflight=success; pipeline=success; exit=1; validation=success; selected=1; . [Details](runs/41784545957-1.json)
