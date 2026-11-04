@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.22",
-  "updated_at": "2026-11-04T06:21:52Z",
+  "updated_at": "2026-11-04T12:15:48Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -29641,6 +29641,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-20T04:50:32Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-04T12:12:46Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-04T12:12:46Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-04T12:12:48Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-04T12:12:48Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-04T12:13:03Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-04T12:15:48Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-04T12:15:48Z"
         }
       ],
       "title": "MTG Fast Finance Ep 490: Top EDH Cards of Final Fantasy and EOE",
@@ -29648,11 +29676,11 @@
       "published_at": "2025-08-25T01:30:15Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 5,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-20T04:50:32Z",
+      "updated_at": "2026-11-04T12:15:48Z",
       "output_directory": "episodes/0490-top-edh-cards-of-final-fantasy-and-eoe",
       "transcription": {
         "provider": "Gemini",
@@ -29819,7 +29847,19 @@
           "reason": "Audible spelling/naming is unclear and requires verification.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 2,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-04T18:15:48Z",
+        "quarantined": false
+      }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15706": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15706",
