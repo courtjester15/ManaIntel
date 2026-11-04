@@ -66,7 +66,8 @@ These are working targets, not an uptime promise. Do not lower them merely to de
 
 **Outcome:** Understand a card's recommendation history without hunting through episodes.
 
-- Build clearer card timelines over existing canonical resolution and original extracted names.
+- Start with **Pick history** in the existing card detail. Order recorded picks by episode date and show the source, printing or finish, reason, review state, and timestamped audio link. Group verified identities across shows, preserve original names, and leave unresolved matches separate. Label a mentioned price separately from an explicit buy target. Link to external card or market research when the relevant card or printing is resolved.
+- Follow with a browser-local watchlist that opens a filtered view of saved cards' recommendation histories. Use the existing static archive data.
 - Show first/most recent **recorded** recommendations, episode, known contributor, review state and evidence/audio links.
 - Add useful filter combinations, shareable filtered URLs and browser-local saved searches.
 - Compare the two shows and attributed contributors. A show-level host list does not establish who made a pick; unknown attribution stays unknown.
@@ -77,7 +78,7 @@ These are working targets, not an uptime promise. Do not lower them merely to de
 
 **Outcome:** Discover something interesting and inspect exactly what supports it.
 
-- Surface repeat recommendations, cards recommended on both shows and records worth revisiting.
+- Add a **Mentioned again** cue to recent picks when the archive contains an earlier recommendation for the same verified card. Link to the earlier takes and distinguish matching, different, and unknown printings. Show cross-show overlap with the same evidence and coverage limits.
 - Compare explicitly attributed changes of position only where the source supports them; preserve both statements.
 - Show processed date range, eligible-record count, review-state inclusion and coverage limitations beside each observation.
 - Count distinct recommendations/episodes rather than duplicate transcript fragments; make results reproducible from archive data.
@@ -108,7 +109,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
 | 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
-| 0.8–1.0 | Later | Planned | Refine each milestone when earlier foundations support it. |
+| Card history | Approved direction | Proposed first UI batch | Pick history inside card detail using existing archive data. Follow with Mentioned again and a browser-local watchlist once the history is useful. |
 
 The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as needs_review; BB 667 published three as complete. The R1 report shipped in 0.5.11 and adds no inference calls or scheduled development. Its first fourteen-day window contains only five initial attempts (two usable) alongside many forced recoveries; current catalog failures are zero but forty episodes need review. GitHub job reads are bounded, and unobserved deployment outcomes remain unknown. This does not satisfy the sustained-reliability gate. Start the next authorized improvement pass with R2 unless new evidence changes the priority.
 
