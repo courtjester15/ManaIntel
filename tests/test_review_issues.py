@@ -80,6 +80,42 @@ class BoundaryEvidenceTests(unittest.TestCase):
         self.assertIsNotNone(section["review_reason"])
 
 class VerificationIntegrationTests(unittest.TestCase):
+    def test_catalog_miss_enters_review_even_without_audio_budget(self):
+        from types import SimpleNamespace
+        from ffw.verification import GeminiPickVerifier
+        from tests.test_reliability import candidate
+
+        resolver = SimpleNamespace(resolve=lambda name: {"status": "not_found"})
+        verifier = GeminiPickVerifier("model", 900, resolver, max_picks=0)
+        pick = {"card": "Chroma's Will", "review_status": "approved"}
+        verifier.verify(candidate(), {"recommendations": [pick]}, [])
+        self.assertEqual("needs_review", pick["review_status"])
+        self.assertTrue(verifier._is_card_name_ambiguity(pick))
+
+    def test_catalog_miss_triggers_focused_audio_and_verified_correction(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from ffw.verification import GeminiPickVerifier
+        from tests.test_reliability import candidate, fake_sdk
+        from tests.workspace import workspace_temp
+
+        audio = workspace_temp(self) / "audio.mp3"
+        resolver = SimpleNamespace(resolve=lambda name: (
+            {"status": "verified", "canonical_name": name}
+            if name == "Akroma's Will" else {"status": "not_found"}
+        ))
+        verifier = GeminiPickVerifier("model", 900, resolver)
+        pick = {"card": "Chroma's Will", "start_seconds": 20, "review_status": "approved"}
+        with fake_sdk(), patch.object(
+            verifier, "_clip", side_effect=lambda source, destination, seconds: destination.write_bytes(b"clip")
+        ), patch("ffw.verification._gemini_generate_json", return_value={
+            "decision": "corrected", "card": "Akroma's Will",
+        }) as generate:
+            verifier.verify(candidate(), {"recommendations": [pick]}, [audio])
+        generate.assert_called_once()
+        self.assertEqual("Akroma's Will", pick["card"])
+        self.assertEqual("approved", pick["review_status"])
+
     def test_confirmed_name_preserves_mixed_pick_and_episode_reason(self):
         from unittest.mock import patch
         from types import SimpleNamespace

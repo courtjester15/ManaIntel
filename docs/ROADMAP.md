@@ -4,7 +4,9 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.22. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.23. Next milestone: 0.6 — dependable processing.**
+
+FF 538 exposed a card name that passed extraction review but failed catalog lookup. The focused verification pass now routes catalog misses into name review and uses the existing audio budget to check them. Next R2 step: compare additional source clips for missed price and hold terms before changing transcription or extraction defaults.
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 

@@ -71,6 +71,21 @@ class GeminiPickVerifier:
         extraction: dict[str, Any],
         audio_files: list[Path],
     ) -> dict[str, Any]:
+        picks = extraction.get("recommendations", [])
+        resolutions: dict[str, dict[str, Any]] = {}
+        for pick in picks:
+            if pick.get("review_status") != "approved":
+                continue
+            name = str(pick.get("card") or "")
+            if name not in resolutions:
+                try:
+                    resolutions[name] = self.resolver.resolve(name)
+                except CardResolutionUnavailable:
+                    # Avoid repeating catalog requests during an outage.
+                    break
+            if resolutions[name].get("status") in {"not_found", "suggested"}:
+                pick["review_status"] = "needs_review"
+                pick["review_reason"] = "Card name has no exact match in Scryfall."
         if not audio_files or self.max_picks == 0:
             return extraction
         if self.model_health.failures.get(self.model_name, 0) >= 2:
@@ -87,7 +102,7 @@ class GeminiPickVerifier:
         client = genai.Client(api_key=api_key, http_options=types.HttpOptions(timeout=300000, retry_options={"attempts": 1}))
         checked = 0
         accepted_count = 0
-        for pick_index, pick in enumerate(extraction.get("recommendations", [])):
+        for pick_index, pick in enumerate(picks):
             if checked >= self.max_picks or not self._is_card_name_ambiguity(pick):
                 continue
             checked += 1
@@ -106,7 +121,7 @@ class GeminiPickVerifier:
             original_name = str(pick.get("card") or "")
             suggestion = None
             try:
-                initial_resolution = self.resolver.resolve(original_name)
+                initial_resolution = resolutions.get(original_name) or self.resolver.resolve(original_name)
                 if initial_resolution.get("status") in {"verified", "suggested"}:
                     suggestion = initial_resolution.get("canonical_name")
                 self._clip(audio_files[chunk_index], clip_path, relative_seconds)
