@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "attempt_id": "7d5a0971a111476dba11f4e2341ffedc",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15679",
+    "number": 653,
+    "title": "Casting Wealth Targeting Me | Brainstorm Brewery #653 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-11-05T06:43:23Z",
+  "pipeline_version": "0.5.23",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "41982239878",
+  "run_attempt": "1",
+  "git_sha": "3f580421b852a6cd8a070385512753fff1b0b004",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-05T06:43:23Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-05T06:43:23Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-05T06:43:25Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-05T06:43:25Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-05T06:43:44Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-05T06:43:50Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 4.699
+    },
+    {
+      "timestamp": "2026-11-05T06:44:20Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Gemini transcription chunk 1/5 failed after 34.7s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted."
+    },
+    {
+      "timestamp": "2026-11-05T06:44:20Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/41982239878",
+  "finished_at": "2026-11-05T06:44:20Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

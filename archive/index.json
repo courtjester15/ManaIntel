@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.22",
+    "pipeline_version": "0.5.23",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-05T00:54:58Z",
+    "generated_at": "2026-11-05T06:44:20Z",
     "latest_successful_run_at": "2026-11-05T00:54:56Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 135,
+    "real_episode_count": 136,
     "real_pick_count": 535,
     "last_discovered_episode_date": "2026-11-02T17:07:30Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,15 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 135,
+    "episodes": 136,
     "picks": 535,
     "needs_review": 59,
-    "failed": 0,
+    "failed": 1,
     "completed": 76
   },
   "status_counts": {
     "complete": 76,
-    "needs_review": 59
+    "needs_review": 59,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2430946797",
@@ -5262,6 +5263,56 @@
       },
       "processed_at": "2026-11-05T00:54:56Z",
       "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15679",
+      "episode_number": 653,
+      "title": "Casting Wealth Targeting Me | Brainstorm Brewery #653 | Magic Finance",
+      "published_at": "2025-06-20T06:02:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_653_Cast_Wealth_Targeting_Me.mp3",
+      "episode_url": "https://brainstormbrewery.com/casting-wealth-targeting-me-brainstorm-brewery-653-magic-finance/",
+      "duration_seconds": 3715,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "DJ (@CardgardenMTG) and Cass (@devotedDruid) have found the hustle that can get you money so fast by playing revel in riches. They also talk all about final fantasy movements, Magic IP, and Tips for Vegas. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0653-casting-wealth-targeting-me-brainstorm-brewery-653-magic-finance",
+      "outputs": {
+        "metadata": "episodes/0653-casting-wealth-targeting-me-brainstorm-brewery-653-magic-finance/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-11-05T06:44:20Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 34.7s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+        "category": "capacity_deferred",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-05T12:44:20Z",
+        "quarantined": false
+      },
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,
