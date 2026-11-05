@@ -1,0 +1,417 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2118567630",
+    "episode_number": 481,
+    "title": "MTG Fast Finance EP 481: Final Fantasy Takes Control",
+    "published_at": "2025-06-24T06:24:58Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2118567630-user-519789566-mtg-fast-finance-ep-481-final-fantasy-takes-control.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-481-final-fantasy-takes-control",
+    "duration_seconds": 2572,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Cliff and James take a look at the meta impact from FIN, the hottest cardboard of the week and run through all the wild price movement on chase cards and sealed product from the most popular Magic set of all time: Final Fantasy x MTG",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.22",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-05T00:54:56Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-04T06:18:33Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-04T06:18:35Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-04T06:18:35Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-04T06:18:50Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-04T06:21:52Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-05T00:53:11Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-05T00:53:11Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-05T00:53:12Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-05T00:53:12Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-05T00:53:21Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-05T00:54:52Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-05T00:54:52Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-05T00:54:56Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-05T00:54:56Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-05T00:54:56Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-05T00:54:56Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 3,
+      "duration_seconds": 2572,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 15.375,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 5849,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22672,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 173
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 28521,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 33.946,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14882,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22673,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 173
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 37555,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 3,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 772,
+          "request_seconds": 73.74,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 9519,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 19476,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 19303
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 173
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 28995,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 5,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1406,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 14374,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 14374
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 15780,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1066,
+    "end_seconds": 2269,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Chandra's Ignition",
+      "printing": "Final Fantasy",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Degel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$90",
+      "entry_target": {
+        "raw": "85",
+        "currency": "USD",
+        "minimum": 85,
+        "maximum": 85
+      },
+      "hold": "6 to 12 months",
+      "exit_target": {
+        "raw": "at least 150",
+        "currency": "USD",
+        "minimum": 150,
+        "maximum": null
+      },
+      "reasoning": [
+        "Low drop rate for foils from the sheet",
+        "High demand in commander decks",
+        "Low supply under $100"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1110,
+      "end_seconds": 1152,
+      "evidence_excerpt": "And one of the ones that is not is The Chromas Will, the blessing of the Oracle... I'm picking these to go from say 85 right now.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4e6aa0c8cfb279c6",
+      "timestamp": "00:18:30",
+      "listen_url": "https://feeds.soundcloud.com/stream/2118567630-user-519789566-mtg-fast-finance-ep-481-final-fantasy-takes-control.mp3#t=1110"
+    },
+    {
+      "card": "Yawgmoth, Thran Physician",
+      "printing": "Final Fantasy",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Degel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$80 to $85",
+      "entry_target": {
+        "raw": "80 to 85",
+        "currency": "USD",
+        "minimum": 80,
+        "maximum": 85
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "100 to 150",
+        "currency": "USD",
+        "minimum": 100,
+        "maximum": 150
+      },
+      "reasoning": [
+        "Unique art and great looking foils",
+        "Low number of listings",
+        "Popular card in modern and EDH"
+      ],
+      "caveats": [
+        "Card has had multiple printings and could be reprinted again"
+      ],
+      "confidence": "high",
+      "start_seconds": 1275,
+      "end_seconds": 1335,
+      "evidence_excerpt": "So one of the ones I'm looking at here is the Emperor Hell Tyrant/Yogmoth Thran Physician... 80 to 150 on these.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d02968b95d80fdd9",
+      "timestamp": "00:21:15",
+      "listen_url": "https://feeds.soundcloud.com/stream/2118567630-user-519789566-mtg-fast-finance-ep-481-final-fantasy-takes-control.mp3#t=1275"
+    },
+    {
+      "card": "Limit Break deck",
+      "printing": "Final Fantasy VII Collector Edition",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Degel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$250",
+      "entry_target": {
+        "raw": "250",
+        "currency": "USD",
+        "minimum": 250,
+        "maximum": 250
+      },
+      "hold": "12 to 18 months",
+      "exit_target": {
+        "raw": "400",
+        "currency": "USD",
+        "minimum": 400,
+        "maximum": 400
+      },
+      "reasoning": [
+        "New Final Fantasy VII themed art for every card",
+        "High collectibility and strong sales volume",
+        "Comparable to Warhammer commander decks"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1398,
+      "end_seconds": 1480,
+      "evidence_excerpt": "I think that the Limit Break deck, the Final Fantasy VII collector edition deck that you can get right now on TCG Player for about 250... think this is a buy and a hold for 12 months maybe 18 to get to $400",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-af6f2303cc162080",
+      "timestamp": "00:23:18",
+      "listen_url": "https://feeds.soundcloud.com/stream/2118567630-user-519789566-mtg-fast-finance-ep-481-final-fantasy-takes-control.mp3#t=1398"
+    },
+    {
+      "card": "Azusa, Lost but Seeking",
+      "printing": "Final Fantasy",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Degel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$35",
+      "entry_target": {
+        "raw": "35",
+        "currency": "USD",
+        "minimum": 35,
+        "maximum": 35
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "150 or 200",
+        "currency": "USD",
+        "minimum": 150,
+        "maximum": 200
+      },
+      "reasoning": [
+        "Beautiful Amano art with very few listings",
+        "High demand in Commander",
+        "Low entry price compared to other sheet mythics"
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 1558,
+      "end_seconds": 1648,
+      "evidence_excerpt": "My final selection is Princess Sarah, Zusa Lost but Seeking, one of the more beautiful Amano arts available in the set... getting these at 35 seems like a bargain",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-d20cb419f635cc45",
+      "timestamp": "00:25:58",
+      "listen_url": "https://feeds.soundcloud.com/stream/2118567630-user-519789566-mtg-fast-finance-ep-481-final-fantasy-takes-control.mp3#t=1558"
+    }
+  ]
+}
