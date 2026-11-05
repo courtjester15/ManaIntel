@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.23",
-  "updated_at": "2026-11-05T06:44:20Z",
+  "updated_at": "2026-11-05T12:25:21Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -29915,6 +29915,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-20T23:20:21Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-05T12:24:53Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-05T12:24:53Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-05T12:24:55Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-05T12:24:55Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-05T12:25:12Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-05T12:25:21Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-05T12:25:21Z"
         }
       ],
       "title": "They Donâ€™t Love the Mirrors Like They Used To | Brainstorm Brewery #662 | Magic Finance",
@@ -29922,11 +29950,11 @@
       "published_at": "2025-08-22T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-20T23:20:21Z",
+      "updated_at": "2026-11-05T12:25:21Z",
       "output_directory": "episodes/0662-they-don-t-love-the-mirrors-like-they-used-to-brainstorm-brewery-662-magic-finan",
       "transcription": {
         "provider": "Gemini",
@@ -30152,7 +30180,19 @@
           "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 1/5 failed: Gemini transcription chunk 1/1 failed after 8.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 2,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-05T18:25:21Z",
+        "quarantined": false
+      }
     },
     "tag:soundcloud,2010:tracks/2154709449": {
       "guid": "tag:soundcloud,2010:tracks/2154709449",
