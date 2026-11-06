@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.23",
-  "updated_at": "2026-11-06T06:45:21Z",
+  "updated_at": "2026-11-06T12:09:17Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -27121,6 +27121,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-30T10:56:04Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-06T12:09:04Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-06T12:09:04Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-06T12:09:06Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-06T12:09:06Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-06T12:09:15Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-06T12:09:17Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-06T12:09:17Z"
         }
       ],
       "title": "Measured Content | Brainstorm Brewery #666 | Magic Finance",
@@ -27128,11 +27156,11 @@
       "published_at": "2025-09-19T06:01:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 6,
+      "attempt_count": 7,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-30T10:56:04Z",
+      "updated_at": "2026-11-06T12:09:17Z",
       "output_directory": "episodes/0666-measured-content-brainstorm-brewery-666-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -27258,12 +27286,12 @@
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
       "last_attempt_error": {
         "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
+        "message": "Timing/coverage repair of original chunk 3/3 failed: Gemini transcription chunk 1/1 failed after 2.0s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
         "synthetic": false,
         "retryable": false,
-        "provider_wide": false,
-        "attempt": 6,
+        "provider_wide": true,
+        "attempt": 7,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
