@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.23",
-  "updated_at": "2026-11-05T12:25:21Z",
+  "updated_at": "2026-11-06T00:59:38Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -35692,6 +35692,30 @@
         {
           "status": "failed",
           "timestamp": "2026-11-05T06:44:20Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-06T00:57:49Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-06T00:57:49Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-06T00:57:51Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-06T00:57:51Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-06T00:58:09Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-06T00:59:38Z"
         }
       ],
       "title": "Casting Wealth Targeting Me | Brainstorm Brewery #653 | Magic Finance",
@@ -35699,22 +35723,22 @@
       "published_at": "2025-06-20T06:02:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Gemini transcription chunk 1/5 failed after 34.7s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+        "message": "Gemini transcription chunk 2/5 failed after 54.8s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
         "category": "capacity_deferred",
         "synthetic": false,
         "retryable": true,
         "provider_wide": true,
-        "attempt": 1,
+        "attempt": 2,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-05T12:44:20Z",
+        "next_retry_at": "2026-11-06T06:59:38Z",
         "quarantined": false
       },
       "status": "failed",
-      "updated_at": "2026-11-05T06:44:20Z",
+      "updated_at": "2026-11-06T00:59:38Z",
       "output_directory": "episodes/0653-casting-wealth-targeting-me-brainstorm-brewery-653-magic-finance"
     }
   }

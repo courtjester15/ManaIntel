@@ -32,7 +32,7 @@
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-11-05T06:44:20Z",
+    "processed_at": "2026-11-06T00:59:38Z",
     "history": [
       {
         "status": "detected",
@@ -65,18 +65,42 @@
       {
         "status": "failed",
         "timestamp": "2026-11-05T06:44:20Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-06T00:57:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-06T00:57:49Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-06T00:57:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-06T00:57:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-06T00:58:09Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-06T00:59:38Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Gemini transcription chunk 1/5 failed after 34.7s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+      "message": "Gemini transcription chunk 2/5 failed after 54.8s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
       "category": "capacity_deferred",
       "synthetic": false,
       "retryable": true,
       "provider_wide": true,
-      "attempt": 1,
+      "attempt": 2,
       "max_attempts": 3,
-      "next_retry_at": "2026-11-05T12:44:20Z",
+      "next_retry_at": "2026-11-06T06:59:38Z",
       "quarantined": false
     },
     "transcription": null,
