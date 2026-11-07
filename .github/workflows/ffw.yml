@@ -135,10 +135,14 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Install ManaIntel pipeline and media tools
+      - name: Install media tools for live processing
+        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
         run: |
           sudo apt-get update
           sudo apt-get install --yes ffmpeg
+
+      - name: Install ManaIntel pipeline
+        run: |
           python -m pip install --upgrade pip
           python -m pip install -e ".[test]"
 
@@ -158,9 +162,6 @@ jobs:
           FFW_AUTO_REUSE_TRANSCRIPTS: "false"
           FFW_TIMING_REPAIR_MAX_CHUNKS: "2"
         run: python -m unittest discover -s tests -v
-
-      - name: Test recovery status messages
-        run: node --test tests/test_status_ui.cjs
 
       - name: Verify AI provider credentials
         if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}

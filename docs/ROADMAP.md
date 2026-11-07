@@ -6,7 +6,7 @@ Updated October 15, 2026. This is the active roadmap, replacing the maintenance-
 
 **Current release: 0.5.24. Next milestone: 0.6 — dependable processing.**
 
-FF 538 exposed a card name that passed extraction review but failed catalog lookup. The focused verification pass now routes catalog misses into name review and uses the existing audio budget to check them. Next R2 step: compare additional source clips for missed price and hold terms before changing transcription or extraction defaults.
+Recovery status now separates provider outages, provider capacity refusals and local budget stops. R2 includes a scoped FF538 price/hold case; independently check its uncovered 1527–1538 sentence next before changing transcription or extraction defaults. BB725's latest scheduled retry saved repair progress but remains unpublished after another provider 503.
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -335,6 +335,7 @@ retained transcript, completed validated repair of chunk3, and saved the first
 clip of chunk4 before another 503. Eight successful calls, one failed; attempt2/3,
 zero published picks. Validation, persistence and Pages succeeded despite the
 processing failure. Downloaded retained evidence confirms validated repairs1/3;
+the timing detector identifies only chunk4 (zero-based index3) as still suspect.
 no duplicate dispatch, forced override or cooldown bypass. Next eligibility is
 November7 at01:08 EST, subject to scheduling/capacity/priority. BB653 remains at
 attempt2/3 with provider-capacity refusal; preserve primary-release priority.
@@ -347,6 +348,13 @@ no quota or scheduling changes. R2 adds a retained-evidence FF538 price/hold cas
 14 new scoped assertions,45 total; hold evidence remains transcript-only and
 existing partial ASR is explicitly limited. No extraction/model defaults or
 published picks changed. Local checks:249 Python tests,7 Node UI tests, archive
-validation and all45 evaluation assertions pass. Deployment verification pending.
+validation and all45 evaluation assertions pass. Implementation0bc6738;
+[release42316814325 attempt2](https://github.com/courtjester15/ManaIntel/actions/runs/42316814325/attempts/2)
+passed production checks and Pages; served catalog reports0.5.24 and the new
+provider message is served. Attempt1 was cancelled after ten minutes of very
+slow Ubuntu media-package downloads, before tests or model calls. The fresh
+runner succeeded. Follow-up skips media installation for push/deploy-only jobs;
+live processing keeps it. UI tests already run through the Python suite.
+Final follow-up deployment verification pending.
 Next: normal eligible BB725 retry; independently check FF538's uncovered
 1527-1538 price/hold sentence before extending R2 or changing prompts. Remain0.5.x.
