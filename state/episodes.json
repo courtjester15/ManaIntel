@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.23",
-  "updated_at": "2026-11-07T00:08:15Z",
+  "pipeline_version": "0.5.24",
+  "updated_at": "2026-11-07T06:02:09Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -35744,6 +35744,38 @@
         {
           "status": "failed",
           "timestamp": "2026-11-06T00:59:38Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-07T05:56:39Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-07T05:56:39Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-07T05:56:41Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-07T05:56:41Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-07T05:56:52Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-07T06:01:35Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-07T06:01:35Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-07T06:02:09Z"
         }
       ],
       "title": "Casting Wealth Targeting Me | Brainstorm Brewery #653 | Magic Finance",
@@ -35751,23 +35783,221 @@
       "published_at": "2025-06-20T06:02:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 0,
       "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 2/5 failed after 54.8s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+        "stage": "extracting",
+        "message": "Shared capacity stop: provider limit observed; no further requests permitted.",
         "category": "capacity_deferred",
         "synthetic": false,
-        "retryable": true,
+        "retryable": false,
         "provider_wide": true,
-        "attempt": 2,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-06T06:59:38Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-11-06T00:59:38Z",
-      "output_directory": "episodes/0653-casting-wealth-targeting-me-brainstorm-brewery-653-magic-finance"
+      "updated_at": "2026-11-07T06:02:09Z",
+      "output_directory": "episodes/0653-casting-wealth-targeting-me-brainstorm-brewery-653-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 3715,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 33.106,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14773,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22702,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 203
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37475,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 153.391,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8775,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11512,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 262
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 20287,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7858,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11512,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 262
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19370,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 19.816,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 8879,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22703,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 203
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 31582,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 102.411,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 183
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20352
+                }
+              ],
+              "cached_content_token_count": 20535,
+              "candidates_token_count": 18971,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22703,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 203
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41674,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 115,
+            "request_seconds": 6.779,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 2525,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 3070,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 2867
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 203
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 5595,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 0,
+        "audio_dispositions": []
+      }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=36654": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36654",
