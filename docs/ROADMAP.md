@@ -355,6 +355,16 @@ provider message is served. Attempt1 was cancelled after ten minutes of very
 slow Ubuntu media-package downloads, before tests or model calls. The fresh
 runner succeeded. Follow-up skips media installation for push/deploy-only jobs;
 live processing keeps it. UI tests already run through the Python suite.
-Final follow-up deployment verification pending.
+Follow-up6e15697 deployed in
+[42318196522](https://github.com/courtjester15/ManaIntel/actions/runs/42318196522):
+all249 production tests and archive validation pass, media installation is
+confirmed skipped, publish/Pages both succeed. Served catalog remains0.5.24 with
+BB725 transient_provider attempt2/3 and BB653 capacity_deferred attempt2/3,
+both zero picks. Served JavaScript includes provider refusal, remaining-attempt
+logic and eligible-after/since wording. In-app browser timed out; rendering
+behavior is covered by seven Node checks through the Python suite, but visual
+browser verification was unavailable. No further model calls or forced recovery
+were dispatched. Scratch preview/apply found nothing reclaimable; downloaded
+incident evidence is pinned locally.
 Next: normal eligible BB725 retry; independently check FF538's uncovered
 1527-1538 price/hold sentence before extending R2 or changing prompts. Remain0.5.x.
