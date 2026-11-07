@@ -266,6 +266,7 @@ function pickCard(pick, compact = false) {
 function deferredStatus(error) {
   if (error?.category === "capacity_deferred") return "waiting for capacity";
   if (error?.category === "repair_progress_saved") return "paused — progress saved";
+  if (error?.category === "transient_provider") return "temporary provider outage";
   return null;
 }
 function episodeBadge(episode) {
@@ -276,7 +277,12 @@ function episodeBadge(episode) {
 }
 function failureReason(error) {
   if (error?.category === "repair_progress_saved") return "Transcript repair progress was saved. No repair job is running from this status alone.";
-  if (error?.category === "capacity_deferred") return "Processing paused because the configured request budget cannot cover the next work. Recovery waits for available capacity.";
+  if (error?.category === "capacity_deferred") {
+    return /provider limit observed/i.test(error.message || "")
+      ? "Processing paused after the AI provider refused further requests. Recovery waits for provider capacity and the retry cooldown."
+      : "Processing paused because the configured request budget cannot cover the next work. Recovery waits for available capacity.";
+  }
+  if (error?.category === "transient_provider") return "The AI provider was temporarily unavailable or rate limited. A later attempt can reuse saved transcription progress.";
   const message = String(error?.message ?? "");
   if (!message) return "No failure message was recorded.";
   const lower = message.toLowerCase();
@@ -291,6 +297,8 @@ function recoveryAction(error, now = Date.now()) {
   if (!error) return "";
   const attempt = Number(error.attempt);
   const maximum = Number(error.max_attempts);
+  const remaining = Number.isInteger(attempt) && Number.isInteger(maximum) && attempt >= 0 && maximum > attempt
+    ? `${maximum - attempt} automatic ${maximum - attempt === 1 ? "attempt remains" : "attempts remain"}. ` : "";
   if (maximum > 0 && attempt >= maximum) {
     return "Automatic retry limit reached. Inspect retained evidence before a manual recovery; saved progress is preserved.";
   }
@@ -302,9 +310,9 @@ function recoveryAction(error, now = Date.now()) {
     return "Retry timing is not recorded. Check the workflow and recovery settings before retrying.";
   }
   if (eligible > now) {
-    return `Cooldown until ${formatDateTime(error.next_retry_at)}. A later scheduled run may select this episode, subject to capacity and priority.`;
+    return `${remaining}Eligible after ${formatDateTime(error.next_retry_at)} (cooldown). A later scheduled run may select this episode, subject to capacity and priority.`;
   }
-  return "Eligible for a later scheduled run, subject to capacity and priority. Eligibility does not mean a job is queued or running.";
+  return `${remaining}Eligible since ${formatDateTime(error.next_retry_at)} for a later scheduled run, subject to capacity and priority. Eligibility does not mean a job is queued or running.`;
 }
 
 function episodeAction(episode) {

@@ -19,7 +19,7 @@ test('exhausted saved repairs cannot promise scheduled recovery even with stale 
   assert.doesNotMatch(action({ ...retry, attempt: 3 }), /later scheduled run/);
 });
 test('cooldown and due eligibility do not imply a queued job', () => {
-  assert.match(action(retry), /Cooldown until/);
+  assert.match(action(retry), /Eligible after/);
   assert.match(action({ ...retry, next_retry_at: '2026-10-30T13:00:00Z' }), /does not mean a job is queued or running/);
 });
 test('quarantined and nonretryable failures require intervention', () => {
@@ -30,6 +30,24 @@ test('quarantined and nonretryable failures require intervention', () => {
 test('unknown retry timing never invents eligibility', () => {
   for (const value of [null, '', 'invalid']) assert.match(action({ ...retry, next_retry_at: value }), /Retry timing is not recorded/);
   assert.equal(action(null), '');
+});
+
+test('provider refusal and local capacity budget have distinct explanations', () => {
+  context.error = { category: 'capacity_deferred', message: 'Shared capacity stop: provider limit observed; no further requests permitted.' };
+  assert.match(vm.runInContext('failureReason(error)', context), /provider refused/);
+  context.error.message = 'Shared capacity stop: configured request budget reached.';
+  assert.match(vm.runInContext('failureReason(error)', context), /configured request budget/);
+  context.error = { category: 'transient_provider', message: '503 UNAVAILABLE' };
+  assert.match(vm.runInContext('failureReason(error)', context), /temporarily unavailable/);
+  assert.equal(vm.runInContext('deferredStatus(error)', context), 'temporary provider outage');
+});
+
+test('retry allowance and eligibility remain explicit for both incident episodes', () => {
+  assert.match(action({ ...retry, attempt: 1 }), /2 automatic attempts remain/);
+  assert.match(action(retry), /1 automatic attempt remains/);
+  assert.match(action({ ...retry, next_retry_at: '2026-10-30T13:00:00Z' }), /Eligible since/);
+  assert.doesNotMatch(action({ ...retry, attempt: 3 }), /attempt remains/);
+  assert.doesNotMatch(action({ ...retry, attempt: undefined }), /automatic attempts remain/);
 });
 test('status view exposes the failed attempt, reason, next action and details safely', () => {
   context.episode = { title: '<img onerror=bad>', guid: 'test"guid', episode_number: 484,

@@ -198,6 +198,103 @@
         "Per-pick speaker identity: a DJ handoff is text evidence, not independently verified voice attribution.",
         "Breaking Bulk recommendations, exact audio alignment, full-episode completeness, unlisted prices and foil state."
       ]
+    },
+    {
+      "id": "ff538-prices-and-hold",
+      "episode_guid": "tag:soundcloud,2010:tracks/2430946797",
+      "summary_path": "episodes/0538-god-packs-enter-the-chat/summary.json",
+      "basis": "agent_checked_retained_transcript_not_independent_audio",
+      "scope": "Two recommendations: distinguish historical prices, current mentioned price, proposed entry, exit and explicit hold horizon. Retained local ASR corroborates only selected price/name clips; the hold horizon remains transcript-only.",
+      "evidence": {
+        "private_snapshot": "ff538-review/0538-god-packs-enter-the-chat.json.gz",
+        "inspection_date": "2026-11-06",
+        "windows_seconds": [
+          [
+            1443,
+            1538
+          ],
+          [
+            1658,
+            1875
+          ]
+        ],
+        "sha256": "7093593eda99135fdaea658ea184633fcab19a09704cb99a76b97ea763225f14",
+        "partial_asr_check": {
+          "private_snapshot": "ff538-review/independent-asr.txt",
+          "sha256": "02ada92a920d8e10ced5f05ec367097cf1831a6b4afeb5f3935e4d6c45878e35",
+          "windows_seconds": [
+            [
+              1443,
+              1470
+            ],
+            [
+              1658,
+              1889
+            ]
+          ],
+          "limits": "Existing separate local ASR corroborates current-price discussion and Darksteel entry, not the 1527-1538 entry/exit/hold statement or full episode. No human verification."
+        }
+      },
+      "expected_picks": [
+        {
+          "cards": [
+            "Chroma's Will"
+          ],
+          "printing_contains": [
+            "Japanese",
+            "Silver Scroll"
+          ],
+          "equals": {
+            "mentioned_price": "$95",
+            "entry_target": {
+              "raw": "sub-$100",
+              "currency": "USD",
+              "minimum": null,
+              "maximum": 100
+            },
+            "exit_target": {
+              "raw": "$200",
+              "currency": "USD",
+              "minimum": 200,
+              "maximum": 200
+            },
+            "hold": "6 to 12 months"
+          },
+          "start_window": [
+            1443,
+            1450
+          ],
+          "rationale": "Historical 150/100/120 prices are separate from current circa 95; later discussion proposes sub-100 entry, 200 exit and a six-to-twelve-month horizon. Raw name is a transcript alias, not certified catalog identity."
+        },
+        {
+          "cards": [
+            "Darksteel Angel"
+          ],
+          "printing_contains": [
+            "Extended Art"
+          ],
+          "equals": {
+            "recommendation": "buy",
+            "mentioned_price": "$5",
+            "entry_target": {
+              "raw": "$5",
+              "currency": "USD",
+              "minimum": 5,
+              "maximum": 5
+            }
+          },
+          "start_window": [
+            1660,
+            1685
+          ],
+          "rationale": "Five-dollar entry is explicitly endorsed; deck-inclusion caveats do not cancel the recommendation. No hold horizon is scored from this partial evidence."
+        }
+      ],
+      "unscored": [
+        "Exact card spelling/catalog identity, speaker attribution and exact audio alignment.",
+        "Other picks, uninspected clips, full-episode completeness and unlisted fields.",
+        "Hold horizon is transcript-checked only; partial separate ASR is not human ground truth."
+      ]
     }
   ]
 }

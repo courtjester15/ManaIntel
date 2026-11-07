@@ -159,6 +159,9 @@ jobs:
           FFW_TIMING_REPAIR_MAX_CHUNKS: "2"
         run: python -m unittest discover -s tests -v
 
+      - name: Test recovery status messages
+        run: node --test tests/test_status_ui.cjs
+
       - name: Verify AI provider credentials
         if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
         env:

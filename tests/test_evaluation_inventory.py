@@ -58,7 +58,7 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
                 compare(self.case, value)
 
     def test_inventory_has_both_shows_with_evidence_and_explicit_limits(self):
-        self.assertEqual(2, len(self.inventory["cases"]))
+        self.assertEqual(3, len(self.inventory["cases"]))
         for case in self.inventory["cases"]:
             self.assertEqual(64, len(case["evidence"]["sha256"]))
             self.assertTrue(case["unscored"])
@@ -73,6 +73,20 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
             for pick in case["expected_picks"]:
                 self.assertTrue(pick["rationale"])
                 self.assertLess(pick["start_window"][0], pick["start_window"][1])
+
+    def test_ff538_detects_missing_hold_and_historical_price_substitution(self):
+        case = next(case for case in self.inventory["cases"] if case["id"] == "ff538-prices-and-hold")
+        summary = {"episode": {"guid": case["episode_guid"]}, "recommendations": [
+            dict(card=pick["cards"][0], printing=" ".join(pick["printing_contains"]),
+                 start_seconds=pick["start_window"][0], **deepcopy(pick["equals"]))
+            for pick in case["expected_picks"]
+        ]}
+        self.assertFalse(compare(case, summary)["findings"])
+        summary["recommendations"][0]["hold"] = None
+        summary["recommendations"][0]["entry_target"]["minimum"] = 150
+        self.assertEqual({"hold", "entry_target"}, {f["field"] for f in compare(case, summary)["findings"]})
+        self.assertIn("not_independent_audio", case["basis"])
+        self.assertIn("not the 1527-1538", case["evidence"]["partial_asr_check"]["limits"])
 
 
 if __name__ == "__main__":

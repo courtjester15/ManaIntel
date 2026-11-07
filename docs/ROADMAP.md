@@ -4,7 +4,7 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.23. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.24. Next milestone: 0.6 — dependable processing.**
 
 FF 538 exposed a card name that passed extraction review but failed catalog lookup. The focused verification pass now routes catalog misses into name review and uses the existing audio budget to check them. Next R2 step: compare additional source clips for missed price and hold terms before changing transcription or extraction defaults.
 
@@ -106,8 +106,8 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | ID | Priority | State | Next concrete result |
 | --- | --- | --- | --- |
 | R1 | Shipped | Complete | Read-only health-report CLI, [baseline](HEALTH_REPORT.md), and reports in processing-workflow summaries/artifacts. Source/version/configuration cohorts, separate experiment/retry denominators, deployment evidence and backlog. |
-| R2 | First | In progress | [Evaluation inventory](EVALUATION.md) now includes seven transcript-checked expected picks across both shows and a read-only candidate comparator. BB667 fields corrected with separate local ASR corroboration; human/source-certified labels and broader accuracy checks remain outstanding. |
-| R3 | Shipped | First batch complete | Status view now shows failure reason, latest published failed-attempt time, next action and details. Exhausted automatic retries cannot promise scheduled recovery. |
+| R2 | First | In progress | [Evaluation inventory](EVALUATION.md) includes nine scoped expected picks across both shows, 45 assertions, and a read-only comparator. FF538 adds price/hold coverage with explicit partial-ASR limits. Independently check its uncovered price/hold sentence next; human/source-certified labels and broader accuracy checks remain outstanding. |
+| R3 | Shipped | Recovery clarity follow-up | Status distinguishes temporary provider outage, observed provider capacity refusal and local budget stops; shows remaining attempts and eligible-after/since times. Exhausted retries cannot promise scheduled recovery. |
 | R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
 | 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
@@ -327,3 +327,26 @@ Next: normal FF482 retry; FF492 only after capacity/cooldown and remaining cohor
 limit checks; source-check FF484 unresolved names/variants before correction.
 Private diagnostic/evaluation evidence retained locally, downloaded model/libs
 and temporary source audio removed after inspection.
+
+November 6 recovery/status batch (0.5.24): scheduled retry
+[42316093314](https://github.com/courtjester15/ManaIntel/actions/runs/42316093314)
+selected BB725 while this session was inspecting production. It reused the
+retained transcript, completed validated repair of chunk3, and saved the first
+clip of chunk4 before another 503. Eight successful calls, one failed; attempt2/3,
+zero published picks. Validation, persistence and Pages succeeded despite the
+processing failure. Downloaded retained evidence confirms validated repairs1/3;
+no duplicate dispatch, forced override or cooldown bypass. Next eligibility is
+November7 at01:08 EST, subject to scheduling/capacity/priority. BB653 remains at
+attempt2/3 with provider-capacity refusal; preserve primary-release priority.
+
+Status now distinguishes provider refusal from the configured application budget,
+labels temporary provider outages, and shows remaining automatic attempts plus
+eligible-after/since timestamps without claiming a queued job. Existing processing
+attempts, including capacity interruptions, still count toward the bounded cap;
+no quota or scheduling changes. R2 adds a retained-evidence FF538 price/hold case:
+14 new scoped assertions,45 total; hold evidence remains transcript-only and
+existing partial ASR is explicitly limited. No extraction/model defaults or
+published picks changed. Local checks:249 Python tests,7 Node UI tests, archive
+validation and all45 evaluation assertions pass. Deployment verification pending.
+Next: normal eligible BB725 retry; independently check FF538's uncovered
+1527-1538 price/hold sentence before extending R2 or changing prompts. Remain0.5.x.

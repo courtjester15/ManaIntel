@@ -126,6 +126,16 @@ The original `summary.json` and `summary.md` are immutable machine output. Revie
 
 ## Retry one exact episode
 
+The status view distinguishes a temporary provider outage from a capacity pause.
+A capacity pause can mean either the application's configured request budget or
+an observed provider refusal; inspect the explanation rather than assuming the
+48-request application ceiling is the provider's quota. Remaining automatic
+attempts include the three-total-attempt cap: capacity-interrupted attempts that
+start processing still count. An eligible-after timestamp is a cooldown boundary,
+not a scheduled start. Preserve saved progress and inspect evidence before using
+an exact override; do not bypass cooldown or provider stops to consume the final
+attempt immediately.
+
 The status page shows each published failed attempt's reason, full attempt time,
 and next action. Cooldown and eligibility are distinct from a queued/running job;
 a later scheduled run still applies capacity and priority checks. Exhausted

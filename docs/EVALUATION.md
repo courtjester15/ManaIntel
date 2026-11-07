@@ -60,3 +60,19 @@ The corrected pick/episode remain needs_review and are not human reviewed.
 The inventory points to the effective summary: all12 scoped BB assertions pass,
 as do FF537's19. This does not establish independent human gold labels, host
 accuracy or full-episode coverage. See BB667_REVIEW.md for method and limits.
+
+
+November 6 price/hold batch: added ff538-prices-and-hold, covering two
+recommendations and 14 assertions. Inspected retained discussion separates past
+150/100/120 prices from current circa 95, proposed sub-100 entry, 200 exit and a
+six-to-twelve-month horizon; the other recommendation explicitly endorses a
+five-dollar entry. Sanitized expectations preserve the raw transcript name as an
+alias, without certifying catalog identity. Existing independent local ASR clips
+corroborate selected current-price/name and five-dollar-entry discussion; they do
+not cover the entry/exit/hold sentence at 1527-1538 seconds. The case therefore
+remains transcript-checked, with partial ASR scope and hashes recorded separately.
+No new source-audio or model calls were made for this evaluation. All three cases
+pass 45 scoped assertions. A regression mutation removes the hold and substitutes
+a historical price into entry, producing two separate findings. Next R2 step:
+independently check the uncovered price/hold sentence and broaden the sample
+before changing extraction defaults. No approval or accuracy claim.
