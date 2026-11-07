@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.23",
-  "updated_at": "2026-11-06T12:09:17Z",
+  "updated_at": "2026-11-07T00:08:15Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -35803,6 +35803,30 @@
         {
           "status": "failed",
           "timestamp": "2026-11-06T06:45:21Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-07T00:06:40Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-07T00:06:41Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-07T00:06:42Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-07T00:06:42Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-07T00:07:01Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-07T00:08:15Z"
         }
       ],
       "title": "Eternally Trekking | Brainstorm Brewery #725 | Magic Finance",
@@ -35810,22 +35834,22 @@
       "published_at": "2026-11-06T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 3/5 failed: Gemini transcription chunk 1/1 failed after 13.8s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "message": "Timing/coverage repair of original chunk 4/5 failed: Gemini transcription chunk 1/1 failed after 18.1s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "category": "transient_provider",
         "synthetic": false,
         "retryable": true,
         "provider_wide": true,
-        "attempt": 1,
+        "attempt": 2,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-06T12:45:21Z",
+        "next_retry_at": "2026-11-07T06:08:15Z",
         "quarantined": false
       },
       "status": "failed",
-      "updated_at": "2026-11-06T06:45:21Z",
+      "updated_at": "2026-11-07T00:08:15Z",
       "output_directory": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance"
     }
   }
