@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.24",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-07T11:06:37Z",
-    "latest_successful_run_at": "2026-11-07T11:06:37Z",
+    "generated_at": "2026-11-08T05:59:24Z",
+    "latest_successful_run_at": "2026-11-08T05:59:23Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 137,
-    "real_pick_count": 535,
+    "real_pick_count": 537,
     "last_discovered_episode_date": "2026-11-06T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 137,
-    "picks": 535,
+    "picks": 537,
     "needs_review": 59,
-    "failed": 2,
-    "completed": 76
+    "failed": 1,
+    "completed": 77
   },
   "status_counts": {
-    "failed": 2,
-    "complete": 76,
-    "needs_review": 59
+    "complete": 77,
+    "needs_review": 59,
+    "failed": 1
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36654",
@@ -63,31 +63,20 @@
     "source_name": "Brainstorm Brewery",
     "source_url": "https://brainstormbrewery.com/",
     "extraction_profile": "brainstorm_brewery",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
+    "processing_status": "complete",
+    "review_state": "approved",
     "review_reason": null,
-    "pick_count": 0,
+    "pick_count": 2,
     "directory": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance",
     "outputs": {
       "metadata": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "summary_json": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance/summary.json",
+      "summary_markdown": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-11-07T00:08:15Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Timing/coverage repair of original chunk 4/5 failed: Gemini transcription chunk 1/1 failed after 18.1s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 2,
-      "max_attempts": 3,
-      "next_retry_at": "2026-11-07T06:08:15Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-11-08T05:59:23Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -95,6 +84,142 @@
     "synthetic": false
   },
   "recent_picks": [
+    {
+      "card": "Final Fortune",
+      "printing": "Mystery Booster version foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "under $100",
+      "entry_target": {
+        "raw": "under $100",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 100
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "all-time lows / up from current",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Mystery Booster 2 future site foils are going to stop being open for a while.",
+        "Final Fortune has very limited foiling options.",
+        "The mystery booster foil is under $100 for the first time in a while."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3636,
+      "end_seconds": 3685,
+      "evidence_excerpt": "The mystery booster foil is under $100 for the first time in a while. I think that one is a particularly good pick.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b0a2d6972ee1da13",
+      "timestamp": "01:00:36",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_725_Eternally_Treking.mp3#t=3636",
+      "card_resolution": {
+        "raw_name": "Final Fortune",
+        "normalized_name": "final fortune",
+        "status": "verified",
+        "canonical_name": "Final Fortune",
+        "scryfall_id": "fb80afc3-4887-42a0-afb2-7fa997981fb2",
+        "oracle_id": "8d0adc5c-3fdd-4e22-b783-5651f8e57b65",
+        "scryfall_uri": "https://scryfall.com/card/7ed/182/final-fortune?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/f/b/fb80afc3-4887-42a0-afb2-7fa997981fb2.jpg?1783945470",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-08T05:59:23Z"
+      },
+      "resolved_card": "Final Fortune",
+      "oracle_id": "8d0adc5c-3fdd-4e22-b783-5651f8e57b65",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36654",
+        "episode_number": 725,
+        "title": "Eternally Trekking | Brainstorm Brewery #725 | Magic Finance",
+        "published_at": "2026-11-06T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/eternally-trekking-brainstorm-brewery-725-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_725_Eternally_Treking.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Loki's Double",
+      "printing": "Loki skin of Spark Double",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5 to about $8",
+      "entry_target": {
+        "raw": "about $5 to about $8",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 8
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$11 or $12",
+        "currency": "USD",
+        "minimum": 11,
+        "maximum": 12
+      },
+      "reasoning": [
+        "Skinned versions of cards often lag behind due to SEO.",
+        "Other versions of Spark Double are at least $11 or $12.",
+        "It has climbed from about $5 to about $8 and has room to grow to meet the rest of them."
+      ],
+      "caveats": [
+        "I don't know that there's a ton of upside left here."
+      ],
+      "confidence": null,
+      "start_seconds": 3303,
+      "end_seconds": 3359,
+      "evidence_excerpt": "I am talking about Loki's Double. Also known as Spark Double... I think that there's still some room to grow here.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c594338d11adae21",
+      "timestamp": "00:55:03",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_725_Eternally_Treking.mp3#t=3303",
+      "card_resolution": {
+        "raw_name": "Loki's Double",
+        "normalized_name": "loki's double",
+        "status": "verified",
+        "canonical_name": "Spark Double",
+        "scryfall_id": "c0bd188b-7fb9-4070-a92b-80b81ba71c61",
+        "oracle_id": "8dcb35e5-ae44-455f-86e3-4a77d496ff34",
+        "scryfall_uri": "https://scryfall.com/card/msc/279/spark-double?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/c/0/c0bd188b-7fb9-4070-a92b-80b81ba71c61.jpg?1783903188",
+        "card_face_images": [],
+        "method": "normalized",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-08T05:59:23Z"
+      },
+      "resolved_card": "Spark Double",
+      "oracle_id": "8dcb35e5-ae44-455f-86e3-4a77d496ff34",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36654",
+        "episode_number": 725,
+        "title": "Eternally Trekking | Brainstorm Brewery #725 | Magic Finance",
+        "published_at": "2026-11-06T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/eternally-trekking-brainstorm-brewery-725-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_725_Eternally_Treking.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
     {
       "card": "Trouble in Pairs",
       "printing": "Turtles version",
@@ -366,134 +491,6 @@
       },
       "processing_status": "complete",
       "human_reviewed": false
-    },
-    {
-      "card": "Flame Fusillade",
-      "printing": "Ravnica: City of Guilds",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [],
-      "recommendation": "Buy",
-      "mentioned_price": "a buck 50 or two bucks",
-      "entry_target": {
-        "raw": "a buck 50 or two bucks",
-        "currency": "USD",
-        "minimum": 1.5,
-        "maximum": 2
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "pop eventually",
-        "currency": "USD",
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "No reprints in 20 years.",
-        "Allows permanents like tokens, clues, food, and lands to tap for damage."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 2291,
-      "end_seconds": 2331,
-      "evidence_excerpt": "And I came across the old brainstorm grew a classic pick of the week, flame fusillade... and it's still only like a buck 50 or two bucks. This card has to pop eventually.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-668964dcb0805e37",
-      "timestamp": "00:38:11",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=2291",
-      "card_resolution": {
-        "raw_name": "Flame Fusillade",
-        "normalized_name": "flame fusillade",
-        "status": "verified",
-        "canonical_name": "Flame Fusillade",
-        "scryfall_id": "7fcad5f0-53c4-4b72-ac05-ef9ca5b55611",
-        "oracle_id": "b45cb1b8-091a-40d2-a53a-2fa95845f4fa",
-        "scryfall_uri": "https://scryfall.com/card/rav/123/flame-fusillade?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/7/f/7fcad5f0-53c4-4b72-ac05-ef9ca5b55611.jpg?1783943654",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-01T06:00:45Z"
-      },
-      "resolved_card": "Flame Fusillade",
-      "oracle_id": "b45cb1b8-091a-40d2-a53a-2fa95845f4fa",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
-        "episode_number": 724,
-        "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
-        "published_at": "2026-10-31T06:10:00Z",
-        "episode_url": "https://brainstormbrewery.com/that-game-one-shots-peoples-moms-brainstorm-brewery-724-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Nethergoyf",
-      "printing": "Modern Horizons 3",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [],
-      "recommendation": "Buy",
-      "mentioned_price": "$7 or $8",
-      "entry_target": {
-        "raw": "$7 or $8",
-        "currency": "USD",
-        "minimum": 7,
-        "maximum": 8
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "$10",
-        "currency": "USD",
-        "minimum": 10,
-        "maximum": 10
-      },
-      "reasoning": [
-        "It is a mythic rare.",
-        " Rakdos graveyard decks are a real archetype in Modern seeing a lot of success."
-      ],
-      "caveats": [],
-      "confidence": null,
-      "start_seconds": 2214,
-      "end_seconds": 2244,
-      "evidence_excerpt": "That pick of the week is for Modern Horizons 3, it's Nethergoyf. This card is sweet, it's about $7 or $8... Nethergoyf is going to go to at least $10.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-71c762bc9d8a44f7",
-      "timestamp": "00:36:54",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3#t=2214",
-      "card_resolution": {
-        "raw_name": "Nethergoyf",
-        "normalized_name": "nethergoyf",
-        "status": "verified",
-        "canonical_name": "Nethergoyf",
-        "scryfall_id": "3ee3945e-5089-4751-b7b3-5961c39d2a33",
-        "oracle_id": "040cbd8a-a9e5-454b-a5ae-9b66bb66b8e9",
-        "scryfall_uri": "https://scryfall.com/card/mh3/103/nethergoyf?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/3/e/3ee3945e-5089-4751-b7b3-5961c39d2a33.jpg?1783911277",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-01T06:00:45Z"
-      },
-      "resolved_card": "Nethergoyf",
-      "oracle_id": "040cbd8a-a9e5-454b-a5ae-9b66bb66b8e9",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
-        "episode_number": 724,
-        "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
-        "published_at": "2026-10-31T06:10:00Z",
-        "episode_url": "https://brainstormbrewery.com/that-game-one-shots-peoples-moms-brainstorm-brewery-724-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_724_That_Game_One_Shots_Peoples_Moms.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
     }
   ],
   "episodes": [
@@ -516,31 +513,20 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "complete",
+      "review_state": "approved",
       "review_reason": null,
-      "pick_count": 0,
+      "pick_count": 2,
       "directory": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance",
       "outputs": {
         "metadata": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance/summary.json",
+        "summary_markdown": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-11-07T00:08:15Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 4/5 failed: Gemini transcription chunk 1/1 failed after 18.1s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-11-07T06:08:15Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-11-08T05:59:23Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

@@ -1,0 +1,413 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36654",
+    "episode_number": 725,
+    "title": "Eternally Trekking | Brainstorm Brewery #725 | Magic Finance",
+    "published_at": "2026-11-06T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_725_Eternally_Treking.mp3",
+    "episode_url": "https://brainstormbrewery.com/eternally-trekking-brainstorm-brewery-725-magic-finance/",
+    "duration_seconds": 3738,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "DJ (@CardgardenMTG) and Corbin (@CHosler) are back, and they have the meats (not sponsored by Arby&#8217;s, but we could be Arby&#8217;s… email us!) and all the latest Magic news, including Eternal Weekend and the release of Star Trek. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.24",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-08T05:59:23Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-06T06:41:37Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-06T06:41:37Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-06T06:41:37Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-06T06:41:37Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-06T06:41:38Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-06T06:41:38Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-06T06:41:58Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-06T06:45:21Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-07T00:06:40Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-07T00:06:41Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-07T00:06:42Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-07T00:06:42Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-07T00:07:01Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-07T00:08:15Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-08T05:58:58Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-08T05:58:58Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-08T05:58:59Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-08T05:58:59Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-08T05:59:18Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-08T05:59:19Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-08T05:59:19Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-08T05:59:23Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-08T05:59:23Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-08T05:59:23Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-11-08T05:59:23Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3738,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 37.471,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15902,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22723,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 224
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38625,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 26.908,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 6504,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22724,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 224
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 29228,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.301,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13783,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22724,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 224
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36507,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.245,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16803,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22724,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 224
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39527,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 138,
+          "request_seconds": 6.024,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2275,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 3676,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 224
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 3452
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 5951,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 56,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 738,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 39420,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 39420
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 40158,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 69,
+    "end_seconds": 3719,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "explicit_section_end"
+  },
+  "recommendations": [
+    {
+      "card": "Loki's Double",
+      "printing": "Loki skin of Spark Double",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$5 to about $8",
+      "entry_target": {
+        "raw": "about $5 to about $8",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 8
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$11 or $12",
+        "currency": "USD",
+        "minimum": 11,
+        "maximum": 12
+      },
+      "reasoning": [
+        "Skinned versions of cards often lag behind due to SEO.",
+        "Other versions of Spark Double are at least $11 or $12.",
+        "It has climbed from about $5 to about $8 and has room to grow to meet the rest of them."
+      ],
+      "caveats": [
+        "I don't know that there's a ton of upside left here."
+      ],
+      "confidence": null,
+      "start_seconds": 3303,
+      "end_seconds": 3359,
+      "evidence_excerpt": "I am talking about Loki's Double. Also known as Spark Double... I think that there's still some room to grow here.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-c594338d11adae21",
+      "timestamp": "00:55:03",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_725_Eternally_Treking.mp3#t=3303"
+    },
+    {
+      "card": "Final Fortune",
+      "printing": "Mystery Booster version foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "under $100",
+      "entry_target": {
+        "raw": "under $100",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": 100
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "all-time lows / up from current",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Mystery Booster 2 future site foils are going to stop being open for a while.",
+        "Final Fortune has very limited foiling options.",
+        "The mystery booster foil is under $100 for the first time in a while."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 3636,
+      "end_seconds": 3685,
+      "evidence_excerpt": "The mystery booster foil is under $100 for the first time in a while. I think that one is a particularly good pick.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b0a2d6972ee1da13",
+      "timestamp": "01:00:36",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_725_Eternally_Treking.mp3#t=3636"
+    }
+  ]
+}
