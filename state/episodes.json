@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.24",
-  "updated_at": "2026-11-08T05:59:23Z",
+  "updated_at": "2026-11-08T11:19:05Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -31647,6 +31647,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-24T22:36:47Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-08T11:18:36Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-08T11:18:36Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-08T11:18:37Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-08T11:18:37Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-08T11:18:59Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-08T11:18:59Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-08T11:18:59Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-08T11:19:05Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-08T11:19:05Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-08T11:19:05Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-08T11:19:05Z"
         }
       ],
       "title": "MTG Fast Finance Ep 487: Spidey Swings Onto the MTG Scene",
@@ -31654,11 +31698,11 @@
       "published_at": "2025-08-04T06:04:49Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-24T22:36:47Z",
+      "updated_at": "2026-11-08T11:19:05Z",
       "output_directory": "episodes/0487-spidey-swings-onto-the-mtg-scene",
       "transcription": {
         "provider": "Gemini",
@@ -31872,12 +31916,13 @@
             }
           }
         ],
-        "timing_adjustments": 6
+        "timing_adjustments": 6,
+        "audio_dispositions": []
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1501,
+        "candidates_token_count": 1471,
         "candidates_tokens_details": null,
         "prompt_token_count": 15597,
         "prompt_tokens_details": [
@@ -31889,16 +31934,22 @@
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 17098,
+        "total_token_count": 17068,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
       "review_issues": [
         {
           "code": "coverage",
           "path": "extraction",
-          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
           "state": "unresolved"
         },
         {
