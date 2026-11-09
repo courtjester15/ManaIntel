@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.24",
-  "updated_at": "2026-11-08T23:45:47Z",
+  "updated_at": "2026-11-09T06:25:33Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -36435,6 +36435,30 @@
         {
           "status": "failed",
           "timestamp": "2026-11-08T23:45:47Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-09T06:23:54Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-09T06:23:54Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-09T06:23:55Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-09T06:23:55Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-09T06:24:11Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-09T06:25:33Z"
         }
       ],
       "title": "MTG Fast Finance Ep 480: Final Fantasy Secret Lair Outcomes",
@@ -36442,22 +36466,22 @@
       "published_at": "2025-06-14T02:43:54Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 1/4 failed: Gemini transcription chunk 1/1 failed after 32.9s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "message": "Timing/coverage repair of original chunk 2/4 failed: Gemini transcription chunk 1/1 failed after 64.5s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "category": "transient_provider",
         "synthetic": false,
         "retryable": true,
         "provider_wide": true,
-        "attempt": 1,
+        "attempt": 2,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-09T05:45:47Z",
+        "next_retry_at": "2026-11-09T12:25:33Z",
         "quarantined": false
       },
       "status": "failed",
-      "updated_at": "2026-11-08T23:45:47Z",
+      "updated_at": "2026-11-09T06:25:33Z",
       "output_directory": "episodes/0480-final-fantasy-secret-lair-outcomes"
     }
   }
