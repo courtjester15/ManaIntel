@@ -25,18 +25,18 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
     "review_issues": [
       {
         "code": "coverage",
         "path": "extraction",
-        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
         "state": "unresolved"
       },
       {
-        "code": "timing",
+        "code": "printing",
         "path": "extraction",
-        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
         "state": "unresolved"
       },
       {
@@ -46,12 +46,12 @@
         "state": "unresolved"
       }
     ],
-    "pipeline_version": "0.5.14",
+    "pipeline_version": "0.5.24",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
-    "prompt_version": "source-recommendations-v3-evidence-uncertainty",
-    "processed_at": "2026-10-17T04:27:37Z",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-09T12:56:38Z",
     "history": [
       {
         "status": "detected",
@@ -128,6 +128,78 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-17T04:27:37Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-10-31T10:25:18Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-10-31T10:25:18Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-10-31T10:25:19Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-10-31T10:25:19Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-10-31T10:25:37Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-10-31T10:26:34Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-10-31T10:26:34Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-09T12:54:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-09T12:54:49Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-09T12:54:51Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-09T12:54:51Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-09T12:55:01Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-09T12:56:28Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-09T12:56:28Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-09T12:56:38Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-09T12:56:38Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-09T12:56:38Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-09T12:56:38Z"
       }
     ],
     "error": null,
@@ -261,24 +333,25 @@
           }
         }
       ],
-      "timing_adjustments": 3
+      "timing_adjustments": 3,
+      "audio_dispositions": []
     },
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 2182,
+      "candidates_token_count": 2615,
       "candidates_tokens_details": null,
-      "prompt_token_count": 21926,
+      "prompt_token_count": 25712,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 21926
+          "token_count": 25712
         }
       ],
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 24108,
+      "total_token_count": 28327,
       "traffic_type": null
     }
   },

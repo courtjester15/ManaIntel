@@ -184,4 +184,4 @@
 
 ---
 
-Schema 1.1.0 · Pipeline 0.5.14 · Prompt source-recommendations-v3-evidence-uncertainty
+Schema 1.1.0 · Pipeline 0.5.24 · Prompt source-recommendations-v4-metadata-context
