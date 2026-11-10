@@ -1,0 +1,430 @@
+{
+  "schema_version": 1,
+  "attempt_id": "37e5f27b10034a728385d326fb6b459f",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2137216164",
+    "number": 486,
+    "title": "MTG Fast Finance Ep 486: Edge of Eternities Early Price Action",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-11-10T12:41:27Z",
+  "pipeline_version": "0.5.24",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "42817810613",
+  "run_attempt": "1",
+  "git_sha": "7ddadab0a3de602054b6f0ed0ee798367c6c17a4",
+  "intervention": "Bounded nightly cleanup",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "needs_review",
+    "prior_attempt_count": 1,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-10T12:41:27Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-10T12:41:27Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:30Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:30Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:35Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:35Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:35Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-11-10T12:41:35Z",
+      "event": "stage",
+      "stage": "transcribed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2833,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 32.491,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14645,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22666,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37311,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 30.101,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13410,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22667,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36077,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.846,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15902,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22667,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38569,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 133,
+            "request_seconds": 3.702,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 1196,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 3489,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 167
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 3322
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 4685,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 1,
+        "audio_dispositions": []
+      }
+    },
+    {
+      "timestamp": "2026-11-10T12:41:35Z",
+      "event": "stage",
+      "stage": "extracting"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:41Z",
+      "event": "model_call",
+      "stage": "extracting",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 5.064,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1879,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 14728,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 14728
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 16607,
+        "traffic_type": null
+      },
+      "response_characters": 5998
+    },
+    {
+      "timestamp": "2026-11-10T12:41:44Z",
+      "event": "model_call",
+      "stage": "verifying",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 1.976,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 46,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 1497,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 1375
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 122
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 1543,
+        "traffic_type": null
+      },
+      "response_characters": 163
+    },
+    {
+      "timestamp": "2026-11-10T12:41:48Z",
+      "event": "model_call",
+      "stage": "verifying",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 3.229,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 52,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 1497,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 122
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 1375
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 1549,
+        "traffic_type": null
+      },
+      "response_characters": 204
+    },
+    {
+      "timestamp": "2026-11-10T12:41:48Z",
+      "event": "review_issues",
+      "issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        },
+        {
+          "code": "identity",
+          "path": "recommendations/1",
+          "reason": "Card name has no exact match in Scryfall.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-10T12:41:48Z",
+      "event": "stage",
+      "stage": "extracted",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Card name has no exact match in Scryfall.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1879,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 14728,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 14728
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 16607,
+        "traffic_type": null
+      }
+    },
+    {
+      "timestamp": "2026-11-10T12:41:48Z",
+      "event": "extraction_summary",
+      "section": {
+        "located": true,
+        "label": "Cards to Watch",
+        "start_seconds": 1216,
+        "end_seconds": 2422
+      },
+      "pick_count": 5,
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Card name has no exact match in Scryfall.",
+      "picks": [
+        {
+          "card": "Forge Anew",
+          "printing": "Final Fantasy Secret Lair, Rainbow Foil, Prince Noctis variant",
+          "confidence": null,
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Forge New",
+          "printing": "Showcase Scrolls Foils",
+          "confidence": null,
+          "review_status": "needs_review",
+          "review_reason": "Card name has no exact match in Scryfall."
+        },
+        {
+          "card": "Ajani, Nacatl Pariah",
+          "printing": "Modern Horizons 3, borderless textured foil",
+          "confidence": null,
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Apothecary White",
+          "printing": "Clue set",
+          "confidence": null,
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Ugin's Labyrinth",
+          "printing": "Modern Horizons 3, borderless foil",
+          "confidence": null,
+          "review_status": "approved",
+          "review_reason": null
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-10T12:41:48Z",
+      "event": "stage",
+      "stage": "validating"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:48Z",
+      "event": "stage",
+      "stage": "publishing"
+    },
+    {
+      "timestamp": "2026-11-10T12:41:48Z",
+      "event": "stage",
+      "stage": "needs_review",
+      "pick_count": 5,
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review."
+    }
+  ],
+  "outcome": "needs_review",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/42817810613",
+  "finished_at": "2026-11-10T12:41:48Z",
+  "pick_count": 5,
+  "preserved_previous": true,
+  "note": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

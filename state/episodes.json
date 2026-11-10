@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.24",
-  "updated_at": "2026-11-10T07:20:29Z",
+  "updated_at": "2026-11-10T12:41:48Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32293,6 +32293,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-26T23:55:02Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-10T12:41:27Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-10T12:41:27Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-10T12:41:30Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-10T12:41:30Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-10T12:41:35Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-10T12:41:35Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-10T12:41:35Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-10T12:41:48Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-10T12:41:48Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-10T12:41:48Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-10T12:41:48Z"
         }
       ],
       "title": "MTG Fast Finance Ep 486: Edge of Eternities Early Price Action",
@@ -32300,11 +32344,11 @@
       "published_at": "2025-07-27T06:42:11Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 5,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-26T23:55:02Z",
+      "updated_at": "2026-11-10T12:41:48Z",
       "output_directory": "episodes/0486-edge-of-eternities-early-price-action",
       "transcription": {
         "provider": "Gemini",
@@ -32436,12 +32480,13 @@
             }
           }
         ],
-        "timing_adjustments": 1
+        "timing_adjustments": 1,
+        "audio_dispositions": []
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1808,
+        "candidates_token_count": 1879,
         "candidates_tokens_details": null,
         "prompt_token_count": 14728,
         "prompt_tokens_details": [
@@ -32453,16 +32498,22 @@
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 16536,
+        "total_token_count": 16607,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
       "review_issues": [
         {
           "code": "coverage",
           "path": "extraction",
-          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
           "state": "unresolved"
         },
         {
