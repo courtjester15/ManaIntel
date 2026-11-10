@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "attempt_id": "d2a54766f7704e9092b6fdf20c8ef3b6",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15677",
+    "number": 652,
+    "title": "Estate Sale Strategy | Brainstorm Brewery #652 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-11-10T07:19:45Z",
+  "pipeline_version": "0.5.24",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "42773982014",
+  "run_attempt": "1",
+  "git_sha": "738dc3cb9986bc3d6a19827c49cd4955b182b6fb",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-10T07:19:45Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-10T07:19:45Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-10T07:19:47Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-10T07:19:47Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-10T07:19:55Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-10T07:19:59Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 3.497
+    },
+    {
+      "timestamp": "2026-11-10T07:20:29Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Gemini transcription chunk 1/4 failed after 33.5s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted."
+    },
+    {
+      "timestamp": "2026-11-10T07:20:29Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/42773982014",
+  "finished_at": "2026-11-10T07:20:29Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

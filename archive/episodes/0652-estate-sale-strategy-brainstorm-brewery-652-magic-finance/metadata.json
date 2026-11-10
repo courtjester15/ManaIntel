@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15677",
+    "episode_number": 652,
+    "title": "Estate Sale Strategy | Brainstorm Brewery #652 | Magic Finance",
+    "published_at": "2025-06-13T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_652_Estate_Sale_Strategy.mp3",
+    "episode_url": "https://brainstormbrewery.com/estate-sale-strategy-brainstorm-brewery-652-magic-finance/",
+    "duration_seconds": 3588,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "DJ (@CardgardenMTG), and Corbin (@CHosler) talk about the latest tournament in Indianapolis, Final Fantasy skyrocketing, and a new buying strategy. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.24",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-10T07:20:29Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-10T07:19:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-10T07:19:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-10T07:19:45Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-10T07:19:45Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-10T07:19:47Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-10T07:19:47Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-10T07:19:55Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-10T07:20:29Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/4 failed after 33.5s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+      "category": "capacity_deferred",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-11-10T13:20:29Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0652-estate-sale-strategy-brainstorm-brewery-652-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

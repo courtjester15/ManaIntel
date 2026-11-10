@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.24",
-  "updated_at": "2026-11-10T02:45:30Z",
+  "updated_at": "2026-11-10T07:20:29Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -36728,6 +36728,65 @@
           "state": "unresolved"
         }
       ]
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15677": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15677",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-10T07:19:45Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-10T07:19:45Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-10T07:19:45Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-10T07:19:45Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-10T07:19:47Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-10T07:19:47Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-10T07:19:55Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-10T07:20:29Z"
+        }
+      ],
+      "title": "Estate Sale Strategy | Brainstorm Brewery #652 | Magic Finance",
+      "episode_number": 652,
+      "published_at": "2025-06-13T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/4 failed after 33.5s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+        "category": "capacity_deferred",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-10T13:20:29Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-10T07:20:29Z",
+      "output_directory": "episodes/0652-estate-sale-strategy-brainstorm-brewery-652-magic-finance"
     }
   }
 }
