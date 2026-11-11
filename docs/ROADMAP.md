@@ -4,9 +4,9 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.24. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.25. Next milestone: 0.6 — dependable processing.**
 
-Recovery status now separates provider outages, provider capacity refusals and local budget stops. R2 includes a scoped FF538 price/hold case; independently check its uncovered 1527–1538 sentence next before changing transcription or extraction defaults. BB725's latest scheduled retry saved repair progress but remains unpublished after another provider 503.
+Card details now include verified-identity pick history, alongside a broad interaction/readability repair pass. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check; the local ASR dependency download was blocked. BB725 has two published picks; BB653 is exhausted and BB652 remains eligible for a bounded ordinary retry. See the [November 10 batch review](BATCH_REVIEW_2026-11-10.md), including the unavailable visual-browser verification.
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -111,7 +111,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
 | 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
-| Card history | Approved direction | Proposed first UI batch | Pick history inside card detail using existing archive data. Follow with Mentioned again and a browser-local watchlist once the history is useful. |
+| Card history | Shipped in 0.5.25 | Implemented; browser visual QA pending | Pick history in card details groups verified identities across shows, preserving variants, uncertainty, speaker/price context and listening links. Summary links open history directly. Follow with Mentioned again/watchlist after visual verification and usage evidence. |
 
 The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as needs_review; BB 667 published three as complete. The R1 report shipped in 0.5.11 and adds no inference calls or scheduled development. Its first fourteen-day window contains only five initial attempts (two usable) alongside many forced recoveries; current catalog failures are zero but forty episodes need review. GitHub job reads are bounded, and unobserved deployment outcomes remain unknown. This does not satisfy the sustained-reliability gate. Start the next authorized improvement pass with R2 unless new evidence changes the priority.
 
@@ -368,3 +368,31 @@ were dispatched. Scratch preview/apply found nothing reclaimable; downloaded
 incident evidence is pinned locally.
 Next: normal eligible BB725 retry; independently check FF538's uncovered
 1527-1538 price/hold sentence before extending R2 or changing prompts. Remain0.5.x.
+
+
+November 10 authorized reliability/history/UI batch (0.5.25): synchronized through
+production 3d500ae and reviewed current workflow outcomes. BB725 now has two
+published picks; BB653 is exhausted at3/3; BB652 remains a provider-503 failure
+at2/3 with saved progress and normal eligibility November11 at01:42 EST.
+No episode dispatch, inference call, prompt change or review approval tonight.
+Seven-day initial0/5 usable, retry3/9, forced0/7 new usable results (seven old
+publications preserved); all three usable publications have observed persistence
+and Pages. The0.6 reliability gate remains unmet.
+
+Implemented verified-identity card history plus the [UI interaction/readability
+review](BATCH_REVIEW_2026-11-10.md): source entities/apostrophes, dashboard links,
+local card/episode actions, search counts/reset/shareable filters, machine versus
+human review labels, honest source/printing uncertainty, keyboard/back navigation,
+clipboard fallback, stale review-payload invalidation, optional-resolution/audio
+fallbacks, responsive spacing, table targets and status/heading alignment.
+Original extraction, IDs and durable corrections are unchanged.
+Local250 Python tests and16 Node behavioral checks pass; separate jsdom journeys
+pass against539 picks, including four cross-show Sol Ring records. Archive
+validation and45 evaluation assertions pass. In-app browser timed out for both
+production and local preview; exact desktop/mobile appearance and native playback
+remain visually unverified. No external browser/desktop fallback was used.
+R2's FF538 source/context clip was obtained, but required local ASR model text
+files returned403 on bounded attempts. No independent reading was produced;
+price/hold expectations and source-certification limits remain unchanged.
+Next: production deployment verification, then source-check FF538's1527–1538
+sentence and perform visual QA when the in-app browser responds. Stay0.5.x.

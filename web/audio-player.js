@@ -3,6 +3,7 @@
 (function exposeAudioPlayback(global) {
   let player = null;
   let pendingSeek = null;
+  let fallbackUrl = "#";
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -14,6 +15,7 @@
   }
 
   function safeUrl(value) {
+    if (typeof value !== "string" || !value.trim()) return "#";
     try {
       const url = new URL(value, global.location?.href || "https://example.invalid/");
       return ["http:", "https:"].includes(url.protocol) ? url.href : "#";
@@ -89,7 +91,7 @@
     }
     pendingSeek = { seconds, autoplay: options.autoplay !== false, label: options.label };
     player.root.hidden = false;
-    player.root.scrollIntoView({ behavior: options.scroll === false ? "auto" : "smooth", block: "nearest" });
+    if (options.scroll !== false) player.root.scrollIntoView({ behavior: "smooth", block: "nearest" });
     if (player.audio.readyState >= 1) applySeek(pendingSeek);
     else {
       setStatus(`Loading audio to seek to ${formatTime(seconds)}…`);
@@ -99,18 +101,21 @@
   }
 
   function mount(options) {
+    player = null;
+    pendingSeek = null;
     const container = typeof options.container === "string" ? document.querySelector(options.container) : options.container;
     if (!container) return null;
     const audioUrl = safeUrl(options.audioUrl);
     const sourceUrl = safeUrl(options.sourceUrl);
+    fallbackUrl = sourceUrl !== "#" ? sourceUrl : audioUrl;
     if (audioUrl === "#") {
-      container.innerHTML = `<div class="audio-player-fallback">Audio is unavailable. <a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">Open the original episode</a>.</div>`;
+      container.innerHTML = `<div class="audio-player-fallback">Audio is unavailable.${sourceUrl !== "#" ? ` <a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">Open the original episode</a>.` : " No source audio link was recorded."}</div>`;
       return null;
     }
     container.innerHTML = `<section class="context-player" aria-label="Episode context player">
       <div class="context-player-head"><div><p class="eyebrow">Listen for context</p><strong>${escapeHtml(options.title || "Episode audio")}</strong></div><span data-player-selected>Choose a timestamp below</span></div>
       <audio controls preload="metadata" src="${escapeHtml(audioUrl)}"></audio>
-      <div class="context-player-tools"><button type="button" data-skip="-15">−15 sec</button><button type="button" data-skip="15">+15 sec</button><span data-player-status>Ready to listen.</span><a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">Original episode</a></div>
+      <div class="context-player-tools"><button type="button" data-skip="-15">−15 sec</button><button type="button" data-skip="15">+15 sec</button><span data-player-status>Ready to listen.</span><a href="${escapeHtml(fallbackUrl)}" target="_blank" rel="noreferrer">${sourceUrl !== "#" ? "Original episode" : "Open audio file"}</a></div>
     </section>`;
     const root = container.firstElementChild;
     player = {
@@ -131,12 +136,22 @@
   }
 
   function bind(root = document) {
+    root.querySelectorAll("[data-listen-seconds]").forEach((control) => {
+      if (player) return;
+      if (control.tagName === "A" && fallbackUrl !== "#") control.href = fallbackUrl;
+      else {
+        control.disabled = true;
+        control.setAttribute("aria-disabled", "true");
+        control.removeAttribute("href");
+        control.title = "Audio is unavailable for this episode.";
+      }
+    });
     root.addEventListener("click", (event) => {
       const control = event.target.closest("[data-listen-seconds]");
       if (!control) return;
-      event.preventDefault();
       const label = control.dataset.listenLabel || "Selected context";
       if (seekTo(control.dataset.listenSeconds, { label })) {
+        event.preventDefault();
         const href = control.getAttribute("href");
         if (href && global.history?.replaceState) global.history.replaceState(null, "", href);
         const targetId = control.dataset.listenTarget;

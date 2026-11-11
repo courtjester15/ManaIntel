@@ -23,7 +23,7 @@ const routes = {
   episodes: { title: "Episode Archive", render: renderEpisodes },
   picks: { title: "All Picks", render: renderPicks },
   status: { title: "Processing Status", render: renderStatus },
-  about: { title: "Settings / About", render: renderAbout },
+  about: { title: "About ManaIntel", render: renderAbout },
 };
 
 function escapeHtml(value) {
@@ -36,6 +36,7 @@ function escapeHtml(value) {
 }
 
 function safeUrl(value) {
+  if (typeof value !== "string" || !value.trim()) return "#";
   try {
     const url = new URL(value, window.location.href);
     return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "#";
@@ -50,6 +51,7 @@ function formatDate(value, long = false) {
   ).format(new Date(value));
 }
 function rawSafeUrl(value) {
+  if (typeof value !== "string" || !value.trim()) return "#";
   try {
     const url = new URL(value, window.location.href);
     return ["http:", "https:"].includes(url.protocol) ? url.href : "#";
@@ -129,13 +131,16 @@ function display(value, fallback = "Not stated") {
 }
 
 function target(value) { return value ? escapeHtml(value.raw) : "Not stated"; }
-function sourceName(item) { return item?.source_name || item?.episode?.source_name || "MTG Fast Finance"; }
+function sourceName(item) { return item?.source_name || item?.episode?.source_name || "Source not recorded"; }
 function sourceId(item) {
   const explicit = item?.source_id || item?.episode?.source_id;
   if (explicit) return explicit;
   const name = sourceName(item);
   if (name === "MTG Fast Finance") return "mtg-fast-finance";
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+function sourceAbbreviation(item) {
+  return { "mtg-fast-finance": "FF", "brainstorm-brewery": "BB" }[sourceId(item)] || "Unknown";
 }
 function sourceFilterOptions(items, selected) {
   const sources = new Map();
@@ -150,9 +155,11 @@ function sourceFilterOptions(items, selected) {
     .map(([id, source]) => `<option value="${escapeHtml(id)}" ${selected === id ? "selected" : ""}>${escapeHtml(source.name)} (${source.count})</option>`)
     .join("");
 }
-function label(value) { return String(value ?? "unknown").replaceAll("_", " "); }
+function label(value) { return value === "approved" ? "machine checked" : String(value ?? "unknown").replaceAll("_", " "); }
+function pickReviewBadge(pick) { return pick.human_reviewed ? badge("human_reviewed") : badge(pick.review_status); }
 
 function episodeReviewLabel(episode) {
+  if (episode.human_reviewed) return "human reviewed";
   return episode.review_state === "not_applicable" ? "Not extracted" : label(episode.review_state);
 }
 function badge(value, kind = "status") { return `<span class="${kind} ${escapeHtml(value ?? "unknown")}">${escapeHtml(label(value))}</span>`; }
@@ -174,7 +181,7 @@ function episodeListenUrl(episode) {
     .sort((left, right) => left.start_seconds - right.start_seconds)[0];
   return firstPick ? pickSummaryUrl(firstPick) : episodeSummaryUrl(episode);
 }
-function episodeListenLabel(episode) { return canOpenSummary(episode) ? "Listen to Cards to Watch" : "Listen"; }
+function episodeListenLabel(episode) { return canOpenSummary(episode) ? "Listen to recommendations" : "Listen to episode"; }
 function sentenceList(items, empty = "Not stated") {
   return items?.length ? items.map((item) => `<li>${escapeHtml(item)}</li>`).join("") : `<li>${escapeHtml(empty)}</li>`;
 }
@@ -245,13 +252,13 @@ function pickCard(pick, compact = false) {
     <div class="pick-card-head">
       <div>
         <p class="eyebrow">${escapeHtml(sourceName(pick))} · Episode ${escapeHtml(pick.episode.episode_number || "?")} · ${display(pick.timestamp)}</p>
-        <h3>${cardReferenceLink(pick)}</h3>
+        <h3>${escapeHtml(cardName(pick))}</h3>
         ${cardResolutionNote(pick)}
         <p class="pick-meta">${pickMeta(pick)}</p>
       </div>
       <div class="pick-badges">
         ${pick.confidence ? badge(pick.confidence, "confidence") : ""}
-        ${badge(pick.review_status)}
+        ${pickReviewBadge(pick)}
       </div>
     </div>
     <p class="recommendation-copy">${escapeHtml(pick.recommendation)}</p>
@@ -291,7 +298,7 @@ function failureReason(error) {
   if (lower.includes("api key") || lower.includes("unauthenticated") || lower.includes("permission_denied")) return "The AI provider key was missing, invalid, or unauthorized.";
   if (lower.includes("maximum size")) return "Audio exceeded the configured maximum size.";
   if (lower.includes("response_schema") || lower.includes("response_json_schema")) return "The AI provider rejected the structured JSON schema.";
-  return message.length > 220 ? `${escapeHtml(message.slice(0, 220))}â€¦` : escapeHtml(message);
+  return escapeHtml(message.length > 220 ? `${message.slice(0, 220)}…` : message);
 }
 function recoveryAction(error, now = Date.now()) {
   if (!error) return "";
@@ -323,6 +330,9 @@ function episodeAction(episode) {
 }
 
 async function loadData() {
+  const refresh = document.querySelector("#refresh-button");
+  refresh.disabled = true;
+  refresh.textContent = "Refreshing…";
   app.innerHTML = `<div class="loading"><span></span> Loading archive…</div>`;
   try {
     const nonce = Date.now();
@@ -336,68 +346,50 @@ async function loadData() {
     state.cards = cardsPayload.cards;
     const updated = state.index.metadata.generated_at ? formatDate(state.index.metadata.generated_at, true) : "pending";
     document.querySelector("#side-version").textContent = `Updated ${updated}`;
-    document.querySelector("#mode-pill").textContent = state.index.synthetic ? "Fixture mode" : "Live pipeline";
+    document.querySelector("#mode-pill").textContent = state.index.synthetic ? "Fixture mode" : "Automated archive";
     const banner = document.querySelector("#data-banner");
     banner.hidden = !state.index.synthetic;
     banner.textContent = state.index.synthetic ? state.index.notice : "";
-    renderRoute();
+    setRoute();
   } catch (error) {
     app.innerHTML = `<div class="empty-state"><strong>Published archive could not be loaded</strong><p>The automated pipeline may be updating or may need attention.</p></div>`;
+  } finally {
+    refresh.disabled = false;
+    refresh.textContent = "Refresh";
   }
 }
 
 function setRoute() {
-  const requested = window.location.hash.replace("#", "") || "dashboard";
+  const [requested = "dashboard", search = ""] = window.location.hash.slice(1).split("?");
+  const params = new URLSearchParams(search);
   state.route = routes[requested] ? requested : "dashboard";
+  state.query = params.get("q") || "";
+  state.status = params.get("status") || "all";
+  // Each destination starts with the source requested by its URL.
+  state.episodeSource = params.get("source") || "all";
+  state.pickSource = params.get("source") || "all";
   renderRoute();
+  const pickId = params.get("pick");
+  if (pickId && state.index) showPick(pickId);
 }
 
 function renderRoute() {
   if (!state.index) return;
   const route = routes[state.route];
   pageTitle.textContent = route.title;
-  document.querySelectorAll("nav a").forEach((link) => link.classList.toggle("active", link.dataset.route === state.route));
+  document.querySelectorAll("nav a").forEach((link) => {
+    link.classList.toggle("active", link.dataset.route === state.route);
+    if (link.dataset.route === state.route) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
   app.innerHTML = route.render();
   bindPageEvents();
 }
 
-function renderDashboard() {
-  const { counts, latest_episode: latest, recent_picks: recent } = state.index;
-  return `
-    <section class="grid metrics" aria-label="Archive totals">
-      ${metric("Episodes", counts.episodes, state.index.synthetic ? "synthetic fixtures" : "real podcast episodes")}
-      ${metric("Picks", counts.picks, "structured records")}
-      ${metric("Completed", counts.completed, "validated outputs")}
-      ${metric("Needs review", counts.needs_review, "human attention")}
-      ${metric("Failed", counts.failed, "exercised failure")}
-    </section>
-    <section class="grid dashboard-grid">
-      <article class="panel">
-        <div class="panel-head"><h2>Latest episode</h2><a href="#episodes">View archive →</a></div>
-        <div class="panel-body latest">${latest ? `
-          <div>${episodeBadge(latest)} ${latest.review_state === "needs_review" ? badge("needs_review") : ""}</div>
-          <div><p class="eyebrow">${escapeHtml(sourceName(latest))} · Episode ${latest.episode_number} · ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
-          <div class="latest-meta"><span>${latest.pick_count} picks</span><span>${escapeHtml(latest.hosts.join(" · "))}</span><span>GUID ${escapeHtml(latest.guid)}</span></div>
-          ${latest.error ? `<div class="failure-note">${failureReason(latest.error)}</div>` : ""}
-          <div class="latest-actions"><a class="button" href="${escapeHtml(episodeListenUrl(latest))}">${episodeListenLabel(latest)}</a>${episodeAction(latest)}</div>
-        ` : `<div class="empty-state"><strong>No live episodes published yet</strong><p>The first automated run is pending.</p></div>`}</div>
-      </article>
-      <article class="panel">
-        <div class="panel-head"><h2>Recent recommendations</h2><a href="#picks">View all →</a></div>
-        <div class="panel-body recommendation-list">
-          ${recent.map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${cardReferenceLink(pick)}</strong>${cardResolutionNote(pick)}<div class="pick-meta">${versionDisplay(pick)}</div><p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
-        </div>
-      </article>
-    </section>`;
-}
-
-function metric(name, value, note) {
-  return `<article class="metric"><p>${escapeHtml(name)}</p><strong>${Number(value)}</strong><small>${escapeHtml(note)}</small></article>`;
-}
-
 function renderEpisodes() {
   return `
-    <div class="toolbar"><label class="search"><input id="episode-search" type="search" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.index.episodes, state.episodeSource)}</select><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${value === "failed" ? "unfinished" : label(value)}</option>`).join("")}</select></div>
+    <div class="toolbar"><label class="search"><input id="episode-search" type="search" aria-label="Search episodes" placeholder="Search episode title, number, host…" value="${escapeHtml(state.query)}"></label><select id="episode-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.index.episodes, state.episodeSource)}</select><select id="episode-status" aria-label="Filter by status"><option value="all">All statuses</option>${["complete", "needs_review", "failed"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${value === "failed" ? "unfinished" : label(value)}</option>`).join("")}</select></div>
+    <div class="browse-summary"><span id="browse-count" role="status"></span><button class="link-button" type="button" data-reset-filters>Reset filters</button><span class="table-hint">Scroll the table sideways for more details.</span></div>
     <div class="table-wrap"><table><thead><tr>${episodeSortHeader("Episode", "episode_number")}${episodeSortHeader("Published", "published_at")}${episodeSortHeader("Activity", "processed_at")}${episodeSortHeader("Podcast / title", "title")}${episodeSortHeader("Status", "processing_status")}${episodeSortHeader("Picks", "pick_count")}${episodeSortHeader("Review", "review_state")}<th>Listen</th><th>Open</th></tr></thead><tbody id="episode-rows">${episodeRows()}</tbody></table></div>`;
 }
 
@@ -415,8 +407,9 @@ function episodeRows() {
 
 function renderPicks() {
   return `
-    <div class="toolbar"><label class="search"><input id="pick-search" type="search" placeholder="Search card, printing, host, recommendation…" value="${escapeHtml(state.query)}"></label><select id="pick-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.cards, state.pickSource)}</select><select id="pick-status" aria-label="Filter by review status"><option value="all">All review states</option>${["approved", "pending", "needs_review"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${value === "failed" ? "unfinished" : label(value)}</option>`).join("")}</select></div>
-    <div id="pick-table" aria-label="Cards to Watch recommendations"></div>`;
+    <div class="toolbar"><label class="search"><input id="pick-search" type="search" aria-label="Search picks" placeholder="Search card, printing, host, recommendation…" value="${escapeHtml(state.query)}"></label><select id="pick-source" aria-label="Filter by source"><option value="all">All sources</option>${sourceFilterOptions(state.cards, state.pickSource)}</select><select id="pick-status" aria-label="Filter by review status"><option value="all">All review states</option>${["approved", "pending", "needs_review"].map((value) => `<option value="${value}" ${state.status === value ? "selected" : ""}>${value === "failed" ? "unfinished" : label(value)}</option>`).join("")}</select></div>
+    <div class="browse-summary"><span id="browse-count" role="status"></span><button class="link-button" type="button" data-reset-filters>Reset filters</button><span class="table-hint">Scroll the table sideways for more details.</span></div>
+    <div id="pick-table" role="table" aria-label="Podcast recommendations"></div>`;
 }
 
 function filteredPicks() {
@@ -451,32 +444,51 @@ function renderPickTable() {
     getRowId: (pick) => pick.id,
     getRowLabel: (pick) => `Open details for ${cardName(pick)}`,
     columns: [
-      { label: "Card", sortKey: "card", html: (pick) => `${cardReferenceLink(pick)}${cardResolutionNote(pick)}` },
+      { label: "Card", sortKey: "card", type: "action", action: "details", value: (pick) => cardName(pick) },
       { label: "Version", sortKey: "printing", html: (pick) => versionDisplay(pick, "—"), title: (pick) => pick.printing_certainty ? `${label(pick.printing_certainty)} printing` : "Printing not stated" },
       { label: "Entry", sortKey: "entry", align: "money", value: (pick) => pick.entry_target?.raw || "—" },
       { label: "Exit", sortKey: "exit", align: "money", value: (pick) => pick.exit_target?.raw || "—" },
       { label: "Hold", sortKey: "hold", align: "center", value: (pick) => pick.hold || "—" },
-      { label: "Episode", sortKey: "episode_number", align: "center", value: (pick) => pick.episode.episode_number ? `#${pick.episode.episode_number}` : "—", title: (pick) => pick.episode.title },
+      { label: "Episode", sortKey: "episode_number", align: "center", type: "action", action: "episode", value: (pick) => `${sourceAbbreviation(pick)} ${pick.episode.episode_number || "?"}`, title: (pick) => `${sourceName(pick)} · ${pick.episode.title}` },
       { label: "Published", sortKey: "published_at", align: "center", value: (pick) => formatDate(pick.episode.published_at) },
-      { label: "Review", sortKey: "review_status", align: "center", html: (pick) => badge(pick.review_status) },
+      { label: "Review", sortKey: "review_status", align: "center", html: (pick) => pickReviewBadge(pick) },
       { label: "Listen", align: "center", type: "anchor", href: (pick) => pickSummaryUrl(pick), value: (pick) => pick.timestamp || "Listen" },
       { label: "Details", align: "actions", type: "action", action: "details", value: () => "Details" },
     ],
     onRowClick: (pick) => showPick(pick.id),
-    onAction: (action, pick) => { if (action === "details") showPick(pick.id); },
+    onAction: (action, pick) => { if (action === "details") showPick(pick.id); else if (action === "episode") showEpisode(pick.episode.guid); },
     onSort: (key) => { toggleSort("pickSort", key); renderPickTable(); },
   });
+  updateBrowseCount();
+}
+
+function updateBrowseCount() {
+  const count = document.querySelector("#browse-count");
+  if (!count) return;
+  count.textContent = state.route === "picks"
+    ? `${filteredPicks().length} of ${state.cards.length} picks`
+    : `${document.querySelectorAll("#episode-rows .episode-row").length} of ${state.index.episodes.length} episodes`;
+}
+
+function syncBrowseUrl() {
+  const params = new URLSearchParams();
+  if (state.query) params.set("q", state.query);
+  if (state.status !== "all") params.set("status", state.status);
+  const source = state.route === "picks" ? state.pickSource : state.episodeSource;
+  if (source !== "all") params.set("source", source);
+  window.history.replaceState(null, "", `#${state.route}${params.size ? `?${params}` : ""}`);
+  updateBrowseCount();
 }
 
 function renderStatus() {
   const episodes = sortRows(state.index.episodes, { key: "processed_at", direction: "desc" }, episodeSortAccessors);
-  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes · newest activity first</span></div><div class="panel-body status-timeline">${episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)} ${recentBadge(episode)}</strong><small>${episode.review_reason ? `${escapeHtml(episode.review_reason)} · ${episode.error ? "last attempt" : activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}` : `${episode.pick_count} structured picks · published ${formatDate(episode.published_at)} · ${episode.error ? "last attempt" : activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}`}</small>${episode.error ? `<small class="status-recovery">${failureReason(episode.error)}<br><strong>Next action:</strong> ${escapeHtml(recoveryAction(episode.error))}</small>` : ""}<div class="latest-actions"><button class="button secondary" type="button" data-episode-guid="${escapeHtml(episode.guid)}">View ${episode.error ? "recovery" : "episode"} details</button></div></div>${episodeBadge(episode)}</div>`).join("")}</div></article>`;
+  return `<article class="panel"><div class="panel-head"><h2>Automated processing outcomes</h2><span class="muted">${state.index.episodes.length} episodes · newest activity first</span></div><div class="panel-body status-timeline">${episodes.map((episode) => `<div class="status-card"><span class="episode-no">${episode.episode_number || "—"}</span><div><strong>${escapeHtml(episode.title)} ${recentBadge(episode)}</strong><small>${escapeHtml(sourceName(episode))}</small><small>${episode.review_reason ? `${escapeHtml(episode.review_reason)} · ${episode.error ? "last attempt" : activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}` : `${episode.pick_count} structured picks · published ${formatDate(episode.published_at)} · ${episode.error ? "last attempt" : activityLabel(episode).toLowerCase()} ${formatDateTime(episode.processed_at)}`}</small>${episode.error ? `<small class="status-recovery">${failureReason(episode.error)}<br><strong>Next action:</strong> ${escapeHtml(recoveryAction(episode.error))}</small>` : ""}<div class="latest-actions"><button class="button secondary" type="button" data-episode-guid="${escapeHtml(episode.guid)}">View ${episode.error ? "recovery" : "episode"} details</button></div></div>${episodeBadge(episode)}</div>`).join("")}</div></article>`;
 }
 
 function renderAbout() {
   return `<section class="grid about-grid">
-    <article class="panel prose"><div class="panel-body"><p class="eyebrow">Project</p><h2>ManaIntel updates without a laptop or manual downloads.</h2><p>A scheduled pipeline checks the podcast feeds, temporarily processes new audio, and publishes only structured recommendation data.</p><p><strong>Pipeline:</strong> ${escapeHtml(state.index.metadata.pipeline_version)}<br><strong>Schema:</strong> ${escapeHtml(state.index.schema_version)}<br><strong>Source:</strong> ${escapeHtml(state.index.metadata.source?.name || state.index.metadata.generated_from)}</p></div></article>
-    <article class="panel prose"><div class="panel-body"><p class="eyebrow">Trust rules</p><h2>Unknown means null.</h2><ul><li>No missing price, printing, host, or confidence is inferred.</li><li>Every recommendation requires evidence and a timestamp.</li><li>Markdown is rendered deterministically from JSON.</li><li>Ambiguity is surfaced as review state, not hidden.</li></ul></div></article>
+    <article class="panel prose"><div class="panel-body"><p class="eyebrow">Project</p><h2>Who recommended what, when, and why?</h2><p>Browse recorded recommendations from MTG Fast Finance and Brainstorm Brewery, compare a card’s history, and listen to the source discussion. Coverage is incomplete.</p><p><strong>Pipeline:</strong> ${escapeHtml(state.index.metadata.pipeline_version)}<br><strong>Schema:</strong> ${escapeHtml(state.index.schema_version)}<br><strong>Sources:</strong> MTG Fast Finance · Brainstorm Brewery</p></div></article>
+    <article class="panel prose"><div class="panel-body"><p class="eyebrow">Trust rules</p><h2>Missing details stay unknown.</h2><ul><li>Unstated prices, printings and speakers are left blank.</li><li>Every recommendation requires evidence and a timestamp.</li><li>Machine checked means automated checks passed; it does not mean a person verified the audio.</li><li>Needs review records retain their uncertainty and remain available to inspect.</li></ul></div></article>
     <article class="panel prose"><div class="panel-body"><p class="eyebrow">Automation</p><h2>Daily unattended updates</h2><p>GitHub Actions discovers new episodes, validates generated records, commits durable state, and deploys this site.</p></div></article>
     <article class="panel prose"><div class="panel-body"><p class="eyebrow">Disclaimer</p><h2>Verify automated records.</h2><p>Transcription and extraction can be wrong. This archive faithfully attempts to capture host commentary, adds no original finance opinions, and is not financial advice.</p></div></article>
   </section>`;
@@ -486,11 +498,11 @@ function renderDashboard() {
   const { counts, latest_episode: latest, recent_picks: recent } = state.index;
   return `
     <section class="summary-strip" aria-label="Archive totals">
-      ${metric("Episodes", counts.episodes, state.index.synthetic ? "fixtures" : "live")}
-      ${metric("Picks", counts.picks, "records")}
-      ${metric("Review", counts.needs_review, "needs review")}
-      ${metric("Unfinished", counts.failed, "waiting or needs attention")}
-      ${metric("Latest", latest?.episode_number ? `#${latest.episode_number}` : "None", latest ? formatDate(latest.published_at) : "pending")}
+      ${metric("Episodes", counts.episodes, "recorded episodes", "#episodes")}
+      ${metric("Picks", counts.picks, "recommendations", "#picks")}
+      ${metric("Needs review", counts.needs_review, "episodes to check", "#episodes?status=needs_review")}
+      ${metric("Unfinished", counts.failed, "view recovery details", "#episodes?status=failed")}
+      ${metric("Latest episode", latest?.episode_number ? `${sourceAbbreviation(latest)} #${latest.episode_number}` : "None", latest ? formatDate(latest.published_at) : "pending", "#episodes")}
     </section>
     <section class="dashboard-console">
       <article class="panel dashboard-main">
@@ -501,7 +513,7 @@ function renderDashboard() {
         <article class="panel">
           <div class="panel-head"><h2>Latest</h2></div>
           <div class="panel-body latest compact">${latest ? `
-            <div>${episodeBadge(latest)} ${latest.review_state === "needs_review" ? badge("needs_review") : ""}</div>
+            <div>${episodeBadge(latest)}</div>
             <div><p class="eyebrow">${escapeHtml(sourceName(latest))} · Episode ${latest.episode_number} - ${formatDate(latest.published_at)}</p><h3>${escapeHtml(latest.title)}</h3></div>
             <div class="latest-meta"><span>${latest.pick_count} picks</span><span>${escapeHtml(latest.hosts.join(" / "))}</span></div>
             ${latest.error ? `<div class="failure-note">${failureReason(latest.error)}</div>` : ""}
@@ -511,15 +523,15 @@ function renderDashboard() {
         <article class="panel">
           <div class="panel-head"><h2>Recent picks</h2><a href="#picks">All picks</a></div>
           <div class="panel-body recommendation-list compact">
-            ${recent.slice(0, 6).map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${cardReferenceLink(pick)}</strong>${cardResolutionNote(pick)}<p>${escapeHtml(pick.recommendation)}</p></div><time>${escapeHtml(pick.timestamp)}</time></div>`).join("")}
+            ${recent.slice(0, 6).map((pick) => `<div class="recommendation-row" data-pick-id="${escapeHtml(pick.id)}" role="button" tabindex="0"><div><strong>${escapeHtml(cardName(pick))}</strong>${cardResolutionNote(pick)}<p>${escapeHtml(pick.recommendation)}</p></div><span class="muted">${escapeHtml(sourceAbbreviation(pick))} ${escapeHtml(pick.episode.episode_number || "?")}</span></div>`).join("")}
           </div>
         </article>
       </aside>
     </section>`;
 }
 
-function metric(name, value, note) {
-  return `<article class="metric"><p>${escapeHtml(name)}</p><strong>${escapeHtml(value)}</strong><small>${escapeHtml(note)}</small></article>`;
+function metric(name, value, note, href) {
+  return `<a class="metric" href="${escapeHtml(href)}"><p>${escapeHtml(name)}</p><strong>${escapeHtml(value)}</strong><small>${escapeHtml(note)}</small></a>`;
 }
 
 function dashboardEpisodeRows() {
@@ -547,13 +559,22 @@ function bindPageEvents() {
   if (pickSearch) pickSearch.addEventListener("input", () => { state.query = pickSearch.value; renderPickTable(); });
   if (pickSource) pickSource.addEventListener("change", () => { state.pickSource = pickSource.value; renderPickTable(); });
   if (pickStatus) pickStatus.addEventListener("change", () => { state.status = pickStatus.value; renderPickTable(); });
+  document.querySelectorAll(".toolbar input, .toolbar select").forEach((control) => {
+    control.addEventListener(control.tagName === "INPUT" ? "input" : "change", syncBrowseUrl);
+  });
+  document.querySelector("[data-reset-filters]")?.addEventListener("click", () => {
+    state.query = ""; state.status = "all"; state.episodeSource = "all"; state.pickSource = "all";
+    syncBrowseUrl(); renderRoute();
+    document.querySelector(".toolbar input")?.focus();
+  });
+  updateBrowseCount();
 }
 
 function bindPickButtons() {
   document.querySelectorAll("[data-pick-id]").forEach((element) => {
-    const open = (event) => { if (!event?.target?.closest("a")) showPick(element.dataset.pickId); };
+    const open = (event) => { if (!event?.target?.closest("a, button, input")) showPick(element.dataset.pickId); };
     element.addEventListener("click", open);
-    element.addEventListener("keydown", (event) => { if (["Enter", " "].includes(event.key)) open(event); });
+    element.addEventListener("keydown", (event) => { if (["Enter", " "].includes(event.key) && event.target === element) { event.preventDefault(); open(event); } });
   });
 }
 
@@ -565,7 +586,7 @@ function bindEpisodeButtons() {
       showEpisode(element.dataset.episodeGuid);
     };
     element.addEventListener("click", open);
-    element.addEventListener("keydown", (event) => { if (["Enter", " "].includes(event.key)) { event.preventDefault(); open(event); } });
+    element.addEventListener("keydown", (event) => { if (["Enter", " "].includes(event.key) && event.target === element && element.tagName !== "BUTTON") { event.preventDefault(); open(event); } });
   });
 }
 
@@ -577,6 +598,37 @@ function setDialogCloseAction(isBack) {
   const label = isBack ? "Back to episode picks" : "Close details";
   dialogClose.setAttribute("aria-label", label);
   dialogClose.title = label;
+  dialogClose.textContent = isBack ? "←" : "×";
+}
+
+function verifiedIdentity(pick) {
+  return pick.card_resolution?.status === "verified" ? pick.card_resolution.oracle_id || null : null;
+}
+
+function recordedHistory(pick) {
+  const identity = verifiedIdentity(pick);
+  // Raw spelling and fuzzy suggestions cannot establish a shared card identity.
+  return (identity ? state.cards.filter((item) => verifiedIdentity(item) === identity) : [pick])
+    .slice().sort((a, b) => (Date.parse(b.episode.published_at) || 0) - (Date.parse(a.episode.published_at) || 0)
+      || (a.start_seconds ?? 0) - (b.start_seconds ?? 0) || String(a.id).localeCompare(String(b.id)));
+}
+
+function renderCardHistory(pick) {
+  const history = recordedHistory(pick);
+  const episodeCount = new Set(history.map((item) => item.episode.guid)).size;
+  return `<section class="detail-section card-history" aria-label="Recorded card history"><h3>Pick history</h3>
+    <p class="history-coverage">${verifiedIdentity(pick)
+      ? `${history.length} recorded ${history.length === 1 ? "recommendation" : "recommendations"} across ${episodeCount} ${episodeCount === 1 ? "episode" : "episodes"}. Matched by verified card identity, newest first. Printing and finish may differ.`
+      : "Card identity is unresolved. Only this recommendation is shown; possible matches stay separate."} This archive has incomplete coverage; this is not a complete history of either show.</p>
+    <ol class="history-list">${history.map((item) => `<li class="history-item${item.id === pick.id ? " current" : ""}">
+      <div class="history-heading"><strong>${escapeHtml(sourceName(item))} · ${escapeHtml(item.episode.episode_number || "?")}</strong><time>${escapeHtml(formatDate(item.episode.published_at))}</time></div>
+      <p>${versionDisplay(item)} · ${escapeHtml(item.recommendation)}</p>
+      <p class="muted">Speaker: ${escapeHtml(item.hosts?.length ? item.hosts.join(", ") : "not recorded")}</p>
+      ${item.card !== cardName(item) ? `<p class="muted">Transcribed as ${escapeHtml(item.card)}</p>` : ""}
+      <p>${escapeHtml(item.reasoning?.join(" ") || "No reasoning recorded.")}</p>
+      <dl class="history-prices"><div><dt>Mentioned price</dt><dd>${display(item.mentioned_price)}</dd></div><div><dt>Entry target</dt><dd>${target(item.entry_target)}</dd></div></dl>
+      <div class="latest-actions">${pickReviewBadge(item)}${item.id === pick.id ? `<span class="muted">Selected pick</span>` : `<button class="link-button" type="button" data-history-pick="${escapeHtml(item.id)}">View this pick</button>`}<a class="link-button" href="${escapeHtml(pickSummaryUrl(item))}">Listen${item.timestamp ? ` at ${escapeHtml(item.timestamp)}` : " to episode"}</a></div>
+    </li>`).join("")}</ol></section>`;
 }
 
 function showPick(id, { fromEpisode = false } = {}) {
@@ -590,17 +642,19 @@ function showPick(id, { fromEpisode = false } = {}) {
   }
   dialogState.view = "pick";
   dialogState.pickId = pick.id;
-  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">Episode ${pick.episode.episode_number} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(pick.card)}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit</small><strong>${target(pick.exit_target)}</strong></div></div><div class="recommendation-callout"><small>Host recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${escapeHtml(pickSummaryUrl(pick))}">Listen at timestamp</a>${badge(pick.review_status)}</div></div>`;
+  dialogContent.innerHTML = `<div class="dialog-content pick-detail"><p class="eyebrow">${escapeHtml(sourceName(pick))} · Episode ${escapeHtml(pick.episode.episode_number || "?")} · ${formatDate(pick.episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(cardName(pick))}</h2><div class="dialog-sub">${pickMeta(pick)}</div><div class="detail-grid"><div class="detail-box"><small>Entry target</small><strong>${target(pick.entry_target)}</strong></div><div class="detail-box"><small>Hold</small><strong>${display(pick.hold)}</strong></div><div class="detail-box"><small>Exit target</small><strong>${target(pick.exit_target)}</strong></div></div><p class="mentioned-price">Mentioned price: ${display(pick.mentioned_price)} · A mentioned price is not automatically an entry target.</p><div class="recommendation-callout"><small>Recommendation</small><p>${escapeHtml(pick.recommendation)}</p></div><div class="detail-section"><h3>Why it was mentioned</h3><ul>${sentenceList(pick.reasoning)}</ul></div><div class="detail-section"><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></div><div class="detail-section"><h3>Evidence · ${display(pick.timestamp)}</h3><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div>${pick.review_reason ? `<p class="review-context">Review note: ${escapeHtml(pick.review_reason)}</p>` : ""}</div><div class="latest-actions detail-actions"><a class="button" href="${escapeHtml(pickSummaryUrl(pick))}">Listen${pick.timestamp ? ` at ${escapeHtml(pick.timestamp)}` : " to episode"}</a><button class="button secondary" type="button" data-open-pick-episode="${escapeHtml(pick.episode.guid)}">Episode details</button>${pickReviewBadge(pick)}<a class="link-button" href="${safeUrl(scryfallUrl(pick, true))}" target="_blank" rel="noreferrer">${verifiedIdentity(pick) ? "View card on Scryfall ↗" : "Search Scryfall ↗"}</a></div>${renderCardHistory(pick)}</div>`;
   const cardHeading = dialogContent.querySelector("#dialog-card");
-  cardHeading.innerHTML = cardReferenceLink(pick, { allowSearch: true });
   if (cardResolutionNote(pick)) {
     cardHeading.insertAdjacentHTML("afterend", cardResolutionNote(pick));
   }
   if (cardPreview(pick)) {
-    cardHeading.insertAdjacentHTML("afterend", cardPreview(pick));
+    cardHeading.insertAdjacentHTML("afterend", `<figure class="detail-card-art">${cardPreview(pick)}<figcaption>${verifiedIdentity(pick) ? "Catalog image; may show a different printing." : "Possible match image; card identity is unverified."}</figcaption></figure>`);
   }
   setDialogCloseAction(Boolean(dialogState.episodeGuid));
   openDialog();
+  dialog.scrollTop = 0;
+  cardHeading.tabIndex = -1;
+  cardHeading.focus({ preventScroll: true });
 }
 
 function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
@@ -614,18 +668,24 @@ function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
   const summaryLink = canOpenSummary(episode) ? `<a class="button secondary" href="${episodeSummaryUrl(episode)}" target="_blank">Open summary</a>` : "";
   const episodePicks = state.cards.filter((pick) => pick.episode.guid === episode.guid);
   const workflowUrl = safeUrl(state.index.metadata.workflow_url);
-  const retryControls = episode.error ? `<div class="detail-section"><h3>Retry this exact episode</h3><p>Copy the GUID, open Actions, choose <strong>Run workflow</strong>, leave mode at <strong>next</strong>, and paste it into <strong>force_guid</strong>. Inspect retained evidence first: exact retry bypasses cooldown and quarantine. Copying the GUID or opening Actions does not start a job.</p><div class="latest-actions"><button class="button secondary" type="button" data-copy-guid="${escapeHtml(episode.guid)}">Copy retry GUID</button><a class="button secondary" href="${workflowUrl}" target="_blank" rel="noreferrer">Open retry workflow</a></div></div>` : "";
+  const retryControls = episode.error ? `<div class="detail-section"><h3>Retry this exact episode</h3><p>Copy the GUID, open Actions, choose <strong>Run workflow</strong>, leave mode at <strong>next</strong>, and paste it into <strong>force_guid</strong>. Inspect retained evidence first: exact retry bypasses cooldown and quarantine. Copying the GUID or opening Actions does not start a job.</p><div class="latest-actions"><button class="button secondary" type="button" data-copy-guid="${escapeHtml(episode.guid)}">Copy retry GUID</button><input id="copy-guid-fallback" aria-label="Retry GUID to copy" readonly hidden><a class="button secondary" href="${workflowUrl}" target="_blank" rel="noreferrer">Open retry workflow</a></div></div>` : "";
   const reviewControls = episode.processing_status === "needs_review" && canOpenSummary(episode)
     ? `<div class="detail-section"><h3>Human review</h3><p>Verify the extracted picks against the source, then keep, exclude, correct, or add picks through a durable review override.</p><div class="latest-actions"><a class="button" href="${episodeReviewUrl(episode)}">Review episode</a></div></div>`
     : episode.human_reviewed
       ? `<div class="detail-section"><h3>Human review</h3><p>${badge("human_reviewed")} Reviewed by ${escapeHtml(episode.reviewed_by || "an authenticated reviewer")}${episode.review_note ? ` · ${escapeHtml(episode.review_note)}` : ""}</p></div>`
       : "";
   const picksSection = episodePicks.length
-    ? `<div class="detail-section"><h3>Cards to Watch</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
-    : `<div class="detail-section"><h3>Cards to Watch</h3><p>No structured picks were published for this episode.</p></div>`;
-  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(deferredStatus(error) || label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(episodeReviewLabel(episode))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>${deferredStatus(error) ? "Processing deferred" : "Failure details"}</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Retry eligible</dt><dd>${error.retryable === true && !error.quarantined && error.next_retry_at ? escapeHtml(formatDateTime(error.next_retry_at)) : "No automatic retry recorded"}</dd></div><div><dt>Last attempt</dt><dd>${display(formatDateTime(episode.processed_at), "Not recorded")}</dd></div></dl><p><strong>Next action:</strong> ${escapeHtml(recoveryAction(error))}</p><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
+    ? `<div class="detail-section"><h3>Recommendations</h3><div class="episode-pick-list">${episodePicks.map((pick) => pickCard(pick, true)).join("")}</div></div>`
+    : `<div class="detail-section"><h3>Recommendations</h3><p>No structured picks were published for this episode.</p></div>`;
+  dialogContent.innerHTML = `<div class="dialog-content"><p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${episode.episode_number || "unknown"} · ${formatDate(episode.published_at, true)}</p><h2 id="dialog-card">${escapeHtml(episode.title)}</h2><div class="dialog-sub">${escapeHtml(episode.hosts.join(", ") || "Hosts not stated")} · GUID ${escapeHtml(episode.guid)}</div><div class="detail-grid"><div class="detail-box"><small>Status</small><strong>${escapeHtml(deferredStatus(error) || label(episode.processing_status))}</strong></div><div class="detail-box"><small>Picks</small><strong>${Number(episode.pick_count || 0)}</strong></div><div class="detail-box"><small>Review</small><strong>${escapeHtml(episodeReviewLabel(episode))}</strong></div></div>${episode.error ? `<div class="detail-section"><h3>${deferredStatus(error) ? "Processing deferred" : "Failure details"}</h3><div class="failure-note">${failureReason(error)}</div><dl class="failure-grid"><div><dt>Stage</dt><dd>${display(error.stage, "Unknown")}</dd></div><div><dt>Retryable</dt><dd>${error.retryable === true ? "Yes" : "No"}</dd></div><div><dt>Retry eligible</dt><dd>${error.retryable === true && !error.quarantined && error.next_retry_at ? escapeHtml(formatDateTime(error.next_retry_at)) : "No automatic retry recorded"}</dd></div><div><dt>Last attempt</dt><dd>${display(formatDateTime(episode.processed_at), "Not recorded")}</dd></div></dl><p><strong>Next action:</strong> ${escapeHtml(recoveryAction(error))}</p><details><summary>Technical message</summary><pre>${escapeHtml(error.message || "No raw error recorded.")}</pre></details></div>` : picksSection}${reviewControls}${retryControls}<div class="detail-section"><h3>Source</h3><p>${escapeHtml(ManaUI.sourceText(episode.description || "No feed description was captured."))}</p></div><div class="latest-actions" style="margin-top:20px"><a class="button" href="${safeUrl(episode.audio_url)}" target="_blank" rel="noreferrer">Listen</a>${summaryLink}</div></div>`;
   setDialogCloseAction(false);
   openDialog();
+  if (!returning) {
+    dialog.scrollTop = 0;
+    const heading = dialogContent.querySelector("#dialog-card");
+    heading.tabIndex = -1;
+    heading.focus({ preventScroll: true });
+  }
   if (returning) {
     requestAnimationFrame(() => {
       dialog.scrollTop = dialogState.episodeScrollTop;
@@ -658,9 +718,13 @@ dialog.addEventListener("close", () => {
   setDialogCloseAction(false);
 });
 dialogContent.addEventListener("click", (event) => {
+  const historyPick = event.target.closest("[data-history-pick]");
+  if (historyPick) { showPick(historyPick.dataset.historyPick); return; }
+  const episodeButton = event.target.closest("[data-open-pick-episode]");
+  if (episodeButton) { showEpisode(episodeButton.dataset.openPickEpisode); return; }
   const copyButton = event.target.closest("[data-copy-guid]");
   if (copyButton) {
-    navigator.clipboard.writeText(copyButton.dataset.copyGuid).then(() => { copyButton.textContent = "GUID copied"; });
+    ManaUI.copyText(copyButton, copyButton.dataset.copyGuid, "GUID copied", dialogContent.querySelector("#copy-guid-fallback"));
     return;
   }
   if (event.target.closest("a")) return;
@@ -668,7 +732,7 @@ dialogContent.addEventListener("click", (event) => {
   if (pickElement) showPick(pickElement.dataset.pickId, { fromEpisode: dialogState.view === "episode" });
 });
 dialogContent.addEventListener("keydown", (event) => {
-  if (!["Enter", " "].includes(event.key) || event.target.closest("a")) return;
+  if (!["Enter", " "].includes(event.key) || event.target.closest("a, button, input")) return;
   const pickElement = event.target.closest("[data-pick-id]");
   if (pickElement) {
     event.preventDefault();
@@ -676,6 +740,9 @@ dialogContent.addEventListener("keydown", (event) => {
   }
 });
 document.querySelector("#refresh-button").addEventListener("click", loadData);
-window.addEventListener("hashchange", () => { state.query = ""; state.status = "all"; setRoute(); });
-state.route = window.location.hash.replace("#", "") || "dashboard";
+document.querySelector(".skip-link")?.addEventListener("click", (event) => {
+  event.preventDefault(); app.focus();
+});
+window.addEventListener("hashchange", () => { if (dialog.open) dialog.close(); setRoute(); });
+state.route = "dashboard";
 loadData();

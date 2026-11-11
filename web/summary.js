@@ -16,6 +16,7 @@ function escapeHtml(value) {
 }
 
 function safeUrl(value) {
+  if (typeof value !== "string" || !value.trim()) return "#";
   try {
     const url = new URL(value, window.location.href);
     return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "#";
@@ -34,7 +35,7 @@ function display(value, fallback = "Not stated") {
   return value === null || value === undefined || value === "" ? fallback : escapeHtml(value);
 }
 
-function label(value) { return String(value ?? "unknown").replaceAll("_", " "); }
+function label(value) { return value === "approved" ? "machine checked" : String(value ?? "unknown").replaceAll("_", " "); }
 function target(value) { return value ? escapeHtml(value.raw) : "Not stated"; }
 function badge(value, kind = "status") { return `<span class="${kind} ${escapeHtml(value ?? "unknown")}">${escapeHtml(label(value))}</span>`; }
 function sentenceList(items, empty = "Not stated") {
@@ -107,13 +108,13 @@ function pickCard(episodeDir, pick, index) {
     <div class="pick-card-head">
       <div>
         <p class="eyebrow">Pick ${index + 1}${time ? ` · ${escapeHtml(time)}` : ""}</p>
-        <h2>${cardReferenceLink(pick)}</h2>
+        <h2>${escapeHtml(cardName(pick))}</h2>
         ${cardResolutionNote(pick)}
         <p class="pick-meta">${pickMeta(pick)}</p>
       </div>
       <div class="pick-badges">
         ${pick.confidence ? badge(pick.confidence, "confidence") : ""}
-        ${pick.review_status ? badge(pick.review_status) : ""}
+        ${pick.human_reviewed ? badge("human_reviewed") : pick.review_status ? badge(pick.review_status) : ""}
       </div>
     </div>
     <div class="target-strip">
@@ -127,7 +128,7 @@ function pickCard(episodeDir, pick, index) {
       <section><h3>Caveats</h3><ul>${sentenceList(pick.caveats, "None stated")}</ul></section>
     </div>
     <details class="evidence-disclosure"><summary>Evidence${time ? ` · ${escapeHtml(time)}` : ""}</summary><div class="evidence">${escapeHtml(pick.evidence_excerpt || "No evidence excerpt recorded.")}</div></details>
-    <div class="latest-actions"><a class="button" href="${escapeHtml(listenUrl(episodeDir, pick))}" data-listen-seconds="${escapeHtml(pick.start_seconds)}" data-listen-label="${escapeHtml(cardName(pick))}" data-listen-target="${escapeHtml(cardId)}">Listen at ${escapeHtml(time || "timestamp")}</a></div>
+    <div class="latest-actions"><a class="button" href="${escapeHtml(listenUrl(episodeDir, pick))}" data-listen-seconds="${escapeHtml(pick.start_seconds)}" data-listen-label="${escapeHtml(cardName(pick))}" data-listen-target="${escapeHtml(cardId)}">Listen at ${escapeHtml(time || "timestamp")}</a><a class="button secondary" href="./#picks?pick=${encodeURIComponent(pick.id)}">Pick details &amp; history</a>${scryfallUrl(pick) ? `<a class="link-button" href="${safeUrl(scryfallUrl(pick))}" target="_blank" rel="noreferrer">View card on Scryfall ↗</a>` : ""}</div>
   </article>`;
 }
 
@@ -151,14 +152,16 @@ async function loadSummary() {
     const markdownUrl = `archive/episodes/${episodeDir}/${humanReviewed ? "effective.md" : "summary.md"}`;
     const episode = summary.episode || {};
     const processing = summary.processing || {};
-    const resolutionResponse = await fetch(`archive/resolutions.json?v=${Date.now()}`);
-    const resolutionPayload = resolutionResponse.ok ? await resolutionResponse.json() : { resolutions: {} };
+    // Card art is optional; a lookup outage must not hide published evidence.
+    const resolutionPayload = await fetch(`archive/resolutions.json?v=${Date.now()}`)
+      .then((response) => response.ok ? response.json() : { resolutions: {} })
+      .catch(() => ({ resolutions: {} }));
     const resolutionMap = resolutionPayload.resolutions || {};
     const picks = (summary.recommendations || []).map((pick) => {
       const resolution = resolutionMap[pick.id];
-      if (!resolution || resolution.raw_name !== pick.card) return pick;
+      if (!resolution || resolution.raw_name !== pick.card) return { ...pick, human_reviewed: Boolean(processing.human_review) };
       const resolvedCard = resolution.status === "verified" ? resolution.canonical_name : null;
-      return { ...pick, card_resolution: resolution, resolved_card: resolvedCard };
+      return { ...pick, card_resolution: resolution, resolved_card: resolvedCard, human_reviewed: Boolean(processing.human_review) };
     });
 
     document.title = `${episode.source_name || "ManaIntel"} · ${episode.title || "Episode Summary"}`;
@@ -166,11 +169,11 @@ async function loadSummary() {
     meta.innerHTML = [
       episode.episode_number ? `Episode ${escapeHtml(episode.episode_number)}` : null,
       formatDate(episode.published_at, true),
-      episode.source_name || "MTG Fast Finance",
+      escapeHtml(episode.source_name || "Source not recorded"),
       `${picks.length} recommendations`,
       processing.status ? label(processing.status) : null,
     ].filter(Boolean).join(" · ");
-    actions.innerHTML = `<button class="button" type="button" data-listen-seconds="0" data-listen-label="Episode start">Listen from start</button><a class="button secondary" href="${escapeHtml(markdownUrl)}" target="_blank">Raw Markdown</a>`;
+    actions.innerHTML = `<button class="button" type="button" data-listen-seconds="0" data-listen-label="Episode start">Listen from start</button>${processing.status === "needs_review" ? `<a class="button secondary" href="review.html?episode=${encodeURIComponent(episodeDir)}">Review episode</a>` : ""}<a class="link-button" href="${escapeHtml(markdownUrl)}" target="_blank" rel="noreferrer">Episode text ↗</a>`;
 
     AudioPlayback.mount({
       container: "#audio-player",
@@ -178,7 +181,6 @@ async function loadSummary() {
       sourceUrl: episode.episode_url,
       title: episode.title,
     });
-    AudioPlayback.bind(document);
 
     if (processing.human_review) {
       reviewBanner.hidden = false;
@@ -190,15 +192,16 @@ async function loadSummary() {
 
     app.innerHTML = `
       <section class="grid metrics summary-metrics">
-        <article class="metric"><p>Status</p><strong>${escapeHtml(label(processing.status))}</strong><small>${escapeHtml(label(processing.review_state))}</small></article>
+        <article class="metric"><p>Status</p><strong>${escapeHtml(label(processing.status))}</strong><small>${escapeHtml(processing.human_review ? "human reviewed" : label(processing.review_state))}</small></article>
         <article class="metric"><p>Picks</p><strong>${Number(picks.length)}</strong><small>structured records</small></article>
         <article class="metric"><p>Duration</p><strong>${timestamp(episode.duration_seconds) || "—"}</strong><small>source audio</small></article>
       </section>
       <section class="summary-picks">
-        ${picks.length ? picks.map((pick, index) => pickCard(episodeDir, pick, index)).join("") : `<div class="empty-state"><strong>No recommendations found</strong><p>The pipeline did not publish structured picks for this episode.</p></div>`}
+        ${picks.length ? picks.map((pick, index) => pickCard(episodeDir, pick, index)).join("") : `<div class="empty-state"><strong>No published recommendations</strong><p>This does not establish that the episode contained no recommendations.</p></div>`}
       </section>
-      <section class="panel prose summary-source"><div class="panel-body"><p class="eyebrow">Source description</p><p>${escapeHtml(episode.description || "No feed description was captured.")}</p></div></section>
+      <section class="panel prose summary-source"><div class="panel-body"><p class="eyebrow">Source description</p><p>${escapeHtml(ManaUI.sourceText(episode.description || "No feed description was captured."))}</p></div></section>
     `;
+    AudioPlayback.bind(document);
     const requestedTime = AudioPlayback.parseTime(params.get("t"));
     if (requestedTime !== null) {
       const requestedPick = params.get("pick");

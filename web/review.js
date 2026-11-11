@@ -18,6 +18,7 @@ function escapeHtml(value) {
 }
 
 function safeUrl(value) {
+  if (typeof value !== "string" || !value.trim()) return "#";
   try {
     const url = new URL(value, window.location.href);
     return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "#";
@@ -136,7 +137,7 @@ function renderReview() {
   const processing = sourceSummary.processing;
   reviewTitle.textContent = episode.title;
   reviewMeta.textContent = [
-    episode.source_name || "MTG Fast Finance",
+    episode.source_name || "Source not recorded",
     episode.episode_number ? `Episode ${episode.episode_number}` : null,
     formatDate(episode.published_at),
     `${sourceSummary.recommendations.length} extracted picks`,
@@ -158,7 +159,7 @@ function renderReview() {
       <div class="panel-body" id="added-picks"><p class="muted" id="no-added-picks">No missing picks added.</p></div>
     </section>
     <section class="panel review-finalize">
-      <div class="panel-head"><h2>Finalize review</h2><span class="status approved">Human verified</span></div>
+      <div class="panel-head"><h2>Prepare approval</h2><span class="muted">Verify against the source before approving</span></div>
       <div class="panel-body">
         ${inputField("Review note (optional)", "review-note", "", { wide: true, multiline: true })}
         <div class="latest-actions">
@@ -322,9 +323,14 @@ function bindReviewEvents() {
   document.querySelector("#review-output").addEventListener("click", (event) => {
     if (!event.target.closest("#copy-review")) return;
     const button = event.target.closest("#copy-review");
-    navigator.clipboard.writeText(document.querySelector("#review-payload").value).then(() => {
-      button.textContent = "Payload copied";
-    });
+    ManaUI.copyText(button, document.querySelector("#review-payload").value, "Payload copied", document.querySelector("#review-payload"));
+  });
+  // A prepared payload must never silently represent an earlier form state.
+  const invalidatePayload = () => { document.querySelector("#review-output").hidden = true; };
+  reviewApp.addEventListener("input", (event) => { if (!event.target.closest("#review-output")) invalidatePayload(); });
+  reviewApp.addEventListener("change", (event) => { if (!event.target.closest("#review-output")) invalidatePayload(); });
+  reviewApp.addEventListener("click", (event) => {
+    if (event.target.closest("#add-pick, [data-remove-added]")) invalidatePayload();
   });
 }
 

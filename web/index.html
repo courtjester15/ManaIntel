@@ -3,21 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Automated MTG Fast Finance Cards to Watch archive">
-    <title>ManaIntel · Cards to Watch Archive</title>
-    <link rel="stylesheet" href="styles.css?v=0.5.5">
+    <meta name="description" content="MTG Fast Finance and Brainstorm Brewery recommendation archive">
+    <title>ManaIntel · Podcast Pick Archive</title>
+    <link rel="stylesheet" href="styles.css?v=0.5.25">
   </head>
   <body>
+    <a class="skip-link" href="#app">Skip to archive content</a>
     <div class="shell app-shell">
       <main class="container">
         <header class="app-header">
           <a class="brand" href="#dashboard" aria-label="ManaIntel dashboard">
             <span class="brand-mark">MI</span>
-            <span><strong>ManaIntel</strong><small>Cards to Watch</small></span>
+            <span><strong>ManaIntel</strong><small>Podcast picks</small></span>
           </a>
           <div class="app-title-block">
             <h1 id="page-title">Dashboard</h1>
-            <p class="app-subtitle">MTG Fast Finance archive · <span id="side-version">Loading...</span></p>
+            <p class="app-subtitle">Two shows · <span id="side-version">Loading...</span></p>
           </div>
           <div class="top-actions">
             <span id="mode-pill" class="fixture-pill">Automated</span>
@@ -36,7 +37,7 @@
         </div>
 
         <div id="data-banner" class="banner" hidden></div>
-        <div id="app" aria-live="polite">
+        <div id="app" tabindex="-1" aria-live="polite">
           <div class="loading"><span></span> Loading archive...</div>
         </div>
       </main>
@@ -50,8 +51,9 @@
     <template id="empty-template">
       <div class="empty-state"><strong>No matching records</strong><p>Try changing the search or status filter.</p></div>
     </template>
-    <script src="audio-player.js?v=0.5.0" defer></script>
-    <script src="table.js?v=0.4.1" defer></script>
-    <script src="app.js?v=0.5.5" defer></script>
+    <script src="ui.js?v=0.5.25" defer></script>
+    <script src="audio-player.js?v=0.5.25" defer></script>
+    <script src="table.js?v=0.5.25" defer></script>
+    <script src="app.js?v=0.5.25" defer></script>
   </body>
 </html>
