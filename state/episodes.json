@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.25",
-  "updated_at": "2026-11-11T06:19:09Z",
+  "updated_at": "2026-11-11T11:55:14Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -27977,6 +27977,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-11-02T01:50:36Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-11T11:54:47Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-11T11:54:47Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-11T11:54:51Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-11T11:54:51Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-11T11:55:04Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-11T11:55:14Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-11T11:55:14Z"
         }
       ],
       "title": "MTG Fast Finance Ep 492: Spidey x MTG Previews",
@@ -27984,11 +28012,11 @@
       "published_at": "2025-09-10T00:56:35Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 3,
+      "attempt_count": 4,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-11-02T01:50:36Z",
+      "updated_at": "2026-11-11T11:55:14Z",
       "output_directory": "episodes/0492-spidey-x-mtg-previews",
       "transcription": {
         "provider": "Gemini",
@@ -28250,12 +28278,12 @@
       ],
       "last_attempt_error": {
         "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 4/6 failed: Gemini transcription chunk 1/1 failed after 11.1s: CapacityStopped: Shared capacity stop: configured request budget insufficient (0 available; 1 required).",
-        "category": "capacity_deferred",
+        "message": "Timing/coverage repair of original chunk 4/6 failed: Gemini transcription chunk 1/1 failed after 8.8s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
         "synthetic": false,
         "retryable": false,
         "provider_wide": true,
-        "attempt": 3,
+        "attempt": 4,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
