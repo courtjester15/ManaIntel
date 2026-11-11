@@ -394,5 +394,9 @@ remain visually unverified. No external browser/desktop fallback was used.
 R2's FF538 source/context clip was obtained, but required local ASR model text
 files returned403 on bounded attempts. No independent reading was produced;
 price/hold expectations and source-certification limits remain unchanged.
-Next: production deployment verification, then source-check FF538's1527–1538
-sentence and perform visual QA when the in-app browser responds. Stay0.5.x.
+Implementation a0b17bc; [production42957724939](https://github.com/courtjester15/ManaIntel/actions/runs/42957724939)
+passed tests, production archive validation and Pages. Verified all ten served
+assets against the release (excluding the exact network-viewer style prefix in
+HTML only), catalog0.5.25 and unchanged139 episodes/539 picks and BB outcomes.
+Next: source-check FF538's1527–1538 sentence and perform visual QA when the
+in-app browser responds. Stay0.5.x.

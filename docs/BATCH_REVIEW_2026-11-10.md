@@ -37,4 +37,4 @@ R2: all 45 existing scoped assertions pass. Downloaded FF538 source and prepared
 
 Next: independently check FF538's uncovered sentence when a working source-reading method is available; visually verify desktop/mobile journeys in the in-app browser when it responds. Pick history is the foundation for later Mentioned again/watchlist work, which is not part of this release.
 
-Deployment evidence will be recorded in the roadmap after production verification.
+Implementation `a0b17bc`; [production run 42957724939](https://github.com/courtjester15/ManaIntel/actions/runs/42957724939) passed tests, archive validation, artifact publication and Pages deployment. The served catalog reports 0.5.25 with the expected 139 episodes/539 picks and BB725/653/652 outcomes. All ten published assets match the release; only an exact unrelated network-viewer style prefix was excluded from the HTML comparisons. JavaScript and CSS comparisons are byte-for-byte. Deploy-only processing/media/provider steps were skipped, as intended. This confirms publication and served code, not visual layout or extraction correctness.
