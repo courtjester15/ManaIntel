@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.24",
+    "pipeline_version": "0.5.25",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-11T00:42:37Z",
+    "generated_at": "2026-11-11T06:19:09Z",
     "latest_successful_run_at": "2026-11-10T12:41:48Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 139,
+    "real_episode_count": 140,
     "real_pick_count": 539,
     "last_discovered_episode_date": "2026-11-06T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,16 +33,16 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 139,
+    "episodes": 140,
     "picks": 539,
     "needs_review": 60,
-    "failed": 2,
+    "failed": 3,
     "completed": 77
   },
   "status_counts": {
     "complete": 77,
     "needs_review": 60,
-    "failed": 2
+    "failed": 3
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36654",
@@ -5447,6 +5447,53 @@
         "attempt": 2,
         "max_attempts": 3,
         "next_retry_at": "2026-11-11T06:42:37Z",
+        "quarantined": false
+      },
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2109148944",
+      "episode_number": 479,
+      "title": "MTG Fast Finance Ep 479: Best of Final Fantasy x MTG",
+      "published_at": "2025-06-07T00:32:18Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2109148944-user-519789566-mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg",
+      "duration_seconds": 3554,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "James and Cliff get down to business with all the latest in Magic card price movement, Modern meta analysis, cards to watch and their breakdown of the best cards from Final Fantasy x MTG.",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "pick_count": 0,
+      "directory": "episodes/0479-best-of-final-fantasy-x-mtg",
+      "outputs": {
+        "metadata": "episodes/0479-best-of-final-fantasy-x-mtg/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-11-11T06:19:09Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 1/4 failed: Gemini transcription chunk 1/1 failed after 39.8s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-11T12:19:09Z",
         "quarantined": false
       },
       "human_reviewed": false,

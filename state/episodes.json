@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.24",
-  "updated_at": "2026-11-11T00:42:37Z",
+  "pipeline_version": "0.5.25",
+  "updated_at": "2026-11-11T06:19:09Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -36862,6 +36862,65 @@
       "status": "failed",
       "updated_at": "2026-11-11T00:42:37Z",
       "output_directory": "episodes/0652-estate-sale-strategy-brainstorm-brewery-652-magic-finance"
+    },
+    "tag:soundcloud,2010:tracks/2109148944": {
+      "guid": "tag:soundcloud,2010:tracks/2109148944",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-11T06:13:46Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-11T06:13:46Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-11T06:13:46Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-11T06:13:46Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-11T06:13:48Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-11T06:13:48Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-11T06:13:58Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-11T06:19:09Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 479: Best of Final Fantasy x MTG",
+      "episode_number": 479,
+      "published_at": "2025-06-07T00:32:18Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing/coverage repair of original chunk 1/4 failed: Gemini transcription chunk 1/1 failed after 39.8s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-11T12:19:09Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-11T06:19:09Z",
+      "output_directory": "episodes/0479-best-of-final-fantasy-x-mtg"
     }
   }
 }
