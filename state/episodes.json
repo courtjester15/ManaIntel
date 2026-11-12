@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.25",
-  "updated_at": "2026-11-11T11:55:14Z",
+  "updated_at": "2026-11-12T01:59:19Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -36949,6 +36949,65 @@
       "status": "failed",
       "updated_at": "2026-11-11T06:19:09Z",
       "output_directory": "episodes/0479-best-of-final-fantasy-x-mtg"
+    },
+    "tag:soundcloud,2010:tracks/2436385896": {
+      "guid": "tag:soundcloud,2010:tracks/2436385896",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-12T01:54:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-12T01:54:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-12T01:54:25Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-12T01:54:25Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-12T01:54:26Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-12T01:54:26Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-12T01:54:35Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-12T01:59:19Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 539: Star Trek Previews",
+      "episode_number": 539,
+      "published_at": "2026-11-11T23:39:47Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 4/5 failed after 37.9s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+        "category": "capacity_deferred",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-12T07:59:19Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-12T01:59:19Z",
+      "output_directory": "episodes/0539-star-trek-previews"
     }
   }
 }
