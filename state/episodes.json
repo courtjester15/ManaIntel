@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.25",
-  "updated_at": "2026-11-12T07:09:11Z",
+  "updated_at": "2026-11-12T12:45:21Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28371,6 +28371,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-11-02T12:30:24Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-12T12:45:03Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-12T12:45:03Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-12T12:45:04Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-12T12:45:05Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-12T12:45:12Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-12T12:45:21Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-12T12:45:21Z"
         }
       ],
       "title": "Ban Proof Izzet Deck | Brainstorm Brewery #664 | Magic Finance",
@@ -28378,11 +28406,11 @@
       "published_at": "2025-09-05T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 6,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-11-02T12:30:24Z",
+      "updated_at": "2026-11-12T12:45:21Z",
       "output_directory": "episodes/0664-ban-proof-izzet-deck-brainstorm-brewery-664-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -28546,15 +28574,15 @@
       ],
       "last_attempt_error": {
         "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
+        "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 8.5s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
         "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 2,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-02T18:30:24Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       }
     },
     "tag:soundcloud,2010:tracks/2161221663": {
