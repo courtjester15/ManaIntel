@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "attempt_id": "676a4fe732484f3a8647dec54e669566",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15677",
+    "number": 652,
+    "title": "Estate Sale Strategy | Brainstorm Brewery #652 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-11-12T07:08:39Z",
+  "pipeline_version": "0.5.25",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "43172976922",
+  "run_attempt": "1",
+  "git_sha": "5ac42073642ad7946558c6a55c2dbdf1575cd0da",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": true,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "failed",
+    "prior_attempt_count": 2,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-12T07:08:39Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-12T07:08:39Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-12T07:08:41Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-12T07:08:41Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-12T07:08:52Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-12T07:08:52Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-12T07:08:52Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [
+        3
+      ],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-11-12T07:08:53Z",
+      "event": "checkpoint_reused",
+      "chunk": 1,
+      "subchunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-12T07:09:07Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 13.218,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 3634,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 5697,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 5625
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 72
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 9331,
+        "traffic_type": null
+      },
+      "response_characters": 10934
+    },
+    {
+      "timestamp": "2026-11-12T07:09:07Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-12T07:09:07Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-12T07:09:11Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 3.063
+    },
+    {
+      "timestamp": "2026-11-12T07:09:11Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 17.8s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
+      "timestamp": "2026-11-12T07:09:11Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/43172976922",
+  "finished_at": "2026-11-12T07:09:11Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

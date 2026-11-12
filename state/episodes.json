@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.25",
-  "updated_at": "2026-11-12T01:59:19Z",
+  "updated_at": "2026-11-12T07:09:11Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -36866,6 +36866,30 @@
         {
           "status": "failed",
           "timestamp": "2026-11-11T00:42:37Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-12T07:08:39Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-12T07:08:39Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-12T07:08:41Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-12T07:08:41Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-12T07:08:52Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-12T07:09:11Z"
         }
       ],
       "title": "Estate Sale Strategy | Brainstorm Brewery #652 | Magic Finance",
@@ -36873,22 +36897,22 @@
       "published_at": "2025-06-13T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 23.5s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 17.8s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "category": "transient_provider",
         "synthetic": false,
-        "retryable": true,
+        "retryable": false,
         "provider_wide": true,
-        "attempt": 2,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-11T06:42:37Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       },
       "status": "failed",
-      "updated_at": "2026-11-11T00:42:37Z",
+      "updated_at": "2026-11-12T07:09:11Z",
       "output_directory": "episodes/0652-estate-sale-strategy-brainstorm-brewery-652-magic-finance"
     },
     "tag:soundcloud,2010:tracks/2109148944": {
