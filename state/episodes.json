@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.25",
-  "updated_at": "2026-11-13T06:43:33Z",
+  "updated_at": "2026-11-13T12:15:24Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -33927,6 +33927,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-30T00:00:31Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-13T12:15:09Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-13T12:15:09Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-13T12:15:11Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-13T12:15:11Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-13T12:15:18Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-13T12:15:18Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-13T12:15:18Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-13T12:15:24Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-13T12:15:24Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-13T12:15:24Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-13T12:15:24Z"
         }
       ],
       "title": "Secret Special Ingredient | Brainstorm Brewery #656 | Magic Finance",
@@ -33934,11 +33978,11 @@
       "published_at": "2025-07-11T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-30T00:00:31Z",
+      "updated_at": "2026-11-13T12:15:24Z",
       "output_directory": "episodes/0656-secret-special-ingredient-brainstorm-brewery-656-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -34100,12 +34144,13 @@
             }
           }
         ],
-        "timing_adjustments": 1
+        "timing_adjustments": 1,
+        "audio_dispositions": []
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1066,
+        "candidates_token_count": 1085,
         "candidates_tokens_details": null,
         "prompt_token_count": 23209,
         "prompt_tokens_details": [
@@ -34117,16 +34162,22 @@
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 24275,
+        "total_token_count": 24294,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
       "review_issues": [
         {
           "code": "coverage",
           "path": "extraction",
-          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
           "state": "unresolved"
         },
         {
