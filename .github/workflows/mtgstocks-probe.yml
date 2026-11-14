@@ -1,0 +1,145 @@
+name: MTGStocks read-only ingestion pilot
+
+on:
+  push:
+    branches: [codex/mtgstocks-ingestion-pilot]
+    paths: [.github/workflows/mtgstocks-probe.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Discover Weekly Winners and test the newest public article
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import re
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from datetime import datetime, timezone
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          feed_url = 'https://api.mtgstocks.com/news/feed'
+          allowed_hosts = {'api.mtgstocks.com', 'www.mtgstocks.com', 'mtgstocks.com'}
+          evidence = Path('probe-evidence')
+          evidence.mkdir()
+          report = {'checked_at': datetime.now(timezone.utc).isoformat(),
+                    'run_url': f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+                    'runner_os': os.environ.get('RUNNER_OS'),
+                    'requests': [], 'decision': 'no-go', 'rows': []}
+
+          class Redirects(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  parsed = urllib.parse.urlsplit(newurl)
+                  if parsed.scheme != 'https' or parsed.hostname not in allowed_hosts:
+                      raise ValueError('Refusing an unexpected redirect destination')
+                  return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+          opener = urllib.request.build_opener(Redirects())
+
+          def fetch(url, kind):
+              request = urllib.request.Request(url, headers={
+                  'User-Agent': 'ManaIntel-SourcePilot/0.1 (+https://github.com/courtjester15/ManaIntel)',
+                  'Accept': 'application/atom+xml' if kind == 'feed' else 'text/html',
+              })
+              try:
+                  response = opener.open(request, timeout=30)
+              except urllib.error.HTTPError as exc:
+                  response = exc
+              with response:
+                  body = response.read(2_000_001)
+                  record = {'kind': kind, 'url': url, 'final_url': response.geturl(),
+                            'http_status': response.status, 'bytes': len(body),
+                            'sha256': hashlib.sha256(body).hexdigest(),
+                            'headers': {key: response.headers.get(key) for key in
+                                        ('Content-Type', 'Server', 'Retry-After', 'X-Amzn-Waf-Action', 'ETag', 'Last-Modified')
+                                        if response.headers.get(key)}}
+                  report['requests'].append(record)
+                  print(json.dumps(record), flush=True)
+                  if len(body) > 2_000_000:
+                      raise ValueError('Response exceeded the pilot size cap')
+                  if response.status != 200 or not body:
+                      raise ValueError(f'{kind}: unavailable HTTP {response.status}, {len(body)} bytes; no retry or alternate route')
+                  return body
+
+          class Headings(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.tag = None
+                  self.parts = []
+                  self.items = []
+              def handle_starttag(self, tag, attrs):
+                  if re.fullmatch(r'h[1-6]', tag):
+                      self.tag, self.parts = tag, []
+              def handle_data(self, text):
+                  if self.tag:
+                      self.parts.append(text)
+              def handle_endtag(self, tag):
+                  if tag == self.tag:
+                      self.items.append({'tag': tag, 'text': ' '.join(''.join(self.parts).split())})
+                      self.tag = None
+
+          try:
+              root = ET.fromstring(fetch(feed_url, 'feed'))
+              ns = {'a': 'http://www.w3.org/2005/Atom'}
+              winners = []
+              for entry in root.findall('a:entry', ns):
+                  title = entry.findtext('a:title', '', ns)
+                  categories = [node.get('term') for node in entry.findall('a:category', ns)]
+                  if 'Weekly Winners' not in categories or not title.startswith('Weekly Winners'):
+                      continue
+                  link = next((node.get('href') for node in entry.findall('a:link', ns)
+                               if node.get('rel') == 'alternate' and node.get('type') == 'text/html'), None)
+                  if not link:
+                      raise ValueError('Weekly Winners entry lacks a public article link')
+                  parsed = urllib.parse.urlsplit(link)
+                  if parsed.scheme != 'https' or parsed.hostname not in allowed_hosts or not parsed.path.startswith('/news/'):
+                      raise ValueError('Unexpected article URL')
+                  winners.append({'id': entry.findtext('a:id', '', ns), 'title': title,
+                                  'published_at': entry.findtext('a:published', '', ns),
+                                  'updated_at': entry.findtext('a:updated', '', ns),
+                                  'url': urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, '', '')),
+                                  'teaser': entry.findtext('a:summary', '', ns)})
+              winners.sort(key=lambda item: item['published_at'], reverse=True)
+              report['discovered_weekly_winners'] = winners
+              print('DISCOVERED', json.dumps(winners), flush=True)
+              if not winners:
+                  raise ValueError('No Weekly Winners entries discovered')
+              body = fetch(winners[0]['url'], 'article')
+              text = body.decode('utf-8', errors='replace')
+              headings = Headings()
+              headings.feed(text)
+              report['headings'] = headings.items
+              if not any(item['text'].strip().casefold() == 'cheap pickups' for item in headings.items):
+                  raise ValueError('Cheap Pickups section not confirmed in returned article HTML; not an empty import')
+              # Acquisition only. Rows and semantic correctness require a subsequent parser/source check.
+              report['decision'] = 'retrieval-works-validation-pending'
+              report['reason'] = 'Public article HTML contains a Cheap Pickups heading; no import accepted yet'
+              position = text.casefold().find('cheap pickups')
+              (evidence / 'section-context.html').write_text(text[max(0, position-200):position+18000], encoding='utf-8')
+          except Exception as exc:
+              report['reason'] = f'{type(exc).__name__}: {exc}'
+              print('STOP', report['reason'], flush=True)
+          (evidence / 'result.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+              summary.write('## MTGStocks acquisition pilot\n\n')
+              summary.write(f"Decision: **{report['decision']}**\n\n{report['reason']}\n\n")
+              summary.write('No rows imported; no source tags/teaser used as pickups; no retry or bypass.\n')
+          PY
+      - name: Retain bounded pilot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mtgstocks-pilot-evidence
+          path: probe-evidence/
+          retention-days: 3
