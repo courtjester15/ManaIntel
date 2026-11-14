@@ -1,0 +1,479 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2109148944",
+    "episode_number": 479,
+    "title": "MTG Fast Finance Ep 479: Best of Final Fantasy x MTG",
+    "published_at": "2025-06-07T00:32:18Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2109148944-user-519789566-mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg",
+    "duration_seconds": 3554,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff get down to business with all the latest in Magic card price movement, Modern meta analysis, cards to watch and their breakdown of the best cards from Final Fantasy x MTG.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.26",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-14T23:55:42Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-11T06:13:46Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-11T06:13:46Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-11T06:13:46Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-11T06:13:46Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-11T06:13:48Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-11T06:13:48Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-11T06:13:58Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-11T06:19:09Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-13T06:42:35Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-13T06:42:35Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-13T06:42:37Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-13T06:42:37Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-13T06:42:47Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-13T06:43:33Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-14T23:54:34Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-14T23:54:35Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-14T23:54:36Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-14T23:54:36Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-14T23:54:47Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-14T23:55:35Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-14T23:55:35Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-14T23:55:42Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-14T23:55:42Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-14T23:55:42Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-11-14T23:55:42Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3554,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 29.224,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12874,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22665,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 166
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35539,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 184.635,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7308,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11475,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 225
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 18783,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 7523,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11475,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 225
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 18998,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 29.759,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 13829,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22666,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 166
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36495,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 854,
+          "request_seconds": 27.09,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 11725,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 21527,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 166
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 21361
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 33252,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 2,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1412,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 30919,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 30919
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 32331,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 642,
+    "end_seconds": 3304,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Harmonic Prodigy",
+      "printing": "showcase foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$6 to $15",
+      "entry_target": {
+        "raw": "about 6",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
+      "hold": "short turnover",
+      "exit_target": {
+        "raw": "15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "reasoning": [
+        "Vivi is popular and causes two counters on Vivi and deals damage for Shamans/Wizards with triggered abilities.",
+        "Showcase foils are the only other fancy printing available besides regular foils and people will be reaching for them."
+      ],
+      "caveats": [
+        "Have no faith in Vivi to be expensive for long."
+      ],
+      "confidence": "medium",
+      "start_seconds": 686,
+      "end_seconds": 714,
+      "evidence_excerpt": "I suspect Vivi will be enough over the course of the next six weeks or so to drag those showcase foils up from about 6 to 15",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-8b04c1908f61fc57",
+      "timestamp": "00:11:26",
+      "listen_url": "https://feeds.soundcloud.com/stream/2109148944-user-519789566-mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg.mp3#t=686"
+    },
+    {
+      "card": "Agent of Treachery",
+      "printing": "foil borderless",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "around six bucks",
+      "entry_target": {
+        "raw": "around six bucks",
+        "currency": "USD",
+        "minimum": 6.0,
+        "maximum": 6.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "One of the most popular cards to blink, steals permanent control.",
+        "From an Ultimate Pencil Super Drop that did not sell out, so people are dumping copies on TCGplayer."
+      ],
+      "caveats": [
+        "It is a mid-tier card, only listed in 53,000 decks, not a staple."
+      ],
+      "confidence": "medium",
+      "start_seconds": 836,
+      "end_seconds": 874,
+      "evidence_excerpt": "You can get the foil borderless for around six bucks... it's time to cash in on what people are dumping on the TCG player.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-4810216d5248a9a9",
+      "timestamp": "00:13:56",
+      "listen_url": "https://feeds.soundcloud.com/stream/2109148944-user-519789566-mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg.mp3#t=836"
+    },
+    {
+      "card": "Niv-Mizzet Visionary",
+      "printing": "Mana Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$85",
+      "entry_target": {
+        "raw": "$85",
+        "currency": "USD",
+        "minimum": 85.0,
+        "maximum": 85.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "140",
+        "currency": "USD",
+        "minimum": 140.0,
+        "maximum": 140.0
+      },
+      "reasoning": [
+        "Low inventory with only nine listings on TCG Player.",
+        "Foundations Manafoil Mythic Rares take a little over 1,000 collector boosters to open.",
+        "Has a 50% inclusion rate in Vivi decks."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 969,
+      "end_seconds": 1051,
+      "evidence_excerpt": "so if you snap off an $85 copy and target and 100 say $140 exit, I think you're in a very safe position indeed.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-98025de19c4e80ba",
+      "timestamp": "00:16:09",
+      "listen_url": "https://feeds.soundcloud.com/stream/2109148944-user-519789566-mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg.mp3#t=969"
+    },
+    {
+      "card": "Raise the Palisade",
+      "printing": "borderless rainbow foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "$15",
+      "entry_target": {
+        "raw": "$15",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 15.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Reprint from Lord of the Rings from the Everybody's Invited super drop deck being parted out.",
+        "Popular in assorted kindred decks like dragons, zombies, dinosaurs, and slivers."
+      ],
+      "caveats": [
+        "Hard card to restock, though if the deck gets expensive people might buy and break it."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1237,
+      "end_seconds": 1317,
+      "evidence_excerpt": "I can get this on TCG Player right now for $15. As people have bought the deck and are parting it out.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-1b1669629b9063da",
+      "timestamp": "00:20:37",
+      "listen_url": "https://feeds.soundcloud.com/stream/2109148944-user-519789566-mtg-fast-finance-ep-479-best-of-final-fantasy-x-mtg.mp3#t=1237"
+    }
+  ]
+}

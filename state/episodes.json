@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.26",
-  "updated_at": "2026-11-14T11:30:32Z",
+  "updated_at": "2026-11-14T23:55:42Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -37109,6 +37109,50 @@
         {
           "status": "failed",
           "timestamp": "2026-11-13T06:43:33Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-14T23:54:34Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-14T23:54:35Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-14T23:54:36Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-14T23:54:36Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-14T23:54:47Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-14T23:55:35Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-14T23:55:35Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-14T23:55:42Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-14T23:55:42Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-14T23:55:42Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-11-14T23:55:42Z"
         }
       ],
       "title": "MTG Fast Finance Ep 479: Best of Final Fantasy x MTG",
@@ -37116,23 +37160,192 @@
       "published_at": "2025-06-07T00:32:18Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 1/4 failed: Gemini transcription chunk 1/1 failed after 44.8s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
-        "category": "repair_progress_saved",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-11-13T12:43:33Z",
-        "quarantined": false
+      "attempt_count": 3,
+      "pick_count": 4,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-11-14T23:55:42Z",
+      "output_directory": "episodes/0479-best-of-final-fantasy-x-mtg",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3554,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 29.224,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 12874,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22665,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 166
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 35539,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 184.635,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7308,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11475,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 225
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 18783,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7523,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11475,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 225
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 18998,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 29.759,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 13829,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22666,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 166
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36495,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 854,
+            "request_seconds": 27.09,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 11725,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 21527,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 166
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 21361
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 33252,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 2,
+        "audio_dispositions": []
       },
-      "status": "failed",
-      "updated_at": "2026-11-13T06:43:33Z",
-      "output_directory": "episodes/0479-best-of-final-fantasy-x-mtg"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1412,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 30919,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 30919
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 32331,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": null,
+      "review_issues": []
     },
     "tag:soundcloud,2010:tracks/2436385896": {
       "guid": "tag:soundcloud,2010:tracks/2436385896",
