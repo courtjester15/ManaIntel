@@ -427,3 +427,14 @@ regressions, resolved checks and continuing uncertainty. All three current cases
 pass 45 assertions in a same-archive comparison. No inference calls, episode
 retries or runtime version bump. Next: independent FF538 source check remains
 the R2 prerequisite; use this comparator before a bounded R4 experiment.
+
+Evaluation comparison closeout: implementation `c156118`; [production run
+43553416076](https://github.com/courtjester15/ManaIntel/actions/runs/43553416076)
+passed all 254 tests, archive validation, publish and Pages deployment. Served
+archive remains 0.5.26 with 142 episodes and 542 picks. Local full suite passed
+252 tests; two sandbox-blocked Git persistence tests then passed with the required
+subprocess access, alongside all 12 evaluation tests. Archive validation and
+45 scoped comparison assertions pass. No source-accuracy or 0.6 milestone claim.
+Scratch preview/apply reclaimed 0 MiB; the disposable test log was removed.
+Pre-existing archive/cards.json and archive/resolutions.json working-tree markers
+were preserved (no content diff).
