@@ -125,6 +125,20 @@ After a batch, update its state, result, evidence/commit and next action here. B
 
 ## Outside this roadmap
 
+November 13 MTGStocks runner pilot: **NO-GO through the tested public route**.
+[Run 43543988228](https://github.com/courtjester15/ManaIntel/actions/runs/43543988228)
+confirmed Atom discovery (five Weekly Winners, October 16–November 13), then the
+newest article returned HTTP 202 with `X-Amzn-Waf-Action: challenge`. Stopped after
+two source requests; no alternate-route bypass, historical fetches or accepted
+pickup rows. [Recon and retained evidence](MTGSTOCKS_RECON_2026-11-13.md) separate
+link discovery, section confirmation, workflow success and ingestion failure.
+Probe workflow stays on its isolated branch; production schedules, podcast code,
+UI and published archive are unchanged. Next for this candidate: supported permitted
+content access and public-reuse clarification before another pilot. A passing
+pilot would unlock only a compact card-level Collection Pickups tab, daily newest
+priority and at most one older article per run; no watchlist, dashboard integration
+or podcast cross-links in v1. R2 remains the active roadmap priority.
+
 Additional sources, generic source-schema migration, live prices, portfolios, performance scoring, alerts, ManaSpec integration, accounts, a hosted database/backend, paid-provider commitments and a large framework/redesign project remain separate product decisions. Limited archive observations in 0.9 are in scope; general market analytics are not.
 
 It is fine to stay on a minor version, skip an unhelpful idea or keep the project quiet between requests. This roadmap creates no scheduled feature-development runs; existing GitHub schedules continue processing episodes.

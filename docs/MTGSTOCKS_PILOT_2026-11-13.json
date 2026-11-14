@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-11-14T02:01:57.219651+00:00",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/43543988228",
+  "runner_os": "Linux",
+  "requests": [
+    {
+      "kind": "feed",
+      "url": "https://api.mtgstocks.com/news/feed",
+      "final_url": "https://api.mtgstocks.com/news/feed",
+      "http_status": 200,
+      "bytes": 43661,
+      "sha256": "834df0bc20e710270a96199b183915f3d381403b60299aab560e8a807ac66da0",
+      "headers": {
+        "Content-Type": "application/atom+xml; charset=utf-8"
+      }
+    },
+    {
+      "kind": "article",
+      "url": "https://www.mtgstocks.com/news/25943-weekly-winners-2026---46",
+      "final_url": "https://www.mtgstocks.com/news/25943-weekly-winners-2026---46",
+      "http_status": 202,
+      "bytes": 2455,
+      "sha256": "cc46fddad0b7592c80956b64dee6caad51a0c24670c2a6fb59daef280072635f",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "CloudFront",
+        "X-Amzn-Waf-Action": "challenge"
+      }
+    }
+  ],
+  "decision": "no-go",
+  "rows": [],
+  "discovered_weekly_winners": [
+    {
+      "id": "tag:mtgstocks.com,2026-11-13:news/25943",
+      "title": "Weekly Winners 2026 - 46",
+      "published_at": "2026-11-13T15:00:44.110Z",
+      "updated_at": "2026-11-13T15:32:10.411Z",
+      "url": "https://www.mtgstocks.com/news/25943-weekly-winners-2026---46"
+    },
+    {
+      "id": "tag:mtgstocks.com,2026-11-06:news/25844",
+      "title": "Weekly Winners 2026 - 45",
+      "published_at": "2026-11-06T15:00:13.928Z",
+      "updated_at": "2026-11-06T14:10:50.879Z",
+      "url": "https://www.mtgstocks.com/news/25844-weekly-winners-2026---45"
+    },
+    {
+      "id": "tag:mtgstocks.com,2026-10-30:news/25745",
+      "title": "Weekly Winners 2026 - 44",
+      "published_at": "2026-10-30T14:00:49.767Z",
+      "updated_at": "2026-10-30T13:19:50.401Z",
+      "url": "https://www.mtgstocks.com/news/25745-weekly-winners-2026---44"
+    },
+    {
+      "id": "tag:mtgstocks.com,2026-10-23:news/25613",
+      "title": "Weekly Winners 2026 - 43",
+      "published_at": "2026-10-23T14:00:30.078Z",
+      "updated_at": "2026-10-23T12:00:07.109Z",
+      "url": "https://www.mtgstocks.com/news/25613-weekly-winners-2026---43"
+    },
+    {
+      "id": "tag:mtgstocks.com,2026-10-16:news/25514",
+      "title": "Weekly Winners 2026 - 42",
+      "published_at": "2026-10-16T14:00:14.910Z",
+      "updated_at": "2026-10-16T13:02:50.263Z",
+      "url": "https://www.mtgstocks.com/news/25514-weekly-winners-2026---42"
+    }
+  ],
+  "reason": "ValueError: article: unavailable HTTP 202, 2455 bytes; no retry or alternate route",
+  "evidence_note": "Downloaded Actions result; teaser text removed. No article content or pickup rows retained."
+}
