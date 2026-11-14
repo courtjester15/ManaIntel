@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.26",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-14T02:28:41Z",
-    "latest_successful_run_at": "2026-11-14T00:55:57Z",
+    "generated_at": "2026-11-14T06:21:19Z",
+    "latest_successful_run_at": "2026-11-14T06:21:18Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -35,14 +35,14 @@
   "counts": {
     "episodes": 142,
     "picks": 542,
-    "needs_review": 61,
-    "failed": 4,
+    "needs_review": 62,
+    "failed": 3,
     "completed": 77
   },
   "status_counts": {
-    "needs_review": 61,
-    "failed": 4,
-    "complete": 77
+    "needs_review": 62,
+    "complete": 77,
+    "failed": 3
   },
   "latest_episode": {
     "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
@@ -568,31 +568,20 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "failed",
-      "review_state": "not_applicable",
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
       "review_reason": null,
       "pick_count": 0,
       "directory": "episodes/0539-star-trek-previews",
       "outputs": {
         "metadata": "episodes/0539-star-trek-previews/metadata.json",
-        "summary_json": null,
-        "summary_markdown": null,
+        "summary_json": "episodes/0539-star-trek-previews/summary.json",
+        "summary_markdown": "episodes/0539-star-trek-previews/summary.md",
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-11-13T01:06:38Z",
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 4/5 failed after 155.6s: RuntimeError: Split repair clip 2/2 exhausted: gemini-3.5-flash-lite: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-11-13T07:06:38Z",
-        "quarantined": false
-      },
+      "processed_at": "2026-11-14T06:21:18Z",
+      "error": null,
       "human_reviewed": false,
       "reviewed_at": null,
       "reviewed_by": null,

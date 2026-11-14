@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.25",
-  "updated_at": "2026-11-14T00:55:57Z",
+  "pipeline_version": "0.5.26",
+  "updated_at": "2026-11-14T06:21:18Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -37135,6 +37135,50 @@
         {
           "status": "failed",
           "timestamp": "2026-11-13T01:06:38Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-14T06:19:43Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-14T06:19:43Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-14T06:19:44Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-14T06:19:44Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-14T06:19:53Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-14T06:21:17Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-14T06:21:17Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-14T06:21:18Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-14T06:21:18Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-14T06:21:18Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-14T06:21:18Z"
         }
       ],
       "title": "MTG Fast Finance Ep 539: Star Trek Previews",
@@ -37142,23 +37186,248 @@
       "published_at": "2026-11-11T23:39:47Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Gemini transcription chunk 4/5 failed after 155.6s: RuntimeError: Split repair clip 2/2 exhausted: gemini-3.5-flash-lite: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": true,
-        "provider_wide": true,
-        "attempt": 2,
-        "max_attempts": 3,
-        "next_retry_at": "2026-11-13T07:06:38Z",
-        "quarantined": false
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-11-14T06:21:18Z",
+      "output_directory": "episodes/0539-star-trek-previews",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 3833,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.242,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15235,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22672,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 173
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37907,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 42.55,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 19622,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22673,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 173
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42295,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 169.132,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8165,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19647,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8099,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19581,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 22.41,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7893,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19375,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 10014,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 21496,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 233,
+            "request_seconds": 10.823,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 4896,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 6007,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 173
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 5834
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 10903,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 2,
+        "audio_dispositions": []
       },
-      "status": "failed",
-      "updated_at": "2026-11-13T01:06:38Z",
-      "output_directory": "episodes/0539-star-trek-previews"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 19,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 11220,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 11220
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 11239,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": null,
+      "review_issues": []
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=36656": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
