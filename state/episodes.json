@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.26",
-  "updated_at": "2026-11-14T06:21:18Z",
+  "updated_at": "2026-11-14T11:30:32Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -32923,6 +32923,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-10-30T02:36:08Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-14T11:30:13Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-14T11:30:13Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-14T11:30:14Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-14T11:30:14Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-14T11:30:22Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-14T11:30:22Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-14T11:30:23Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-14T11:30:32Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-14T11:30:32Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-14T11:30:32Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-14T11:30:32Z"
         }
       ],
       "title": "MTGFastFinance Ep 485: Sonic Speeds Into Secret Lair Success",
@@ -32930,11 +32974,11 @@
       "published_at": "2025-07-19T16:54:25Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 3,
+      "attempt_count": 4,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-10-30T02:36:08Z",
+      "updated_at": "2026-11-14T11:30:32Z",
       "output_directory": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success",
       "transcription": {
         "provider": "Gemini",
@@ -33066,12 +33110,13 @@
             }
           }
         ],
-        "timing_adjustments": 42
+        "timing_adjustments": 42,
+        "audio_dispositions": []
       },
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 1409,
+        "candidates_token_count": 1507,
         "candidates_tokens_details": null,
         "prompt_token_count": 15450,
         "prompt_tokens_details": [
@@ -33083,27 +33128,39 @@
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 16859,
+        "total_token_count": 16957,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
       "review_issues": [
         {
           "code": "coverage",
-          "path": "section",
-          "reason": "Two omitted picks recovered from retained transcript; section ending and new-pick speaker attribution still require verification. Existing two picks retained unchanged.",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
           "state": "unresolved"
         },
         {
-          "code": "unspecified",
-          "path": "recommendations.pick-c3453f983643ed5c",
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "recommendations/2",
           "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
           "state": "unresolved"
         },
         {
-          "code": "unspecified",
-          "path": "recommendations.pick-038409f3f3e3c2da",
+          "code": "coverage",
+          "path": "recommendations/3",
           "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
           "state": "unresolved"
         }

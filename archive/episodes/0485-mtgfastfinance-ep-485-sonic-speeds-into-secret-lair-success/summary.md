@@ -112,4 +112,4 @@
 
 ---
 
-Schema 1.1.0 · Pipeline 0.5.20 · Prompt source-recommendations-v4-metadata-context
+Schema 1.1.0 · Pipeline 0.5.26 · Prompt source-recommendations-v4-metadata-context
