@@ -76,3 +76,35 @@ pass 45 scoped assertions. A regression mutation removes the hold and substitute
 a historical price into entry, producing two separate findings. Next R2 step:
 independently check the uncovered price/hold sentence and broaden the sample
 before changing extraction defaults. No approval or accuracy claim.
+
+
+## November 13: before/after regression comparison
+
+The read-only evaluator can compare a candidate against a saved baseline using
+the same inventory and evidence limits:
+
+```powershell
+python tools/evaluate_picks.py --case bb667-pick-of-the-week --baseline before.json --candidate after.json
+python tools/evaluate_picks.py --baseline-archive path/to/baseline/archive --archive path/to/candidate/archive
+```
+
+Each result includes baseline and candidate findings, newly regressed assertions,
+resolved assertions and assertions still unresolved. Field checks for a missing or
+ambiguous pick are **blocked**, never treated as fixed. `expected_assertions`
+keeps the full scoped denominator visible; `checked_assertions` excludes blocked
+checks. The assertion ledger distinguishes passed, failed and blocked checks.
+Changes are compared by explicit card, rule and expectation, rather than finding
+counts, so fixing a printing while breaking a clock reports both changes.
+
+Exit status remains 1 whenever the candidate has findings, including unchanged
+baseline findings; 0 means the scoped candidate checks pass, and 2 means invalid
+input. A baseline with the wrong episode is rejected. Both inputs are read-only.
+This does not score additional picks, unlisted fields, whole-episode completeness
+or independent source accuracy. Run archive/schema validation separately.
+
+All three current cases compared against themselves pass 45 scoped assertions
+with zero changes. Regression tests cover a vanished pick with a known bad
+printing, a printing/clock tradeoff, CLI exit status and wrong-episode rejection.
+This provides the offline comparison mechanism for R4; R2's independent source
+verification and any model/prompt change remain outstanding. No runtime version
+bump is needed for this developer-tool change.

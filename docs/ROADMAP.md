@@ -4,7 +4,7 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.25. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.26. Next milestone: 0.6 — dependable processing.**
 
 Card details now include verified-identity pick history, alongside a broad interaction/readability repair pass. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check; the local ASR dependency download was blocked. BB725 has two published picks; BB653 is exhausted and BB652 remains eligible for a bounded ordinary retry. See the [November 10 batch review](BATCH_REVIEW_2026-11-10.md), including the unavailable visual-browser verification.
 
@@ -108,7 +108,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | R1 | Shipped | Complete | Read-only health-report CLI, [baseline](HEALTH_REPORT.md), and reports in processing-workflow summaries/artifacts. Source/version/configuration cohorts, separate experiment/retry denominators, deployment evidence and backlog. |
 | R2 | First | In progress | [Evaluation inventory](EVALUATION.md) includes nine scoped expected picks across both shows, 45 assertions, and a read-only comparator. FF538 adds price/hold coverage with explicit partial-ASR limits. Independently check its uncovered price/hold sentence next; human/source-certified labels and broader accuracy checks remain outstanding. |
 | R3 | Shipped | Recovery clarity follow-up | Status distinguishes temporary provider outage, observed provider capacity refusal and local budget stops; shows remaining attempts and eligible-after/since times. Exhausted retries cannot promise scheduled recovery. |
-| R4 | Next | Ready | Repeatable bounded model/prompt evaluation using retained evidence. |
+| R4 | Next | Offline comparison ready | Baseline/candidate evaluator reports regressions, fixes and blocked checks across the same scoped assertions. Next: independently verified R2 evidence before a bounded model/prompt comparison. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
 | 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
 | Card history | Shipped in 0.5.25 | Implemented; browser visual QA pending | Pick history in card details groups verified identities across shows, preserving variants, uncertainty, speaker/price context and listening links. Summary links open history directly. Follow with Mentioned again/watchlist after visual verification and usage evidence. |
@@ -417,3 +417,13 @@ in-app browser responds. Stay0.5.x.
 
 November 13 source-label fix (0.5.26): restored explicit Fast Finance feed metadata on eight pre-multisource episodes (521–529). Catalog episode projection now applies the existing legacy Fast Finance default consistently with picks. No picks or review decisions changed. Next: continue R2 source verification.
 Deployment bfac375: production run43546637581 passed tests, archive validation and Pages. Served catalog verified0.5.26 with zero missing episode sources. Local full suite was limited by missing tzdata and sandbox Git subprocess permissions; focused regression passed.
+
+
+November 13 evaluation comparison: added read-only baseline/candidate comparison
+to the R2 evaluator, preparing R4 without changing models, prompts or published
+picks. Missing/ambiguous picks block field checks rather than appearing to fix
+bad fields; the full expected denominator remains visible. Reports separate
+regressions, resolved checks and continuing uncertainty. All three current cases
+pass 45 assertions in a same-archive comparison. No inference calls, episode
+retries or runtime version bump. Next: independent FF538 source check remains
+the R2 prerequisite; use this comparator before a bounded R4 experiment.

@@ -1,8 +1,12 @@
 from copy import deepcopy
 import json
+from pathlib import Path
+import subprocess
+import sys
 import unittest
 
-from tools.evaluate_picks import compare, DEFAULT_INVENTORY
+from tools.evaluate_picks import compare, compare_change, DEFAULT_INVENTORY
+from tests.workspace import workspace_temp
 
 
 class ExpectedPickEvaluationTests(unittest.TestCase):
@@ -21,6 +25,56 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
         self.summary["recommendations"][0]["card"] = "Unrelated discussion card"
         result = compare(self.case, self.summary)
         self.assertEqual([{"card": "Psychic Frog", "field": "presence", "problem": "missing"}], result["findings"])
+
+    def test_disappearing_pick_does_not_resolve_its_bad_fields(self):
+        baseline = deepcopy(self.summary)
+        baseline["recommendations"][1]["printing"] = "Final Fantasy"
+        candidate = deepcopy(baseline)
+        candidate["recommendations"].pop(1)
+        original = deepcopy(candidate)
+        result = compare_change(self.case, baseline, candidate)
+        self.assertEqual(12, result["candidate"]["expected_assertions"])
+        self.assertLess(result["candidate"]["checked_assertions"], 12)
+        self.assertFalse(result["resolved"])
+        self.assertTrue(any(item["field"] == "printing" and item["after"] == "blocked"
+                            for item in result["still_unresolved"]))
+        self.assertTrue(any(item["field"] == "presence" for item in result["regressions"]))
+        self.assertEqual(original, candidate)
+
+    def test_tradeoff_reports_fixed_printing_and_new_bad_clock_separately(self):
+        baseline = deepcopy(self.summary)
+        baseline["recommendations"][1]["printing"] = "Final Fantasy"
+        candidate = deepcopy(self.summary)
+        candidate["recommendations"][0]["start_seconds"] = 0
+        result = compare_change(self.case, baseline, candidate)
+        self.assertEqual(["printing"], [item["field"] for item in result["resolved"]])
+        self.assertEqual(["start_seconds"], [item["field"] for item in result["regressions"]])
+        self.assertFalse(result["still_unresolved"])
+
+    def test_cli_baseline_comparison_keeps_nonzero_exit_for_remaining_findings(self):
+        root = workspace_temp(self)
+        baseline = root / "before.json"
+        candidate = root / "after.json"
+        baseline.write_text(json.dumps(self.summary), encoding="utf-8")
+        self.summary["recommendations"][1]["printing"] = "Final Fantasy"
+        candidate.write_text(json.dumps(self.summary), encoding="utf-8")
+        command = [sys.executable, str(Path("tools/evaluate_picks.py").resolve()),
+                   "--case", self.case["id"], "--baseline", str(baseline), "--candidate", str(candidate)]
+        run = subprocess.run(command, capture_output=True, text=True)
+        self.assertEqual(1, run.returncode, run.stderr)
+        report = json.loads(run.stdout)["results"][0]
+        self.assertEqual(1, len(report["regressions"]))
+        self.assertIn("unscored", report["candidate"])
+        baseline.write_text(candidate.read_text(encoding="utf-8"), encoding="utf-8")
+        unchanged = subprocess.run(command, capture_output=True, text=True)
+        self.assertEqual(1, unchanged.returncode, unchanged.stderr)
+        report = json.loads(unchanged.stdout)["results"][0]
+        self.assertFalse(report["regressions"])
+        self.assertEqual(1, len(report["still_unresolved"]))
+        baseline.write_text(json.dumps({"episode": {"guid": "wrong"}}), encoding="utf-8")
+        invalid = subprocess.run(command, capture_output=True, text=True)
+        self.assertEqual(2, invalid.returncode)
+        self.assertIn("GUID", invalid.stderr)
 
     def test_historical_price_as_target_and_lost_variant_are_separate_findings(self):
         self.summary["recommendations"][1].update(
