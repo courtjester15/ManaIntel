@@ -414,3 +414,5 @@ assets against the release (excluding the exact network-viewer style prefix in
 HTML only), catalog0.5.25 and unchanged139 episodes/539 picks and BB outcomes.
 Next: source-check FF538's1527–1538 sentence and perform visual QA when the
 in-app browser responds. Stay0.5.x.
+
+November 13 source-label fix (0.5.26): restored explicit Fast Finance feed metadata on eight pre-multisource episodes (521–529). Catalog episode projection now applies the existing legacy Fast Finance default consistently with picks. No picks or review decisions changed. Next: continue R2 source verification.

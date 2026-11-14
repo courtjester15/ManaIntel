@@ -63,6 +63,8 @@ def rebuild_catalog(
         }
         episode_item = {
             **metadata["episode"],
+            "source_id": metadata["episode"].get("source_id") or "mtg-fast-finance",
+            "source_name": metadata["episode"].get("source_name") or feed_name,
             "processing_status": processing["status"],
             "review_state": processing.get("review_state"),
             "review_reason": processing.get("review_reason"),
