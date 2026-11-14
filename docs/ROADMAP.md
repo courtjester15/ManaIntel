@@ -416,3 +416,4 @@ Next: source-check FF538's1527–1538 sentence and perform visual QA when the
 in-app browser responds. Stay0.5.x.
 
 November 13 source-label fix (0.5.26): restored explicit Fast Finance feed metadata on eight pre-multisource episodes (521–529). Catalog episode projection now applies the existing legacy Fast Finance default consistently with picks. No picks or review decisions changed. Next: continue R2 source verification.
+Deployment bfac375: production run43546637581 passed tests, archive validation and Pages. Served catalog verified0.5.26 with zero missing episode sources. Local full suite was limited by missing tzdata and sandbox Git subprocess permissions; focused regression passed.
