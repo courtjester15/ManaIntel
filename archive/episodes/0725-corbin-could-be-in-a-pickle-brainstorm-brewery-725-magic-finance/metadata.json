@@ -1,0 +1,261 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+    "episode_number": 725,
+    "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+    "published_at": "2026-11-13T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+    "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
+    "duration_seconds": 2918,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz&#160; (@devotedDruid), DJ (@CardgardenMTG), and Corbin (@CHosler) are all back and setting phasers to stun after the newest set drop of Star Trek in Magic the Gathering. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.25",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-14T00:55:57Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-14T00:53:29Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-14T00:53:29Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-14T00:53:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-14T00:55:47Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-14T00:55:47Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-14T00:55:57Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-14T00:55:57Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-14T00:55:57Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-14T00:55:57Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2918,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 48.39,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 23379,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22703,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46082,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.413,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19265,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22704,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41969,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.62,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16246,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22704,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38950,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 218,
+          "request_seconds": 6.971,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2885,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 5646,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 5442
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 8531,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 0,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 878,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 25251,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 25251
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 26129,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/metadata.json",
+    "summary_json": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/summary.json",
+    "summary_markdown": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/summary.md"
+  }
+}

@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.25",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-13T12:15:24Z",
-    "latest_successful_run_at": "2026-11-13T12:15:24Z",
+    "generated_at": "2026-11-14T00:55:58Z",
+    "latest_successful_run_at": "2026-11-14T00:55:57Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -25,66 +25,58 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 141,
-    "real_pick_count": 539,
-    "last_discovered_episode_date": "2026-11-11T23:39:47Z",
+    "real_episode_count": 142,
+    "real_pick_count": 542,
+    "last_discovered_episode_date": "2026-11-13T06:00:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 141,
-    "picks": 539,
-    "needs_review": 60,
+    "episodes": 142,
+    "picks": 542,
+    "needs_review": 61,
     "failed": 4,
     "completed": 77
   },
   "status_counts": {
+    "needs_review": 61,
     "failed": 4,
-    "complete": 77,
-    "needs_review": 60
+    "complete": 77
   },
   "latest_episode": {
-    "guid": "tag:soundcloud,2010:tracks/2436385896",
-    "episode_number": 539,
-    "title": "MTG Fast Finance Ep 539: Star Trek Previews",
-    "published_at": "2026-11-11T23:39:47Z",
-    "audio_url": "https://feeds.soundcloud.com/stream/2436385896-user-519789566-mtg-fast-finance-ep-539-star.mp3",
-    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-539-star",
-    "duration_seconds": 3833,
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+    "episode_number": 725,
+    "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+    "published_at": "2026-11-13T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+    "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
+    "duration_seconds": 2918,
     "hosts": [
-      "MTG Fast Finance"
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
     ],
-    "description": "Your hosts jump in with all the latest in Magic the Gathering card price action for the week, including meta updates, cards to watch and a look at Star Trek x MTG cards they like.\n\nIntro/Outro Music by Skylarka",
-    "source_id": "mtg-fast-finance",
-    "source_name": "MTG Fast Finance",
-    "source_url": "https://www.mtgfastfinance.com/",
-    "extraction_profile": "cards_to_watch",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "pick_count": 0,
-    "directory": "episodes/0539-star-trek-previews",
+    "description": "Liz&#160; (@devotedDruid), DJ (@CardgardenMTG), and Corbin (@CHosler) are all back and setting phasers to stun after the newest set drop of Star Trek in Magic the Gathering. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery",
+    "processing_status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "pick_count": 3,
+    "directory": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance",
     "outputs": {
-      "metadata": "episodes/0539-star-trek-previews/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "metadata": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/metadata.json",
+      "summary_json": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/summary.json",
+      "summary_markdown": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-11-13T01:06:38Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Gemini transcription chunk 4/5 failed after 155.6s: RuntimeError: Split repair clip 2/2 exhausted: gemini-3.5-flash-lite: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-      "category": "transient_provider",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": true,
-      "attempt": 2,
-      "max_attempts": 3,
-      "next_retry_at": "2026-11-13T07:06:38Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-11-14T00:55:57Z",
+    "error": null,
     "human_reviewed": false,
     "reviewed_at": null,
     "reviewed_by": null,
@@ -92,6 +84,231 @@
     "synthetic": false
   },
   "recent_picks": [
+    {
+      "card": "Entreat the Dead",
+      "printing": "Warhammer 40k",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "3.50",
+      "entry_target": {
+        "raw": "350",
+        "currency": "USD",
+        "minimum": 3.5,
+        "maximum": 3.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Warhammer 40k precons got a reprint from distribution, causing singles to drop in price."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2662,
+      "end_seconds": 2747,
+      "evidence_excerpt": "Harold of Slanesh is the demon cost reducing creature... TCG low is 350. Market price is around four.",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash-lite",
+        "original_card": "Herald of Slanesh",
+        "candidate_card": "Entreat the Dead",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speakers discussed the card 'Entreat the Dead', which was misidentified by the initial extraction as 'Herald of Slanesh'."
+      },
+      "name_verification_resolution": {
+        "method": "focused_audio_scryfall",
+        "original_review_reason": "Card name has no exact match in Scryfall.",
+        "identity_resolved": true,
+        "other_review_required": false
+      },
+      "id": "pick-3b5b367eef520cf2",
+      "timestamp": "00:44:22",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2662",
+      "card_resolution": {
+        "raw_name": "Entreat the Dead",
+        "normalized_name": "entreat the dead",
+        "status": "verified",
+        "canonical_name": "Entreat the Dead",
+        "scryfall_id": "31a147bb-37ef-4a52-82e2-160a53323516",
+        "oracle_id": "2de6c3d9-1759-40a2-99c6-8cbe17b4bcdd",
+        "scryfall_uri": "https://scryfall.com/card/c18/15/entreat-the-dead?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/3/1/31a147bb-37ef-4a52-82e2-160a53323516.jpg?1783934339",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-14T00:55:58Z"
+      },
+      "resolved_card": "Entreat the Dead",
+      "oracle_id": "2de6c3d9-1759-40a2-99c6-8cbe17b4bcdd",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+        "episode_number": 725,
+        "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+        "published_at": "2026-11-13T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Molecule Man",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "watch",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Card price has climbed up a dollar in the past two weeks and it is hitting the bottom."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2496,
+      "end_seconds": 2517,
+      "evidence_excerpt": "shocking to me that this card is now $5 instead of $25.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-718354a95e078708",
+      "timestamp": "00:41:36",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2496",
+      "card_resolution": {
+        "raw_name": "Molecule Man",
+        "normalized_name": "molecule man",
+        "status": "verified",
+        "canonical_name": "Molecule Man",
+        "scryfall_id": "ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1",
+        "oracle_id": "ba944437-0b55-47cb-92dc-2477ce6726c3",
+        "scryfall_uri": "https://scryfall.com/card/msc/9/molecule-man?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/e/e/ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1.jpg?1783903300",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-14T00:55:58Z"
+      },
+      "resolved_card": "Molecule Man",
+      "oracle_id": "ba944437-0b55-47cb-92dc-2477ce6726c3",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+        "episode_number": 725,
+        "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+        "published_at": "2026-11-13T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
+    {
+      "card": "Weapons Manufacturing",
+      "printing": "Edge of Eternities",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Card is broken and was just put into standard with engineered explosives."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2393,
+      "end_seconds": 2397,
+      "evidence_excerpt": "My pick of the week is weapons manufacturing from Edge of eternities.",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash-lite",
+        "original_card": "Weapons Manufacturer",
+        "candidate_card": "Weapons Manufacturing",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speaker says 'Weapons Manufacturing' in the context of Magic finance. The initial extraction 'Weapons Manufacturer' is slightly off; the correct Scryfall name is 'Weapons Manufacturing'."
+      },
+      "name_verification_resolution": {
+        "method": "focused_audio_scryfall",
+        "original_review_reason": "Card name has no exact match in Scryfall.",
+        "identity_resolved": true,
+        "other_review_required": false
+      },
+      "id": "pick-ec4424e51234c78b",
+      "timestamp": "00:39:53",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2393",
+      "card_resolution": {
+        "raw_name": "Weapons Manufacturing",
+        "normalized_name": "weapons manufacturing",
+        "status": "verified",
+        "canonical_name": "Weapons Manufacturing",
+        "scryfall_id": "a058f1a6-318c-4bba-981e-ace079ada806",
+        "oracle_id": "e48a8160-cffe-4e00-a3e9-a59d7fc7b3a2",
+        "scryfall_uri": "https://scryfall.com/card/eoe/168/weapons-manufacturing?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/a/0/a058f1a6-318c-4bba-981e-ace079ada806.jpg?1783905943",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-14T00:55:57Z"
+      },
+      "resolved_card": "Weapons Manufacturing",
+      "oracle_id": "e48a8160-cffe-4e00-a3e9-a59d7fc7b3a2",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+        "episode_number": 725,
+        "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+        "published_at": "2026-11-13T06:00:00Z",
+        "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "needs_review",
+      "human_reviewed": false
+    },
     {
       "card": "Final Fortune",
       "printing": "Mystery Booster version foil",
@@ -293,215 +510,48 @@
       },
       "processing_status": "complete",
       "human_reviewed": false
-    },
-    {
-      "card": "Darksteel Angel",
-      "printing": "Extended Art",
-      "printing_certainty": "confirmed",
-      "foil": false,
-      "hosts": [
-        "James Chillcott",
-        "Cliff Dagel"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$5",
-      "entry_target": {
-        "raw": "$5",
-        "currency": "USD",
-        "minimum": 5,
-        "maximum": 5
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "null",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "Colorless card that can show up almost anywhere with high inclusion in 14,000 decks",
-        "Unique effect printed only one or two times before"
-      ],
-      "caveats": [
-        "High inclusion rate partly due to precon upgrade registrations on EDHREC"
-      ],
-      "confidence": "medium",
-      "start_seconds": 1665,
-      "end_seconds": 1875,
-      "evidence_excerpt": "Dark Steel Angels only five bucks, there's just no way. ... at five bucks this is a no-brainer.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-416063d3cbf64602",
-      "timestamp": "00:27:45",
-      "listen_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3#t=1665",
-      "card_resolution": {
-        "raw_name": "Darksteel Angel",
-        "normalized_name": "darksteel angel",
-        "status": "verified",
-        "canonical_name": "Darksteel Angel",
-        "scryfall_id": "0c33024e-9473-4d5b-8433-9898380282c4",
-        "oracle_id": "d0259f7d-9bd7-4722-8fb9-439768308516",
-        "scryfall_uri": "https://scryfall.com/card/frc/13/darksteel-angel?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/0/c/0c33024e-9473-4d5b-8433-9898380282c4.jpg?1784325693",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-04T00:37:34Z"
-      },
-      "resolved_card": "Darksteel Angel",
-      "oracle_id": "d0259f7d-9bd7-4722-8fb9-439768308516",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2430946797",
-        "episode_number": 538,
-        "title": "MTG Fast Finance Ep 538: God Packs Enter the Chat",
-        "published_at": "2026-11-02T17:07:30Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-538-god",
-        "audio_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
-    },
-    {
-      "card": "Chroma's Will",
-      "printing": "Japanese Silver Scroll Foil",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "James Chillcott",
-        "Cliff Dagel"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$95",
-      "entry_target": {
-        "raw": "sub-$100",
-        "currency": "USD",
-        "minimum": null,
-        "maximum": 100
-      },
-      "hold": "6 to 12 months",
-      "exit_target": {
-        "raw": "$200",
-        "currency": "USD",
-        "minimum": 200,
-        "maximum": 200
-      },
-      "reasoning": [
-        "At about a six-month period which is when prices bottom out",
-        "Included in a bazillion EDH decks"
-      ],
-      "caveats": [
-        "English foil copies are much cheaper around $26 to $27"
-      ],
-      "confidence": "high",
-      "start_seconds": 1445,
-      "end_seconds": 1665,
-      "evidence_excerpt": "I think getting your copies sub-$100 when these will hit $200 in the next six 12 months seems to be really where I want to be.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-335bcf76483522ca",
-      "timestamp": "00:24:05",
-      "listen_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3#t=1445",
-      "card_resolution": {
-        "raw_name": "Chroma's Will",
-        "normalized_name": "chroma's will",
-        "status": "not_found",
-        "canonical_name": null,
-        "scryfall_id": null,
-        "oracle_id": null,
-        "scryfall_uri": null,
-        "image_uri": null,
-        "card_face_images": [],
-        "method": "fuzzy",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-04T00:37:34Z"
-      },
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2430946797",
-        "episode_number": 538,
-        "title": "MTG Fast Finance Ep 538: God Packs Enter the Chat",
-        "published_at": "2026-11-02T17:07:30Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-538-god",
-        "audio_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
-    },
-    {
-      "card": "Avacyn Angel of Horror",
-      "printing": "Extended Art",
-      "printing_certainty": "confirmed",
-      "foil": false,
-      "hosts": [
-        "James Chillcott",
-        "Cliff Dagel"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "$25",
-      "entry_target": {
-        "raw": "$12 to $20",
-        "currency": "USD",
-        "minimum": 12,
-        "maximum": 20
-      },
-      "hold": "6 to 12 months",
-      "exit_target": {
-        "raw": "25 to 50",
-        "currency": "USD",
-        "minimum": 25,
-        "maximum": 50
-      },
-      "reasoning": [
-        "Selling very fast with high volume relative to low listing count",
-        "Extended arts only come out of collector boosters and hold steady at 25"
-      ],
-      "caveats": [
-        "Likely to get cheaper in price over time",
-        "Might get a reprint deck in the future"
-      ],
-      "confidence": "medium",
-      "start_seconds": 1244,
-      "end_seconds": 1445,
-      "evidence_excerpt": "This is going to be 25 to 50 for the extended arts that only come out of the collector boosters. Maybe these get down to like, you know, 12 to $20 sometime this fall.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-c5304f593743912e",
-      "timestamp": "00:20:44",
-      "listen_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3#t=1244",
-      "card_resolution": {
-        "raw_name": "Avacyn Angel of Horror",
-        "normalized_name": "avacyn angel of horror",
-        "status": "verified",
-        "canonical_name": "Avacyn, Angel of Horror",
-        "scryfall_id": "ff65f46b-0f82-49b8-93b9-7ac0243ce941",
-        "oracle_id": "4af61d45-7114-4eb4-a905-9e03caf87454",
-        "scryfall_uri": "https://scryfall.com/card/frc/7/avacyn-angel-of-horror?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/f/f/ff65f46b-0f82-49b8-93b9-7ac0243ce941.jpg?1789644252",
-        "card_face_images": [],
-        "method": "normalized",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-04T00:37:34Z"
-      },
-      "resolved_card": "Avacyn, Angel of Horror",
-      "oracle_id": "4af61d45-7114-4eb4-a905-9e03caf87454",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2430946797",
-        "episode_number": 538,
-        "title": "MTG Fast Finance Ep 538: God Packs Enter the Chat",
-        "published_at": "2026-11-02T17:07:30Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-538-god",
-        "audio_url": "https://feeds.soundcloud.com/stream/2430946797-user-519789566-mtg-fast-finance-ep-538-god.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "complete",
-      "human_reviewed": false
     }
   ],
   "episodes": [
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+      "episode_number": 725,
+      "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+      "published_at": "2026-11-13T06:00:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+      "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
+      "duration_seconds": 2918,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "Liz&#160; (@devotedDruid), DJ (@CardgardenMTG), and Corbin (@CHosler) are all back and setting phasers to stun after the newest set drop of Star Trek in Magic the Gathering. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "pick_count": 3,
+      "directory": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance",
+      "outputs": {
+        "metadata": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/metadata.json",
+        "summary_json": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/summary.json",
+        "summary_markdown": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-11-14T00:55:57Z",
+      "error": null,
+      "human_reviewed": false,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
     {
       "guid": "tag:soundcloud,2010:tracks/2436385896",
       "episode_number": 539,

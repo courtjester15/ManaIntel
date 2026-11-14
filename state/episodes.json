@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.25",
-  "updated_at": "2026-11-13T12:15:24Z",
+  "updated_at": "2026-11-14T00:55:57Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -37159,6 +37159,241 @@
       "status": "failed",
       "updated_at": "2026-11-13T01:06:38Z",
       "output_directory": "episodes/0539-star-trek-previews"
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=36656": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-14T00:53:28Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-14T00:53:28Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-14T00:53:28Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-14T00:53:28Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-14T00:53:29Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-14T00:53:29Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-14T00:53:38Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-14T00:55:47Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-14T00:55:47Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-14T00:55:57Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-14T00:55:57Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-14T00:55:57Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-14T00:55:57Z"
+        }
+      ],
+      "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+      "episode_number": 725,
+      "published_at": "2026-11-13T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 3,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-11-14T00:55:57Z",
+      "output_directory": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2918,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 48.39,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 23379,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22703,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46082,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 38.413,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 19265,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22704,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41969,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.62,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16246,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22704,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38950,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 218,
+            "request_seconds": 6.971,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 2885,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 5646,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 5442
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 8531,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 0,
+        "audio_dispositions": []
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 878,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 25251,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 25251
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 26129,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        }
+      ]
     }
   }
 }

@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+    "episode_number": 725,
+    "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+    "published_at": "2026-11-13T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+    "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
+    "duration_seconds": 2918,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Liz&#160; (@devotedDruid), DJ (@CardgardenMTG), and Corbin (@CHosler) are all back and setting phasers to stun after the newest set drop of Star Trek in Magic the Gathering. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.25",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-14T00:55:57Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-14T00:53:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-14T00:53:29Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-14T00:53:29Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-14T00:53:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-14T00:55:47Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-14T00:55:47Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-14T00:55:57Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-14T00:55:57Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-14T00:55:57Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-14T00:55:57Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 2918,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 48.39,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 23379,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22703,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 46082,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.413,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19265,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22704,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41969,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.62,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16246,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22704,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38950,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 218,
+          "request_seconds": 6.971,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 2885,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 5646,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 5442
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 204
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 8531,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 0,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 878,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 25251,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 25251
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 26129,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1247,
+    "end_seconds": 2902,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Weapons Manufacturing",
+      "printing": "Edge of Eternities",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Liz"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Card is broken and was just put into standard with engineered explosives."
+      ],
+      "caveats": [],
+      "confidence": "high",
+      "start_seconds": 2393,
+      "end_seconds": 2397,
+      "evidence_excerpt": "My pick of the week is weapons manufacturing from Edge of eternities.",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash-lite",
+        "original_card": "Weapons Manufacturer",
+        "candidate_card": "Weapons Manufacturing",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speaker says 'Weapons Manufacturing' in the context of Magic finance. The initial extraction 'Weapons Manufacturer' is slightly off; the correct Scryfall name is 'Weapons Manufacturing'."
+      },
+      "name_verification_resolution": {
+        "method": "focused_audio_scryfall",
+        "original_review_reason": "Card name has no exact match in Scryfall.",
+        "identity_resolved": true,
+        "other_review_required": false
+      },
+      "id": "pick-ec4424e51234c78b",
+      "timestamp": "00:39:53",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2393"
+    },
+    {
+      "card": "Molecule Man",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "watch",
+      "mentioned_price": "$5",
+      "entry_target": {
+        "raw": "$5",
+        "currency": "USD",
+        "minimum": 5,
+        "maximum": 5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Card price has climbed up a dollar in the past two weeks and it is hitting the bottom."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2496,
+      "end_seconds": 2517,
+      "evidence_excerpt": "shocking to me that this card is now $5 instead of $25.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-718354a95e078708",
+      "timestamp": "00:41:36",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2496"
+    },
+    {
+      "card": "Entreat the Dead",
+      "printing": "Warhammer 40k",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "3.50",
+      "entry_target": {
+        "raw": "350",
+        "currency": "USD",
+        "minimum": 3.5,
+        "maximum": 3.5
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Warhammer 40k precons got a reprint from distribution, causing singles to drop in price."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2662,
+      "end_seconds": 2747,
+      "evidence_excerpt": "Harold of Slanesh is the demon cost reducing creature... TCG low is 350. Market price is around four.",
+      "review_status": "approved",
+      "review_reason": null,
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash-lite",
+        "original_card": "Herald of Slanesh",
+        "candidate_card": "Entreat the Dead",
+        "decision": "corrected",
+        "accepted": true,
+        "explanation": "The speakers discussed the card 'Entreat the Dead', which was misidentified by the initial extraction as 'Herald of Slanesh'."
+      },
+      "name_verification_resolution": {
+        "method": "focused_audio_scryfall",
+        "original_review_reason": "Card name has no exact match in Scryfall.",
+        "identity_resolved": true,
+        "other_review_required": false
+      },
+      "id": "pick-3b5b367eef520cf2",
+      "timestamp": "00:44:22",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2662"
+    }
+  ]
+}
