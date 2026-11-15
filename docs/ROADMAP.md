@@ -477,3 +477,13 @@ No inference calls, episode retries, source changes or review approvals. Next:
 R2 independent FF538 source check when a working method is available; choose
 review-queue prioritization as independent product work while that prerequisite
 and visual-browser verification remain blocked. Stay 0.5.x.
+
+Publication fidelity closeout: implementation `6139d43`; [production 43684808924](https://github.com/courtjester15/ManaIntel/actions/runs/43684808924)
+passed all 274 tests, archive validation, staged fidelity verification and Pages.
+Served 0.5.28 passes the new read-only verifier for all three catalogs, 142
+episodes and 546 picks, zero findings. Original episode/review files and durable
+state are unchanged; actual publication text matches source with explicit UTF-8.
+No extraction/review decisions changed. Corrected the prior false punctuation
+alarm and pinned the diagnosis/reports. Scratch preview/apply reclaimed 0 MiB;
+new staged copies removed. Next: review-queue prioritization as independent work;
+R2 source verification and visual/playback QA remain outstanding.

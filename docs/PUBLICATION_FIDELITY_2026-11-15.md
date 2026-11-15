@@ -82,3 +82,21 @@ Local final verification: all 274 Python tests pass, including the 26 Node UI
 checks. The existing production archive validates, an isolated 0.5.28 staged
 projection verifies, and the 0.5.27 public-site baseline verified before the
 version bump. All checks are read-only except isolated test fixtures/reports.
+
+
+## Production closeout
+
+Implementation `6139d43`; [release 43684808924](https://github.com/courtjester15/ManaIntel/actions/runs/43684808924)
+passed all 274 production tests, archive validation, the new staged fidelity
+check, publish and Pages deployment. The new verifier checked the served 0.5.28
+release: three catalogs, 142 episodes, 546 picks, zero findings. It verifies the
+release metadata as well as Unicode text, projected fields and resolution state.
+All 293 original episode/metadata/review files, checked-in catalogs and durable
+state are unchanged. No inference calls, episode retries or review approvals.
+
+Scratch preview/apply found 0 MiB age-eligible. The new copied staged catalogs
+were removed after verification; diagnosis, before/staged/served reports and test
+logs are pinned under `.tmp/publication-fidelity/`. The earlier artifacts remain
+pinned under `.tmp/review-workbench/`, with the false-alarm interpretation corrected
+in the documentation. Next independent product task: review-queue prioritization;
+R2 still needs an independent source check, and 0.6 is not declared complete.
