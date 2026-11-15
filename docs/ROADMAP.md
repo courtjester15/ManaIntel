@@ -6,7 +6,7 @@ Updated October 15, 2026. This is the active roadmap, replacing the maintenance-
 
 **Current release: 0.5.27. Next milestone: 0.6 — dependable processing.**
 
-Card details now include verified-identity pick history, alongside a broad interaction/readability repair pass. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check; the local ASR dependency download was blocked. BB725 has two published picks; BB653 is exhausted and BB652 remains eligible for a bounded ordinary retry. See the [November 10 batch review](BATCH_REVIEW_2026-11-10.md), including the unavailable visual-browser verification.
+The review workspace now supports complete field corrections, explicit outcomes, readable previews and saved-correction/revision protection. See the [November 14 review batch](REVIEW_WORKSPACE_2026-11-14.md). Published data remains 142 episodes/546 picks; BB725 has two picks, and BB652/653 are exhausted. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check. Visual browser QA is unavailable. A pre-existing source/publication punctuation mismatch is retained for the next bounded diagnosis.
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -452,3 +452,15 @@ independent source check and the 0.6 gate remain open. In-app browser timed out;
 DOM/behavioral journeys pass but visual/native-playback QA remains unverified.
 Next: source-check FF538 when an independent source-reading method is available;
 verify the review workspace visually when the in-app browser responds.
+
+Review workspace closeout: implementation `9e07ca6`; [production 43673378244](https://github.com/courtjester15/ManaIntel/actions/runs/43673378244)
+passed all 262 tests, archive validation and Pages. Served 0.5.27 assets and all
+three effective-review tokens verified. Published before/after card payloads are
+byte-identical (546 picks); 142 episodes, 62 needs_review and two failed. Source
+originals and durable reviews are unchanged. Separate pre-existing punctuation
+differences affect 29 projected records compared with Git source; both old/new
+Pages artifacts preserve the same differences. Cause remains unknown; evidence
+is pinned under `.tmp/review-workbench/`. Next independent useful batch: diagnose
+that source/publication text mismatch without overriding source uncertainty.
+No inference calls or review approvals were made. Visual/native-playback QA and
+R2 independent source verification remain open.

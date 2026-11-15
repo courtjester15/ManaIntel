@@ -49,3 +49,35 @@ Final local checks: 262 Python tests, 26 dependency-free Node checks, production
 archive validation and all 45 scoped evaluation assertions pass. The production
 projection metadata is checked in with the implementation so the next scheduled
 preflight agrees with the new effective-summary representation.
+
+
+## Production closeout
+
+Implementation `9e07ca6`; [release 43673378244](https://github.com/courtjester15/ManaIntel/actions/runs/43673378244)
+passed all 262 production tests, archive validation, publish and Pages. Served
+0.5.27 has 142 episodes and 546 picks, with 62 needs-review, 78 complete and two
+failed episodes. All seven served JS/CSS assets match the release; all three HTML
+entrypoints reference 0.5.27. The three effective summaries match their public
+review-revision tokens. No actual review was submitted by this batch.
+
+Compared the preceding production Pages artifact (43655492596) with this release:
+the published card payload is byte-for-byte identical, SHA-256
+`abafdb59dca82acfa5eb04130da5f0a32ccade84bc7a692483b2f5fb9c847aef`.
+The three effective summaries are identical apart from the new revision token.
+This verifies preservation against the actual prior publication as well as the
+separate local/source preservation checks.
+
+A separate existing publication discrepancy was observed during verification:
+29 projected pick records differ from checked-in source in punctuation/text
+characters (for example, a curly apostrophe or ellipsis becomes a replacement
+character). It is present in both old and new Pages artifacts; original metadata
+in the same artifact still matches immutable Git source. The cause is not yet
+established. Do not silently normalize the comparison or call source/publication
+text an exact match. Retained both Pages artifacts, a compact example, verification
+hashes and relevant QA evidence under pinned `.tmp/review-workbench/` for the next
+bounded diagnosis. Downloaded test dependencies and copied preview files are
+disposable; no podcast audio/transcripts or model outputs were created.
+
+Housekeeping: scratch preview/apply found 0 MiB eligible for age cleanup. Removed
+the new jsdom installation and copied preview site after verification; retained
+only pinned QA/publication evidence. Checkout was synchronized before closeout.
