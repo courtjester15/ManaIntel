@@ -25,12 +25,18 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Full transcript contains recommendation content missing from timed segments; verify completeness against retained text/audio. Card identity is actually Burn Offerings rather than Brimstone Volley, and dialogue identifies it as a guessing game rather than a firm financial pick.",
+    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
     "review_issues": [
       {
         "code": "coverage",
         "path": "extraction",
-        "reason": "Full transcript contains recommendation content missing from timed segments; verify completeness against retained text/audio.",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "state": "unresolved"
+      },
+      {
+        "code": "printing",
+        "path": "extraction",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
         "state": "unresolved"
       },
       {
@@ -40,12 +46,12 @@
         "state": "unresolved"
       }
     ],
-    "pipeline_version": "0.5.20",
+    "pipeline_version": "0.5.28",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-10-30T05:52:16Z",
+    "processed_at": "2026-11-15T11:58:51Z",
     "history": [
       {
         "status": "detected",
@@ -98,6 +104,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-10-30T05:52:16Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-15T11:58:38Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-15T11:58:38Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-15T11:58:40Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-15T11:58:40Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-15T11:58:49Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-15T11:58:49Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-15T11:58:49Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-15T11:58:51Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-15T11:58:51Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-15T11:58:51Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-15T11:58:51Z"
       }
     ],
     "error": null,
@@ -287,12 +337,13 @@
           }
         }
       ],
-      "timing_adjustments": 1
+      "timing_adjustments": 1,
+      "audio_dispositions": []
     },
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 1522,
+      "candidates_token_count": 19,
       "candidates_tokens_details": null,
       "prompt_token_count": 25795,
       "prompt_tokens_details": [
@@ -304,7 +355,7 @@
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 27317,
+      "total_token_count": 25814,
       "traffic_type": null
     }
   },
