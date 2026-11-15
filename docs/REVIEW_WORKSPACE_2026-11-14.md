@@ -67,16 +67,14 @@ The three effective summaries are identical apart from the new revision token.
 This verifies preservation against the actual prior publication as well as the
 separate local/source preservation checks.
 
-A separate existing publication discrepancy was observed during verification:
-29 projected pick records differ from checked-in source in punctuation/text
-characters (for example, a curly apostrophe or ellipsis becomes a replacement
-character). It is present in both old and new Pages artifacts; original metadata
-in the same artifact still matches immutable Git source. The cause is not yet
-established. Do not silently normalize the comparison or call source/publication
-text an exact match. Retained both Pages artifacts, a compact example, verification
-hashes and relevant QA evidence under pinned `.tmp/review-workbench/` for the next
-bounded diagnosis. Downloaded test dependencies and copied preview files are
-disposable; no podcast audio/transcripts or model outputs were created.
+**Correction from the November 15 follow-up:** the initially reported 29-record
+punctuation mismatch was a diagnostic false alarm. A scratch script read local
+UTF-8 JSON using the Windows CP1252 default, then console decoding made correctly
+decoded artifact text look damaged. Explicit UTF-8 and binary reads confirm that
+the publication matches retained source. The artifact contains no replacement
+characters. No source/publication punctuation repair is needed. See the
+[diagnosis and new fidelity checks](PUBLICATION_FIDELITY_2026-11-15.md). Both original
+Pages artifacts/reports and the corrected diagnosis remain pinned locally.
 
 Housekeeping: scratch preview/apply found 0 MiB eligible for age cleanup. Removed
 the new jsdom installation and copied preview site after verification; retained

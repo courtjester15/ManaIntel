@@ -85,6 +85,10 @@ jobs:
           cp web/index.html web/ui.js web/app.js web/table.js web/audio-player.js web/styles.css web/summary.html web/summary.js web/review.html web/review.js _site/
           cp -R archive/. _site/archive/
 
+      - name: Verify staged publication fidelity
+        if: ${{ inputs.deploy }}
+        run: python -m ffw verify-publication --site-dir _site
+
       - name: Configure Pages
         if: ${{ inputs.deploy }}
         uses: actions/configure-pages@v5

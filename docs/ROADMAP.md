@@ -4,9 +4,9 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.27. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.28. Next milestone: 0.6 — dependable processing.**
 
-The review workspace now supports complete field corrections, explicit outcomes, readable previews and saved-correction/revision protection. See the [November 14 review batch](REVIEW_WORKSPACE_2026-11-14.md). Published data remains 142 episodes/546 picks; BB725 has two picks, and BB652/653 are exhausted. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check. Visual browser QA is unavailable. A pre-existing source/publication punctuation mismatch is retained for the next bounded diagnosis.
+The review workspace now supports complete field corrections, explicit outcomes, readable previews and saved-correction/revision protection. See the [November 14 review batch](REVIEW_WORKSPACE_2026-11-14.md). Published data remains 142 episodes/546 picks; BB725 has two picks, and BB652/653 are exhausted. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check. Visual browser QA is unavailable. The punctuation alarm was diagnosed as a Windows scratch-reading error; publication text is intact. Source-to-catalog validation and a blocking staged-publication guard now ship in 0.5.28.
 
 Keep answering: **Who recommended what, when, and why?** MTG Fast Finance and Brainstorm Brewery are the supported sources. Improve the existing Python pipeline, static archive, remote playback and durable overrides before adding infrastructure.
 
@@ -457,10 +457,23 @@ Review workspace closeout: implementation `9e07ca6`; [production 43673378244](ht
 passed all 262 tests, archive validation and Pages. Served 0.5.27 assets and all
 three effective-review tokens verified. Published before/after card payloads are
 byte-identical (546 picks); 142 episodes, 62 needs_review and two failed. Source
-originals and durable reviews are unchanged. Separate pre-existing punctuation
-differences affect 29 projected records compared with Git source; both old/new
-Pages artifacts preserve the same differences. Cause remains unknown; evidence
-is pinned under `.tmp/review-workbench/`. Next independent useful batch: diagnose
-that source/publication text mismatch without overriding source uncertainty.
+originals and durable reviews are unchanged. The initial punctuation alarm was later corrected: a locale-dependent
+scratch read produced 29 false mismatches. Explicit UTF-8 reads confirm published
+text matches source; see [November 15 diagnosis](PUBLICATION_FIDELITY_2026-11-15.md).
+Original evidence remains pinned under `.tmp/review-workbench/`.
 No inference calls or review approvals were made. Visual/native-playback QA and
 R2 independent source verification remain open.
+
+
+November 15 publication fidelity (0.5.28): diagnosed the prior punctuation alarm
+as a Windows CP1252 scratch-read/console error; published Unicode text is intact.
+No text repair or source claim change was justified. Added read-only full-field
+catalog validation from retained source, reviews and cached resolutions; catches
+changed fields despite stable IDs/counts, duplicate rows, coordinated omissions
+and stale dashboard records. Both Pages upload paths verify staged catalogs.
+The new verify-publication command checks staged or served catalogs with explicit
+UTF-8 and bounded public reads. See [batch evidence](PUBLICATION_FIDELITY_2026-11-15.md).
+No inference calls, episode retries, source changes or review approvals. Next:
+R2 independent FF538 source check when a working method is available; choose
+review-queue prioritization as independent product work while that prerequisite
+and visual-browser verification remain blocked. Stay 0.5.x.

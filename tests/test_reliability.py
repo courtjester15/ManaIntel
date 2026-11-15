@@ -564,6 +564,11 @@ class ReliabilityTests(unittest.TestCase):
         after = load_json(output / "summary.json")
         self.assertEqual([p["id"] for p in before["recommendations"]], [p["id"] for p in after["recommendations"]])
         self.assertEqual(before["recommendations"][0]["start_seconds"] + 1, after["recommendations"][0]["start_seconds"])
+        # process_episode writes episode outputs; Pipeline.run rebuilds catalogs
+        # afterward. Stable IDs alone must not validate those stale timestamps.
+        self.assertIn("catalog_field_drift", {issue.code for issue in validate_archive(self.settings.archive_dir, self.settings.state_file)})
+        from ffw.archive import rebuild_catalog
+        rebuild_catalog(self.settings.archive_dir, production=self.settings.mode == "live")
         self.assertEqual([], validate_archive(self.settings.archive_dir, self.settings.state_file))
 
     def test_compressed_transcript_retranscribes_only_matching_chunk(self):

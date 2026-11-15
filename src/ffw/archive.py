@@ -23,8 +23,11 @@ def rebuild_catalog(
     repository_url: str = "https://github.com/courtjester15/ManaIntel",
     reviews_dir: Path | None = None,
     resolutions_path: Path | None = None,
+    write: bool = True,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    archive_dir.mkdir(parents=True, exist_ok=True)
+    """Project source records; write=False performs no filesystem mutations."""
+    if write:
+        archive_dir.mkdir(parents=True, exist_ok=True)
     episode_records: list[dict[str, Any]] = []
     cards: list[dict[str, Any]] = []
     resolution_store = load_resolution_store(resolutions_path)
@@ -41,10 +44,10 @@ def rebuild_catalog(
         effective_summary = apply_review(summary, review) if summary else None
         effective_path = metadata_path.parent / "effective.json"
         effective_markdown_path = metadata_path.parent / "effective.md"
-        if review and effective_summary:
+        if write and review and effective_summary:
             atomic_write_json(effective_path, effective_summary)
             atomic_write_text(effective_markdown_path, render_episode_markdown(effective_summary))
-        else:
+        elif write:
             effective_path.unlink(missing_ok=True)
             effective_markdown_path.unlink(missing_ok=True)
         processing = (
@@ -154,6 +157,8 @@ def rebuild_catalog(
         "recent_picks": cards[:6],
         "episodes": episode_records,
     }
+    if not write:
+        return index, cards
     atomic_write_json(archive_dir / "index.json", index)
     atomic_write_json(
         archive_dir / "cards.json",

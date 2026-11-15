@@ -364,6 +364,10 @@ jobs:
           cp web/index.html web/ui.js web/app.js web/table.js web/audio-player.js web/styles.css web/summary.html web/summary.js web/review.html web/review.js _site/
           cp -R archive/. _site/archive/
 
+      - name: Verify staged publication fidelity
+        if: ${{ steps.validation.outcome == 'success' }}
+        run: python -m ffw verify-publication --site-dir _site
+
       - name: Decide Pages publication
         if: ${{ steps.validation.outcome == 'success' }}
         id: pages_gate

@@ -98,6 +98,34 @@ The report exposes no-op/gated runs with successful Pages jobs so deployment chu
 4. Verify `git status` remains clean after pulling the workflow result.
 5. Confirm the **Decide Pages publication** step reports `ready=false` and that Pages upload/deployment are skipped. A changed, validated failure record should instead report `ready=true` and deploy the current failure status even though the publish job ultimately reports the pipeline failure.
 
+## Verify publication fidelity
+
+`manaintel validate` now compares catalog fields with a read-only reconstruction
+from retained metadata, summaries, durable reviews and cached card resolutions.
+Matching IDs/counts alone are insufficient. A `catalog_field_drift` error includes
+a file and JSON field path. Inspect that field and its retained source before
+rebuilding; do not guess a replacement value or clear a review gate.
+
+Both Pages workflows also run a blocking staged check after copying the site.
+For a matching checkout, verify the staged or served production catalogs with:
+
+```powershell
+python -m ffw verify-publication --site-dir _site
+python -m ffw verify-publication --url https://courtjester15.github.io/ManaIntel/
+```
+
+The optional `--output-json <path>` saves a compact report. Exit codes are 0 for
+matching catalogs, 1 for a mismatch/unreadable publication, and 2 for invalid
+input. The public check makes three bounded JSON reads without credentials or
+model calls. It checks release metadata, ignoring only the build-time value.
+Compare the intended deployed commit; concurrent source/publication changes may
+require resynchronizing and checking again. This verifies retained-data fidelity,
+not source accuracy, browser appearance or playback.
+
+Always read archive/report JSON as bytes with `json.loads(path.read_bytes())` or
+use `path.read_text(encoding="utf-8")`. Windows locale-default reads and console
+decoding caused the [November 15 false alarm](PUBLICATION_FIDELITY_2026-11-15.md).
+
 ## Human review workflow
 
 The static site intentionally contains no repository credential. It prepares a compact payload for the authenticated review workflow:

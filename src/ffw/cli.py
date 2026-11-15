@@ -15,6 +15,7 @@ from .config import Settings, VERSION
 from .pipeline import Pipeline
 from .reviews import persist_review
 from .validation import validate_archive
+from .publication import verify_publication
 from .utils import atomic_write_json, atomic_write_text
 from .health import build_health_report, fetch_github_evidence, read_json, render_health_markdown, timestamp, workflow_evidence_projection
 
@@ -33,6 +34,11 @@ def _parser() -> argparse.ArgumentParser:
     run.add_argument("--report-json", type=Path, help=argparse.SUPPRESS)
     subparsers.add_parser("validate", help="Validate state, episode outputs, and archive catalogs")
     subparsers.add_parser("render", help="Regenerate Markdown and archive catalogs from JSON")
+    publication = subparsers.add_parser("verify-publication", help="Read-only catalog fidelity check against a staged or served site")
+    target = publication.add_mutually_exclusive_group(required=True)
+    target.add_argument("--site-dir", type=Path, help="Staged site root containing archive/")
+    target.add_argument("--url", help="HTTP(S) deployed site root; reads three bounded JSON documents")
+    publication.add_argument("--output-json", type=Path, help="Save the compact verification report")
     health = subparsers.add_parser("health-report", help="Report recorded processing health without provider calls")
     health.add_argument("--days", type=int, default=14, help="UTC lookback window (1-365 days)")
     health.add_argument("--as-of", help="Timezone-aware ISO timestamp; defaults to current UTC")
@@ -202,6 +208,19 @@ def main(argv: list[str] | None = None) -> int:
             f"not_found={report.not_found}, cached={report.cached}, unavailable={report.unavailable}."
         )
         return 1 if report.unavailable and not report.looked_up else 0
+    if args.command == "verify-publication":
+        try:
+            report = verify_publication(settings.archive_dir, settings.state_file,
+                                        site_dir=args.site_dir, url=args.url,
+                                        reviews_dir=settings.root / "data" / "reviews",
+                                        feed_name=settings.feed_name, repository_url=settings.repository_url)
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            print(json.dumps({"verified": False, "problem": "invalid_verification_input", "error_type": type(exc).__name__}))
+            return 2
+        if args.output_json:
+            atomic_write_json(args.output_json, report)
+        print(json.dumps(report, indent=2, ensure_ascii=True))
+        return 0 if report["verified"] else 1
     if args.command == "render":
         count = rerender_archive(
             settings.archive_dir,

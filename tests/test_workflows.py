@@ -12,6 +12,19 @@ except ImportError:
 
 @unittest.skipIf(yaml is None, "Install the test extra for YAML validation")
 class WorkflowTests(unittest.TestCase):
+    def test_staged_fidelity_guard_blocks_both_pages_upload_paths(self):
+        root = Path(__file__).resolve().parents[1]
+        for filename in ("ffw.yml", "review.yml"):
+            workflow = yaml.load((root / ".github/workflows" / filename).read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
+            steps = next(iter(workflow["jobs"].values()))["steps"]
+            names = [step.get("name") for step in steps]
+            guard = names.index("Verify staged publication fidelity")
+            self.assertLess(names.index("Build clean Pages artifact"), guard)
+            self.assertLess(guard, names.index("Upload Pages artifact"))
+            self.assertIn("verify-publication --site-dir _site", steps[guard]["run"])
+            self.assertNotEqual("true", steps[guard].get("continue-on-error"))
+            self.assertNotIn("always()", steps[guard].get("if", ""))
+
     def workflows(self):
         root = Path(__file__).resolve().parents[1]
         return [yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)

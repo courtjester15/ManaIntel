@@ -9,6 +9,7 @@ from .models import PROCESSING_STATES
 from .rendering import render_episode_markdown
 from .reviews import apply_review, load_episode_review
 from .utils import load_json, stable_pick_id
+from .publication import catalog_findings, expected_publication
 
 
 @dataclass(frozen=True)
@@ -178,6 +179,21 @@ def validate_archive(
         missing = required_metadata - set(index.get("metadata", {}))
         if missing:
             issues.append(ValidationIssue("error", "missing_production_metadata", str(archive_dir / "index.json"), f"Missing production metadata: {sorted(missing)}"))
+    # ID/count equality cannot detect changed quotations, prices, review flags,
+    # duplicated rows, or an episode removed from every catalog at once.
+    # Reconstruct from retained metadata/summaries/overrides without writing.
+    try:
+        expected = expected_publication(archive_dir, state_file, reviews_dir=reviews_dir,
+                                        production=not index.get("synthetic", False))
+        observed = {"index.json": index, "cards.json": cards_payload,
+                    "resolutions.json": published_resolutions}
+        for finding in catalog_findings(expected, observed, full_metadata=False):
+            issues.append(ValidationIssue("error", "catalog_field_drift",
+                                          f"{archive_dir / finding['file']}#{finding['pointer']}",
+                                          "Published catalog field differs from retained source records or durable overrides."))
+    except (KeyError, TypeError, ValueError, OSError) as exc:
+        issues.append(ValidationIssue("error", "catalog_projection_failed", str(archive_dir),
+                                      f"Cannot reconstruct source catalog ({type(exc).__name__})."))
     for path in archive_dir.rglob("*.json"):
         text = path.read_text(encoding="utf-8").casefold()
         if ".ffw-work" in text or "source-audio" in text:
