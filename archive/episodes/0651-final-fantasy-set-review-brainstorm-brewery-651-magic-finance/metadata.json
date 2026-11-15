@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15674",
+    "episode_number": 651,
+    "title": "Final Fantasy Set Review | Brainstorm Brewery #651 | Magic Finance",
+    "published_at": "2025-06-06T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_651_Final_Fantasy_Set_Review.mp3",
+    "episode_url": "https://brainstormbrewery.com/final-fantasy-set-review-brainstorm-brewery-651-magic-finance/",
+    "duration_seconds": 3938,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "DJ (@CardgardenMTG), and Corbin (@CHosler) welcome on Emily, a Final Fantasy superfan, to explain all the interesting Final Fantasy nuggets hiding in the latest Magic the Gathering set. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.28",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-15T06:32:25Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-15T06:27:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-15T06:27:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-15T06:27:36Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-15T06:27:36Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-15T06:27:38Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-15T06:27:38Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-15T06:27:46Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-15T06:32:24Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-15T06:32:24Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-15T06:32:25Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-15T06:32:25Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-15T06:32:25Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-15T06:32:25Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3938,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 35.069,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16147,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22694,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38841,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 39.306,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19190,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41885,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 10.657,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3539,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 26234,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 58.062,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 28300,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22695,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 50995,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 338,
+          "request_seconds": 11.52,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 4950,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 8635,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 8440
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 195
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 13585,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 19,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 17870,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 17870
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17889,
+      "traffic_type": null
+    }
+  },
+  "outputs": {
+    "metadata": "episodes/0651-final-fantasy-set-review-brainstorm-brewery-651-magic-finance/metadata.json",
+    "summary_json": "episodes/0651-final-fantasy-set-review-brainstorm-brewery-651-magic-finance/summary.json",
+    "summary_markdown": "episodes/0651-final-fantasy-set-review-brainstorm-brewery-651-magic-finance/summary.md"
+  }
+}

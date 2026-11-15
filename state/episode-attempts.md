@@ -126,6 +126,7 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-14T06:19:43Z — mtg-fast-finance 539: **needs_review**; retry; 0 picks; 9 observed model calls; 4 checkpoints reused; archive validation=success. [Details](attempts/72e8cfde825044799b50e78049264e83.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/43565725335)
 - 2026-11-14T11:30:13Z — mtg-fast-finance 485: **needs_review**; forced rerun; automatically retained transcript; 4 picks; 3 observed model calls; 0 checkpoints reused; previous published result retained; archive validation=success; Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.; note: Bounded nightly cleanup. [Details](attempts/6aa2cdc2c6f545a38f75a6bad180eefe.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/43590262304)
 - 2026-11-14T23:54:34Z — mtg-fast-finance 479: **complete**; retry; automatically retained transcript; 4 picks; 7 observed model calls; 3 checkpoints reused; archive validation=success. [Details](attempts/287421ec1e914d84bb93c8a9bfbd9449.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/43655492596)
+- 2026-11-15T06:27:36Z — brainstorm-brewery 651: **needs_review**; initial processing; 0 picks; 20 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/0786371fbfa84b60a5eae40969ec1a96.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/43685448695)
 
 ## Workflow outcomes
 
@@ -292,3 +293,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-14T06:21:21Z — run 43565725335/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/43565725335-1.json)
 - 2026-11-14T11:30:34Z — run 43590262304/1: preflight=success; pipeline=success; exit=None; validation=success; selected=see queue note; Primary gate=true; queue=older than fourteen days; bounded repair cohort. [Details](runs/43590262304-1.json)
 - 2026-11-14T23:55:46Z — run 43655492596/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/43655492596-1.json)
+- 2026-11-15T06:32:28Z — run 43685448695/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/43685448695-1.json)
