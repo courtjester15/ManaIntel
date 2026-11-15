@@ -102,12 +102,29 @@ The report exposes no-op/gated runs with successful Pages jobs so deployment chu
 
 The static site intentionally contains no repository credential. It prepares a compact payload for the authenticated review workflow:
 
-1. Open a needs-review episode and select **Review episode**.
+1. Open a published machine extraction and select **Review episode**. Machine-checked complete episodes can also be reviewed; already human-reviewed episodes retain their existing review.
 2. Leave valid picks on **Keep**, or choose **Exclude** or **Correct**. Add any omitted picks under **Missing picks**.
-3. Optionally add a review note, then choose **Prepare review payload** and **Copy payload**.
+3. Choose **Approve the whole episode** only after checking all included picks, or **Limited correction — keep needs review** for printing changes or clearing unsupported entry targets. Limited corrections require an evidence note and cannot add/remove picks or change other fields. Choose **Prepare review payload**, inspect the published-value/result preview, then **Copy payload**.
 4. Choose **Open review workflow**, select **Run workflow**, paste the payload into `review_payload`, and leave deployment enabled.
 5. The workflow records the GitHub actor, rejects stale or malformed payloads, runs the test and validation suites, writes the durable file under `data/reviews/<source-id>/`, rebuilds effective projections, commits both, and deploys Pages.
-6. Confirm the episode now shows **human reviewed** and that its effective summary contains the intended picks.
+6. Confirm the effective summary contains the intended picks. Whole-episode approval shows **human reviewed**; limited correction stays **needs review**, without human approval.
+
+The editor supports mentioned-price context, explicit entry/exit targets, hold,
+reasoning, caveats and optional end timestamps. Targets keep source wording,
+currency and independently nullable bounds; **Clear this target** removes all
+target fields. Blank pick speakers mean unknown attribution, never the show host
+list. Invalid bounds/clocks and duplicate resulting identities stop before an
+override is written. Editing the form clears the prepared preview and payload.
+
+Existing effective corrections are loaded and carried forward by **Keep**. The
+preview compares published values with the proposed result, including a deliberate
+reversion of a saved correction. Payload schema 1.1.0 binds both the original
+extraction expectation and `expected_review_revision`, a hash of the current
+durable review or null. A concurrent review requires reloading and preparing
+again. Legacy 1.0.0 stored reviews remain readable; legacy payloads can create a
+first review but cannot overwrite a saved override. Limited corrections cannot
+replace a durable human approval. The site still only prepares a payload; it
+cannot authenticate or dispatch a workflow.
 
 For local maintenance, run `manaintel apply-review --payload '<json>' --actor '<name>'`. This performs the same durable write and projection rebuild; validate before committing.
 

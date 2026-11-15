@@ -173,7 +173,7 @@ async function loadSummary() {
       `${picks.length} recommendations`,
       processing.status ? label(processing.status) : null,
     ].filter(Boolean).join(" · ");
-    actions.innerHTML = `<button class="button" type="button" data-listen-seconds="0" data-listen-label="Episode start">Listen from start</button>${processing.status === "needs_review" ? `<a class="button secondary" href="review.html?episode=${encodeURIComponent(episodeDir)}">Review episode</a>` : ""}<a class="link-button" href="${escapeHtml(markdownUrl)}" target="_blank" rel="noreferrer">Episode text ↗</a>`;
+    actions.innerHTML = `<button class="button" type="button" data-listen-seconds="0" data-listen-label="Episode start">Listen from start</button>${["complete", "needs_review"].includes(processing.status) && !processing.human_review ? `<a class="button secondary" href="review.html?episode=${encodeURIComponent(episodeDir)}">Review episode</a>` : ""}<a class="link-button" href="${escapeHtml(markdownUrl)}" target="_blank" rel="noreferrer">Episode text ↗</a>`;
 
     AudioPlayback.mount({
       container: "#audio-player",

@@ -7,7 +7,7 @@ from .config import PIPELINE_VERSION, SCHEMA_VERSION
 from .card_resolution import apply_card_resolution, load_resolution_store
 from .identity import parse_episode_number
 from .rendering import render_episode_markdown
-from .reviews import apply_review, load_episode_review
+from .reviews import apply_review, load_episode_review, review_revision
 from .utils import atomic_write_json, atomic_write_text, load_json
 from .models import utc_now
 
@@ -74,6 +74,7 @@ def rebuild_catalog(
             "processed_at": processing.get("processed_at"),
             "error": processing.get("error"),
             "human_reviewed": bool(human_review),
+            "review_revision": review_revision(review),
             "reviewed_at": human_review.get("reviewed_at") if human_review else None,
             "reviewed_by": human_review.get("reviewed_by") if human_review else None,
             "review_note": human_review.get("note") if human_review else None,

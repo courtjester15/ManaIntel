@@ -669,7 +669,7 @@ function showEpisode(guid, { returning = false, focusPickId = null } = {}) {
   const episodePicks = state.cards.filter((pick) => pick.episode.guid === episode.guid);
   const workflowUrl = safeUrl(state.index.metadata.workflow_url);
   const retryControls = episode.error ? `<div class="detail-section"><h3>Retry this exact episode</h3><p>Copy the GUID, open Actions, choose <strong>Run workflow</strong>, leave mode at <strong>next</strong>, and paste it into <strong>force_guid</strong>. Inspect retained evidence first: exact retry bypasses cooldown and quarantine. Copying the GUID or opening Actions does not start a job.</p><div class="latest-actions"><button class="button secondary" type="button" data-copy-guid="${escapeHtml(episode.guid)}">Copy retry GUID</button><input id="copy-guid-fallback" aria-label="Retry GUID to copy" readonly hidden><a class="button secondary" href="${workflowUrl}" target="_blank" rel="noreferrer">Open retry workflow</a></div></div>` : "";
-  const reviewControls = episode.processing_status === "needs_review" && canOpenSummary(episode)
+  const reviewControls = isSuccessfulEpisode(episode) && !episode.human_reviewed && canOpenSummary(episode)
     ? `<div class="detail-section"><h3>Human review</h3><p>Verify the extracted picks against the source, then keep, exclude, correct, or add picks through a durable review override.</p><div class="latest-actions"><a class="button" href="${episodeReviewUrl(episode)}">Review episode</a></div></div>`
     : episode.human_reviewed
       ? `<div class="detail-section"><h3>Human review</h3><p>${badge("human_reviewed")} Reviewed by ${escapeHtml(episode.reviewed_by || "an authenticated reviewer")}${episode.review_note ? ` · ${escapeHtml(episode.review_note)}` : ""}</p></div>`

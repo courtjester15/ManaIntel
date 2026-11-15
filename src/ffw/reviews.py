@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from copy import deepcopy
 from pathlib import Path
 from typing import Any
@@ -9,7 +10,8 @@ from typing import Any
 from .models import utc_now
 from .utils import atomic_write_json, load_json, seconds_to_timestamp, stable_pick_id
 
-REVIEW_SCHEMA_VERSION = "1.0.0"
+REVIEW_SCHEMA_VERSION = "1.1.0"
+LEGACY_REVIEW_SCHEMA_VERSION = "1.0.0"
 REVIEW_ACTIONS = {"exclude", "update", "add"}
 EDITABLE_PICK_FIELDS = {
     "card",
@@ -20,7 +22,15 @@ EDITABLE_PICK_FIELDS = {
     "start_seconds",
     "end_seconds",
     "evidence_excerpt",
+    "mentioned_price", "entry_target", "exit_target", "hold", "reasoning", "caveats",
 }
+
+
+def review_revision(review: dict[str, Any] | None) -> str | None:
+    """A public concurrency token; no private review content is exposed."""
+    if not review:
+        return None
+    return hashlib.sha256(json.dumps(review, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
 
 
 def review_file_path(reviews_dir: Path, source_id: str, episode_guid: str) -> Path:
@@ -52,7 +62,9 @@ def _parse_payload(payload: str | dict[str, Any]) -> dict[str, Any]:
 
 
 def _require_text(value: Any, field: str) -> str:
-    text = str(value or "").strip()
+    if not isinstance(value, str):
+        raise ValueError(f"Review pick field {field!r} must be text.")
+    text = value.strip()
     if not text:
         raise ValueError(f"Review pick field {field!r} is required.")
     return text
@@ -61,7 +73,7 @@ def _require_text(value: Any, field: str) -> str:
 def _normalize_seconds(value: Any, field: str) -> int | None:
     if value is None or value == "":
         return None
-    if isinstance(value, bool):
+    if isinstance(value, bool) or not (isinstance(value, int) or isinstance(value, str) and value.isdecimal()):
         raise ValueError(f"Review pick field {field!r} must be seconds.")
     try:
         seconds = int(value)
@@ -75,10 +87,29 @@ def _normalize_seconds(value: Any, field: str) -> int | None:
 def _normalize_hosts(value: Any) -> list[str]:
     if not isinstance(value, list):
         raise ValueError("Review pick field 'hosts' must be a list.")
-    hosts = [str(host).strip() for host in value if str(host).strip()]
-    if not hosts:
-        raise ValueError("Review pick field 'hosts' requires at least one speaker.")
-    return hosts
+    if any(not isinstance(host, str) for host in value):
+        raise ValueError("Review speakers must be text; use an empty list for unknown attribution.")
+    return [host.strip() for host in value if host.strip()]
+
+
+def _normalize_target(value: Any, field: str) -> dict[str, Any] | None:
+    if value is None:
+        return None
+    if not isinstance(value, dict) or set(value) != {"raw", "currency", "minimum", "maximum"}:
+        raise ValueError(f"Review {field} requires raw, currency, minimum and maximum, or null.")
+    if value["currency"] is not None and not isinstance(value["currency"], str):
+        raise ValueError(f"Review {field}.currency must be text or null.")
+    result = {"raw": _require_text(value["raw"], field + ".raw"),
+              "currency": str(value["currency"] or "").strip() or None}
+    for bound in ("minimum", "maximum"):
+        number = value[bound]
+        if number is not None and (isinstance(number, bool) or not isinstance(number, (int, float))
+                                   or not math.isfinite(number) or number < 0):
+            raise ValueError(f"Review {field}.{bound} must be a finite non-negative number or null.")
+        result[bound] = number
+    if result["minimum"] is not None and result["maximum"] is not None and result["minimum"] > result["maximum"]:
+        raise ValueError(f"Review {field} minimum cannot exceed maximum.")
+    return result
 
 
 def _normalize_changes(changes: Any) -> dict[str, Any]:
@@ -90,8 +121,19 @@ def _normalize_changes(changes: Any) -> dict[str, Any]:
     normalized = deepcopy(changes)
     if "card" in normalized:
         normalized["card"] = _require_text(normalized["card"], "card")
-    if "printing" in normalized:
-        normalized["printing"] = str(normalized["printing"]).strip() or None
+    for field in ("printing", "mentioned_price", "hold"):
+        if field in normalized:
+            if normalized[field] is not None and not isinstance(normalized[field], str):
+                raise ValueError(f"Review {field} must be text or null.")
+            normalized[field] = (normalized[field] or "").strip() or None
+    for field in ("entry_target", "exit_target"):
+        if field in normalized:
+            normalized[field] = _normalize_target(normalized[field], field)
+    for field in ("reasoning", "caveats"):
+        if field in normalized:
+            if not isinstance(normalized[field], list) or any(not isinstance(item, str) for item in normalized[field]):
+                raise ValueError(f"Review {field} must be a list of text lines.")
+            normalized[field] = [item.strip() for item in normalized[field] if item.strip()]
     if "foil" in normalized:
         normalized["foil"] = _normalize_foil(normalized["foil"])
     if "hosts" in normalized:
@@ -124,7 +166,7 @@ def _new_pick(summary: dict[str, Any], values: Any) -> dict[str, Any]:
         raise ValueError("An added pick requires start_seconds.")
     end_seconds = _normalize_seconds(values.get("end_seconds"), "end_seconds")
     card = _require_text(values.get("card"), "card")
-    printing = str(values.get("printing") or "").strip() or None
+    printing = _normalize_changes({"printing": values.get("printing")})["printing"]
     hosts = _normalize_hosts(values.get("hosts"))
     recommendation = _require_text(values.get("recommendation"), "recommendation")
     evidence = _require_text(values.get("evidence_excerpt"), "evidence_excerpt")
@@ -136,12 +178,9 @@ def _new_pick(summary: dict[str, Any], values: Any) -> dict[str, Any]:
         "foil": _normalize_foil(values.get("foil")),
         "hosts": hosts,
         "recommendation": recommendation,
-        "mentioned_price": None,
-        "entry_target": None,
-        "hold": None,
-        "exit_target": None,
-        "reasoning": [],
-        "caveats": [],
+        **{field: _normalize_changes({field: values[field]})[field] if field in values else default
+           for field, default in (("mentioned_price", None), ("entry_target", None), ("hold", None),
+                                  ("exit_target", None), ("reasoning", []), ("caveats", []))},
         "confidence": None,
         "start_seconds": start_seconds,
         "end_seconds": end_seconds,
@@ -161,8 +200,13 @@ def normalize_review(
     reviewed_at: str | None = None,
 ) -> dict[str, Any]:
     review = _parse_payload(payload)
-    if review.get("schema_version") != REVIEW_SCHEMA_VERSION:
-        raise ValueError(f"Review schema_version must be {REVIEW_SCHEMA_VERSION}.")
+    if review.get("schema_version") not in (REVIEW_SCHEMA_VERSION, LEGACY_REVIEW_SCHEMA_VERSION):
+        raise ValueError(f"Review schema_version must be {REVIEW_SCHEMA_VERSION} or {LEGACY_REVIEW_SCHEMA_VERSION}.")
+    if review["schema_version"] == REVIEW_SCHEMA_VERSION:
+        token = review.get("expected_review_revision")
+        if "expected_review_revision" not in review or (token is not None and
+                (not isinstance(token, str) or len(token) != 64 or any(c not in "0123456789abcdef" for c in token))):
+            raise ValueError("Review requires expected_review_revision from the current archive, or null.")
     episode = summary["episode"]
     source_id = _source_id(summary)
     if review.get("episode_guid") != episode["guid"]:
@@ -176,6 +220,8 @@ def normalize_review(
     if correction_only and (not str(review.get("note") or "").strip()
                             or summary.get("processing", {}).get("human_review")):
         raise ValueError("Unapproved correction needs an evidence note and cannot replace a human review.")
+    if correction_only and not review.get("operations"):
+        raise ValueError("A limited correction needs at least one supported change.")
     if review.get("expected") != review_expectation(summary):
         raise ValueError("Review payload is stale because the extracted episode changed.")
 
@@ -224,8 +270,8 @@ def normalize_review(
     reviewer = str(actor or "").strip()
     if not reviewer:
         raise ValueError("A review actor is required.")
-    return {
-        "schema_version": REVIEW_SCHEMA_VERSION,
+    result = {
+        "schema_version": review["schema_version"],
         "source_id": source_id,
         "episode_guid": episode["guid"],
         "expected": review_expectation(summary),
@@ -235,12 +281,16 @@ def normalize_review(
         "reviewed_by": reviewer,
         "reviewed_at": reviewed_at or utc_now(),
     }
+    if review["schema_version"] == REVIEW_SCHEMA_VERSION:
+        result["expected_review_revision"] = review["expected_review_revision"]
+    return result
 
 
 def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict[str, Any]:
     effective = deepcopy(summary)
     if not review:
         return effective
+    revision = review_revision(review)
     correction_only = review.get("decision") == "correct_without_approval"
     if correction_only:
         review = normalize_review(summary, review, actor=review.get("reviewed_by"),
@@ -290,6 +340,7 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
             order.append(pick["id"])
 
     effective_picks = [picks[pick_id] for pick_id in order]
+    effective["processing"]["review_revision"] = revision
     if correction_only:
         effective["recommendations"] = effective_picks
         processing = effective["processing"]
@@ -318,6 +369,18 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
         "operation_count": len(review.get("operations", [])),
     }
     return effective
+
+
+def _validate_review_clocks(summary: dict[str, Any]) -> None:
+    duration = summary["episode"].get("duration_seconds")
+    for pick in summary["recommendations"]:
+        start, end = pick.get("start_seconds"), pick.get("end_seconds")
+        if start is None:
+            raise ValueError("Every reviewed pick requires a start timestamp.")
+        if end is not None and end < start:
+            raise ValueError("A pick end timestamp cannot precede its start.")
+        if duration and (start > duration or end is not None and end > duration):
+            raise ValueError("A pick timestamp exceeds the source audio duration.")
 
 
 def load_episode_review(
@@ -352,5 +415,15 @@ def persist_review(
     _, summary = find_episode_summary(archive_dir, episode_guid)
     review = normalize_review(summary, parsed, actor=actor, reviewed_at=reviewed_at)
     path = review_file_path(reviews_dir, review["source_id"], review["episode_guid"])
+    current = load_json(path) or None
+    if review["decision"] == "correct_without_approval" and current and current.get("decision") == "approve":
+        raise ValueError("An unapproved correction cannot replace a human review.")
+    if review.get("schema_version") == REVIEW_SCHEMA_VERSION:
+        if review["expected_review_revision"] != review_revision(current):
+            raise ValueError("Review payload is stale because a saved review changed. Reload the review page.")
+    elif current:
+        raise ValueError("A legacy payload cannot replace a saved review. Reload the updated review page.")
+    # Check the full effective result before replacing a durable override.
+    _validate_review_clocks(apply_review(summary, review))
     atomic_write_json(path, review)
     return path

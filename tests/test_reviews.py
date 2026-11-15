@@ -97,6 +97,7 @@ def summary() -> dict:
 def payload(source: dict) -> dict:
     return {
         "schema_version": REVIEW_SCHEMA_VERSION,
+        "expected_review_revision": None,
         "source_id": "mtg-fast-finance",
         "episode_guid": source["episode"]["guid"],
         "expected": review_expectation(source),

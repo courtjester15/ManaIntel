@@ -84,7 +84,7 @@
         "printing": {"$ref": "#/$defs/nullableString"},
         "printing_certainty": {"enum": ["confirmed", "likely", "ambiguous", null]},
         "foil": {"type": ["boolean", "null"]},
-        "hosts": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "hosts": {"type": "array", "items": {"type": "string"}, "description": "Pick speakers only; an empty array preserves unknown attribution."},
         "recommendation": {"type": "string", "minLength": 1},
         "mentioned_price": {"$ref": "#/$defs/nullableString"},
         "entry_target": {"$ref": "#/$defs/target"},

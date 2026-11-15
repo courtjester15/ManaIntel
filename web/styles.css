@@ -411,6 +411,24 @@ pre { overflow: auto; max-height: 180px; padding: 12px; border: 1px solid var(--
 .review-finalize .review-field { margin-bottom: 10px; }
 #review-payload { min-height: 130px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; }
 #review-output { margin-top: 12px; }
+.review-target { min-width: 0; margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.review-target legend { padding: 0 5px; color: var(--text-strong); font-size: 12px; font-weight: 700; }
+.review-target p, .review-finalize .muted, .review-saved { font-size: 12px; line-height: 1.6; }
+.review-target .review-fields { grid-template-columns: 1fr; padding: 0; }
+.review-target .review-field-wide { grid-column: 1; }
+.review-saved { padding: 10px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+#review-preview { margin-bottom: 16px; overflow-wrap: anywhere; }
+#review-preview > p { font-size: 12px; line-height: 1.6; }
+.review-change { margin-top: 12px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.review-change h4 { margin: 0 0 10px; font-size: 13px; }
+.review-change dl { display: grid; gap: 10px; margin: 0; }
+.review-change dt { color: var(--muted); font-size: 11px; text-transform: capitalize; }
+.review-change dd { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px; margin: 5px 0 0; white-space: pre-wrap; font-size: 12px; line-height: 1.6; }
+.review-change dd strong { font-weight: 500; color: var(--text-strong); }
+.review-before { color: var(--muted); }
+@media (max-width: 560px) {
+  .review-change dd { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
 #added-picks { display: grid; gap: 8px; }
 .status.approved { color: var(--green); background: rgba(85, 201, 149, .08); }
 .status.human_reviewed { color: var(--green); background: rgba(85, 201, 149, .08); }

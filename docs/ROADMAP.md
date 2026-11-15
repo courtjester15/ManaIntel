@@ -4,7 +4,7 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.26. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.27. Next milestone: 0.6 — dependable processing.**
 
 Card details now include verified-identity pick history, alongside a broad interaction/readability repair pass. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check; the local ASR dependency download was blocked. BB725 has two published picks; BB653 is exhausted and BB652 remains eligible for a bounded ordinary retry. See the [November 10 batch review](BATCH_REVIEW_2026-11-10.md), including the unavailable visual-browser verification.
 
@@ -110,7 +110,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | R3 | Shipped | Recovery clarity follow-up | Status distinguishes temporary provider outage, observed provider capacity refusal and local budget stops; shows remaining attempts and eligible-after/since times. Exhausted retries cannot promise scheduled recovery. |
 | R4 | Next | Offline comparison ready | Baseline/candidate evaluator reports regressions, fixes and blocked checks across the same scoped assertions. Next: independently verified R2 evidence before a bounded model/prompt comparison. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
-| 0.7 work | Later | Planned | Choose the next review-friction improvement from actual usage. |
+| 0.7 work | Partial delivery | Review workspace shipped in 0.5.27 | Complete correction fields, explicit approval/limited outcomes, readable previews, saved-correction preservation and review-revision guards. Next: in-app visual/playback verification, then prioritized review-queue work from usage. |
 | Card history | Shipped in 0.5.25 | Implemented; browser visual QA pending | Pick history in card details groups verified identities across shows, preserving variants, uncertainty, speaker/price context and listening links. Summary links open history directly. Follow with Mentioned again/watchlist after visual verification and usage evidence. |
 
 The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as needs_review; BB 667 published three as complete. The R1 report shipped in 0.5.11 and adds no inference calls or scheduled development. Its first fourteen-day window contains only five initial attempts (two usable) alongside many forced recoveries; current catalog failures are zero but forty episodes need review. GitHub job reads are bounded, and unobserved deployment outcomes remain unknown. This does not satisfy the sustained-reliability gate. Start the next authorized improvement pass with R2 unless new evidence changes the priority.
@@ -438,3 +438,17 @@ subprocess access, alongside all 12 evaluation tests. Archive validation and
 Scratch preview/apply reclaimed 0 MiB; the disposable test log was removed.
 Pre-existing archive/cards.json and archive/resolutions.json working-tree markers
 were preserved (no content diff).
+
+
+November 14 review workspace (0.5.27): [batch findings and verification](REVIEW_WORKSPACE_2026-11-14.md).
+Expanded field corrections, unknown-speaker preservation, explicit whole-episode
+approval versus narrow limited corrections, and published-value/result previews.
+Effective corrections survive Keep; revision tokens reject stale review submissions.
+A limited correction cannot replace a durable human approval. Published machine
+output can open review even when its automated status is complete. No live review
+was applied, no inference/recovery calls were made, and all 546 existing pick
+records plus original extraction/metadata/review files are preserved. R2's
+independent source check and the 0.6 gate remain open. In-app browser timed out;
+DOM/behavioral journeys pass but visual/native-playback QA remains unverified.
+Next: source-check FF538 when an independent source-reading method is available;
+verify the review workspace visually when the in-app browser responds.
