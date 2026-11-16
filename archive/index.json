@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.28",
+    "pipeline_version": "0.5.29",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-16T00:00:46Z",
+    "generated_at": "2026-11-16T03:48:34Z",
     "latest_successful_run_at": "2026-11-15T11:58:51Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -5688,15 +5688,15 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-11-12T07:09:11Z",
+      "processed_at": "2026-11-16T03:48:34Z",
       "error": {
         "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 17.8s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 5.2s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "category": "transient_provider",
         "synthetic": false,
         "retryable": false,
         "provider_wide": true,
-        "attempt": 3,
+        "attempt": 4,
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
