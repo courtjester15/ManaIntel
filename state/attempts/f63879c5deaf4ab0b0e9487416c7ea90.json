@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "attempt_id": "f63879c5deaf4ab0b0e9487416c7ea90",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15672",
+    "number": 650,
+    "title": "11 Hours of Saw-EDH | Brainstorm Brewery #650 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-11-15T23:58:15Z",
+  "pipeline_version": "0.5.28",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "43777561549",
+  "run_attempt": "1",
+  "git_sha": "d85844cbb5c71f8ada2763183549d06760abcdc9",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "queued",
+    "prior_attempt_count": 0,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-15T23:58:15Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-15T23:58:15Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-15T23:58:16Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-15T23:58:16Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-15T23:58:22Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-15T23:59:01Z",
+      "event": "model_call",
+      "chunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 38.5,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 16668,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22704,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 205
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22499
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 39372,
+        "traffic_type": null
+      },
+      "response_characters": 50725
+    },
+    {
+      "timestamp": "2026-11-15T23:59:01Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-15T23:59:37Z",
+      "event": "model_call",
+      "chunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 35.865,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 16513,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22705,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 205
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 22500
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 39218,
+        "traffic_type": null
+      },
+      "response_characters": 47290
+    },
+    {
+      "timestamp": "2026-11-15T23:59:37Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 2,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-16T00:00:15Z",
+      "event": "model_call",
+      "chunk": 3,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 38.517
+    },
+    {
+      "timestamp": "2026-11-16T00:00:45Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Gemini transcription chunk 3/4 failed after 68.5s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted."
+    },
+    {
+      "timestamp": "2026-11-16T00:00:45Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/43777561549",
+  "finished_at": "2026-11-16T00:00:45Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

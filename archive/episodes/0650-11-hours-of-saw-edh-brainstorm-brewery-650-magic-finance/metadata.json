@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15672",
+    "episode_number": 650,
+    "title": "11 Hours of Saw-EDH | Brainstorm Brewery #650 | Magic Finance",
+    "published_at": "2025-05-30T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_650_11_Hours_of_Saw-EDH.mp3",
+    "episode_url": "https://brainstormbrewery.com/11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance/",
+    "duration_seconds": 3083,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass  (@devotedDruid), DJ (@CardgardenMTG), and Corbin (@CHosler) are all back together to talk about the 11-Hour game, Final Fantasy Strategies, and Cash Flow. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.28",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-16T00:00:45Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-15T23:58:16Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-15T23:58:16Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-15T23:58:22Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-16T00:00:45Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 3/4 failed after 68.5s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+      "category": "capacity_deferred",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-11-16T06:00:45Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0650-11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

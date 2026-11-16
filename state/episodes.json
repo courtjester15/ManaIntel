@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.28",
-  "updated_at": "2026-11-15T11:58:51Z",
+  "updated_at": "2026-11-16T00:00:45Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -38236,6 +38236,65 @@
       "extraction_model": "gemini-3.5-flash-lite",
       "review_reason": null,
       "review_issues": []
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=15672": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15672",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-15T23:58:15Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-15T23:58:15Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-15T23:58:15Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-15T23:58:15Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-15T23:58:16Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-15T23:58:16Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-15T23:58:22Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-16T00:00:45Z"
+        }
+      ],
+      "title": "11 Hours of Saw-EDH | Brainstorm Brewery #650 | Magic Finance",
+      "episode_number": 650,
+      "published_at": "2025-05-30T06:00:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 3/4 failed after 68.5s: CapacityStopped: Shared capacity stop: provider limit observed; no further requests permitted.",
+        "category": "capacity_deferred",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-16T06:00:45Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-16T00:00:45Z",
+      "output_directory": "episodes/0650-11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance"
     }
   }
 }
