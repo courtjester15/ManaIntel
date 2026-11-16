@@ -599,6 +599,14 @@ class GeminiTranscriber:
                     self.model_health.failed(model, exc, observer)
                     last_error = exc
                     transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
+                    # The shared guard may already have stopped this model. Keep
+                    # the actual provider error instead of sleeping and replacing
+                    # it with a generic CapacityStopped on the next reservation.
+                    from .capacity import CapacityStopped, reserve
+                    try:
+                        reserve(model, check_only=True)
+                    except CapacityStopped:
+                        raise exc
                     # Truncated output will not improve by repeating the same chunk/model.
                     if "MAX_TOKENS" in str(exc):
                         break
@@ -1143,6 +1151,11 @@ class GeminiExtractor:
                     transient_errors.append(f"{model} attempt {attempt + 1}: {type(exc).__name__}: {exc}")
                     if _is_gemini_quota_error(exc):
                         break
+                    from .capacity import CapacityStopped, reserve
+                    try:
+                        reserve(model, check_only=True)
+                    except CapacityStopped:
+                        raise exc
                     if self.fallback_model_name and self.model_health.failures.get(model, 0) >= 2:
                         break
                     if attempt + 1 < attempts and self.retry_delay_seconds:

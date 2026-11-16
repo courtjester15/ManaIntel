@@ -58,6 +58,21 @@ class ReliabilityTests(unittest.TestCase):
         return GeminiTranscriber("primary", 900, fallback_model_name="fallback", transient_retries=1,
                                  retry_delay_seconds=0, checkpoint_root=self.root / "checkpoints")
 
+    def test_shared_cooldown_keeps_original_503_without_sleep_or_redundant_retry(self):
+        client = types.SimpleNamespace(models=types.SimpleNamespace(generate_content=Mock(
+            side_effect=RuntimeError("503 UNAVAILABLE: model experiencing high demand"))))
+        sdk = types.SimpleNamespace(GenerateContentConfig=lambda **kwargs: kwargs)
+        for adapter in (self.transcriber(), GeminiExtractor("primary", transient_retries=1)):
+            ledger = self.root / (type(adapter).__name__ + "-capacity.json")
+            with patch.dict(os.environ, {"FFW_CAPACITY_PATH": str(ledger), "FFW_OPTIONAL_WORK": "false"}), patch("ffw.production.time.sleep") as sleep:
+                method = adapter._transcribe_chunk if isinstance(adapter, GeminiTranscriber) else adapter._generate
+                client.models.generate_content.reset_mock()
+                with self.assertRaisesRegex(RuntimeError, "503 UNAVAILABLE"):
+                    method(client, sdk, [])
+                self.assertEqual(1, client.models.generate_content.call_count)
+                sleep.assert_not_called()
+                self.assertEqual(("transient_provider", True, True), classify_failure("503 UNAVAILABLE"))
+
     def test_transcription_schema_requires_unambiguous_clock_strings(self):
         with patch("ffw.production._gemini_generate_json", return_value={"segments": []}) as generate:
             self.transcriber()._transcribe_chunk(object(), object(), [])

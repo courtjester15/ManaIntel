@@ -51,6 +51,10 @@ on:
         description: Optional prior Actions run ID whose retained transcript should be reused
         required: false
         default: ""
+      reuse_checkpoint_run_id:
+        description: Optional prior run whose partial chunks/repairs should be restored for the exact forced episode
+        required: false
+        default: ""
       attempt_note:
         description: Optional reason for this recovery or experiment (saved in attempt log)
         required: false
@@ -221,6 +225,23 @@ jobs:
           RECOVERY_GUID: ${{ inputs.force_guid }}
         run: python -m ffw.retained --source .ffw-work/recovery-download --target .ffw-work/transcripts --guid "$RECOVERY_GUID"
 
+      - name: Download selected recovery checkpoints
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_checkpoint_run_id != '' }}
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.reuse_checkpoint_run_id }}
+          pattern: checkpoints-${{ inputs.reuse_checkpoint_run_id }}-*
+          path: .ffw-work/checkpoint-download
+          merge-multiple: true
+
+      - name: Restore only selected episode checkpoints
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.reuse_checkpoint_run_id != '' }}
+        env:
+          RECOVERY_GUID: ${{ inputs.force_guid }}
+        run: python -m ffw.retained --kind checkpoints --source .ffw-work/checkpoint-download --target .ffw-work/chunk-checkpoints --guid "$RECOVERY_GUID"
+
       - name: Process live feed
         if: ${{ github.event_name != 'push' }}
         id: pipeline
@@ -277,6 +298,15 @@ jobs:
         with:
           path: .ffw-work/chunk-checkpoints
           key: ffw-chunks-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload private recovery checkpoints
+        if: ${{ always() && github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkpoints-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .ffw-work/chunk-checkpoints/
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Save private retained transcripts
         if: ${{ always() && github.event_name != 'push' && inputs.mode != 'deploy_only' }}

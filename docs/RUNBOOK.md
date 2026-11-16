@@ -45,6 +45,20 @@ Each successful transcription chunk is written atomically under ignored `.ffw-wo
 
 Never put the API key in `.env.example`, state, archive output, workflow inputs, issue text, or logs.
 
+Since 0.5.29, each processing run also uploads `checkpoints-<run>-<attempt>`
+with the existing 14-day private diagnostic retention. This covers partial
+transcription and split/adaptive repair work that is absent from a full-transcript
+artifact. To restore it explicitly, set `reuse_checkpoint_run_id` and the exact
+`force_guid`; only that episode's original chunks and timing-repair directories
+are merged. Audio/prompt/model fingerprints still decide whether a saved response
+can be reused. `reuse_transcript_run_id` remains separate and requires a complete
+retained transcript; use both inputs when recovering a partially repaired transcript.
+Older runs have only the cache for partial chunks. Inspect checkpoint reuse events
+and the resulting episode, not just a successful workflow. Recovery does not reset
+the three-attempt cap or bypass manual source/timing checks. After a shared cooldown
+is recorded, transcription/extraction preserve the originating provider error and
+stop without a futile delayed reservation; a 503 overload is not daily quota exhaustion.
+
 ## Controlled historical backfill
 
 Open **Actions → ManaIntel automated archive → Run workflow** and choose:
