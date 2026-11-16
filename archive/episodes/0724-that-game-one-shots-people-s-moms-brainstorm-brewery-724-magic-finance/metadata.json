@@ -40,12 +40,12 @@
         "state": "unresolved"
       }
     ],
-    "pipeline_version": "0.5.21",
+    "pipeline_version": "0.5.29",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-11-01T06:00:45Z",
+    "processed_at": "2026-11-16T12:47:58Z",
     "history": [
       {
         "status": "detected",
@@ -122,6 +122,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-11-01T06:00:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-16T12:47:42Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-16T12:47:42Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-16T12:47:43Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-16T12:47:43Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-16T12:47:51Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-16T12:47:51Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-16T12:47:51Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-16T12:47:58Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-16T12:47:58Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-16T12:47:58Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-16T12:47:58Z"
       }
     ],
     "error": null,
@@ -285,12 +329,13 @@
           }
         }
       ],
-      "timing_adjustments": 1
+      "timing_adjustments": 1,
+      "audio_dispositions": []
     },
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 1020,
+      "candidates_token_count": 1357,
       "candidates_tokens_details": null,
       "prompt_token_count": 35198,
       "prompt_tokens_details": [
@@ -302,7 +347,7 @@
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 36218,
+      "total_token_count": 36555,
       "traffic_type": null
     }
   },

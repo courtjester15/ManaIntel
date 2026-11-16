@@ -15,24 +15,23 @@
 - Printing certainty: confirmed
 - Finish: Not stated
 - Host(s): 
-- Recommendation: Buy bulk / pick through bulk
-- Entry: 40 cents TCG market
+- Recommendation: buy
+- Entry: 40 cents
 - Hold: Not stated
 - Exit: 50 cents
-- Confidence: Not stated
+- Confidence: medium
 - Timestamp: 00:15:00
 - Review status: Approved
 
 **Reasoning**
 
-- Exiles target creature you control, returns it, and draws a card.
-- Triggers enter-the-battlefield abilities and works in response to removal.
+- It does what you want it to, draws a card, and triggers enter-the-battlefield effects.
 
 **Caveats**
 
 - None stated
 
-> Evidence: It is blur. That's stupid. It's like 40 cents TCG market. And you can list these all day at 50 cents, and they will sell every now and again.
+> Evidence: It's like 40 cents TCG market. And uh you can list these all day at 50 cents, and they will sell every now and again.
 
 ### Nethergoyf
 
@@ -40,18 +39,17 @@
 - Printing certainty: confirmed
 - Finish: Not stated
 - Host(s): 
-- Recommendation: Buy
+- Recommendation: buy
 - Entry: $7 or $8
 - Hold: Not stated
 - Exit: $10
-- Confidence: Not stated
+- Confidence: medium
 - Timestamp: 00:36:54
 - Review status: Approved
 
 **Reasoning**
 
-- It is a mythic rare.
--  Rakdos graveyard decks are a real archetype in Modern seeing a lot of success.
+- It is a mythic, and the Rakdos aggro graveyard deck is a real archetype in modern that has found success.
 
 **Caveats**
 
@@ -65,25 +63,50 @@
 - Printing certainty: confirmed
 - Finish: Not stated
 - Host(s): 
-- Recommendation: Buy
+- Recommendation: buy
 - Entry: a buck 50 or two bucks
 - Hold: Not stated
-- Exit: pop eventually
-- Confidence: Not stated
-- Timestamp: 00:38:11
+- Exit: pop
+- Confidence: medium
+- Timestamp: 00:37:54
 - Review status: Approved
 
 **Reasoning**
 
-- No reprints in 20 years.
-- Allows permanents like tokens, clues, food, and lands to tap for damage.
+- There are too many decks that make permanent tokens for this card not to pop someday.
+- No reprints in 20 something years.
 
 **Caveats**
 
 - None stated
 
-> Evidence: And I came across the old brainstorm grew a classic pick of the week, flame fusillade... and it's still only like a buck 50 or two bucks. This card has to pop eventually.
+> Evidence: I came across the old brainstorm grew a classic pick of the week, flame fusillade... it's still only like a buck 50 or two bucks. This card has to pop eventually.
+
+### Ophiomancer
+
+- Printing: Not stated
+- Printing certainty: ambiguous
+- Finish: Not stated
+- Host(s): 
+- Recommendation: buy
+- Entry: $2
+- Hold: long-term
+- Exit: $15
+- Confidence: medium
+- Timestamp: 00:40:36
+- Review status: Approved
+
+**Reasoning**
+
+- It provides a free little snake token with deathtouch every turn.
+- It used to be $15 and now it is $2, so you just got to wait a little bit.
+
+**Caveats**
+
+- More of a long-term pick.
+
+> Evidence: But mine is Ofiyomancer... this card used to be $15 and now it's $2, and you just got to wait a little bit. I like this card just over the course of like two years.
 
 ---
 
-Schema 1.1.0 · Pipeline 0.5.21 · Prompt source-recommendations-v4-metadata-context
+Schema 1.1.0 · Pipeline 0.5.29 · Prompt source-recommendations-v4-metadata-context

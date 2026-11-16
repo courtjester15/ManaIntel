@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "attempt_id": "d5fe64988e834379a05417b9921f0bb0",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36651",
+    "number": 724,
+    "title": "That Game One Shots People’s Moms | Brainstorm Brewery #724 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-11-16T12:47:42Z",
+  "pipeline_version": "0.5.29",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "43869692472",
+  "run_attempt": "1",
+  "git_sha": "bb5776ef9b978124b1a80f2a3d3e10d87abc01b2",
+  "intervention": "Bounded nightly cleanup",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "needs_review",
+    "prior_attempt_count": 2,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-16T12:47:42Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-16T12:47:42Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:43Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:43Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:51Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:51Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:51Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-11-16T12:47:51Z",
+      "event": "stage",
+      "stage": "transcribed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 3721,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 33.126,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15241,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22700,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 201
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37941,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 42.629,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16777,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22701,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 201
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39478,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 31.338,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14168,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22701,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 201
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36869,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 16.664,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 7224,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22701,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 201
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 29925,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 121,
+            "request_seconds": 5.457,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 3218,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 201
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 3017
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 3233,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 1,
+        "audio_dispositions": []
+      }
+    },
+    {
+      "timestamp": "2026-11-16T12:47:51Z",
+      "event": "stage",
+      "stage": "extracting"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:56Z",
+      "event": "model_call",
+      "stage": "extracting",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 3.942,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1357,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 35198,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 35198
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 36555,
+        "traffic_type": null
+      },
+      "response_characters": 4200
+    },
+    {
+      "timestamp": "2026-11-16T12:47:58Z",
+      "event": "review_issues",
+      "issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-16T12:47:58Z",
+      "event": "stage",
+      "stage": "extracted",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1357,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 35198,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 35198
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 36555,
+        "traffic_type": null
+      }
+    },
+    {
+      "timestamp": "2026-11-16T12:47:58Z",
+      "event": "extraction_summary",
+      "section": {
+        "located": true,
+        "label": "Breaking Bulk / Pick of the Week",
+        "start_seconds": 771,
+        "end_seconds": 3706
+      },
+      "pick_count": 4,
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "picks": [
+        {
+          "card": "Blur",
+          "printing": "Commander Legends: Battle for Baldur's Gate",
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Nethergoyf",
+          "printing": "Modern Horizons 3",
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Flame Fusillade",
+          "printing": "Ravnica: City of Guilds",
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Ophiomancer",
+          "printing": null,
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-16T12:47:58Z",
+      "event": "stage",
+      "stage": "validating"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:58Z",
+      "event": "stage",
+      "stage": "publishing"
+    },
+    {
+      "timestamp": "2026-11-16T12:47:58Z",
+      "event": "stage",
+      "stage": "needs_review",
+      "pick_count": 4,
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+    }
+  ],
+  "outcome": "needs_review",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/43869692472",
+  "finished_at": "2026-11-16T12:47:58Z",
+  "pick_count": 4,
+  "local_outputs_written": true,
+  "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}
