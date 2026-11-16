@@ -13,8 +13,15 @@ chunks before its first failure. Version 0.5.29 preserves the original provider
 error when the shared guard stops retries and exports selectable partial-chunk
 recovery artifacts with exact-episode restore and existing fingerprint checks.
 See [incident and recovery evidence](BB650_BB652_RECOVERY_2026-11-15.md).
-Next: verify deployment and one bounded recovery per episode; retain review
-uncertainty and inspect actual publications. R2 remains the feature priority.
+Shipped `6c17231`: 276 tests passed (two Git tests required unsandboxed retry),
+archive validation passed, and [run 43800183061](https://github.com/courtjester15/ManaIntel/actions/runs/43800183061)
+deployed Pages successfully. BB652 resumed both saved quarters but its one provider
+call returned another 503; it remains failed, zero picks. The new artifact was
+downloaded and exact restore verified offline for both episodes. BB650 remains
+retryable 1/3 and was deferred during the observed outage; eligible November 16
+at 1:00:45 a.m. EST. Live catalogs match 144 episode records/546 picks. Next:
+inspect BB650's normal retry, then reconsider BB652 only after observed provider
+recovery; no caps/coverage guards were relaxed. R2 remains the feature priority.
 
 The review workspace now supports complete field corrections, explicit outcomes, readable previews and saved-correction/revision protection. See the [November 14 review batch](REVIEW_WORKSPACE_2026-11-14.md). Published data remains 142 episodes/546 picks; BB725 has two picks, and BB652/653 are exhausted. R2 remains open: FF538’s uncovered 1527–1538 sentence still needs an independent source check. Visual browser QA is unavailable. The punctuation alarm was diagnosed as a Windows scratch-reading error; publication text is intact. Source-to-catalog validation and a blocking staged-publication guard now ship in 0.5.28.
 
