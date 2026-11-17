@@ -22,21 +22,27 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": "Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.",
+    "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
     "review_issues": [
       {
-        "code": "unspecified",
+        "code": "coverage",
         "path": "extraction",
-        "reason": "Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+        "state": "unresolved"
+      },
+      {
+        "code": "printing",
+        "path": "extraction",
+        "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
         "state": "unresolved"
       }
     ],
-    "pipeline_version": "0.5.22",
+    "pipeline_version": "0.5.30",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-11-02T01:46:30Z",
+    "processed_at": "2026-11-17T13:29:58Z",
     "history": [
       {
         "status": "detected",
@@ -161,6 +167,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-11-02T01:46:30Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-17T13:28:58Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-17T13:28:58Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-17T13:29:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-17T13:29:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-17T13:29:11Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-17T13:29:11Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-17T13:29:11Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-17T13:29:58Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-17T13:29:58Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-17T13:29:58Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-17T13:29:58Z"
       }
     ],
     "error": null,
@@ -486,7 +536,7 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 1482,
+      "candidates_token_count": 1591,
       "candidates_tokens_details": null,
       "prompt_token_count": 8202,
       "prompt_tokens_details": [
@@ -498,7 +548,7 @@
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 9684,
+      "total_token_count": 9793,
       "traffic_type": null
     }
   },
