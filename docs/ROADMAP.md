@@ -26,6 +26,13 @@ Validation: all 281 tests pass with declared timezone/YAML dependencies and Git
 subprocess access; archive validation and all 45 scoped evaluation assertions
 pass. Read-only local publication verification checks all three catalogs,
 145 episodes/547 picks with zero findings. Published pick payloads are unchanged.
+Closeout: implementation `b1ef85d`; [production run 44008680169](https://github.com/courtjester15/ManaIntel/actions/runs/44008680169)
+passed tests, archive validation, staged fidelity and Pages deployment. Served
+0.5.30 assets and all 97 queue entries verified; the served publication verifier
+passes all three catalogs with zero findings for 145 episodes/547 picks. No
+source/review/state records changed. Scratch preview/apply reclaimed 0 MiB;
+new disposable test dependencies/logs were removed after verification. Visual
+and native playback QA remain unverified; 0.6 and R2 gates remain open.
 
 November 15 BB650/BB652 incident: both zeros are pre-extraction failures from
 Flash Lite 503 overload, not verified empty episodes. BB652 exhausted three attempts
