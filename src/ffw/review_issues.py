@@ -62,6 +62,40 @@ def collect_review_issues(extraction: dict[str, Any], duration_seconds: float | 
     return issues
 
 
+def review_triage(summary: dict[str, Any] | None) -> dict[str, Any] | None:
+    """Read-only navigation hints from effective evidence, never an approval."""
+    if not summary:
+        return None
+    processing = summary.get("processing", {})
+    if processing.get("human_review") or processing.get("status") not in {"complete", "needs_review"}:
+        return None
+    picks = summary.get("recommendations", [])
+    issues = collect_review_issues({
+        "review_reason": processing.get("review_reason"),
+        "section": summary.get("section", {}), "recommendations": picks,
+    }, summary.get("episode", {}).get("duration_seconds"))
+    if not picks:
+        issues.append({"code": "coverage", "path": "extraction", "state": "unresolved",
+                       "reason": "No published picks; verify whether recommendations were missed."})
+    if not issues and processing.get("status") == "needs_review":
+        issues.append({"code": "unspecified", "path": "extraction", "state": "unresolved",
+                       "reason": "Episode needs review without a recorded reason."})
+    if not issues:
+        return None
+    # Lower ranks are inspected first. Unknown prose is visible, never cleared.
+    ranks = {"coverage": 0, "timing": 0, "intent": 1, "scope": 1, "identity": 2, "printing": 2}
+    unique = {}
+    for issue in issues:
+        item = dict(issue)
+        if item["path"].startswith("recommendations/"):
+            pick = picks[int(item["path"].split("/")[1])]
+            item.update(pick_id=pick.get("id"), card=pick.get("card"), start_seconds=pick.get("start_seconds"))
+        unique[(item["code"], item["path"], item["reason"])] = item
+    codes = sorted({item["code"] for item in unique.values()}, key=lambda code: (ranks.get(code, 3), code))
+    return {"priority": min(ranks.get(code, 3) for code in codes), "codes": codes,
+            "issues": list(unique.values())}
+
+
 def published_version_regression(baseline: dict[str, Any], candidate: dict[str, Any]) -> bool:
     """Do not replace a known published variant with a different/unknown one.
 

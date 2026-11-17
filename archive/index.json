@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.29",
+    "pipeline_version": "0.5.30",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-17T02:58:36Z",
+    "generated_at": "2026-11-17T03:09:49Z",
     "latest_successful_run_at": "2026-11-16T12:47:58Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -63,6 +63,7 @@
     "processing_status": "failed",
     "review_state": "not_applicable",
     "review_reason": null,
+    "review_triage": null,
     "pick_count": 0,
     "directory": "episodes/0540-star-trek-previews-part-2",
     "outputs": {
@@ -541,6 +542,7 @@
       "processing_status": "failed",
       "review_state": "not_applicable",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 0,
       "directory": "episodes/0540-star-trek-previews-part-2",
       "outputs": {
@@ -592,6 +594,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance",
       "outputs": {
@@ -629,6 +651,20 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "state": "unresolved",
+            "reason": "No published picks; verify whether recommendations were missed."
+          }
+        ]
+      },
       "pick_count": 0,
       "directory": "episodes/0539-star-trek-previews",
       "outputs": {
@@ -669,6 +705,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 2,
       "directory": "episodes/0725-eternally-trekking-brainstorm-brewery-725-magic-finance",
       "outputs": {
@@ -706,6 +743,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0538-god-packs-enter-the-chat",
       "outputs": {
@@ -746,6 +784,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0724-that-game-one-shots-people-s-moms-brainstorm-brewery-724-magic-finance",
       "outputs": {
@@ -786,6 +844,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0723-to-boldy-go-brainstorm-brewery-723-magic-finance",
       "outputs": {
@@ -823,6 +882,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0537-reality-fracture-deep-dive",
       "outputs": {
@@ -863,6 +923,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 7,
       "directory": "episodes/0722-load-bearing-corbin-brainstorm-brewery-722-magic-finance",
       "outputs": {
@@ -903,6 +990,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0721-future-of-the-reserve-list-brainstorm-brewery-721-magic-finance",
       "outputs": {
@@ -940,6 +1054,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0536-reality-fracture-top-cards",
       "outputs": {
@@ -980,6 +1108,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0720-miscellaneous-unc-head-massage-brainstorm-brewery-720-magic-finance",
       "outputs": {
@@ -1020,6 +1149,65 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Some cards (Ice-Talon Explorer, Shaman en-Kor) contain highly likely transcription errors but are preserved as transcribed per instructions.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing",
+          "identity",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "identity",
+            "path": "extraction",
+            "reason": "Some cards (Ice-Talon Explorer, Shaman en-Kor) contain highly likely transcription errors but are preserved as transcribed per instructions.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/3",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-2935b953cb9c6888",
+            "card": "The Second Doctor",
+            "start_seconds": 3420
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/4",
+            "reason": "Card name 'Shaman en-Kor' and references to comic book foils/Marvel collections suggest a transcription error.",
+            "state": "unresolved",
+            "pick_id": "pick-42113662a281c9c5",
+            "card": "Shaman en-Kor",
+            "start_seconds": 3517
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/4",
+            "reason": "Card name 'Shaman en-Kor' and references to comic book foils/Marvel collections suggest a transcription error.",
+            "state": "unresolved",
+            "pick_id": "pick-42113662a281c9c5",
+            "card": "Shaman en-Kor",
+            "start_seconds": 3517
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/4",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-42113662a281c9c5",
+            "card": "Shaman en-Kor",
+            "start_seconds": 3517
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0719-a-series-of-unfortunate-corbins-brainstorm-brewery-719-magic-finance",
       "outputs": {
@@ -1057,6 +1245,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0535-the-zeta-drop-fiasco",
       "outputs": {
@@ -1097,6 +1286,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "printing",
+            "path": "recommendations/1",
+            "reason": "Multiple different versions and price targets mentioned during discussion of breaking bulk.",
+            "state": "unresolved",
+            "pick_id": "pick-6ce7d9da7000c941",
+            "card": "Tormod, the Desecrator",
+            "start_seconds": 1800
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/4",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-b97db5c15014f010",
+            "card": "Psychic Frog",
+            "start_seconds": 2905
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0718-war-of-the-spark-meets-planar-chaos-brainstorm-brewery-718-magic-finance",
       "outputs": {
@@ -1134,6 +1350,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing",
+          "intent"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/1",
+            "reason": "Host disagreement on Dwarf tribal viability; timestamps are clustered and duplicate on the source.",
+            "state": "unresolved",
+            "pick_id": "pick-b9f74412067209f5",
+            "card": "Depala, Pilot Exemplar",
+            "start_seconds": 1800
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/1",
+            "reason": "Host disagreement on Dwarf tribal viability; timestamps are clustered and duplicate on the source.",
+            "state": "unresolved",
+            "pick_id": "pick-b9f74412067209f5",
+            "card": "Depala, Pilot Exemplar",
+            "start_seconds": 1800
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0534-hobbit-favorites",
       "outputs": {
@@ -1174,6 +1417,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0717-mox-diamond-hands-forever-brainstorm-brewery-717-magic-finance",
       "outputs": {
@@ -1211,6 +1455,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0533-top-10-hobbit-cards",
       "outputs": {
@@ -1251,6 +1509,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 5,
       "directory": "episodes/0716-dying-of-or-for-consumption-brainstorm-brewery-716-magic-finance",
       "outputs": {
@@ -1291,6 +1550,39 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Contains ambiguous card recommendations ('Summoner' and 'Exalted Sanborn') that are not standard Magic: The Gathering cards or sets.",
+      "review_triage": {
+        "priority": 1,
+        "codes": [
+          "scope",
+          "identity"
+        ],
+        "issues": [
+          {
+            "code": "identity",
+            "path": "extraction",
+            "reason": "Contains ambiguous card recommendations ('Summoner' and 'Exalted Sanborn') that are not standard Magic: The Gathering cards or sets.",
+            "state": "unresolved"
+          },
+          {
+            "code": "scope",
+            "path": "recommendations/0",
+            "reason": "Discussed as a Final Fantasy TCG card; requires verification if this is indeed the intended target.",
+            "state": "unresolved",
+            "pick_id": "pick-381541d6484db3f7",
+            "card": "Summoner",
+            "start_seconds": 1127
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/5",
+            "reason": "The card name 'Exalted Sanborn' and set 'Edge of Eternities' do not map to official Magic: The Gathering database entries.",
+            "state": "unresolved",
+            "pick_id": "pick-ce72c9eb929ea430",
+            "card": "Exalted Sanborn",
+            "start_seconds": 3637
+          }
+        ]
+      },
       "pick_count": 6,
       "directory": "episodes/0715-collector-booster-redemption-brainstorm-brewery-715-magic-finance",
       "outputs": {
@@ -1331,6 +1623,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/1",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-8f6d15bf744388c9",
+            "card": "Jeska's Will",
+            "start_seconds": 3144
+          }
+        ]
+      },
       "pick_count": 2,
       "directory": "episodes/0714-we-are-all-vendors-now-brainstorm-brewery-714-magic-finance",
       "outputs": {
@@ -1371,6 +1680,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0000-the-cards-are-not-reserve-list-but-the-packs-are-brainstorm-brewery-713-magic-fi-0853e516",
       "outputs": {
@@ -1408,6 +1731,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0532-early-marvel-price-action",
       "outputs": {
@@ -1448,6 +1785,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0000-smaug-vs-the-infinite-stones-brainstorm-brewery-712-magic-finance-41c4b162",
       "outputs": {
@@ -1485,6 +1842,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 7,
       "directory": "episodes/0531-early-marvel-x-mtg-price-trends",
       "outputs": {
@@ -1525,6 +1902,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/4",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-be3e3b859ad61d09",
+            "card": "Pip-Boy 3000",
+            "start_seconds": 3213
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0000-the-odyssey-of-universes-beyond-brainstorm-brewery-711-magic-finance-1cfc4b63",
       "outputs": {
@@ -1565,6 +1959,39 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/2",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-4287b1072b07381f",
+            "card": "Grim Monolith",
+            "start_seconds": 4533
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/3",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-df35ac5be364d9af",
+            "card": "Grim Monolith",
+            "start_seconds": 4533
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0000-the-die-in-diarrhea-brainstorm-brewery-710-magic-finance-2ee25235",
       "outputs": {
@@ -1605,6 +2032,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 1,
       "directory": "episodes/0000-it-was-bound-to-happen-brainstorm-brewery-709-magic-finance-cda9bbfa",
       "outputs": {
@@ -1645,6 +2073,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 7,
       "directory": "episodes/0000-banger-or-bust-brainstorm-brewery-708-magic-finance-af03a40c",
       "outputs": {
@@ -1682,6 +2124,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0530-secret-lair-cats-superdrop-results",
       "outputs": {
@@ -1718,6 +2174,36 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/2",
+            "reason": "Confusion between surge foil and non-foil versions in the TMNT deck and which one corresponds to the $10 price point.",
+            "state": "unresolved",
+            "pick_id": "pick-1aa42bbbb9259fb8",
+            "card": "Undergrowth Stadium",
+            "start_seconds": 1529
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0529-much-more-marvel",
       "outputs": {
@@ -1758,6 +2244,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0000-process-driving-the-data-brainstorm-brewery-707-magic-finance-64103cd1",
       "outputs": {
@@ -1794,6 +2281,45 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "identity"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/0",
+            "reason": "Possible transcription error: 'Uthro's Titanic God-Hood' is likely 'Uthrø's Titanic Godhood'.",
+            "state": "unresolved",
+            "pick_id": "pick-4f0aa4cb9415bb60",
+            "card": "Uthro's Titanic God-Hood",
+            "start_seconds": 1245
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/1",
+            "reason": "Possible transcription error: 'Collective Inferno' may refer to another card like 'Collective Resistance' from Modern Horizons 3.",
+            "state": "unresolved",
+            "pick_id": "pick-57af3f1a9f9ca352",
+            "card": "Collective Inferno",
+            "start_seconds": 1414
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0528-mtgfastfinance-ep-528-marvel-x-mtg-top-10",
       "outputs": {
@@ -1830,6 +2356,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 6,
       "directory": "episodes/0527-mtgfastfinance-ep-527-top-5-overdue-edh-reprints",
       "outputs": {
@@ -1870,6 +2416,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0000-it-comes-out-in-the-wash-brainstorm-brewery-706-magic-finance-91f27b9f",
       "outputs": {
@@ -1910,6 +2457,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0000-we-need-a-hero-brainstorm-brewery-704-magic-finance-282972ca",
       "outputs": {
@@ -1946,6 +2513,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0526-goblin-decks-got-gone",
       "outputs": {
@@ -1986,6 +2573,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 1,
       "directory": "episodes/0000-marveling-at-magic-brainstorm-brewery-704-magic-finance-818d83c9",
       "outputs": {
@@ -2023,6 +2611,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0525-secret-lair-chaos-vault-experiments",
       "outputs": {
@@ -2059,6 +2661,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0524-marvel-hobbit-previews",
       "outputs": {
@@ -2099,6 +2721,7 @@
       "processing_status": "complete",
       "review_state": "no_recommendations",
       "review_reason": "Confirmed from a complete five-chunk transcription: no explicit card recommendations or Pick of the Week/Breaking Bulk segments were present.",
+      "review_triage": null,
       "pick_count": 0,
       "directory": "episodes/0000-a-tale-as-old-as-showers-brainstorm-brewery-703-magic-finance-2c82782f",
       "outputs": {
@@ -2135,6 +2758,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0523-top-sos-commanders",
       "outputs": {
@@ -2175,6 +2818,32 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/2",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-b5b5331b7d9ec585",
+            "card": "Hermit Druid",
+            "start_seconds": 2252
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/3",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-bf13cc7459678606",
+            "card": "Bottlecap Blast",
+            "start_seconds": 2522
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0000-promo-pickle-brainstorm-brewery-702-magic-finance-c96afa32",
       "outputs": {
@@ -2215,6 +2884,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0000-corbin-and-dj-have-beef-brainstorm-brewery-701-magic-finance-bc7bc602",
       "outputs": {
@@ -2251,6 +2940,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0522-sos-brick-targets",
       "outputs": {
@@ -2291,6 +3000,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0000-in-what-universe-brainstorm-brewery-699-magic-finance-a4e17879",
       "outputs": {
@@ -2331,6 +3041,61 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Contains ambiguous card recommendations ('North Wind Avatar' and 'flashback') which likely result from transcription errors or jokes.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "scope",
+          "identity"
+        ],
+        "issues": [
+          {
+            "code": "scope",
+            "path": "extraction",
+            "reason": "Contains ambiguous card recommendations ('North Wind Avatar' and 'flashback') which likely result from transcription errors or jokes.",
+            "state": "unresolved"
+          },
+          {
+            "code": "identity",
+            "path": "extraction",
+            "reason": "Contains ambiguous card recommendations ('North Wind Avatar' and 'flashback') which likely result from transcription errors or jokes.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "scope",
+            "path": "recommendations/0",
+            "reason": "The card 'North Wind Avatar' is not a known Magic: The Gathering card; it is likely a transcription error or a joke.",
+            "state": "unresolved",
+            "pick_id": "pick-e14e99e882c6b398",
+            "card": "North Wind Avatar",
+            "start_seconds": 2052
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/0",
+            "reason": "The card 'North Wind Avatar' is not a known Magic: The Gathering card; it is likely a transcription error or a joke.",
+            "state": "unresolved",
+            "pick_id": "pick-e14e99e882c6b398",
+            "card": "North Wind Avatar",
+            "start_seconds": 2052
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/3",
+            "reason": "Highly ambiguous card name 'flashback' or 'Jeskai Revelation' which are either mechanics or likely transcription errors for another card.",
+            "state": "unresolved",
+            "pick_id": "pick-686f7cdf3d44e7cd",
+            "card": "flashback",
+            "start_seconds": 2724
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0000-post-vegas-vegetation-brainstorm-brewery-699-magic-finance-173bbe1e",
       "outputs": {
@@ -2371,6 +3136,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0000-new-money-magic-brainstorm-brewery-698-magic-finance-235593fe",
       "outputs": {
@@ -2407,6 +3173,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Section start found, but no explicit end marker was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Section start found, but no explicit end marker was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0521-sos-previews-pt-2",
       "outputs": {
@@ -2447,6 +3233,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0000-a-new-reserve-list-brainstorm-brewery-697-magic-finance-0d437393",
       "outputs": {
@@ -2484,6 +3271,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0520-sos-previews-in-focus",
       "outputs": {
@@ -2524,6 +3312,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0000-speedrunners-of-strixhaven-brainstorm-brewery-696-magic-finance-11bf959c",
       "outputs": {
@@ -2561,6 +3350,30 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/2",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-c9d12b0526930e84",
+            "card": "Sakashima's Student",
+            "start_seconds": 1603
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0519-goblins-on-the-horizon",
       "outputs": {
@@ -2601,6 +3414,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0000-hands-off-my-bans-brainstorm-brewery-695-magic-finance-d6da6118",
       "outputs": {
@@ -2638,6 +3452,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 6,
       "directory": "episodes/0518-dan-de-dan-dan-dan",
       "outputs": {
@@ -2678,6 +3506,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 6,
       "directory": "episodes/0000-we-have-ancestral-recall-at-home-brainstorm-brewery-694-magic-finance-e642f71f",
       "outputs": {
@@ -2718,6 +3547,52 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "The entire episode is an April Fools joke recommending fictional/digital cards from the video game Slay the Spire 2 instead of Magic: The Gathering cards.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing",
+          "scope"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "The entire episode is an April Fools joke recommending fictional/digital cards from the video game Slay the Spire 2 instead of Magic: The Gathering cards.",
+            "state": "unresolved"
+          },
+          {
+            "code": "scope",
+            "path": "extraction",
+            "reason": "The entire episode is an April Fools joke recommending fictional/digital cards from the video game Slay the Spire 2 instead of Magic: The Gathering cards.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "scope",
+            "path": "recommendations/0",
+            "reason": "The recommendation is an April Fools joke for a digital video game card.",
+            "state": "unresolved",
+            "pick_id": "pick-00f755f84d4a1d16",
+            "card": "The Hunt",
+            "start_seconds": 601
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/0",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-00f755f84d4a1d16",
+            "card": "The Hunt",
+            "start_seconds": 601
+          }
+        ]
+      },
       "pick_count": 1,
       "directory": "episodes/0000-a-slaying-oppurtunity-brainstorm-brewery-693-magic-finance-256e6191",
       "outputs": {
@@ -2758,6 +3633,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0000-trading-cards-are-sports-goods-brainstorm-brewery-692-magic-finance-dd3e6d45",
       "outputs": {
@@ -2795,6 +3671,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0517-boss-is-away-so-turtles-play",
       "outputs": {
@@ -2832,6 +3722,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0516-tmnt-x-secret-lair-drop",
       "outputs": {
@@ -2869,6 +3773,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0515-braindead-x-secret-lair-chaos-drop",
       "outputs": {
@@ -2909,6 +3827,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0690-printing-will-continue-until-moral-improves-brainstorm-brewery-690-magic-finance",
       "outputs": {
@@ -2949,6 +3868,23 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 1,
+        "codes": [
+          "intent"
+        ],
+        "issues": [
+          {
+            "code": "intent",
+            "path": "recommendations/1",
+            "reason": "Ambiguous recommendation; host says 'check it out' but does not explicitly recommend buying or selling.",
+            "state": "unresolved",
+            "pick_id": "pick-b07c944069385e19",
+            "card": "Cyberman Patrol",
+            "start_seconds": 1813
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0689-risk-tolerance-brainstorm-brewery-689-magic-finance",
       "outputs": {
@@ -2986,6 +3922,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0514-pucatrade-back-from-the-dead",
       "outputs": {
@@ -3026,6 +3963,36 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Successfully extracted all explicit recommendations from the Breaking Bulk and Pick of the Week segments, flagging the Fire Crystal as needs_review due to the host's speculative discussion rather than a direct endorsement.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "intent"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Successfully extracted all explicit recommendations from the Breaking Bulk and Pick of the Week segments, flagging the Fire Crystal as needs_review due to the host's speculative discussion rather than a direct endorsement.",
+            "state": "unresolved"
+          },
+          {
+            "code": "intent",
+            "path": "extraction",
+            "reason": "Successfully extracted all explicit recommendations from the Breaking Bulk and Pick of the Week segments, flagging the Fire Crystal as needs_review due to the host's speculative discussion rather than a direct endorsement.",
+            "state": "unresolved"
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/5",
+            "reason": "Ambiguous recommendation; the host is analyzing its market movements and supply dynamics but explicitly expresses skepticism about its actual demand and playability.",
+            "state": "unresolved",
+            "pick_id": "pick-afb2cdb6e7d457df",
+            "card": "Fire Crystal",
+            "start_seconds": 2705
+          }
+        ]
+      },
       "pick_count": 6,
       "directory": "episodes/0688-standard-is-so-mindful-so-dimir-brainstorm-brewery-688-magic-finance",
       "outputs": {
@@ -3066,6 +4033,71 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Found ambiguous card names 'Vibrants' and 'Earthbending Ascendancy' which may be transcription errors or refer to non-Magic games.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "scope",
+          "identity",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Found ambiguous card names 'Vibrants' and 'Earthbending Ascendancy' which may be transcription errors or refer to non-Magic games.",
+            "state": "unresolved"
+          },
+          {
+            "code": "scope",
+            "path": "extraction",
+            "reason": "Found ambiguous card names 'Vibrants' and 'Earthbending Ascendancy' which may be transcription errors or refer to non-Magic games.",
+            "state": "unresolved"
+          },
+          {
+            "code": "identity",
+            "path": "extraction",
+            "reason": "Found ambiguous card names 'Vibrants' and 'Earthbending Ascendancy' which may be transcription errors or refer to non-Magic games.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/0",
+            "reason": "Card 'Earthbending Ascendancy' is from a non-Magic game (Riftbound or Avatar-related), or is otherwise ambiguous.",
+            "state": "unresolved",
+            "pick_id": "pick-444fcfdb6748cd58",
+            "card": "Earthbending Ascendancy",
+            "start_seconds": 1445
+          },
+          {
+            "code": "scope",
+            "path": "recommendations/0",
+            "reason": "Card 'Earthbending Ascendancy' is from a non-Magic game (Riftbound or Avatar-related), or is otherwise ambiguous.",
+            "state": "unresolved",
+            "pick_id": "pick-444fcfdb6748cd58",
+            "card": "Earthbending Ascendancy",
+            "start_seconds": 1445
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/2",
+            "reason": "Ambiguous card name 'Vibrants' and printing 'Lorwyn elementals' which seems to be a transcription error.",
+            "state": "unresolved",
+            "pick_id": "pick-89bdf849876deadc",
+            "card": "Vibrants",
+            "start_seconds": 2540
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/2",
+            "reason": "Ambiguous card name 'Vibrants' and printing 'Lorwyn elementals' which seems to be a transcription error.",
+            "state": "unresolved",
+            "pick_id": "pick-89bdf849876deadc",
+            "card": "Vibrants",
+            "start_seconds": 2540
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0687-all-broken-and-all-fun-brainstorm-brewery-687-magic-finance",
       "outputs": {
@@ -3103,6 +4135,30 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "identity"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/3",
+            "reason": "Card 'Exalted Sunborn' is not a known MTG card name, likely a transcription error for a token-doubling card.",
+            "state": "unresolved",
+            "pick_id": "pick-d0052fd6eeeaf37f",
+            "card": "Exalted Sunborn",
+            "start_seconds": 1800
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0513-lutri-flies-free",
       "outputs": {
@@ -3143,6 +4199,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0686-reviving-10-year-old-memes-brainstorm-brewery-686-magic-finance",
       "outputs": {
@@ -3180,6 +4237,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0512-chaos-drop-shenanigans",
       "outputs": {
@@ -3217,6 +4288,30 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "intent"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/1",
+            "reason": "Hosts debated the viability of the card and whether it will make the deck.",
+            "state": "unresolved",
+            "pick_id": "pick-490d2f1272ea384b",
+            "card": "Regal Sliver",
+            "start_seconds": 1401
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0511-fallout-secret-lair-results",
       "outputs": {
@@ -3257,6 +4352,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/5",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-253a69a99751cc3d",
+            "card": "Superior Spiderman",
+            "start_seconds": 3402
+          }
+        ]
+      },
       "pick_count": 6,
       "directory": "episodes/0685-free-hand-of-the-invisible-market-brainstorm-brewery-685-magic-finance",
       "outputs": {
@@ -3297,6 +4409,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/6",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-00154cbec8836be8",
+            "card": "Tishana's Tidebinder",
+            "start_seconds": 3652
+          }
+        ]
+      },
       "pick_count": 7,
       "directory": "episodes/0684-the-libertarian-lotus-brainstorm-brewery-684-magic-finance",
       "outputs": {
@@ -3334,6 +4463,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 2,
       "directory": "episodes/0510-tmnt-leaked-card-mishap",
       "outputs": {
@@ -3371,6 +4520,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0509-best-of-lorwyn-eclipsed",
       "outputs": {
@@ -3411,6 +4574,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0683-a-total-lowryn-eclipse-of-our-hearts-brainstorm-brewery-683-magic-finance",
       "outputs": {
@@ -3451,6 +4615,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/3",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-c25b8998d1e0a700",
+            "card": "Claws of Gix",
+            "start_seconds": 3739
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0682-what-a-bunch-of-muppets-brainstorm-brewery-682-magic-finance",
       "outputs": {
@@ -3488,6 +4669,33 @@
       "processing_status": "complete",
       "review_state": "no_recommendations",
       "review_reason": "Confirmed Year in Review episode: the hosts only analyzed past picks and made no new actionable recommendations.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "unspecified"
+        ],
+        "issues": [
+          {
+            "code": "unspecified",
+            "path": "extraction",
+            "reason": "Confirmed Year in Review episode: the hosts only analyzed past picks and made no new actionable recommendations.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "state": "unresolved",
+            "reason": "No published picks; verify whether recommendations were missed."
+          }
+        ]
+      },
       "pick_count": 0,
       "directory": "episodes/0508-magic-the-gathering-year-in-review",
       "outputs": {
@@ -3528,6 +4736,30 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/6",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-665f0a2cf07df732",
+            "card": "Avatar neon cards",
+            "start_seconds": 3135
+          }
+        ]
+      },
       "pick_count": 7,
       "directory": "episodes/0681-earthbending-like-beckham-brainstorm-brewery-681-magic-finance",
       "outputs": {
@@ -3565,6 +4797,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0507-psa-buys-beckett",
       "outputs": {
@@ -3605,6 +4838,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0680-everything-is-fortnite-anyway-let-s-go-brainstorm-brewery-680-magic-finance",
       "outputs": {
@@ -3642,6 +4876,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0506-mtg-fast-finance-ep-506-marvel-heroes-previews",
       "outputs": {
@@ -3679,6 +4914,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0493-spider-man-x-secret-lair-review",
       "outputs": {
@@ -3719,6 +4968,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0679-spray-tan-glamor-magic-brainstorm-brewery-679-magic-finance",
       "outputs": {
@@ -3756,6 +5006,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 5,
       "directory": "episodes/0505-mtgfastfinance-ep-505-is-avatar-the-best-singles-set-since-mh3",
       "outputs": {
@@ -3796,6 +5047,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/4",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-e08b456ac770f326",
+            "card": "Ulamog, the Defiler",
+            "start_seconds": 3253
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance",
       "outputs": {
@@ -3833,6 +5101,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 2,
       "directory": "episodes/0504-monster-hunter-secret-lair-breakdown",
       "outputs": {
@@ -3873,6 +5155,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/5",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-38aae70a2a8934d4",
+            "card": "Survival of the Fittest",
+            "start_seconds": 3150
+          }
+        ]
+      },
       "pick_count": 6,
       "directory": "episodes/0677-generational-picks-brainstorm-brewery-677-magic-finance",
       "outputs": {
@@ -3913,6 +5212,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 6,
       "directory": "episodes/0676-vegas-vampires-brainstorm-brewery-676-magic-finance",
       "outputs": {
@@ -3950,6 +5250,30 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "intent"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/2",
+            "reason": "The speaker is uncertain about whether to buy at the current $300 level or wait for a dip to $250, noting that it depends heavily on individual risk tolerance.",
+            "state": "unresolved",
+            "pick_id": "pick-cda82252cf4f8fa5",
+            "card": "Urza's Saga",
+            "start_seconds": 1800
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0503-avatar-secret-lair-results",
       "outputs": {
@@ -3990,6 +5314,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0675-gallagher-three-brainstorm-brewery-675-magic-finance",
       "outputs": {
@@ -4027,6 +5352,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0502-secret-lair-encyclopedias-take-off",
       "outputs": {
@@ -4064,6 +5403,33 @@
       "processing_status": "complete",
       "review_state": "no_recommendations",
       "review_reason": "Confirmed discussion episode: the hosts intentionally did not make new actionable recommendations.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "unspecified"
+        ],
+        "issues": [
+          {
+            "code": "unspecified",
+            "path": "extraction",
+            "reason": "Confirmed discussion episode: the hosts intentionally did not make new actionable recommendations.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "state": "unresolved",
+            "reason": "No published picks; verify whether recommendations were missed."
+          }
+        ]
+      },
       "pick_count": 0,
       "directory": "episodes/0500-500th-anniversary-celebration",
       "outputs": {
@@ -4104,6 +5470,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 2,
       "directory": "episodes/0674-italian-arbitrage-oppurtunity-to-make-some-dough-brainstorm-brewery-674-magic-fi",
       "outputs": {
@@ -4141,6 +5508,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing produced zero picks while the published summary had picks; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing produced zero picks while the published summary had picks; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0501-avatar-previews-wrap-up",
       "outputs": {
@@ -4181,6 +5568,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0673-a-new-challenger-approaches-brainstorm-brewery-673-magic-finance",
       "outputs": {
@@ -4221,6 +5609,50 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing",
+          "scope",
+          "identity"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "scope",
+            "path": "recommendations/0",
+            "reason": "The card 'Vivi' is ambiguous, likely referring to a misheard card name, or a card from the upcoming Final Fantasy set/TCG.",
+            "state": "unresolved",
+            "pick_id": "pick-1d0d870c7b7931fc",
+            "card": "Vivi",
+            "start_seconds": 3094
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/0",
+            "reason": "The card 'Vivi' is ambiguous, likely referring to a misheard card name, or a card from the upcoming Final Fantasy set/TCG.",
+            "state": "unresolved",
+            "pick_id": "pick-1d0d870c7b7931fc",
+            "card": "Vivi",
+            "start_seconds": 3094
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/2",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-2dbb8a2ffdf7b463",
+            "card": "Cathars' Crusade",
+            "start_seconds": 3800
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0672-we-know-you-are-listening-brainstorm-brewery-672-magic-finance",
       "outputs": {
@@ -4258,6 +5690,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0499-lorwyn-eclipsed-early-previews",
       "outputs": {
@@ -4295,6 +5741,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0498-tmnt-x-mtg-emerges-from-the-sewers",
       "outputs": {
@@ -4335,6 +5795,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0671-better-bracketology-brainstorm-brewery-671-magic-finance",
       "outputs": {
@@ -4375,6 +5836,23 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/2",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-60a0670ec64b310b",
+            "card": "Brotherhood Regalia",
+            "start_seconds": 2913
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0670-fomo-skins-brainstorm-brewery-670-magic-finance",
       "outputs": {
@@ -4412,6 +5890,20 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0497-mtgfastfinance-ep-497-october-2025-secret-lair-drops",
       "outputs": {
@@ -4452,6 +5944,32 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "recommendations/1",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-54aa90b26b0531ec",
+            "card": "Ocelot Pride",
+            "start_seconds": 2857
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/2",
+            "reason": "Pick timestamps fall outside the stated audio bounds; verify audio duration and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-c93d6046f828a16d",
+            "card": "Deadpool the trading card",
+            "start_seconds": 3528
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0669-strictly-different-brainstorm-brewery-669-magic-finance",
       "outputs": {
@@ -4489,6 +6007,36 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Horde of Notions is flagged for review due to strong host disagreement on safety.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "intent"
+        ],
+        "issues": [
+          {
+            "code": "intent",
+            "path": "extraction",
+            "reason": "Horde of Notions is flagged for review due to strong host disagreement on safety.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/0",
+            "reason": "Host disagreement on safety of buy due to likely reprint in Commander deck.",
+            "state": "unresolved",
+            "pick_id": "pick-e67660e955aa6cfe",
+            "card": "Horde of Notions",
+            "start_seconds": 1800
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0496-modern-pro-tour-2025",
       "outputs": {
@@ -4529,6 +6077,23 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 2,
+        "codes": [
+          "identity"
+        ],
+        "issues": [
+          {
+            "code": "identity",
+            "path": "recommendations/0",
+            "reason": "Card name is not explicitly mentioned but inferred from 'three' wordplay and standard/modern control play.",
+            "state": "unresolved",
+            "pick_id": "pick-38e3c0ac8955580c",
+            "card": "Three Steps Ahead",
+            "start_seconds": 3615
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0668-would-you-rather-brainstorm-brewery-668-magic-finance",
       "outputs": {
@@ -4566,6 +6131,27 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0495-spidey-x-secret-lair-to-the-moon",
       "outputs": {
@@ -4606,6 +6192,29 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Machine audio check (local Whisper small.en, 61:20-62:30) corroborates the full-art preference and historical price movement. Printing corrected; unsupported entry target cleared. Full episode and host attribution remain unverified; not human reviewed.",
+      "review_triage": {
+        "priority": 2,
+        "codes": [
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Machine audio check (local Whisper small.en, 61:20-62:30) corroborates the full-art preference and historical price movement. Printing corrected; unsupported entry target cleared. Full episode and host attribution remain unverified; not human reviewed.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/1",
+            "reason": "Machine audio check (local Whisper small.en, 61:20-62:30) corroborates the full-art preference and historical price movement. Printing corrected; unsupported entry target cleared. Full episode and host attribution remain unverified; not human reviewed.",
+            "state": "unresolved",
+            "pick_id": "pick-900c62db8f07363f",
+            "card": "Fire Crystal",
+            "start_seconds": 3683
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0667-collector-booster-boosting-brainstorm-brewery-667-magic-finance",
       "outputs": {
@@ -4643,6 +6252,27 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "unspecified"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "unspecified",
+            "path": "section",
+            "reason": "Only the early show-outline mention of Cards to Watch was found; verify where the recommendation block begins.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0494-spidey-market-in-flux",
       "outputs": {
@@ -4683,6 +6313,45 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/2",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-3865db7254ee5cda",
+            "card": "Atraxa, Praetors' Voice",
+            "start_seconds": 2307
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/2",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-3865db7254ee5cda",
+            "card": "Atraxa, Praetors' Voice",
+            "start_seconds": 2307
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0666-measured-content-brainstorm-brewery-666-magic-finance",
       "outputs": {
@@ -4723,6 +6392,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 6,
       "directory": "episodes/0665-cool-for-the-sake-of-cool-brainstorm-brewery-665-magic-finance",
       "outputs": {
@@ -4760,6 +6430,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0492-spidey-x-mtg-previews",
       "outputs": {
@@ -4800,6 +6497,20 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 6,
       "directory": "episodes/0664-ban-proof-izzet-deck-brainstorm-brewery-664-magic-finance",
       "outputs": {
@@ -4837,6 +6548,20 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 8,
       "directory": "episodes/0491-collector-booster-collections-for-the-win",
       "outputs": {
@@ -4877,6 +6602,27 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0663-tech-grinder-bro-brainstorm-brewery-663-magic-finance",
       "outputs": {
@@ -4914,6 +6660,70 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing",
+          "unspecified"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Audible spelling/naming is unclear and requires verification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "unspecified",
+            "path": "recommendations/0",
+            "reason": "Audible spelling/naming is unclear and requires verification.",
+            "state": "unresolved",
+            "pick_id": "pick-10e1779d1a16b5be",
+            "card": "Exploration Brudgedship",
+            "start_seconds": 1909
+          },
+          {
+            "code": "unspecified",
+            "path": "recommendations/1",
+            "reason": "Audible spelling/naming is unclear and requires verification.",
+            "state": "unresolved",
+            "pick_id": "pick-99c97bd84edaaa40",
+            "card": "Horizon Explorer",
+            "start_seconds": 1909
+          },
+          {
+            "code": "unspecified",
+            "path": "recommendations/2",
+            "reason": "Audible spelling/naming is unclear and requires verification.",
+            "state": "unresolved",
+            "pick_id": "pick-2b7de09c8be9e628",
+            "card": "Utheros Researchcraft",
+            "start_seconds": 1909
+          },
+          {
+            "code": "unspecified",
+            "path": "recommendations/4",
+            "reason": "Audible spelling/naming is unclear and requires verification.",
+            "state": "unresolved",
+            "pick_id": "pick-f7fc3008f81a9860",
+            "card": "patrolling Peacemaker",
+            "start_seconds": 1909
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0490-top-edh-cards-of-final-fantasy-and-eoe",
       "outputs": {
@@ -4954,6 +6764,20 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "timing"
+        ],
+        "issues": [
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0662-they-don-t-love-the-mirrors-like-they-used-to-brainstorm-brewery-662-magic-finan",
       "outputs": {
@@ -4991,6 +6815,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0489-avatar-bends-the-end-of-2025-mtg",
       "outputs": {
@@ -5031,6 +6856,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0661-cow-tipping-is-earthbending-brainstorm-brewery-661-magic-finance",
       "outputs": {
@@ -5068,6 +6894,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0488-how-the-soul-stone-foreshadows-years-of-marvel-x-mtg",
       "outputs": {
@@ -5108,6 +6961,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 3,
       "directory": "episodes/0660-palate-cleanser-brainstorm-brewery-660-magic-finance",
       "outputs": {
@@ -5145,6 +6999,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0487-spidey-swings-onto-the-mtg-scene",
       "outputs": {
@@ -5185,6 +7066,32 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Only a show-outline mention of the Brainstorm Brewery recommendation segment was found; verify where the picks begin.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "state": "unresolved",
+            "reason": "No published picks; verify whether recommendations were missed."
+          }
+        ]
+      },
       "pick_count": 0,
       "directory": "episodes/0659-graced-with-the-presence-of-tannon-brainstorm-brewery-659-magic-finance",
       "outputs": {
@@ -5222,6 +7129,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0486-edge-of-eternities-early-price-action",
       "outputs": {
@@ -5262,6 +7196,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0658-gays-goad-game-changers-brainstorm-brewery-658-magic-finance",
       "outputs": {
@@ -5299,6 +7234,51 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/2",
+            "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
+            "state": "unresolved",
+            "pick_id": "pick-c3453f983643ed5c",
+            "card": "Academy Manufactor",
+            "start_seconds": 1260
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/3",
+            "reason": "Recovered from retained transcript after a false section cutoff; speaker attribution and source audio require verification.",
+            "state": "unresolved",
+            "pick_id": "pick-038409f3f3e3c2da",
+            "card": "Earth Crystal",
+            "start_seconds": 1453
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0485-mtgfastfinance-ep-485-sonic-speeds-into-secret-lair-success",
       "outputs": {
@@ -5339,6 +7319,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 5,
       "directory": "episodes/0657-edging-of-eternities-brainstorm-brewery-657-magic-finance",
       "outputs": {
@@ -5376,6 +7357,20 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.",
+      "review_triage": {
+        "priority": 3,
+        "codes": [
+          "unspecified"
+        ],
+        "issues": [
+          {
+            "code": "unspecified",
+            "path": "extraction",
+            "reason": "Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0484-edge-of-eternities-previews-part-2",
       "outputs": {
@@ -5416,6 +7411,33 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0656-secret-special-ingredient-brainstorm-brewery-656-magic-finance",
       "outputs": {
@@ -5456,6 +7478,37 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "printing",
+          "unspecified"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+            "state": "unresolved"
+          },
+          {
+            "code": "unspecified",
+            "path": "recommendations/0",
+            "reason": "Card identity is actually Burn Offerings rather than Brimstone Volley, and dialogue identifies it as a guessing game rather than a firm financial pick.",
+            "state": "unresolved",
+            "pick_id": "pick-9e2997bf87cf6b8d",
+            "card": "Brimstone Volley",
+            "start_seconds": 2247
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0655-i-know-yawgmoth-when-i-see-it-brainstorm-brewery-655-magic-finance",
       "outputs": {
@@ -5493,6 +7546,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0483-sonic-x-secret-lair-edge-of-eternities-previews",
       "outputs": {
@@ -5530,6 +7584,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 2,
       "directory": "episodes/0482-pro-tour-final-fantasy-promos",
       "outputs": {
@@ -5570,6 +7644,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 2,
       "directory": "episodes/0654-fear-and-loathing-in-magiccon-vegas-brainstorm-brewery-654-magic-finance",
       "outputs": {
@@ -5607,6 +7682,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0481-final-fantasy-takes-control",
       "outputs": {
@@ -5647,6 +7742,7 @@
       "processing_status": "failed",
       "review_state": "not_applicable",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 0,
       "directory": "episodes/0653-casting-wealth-targeting-me-brainstorm-brewery-653-magic-finance",
       "outputs": {
@@ -5695,6 +7791,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Fewer than four MTG Fast Finance recommendations; verify section completeness. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 2,
       "directory": "episodes/0480-final-fantasy-secret-lair-outcomes",
       "outputs": {
@@ -5735,6 +7851,7 @@
       "processing_status": "failed",
       "review_state": "not_applicable",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 0,
       "directory": "episodes/0652-estate-sale-strategy-brainstorm-brewery-652-magic-finance",
       "outputs": {
@@ -5783,6 +7900,7 @@
       "processing_status": "complete",
       "review_state": "approved",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 4,
       "directory": "episodes/0479-best-of-final-fantasy-x-mtg",
       "outputs": {
@@ -5823,6 +7941,20 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": null,
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "state": "unresolved",
+            "reason": "No published picks; verify whether recommendations were missed."
+          }
+        ]
+      },
       "pick_count": 0,
       "directory": "episodes/0651-final-fantasy-set-review-brainstorm-brewery-651-magic-finance",
       "outputs": {
@@ -5863,6 +7995,7 @@
       "processing_status": "failed",
       "review_state": "not_applicable",
       "review_reason": null,
+      "review_triage": null,
       "pick_count": 0,
       "directory": "episodes/0650-11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance",
       "outputs": {
@@ -5911,6 +8044,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0042-mtg-fast-finance-episode-42",
       "outputs": {
@@ -5948,6 +8101,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0041-mtg-fast-finance-episode-41",
       "outputs": {
@@ -5985,6 +8158,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0040-mtg-fast-finance-episode-40",
       "outputs": {
@@ -6022,6 +8215,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 3,
       "directory": "episodes/0039-mtg-fast-finance-episode-39",
       "outputs": {
@@ -6059,6 +8272,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0038-mtg-fast-finance-episode-38",
       "outputs": {
@@ -6096,6 +8329,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0037-mtg-fast-finance-episode-37",
       "outputs": {
@@ -6133,6 +8386,26 @@
       "processing_status": "needs_review",
       "review_state": "needs_review",
       "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+            "state": "unresolved"
+          }
+        ]
+      },
       "pick_count": 5,
       "directory": "episodes/0036-mtg-fast-finance-episode-36",
       "outputs": {

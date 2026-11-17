@@ -3,6 +3,7 @@
 const state = {
   index: null, cards: [], route: "dashboard", query: "", status: "all",
   episodeSource: "all", pickSource: "all",
+  reviewIssue: "all",
   episodeSort: { key: "processed_at", direction: "desc" },
   pickSort: { key: "published_at", direction: "desc" },
 };
@@ -22,6 +23,7 @@ const routes = {
   dashboard: { title: "Dashboard", render: renderDashboard },
   episodes: { title: "Episode Archive", render: renderEpisodes },
   picks: { title: "All Picks", render: renderPicks },
+  review: { title: "Review Queue", render: renderReviewQueue },
   status: { title: "Processing Status", render: renderStatus },
   about: { title: "About ManaIntel", render: renderAbout },
 };
@@ -365,6 +367,7 @@ function setRoute() {
   state.route = routes[requested] ? requested : "dashboard";
   state.query = params.get("q") || "";
   state.status = params.get("status") || "all";
+  state.reviewIssue = params.get("issue") || "all";
   // Each destination starts with the source requested by its URL.
   state.episodeSource = params.get("source") || "all";
   state.pickSource = params.get("source") || "all";
@@ -474,10 +477,71 @@ function syncBrowseUrl() {
   const params = new URLSearchParams();
   if (state.query) params.set("q", state.query);
   if (state.status !== "all") params.set("status", state.status);
+  if (state.route === "review" && state.reviewIssue !== "all") params.set("issue", state.reviewIssue);
   const source = state.route === "picks" ? state.pickSource : state.episodeSource;
   if (source !== "all") params.set("source", source);
   window.history.replaceState(null, "", `#${state.route}${params.size ? `?${params}` : ""}`);
   updateBrowseCount();
+}
+
+const reviewCategories = {
+  coverage: { title: "Coverage & boundaries", action: "Check the full recommendation sections for missing picks and weak boundaries." },
+  timing: { title: "Audio timing", action: "Check clocks against the audio; the linked timestamp may be inaccurate." },
+  intent: { title: "Recommendation intent", action: "Listen for a direct endorsement, disagreement or a conditional recommendation." },
+  scope: { title: "Recommendation scope", action: "Check whether this is an eligible Magic recommendation." },
+  identity: { title: "Card identity", action: "Check the spoken card name against the source audio." },
+  printing: { title: "Printing & price", action: "Check the version, finish and price context against the source." },
+  unspecified: { title: "Other / unspecified", action: "Inspect the recorded reason and source before making a decision." },
+};
+
+function reviewQueue() {
+  return state.index.episodes.filter((episode) => isSuccessfulEpisode(episode) && !episode.human_reviewed
+    && episode.review_triage && canOpenSummary(episode))
+    .sort((a, b) => a.review_triage.priority - b.review_triage.priority
+      || (Date.parse(b.published_at) || 0) - (Date.parse(a.published_at) || 0)
+      || a.guid.localeCompare(b.guid));
+}
+
+function filteredReviewQueue() {
+  const query = state.query.toLowerCase();
+  return reviewQueue().filter((episode) => (state.episodeSource === "all" || sourceId(episode) === state.episodeSource)
+    && (state.reviewIssue === "all" || episode.review_triage.codes.includes(state.reviewIssue))
+    && [episode.title, episode.episode_number, sourceName(episode), ...episode.review_triage.issues.flatMap((issue) => [issue.card, issue.reason])]
+      .join(" ").toLowerCase().includes(query));
+}
+
+function reviewQueueCards() {
+  const rows = filteredReviewQueue();
+  if (!rows.length) return `<div class="empty-state"><strong>${reviewQueue().length ? "No matching reviews" : "No flagged episodes in the review queue"}</strong><p>Machine checked episodes have not been human verified. Unfinished episodes have separate <a href="#episodes?status=failed">recovery details</a>.</p></div>`;
+  return rows.map((episode) => {
+    const triage = episode.review_triage;
+    const categories = triage.codes.map((code) => reviewCategories[code] || reviewCategories.unspecified);
+    // Mixed categories remain visible; repeated prose is shown once per evidence path.
+    const issues = [...new Map(triage.issues.map((issue) => [`${issue.path}\n${issue.reason}`, issue])).values()];
+    return `<article class="panel review-queue-card"><div class="panel-body">
+      <p class="eyebrow">${escapeHtml(sourceName(episode))} · Episode ${escapeHtml(episode.episode_number || "?")} · ${formatDate(episode.published_at)}</p>
+      <h2>${escapeHtml(episode.title)}</h2>
+      <div class="review-tags">${episodeBadge(episode)}${categories.map((category) => `<span class="status needs_review">${escapeHtml(category.title)}</span>`).join("")}</div>
+      <p>${escapeHtml(categories[0].action)}</p>
+      <p class="muted">${Number(episode.pick_count || 0)} published picks · ${triage.priority === 0 ? "Check coverage or timing first" : "Source check required"}${episode.review_revision ? " · Saved correction present" : ""}</p>
+      <details><summary>Recorded reasons (${issues.length})</summary><ul class="review-reasons">${issues.map((issue) => {
+        const params = new URLSearchParams({ episode: episode.directory.replace(/^episodes\//, "") });
+        const timed = Number.isFinite(issue.start_seconds) && issue.start_seconds >= 0;
+        if (timed) params.set("t", Math.floor(issue.start_seconds));
+        if (issue.pick_id) params.set("pick", issue.pick_id);
+        return `<li>${issue.card ? `<strong>${escapeHtml(issue.card)}:</strong> ` : ""}${escapeHtml(issue.reason)}${timed ? ` <a href="summary.html?${escapeHtml(params)}">Listen near flagged pick</a>` : ""}</li>`;
+      }).join("")}</ul></details>
+      <div class="latest-actions"><a class="button" href="${episodeReviewUrl(episode)}">Review episode</a><a class="button secondary" href="${escapeHtml(episodeListenUrl(episode))}">Listen to source</a><button class="link-button" type="button" data-episode-guid="${escapeHtml(episode.guid)}">Episode details</button></div>
+    </div></article>`;
+  }).join("");
+}
+
+function renderReviewQueue() {
+  const queue = reviewQueue();
+  return `<article class="panel"><div class="panel-body"><h2>Choose the next source check</h2><p>Coverage and timing first, then intent and scope, then identity and printing. Newest episodes first within each priority. These are navigation hints from recorded warnings, not verified source findings.</p><p>Includes needs-review episodes and machine checked output with retained warnings. Mixed reasons appear in every matching filter. Corrections without approval remain here; human-approved episodes are excluded. Nothing is approved or retried by opening this queue.</p></div></article>
+    <div class="toolbar"><label class="search"><input id="review-search" type="search" aria-label="Search review queue" placeholder="Search episode, card or reason…" value="${escapeHtml(state.query)}"></label><select id="review-source" aria-label="Filter reviews by source"><option value="all">All sources (${queue.length})</option>${sourceFilterOptions(queue, state.episodeSource)}</select><select id="review-issue" aria-label="Filter by review issue"><option value="all">All issues</option>${Object.entries(reviewCategories).map(([code, category]) => `<option value="${code}" ${state.reviewIssue === code ? "selected" : ""}>${escapeHtml(category.title)} (${queue.filter((episode) => episode.review_triage.codes.includes(code)).length})</option>`).join("")}</select></div>
+    <div class="browse-summary"><span id="review-count" role="status">${filteredReviewQueue().length} of ${queue.length} flagged episodes · category counts overlap</span><button class="link-button" type="button" data-reset-filters>Reset filters</button><a href="#episodes?status=failed">Unfinished episodes &amp; recovery</a></div>
+    <section id="review-queue" class="review-queue" aria-label="Episodes needing source review">${reviewQueueCards()}</section>`;
 }
 
 function renderStatus() {
@@ -500,7 +564,7 @@ function renderDashboard() {
     <section class="summary-strip" aria-label="Archive totals">
       ${metric("Episodes", counts.episodes, "recorded episodes", "#episodes")}
       ${metric("Picks", counts.picks, "recommendations", "#picks")}
-      ${metric("Needs review", counts.needs_review, "episodes to check", "#episodes?status=needs_review")}
+      ${metric("Review queue", reviewQueue().length, "flagged episodes to check", "#review")}
       ${metric("Unfinished", counts.failed, "view recovery details", "#episodes?status=failed")}
       ${metric("Latest episode", latest?.episode_number ? `${sourceAbbreviation(latest)} #${latest.episode_number}` : "None", latest ? formatDate(latest.published_at) : "pending", "#episodes")}
     </section>
@@ -544,6 +608,17 @@ function bindPageEvents() {
   bindPickButtons();
   bindEpisodeButtons();
   renderPickTable();
+  const updateReviews = () => {
+    document.querySelector("#review-queue").innerHTML = reviewQueueCards();
+    document.querySelector("#review-count").textContent = `${filteredReviewQueue().length} of ${reviewQueue().length} flagged episodes · category counts overlap`;
+    bindEpisodeButtons();
+  };
+  const reviewSearch = document.querySelector("#review-search");
+  const reviewSource = document.querySelector("#review-source");
+  const reviewIssue = document.querySelector("#review-issue");
+  if (reviewSearch) reviewSearch.addEventListener("input", () => { state.query = reviewSearch.value; updateReviews(); });
+  if (reviewSource) reviewSource.addEventListener("change", () => { state.episodeSource = reviewSource.value; updateReviews(); });
+  if (reviewIssue) reviewIssue.addEventListener("change", () => { state.reviewIssue = reviewIssue.value; updateReviews(); });
   const episodeSearch = document.querySelector("#episode-search");
   const episodeSource = document.querySelector("#episode-source");
   const episodeStatus = document.querySelector("#episode-status");
@@ -564,6 +639,7 @@ function bindPageEvents() {
   });
   document.querySelector("[data-reset-filters]")?.addEventListener("click", () => {
     state.query = ""; state.status = "all"; state.episodeSource = "all"; state.pickSource = "all";
+    state.reviewIssue = "all";
     syncBrowseUrl(); renderRoute();
     document.querySelector(".toolbar input")?.focus();
   });

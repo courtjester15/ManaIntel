@@ -4,7 +4,28 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.29. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.30. Next milestone: 0.6 — dependable processing.**
+
+November 16 review queue (0.5.30): added a dedicated prioritized source-check
+queue, reachable from navigation and the dashboard. Effective summaries feed
+the existing conservative review classifier: coverage/timing first, then
+intent/scope, then identity/printing; unknown reasons remain visible. Source,
+issue and text filters have shareable URLs, overlapping episode counts, recorded
+reasons and pick-specific listening links. Human approvals are excluded; limited
+corrections remain reviewable. Machine-checked episodes with retained warnings
+are explicitly included without changing their published processing status.
+The synchronized baseline has 145 episodes/547 picks and 97 flagged episodes
+(63 needs_review plus 34 complete with retained warnings). No extraction,
+approval, provider call or recovery attempt is part of this batch. Latest FF540
+attempt failed on a chunk-two provider 503; its Pages deployment succeeded in
+[run 44006391749](https://github.com/courtjester15/ManaIntel/actions/runs/44006391749).
+R2 independent FF538 source verification remains outstanding. Next: use the
+queue for bounded source checks and verify visuals/playback when the in-app
+browser responds; this session's in-app preview timed out.
+Validation: all 281 tests pass with declared timezone/YAML dependencies and Git
+subprocess access; archive validation and all 45 scoped evaluation assertions
+pass. Read-only local publication verification checks all three catalogs,
+145 episodes/547 picks with zero findings. Published pick payloads are unchanged.
 
 November 15 BB650/BB652 incident: both zeros are pre-extraction failures from
 Flash Lite 503 overload, not verified empty episodes. BB652 exhausted three attempts
@@ -127,7 +148,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | R3 | Shipped | Recovery clarity follow-up | Status distinguishes temporary provider outage, observed provider capacity refusal and local budget stops; shows remaining attempts and eligible-after/since times. Exhausted retries cannot promise scheduled recovery. |
 | R4 | Next | Offline comparison ready | Baseline/candidate evaluator reports regressions, fixes and blocked checks across the same scoped assertions. Next: independently verified R2 evidence before a bounded model/prompt comparison. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |
-| 0.7 work | Partial delivery | Review workspace shipped in 0.5.27 | Complete correction fields, explicit approval/limited outcomes, readable previews, saved-correction preservation and review-revision guards. Next: in-app visual/playback verification, then prioritized review-queue work from usage. |
+| 0.7 work | Partial delivery | Review workspace 0.5.27; prioritized queue 0.5.30 | Effective-evidence categories, source/issue/search filters, shared links and direct listening/correction actions. Human approvals excluded; mixed/unknown reasons retained. Next: visual/playback verification, then bounded source checks from the queue. |
 | Card history | Shipped in 0.5.25 | Implemented; browser visual QA pending | Pick history in card details groups verified identities across shows, preserving variants, uncertainty, speaker/price context and listening links. Summary links open history directly. Follow with Mentioned again/watchlist after visual verification and usage evidence. |
 
 The October 15 incident fixes shipped in 0.5.10: BB 666 published three picks as needs_review; BB 667 published three as complete. The R1 report shipped in 0.5.11 and adds no inference calls or scheduled development. Its first fourteen-day window contains only five initial attempts (two usable) alongside many forced recoveries; current catalog failures are zero but forty episodes need review. GitHub job reads are bounded, and unobserved deployment outcomes remain unknown. This does not satisfy the sustained-reliability gate. Start the next authorized improvement pass with R2 unless new evidence changes the priority.

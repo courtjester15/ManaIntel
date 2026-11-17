@@ -8,6 +8,7 @@ from .card_resolution import apply_card_resolution, load_resolution_store
 from .identity import parse_episode_number
 from .rendering import render_episode_markdown
 from .reviews import apply_review, load_episode_review, review_revision
+from .review_issues import review_triage
 from .utils import atomic_write_json, atomic_write_text, load_json
 from .models import utc_now
 
@@ -71,6 +72,7 @@ def rebuild_catalog(
             "processing_status": processing["status"],
             "review_state": processing.get("review_state"),
             "review_reason": processing.get("review_reason"),
+            "review_triage": review_triage(effective_summary),
             "pick_count": len(effective_summary["recommendations"]) if effective_summary else 0,
             "directory": metadata_path.parent.relative_to(archive_dir).as_posix(),
             "outputs": outputs,

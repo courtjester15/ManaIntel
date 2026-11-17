@@ -35,6 +35,66 @@ function pick(id, oracle, extra = {}) {
       episode_number: 725, published_at: '2026-11-06T06:00:00Z' }, ...extra };
 }
 
+function reviewEpisode(guid, priority, codes, extra = {}) {
+  return { guid, title: `Episode ${guid}`, episode_number: 42, source_id: 'mtg-fast-finance',
+    source_name: 'MTG Fast Finance', published_at: '2026-11-01T00:00:00Z', processing_status: 'needs_review',
+    directory: 'episodes/test-episode', outputs: { summary_json: 'episodes/test-episode/summary.json', summary_markdown: 'episodes/test-episode/summary.md' }, pick_count: 2,
+    review_triage: { priority, codes, issues: codes.map(code => ({ code, path: 'recommendations/0',
+      card: '<Invented card>', reason: `Check ${code} <warning>`, pick_id: 'pick-a', start_seconds: 600 })) }, ...extra };
+}
+
+test('review queue ranks consequential mixed warnings and excludes approval and failed attempts', () => {
+  const h = harness();
+  h.c.episodes = [reviewEpisode('identity', 2, ['identity']), reviewEpisode('mixed', 0, ['coverage', 'printing']),
+    reviewEpisode('approved', 0, ['coverage'], {human_reviewed: true}),
+    reviewEpisode('failed', 0, ['coverage'], {processing_status: 'failed'}),
+    reviewEpisode('missing', 0, ['coverage'], {outputs: {}}),
+    reviewEpisode('corrected', 1, ['intent'], {review_revision: 'saved'})];
+  assert.equal(h.run('state.index={episodes}; reviewQueue().map(e=>e.guid).join(",")'), 'mixed,corrected,identity');
+  assert.match(h.run('reviewQueueCards()'), /Saved correction present/);
+  h.run('state.reviewIssue="printing"');
+  assert.equal(h.run('filteredReviewQueue().map(e=>e.guid).join(",")'), 'mixed');
+  h.run('state.reviewIssue="all"; state.query="<invented card>"');
+  assert.equal(h.run('filteredReviewQueue().length'), 3);
+});
+
+test('queue renders safe actionable source links and overlapping issue counts', () => {
+  const h = harness();
+  h.c.episodes = [reviewEpisode('mixed', 0, ['coverage', 'timing'])];
+  const html = h.run('state.index={episodes}; renderReviewQueue()');
+  assert.match(html, /category counts overlap/);
+  assert.match(html, /Coverage &amp; boundaries \(1\)/);
+  assert.match(html, /Audio timing \(1\)/);
+  assert.match(html, /&lt;Invented card&gt;/);
+  assert.doesNotMatch(html, /<warning>|<Invented/);
+  assert.match(html, /review.html\?episode=test-episode/);
+  assert.match(html, /summary.html\?episode=test-episode&amp;t=600&amp;pick=pick-a/);
+  assert.match(html, /not verified source findings/);
+  assert.match(html, /Unfinished episodes &amp; recovery/);
+  h.c.episodes[0].review_triage.issues[0].start_seconds = null;
+  h.c.episodes[0].review_triage.issues[1].start_seconds = -1;
+  assert.doesNotMatch(h.run('reviewQueueCards()'), /Listen near flagged pick/);
+});
+
+test('review filters survive shared links and reset without leaking into other routes', () => {
+  const h = harness('#review?source=brainstorm-brewery&issue=timing&q=clock');
+  h.run('state.index={episodes:[]}; setRoute()');
+  assert.equal(h.run('state.reviewIssue'), 'timing');
+  assert.equal(h.run('state.episodeSource'), 'brainstorm-brewery');
+  let href;
+  h.c.window.history = {replaceState: (_a, _b, url) => { href = url; }};
+  h.run('syncBrowseUrl()');
+  assert.match(href, /#review\?q=clock&issue=timing&source=brainstorm-brewery/);
+  h.node('[data-reset-filters]').listeners.click();
+  assert.equal(h.run('state.reviewIssue'), 'all');
+  assert.equal(href, '#review');
+  h.run('window.location.hash="#episodes"; setRoute()');
+  assert.equal(h.run('state.reviewIssue'), 'all');
+  assert.equal(h.run('state.episodeSource'), 'all');
+  h.run('state.route="review"; state.query="no match"');
+  assert.match(h.run('reviewQueueCards()'), /No flagged episodes/);
+});
+
 test('history uses verified oracle identity across shows and preserves variants and multiplicity', () => {
   const h = harness();
   h.c.picks = [pick('new', 'card-a'), pick('variant', 'card-a', { printing: 'foil version' }),

@@ -1,5 +1,24 @@
 # ManaIntel Production Runbook
 
+## Prioritized review queue
+
+Open **Review queue** in the site navigation or dashboard. The queue derives
+navigation hints from effective published evidence using the existing conservative
+issue classifier. It orders coverage/timing ahead of intent/scope, then
+identity/printing, then unspecified reasons; newest episodes come first within
+each priority. Original statuses are displayed and unchanged. Machine-checked
+output can retain warnings; its inclusion does not establish a new regression.
+
+Filter by show or issue and search episode titles/numbers, cards and reasons.
+The URL preserves those filters. Category counts overlap because one episode can
+have several issues. Expand **Recorded reasons** for evidence-specific listening
+links; timestamps themselves may need checking. **Review episode** opens the
+existing correction workspace with its durable override/revision protections.
+Saved corrections without approval stay in the queue; human approvals are
+excluded. Unknown reasons never count as resolved. Unfinished processing belongs
+to the linked recovery view. Opening either view performs no model calls,
+retries or approvals. This queue is not an independent source-accuracy score.
+
 ## Automated service
 
 GitHub Actions runs `.github/workflows/ffw.yml` at 20:17 UTC for fresh backfill and at 00:17 UTC for bounded failed recovery. It reads both public podcast feeds:
