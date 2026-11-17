@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.29",
-  "updated_at": "2026-11-16T12:47:58Z",
+  "updated_at": "2026-11-17T02:58:36Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -38388,6 +38388,65 @@
       "status": "failed",
       "updated_at": "2026-11-16T06:25:57Z",
       "output_directory": "episodes/0650-11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance"
+    },
+    "tag:soundcloud,2010:tracks/2439646461": {
+      "guid": "tag:soundcloud,2010:tracks/2439646461",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-17T02:55:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-17T02:55:25Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-17T02:55:25Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-17T02:55:26Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-17T02:55:27Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-17T02:55:27Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-17T02:55:36Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-17T02:58:36Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 540: Star Trek Previews Part 2",
+      "episode_number": 540,
+      "published_at": "2026-11-16T22:57:04Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 2/5 failed after 2.7s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-17T08:58:36Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-17T02:58:36Z",
+      "output_directory": "episodes/0540-star-trek-previews-part-2"
     }
   }
 }
