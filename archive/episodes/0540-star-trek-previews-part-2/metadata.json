@@ -24,12 +24,12 @@
     "review_state": "not_applicable",
     "review_reason": null,
     "review_issues": [],
-    "pipeline_version": "0.5.29",
+    "pipeline_version": "0.5.30",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-11-17T02:58:36Z",
+    "processed_at": "2026-11-18T02:27:06Z",
     "history": [
       {
         "status": "detected",
@@ -62,18 +62,42 @@
       {
         "status": "failed",
         "timestamp": "2026-11-17T02:58:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-18T02:25:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-18T02:25:49Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-18T02:25:50Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-18T02:25:50Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-18T02:26:01Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-18T02:27:06Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Gemini transcription chunk 2/5 failed after 2.7s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "message": "Gemini transcription chunk 3/5 failed after 29.9s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
       "category": "transient_provider",
       "synthetic": false,
       "retryable": true,
       "provider_wide": true,
-      "attempt": 1,
+      "attempt": 2,
       "max_attempts": 3,
-      "next_retry_at": "2026-11-17T08:58:36Z",
+      "next_retry_at": "2026-11-18T08:27:06Z",
       "quarantined": false
     },
     "transcription": null,
