@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.30",
-  "updated_at": "2026-11-18T07:25:59Z",
+  "updated_at": "2026-11-18T13:05:59Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -35268,6 +35268,42 @@
         {
           "status": "needs_review",
           "timestamp": "2026-11-02T06:01:38Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-18T13:05:38Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-18T13:05:38Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-18T13:05:42Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-18T13:05:42Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-18T13:05:51Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-18T13:05:51Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-18T13:05:51Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-18T13:05:59Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-18T13:05:59Z"
         }
       ],
       "title": "MTG Fast Finance Ep 482: Pro Tour Final Fantasy Promos",
@@ -35275,11 +35311,11 @@
       "published_at": "2025-06-29T17:59:24Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 2,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-11-02T06:01:38Z",
+      "updated_at": "2026-11-18T13:05:59Z",
       "output_directory": "episodes/0482-pro-tour-final-fantasy-promos",
       "transcription": {
         "provider": "Gemini",
@@ -35486,7 +35522,19 @@
           "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "extracting",
+        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 3,
+        "max_attempts": 3,
+        "next_retry_at": null,
+        "quarantined": true
+      }
     },
     "tag:soundcloud,2010:tracks/2430946797": {
       "guid": "tag:soundcloud,2010:tracks/2430946797",
