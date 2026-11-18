@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.30",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-18T02:27:06Z",
+    "generated_at": "2026-11-18T07:25:59Z",
     "latest_successful_run_at": "2026-11-17T13:29:58Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,7 +25,7 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 145,
+    "real_episode_count": 146,
     "real_pick_count": 547,
     "last_discovered_episode_date": "2026-11-16T22:57:04Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
@@ -33,14 +33,14 @@
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 145,
+    "episodes": 146,
     "picks": 547,
     "needs_review": 63,
-    "failed": 4,
+    "failed": 5,
     "completed": 78
   },
   "status_counts": {
-    "failed": 4,
+    "failed": 5,
     "needs_review": 63,
     "complete": 78
   },
@@ -8024,6 +8024,55 @@
         "max_attempts": 3,
         "next_retry_at": null,
         "quarantined": true
+      },
+      "human_reviewed": false,
+      "review_revision": null,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
+    {
+      "guid": "tag:soundcloud,2010:tracks/2104611723",
+      "episode_number": 478,
+      "title": "MTG Fast Finance Ep 478: Final Fantasy Previews Part 3",
+      "published_at": "2025-05-30T01:24:43Z",
+      "audio_url": "https://feeds.soundcloud.com/stream/2104611723-user-519789566-mtg-fast-finance-ep-478-final-fantasy-previews-part-3.mp3",
+      "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-478-final-fantasy-previews-part-3",
+      "duration_seconds": 3701,
+      "hosts": [
+        "MTG Fast Finance"
+      ],
+      "description": "James and Cliff get down to business with all the latest in Magic card price movement, Modern meta analysis, cards to watch and their final week of Final Fantasy x MTG card previews.",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "source_url": "https://www.mtgfastfinance.com/",
+      "extraction_profile": "cards_to_watch",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "review_triage": null,
+      "pick_count": 0,
+      "directory": "episodes/0478-final-fantasy-previews-part-3",
+      "outputs": {
+        "metadata": "episodes/0478-final-fantasy-previews-part-3/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-11-18T07:25:59Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 22.4s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-18T13:25:59Z",
+        "quarantined": false
       },
       "human_reviewed": false,
       "review_revision": null,

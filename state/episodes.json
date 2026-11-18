@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.30",
-  "updated_at": "2026-11-18T02:27:06Z",
+  "updated_at": "2026-11-18T07:25:59Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -38545,6 +38545,65 @@
       "status": "failed",
       "updated_at": "2026-11-18T02:27:06Z",
       "output_directory": "episodes/0540-star-trek-previews-part-2"
+    },
+    "tag:soundcloud,2010:tracks/2104611723": {
+      "guid": "tag:soundcloud,2010:tracks/2104611723",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-18T07:25:28Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-18T07:25:28Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-18T07:25:28Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-18T07:25:28Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-18T07:25:29Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-18T07:25:29Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-18T07:25:36Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-18T07:25:59Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 478: Final Fantasy Previews Part 3",
+      "episode_number": 478,
+      "published_at": "2025-05-30T01:24:43Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 1/5 failed after 22.4s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-18T13:25:59Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-18T07:25:59Z",
+      "output_directory": "episodes/0478-final-fantasy-previews-part-3"
     }
   }
 }

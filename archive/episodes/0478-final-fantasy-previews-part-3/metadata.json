@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2104611723",
+    "episode_number": 478,
+    "title": "MTG Fast Finance Ep 478: Final Fantasy Previews Part 3",
+    "published_at": "2025-05-30T01:24:43Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2104611723-user-519789566-mtg-fast-finance-ep-478-final-fantasy-previews-part-3.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-478-final-fantasy-previews-part-3",
+    "duration_seconds": 3701,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff get down to business with all the latest in Magic card price movement, Modern meta analysis, cards to watch and their final week of Final Fantasy x MTG card previews.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.30",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-18T07:25:59Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-18T07:25:29Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-18T07:25:29Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-18T07:25:36Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-18T07:25:59Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Gemini transcription chunk 1/5 failed after 22.4s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "category": "transient_provider",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": true,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-11-18T13:25:59Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0478-final-fantasy-previews-part-3/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}
