@@ -22,14 +22,21 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": null,
-    "review_issues": [],
-    "pipeline_version": "0.5.26",
+    "review_reason": "Card name has no exact match in Scryfall.",
+    "review_issues": [
+      {
+        "code": "identity",
+        "path": "recommendations/1",
+        "reason": "Card name has no exact match in Scryfall.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.31",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-11-14T06:21:18Z",
+    "processed_at": "2026-11-19T03:21:22Z",
     "history": [
       {
         "status": "detected",
@@ -130,6 +137,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-11-14T06:21:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-19T03:21:06Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-19T03:21:06Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-19T03:21:07Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-19T03:21:07Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-19T03:21:14Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-19T03:21:14Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-19T03:21:14Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-19T03:21:22Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-19T03:21:22Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-19T03:21:22Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-19T03:21:22Z"
       }
     ],
     "error": null,
@@ -351,31 +402,210 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 19,
+      "candidates_token_count": 1495,
       "candidates_tokens_details": null,
-      "prompt_token_count": 11220,
+      "prompt_token_count": 23409,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 11220
+          "token_count": 23409
         }
       ],
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 11239,
+      "total_token_count": 24904,
       "traffic_type": null
     }
   },
   "section": {
     "located": true,
-    "start_seconds": 1363,
+    "start_seconds": 507,
     "end_seconds": 1992,
     "label": "Cards to Watch",
-    "confidence": "high",
+    "confidence": "medium",
     "review_reason": null,
-    "start_signal": "explicit_section_marker",
+    "start_signal": "recommendation_language",
     "end_signal": "advertised_topic_transition"
   },
-  "recommendations": []
+  "recommendations": [
+    {
+      "card": "Shang-Chi, Master of Kung Fu",
+      "printing": "regular foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Vogel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$11 or $12",
+      "entry_target": {
+        "raw": "$12",
+        "currency": "USD",
+        "minimum": 11.0,
+        "maximum": 12.0
+      },
+      "hold": "6 months to several years",
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Strong demand and high sales volume on TCGplayer in foil",
+        "Frequent play in cEDH tables and lower-tier decks",
+        "Unique effect with haste-enabling and mana-producing capabilities",
+        "Mythic rarity and multi-format presence"
+      ],
+      "caveats": [
+        "Potential reprint risk in future Marvel sets or Secret Lair drops"
+      ],
+      "confidence": "high",
+      "start_seconds": 507,
+      "end_seconds": 684,
+      "evidence_excerpt": "So, I'm still keeping my eye on a bunch of the Marvel superheroes card boards. I really think it's an underrated set overall... $12 is a is a nice buy in.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-f9f0a5aca77f0e97",
+      "timestamp": "00:08:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2436385896-user-519789566-mtg-fast-finance-ep-539-star.mp3#t=507"
+    },
+    {
+      "card": "Dawnsire, the Sunstar Dreadnought",
+      "printing": "foil extended art",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Vogel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$28",
+      "entry_target": {
+        "raw": "$28",
+        "currency": "USD",
+        "minimum": 28.0,
+        "maximum": 28.0
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "$50",
+        "currency": "USD",
+        "minimum": 50.0,
+        "maximum": 50.0
+      },
+      "reasoning": [
+        "Growing spacecraft synergies",
+        "Very low inventory with only 31 vendors left for the foil extended art",
+        "Already ascending in price"
+      ],
+      "caveats": [
+        "Uncertainty around which specific commander will dominate",
+        "Possible reprint risk from the Star Trek bonus sheet"
+      ],
+      "confidence": "medium",
+      "start_seconds": 686,
+      "end_seconds": 904,
+      "evidence_excerpt": "My first pick this week... I feel pretty good about Dawnsire, the Sunstar dreadnought in foil extended art. Right now, you can get these for about $28; I'm expecting them to bump up to 50.",
+      "review_status": "needs_review",
+      "review_reason": "Card name has no exact match in Scryfall.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash-lite",
+        "original_card": "Dawnsire, the Sunstar Dreadnought",
+        "candidate_card": "Dawnsire, the Sunstar Dreadnought",
+        "decision": "confirmed",
+        "accepted": false,
+        "explanation": "The speaker clearly says 'Dawnsire, the Sunstar Dreadnought'."
+      },
+      "id": "pick-544b4dbcdcc5601b",
+      "timestamp": "00:11:26",
+      "listen_url": "https://feeds.soundcloud.com/stream/2436385896-user-519789566-mtg-fast-finance-ep-539-star.mp3#t=686"
+    },
+    {
+      "card": "Sensei's Divining Top",
+      "printing": "foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Vogel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$40",
+      "entry_target": {
+        "raw": "$40",
+        "currency": "USD",
+        "minimum": 40.0,
+        "maximum": 40.0
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "$80",
+        "currency": "USD",
+        "minimum": 80.0,
+        "maximum": 80.0
+      },
+      "reasoning": [
+        "Included in the odds and ends deck with incredible art and low deep inventory",
+        "Super staple with high demand and synergy with fetch lands"
+      ],
+      "caveats": [
+        "Future wave replenishments of the deck could affect short-term trajectory",
+        "Slows gameplay down"
+      ],
+      "confidence": "high",
+      "start_seconds": 904,
+      "end_seconds": 1364,
+      "evidence_excerpt": "Top currently can be had in foil for $40. My opinion is that's going to 80 in the near future.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-80461c6bcf71815e",
+      "timestamp": "00:15:04",
+      "listen_url": "https://feeds.soundcloud.com/stream/2436385896-user-519789566-mtg-fast-finance-ep-539-star.mp3#t=904"
+    },
+    {
+      "card": "Esper Sentinel",
+      "printing": "foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Vogel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "$60",
+      "entry_target": {
+        "raw": "$60",
+        "currency": "USD",
+        "minimum": 60.0,
+        "maximum": 60.0
+      },
+      "hold": "6 months",
+      "exit_target": {
+        "raw": "$100",
+        "currency": "USD",
+        "minimum": 100.0,
+        "maximum": 100.0
+      },
+      "reasoning": [
+        "High demand super staple featured in the new deck version",
+        "Fewer borderless options compared to other cards"
+      ],
+      "caveats": [
+        "Potential future reprints in Secret Lair drops"
+      ],
+      "confidence": "high",
+      "start_seconds": 904,
+      "end_seconds": 1364,
+      "evidence_excerpt": "And the Esper sentinel can be had for 60 and it's going to go to 100.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-23142a896ee8b7d2",
+      "timestamp": "00:15:04",
+      "listen_url": "https://feeds.soundcloud.com/stream/2436385896-user-519789566-mtg-fast-finance-ep-539-star.mp3#t=904"
+    }
+  ]
 }

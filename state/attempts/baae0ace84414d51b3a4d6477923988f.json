@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "attempt_id": "baae0ace84414d51b3a4d6477923988f",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2436385896",
+    "number": 539,
+    "title": "MTG Fast Finance Ep 539: Star Trek Previews",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-11-19T03:21:06Z",
+  "pipeline_version": "0.5.31",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "44450652703",
+  "run_attempt": "1",
+  "git_sha": "018810703ee898f89e0eade263a7a851a478910c",
+  "intervention": "Inspected FF539 zero-result recovery after 0188107: final-card start omitted earlier picks. Reuse retained transcript; corrected 507-1992 scope, no timing suspects. One episode, expected one extraction plus bounded verification, no cap reset or unchanged repeat.",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": true,
+    "recover_hosts": false,
+    "prior_status": "needs_review",
+    "prior_attempt_count": 3,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-19T03:21:06Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-19T03:21:06Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:07Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:07Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:14Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:14Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:14Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-11-19T03:21:14Z",
+      "event": "stage",
+      "stage": "transcribed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 5,
+        "duration_seconds": 3833,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.242,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15235,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22672,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 173
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 37907,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 42.55,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 19622,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22673,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 173
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42295,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 169.132,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8165,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19647,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 8099,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19581,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 22.41,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "rescue_subchunks": [
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 7893,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    },
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 19375,
+                  "traffic_type": null
+                },
+                {
+                  "cache_tokens_details": null,
+                  "cached_content_token_count": null,
+                  "candidates_token_count": 10014,
+                  "candidates_tokens_details": null,
+                  "prompt_token_count": 11482,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 232
+                    },
+                    {
+                      "modality": "AUDIO",
+                      "token_count": 11250
+                    }
+                  ],
+                  "thoughts_token_count": null,
+                  "tool_use_prompt_token_count": null,
+                  "tool_use_prompt_tokens_details": null,
+                  "total_token_count": 21496,
+                  "traffic_type": null
+                }
+              ]
+            }
+          },
+          {
+            "chunk": 5,
+            "chunk_count": 5,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 233,
+            "request_seconds": 10.823,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 4896,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 6007,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 173
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 5834
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 10903,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 2,
+        "audio_dispositions": []
+      }
+    },
+    {
+      "timestamp": "2026-11-19T03:21:14Z",
+      "event": "stage",
+      "stage": "extracting"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:19Z",
+      "event": "model_call",
+      "stage": "extracting",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 4.074,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1495,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 23409,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 23409
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 24904,
+        "traffic_type": null
+      },
+      "response_characters": 4888
+    },
+    {
+      "timestamp": "2026-11-19T03:21:22Z",
+      "event": "model_call",
+      "stage": "verifying",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 1.343,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 50,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 1508,
+        "prompt_tokens_details": [
+          {
+            "modality": "AUDIO",
+            "token_count": 1375
+          },
+          {
+            "modality": "TEXT",
+            "token_count": 133
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 1558,
+        "traffic_type": null
+      },
+      "response_characters": 158
+    },
+    {
+      "timestamp": "2026-11-19T03:21:22Z",
+      "event": "review_issues",
+      "issues": [
+        {
+          "code": "identity",
+          "path": "recommendations/1",
+          "reason": "Card name has no exact match in Scryfall.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-19T03:21:22Z",
+      "event": "stage",
+      "stage": "extracted",
+      "review_reason": "Card name has no exact match in Scryfall.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1495,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 23409,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 23409
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 24904,
+        "traffic_type": null
+      }
+    },
+    {
+      "timestamp": "2026-11-19T03:21:22Z",
+      "event": "extraction_summary",
+      "section": {
+        "located": true,
+        "label": "Cards to Watch",
+        "start_seconds": 507,
+        "end_seconds": 1992
+      },
+      "pick_count": 4,
+      "review_reason": "Card name has no exact match in Scryfall.",
+      "picks": [
+        {
+          "card": "Shang-Chi, Master of Kung Fu",
+          "printing": "regular foil",
+          "confidence": "high",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Dawnsire, the Sunstar Dreadnought",
+          "printing": "foil extended art",
+          "confidence": "medium",
+          "review_status": "needs_review",
+          "review_reason": "Card name has no exact match in Scryfall."
+        },
+        {
+          "card": "Sensei's Divining Top",
+          "printing": "foil",
+          "confidence": "high",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Esper Sentinel",
+          "printing": "foil",
+          "confidence": "high",
+          "review_status": "approved",
+          "review_reason": null
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-19T03:21:22Z",
+      "event": "stage",
+      "stage": "validating"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:22Z",
+      "event": "stage",
+      "stage": "publishing"
+    },
+    {
+      "timestamp": "2026-11-19T03:21:22Z",
+      "event": "stage",
+      "stage": "needs_review",
+      "pick_count": 4,
+      "review_reason": "Card name has no exact match in Scryfall."
+    }
+  ],
+  "outcome": "needs_review",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/44450652703",
+  "finished_at": "2026-11-19T03:21:22Z",
+  "pick_count": 4,
+  "local_outputs_written": true,
+  "review_reason": "Card name has no exact match in Scryfall.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

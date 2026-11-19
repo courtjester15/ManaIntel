@@ -22,14 +22,21 @@
   "processing": {
     "status": "needs_review",
     "review_state": "needs_review",
-    "review_reason": null,
-    "review_issues": [],
-    "pipeline_version": "0.5.26",
+    "review_reason": "Card name has no exact match in Scryfall.",
+    "review_issues": [
+      {
+        "code": "identity",
+        "path": "recommendations/1",
+        "reason": "Card name has no exact match in Scryfall.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.31",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-11-14T06:21:18Z",
+    "processed_at": "2026-11-19T03:21:22Z",
     "history": [
       {
         "status": "detected",
@@ -130,6 +137,50 @@
       {
         "status": "needs_review",
         "timestamp": "2026-11-14T06:21:18Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-19T03:21:06Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-19T03:21:06Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-19T03:21:07Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-19T03:21:07Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-19T03:21:14Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-19T03:21:14Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-19T03:21:14Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-19T03:21:22Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-19T03:21:22Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-19T03:21:22Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-19T03:21:22Z"
       }
     ],
     "error": null,
@@ -351,19 +402,19 @@
     "extraction_usage": {
       "cache_tokens_details": null,
       "cached_content_token_count": null,
-      "candidates_token_count": 19,
+      "candidates_token_count": 1495,
       "candidates_tokens_details": null,
-      "prompt_token_count": 11220,
+      "prompt_token_count": 23409,
       "prompt_tokens_details": [
         {
           "modality": "TEXT",
-          "token_count": 11220
+          "token_count": 23409
         }
       ],
       "thoughts_token_count": null,
       "tool_use_prompt_token_count": null,
       "tool_use_prompt_tokens_details": null,
-      "total_token_count": 11239,
+      "total_token_count": 24904,
       "traffic_type": null
     }
   },
