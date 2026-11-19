@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2439646461",
+    "episode_number": 540,
+    "title": "MTG Fast Finance Ep 540: Star Trek Previews Part 2",
+    "published_at": "2026-11-16T22:57:04Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-540-star",
+    "duration_seconds": 3860,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "Your favorite card slinging starship officers jump in with all the latest in Magic the Gathering card price action for the week, including meta updates, cards to watch and the second half of their look at Star Trek x MTG cards they like.\n\nIntro/Outro Music by Skylarka",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.30",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-19T01:59:29Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-17T02:55:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-17T02:55:25Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-17T02:55:25Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-17T02:55:26Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-17T02:55:27Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-17T02:55:27Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-17T02:55:36Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-17T02:58:36Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-18T02:25:49Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-18T02:25:49Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-18T02:25:50Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-18T02:25:50Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-18T02:26:01Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-18T02:27:06Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-19T01:53:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-19T01:53:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-19T01:53:28Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-19T01:53:28Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-19T01:53:40Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-19T01:59:16Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-19T01:59:16Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-19T01:59:28Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-19T01:59:28Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-19T01:59:28Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-19T01:59:29Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3860,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 176.183,
+          "checkpoint_reused": true,
+          "provider_usage": {
+            "rescue_subchunks": [
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 8372,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11497,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11250
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 247
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 19869,
+                "traffic_type": null
+              },
+              {
+                "cache_tokens_details": null,
+                "cached_content_token_count": null,
+                "candidates_token_count": 8557,
+                "candidates_tokens_details": null,
+                "prompt_token_count": 11496,
+                "prompt_tokens_details": [
+                  {
+                    "modality": "AUDIO",
+                    "token_count": 11249
+                  },
+                  {
+                    "modality": "TEXT",
+                    "token_count": 247
+                  }
+                ],
+                "thoughts_token_count": null,
+                "tool_use_prompt_token_count": null,
+                "tool_use_prompt_tokens_details": null,
+                "total_token_count": 20053,
+                "traffic_type": null
+              }
+            ]
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 34.406,
+          "checkpoint_reused": true,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16153,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22686,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 186
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38839,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.934,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16084,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22686,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 186
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38770,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 108.12,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 168
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 20364
+              }
+            ],
+            "cached_content_token_count": 20532,
+            "candidates_token_count": 16378,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22686,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 186
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39064,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 260,
+          "request_seconds": 9.303,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 3678,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 6682,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 6496
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 186
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 10360,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 17,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1165,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 7508,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 7508
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 8673,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1043,
+    "end_seconds": 1447,
+    "label": "Cards to Watch",
+    "confidence": "high",
+    "review_reason": null,
+    "start_signal": "explicit_section_marker",
+    "end_signal": "advertised_topic_transition"
+  },
+  "recommendations": [
+    {
+      "card": "Nether Goyf",
+      "printing": "Modern Horizons 3 foil extended art",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "15 or 16 bucks",
+      "entry_target": {
+        "raw": "15 or 16 bucks",
+        "currency": "USD",
+        "minimum": 15.0,
+        "maximum": 16.0
+      },
+      "hold": "medium-term",
+      "exit_target": {
+        "raw": "double up",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Low inventory with only 21 listings on TCGplayer for MH3 foil extended arts.",
+        "Players want a matching playset of four for decks, which will dry up supply.",
+        "A reprint is likely a ways off."
+      ],
+      "caveats": [
+        "Original goyf printing exists so a reprint is not impossible."
+      ],
+      "confidence": "high",
+      "start_seconds": 1043,
+      "end_seconds": 1105,
+      "evidence_excerpt": "MH3 foil extended Arts are are down to 21 listings on TCG player. There's some copies around 15 or 16 bucks. They are going to dry up",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-ff2603b414f1127c",
+      "timestamp": "00:17:23",
+      "listen_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3#t=1043"
+    },
+    {
+      "card": "Metalworker",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "150 to 175",
+      "entry_target": {
+        "raw": "150 to 175",
+        "currency": "USD",
+        "minimum": 150.0,
+        "maximum": 175.0
+      },
+      "hold": "3 years",
+      "exit_target": {
+        "raw": "250 to 300 range",
+        "currency": "USD",
+        "minimum": 250.0,
+        "maximum": 300.0
+      },
+      "reasoning": [
+        "It is a Reserve List card with no future printings.",
+        "Strong artifact synergy effects in recent sets are driving demand.",
+        "Very low available inventory on TCGplayer."
+      ],
+      "caveats": [
+        "Prices vary depending on condition (MP and LP copies)."
+      ],
+      "confidence": "high",
+      "start_seconds": 1106,
+      "end_seconds": 1247,
+      "evidence_excerpt": "if you want a copy or two of metal worker, you need to get your copy like now because we are getting a ton of great artifact synergy effects.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-6ebea44ffd9fa5d3",
+      "timestamp": "00:18:26",
+      "listen_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3#t=1106"
+    },
+    {
+      "card": "Deafening Silence",
+      "printing": "Secret Lair version numbered 1219",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "James Chilcott",
+        "Cliff Dagel"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "20",
+      "entry_target": {
+        "raw": "around $20",
+        "currency": "USD",
+        "minimum": 20.0,
+        "maximum": 20.0
+      },
+      "hold": "long-term",
+      "exit_target": {
+        "raw": "higher",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Secret Lair printings never catch a reprint and inventory is low.",
+        "High inclusion rate in competitive EDH stax decks.",
+        "Fantastic art and limited supply with around 39 listings."
+      ],
+      "caveats": [
+        "Alternative special guest retro frame version exists at half price.",
+        "Potential ban risk for dominant decks in CEDH."
+      ],
+      "confidence": "medium",
+      "start_seconds": 1271,
+      "end_seconds": 1406,
+      "evidence_excerpt": "I'm talking specifically about the secret layer version that is numbered 1219... down to about 39 listings in and around $20.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-b9d1badf0e208bbf",
+      "timestamp": "00:21:11",
+      "listen_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3#t=1271"
+    }
+  ]
+}
