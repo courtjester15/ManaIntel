@@ -1,0 +1,484 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2104611723",
+    "episode_number": 478,
+    "title": "MTG Fast Finance Ep 478: Final Fantasy Previews Part 3",
+    "published_at": "2025-05-30T01:24:43Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2104611723-user-519789566-mtg-fast-finance-ep-478-final-fantasy-previews-part-3.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-478-final-fantasy-previews-part-3",
+    "duration_seconds": 3701,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff get down to business with all the latest in Magic card price movement, Modern meta analysis, cards to watch and their final week of Final Fantasy x MTG card previews.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.31",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-19T07:33:49Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-18T07:25:28Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-18T07:25:29Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-18T07:25:29Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-18T07:25:36Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-18T07:25:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-19T07:27:26Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-19T07:27:26Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-19T07:27:29Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-19T07:27:29Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-19T07:27:38Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-19T07:33:44Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-19T07:33:44Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-19T07:33:49Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-19T07:33:49Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-19T07:33:49Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-19T07:33:49Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 5,
+      "duration_seconds": 3701,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 29.959,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 12409,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22664,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 165
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 35073,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 101.535,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 54814,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22665,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 165
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 77479,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.969,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14174,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22665,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 165
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36839,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 45.619,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 15961,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22665,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 165
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 38626,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 5,
+          "chunk_count": 5,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 101,
+          "request_seconds": 7.645,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 1052,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 2687,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 165
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 2522
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 3739,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 3,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 1460,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 16247,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 16247
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 17707,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 694,
+    "end_seconds": 1897,
+    "label": "Cards to Watch",
+    "confidence": "medium",
+    "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Ral, Monsoon Mage",
+      "printing": "Borderless Textured Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Degle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "25",
+      "entry_target": {
+        "raw": "25 to 30",
+        "currency": "USD",
+        "minimum": 25,
+        "maximum": 30
+      },
+      "hold": "6-12 months",
+      "exit_target": {
+        "raw": "50 plus",
+        "currency": "USD",
+        "minimum": 50,
+        "maximum": null
+      },
+      "reasoning": [
+        "Extremely low pull rate from Modern Horizons 3 collector boosters (1 in 223 packs)",
+        "Four-of in Modern Storm decks, which see regular top eight play",
+        "Strong spell-slinger demand in Commander",
+        "Low remaining supply on TCG Player"
+      ],
+      "caveats": [
+        "Subtle appearance in sleeves",
+        "Not initially well-respected in speculation circles"
+      ],
+      "confidence": "high",
+      "start_seconds": 695,
+      "end_seconds": 806,
+      "evidence_excerpt": "Something in Ral to go 25 to currently you're going to pick them up between 25 and 30... Selling them at $50 plus seems very likely indeed.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e197f7a503ef4f96",
+      "timestamp": "00:11:35",
+      "listen_url": "https://feeds.soundcloud.com/stream/2104611723-user-519789566-mtg-fast-finance-ep-478-final-fantasy-previews-part-3.mp3#t=695"
+    },
+    {
+      "card": "Ajani, Nacatl Pariah",
+      "printing": "Borderless Textured Foil",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "James Chillcott",
+        "Cliff Degle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "35",
+      "entry_target": {
+        "raw": "35",
+        "currency": "USD",
+        "minimum": 35,
+        "maximum": 35
+      },
+      "hold": "6-12 months",
+      "exit_target": {
+        "raw": "60",
+        "currency": "USD",
+        "minimum": 60,
+        "maximum": 60
+      },
+      "reasoning": [
+        "Four-of in most Boros Energy decks in Modern",
+        "Boros Energy is a powerful, stable aggro benchmark format staple",
+        "Super low pull rate and very low stock on premium versions"
+      ],
+      "caveats": [
+        "More pricey entry point than Ral"
+      ],
+      "confidence": "high",
+      "start_seconds": 807,
+      "end_seconds": 875,
+      "evidence_excerpt": "So for these to go 35 to 60 and catch up to Tamio seems very likely indeed.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-565c773425ac3391",
+      "timestamp": "00:13:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2104611723-user-519789566-mtg-fast-finance-ep-478-final-fantasy-previews-part-3.mp3#t=807"
+    },
+    {
+      "card": "Captain Sisay",
+      "printing": "Rainbow Foil, City Styles 2",
+      "printing_certainty": "confirmed",
+      "foil": true,
+      "hosts": [
+        "Cliff Degle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "15",
+      "entry_target": {
+        "raw": "12 to 16",
+        "currency": "USD",
+        "minimum": 12,
+        "maximum": 16
+      },
+      "hold": "6-12 months",
+      "exit_target": {
+        "raw": "30",
+        "currency": "USD",
+        "minimum": 30,
+        "maximum": 30
+      },
+      "reasoning": [
+        "Hit bottom price around $12 and is now ticking up to $15-$16",
+        "Other Secret Layer version is sitting around $30, providing a price-matching target"
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 877,
+      "end_seconds": 923,
+      "evidence_excerpt": "This one to basically double up from 15 to match the price of the other Secret Layer drop version just seems like a a spot I want to be in.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-53a30aa9997e6af7",
+      "timestamp": "00:14:37",
+      "listen_url": "https://feeds.soundcloud.com/stream/2104611723-user-519789566-mtg-fast-finance-ep-478-final-fantasy-previews-part-3.mp3#t=877"
+    },
+    {
+      "card": "Hedge Maze",
+      "printing": "Regular",
+      "printing_certainty": "confirmed",
+      "foil": false,
+      "hosts": [
+        "Cliff Degle"
+      ],
+      "recommendation": "buy",
+      "mentioned_price": "12",
+      "entry_target": {
+        "raw": "12",
+        "currency": "USD",
+        "minimum": 12,
+        "maximum": 12
+      },
+      "hold": "6-12 months",
+      "exit_target": {
+        "raw": "20",
+        "currency": "USD",
+        "minimum": 20,
+        "maximum": 20
+      },
+      "reasoning": [
+        "Surveil lands are very popular in standard with two years of legality remaining",
+        "Blue surveil lands carry higher demand and pricing",
+        "High inclusion rate in Commander and testing adoption in Modern and Legacy due to fetch land synergies"
+      ],
+      "caveats": [
+        "Reprint risk over time"
+      ],
+      "confidence": "medium",
+      "start_seconds": 927,
+      "end_seconds": 1055,
+      "evidence_excerpt": "So the regular non foils at $12, I think will hit 20 sometime in the next 6 to 12 months.",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-e1f9d1f4adcb01cf",
+      "timestamp": "00:15:27",
+      "listen_url": "https://feeds.soundcloud.com/stream/2104611723-user-519789566-mtg-fast-finance-ep-478-final-fantasy-previews-part-3.mp3#t=927"
+    }
+  ]
+}
