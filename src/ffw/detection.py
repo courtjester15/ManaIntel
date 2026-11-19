@@ -36,6 +36,14 @@ PICK_CUE_PATTERNS = (
     r"\b(?:let(?:'s| us)|time to)\s+(?:get into|do|talk about)\s+(?:our\s+)?(?:cards?|picks?)\b",
     r"\bi(?:'m| am)\s+(?:going|gonna)\s+with\b",
 )
+# A late "other/final card to watch" continues a block; it must not erase an
+# earlier first-pick handoff. Generic "other card" market commentary is too weak
+# to establish that earlier start (FF539).
+FF_OPENING_CUE_PATTERNS = (
+    r"\b(?:what(?:'s| is)\s+your|my)\s+first\s+(?:selection|pick|card)\b",
+    r"\bi(?:'m| am)\s+(?:still\s+)?keeping\s+my\s+eye\s+on\b",
+)
+FF_CONTINUATION_MARKER = r"\b(?:second|next|other|last|final)\s+card\s+to\s+watch\b"
 TOPIC_TRANSITION_PATTERNS = (
     r"^\s*(?:all righty|all right|okay)[,.!\s]+so\b",
     r"\btopic\s+of\s+the\s+week\b",
@@ -205,6 +213,13 @@ def locate_cards_to_watch(
     if explicit_indexes:
         start_index = _best_explicit_start(explicit_indexes, implicit_indexes)
         start_signal = "explicit_section_marker"
+        if re.search(FF_CONTINUATION_MARKER, str(ordered[start_index].get("text", "")), re.I):
+            earlier_openings = [index for index in range(start_index)
+                                if _matches(FF_OPENING_CUE_PATTERNS, str(ordered[index].get("text", "")))
+                                and not _is_outline_mention(ordered, index)]
+            if earlier_openings:
+                start_index = earlier_openings[0]
+                start_signal = "recommendation_language"
     elif implicit_indexes:
         start_index = implicit_indexes[0]
         start_signal = "recommendation_language"

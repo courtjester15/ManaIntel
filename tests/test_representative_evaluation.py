@@ -8,6 +8,33 @@ from ffw.transcript_timing import missing_recommendation_content, suspect_timing
 class RepresentativeEvaluationTests(unittest.TestCase):
     """Invented minimal examples, not quotations or accuracy scores."""
 
+    def test_ff_final_card_marker_cannot_hide_earlier_recommendations(self):
+        segments = [
+            {"start": 90, "end": 100, "text": "Today, price updates, cards to watch, and Star Trek previews."},
+            {"start": 250, "end": 270, "text": "The other card in the price movers went up."},
+            {"start": 500, "end": 540, "text": "I'm still keeping my eye on Example Alpha. These foils are a buy."},
+            {"start": 680, "end": 690, "text": "What's your first pick?"},
+            {"start": 690, "end": 800, "text": "My first pick is Example Beta."},
+            {"start": 900, "end": 1100, "text": "Example Gamma is a must buy."},
+            {"start": 1360, "end": 1370, "text": "Tell me about your final card to watch."},
+            {"start": 1370, "end": 1500, "text": "My other card to watch is Example Delta."},
+            {"start": 1800, "end": 1810, "text": "Moving on to the Star Trek previews."},
+        ]
+        result = locate_recommendation_section(segments, "cards_to_watch", title="Star Trek Previews")
+        self.assertEqual((500, 1500), (result["start_seconds"], result["end_seconds"]))
+        self.assertEqual(segments[2:8], result["segments"])
+        self.assertEqual("recommendation_language", result["start_signal"])
+
+    def test_ff_continuation_without_earlier_opening_does_not_expand_into_market_movers(self):
+        segments = [
+            {"start": 250, "end": 270, "text": "The other card on the movers list increased."},
+            {"start": 1360, "end": 1370, "text": "My final card to watch is Example Delta."},
+            {"start": 1370, "end": 1500, "text": "It is worth buying at a dollar."},
+        ]
+        result = locate_recommendation_section(segments, "cards_to_watch")
+        self.assertEqual(1360, result["start_seconds"])
+        self.assertNotIn(segments[0], result["segments"])
+
     def test_ff_selection_handoff_keeps_all_four_recommendations(self):
         segments = [
             {"start": 90, "end": 100, "text": "Then cards to watch, and then previews."},

@@ -631,6 +631,8 @@ class Pipeline:
                     journal.record("verification_warning", exception_class=type(verification_error).__name__, message=str(verification_error))
                     print(f"Targeted verification warning: {type(verification_error).__name__}: {verification_error}")
             warnings = [extraction.get("review_reason"), extraction.get("section", {}).get("review_reason")]
+            if not extraction.get("recommendations"):
+                warnings.append("Extraction returned zero picks; verify section coverage and recommendation intent against source evidence. This is not a confirmed no-recommendations episode.")
             if disposition:
                 warnings.append("Final audio chunk has an inspected machine-supported non-speech disposition; source coverage remains needs review.")
             validated_repairs = {r["chunk"]: r for r in transcript.get("timing_repairs", []) if r.get("validated_audio")}

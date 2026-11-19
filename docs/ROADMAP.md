@@ -4,7 +4,21 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.30. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.31. Next milestone: 0.6 — dependable processing.**
+
+November 18 zero-result investigation (0.5.31): [episode-level evidence](ZERO_RESULTS_2026-11-18.md).
+November 12–18 ordinary attempts: 9/14 failed, 2/14 unexplained empty, 3/14
+with picks. Eight failures encountered provider 503; one exhausted a timing-repair
+budget. FF539 also had a demonstrated start-selection bug: its final-card marker
+hid earlier picks. The fix changes only FF539 among 47 retained-transcript
+selections, from 1363 to 507 seconds; the extraction prompt/model is unchanged.
+New empty extractions now record an explicit coverage/intent review reason in
+state, summaries and attempts. BB651's special set-review evidence remains
+unconfirmed; no invented picks or absence approval. Baseline production is
+146 episodes/550 picks; FF540 recovered to three picks in run 44440121805.
+Next: one inspected FF539 recovery with retained transcript and corrected scope;
+report actual outcome separately from deployment. BB650/652 are exhausted and
+need inspected recovery; leave caps and cooldowns intact. R2 remains open.
 
 November 16 review queue (0.5.30): added a dedicated prioritized source-check
 queue, reachable from navigation and the dashboard. Effective summaries feed

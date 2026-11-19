@@ -49,6 +49,31 @@ class PipelineTests(unittest.TestCase):
         Pipeline.mock(self.settings).run()
         self.assertEqual([], validate_archive(self.settings.archive_dir, self.settings.state_file))
 
+    def test_unexplained_empty_live_extraction_records_review_reason_everywhere(self) -> None:
+        from ffw.models import EpisodeCandidate
+        from unittest.mock import Mock
+        pipeline = Pipeline.mock(self.settings)
+        pipeline.transcriber.transcribe = Mock(return_value={"segments": [
+            {"start": 0, "end": 200, "text": "An episode discussion.", "speaker": None},
+        ], "chunk_count": 1})
+        pipeline.extractor.extract = Mock(return_value={
+            "section": {"located": True, "start_seconds": 100, "end_seconds": 200,
+                        "label": "Cards to Watch", "confidence": "high", "review_reason": None},
+            "recommendations": [], "review_reason": None,
+        })
+        candidate = EpisodeCandidate("empty-live", 539, "Empty extraction", "2026-11-11T00:00:00Z",
+                                     "https://example.test/audio.mp3", "https://example.test/episode", [])
+        result = pipeline.process_episode(candidate)
+        self.assertEqual(("needs_review", 0), (result.status, result.pick_count), result.message)
+        summary = load_json(self.settings.archive_dir / result.output_directory / "summary.json")
+        state = pipeline.state.get(candidate.guid)
+        attempt = load_json(next((self.settings.state_file.parent / "attempts").glob("*.json")))
+        for record in (summary["processing"], state, attempt):
+            self.assertIn("zero picks", record["review_reason"])
+            self.assertIn("not a confirmed no-recommendations", record["review_reason"])
+        self.assertEqual({"coverage", "intent"}, {i["code"] for i in state["review_issues"]})
+        self.assertEqual(1, pipeline.extractor.extract.call_count)
+
     def test_markdown_is_derived_from_json(self) -> None:
         Pipeline.mock(self.settings).run()
         summary_path = next((self.settings.archive_dir / "episodes").glob("*/summary.json"))
