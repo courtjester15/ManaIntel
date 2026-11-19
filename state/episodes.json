@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.31",
-  "updated_at": "2026-11-19T07:33:49Z",
+  "updated_at": "2026-11-19T13:13:05Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -28667,6 +28667,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-11-03T12:02:14Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-19T13:12:45Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-19T13:12:45Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-19T13:12:47Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-19T13:12:47Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-19T13:12:58Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-19T13:13:05Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-19T13:13:05Z"
         }
       ],
       "title": "MTG Fast Finance Ep 491: Collector Booster Collections For The Win",
@@ -28674,11 +28702,11 @@
       "published_at": "2025-08-29T14:49:49Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 8,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-11-03T12:02:14Z",
+      "updated_at": "2026-11-19T13:13:05Z",
       "output_directory": "episodes/0491-collector-booster-collections-for-the-win",
       "transcription": {
         "provider": "Gemini",
@@ -28842,15 +28870,15 @@
       ],
       "last_attempt_error": {
         "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
+        "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 6.9s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
         "synthetic": false,
-        "retryable": true,
-        "provider_wide": false,
-        "attempt": 2,
+        "retryable": false,
+        "provider_wide": true,
+        "attempt": 3,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-03T18:02:14Z",
-        "quarantined": false
+        "next_retry_at": null,
+        "quarantined": true
       }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15708": {
