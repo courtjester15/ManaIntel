@@ -16,9 +16,16 @@ New empty extractions now record an explicit coverage/intent review reason in
 state, summaries and attempts. BB651's special set-review evidence remains
 unconfirmed; no invented picks or absence approval. Baseline production is
 146 episodes/550 picks; FF540 recovered to three picks in run 44440121805.
-Next: one inspected FF539 recovery with retained transcript and corrected scope;
-report actual outcome separately from deployment. BB650/652 are exhausted and
-need inspected recovery; leave caps and cooldowns intact. R2 remains open.
+Shipped `0188107`; [release 44450540114](https://github.com/courtjester15/ManaIntel/actions/runs/44450540114)
+passed all 284 production tests, validation, staged fidelity and Pages.
+[FF539 recovery 44450652703](https://github.com/courtjester15/ManaIntel/actions/runs/44450652703)
+reused the transcript and made two successful calls, recovering four picks.
+Persistence and Pages passed; served verification reports 146 episodes/554 picks
+and zero findings. FF539 stays needs_review: final SOLDIER Military Program
+discussion remains omitted and speaker/variant details are not source-certified.
+Next: source-check that final-card discussion/attribution, then compare bounded
+extraction evidence before changing defaults; no unchanged force. BB650/652 are
+exhausted and need inspected recovery; leave caps and cooldowns intact. R2 remains open.
 
 November 16 review queue (0.5.30): added a dedicated prioritized source-check
 queue, reachable from navigation and the dashboard. Effective summaries feed

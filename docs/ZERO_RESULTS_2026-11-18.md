@@ -25,6 +25,13 @@ The recent capacity ledger does not show daily quota exhaustion: November 15,
 the configured 48-request application budget. Provider overload is distinct from
 that budget and from an observed daily-quota refusal.
 
+Across those ordinary attempts, 85 model calls produced 75 successful responses,
+eight 503s and two MAX_TOKENS rejections. All nine failed attempts stopped during
+transcription/repair, before extraction. An episode needs its coverage checks to
+pass before publishing recommendations, so one failed request can leave the
+whole episode at zero even when several prior requests succeeded. Saved chunks
+reduce repeated work but do not themselves produce publishable picks.
+
 Eight forced cleanup/recovery attempts in the same date window are separate:
 three failed, four published machine output and one retained its previous
 publication after a replacement regression. None establishes an empty episode.
@@ -101,3 +108,31 @@ Local validation: all 284 tests pass (two Git persistence tests required
 subprocess access outside the Windows sandbox); archive validation and all 45
 existing evaluation assertions pass. The 47-transcript boundary replay is
 read-only and does not certify audio accuracy or missing optional recommendations.
+
+## Shipped and observed recovery
+
+Implementation `0188107`; [release 44450540114](https://github.com/courtjester15/ManaIntel/actions/runs/44450540114)
+passed all 284 production tests, archive validation, staged publication fidelity
+and Pages. Served catalogs initially verified 146 episodes/550 picks, zero
+findings.
+
+[Recovery 44450652703](https://github.com/courtjester15/ManaIntel/actions/runs/44450652703)
+reused the exact inspected transcript, found no remaining timing suspects and
+made two successful provider calls: one extraction and one name verification.
+It published four FF539 picks (Shang-Chi, Dawnsire, Sensei's Divining Top and
+Esper Sentinel), taking FF539 from zero to four and the archive from 550 to 554.
+The record remains needs_review for unresolved Dawnsire catalog identity. No
+other episode summary changed. Persistence, staged fidelity and Pages succeeded;
+the served verifier confirms all three catalogs, 146 episodes/554 picks and zero
+findings. The episode now has four total attempts, including this explicitly
+inspected force; the ordinary three-attempt cap was not reset.
+
+The final SOLDIER Military Program discussion is still absent despite now
+being inside the supplied section. This is direct evidence of a remaining model
+omission separate from the repaired start boundary; do not claim complete
+recovery. Extracted speaker labels/paired attribution and exact variant details
+also lack independent source verification. No human approval was applied. Next:
+source-check that final-card discussion and attribution, and use the retained
+before/after output for a bounded extraction comparison before changing defaults.
+Do not launch another unchanged force. BB651 remains unconfirmed; BB650/652
+remain separate exhausted recovery cases. Private evidence remains protected.
