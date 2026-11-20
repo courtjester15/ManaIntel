@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.31",
-  "updated_at": "2026-11-19T13:13:05Z",
+  "updated_at": "2026-11-20T01:50:24Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -39220,6 +39220,65 @@
           "state": "unresolved"
         }
       ]
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=36660": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36660",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-20T01:46:24Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-20T01:46:24Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-20T01:46:24Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-20T01:46:24Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-20T01:46:25Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-20T01:46:25Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-20T01:46:34Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-20T01:50:24Z"
+        }
+      ],
+      "title": "We Got A Fourth Pro Tour Before We Got GTA VI | Brainstorm Brewery #727 | Magic Finance",
+      "episode_number": 727,
+      "published_at": "2026-11-20T00:45:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-20T07:50:24Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-20T01:50:24Z",
+      "output_directory": "episodes/0727-we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finan"
     }
   }
 }

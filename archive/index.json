@@ -6,7 +6,7 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.31",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-19T13:13:06Z",
+    "generated_at": "2026-11-20T01:50:25Z",
     "latest_successful_run_at": "2026-11-19T07:33:49Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -25,69 +25,70 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 146,
+    "real_episode_count": 147,
     "real_pick_count": 558,
-    "last_discovered_episode_date": "2026-11-16T22:57:04Z",
+    "last_discovered_episode_date": "2026-11-20T00:45:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 146,
+    "episodes": 147,
     "picks": 558,
     "needs_review": 65,
-    "failed": 3,
+    "failed": 4,
     "completed": 78
   },
   "status_counts": {
+    "failed": 4,
     "needs_review": 65,
-    "complete": 78,
-    "failed": 3
+    "complete": 78
   },
   "latest_episode": {
-    "guid": "tag:soundcloud,2010:tracks/2439646461",
-    "episode_number": 540,
-    "title": "MTG Fast Finance Ep 540: Star Trek Previews Part 2",
-    "published_at": "2026-11-16T22:57:04Z",
-    "audio_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3",
-    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-540-star",
-    "duration_seconds": 3860,
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36660",
+    "episode_number": 727,
+    "title": "We Got A Fourth Pro Tour Before We Got GTA VI | Brainstorm Brewery #727 | Magic Finance",
+    "published_at": "2026-11-20T00:45:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_727_We_Got_A_Fourth_Pro_Tour_Before_We_Got_GTA_VI.mp3",
+    "episode_url": "https://brainstormbrewery.com/we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finance/",
+    "duration_seconds": 2927,
     "hosts": [
-      "MTG Fast Finance"
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
     ],
-    "description": "Your favorite card slinging starship officers jump in with all the latest in Magic the Gathering card price action for the week, including meta updates, cards to watch and the second half of their look at Star Trek x MTG cards they like.\n\nIntro/Outro Music by Skylarka",
-    "source_id": "mtg-fast-finance",
-    "source_name": "MTG Fast Finance",
-    "source_url": "https://www.mtgfastfinance.com/",
-    "extraction_profile": "cards_to_watch",
-    "processing_status": "needs_review",
-    "review_state": "needs_review",
-    "review_reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
-    "review_triage": {
-      "priority": 0,
-      "codes": [
-        "coverage"
-      ],
-      "issues": [
-        {
-          "code": "coverage",
-          "path": "extraction",
-          "reason": "Fewer than four MTG Fast Finance recommendations; verify section completeness.",
-          "state": "unresolved"
-        }
-      ]
-    },
-    "pick_count": 3,
-    "directory": "episodes/0540-star-trek-previews-part-2",
+    "description": "Liz&#160; (@devotedDruid) and Corbin (@CHosler) break down Magic Con Atlanta, Pioneer being ripe for breaking and the revival of the fourth yearly Pro Tour. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery",
+    "processing_status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_triage": null,
+    "pick_count": 0,
+    "directory": "episodes/0727-we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finan",
     "outputs": {
-      "metadata": "episodes/0540-star-trek-previews-part-2/metadata.json",
-      "summary_json": "episodes/0540-star-trek-previews-part-2/summary.json",
-      "summary_markdown": "episodes/0540-star-trek-previews-part-2/summary.md",
+      "metadata": "episodes/0727-we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finan/metadata.json",
+      "summary_json": null,
+      "summary_markdown": null,
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-11-19T01:59:29Z",
-    "error": null,
+    "processed_at": "2026-11-20T01:50:24Z",
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+      "category": "repair_progress_saved",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-11-20T07:50:24Z",
+      "quarantined": false
+    },
     "human_reviewed": false,
     "review_revision": null,
     "reviewed_at": null,
@@ -533,6 +534,58 @@
     }
   ],
   "episodes": [
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36660",
+      "episode_number": 727,
+      "title": "We Got A Fourth Pro Tour Before We Got GTA VI | Brainstorm Brewery #727 | Magic Finance",
+      "published_at": "2026-11-20T00:45:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_727_We_Got_A_Fourth_Pro_Tour_Before_We_Got_GTA_VI.mp3",
+      "episode_url": "https://brainstormbrewery.com/we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finance/",
+      "duration_seconds": 2927,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "Liz&#160; (@devotedDruid) and Corbin (@CHosler) break down Magic Con Atlanta, Pioneer being ripe for breaking and the revival of the fourth yearly Pro Tour. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "failed",
+      "review_state": "not_applicable",
+      "review_reason": null,
+      "review_triage": null,
+      "pick_count": 0,
+      "directory": "episodes/0727-we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finan",
+      "outputs": {
+        "metadata": "episodes/0727-we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finan/metadata.json",
+        "summary_json": null,
+        "summary_markdown": null,
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-11-20T01:50:24Z",
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-20T07:50:24Z",
+        "quarantined": false
+      },
+      "human_reviewed": false,
+      "review_revision": null,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
     {
       "guid": "tag:soundcloud,2010:tracks/2439646461",
       "episode_number": 540,
