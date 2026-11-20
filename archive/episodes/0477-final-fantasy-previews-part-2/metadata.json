@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Live automated pipeline metadata.",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2101668321",
+    "episode_number": 477,
+    "title": "MTG Fast Finance Ep 477: Final Fantasy Previews Part 2",
+    "published_at": "2025-05-24T22:35:16Z",
+    "audio_url": "https://feeds.soundcloud.com/stream/2101668321-user-519789566-mtg-fast-finance-ep-477-final-fantasy-previews-part-2.mp3",
+    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-477-final-fantasy-previews-part-2",
+    "duration_seconds": 4403,
+    "hosts": [
+      "MTG Fast Finance"
+    ],
+    "description": "James and Cliff get down to business with all the latest in Magic card price movement, Modern meta analysis, cards to watch and their ongoing coverage of Final Fantasy x MTG previews.",
+    "source_id": "mtg-fast-finance",
+    "source_name": "MTG Fast Finance",
+    "source_url": "https://www.mtgfastfinance.com/",
+    "extraction_profile": "cards_to_watch"
+  },
+  "processing": {
+    "status": "failed",
+    "review_state": "not_applicable",
+    "review_reason": null,
+    "review_issues": [],
+    "pipeline_version": "0.5.31",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-20T07:19:41Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-20T07:13:30Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-20T07:13:30Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-20T07:13:30Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-20T07:13:30Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-20T07:13:33Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-20T07:13:33Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-20T07:13:47Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-20T07:19:41Z"
+      }
+    ],
+    "error": {
+      "stage": "transcribing",
+      "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+      "category": "repair_progress_saved",
+      "synthetic": false,
+      "retryable": true,
+      "provider_wide": false,
+      "attempt": 1,
+      "max_attempts": 3,
+      "next_retry_at": "2026-11-20T13:19:41Z",
+      "quarantined": false
+    },
+    "transcription": null,
+    "extraction_usage": null
+  },
+  "outputs": {
+    "metadata": "episodes/0477-final-fantasy-previews-part-2/metadata.json",
+    "summary_json": null,
+    "summary_markdown": null
+  }
+}

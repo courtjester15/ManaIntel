@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.31",
-  "updated_at": "2026-11-20T01:50:24Z",
+  "updated_at": "2026-11-20T07:19:41Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -39279,6 +39279,65 @@
       "status": "failed",
       "updated_at": "2026-11-20T01:50:24Z",
       "output_directory": "episodes/0727-we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finan"
+    },
+    "tag:soundcloud,2010:tracks/2101668321": {
+      "guid": "tag:soundcloud,2010:tracks/2101668321",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-20T07:13:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-20T07:13:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-20T07:13:30Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-20T07:13:30Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-20T07:13:33Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-20T07:13:33Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-20T07:13:47Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-20T07:19:41Z"
+        }
+      ],
+      "title": "MTG Fast Finance Ep 477: Final Fantasy Previews Part 2",
+      "episode_number": 477,
+      "published_at": "2025-05-24T22:35:16Z",
+      "source_id": "mtg-fast-finance",
+      "source_name": "MTG Fast Finance",
+      "attempt_count": 1,
+      "pick_count": 0,
+      "error": {
+        "stage": "transcribing",
+        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
+        "category": "repair_progress_saved",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": false,
+        "attempt": 1,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-20T13:19:41Z",
+        "quarantined": false
+      },
+      "status": "failed",
+      "updated_at": "2026-11-20T07:19:41Z",
+      "output_directory": "episodes/0477-final-fantasy-previews-part-2"
     }
   }
 }
