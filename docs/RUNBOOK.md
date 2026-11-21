@@ -41,6 +41,26 @@ One concurrency group serializes all writers. The 20:17 UTC `next` run scans new
 
 The October 16 schedule experiment targets evening provider availability: triggers at 4:17 p.m. / 8:17 p.m. EDT aim for actual starts around 6–8 p.m. / 10 p.m.–midnight if the observed 2–4-hour GitHub delay persists. Fixed UTC schedules shift to 3:17 p.m. / 7:17 p.m. EST in winter. Starts may be prompt, much later, or missed; do not treat lag as a guaranteed offset. The two triggers are four hours apart: a new failure may still be cooling down at the second run, which then considers an untouched episode instead. The existing low-pick queue times and successful-primary gate remain in place. Compare actual model-call times and usable episode outcomes after two weeks of ordinary processing; do not manufacture calls to fill the sample.
 
+### Periodic provider recovery (0.5.32)
+
+The three-attempt rule above still bounds semantic/model-output and ambiguous
+failures. Explicit transient-provider outages (HTTP 500/502/503/504 or supported
+network timeouts/disconnections) now renew eligibility after 48 hours at lifetime
+attempts 3–5, then weekly from attempt 6. This uses the existing daily retry
+slot; it adds no workflow or provider budget. New untouched releases within seven
+days take priority. Eligibility is reassessed on selection, including legacy
+outage records; source metadata and lifetime counters are preserved. Catalogs
+project the same eligibility without changing original failure evidence.
+
+Manual-review gates, quota/configuration errors, ambiguous shared-capacity stops,
+synthetic episodes, semantic empty extractions and exhausted repair budgets do
+not gain this exception. Missing or invalid failure timestamps cannot renew.
+Every new attempt still respects the shared capacity ledger, provider cooldown,
+repair limits and checkpoint fingerprints. A new semantic/manual failure stops
+periodic recovery. Repeated pure outages back off rather than disappearing from
+consideration. Status shows lifetime attempts, backoff and eligible-after/since,
+without promising a queued job. No episode is approved by this scheduling policy.
+
 ## One-time GitHub setup
 
 1. Open the repository, then **Settings -> Secrets and variables -> Actions -> New repository secret**. Name the production secret exactly `GEMINI_API_KEY` and paste a valid Google AI Studio API key. Do not add an OpenAI key for the checked-in production workflow.

@@ -24,6 +24,7 @@ from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json
 from .verification import GeminiPickVerifier
 from .review_issues import collect_review_issues, published_version_regression
 from .validation import validate_archive
+from .recovery import renew_provider_outage
 
 PERMANENT_PROVIDER_ERROR_PATTERNS = (
     "401",
@@ -332,10 +333,12 @@ class Pipeline:
                     report.completed_skipped += 1
                     continue
                 if status == "failed":
-                    error = record.get("error") or {}
+                    error = renew_provider_outage(record.get("error"), record.get("updated_at"),
+                        attempt=int(record.get("attempt_count", 0)), maximum=self.settings.max_episode_attempts) or {}
                     if (classify_failure(error.get("message", ""))[0] == "manual_intervention"
                             or not error.get("retryable", False)
-                            or int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts):
+                            or (int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts
+                                and error.get("recovery_mode") != "periodic_provider")):
                         report.retry_exhausted += 1
                         continue
                     retry_at = _parse_timestamp(error.get("next_retry_at"))
@@ -371,10 +374,12 @@ class Pipeline:
                 continue
             if policy == "failed_only":
                 if status == "failed":
-                    error = record.get("error") or {}
+                    error = renew_provider_outage(record.get("error"), record.get("updated_at"),
+                        attempt=int(record.get("attempt_count", 0)), maximum=self.settings.max_episode_attempts) or {}
                     if (classify_failure(error.get("message", ""))[0] == "manual_intervention"
                             or not error.get("retryable", False)
-                            or int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts):
+                            or (int(record.get("attempt_count", 0)) >= self.settings.max_episode_attempts
+                                and error.get("recovery_mode") != "periodic_provider")):
                         report.retry_exhausted += 1
                         continue
                     retry_at = _parse_timestamp(error.get("next_retry_at"))
@@ -810,23 +815,20 @@ class Pipeline:
                 next_retry_at = (
                     datetime.now(timezone.utc) + timedelta(hours=self.settings.retry_cooldown_hours)
                 ).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+            failure_time = datetime.now(timezone.utc).isoformat()
+            failure_error = renew_provider_outage({
+                "stage": failed_stage, "message": safe_message(exc), "category": category,
+                "synthetic": episode.synthetic, "retryable": retryable, "provider_wide": provider_wide,
+                "attempt": attempt_count, "max_attempts": self.settings.max_episode_attempts,
+                "next_retry_at": next_retry_at,
+                "quarantined": bool(exhausted or (not retryable and not provider_wide)),
+            }, failure_time)
             self.state.transition(
                 episode.guid,
                 "failed",
                 output_directory=relative_output,
                 pick_count=0,
-                error={
-                    "stage": failed_stage,
-                    "message": safe_message(exc),
-                    "category": category,
-                    "synthetic": episode.synthetic,
-                    "retryable": retryable,
-                    "provider_wide": provider_wide,
-                    "attempt": attempt_count,
-                    "max_attempts": self.settings.max_episode_attempts,
-                    "next_retry_at": next_retry_at,
-                    "quarantined": bool(exhausted or (not retryable and not provider_wide)),
-                },
+                error=failure_error,
             )
             if baseline_summary is not None:
                 failed_error = (self.state.get(episode.guid) or {}).get("error")

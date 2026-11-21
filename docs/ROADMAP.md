@@ -4,7 +4,25 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.31. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.32. Next milestone: 0.6 — dependable processing.**
+
+November 20 first autonomous-review pass (0.5.32): implemented bounded provider
+recovery eligibility instead of permanent abandonment after three outage attempts.
+Latest production shows BB727 failing its second attempt on another 503; FF478
+has recovered four picks. Baseline: 148 episodes/557 picks, five failed.
+Explicit transient-provider outages renew after 48 hours at lifetime attempts
+3–5; from attempt 6 they back off to weekly. Lifetime counters never reset.
+Existing daily retry selection handles recoveries, at most one episode per run,
+with new-release priority and shared budgets unchanged. Legacy BB650/652 qualify;
+ambiguous BB653 provider-limit evidence, manual gates, quota/configuration
+failures, semantic empties and exhausted repair budgets do not. Catalog status
+projects the same policy without rewriting original evidence. Six new Python
+regressions and one Node status check cover cooldowns, backoff, priority,
+exclusion gates, immutable history and actual failure writes. All 290 Python
+tests pass across the full run plus focused additions/reruns; archive validation
+and 45 existing evaluation assertions pass. No inference/manual recovery calls.
+Next: verify deployment and observe ordinary selected recoveries; source-check
+FF539's omitted final discussion and attribution. R2 remains open.
 
 November 18 zero-result investigation (0.5.31): [episode-level evidence](ZERO_RESULTS_2026-11-18.md).
 November 12–18 ordinary attempts: 9/14 failed, 2/14 unexplained empty, 3/14

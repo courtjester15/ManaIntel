@@ -11,6 +11,7 @@ from .reviews import apply_review, load_episode_review, review_revision
 from .review_issues import review_triage
 from .utils import atomic_write_json, atomic_write_text, load_json
 from .models import utc_now
+from .recovery import renew_provider_outage
 
 
 SYNTHETIC_NOTICE = (
@@ -77,7 +78,7 @@ def rebuild_catalog(
             "directory": metadata_path.parent.relative_to(archive_dir).as_posix(),
             "outputs": outputs,
             "processed_at": processing.get("processed_at"),
-            "error": processing.get("error"),
+            "error": renew_provider_outage(processing.get("error"), processing.get("processed_at")),
             "human_reviewed": bool(human_review),
             "review_revision": review_revision(review),
             "reviewed_at": human_review.get("reviewed_at") if human_review else None,

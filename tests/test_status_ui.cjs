@@ -14,6 +14,15 @@ const retry = { category: 'repair_progress_saved', retryable: true, attempt: 2, 
   next_retry_at: '2026-10-31T13:00:00Z' };
 function action(error) { context.error = error; context.now = now; return vm.runInContext('recoveryAction(error, now)', context); }
 
+test('periodic outages retain lifetime counts and explain renewed eligibility', () => {
+  const error = { ...retry, attempt: 6, recovery_mode: 'periodic_provider', recovery_interval_hours: 168 };
+  assert.match(action(error), /6 lifetime attempts retained/);
+  assert.match(action(error), /weekly backoff/);
+  assert.match(action(error), /Eligible after/);
+  assert.doesNotMatch(action(error), /limit reached/);
+  assert.match(action({ ...error, quarantined: true }), /limit reached/);
+});
+
 test('exhausted saved repairs cannot promise scheduled recovery even with stale retry flags', () => {
   assert.match(action({ ...retry, attempt: 3 }), /Automatic retry limit reached/);
   assert.doesNotMatch(action({ ...retry, attempt: 3 }), /later scheduled run/);

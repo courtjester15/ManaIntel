@@ -308,6 +308,11 @@ function recoveryAction(error, now = Date.now()) {
   const maximum = Number(error.max_attempts);
   const remaining = Number.isInteger(attempt) && Number.isInteger(maximum) && attempt >= 0 && maximum > attempt
     ? `${maximum - attempt} automatic ${maximum - attempt === 1 ? "attempt remains" : "attempts remain"}. ` : "";
+  if (error.recovery_mode === "periodic_provider" && error.retryable === true && !error.quarantined) {
+    const eligible = Date.parse(error.next_retry_at);
+    if (!Number.isFinite(eligible)) return "Provider recovery timing is not recorded; inspect the workflow.";
+    return `Periodic provider recovery: ${attempt} lifetime attempts retained. Eligible ${eligible > now ? "after" : "since"} ${formatDateTime(error.next_retry_at)}; ${error.recovery_interval_hours === 168 ? "weekly" : "48-hour"} backoff. A scheduled retry run may select this episode, subject to new-release priority and shared capacity. Eligibility does not mean a job is queued or running.`;
+  }
   if (maximum > 0 && attempt >= maximum) {
     return "Automatic retry limit reached. Inspect retained evidence before a manual recovery; saved progress is preserved.";
   }
