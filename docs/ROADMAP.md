@@ -9,7 +9,8 @@ Updated October 15, 2026. This is the active roadmap, replacing the maintenance-
 November 20 first autonomous-review pass (0.5.32): implemented bounded provider
 recovery eligibility instead of permanent abandonment after three outage attempts.
 Latest production shows BB727 failing its second attempt on another 503; FF478
-has recovered four picks. Baseline: 148 episodes/557 picks, five failed.
+has recovered four picks. Published baseline: 148 episodes/558 picks, five failed
+(the source-only diagnostic excludes a durable review addition).
 Explicit transient-provider outages renew after 48 hours at lifetime attempts
 3–5; from attempt 6 they back off to weekly. Lifetime counters never reset.
 Existing daily retry selection handles recoveries, at most one episode per run,
@@ -21,8 +22,16 @@ regressions and one Node status check cover cooldowns, backoff, priority,
 exclusion gates, immutable history and actual failure writes. All 290 Python
 tests pass across the full run plus focused additions/reruns; archive validation
 and 45 existing evaluation assertions pass. No inference/manual recovery calls.
-Next: verify deployment and observe ordinary selected recoveries; source-check
-FF539's omitted final discussion and attribution. R2 remains open.
+Shipped `416ee9c`; [production 44852392480](https://github.com/courtjester15/ManaIntel/actions/runs/44852392480)
+passed checks, staged fidelity and Pages. Served 0.5.32 catalogs verify all three
+files, 148 episodes/558 picks, zero findings, with BB650/652 renewed and BB653
+still gated. Source episode records, state and durable reviews are unchanged.
+Seven-day offline health: initial 0/6 usable, retry 3/8, forced 2/9 with six
+prior publications preserved; publication observations were not fetched for that
+offline report. This is not a sustained-reliability or source-accuracy claim.
+Next: observe ordinary selected recoveries; source-check FF539's omitted final
+discussion and attribution. R2 remains open. Weekly Codex review is authorized
+for Mondays at 23:00 America/New_York while the local app/computer are available.
 
 November 18 zero-result investigation (0.5.31): [episode-level evidence](ZERO_RESULTS_2026-11-18.md).
 November 12–18 ordinary attempts: 9/14 failed, 2/14 unexplained empty, 3/14
