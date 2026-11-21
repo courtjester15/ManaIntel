@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.31",
-  "updated_at": "2026-11-21T01:30:40Z",
+  "pipeline_version": "0.5.32",
+  "updated_at": "2026-11-21T12:41:34Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -36164,6 +36164,42 @@
         {
           "status": "needs_review",
           "timestamp": "2026-11-05T00:54:56Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-21T12:41:25Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-21T12:41:25Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-21T12:41:27Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-21T12:41:27Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-21T12:41:31Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-21T12:41:31Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-21T12:41:31Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-21T12:41:34Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-21T12:41:34Z"
         }
       ],
       "title": "MTG Fast Finance EP 481: Final Fantasy Takes Control",
@@ -36171,11 +36207,11 @@
       "published_at": "2025-06-24T06:24:58Z",
       "source_id": "mtg-fast-finance",
       "source_name": "MTG Fast Finance",
-      "attempt_count": 2,
+      "attempt_count": 3,
       "pick_count": 4,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-11-05T00:54:56Z",
+      "updated_at": "2026-11-21T12:41:34Z",
       "output_directory": "episodes/0481-final-fantasy-takes-control",
       "transcription": {
         "provider": "Gemini",
@@ -36313,7 +36349,21 @@
           "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
           "state": "unresolved"
         }
-      ]
+      ],
+      "last_attempt_error": {
+        "stage": "extracting",
+        "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 3,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-23T12:41:34Z",
+        "quarantined": false,
+        "recovery_mode": "periodic_provider",
+        "recovery_interval_hours": 48
+      }
     },
     "brainstorm-brewery:https://brainstormbrewery.com/?p=15679": {
       "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15679",
