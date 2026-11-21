@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "attempt_id": "21968f82b7184ef097e3c91c714480df",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36660",
+    "number": 727,
+    "title": "We Got A Fourth Pro Tour Before We Got GTA VI | Brainstorm Brewery #727 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-11-21T01:30:16Z",
+  "pipeline_version": "0.5.31",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "44850477307",
+  "run_attempt": "1",
+  "git_sha": "a89c3ff9b5dc15a6fa6cf08aed2040d396d10d7a",
+  "intervention": "",
+  "context": {
+    "force": false,
+    "retry_failed": true,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "failed",
+    "prior_attempt_count": 1,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-21T01:30:16Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-21T01:30:16Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:17Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:18Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:27Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:27Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:27Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [
+        3
+      ],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-11-21T01:30:38Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 1,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 8.974,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 4036,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 5697,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 72
+          },
+          {
+            "modality": "AUDIO",
+            "token_count": 5625
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 9733,
+        "traffic_type": null
+      },
+      "response_characters": 11783
+    },
+    {
+      "timestamp": "2026-11-21T01:30:38Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:38Z",
+      "event": "transcription_checkpoint_saved",
+      "chunk": 1,
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:40Z",
+      "event": "model_call",
+      "chunk": 1,
+      "subchunk": 2,
+      "stage": "transcribing",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "failed",
+      "exception_class": "ServerError",
+      "message": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "http_status": 503,
+      "request_seconds": 1.529
+    },
+    {
+      "timestamp": "2026-11-21T01:30:40Z",
+      "event": "failure",
+      "stage": "transcribing",
+      "exception_class": "RuntimeError",
+      "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 12.1s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
+      "timestamp": "2026-11-21T01:30:40Z",
+      "event": "stage",
+      "stage": "failed",
+      "pick_count": 0
+    }
+  ],
+  "outcome": "failed",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/44850477307",
+  "finished_at": "2026-11-21T01:30:40Z",
+  "pick_count": 0,
+  "preserved_previous": false,
+  "workflow_validation": "success",
+  "publication_eligible": true
+}

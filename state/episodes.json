@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.31",
-  "updated_at": "2026-11-20T12:56:47Z",
+  "updated_at": "2026-11-21T01:30:40Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -39300,6 +39300,30 @@
         {
           "status": "failed",
           "timestamp": "2026-11-20T01:50:24Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-21T01:30:16Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-21T01:30:16Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-21T01:30:17Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-21T01:30:18Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-21T01:30:27Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-21T01:30:40Z"
         }
       ],
       "title": "We Got A Fourth Pro Tour Before We Got GTA VI | Brainstorm Brewery #727 | Magic Finance",
@@ -39307,22 +39331,22 @@
       "published_at": "2026-11-20T00:45:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 0,
       "error": {
         "stage": "transcribing",
-        "message": "Timing repair progress saved; bounded continuation required for remaining chunks.",
-        "category": "repair_progress_saved",
+        "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 12.1s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
         "synthetic": false,
         "retryable": true,
-        "provider_wide": false,
-        "attempt": 1,
+        "provider_wide": true,
+        "attempt": 2,
         "max_attempts": 3,
-        "next_retry_at": "2026-11-20T07:50:24Z",
+        "next_retry_at": "2026-11-21T07:30:40Z",
         "quarantined": false
       },
       "status": "failed",
-      "updated_at": "2026-11-20T01:50:24Z",
+      "updated_at": "2026-11-21T01:30:40Z",
       "output_directory": "episodes/0727-we-got-a-fourth-pro-tour-before-we-got-gta-vi-brainstorm-brewery-727-magic-finan"
     },
     "tag:soundcloud,2010:tracks/2101668321": {
