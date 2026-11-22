@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.32",
-  "updated_at": "2026-11-22T06:45:37Z",
+  "updated_at": "2026-11-22T12:38:39Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -5760,6 +5760,34 @@
         {
           "status": "needs_review",
           "timestamp": "2026-08-07T11:22:22Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-22T12:37:19Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-22T12:37:19Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-22T12:37:21Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-22T12:37:21Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-22T12:37:31Z"
+        },
+        {
+          "status": "failed",
+          "timestamp": "2026-11-22T12:38:39Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-22T12:38:39Z"
         }
       ],
       "title": "Smaug VS The Infinite Stones | Brainstorm Brewery #712 | Magic Finance",
@@ -5767,11 +5795,11 @@
       "published_at": "2026-08-07T06:01:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 5,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-08-07T11:22:22Z",
+      "updated_at": "2026-11-22T12:38:39Z",
       "output_directory": "episodes/0000-smaug-vs-the-infinite-stones-brainstorm-brewery-712-magic-finance-41c4b162",
       "transcription": {
         "provider": "Gemini",
@@ -5918,7 +5946,21 @@
         "total_token_count": 15539,
         "traffic_type": null
       },
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction."
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "last_attempt_error": {
+        "stage": "transcribing",
+        "message": "Gemini transcription chunk 3/4 failed after 3.8s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "category": "transient_provider",
+        "synthetic": false,
+        "retryable": true,
+        "provider_wide": true,
+        "attempt": 2,
+        "max_attempts": 3,
+        "next_retry_at": "2026-11-22T18:38:39Z",
+        "quarantined": false
+      },
+      "review_issues": [],
+      "extraction_model": null
     },
     "tag:soundcloud,2010:tracks/286511008": {
       "guid": "tag:soundcloud,2010:tracks/286511008",
