@@ -27,12 +27,12 @@
     "review_state": "not_applicable",
     "review_reason": null,
     "review_issues": [],
-    "pipeline_version": "0.5.31",
+    "pipeline_version": "0.5.32",
     "schema_version": "1.1.0",
     "transcription_model": "gemini-3.5-flash-lite",
     "extraction_model": "gemini-3.5-flash-lite",
     "prompt_version": "source-recommendations-v4-metadata-context",
-    "processed_at": "2026-11-21T01:30:40Z",
+    "processed_at": "2026-11-22T00:20:58Z",
     "history": [
       {
         "status": "detected",
@@ -89,19 +89,45 @@
       {
         "status": "failed",
         "timestamp": "2026-11-21T01:30:40Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-22T00:19:43Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-22T00:19:43Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-22T00:19:44Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-22T00:19:44Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-22T00:19:51Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-22T00:20:58Z"
       }
     ],
     "error": {
       "stage": "transcribing",
-      "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 12.1s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+      "message": "Timing/coverage repair of original chunk 3/4 failed: Gemini transcription chunk 1/1 failed after 66.3s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
       "category": "transient_provider",
       "synthetic": false,
       "retryable": true,
       "provider_wide": true,
-      "attempt": 2,
+      "attempt": 3,
       "max_attempts": 3,
-      "next_retry_at": "2026-11-21T07:30:40Z",
-      "quarantined": false
+      "next_retry_at": "2026-11-24T00:20:58Z",
+      "quarantined": false,
+      "recovery_mode": "periodic_provider",
+      "recovery_interval_hours": 48
     },
     "transcription": null,
     "extraction_usage": null
