@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.32",
-  "updated_at": "2026-11-22T12:38:39Z",
+  "updated_at": "2026-11-23T00:52:03Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -38869,6 +38869,50 @@
         {
           "status": "failed",
           "timestamp": "2026-11-17T07:55:30Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-23T00:50:53Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-23T00:50:53Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-23T00:50:55Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-23T00:50:55Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-23T00:51:02Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-23T00:51:57Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-23T00:51:57Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-23T00:52:03Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-23T00:52:03Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-23T00:52:03Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-23T00:52:03Z"
         }
       ],
       "title": "11 Hours of Saw-EDH | Brainstorm Brewery #650 | Magic Finance",
@@ -38876,23 +38920,185 @@
       "published_at": "2025-05-30T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 3,
-      "pick_count": 0,
-      "error": {
-        "stage": "transcribing",
-        "message": "Timing/coverage repair of original chunk 2/4 failed: Gemini transcription chunk 1/1 failed after 9.7s: ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "category": "transient_provider",
-        "synthetic": false,
-        "retryable": false,
-        "provider_wide": true,
-        "attempt": 3,
-        "max_attempts": 3,
-        "next_retry_at": null,
-        "quarantined": true
+      "attempt_count": 4,
+      "pick_count": 3,
+      "error": null,
+      "status": "needs_review",
+      "updated_at": "2026-11-23T00:52:03Z",
+      "output_directory": "episodes/0650-11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3083,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 38.502,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16668,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22704,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 205
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39372,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 35.867,
+            "checkpoint_reused": true,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16513,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22705,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 205
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39218,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 69.792,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 19443,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22705,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 205
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 42148,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 383,
+            "request_seconds": 14.121,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 6154,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 9766,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 205
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 9561
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 15920,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 1,
+        "audio_dispositions": []
       },
-      "status": "failed",
-      "updated_at": "2026-11-17T07:55:30Z",
-      "output_directory": "episodes/0650-11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance"
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 911,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 22696,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 22696
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 23607,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Card name has no exact match in Scryfall.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        },
+        {
+          "code": "identity",
+          "path": "recommendations/0",
+          "reason": "Card name has no exact match in Scryfall.",
+          "state": "unresolved"
+        }
+      ]
     },
     "tag:soundcloud,2010:tracks/2439646461": {
       "guid": "tag:soundcloud,2010:tracks/2439646461",

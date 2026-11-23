@@ -1,0 +1,469 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15672",
+    "episode_number": 650,
+    "title": "11 Hours of Saw-EDH | Brainstorm Brewery #650 | Magic Finance",
+    "published_at": "2025-05-30T06:00:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_650_11_Hours_of_Saw-EDH.mp3",
+    "episode_url": "https://brainstormbrewery.com/11-hours-of-saw-edh-brainstorm-brewery-650-magic-finance/",
+    "duration_seconds": 3083,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "Cass  (@devotedDruid), DJ (@CardgardenMTG), and Corbin (@CHosler) are all back together to talk about the 11-Hour game, Final Fantasy Strategies, and Cash Flow. Check us out on Youtube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "needs_review",
+    "review_state": "needs_review",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction. Card name has no exact match in Scryfall.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "unresolved"
+      },
+      {
+        "code": "identity",
+        "path": "recommendations/0",
+        "reason": "Card name has no exact match in Scryfall.",
+        "state": "unresolved"
+      }
+    ],
+    "pipeline_version": "0.5.32",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v4-metadata-context",
+    "processed_at": "2026-11-23T00:52:03Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-15T23:58:15Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-15T23:58:16Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-15T23:58:16Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-15T23:58:22Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-16T00:00:45Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-16T06:25:44Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-16T06:25:44Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-16T06:25:46Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-16T06:25:46Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-16T06:25:53Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-16T06:25:57Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-17T07:53:48Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-17T07:53:48Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-17T07:53:49Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-17T07:53:49Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-17T07:53:56Z"
+      },
+      {
+        "status": "failed",
+        "timestamp": "2026-11-17T07:55:30Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-23T00:50:53Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-23T00:50:53Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-23T00:50:55Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-23T00:50:55Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-23T00:51:02Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-23T00:51:57Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-23T00:51:57Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-23T00:52:03Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-23T00:52:03Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-23T00:52:03Z"
+      },
+      {
+        "status": "needs_review",
+        "timestamp": "2026-11-23T00:52:03Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3083,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.502,
+          "checkpoint_reused": true,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16668,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22704,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 205
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39372,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 35.867,
+          "checkpoint_reused": true,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 16513,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22705,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 205
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39218,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 69.792,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 19443,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22705,
+            "prompt_tokens_details": [
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              },
+              {
+                "modality": "TEXT",
+                "token_count": 205
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 42148,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 383,
+          "request_seconds": 14.121,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 6154,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 9766,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 205
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 9561
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 15920,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 1,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 911,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 22696,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 22696
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 23607,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 1562,
+    "end_seconds": 3049,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Gold-border cards",
+      "printing": "Pre-modern",
+      "printing_certainty": "likely",
+      "foil": null,
+      "hosts": [
+        "DJ"
+      ],
+      "recommendation": "Buy/Look into",
+      "mentioned_price": null,
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Pre-modern format is going to boom."
+      ],
+      "caveats": [
+        "Gold-border survival is at its peak and should be avoided."
+      ],
+      "confidence": "medium",
+      "start_seconds": 2862,
+      "end_seconds": 2920,
+      "evidence_excerpt": "gold-border pre-modern magic cards... I think gold-border survival is at its peak, that is one that I would stay away from",
+      "review_status": "needs_review",
+      "review_reason": "Card name has no exact match in Scryfall.",
+      "automated_verification": {
+        "method": "focused_audio_scryfall",
+        "model": "gemini-3.5-flash-lite",
+        "original_card": "Gold-border cards",
+        "candidate_card": null,
+        "decision": "ambiguous",
+        "accepted": false,
+        "explanation": "The speaker is discussing a category of cards ('gold-border pre-modern magic cards') rather than naming a single specific card."
+      },
+      "id": "pick-d983b8ec506f8394",
+      "timestamp": "00:47:42",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_650_11_Hours_of_Saw-EDH.mp3#t=2862"
+    },
+    {
+      "card": "Sigarda's Aid",
+      "printing": null,
+      "printing_certainty": null,
+      "foil": null,
+      "hosts": [
+        "Cass"
+      ],
+      "recommendation": "Buy/Watch",
+      "mentioned_price": "8 or 9 dollars",
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Powerful in modern with Final Fantasy cards and Commander decks.",
+        "We keep getting more powerful equipment and reducing equipment cost is important."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2922,
+      "end_seconds": 2990,
+      "evidence_excerpt": "Cigar's aid... we just keep getting more and more powerful equipment",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-5da2f1fc580cc018",
+      "timestamp": "00:48:42",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_650_11_Hours_of_Saw-EDH.mp3#t=2922"
+    },
+    {
+      "card": "Danny Pink",
+      "printing": "Doctor Who",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [
+        "Corbin"
+      ],
+      "recommendation": "Buy",
+      "mentioned_price": "$4 to $6",
+      "entry_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "$10",
+        "currency": "USD",
+        "minimum": 10,
+        "maximum": 10
+      },
+      "reasoning": [
+        "Has gone from about four to six and is going to be 10 very shortly."
+      ],
+      "caveats": [],
+      "confidence": "medium",
+      "start_seconds": 2998,
+      "end_seconds": 3049,
+      "evidence_excerpt": "Doctor Who card, Danny Pink... has gone from about four to six and I think it's going to be 10 very shortly",
+      "review_status": "approved",
+      "review_reason": null,
+      "id": "pick-3f99420418922ded",
+      "timestamp": "00:49:58",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_650_11_Hours_of_Saw-EDH.mp3#t=2998"
+    }
+  ]
+}
