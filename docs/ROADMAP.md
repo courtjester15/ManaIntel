@@ -23,9 +23,18 @@ duplicates require review instead of blind retries or automatic merging. The
 regression exercises first publication and forced replacement: baseline bytes
 survive, rejected candidates remain inspectable and the resulting archive validates.
 No provider calls, review approvals, model defaults or retry budgets changed.
-Next: verify release; observe due BB727/BB652 recoveries, inspect any rejected
-candidate before another attempt, and source-check FF539's omitted final pick
-and attribution. R2 and the sustained reliability gate remain open.
+Shipped `edb6661`; [production 45323437573](https://github.com/courtjester15/ManaIntel/actions/runs/45323437573)
+passed all 291 tests, archive validation, staged fidelity and Pages. Served
+verification checks all three catalogs, 148 episodes/561 picks and zero findings;
+original episode records, durable reviews and state are unchanged. Local full
+suite passed 289 tests with two environment-blocked Git tests passing separately;
+the production full suite passes together. All 45 scoped evaluation assertions
+pass. Seven-day offline health: initial 0/3 usable, retry 3/10, forced 1/7 with
+six previous publications preserved; this is not independent source accuracy.
+Scratch preview/apply reclaimed nothing; diagnostic logs remain protected.
+Next: observe due BB727/BB652 recoveries, inspect any rejected candidate before
+another attempt, and source-check FF539's omitted final pick and attribution.
+R2 and the sustained reliability gate remain open.
 
 November 20 first autonomous-review pass (0.5.32): implemented bounded provider
 recovery eligibility instead of permanent abandonment after three outage attempts.
