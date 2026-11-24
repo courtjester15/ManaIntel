@@ -88,6 +88,36 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(first, repeat)
         self.assertNotEqual(first, changed)
 
+    def test_duplicate_candidate_is_retained_and_cannot_publish_or_erase_baseline(self):
+        from copy import deepcopy
+        from unittest.mock import patch
+        for forced in (False, True):
+            with self.subTest(forced=forced):
+                pipeline = Pipeline.mock(self.settings)
+                candidate = pipeline.feed.episodes()[0]
+                if forced:
+                    pipeline.process_episode(candidate, force=True)
+                directory = self.settings.archive_dir / (pipeline.state.get(candidate.guid) or {}).get("output_directory", "absent")
+                before = (directory / "summary.json").read_bytes() if forced else None
+                original = pipeline.extractor.extract
+                def duplicate(item, transcript):
+                    result = deepcopy(original(item, transcript))
+                    result["recommendations"].append(deepcopy(result["recommendations"][0]))
+                    return result
+                with patch.object(pipeline.extractor, "extract", side_effect=duplicate):
+                    result = pipeline.process_episode(candidate, force=True)
+                self.assertEqual("failed", result.status)
+                self.assertIn("Duplicate recommendation identity", result.message)
+                rejected = list((self.settings.work_dir / "reprocess-reports").glob("*.rejected.json"))
+                self.assertTrue(rejected)
+                payload = load_json(rejected[0])
+                self.assertGreater(len(payload["recommendations"]), len({p["id"] for p in payload["recommendations"]}))
+                if forced:
+                    self.assertEqual(before, (directory / "summary.json").read_bytes())
+                from ffw.archive import rebuild_catalog
+                rebuild_catalog(self.settings.archive_dir)
+                self.assertEqual([], validate_archive(self.settings.archive_dir, self.settings.state_file))
+
 
 if __name__ == "__main__":
     unittest.main()

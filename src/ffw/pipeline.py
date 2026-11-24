@@ -716,7 +716,12 @@ class Pipeline:
                                   for pick in summary["recommendations"]])
             metadata = self._build_metadata(episode, final_status, relative_output, summary)
             self.state.transition(episode.guid, "validating")
-            self._validate_before_publish(summary)
+            try:
+                self._validate_before_publish(summary)
+            except ValueError:
+                atomic_write_json(self.settings.work_dir / "reprocess-reports" / f"{slug}.rejected.json", summary)
+                journal.record("candidate_rejected", reason="prepublication_validation", pick_count=len(summary["recommendations"]))
+                raise
             if baseline_summary is not None:
                 atomic_write_json(self.settings.work_dir / "reprocess-reports" / f"{slug}.candidate.json", summary)
             if (
@@ -917,7 +922,14 @@ class Pipeline:
 
     @staticmethod
     def _validate_before_publish(summary: dict[str, Any]) -> None:
+        identities = set()
+        recommendations = set()
         for pick in summary.get("recommendations", []):
+            key = (str(pick.get("card", "")).casefold(), pick.get("printing"), pick.get("start_seconds"))
+            if pick.get("id") in identities or key in recommendations:
+                raise ValueError("Duplicate recommendation identity in extraction; manual review required. Rejected candidate retained privately.")
+            identities.add(pick.get("id"))
+            recommendations.add(key)
             if not pick.get("card") or not pick.get("recommendation"):
                 raise ValueError("Extraction contains a pick without card and recommendation text.")
             if pick.get("start_seconds") is None or not pick.get("evidence_excerpt"):

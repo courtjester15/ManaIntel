@@ -61,6 +61,17 @@ periodic recovery. Repeated pure outages back off rather than disappearing from
 consideration. Status shows lifetime attempts, backoff and eligible-after/since,
 without promising a queued job. No episode is approved by this scheduling policy.
 
+### Rejected duplicate extractions (0.5.33)
+
+Duplicate pick IDs or recommendation keys now fail prepublication validation.
+The candidate is saved as `.ffw-work/reprocess-reports/<episode>.rejected.json`
+and uploaded through the existing private reprocessing artifact (14 days).
+Inspect conflicting fields and source evidence before correcting or retrying;
+do not merge ambiguous records automatically. The failure is manual_intervention,
+so provider-outage renewal cannot bypass it. Existing published files survive a
+failed forced replacement. A journal reporting complete is insufficient recovery
+evidence: full archive validation, durable persistence and Pages must also pass.
+
 ## One-time GitHub setup
 
 1. Open the repository, then **Settings -> Secrets and variables -> Actions -> New repository secret**. Name the production secret exactly `GEMINI_API_KEY` and paste a valid Google AI Studio API key. Do not add an OpenAI key for the checked-in production workflow.

@@ -4,7 +4,28 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.32. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.33. Next milestone: 0.6 — dependable processing.**
+
+November 23 weekly review (0.5.33): ordinary recovery has published three BB650
+picks as needs_review; current archive is 148 episodes/561 picks, four failed.
+BB652's November 21 journal says complete/five picks, but workflow 44878427203
+rejected duplicate pick identities during full archive validation, so those picks
+and successful state were never persisted or deployed. Its subsequent ordinary
+retry reached extraction but hit another 503; it remains failed, zero published
+picks. BB727 remains an outage failure at attempt 3 with periodic eligibility;
+FF477 remains a repair/provider failure at attempt 2. Preserved publications in
+forced cleanup attempts are not new recoveries.
+
+The fix rejects duplicate IDs/recommendation keys before publishing episode
+files or marking an attempt successful. Invalid candidates are retained under
+the existing private reprocessing artifact path/14-day policy, and ambiguous
+duplicates require review instead of blind retries or automatic merging. The
+regression exercises first publication and forced replacement: baseline bytes
+survive, rejected candidates remain inspectable and the resulting archive validates.
+No provider calls, review approvals, model defaults or retry budgets changed.
+Next: verify release; observe due BB727/BB652 recoveries, inspect any rejected
+candidate before another attempt, and source-check FF539's omitted final pick
+and attribution. R2 and the sustained reliability gate remain open.
 
 November 20 first autonomous-review pass (0.5.32): implemented bounded provider
 recovery eligibility instead of permanent abandonment after three outage attempts.
