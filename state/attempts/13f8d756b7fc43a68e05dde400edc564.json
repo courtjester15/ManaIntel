@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "attempt_id": "13f8d756b7fc43a68e05dde400edc564",
+  "episode": {
+    "guid": "tag:soundcloud,2010:tracks/2113120014",
+    "number": 480,
+    "title": "MTG Fast Finance Ep 480: Final Fantasy Secret Lair Outcomes",
+    "source": "mtg-fast-finance"
+  },
+  "started_at": "2026-11-24T14:54:26Z",
+  "pipeline_version": "0.5.33",
+  "prompt_version": "source-recommendations-v4-metadata-context",
+  "run_id": "45419174399",
+  "run_attempt": "1",
+  "git_sha": "3717dce1bbfe51460fc0cbffbc80ec2c1b4505d8",
+  "intervention": "Bounded nightly cleanup",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "needs_review",
+    "prior_attempt_count": 3,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-24T14:54:26Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-24T14:54:26Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-24T14:54:29Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-24T14:54:29Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-24T14:54:39Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-24T14:54:39Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-24T14:54:39Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-11-24T14:54:39Z",
+      "event": "stage",
+      "stage": "transcribed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3539,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 10.365,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 3548,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22670,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 171
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 26218,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 82.05,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 46128,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22671,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 171
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 68799,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 29.642,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14023,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22671,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 171
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36694,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 839,
+            "request_seconds": 31.903,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 15327,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 21141,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 20970
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 171
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36468,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 2,
+        "audio_dispositions": []
+      }
+    },
+    {
+      "timestamp": "2026-11-24T14:54:39Z",
+      "event": "stage",
+      "stage": "extracting"
+    },
+    {
+      "timestamp": "2026-11-24T14:55:32Z",
+      "event": "model_call",
+      "stage": "extracting",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 52.605,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 19,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 15039,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 15039
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 15058,
+        "traffic_type": null
+      },
+      "response_characters": 52
+    },
+    {
+      "timestamp": "2026-11-24T14:55:32Z",
+      "event": "review_issues",
+      "issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Extraction returned zero picks; verify section coverage and recommendation intent against source evidence. This is not a confirmed no-recommendations episode.",
+          "state": "unresolved"
+        },
+        {
+          "code": "intent",
+          "path": "extraction",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Extraction returned zero picks; verify section coverage and recommendation intent against source evidence. This is not a confirmed no-recommendations episode.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-24T14:55:32Z",
+      "event": "stage",
+      "stage": "extracted",
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Extraction returned zero picks; verify section coverage and recommendation intent against source evidence. This is not a confirmed no-recommendations episode. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 19,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 15039,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 15039
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 15058,
+        "traffic_type": null
+      }
+    },
+    {
+      "timestamp": "2026-11-24T14:55:32Z",
+      "event": "extraction_summary",
+      "section": {
+        "located": true,
+        "label": "Cards to Watch",
+        "start_seconds": 943,
+        "end_seconds": 2152
+      },
+      "pick_count": 0,
+      "review_reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected. Extraction returned zero picks; verify section coverage and recommendation intent against source evidence. This is not a confirmed no-recommendations episode. Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+      "picks": []
+    },
+    {
+      "timestamp": "2026-11-24T14:55:32Z",
+      "event": "stage",
+      "stage": "validating"
+    },
+    {
+      "timestamp": "2026-11-24T14:55:33Z",
+      "event": "stage",
+      "stage": "publishing"
+    },
+    {
+      "timestamp": "2026-11-24T14:55:33Z",
+      "event": "stage",
+      "stage": "needs_review",
+      "pick_count": 2,
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review."
+    }
+  ],
+  "outcome": "needs_review",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/45419174399",
+  "finished_at": "2026-11-24T14:55:33Z",
+  "pick_count": 2,
+  "preserved_previous": true,
+  "note": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}
