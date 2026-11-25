@@ -13,7 +13,7 @@ from ffw.production import GeminiExtractor, GeminiTranscriber
 from ffw.utils import atomic_write_json, load_json
 from ffw.audit import safe_message
 from ffw.capacity import reserve
-from ffw.extraction_quality import assess_extraction_quality
+from ffw.extraction_quality import assess_extraction_quality, QUALITY_INSTRUCTIONS
 
 
 @contextmanager
@@ -40,18 +40,7 @@ MODELS = ("gemini-3.5-flash-lite", "gemini-3.6-flash")
 SOURCE_CLIPS = ((539, 1360, 225), (504, 1350, 450), (678, 1350, 450), (507, 720, 225))
 CASES = (("mtg-fast-finance", 539), ("mtg-fast-finance", 537),
          ("brainstorm-brewery", 667), ("mtg-fast-finance", 538))
-CANDIDATE_INSTRUCTIONS = (
-    " Before answering, walk through the recommendation discussion chronologically, including the final selection. "
-    "A positive recommendation by one host remains a recommendation when another host disagrees: preserve the "
-    "positive case and put the disagreement in caveats. Do not silently discard that recommendation. "
-    "Do not require consensus, a perfect card spelling, a quoted price, or a specific printing to include an "
-    "explicit pick. Preserve uncertain identity as needs_review. An explicit purchase or resale thesis is "
-    "recommendation evidence even when a cohost challenges it. "
-    "For every first/other/final-pick handoff, check that its following recommendation is represented. "
-    "Do not turn unrelated mentions or a rejected alternative into extra picks. "
-    "Speaker attribution is optional: use hosts=[] unless the pick's supplied speaker label or an explicit "
-    "named handoff establishes the name. Never copy the introduction's participant list into pick hosts."
-)
+CANDIDATE_INSTRUCTIONS = QUALITY_INSTRUCTIONS
 
 
 def candidate(episode):
@@ -139,15 +128,16 @@ def run(phase, root, output):
                         break  # No repeated probe of an unavailable model in this run.
         else:
             for model in MODELS:
-                cases = CASES if model == MODELS[0] else CASES[:1]
+                cases = CASES
                 stop = False
                 for source, number in cases:
                     record = retained(root, source, number)
                     ep = candidate(record["episode"])
-                    for policy, cls in (("baseline", GeminiExtractor), ("candidate", CandidateExtractor)):
+                    policies = (("baseline", GeminiExtractor), ("candidate", CandidateExtractor)) if number == 539 else (("candidate", CandidateExtractor),)
+                    for policy, cls in policies:
                         try:
                             before(model)
-                            extractor = cls(model, transient_retries=0, request_timeout_seconds=180)
+                            extractor = cls(model, transient_retries=0, request_timeout_seconds=180, quality_policy=False)
                             extractor.audit_callback = observe
                             result = extractor.extract(ep, record["transcript"])
                             atomic_write_json(output / f"extract-{number}-{model}-{policy}.json", {

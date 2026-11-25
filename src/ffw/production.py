@@ -20,6 +20,7 @@ from urllib.parse import urlparse
 
 from .config import Settings
 from .detection import locate_recommendation_section
+from .extraction_quality import QUALITY_INSTRUCTIONS, assess_extraction_quality
 from .identity import parse_episode_number
 from .models import EpisodeCandidate
 
@@ -1062,9 +1063,10 @@ METADATA_INSTRUCTIONS = (
 
 
 class OpenAIExtractor:
-    def __init__(self, model_name: str, card_glossary: str = "") -> None:
+    def __init__(self, model_name: str, card_glossary: str = "", quality_policy: bool = False) -> None:
         self.model_name = model_name
         self.card_glossary = card_glossary
+        self.quality_policy = quality_policy
 
     def extract(self, episode: EpisodeCandidate, transcript: dict[str, Any]) -> dict[str, Any]:
         if not os.getenv("OPENAI_API_KEY"):
@@ -1095,6 +1097,8 @@ class OpenAIExtractor:
             "An unknown optional printing can be null when card-level recommendation evidence is unambiguous."
         )
         instructions += METADATA_INSTRUCTIONS
+        if self.quality_policy:
+            instructions += QUALITY_INSTRUCTIONS
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
         response = client.responses.create(
@@ -1106,7 +1110,7 @@ class OpenAIExtractor:
         usage = getattr(response, "usage", None)
         result["_usage"] = usage.model_dump() if hasattr(usage, "model_dump") else (dict(usage) if usage else None)
         result["section"] = section
-        return result
+        return assess_extraction_quality(episode, transcript, result) if self.quality_policy else result
 
 
 class GeminiExtractor:
@@ -1114,9 +1118,11 @@ class GeminiExtractor:
         self, model_name: str, card_glossary: str = "", request_timeout_seconds: float = 300.0,
         fallback_model_name: str | None = None, transient_retries: int = 1,
         retry_delay_seconds: float = 30.0,
+        quality_policy: bool = False,
     ) -> None:
         self.model_name = model_name
         self.card_glossary = card_glossary
+        self.quality_policy = quality_policy
         self.request_timeout_seconds = max(1.0, request_timeout_seconds)
         self.fallback_model_name = fallback_model_name if fallback_model_name != model_name else None
         self.transient_retries = max(0, transient_retries)
@@ -1201,12 +1207,14 @@ class GeminiExtractor:
             " For sealed-product recommendations, preserve the spoken set and product names; do not substitute a different familiar product."
         )
         instructions += METADATA_INSTRUCTIONS
+        if self.quality_policy:
+            instructions += QUALITY_INSTRUCTIONS
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
         result, used_model = self._generate(client, types, [instructions, evidence])
         result["_extraction_model"] = used_model
         result["section"] = section
-        return result
+        return assess_extraction_quality(episode, transcript, result) if self.quality_policy else result
 
 
 def production_adapters(settings: Settings) -> tuple[Any, Any, Any, Any, Any]:

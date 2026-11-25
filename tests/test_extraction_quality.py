@@ -1,10 +1,27 @@
 from copy import deepcopy
 from types import SimpleNamespace
 import unittest
-from ffw.extraction_quality import assess_extraction_quality
+from ffw.extraction_quality import assess_extraction_quality, classify_issue_severity
 
 
 class ExtractionQualityTests(unittest.TestCase):
+    def test_ending_diagnostic_cannot_hide_other_coverage_or_identity_defects(self):
+        warning = "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
+        extraction = {"section": {"located": True, "start_signal": "recommendation_language"}}
+        issues = [{"reason": warning, "state": "unresolved"},
+                  {"reason": "Card name uncertain", "state": "unresolved"},
+                  {"reason": warning + " Missing recommendation content.", "state": "unresolved"}]
+        result = classify_issue_severity(extraction, issues)
+        self.assertEqual(["diagnostic", "unresolved", "unresolved"], [i["state"] for i in result])
+        extraction["section"]["start_signal"] = "show_outline_fallback"
+        self.assertEqual("unresolved", classify_issue_severity(extraction, [{"reason": warning, "state": "unresolved"}])[0]["state"])
+
+    def test_unbounded_cap_cannot_hide_a_later_final_handoff(self):
+        episode = SimpleNamespace(extraction_profile="cards_to_watch")
+        result = {"section": {"located": True, "start_seconds": 500, "end_seconds": 1700},
+                  "recommendations": [{"start_seconds": 510, "hosts": []}]}
+        assess_extraction_quality(episode, {"segments": [{"start": 1800, "text": "My final card to watch is Example."}]}, result)
+        self.assertEqual([1800], result["coverage_check"]["unrepresented_seconds"])
     def test_final_handoff_omission_is_detected_despite_four_plausible_picks(self):
         episode = SimpleNamespace(extraction_profile="cards_to_watch")
         transcript = {"segments": [{"start": 1363, "end": 1370, "text": "My final card to watch is Example Card."}]}
@@ -35,3 +52,14 @@ class ExtractionQualityTests(unittest.TestCase):
             result = {"recommendations": [{"start_seconds": 100, "hosts": ["Host Alpha"]}]}
             assess_extraction_quality(episode, {"segments": segments}, result)
             self.assertEqual(["Host Alpha"], result["recommendations"][0]["hosts"])
+
+    def test_questioner_and_skeptic_are_not_assigned_as_the_recommender(self):
+        episode = SimpleNamespace(extraction_profile="brainstorm_brewery")
+        result = {"recommendations": [{"start_seconds": 100, "end_seconds": 160,
+                  "hosts": ["Host Alpha", "Host Beta"]}]}
+        transcript = {"segments": [
+            {"start": 90, "speaker": "Host Alpha", "text": "What is your first pick?"},
+            {"start": 100, "speaker": "Host Beta", "text": "My pick is Example Card."},
+            {"start": 140, "speaker": "Host Alpha", "text": "I do not think it will work."}]}
+        assess_extraction_quality(episode, transcript, result)
+        self.assertEqual(["Host Beta"], result["recommendations"][0]["hosts"])

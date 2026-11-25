@@ -2,6 +2,19 @@
 import re
 from .detection import FF_OPENING_CUE_PATTERNS, FF_CONTINUATION_MARKER
 
+QUALITY_INSTRUCTIONS = (
+    " Before answering, walk through the recommendation discussion chronologically, including the final selection. "
+    "A positive recommendation by one host remains a recommendation when another host disagrees: preserve the "
+    "positive case and put the disagreement in caveats. Do not silently discard that recommendation. "
+    "Do not require consensus, a perfect card spelling, a quoted price, or a specific printing to include an "
+    "explicit pick. Preserve uncertain identity as needs_review. An explicit purchase or resale thesis is "
+    "recommendation evidence even when a cohost challenges it. "
+    "For every first/other/final-pick handoff, check that its following recommendation is represented. "
+    "Do not turn unrelated mentions or a rejected alternative into extra picks. "
+    "Speaker attribution is optional: use hosts=[] unless the pick's supplied speaker label or an explicit "
+    "named handoff establishes the name. Never copy the introduction's participant list into pick hosts."
+)
+
 
 def recommendation_anchors(episode, transcript, section):
     if episode.extraction_profile != "cards_to_watch" or not section.get("located"):
@@ -13,7 +26,10 @@ def recommendation_anchors(episode, transcript, section):
     for segment in transcript.get("segments", []):
         stamp = float(segment.get("start", 0))
         text = str(segment.get("text", ""))
-        if start <= stamp <= end and any(re.search(p, text, re.I) for p in (*FF_OPENING_CUE_PATTERNS, FF_CONTINUATION_MARKER)):
+        # Without an independent ending, an extraction cap must not hide a
+        # later explicit final pick elsewhere in the transcript.
+        within = start <= stamp and (stamp <= end or not section.get("end_signal"))
+        if within and any(re.search(p, text, re.I) for p in (*FF_OPENING_CUE_PATTERNS, FF_CONTINUATION_MARKER)):
             if not anchors or stamp - anchors[-1] >= 60:
                 anchors.append(stamp)
     return anchors
@@ -41,7 +57,8 @@ def assess_extraction_quality(episode, transcript, extraction):
             return exact_quote or opening
         labels = {str(s.get("speaker") or "").casefold().strip() for s in local
                   if recommendation_speech(s)
-                  and not re.fullmatch(r"speaker\s*\d+", str(s.get("speaker") or ""), re.I)}
+                  and str(s.get("speaker") or "").strip()
+                  and not re.fullmatch(r"(?:speaker|host|voice)[\s_-]*(?:\d+|[a-z])|unknown|unidentified", str(s.get("speaker") or ""), re.I)}
         accepted = []
         for host in proposed:
             # An exact named handoff immediately before a pick can establish
@@ -67,3 +84,19 @@ def assess_extraction_quality(episode, transcript, extraction):
         extraction["review_reason"] = " ".join(filter(None, [extraction.get("review_reason"), reason]))
         extraction["coverage_check"] = {"method": "strong_handoff_inventory", "unrepresented_seconds": missing}
     return extraction
+
+
+ENDING_DIAGNOSTICS = {
+    "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
+    "Recommendation segment found without an explicit ending; review the bounded extraction.",
+}
+
+
+def classify_issue_severity(extraction, issues):
+    section = extraction.get("section", {})
+    trusted_start = section.get("located") and section.get("start_signal") in {
+        "explicit_section_marker", "recommendation_language"}
+    for issue in issues:
+        if trusted_start and issue.get("reason") in ENDING_DIAGNOSTICS:
+            issue["state"] = "diagnostic"
+    return issues
