@@ -356,3 +356,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-24T14:55:39Z — run 45419174399/1: preflight=success; pipeline=success; exit=None; validation=success; selected=see queue note; Primary gate=true; queue=older than fourteen days; bounded repair cohort. [Details](runs/45419174399-1.json)
 - 2026-11-25T03:33:22Z — run 45540535640/1: preflight=success; pipeline=success; exit=1; validation=success; selected=1; . [Details](runs/45540535640-1.json)
 - 2026-11-25T08:29:43Z — run 45576661714/1: preflight=failure; pipeline=skipped; exit=; validation=skipped; selected=see queue note; . [Details](runs/45576661714-1.json)
+- 2026-11-25T14:25:51Z — run 45633740396/1: preflight=failure; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=true; queue=. [Details](runs/45633740396-1.json)
