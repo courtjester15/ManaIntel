@@ -1,0 +1,82 @@
+{
+  "kind": "bounded_quality_evaluation",
+  "phase": "source",
+  "started_at": "2026-11-25T03:42:26Z",
+  "run_id": "45541555316",
+  "calls": [
+    {
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 11.315,
+      "finish_reason": "STOP"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 17.979,
+      "finish_reason": "STOP"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 22.619,
+      "finish_reason": "STOP"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 11.606,
+      "finish_reason": "STOP"
+    },
+    {
+      "model": "gemini-3.6-flash",
+      "outcome": "failed",
+      "request_seconds": 179.87,
+      "finish_reason": null
+    }
+  ],
+  "results": [
+    {
+      "episode": 539,
+      "model": "gemini-3.5-flash-lite",
+      "kind": "source_clip",
+      "clip_start": 1360,
+      "clip_duration": 225,
+      "outcome": "response"
+    },
+    {
+      "episode": 504,
+      "model": "gemini-3.5-flash-lite",
+      "kind": "source_clip",
+      "clip_start": 1350,
+      "clip_duration": 450,
+      "outcome": "response"
+    },
+    {
+      "episode": 678,
+      "model": "gemini-3.5-flash-lite",
+      "kind": "source_clip",
+      "clip_start": 1350,
+      "clip_duration": 450,
+      "outcome": "response"
+    },
+    {
+      "episode": 507,
+      "model": "gemini-3.5-flash-lite",
+      "kind": "source_clip",
+      "clip_start": 720,
+      "clip_duration": 225,
+      "outcome": "response"
+    },
+    {
+      "episode": 539,
+      "model": "gemini-3.6-flash",
+      "kind": "source_clip",
+      "outcome": "stopped",
+      "error": "Gemini transcription chunk 1/1 failed after 179.9s: RuntimeError: Gemini transcription models exhausted after transient errors: gemini-3.6-flash attempt 1: ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}"
+    }
+  ],
+  "notice": "Machine source checks and scoped comparisons; not human approval or full-episode certification.",
+  "status": "finished",
+  "finished_at": "2026-11-25T03:48:00Z"
+}
