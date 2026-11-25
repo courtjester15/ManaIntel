@@ -6,6 +6,19 @@ Updated October 15, 2026. This is the active roadmap, replacing the maintenance-
 
 **Current release: 0.5.33. Next milestone: 0.6 — dependable processing.**
 
+November 24 three-month status audit: [historical comparison](COMPLETE_HISTORY_2026-11-24.md).
+258 retained catalog revisions show September's peak: 36 distinct newly complete
+episodes, versus October 13 and November 4 through the 24th; September 14–20 had
+12. All 36 September records inspected (35 summaries plus metadata-only BB703).
+Historical summaries contain 17 section warnings, 34 timing-adjustment records,
+and seven feed-duration discrepancies despite complete labels. October 6 changed
+warning promotion and timing gates; the October 12 model migration added a
+demonstrated outage problem. Current complete inventory grew from September's 64
+to 78; most old labels were never re-certified. No inference, status changes or
+runtime release. Next: separate blocking defects from diagnostics with evidence,
+then bounded same-source evaluation; inspect risky old completes as well as the
+review backlog. Do not automatically clear the 22 ending-only candidates. R2 open.
+
 November 23 weekly review (0.5.33): ordinary recovery has published three BB650
 picks as needs_review; current archive is 148 episodes/561 picks, four failed.
 BB652's November 21 journal says complete/five picks, but workflow 44878427203
