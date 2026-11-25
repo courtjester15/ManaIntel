@@ -13,6 +13,7 @@ from ffw.production import GeminiExtractor, GeminiTranscriber
 from ffw.utils import atomic_write_json, load_json
 from ffw.audit import safe_message
 from ffw.capacity import reserve
+from ffw.extraction_quality import assess_extraction_quality
 
 
 @contextmanager
@@ -62,6 +63,9 @@ class CandidateExtractor(GeminiExtractor):
     def _generate(self, client, types, contents):
         return super()._generate(client, types, [contents[0] + CANDIDATE_INSTRUCTIONS, *contents[1:]])
 
+    def extract(self, episode, transcript):
+        return assess_extraction_quality(episode, transcript, super().extract(episode, transcript))
+
 
 def retained(root, source, number):
     matches = []
@@ -108,7 +112,11 @@ def run(phase, root, output):
                 subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(start),
                     "-i", ep["audio_url"], "-t", str(duration), "-vn", "-ac", "1", "-ar", "16000",
                     "-b:a", "32k", str(audio)], check=True, timeout=180)
-                segments, info = asr.transcribe(str(audio), beam_size=5, vad_filter=True)
+                # Pass PCM directly: this avoids PyAV decoder version coupling.
+                import numpy as np
+                pcm = subprocess.check_output(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", str(audio),
+                    "-f", "f32le", "-ac", "1", "-ar", "16000", "pipe:1"], timeout=90)
+                segments, info = asr.transcribe(np.frombuffer(pcm, dtype=np.float32), beam_size=5, vad_filter=True)
                 text = [{"start": s.start, "end": s.end, "text": s.text} for s in segments]
                 atomic_write_json(output / f"source-{number}-independent.json", {
                     "model": "faster-whisper/tiny.en", "episode": number, "clip_start": start,
