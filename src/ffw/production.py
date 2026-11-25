@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 
 from .config import Settings
 from .detection import locate_recommendation_section
-from .extraction_quality import QUALITY_INSTRUCTIONS, assess_extraction_quality
+from .extraction_quality import assess_extraction_quality
 from .identity import parse_episode_number
 from .models import EpisodeCandidate
 
@@ -1063,7 +1063,7 @@ METADATA_INSTRUCTIONS = (
 
 
 class OpenAIExtractor:
-    def __init__(self, model_name: str, card_glossary: str = "", quality_policy: bool = False) -> None:
+    def __init__(self, model_name: str, card_glossary: str = "", quality_policy: bool = True) -> None:
         self.model_name = model_name
         self.card_glossary = card_glossary
         self.quality_policy = quality_policy
@@ -1097,8 +1097,6 @@ class OpenAIExtractor:
             "An unknown optional printing can be null when card-level recommendation evidence is unambiguous."
         )
         instructions += METADATA_INSTRUCTIONS
-        if self.quality_policy:
-            instructions += QUALITY_INSTRUCTIONS
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
         response = client.responses.create(
@@ -1118,7 +1116,7 @@ class GeminiExtractor:
         self, model_name: str, card_glossary: str = "", request_timeout_seconds: float = 300.0,
         fallback_model_name: str | None = None, transient_retries: int = 1,
         retry_delay_seconds: float = 30.0,
-        quality_policy: bool = False,
+        quality_policy: bool = True,
     ) -> None:
         self.model_name = model_name
         self.card_glossary = card_glossary
@@ -1207,8 +1205,6 @@ class GeminiExtractor:
             " For sealed-product recommendations, preserve the spoken set and product names; do not substitute a different familiar product."
         )
         instructions += METADATA_INSTRUCTIONS
-        if self.quality_policy:
-            instructions += QUALITY_INSTRUCTIONS
         if self.card_glossary:
             instructions += " Candidate Magic names supplied by the operator for spelling assistance only: " + self.card_glossary
         result, used_model = self._generate(client, types, [instructions, evidence])

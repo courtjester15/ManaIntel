@@ -74,6 +74,27 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual({"coverage", "intent"}, {i["code"] for i in state["review_issues"]})
         self.assertEqual(1, pipeline.extractor.extract.call_count)
 
+    def test_live_ending_only_warning_is_diagnostic_but_identity_still_blocks(self):
+        from copy import deepcopy
+        from dataclasses import replace
+        from unittest.mock import Mock
+        warning = "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected."
+        for extra, expected in [(None, "complete"), ("Card name uncertain.", "needs_review")]:
+            with self.subTest(extra=extra):
+                pipeline = Pipeline.mock(self.settings)
+                fixture = pipeline.feed.episodes()[0]
+                extraction = deepcopy(pipeline.extractor.extract(fixture, {}))
+                extraction["section"].update(located=True, start_signal="recommendation_language", review_reason=warning)
+                extraction["review_reason"] = extra
+                candidate = replace(fixture, guid="ending-" + expected, fixture={})
+                pipeline.transcriber.transcribe = Mock(return_value={"segments": [{"start": 0, "end": 100, "text": "Synthetic discussion for status policy testing."}], "chunk_count": 1})
+                pipeline.extractor.extract = Mock(return_value=extraction)
+                result = pipeline.process_episode(candidate)
+                self.assertEqual(expected, result.status, result.message)
+                issues = pipeline.state.get(candidate.guid)["review_issues"]
+                self.assertTrue(any(i["state"] == "diagnostic" for i in issues))
+                self.assertEqual(bool(extra), any(i["state"] != "diagnostic" for i in issues))
+
     def test_markdown_is_derived_from_json(self) -> None:
         Pipeline.mock(self.settings).run()
         summary_path = next((self.settings.archive_dir / "episodes").glob("*/summary.json"))

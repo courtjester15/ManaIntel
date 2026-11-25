@@ -234,10 +234,13 @@ def normalize_review(
         action = operation["action"]
         if correction_only:
             changes = operation.get("changes")
-            if (action != "update" or not isinstance(changes, dict) or not changes
-                    or set(changes) - {"printing", "entry_target"}
-                    or ("entry_target" in changes and changes["entry_target"] is not None)):
-                raise ValueError("Unapproved corrections may only update printing or clear an unsupported entry target.")
+            adding = action == "add" and isinstance(operation.get("pick"), dict) and not operation["pick"].get("hosts")
+            updating = (action == "update" and isinstance(changes, dict) and bool(changes)
+                    and not set(changes) - {"printing", "entry_target", "hosts", "start_seconds", "end_seconds"}
+                    and ("entry_target" not in changes or changes["entry_target"] is None)
+                    and ("hosts" not in changes or changes["hosts"] == []))
+            if not (adding or updating):
+                raise ValueError("Unapproved corrections may add an unattributed pick, repair listening times/printing, or clear unsupported entry targets/hosts; evidence is required.")
         if action == "add":
             pick = _new_pick(summary, operation.get("pick"))
             operations.append({"action": "add", "pick": {
@@ -254,8 +257,8 @@ def normalize_review(
             operations.append({"action": "exclude", "pick_id": pick_id})
         else:
             if correction_only:
-                normalized = (_normalize_changes({k: v for k, v in changes.items() if k != "entry_target"})
-                              if "printing" in changes else {})
+                other_changes = {k: v for k, v in changes.items() if k != "entry_target"}
+                normalized = _normalize_changes(other_changes) if other_changes else {}
                 if "entry_target" in changes:
                     normalized["entry_target"] = None
             else:
@@ -312,6 +315,8 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
             pick = picks.pop(original_id)
             if correction_only and "printing" in operation["changes"]:
                 pick.setdefault("identity_printing", pick.get("printing"))
+            if correction_only and "start_seconds" in operation["changes"]:
+                pick.setdefault("identity_start_seconds", pick.get("start_seconds"))
             pick.update(deepcopy(operation["changes"]))
             if not correction_only:
                 pick.pop("identity_start_seconds", None)
@@ -322,7 +327,7 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
                 )
             else:
                 pick["review_status"] = "needs_review"
-                pick["review_reason"] = review["note"]
+                pick["review_reason"] = " ".join(dict.fromkeys(filter(None, [pick.get("review_reason"), review["note"]])))
             pick["timestamp"] = seconds_to_timestamp(pick.get("start_seconds"))
             pick["listen_url"] = (
                 f"{summary['episode']['audio_url']}#t={pick['start_seconds']}"
@@ -334,6 +339,8 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
             order = [pick["id"] if pick_id == original_id else pick_id for pick_id in order]
         elif action == "add":
             pick = _new_pick(summary, operation["pick"])
+            if correction_only:
+                pick.update(review_status="needs_review", review_reason=review["note"])
             if pick["id"] in picks:
                 raise ValueError(f"Review adds a duplicate pick: {pick['card']}")
             picks[pick["id"]] = pick
@@ -371,9 +378,11 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
     return effective
 
 
-def _validate_review_clocks(summary: dict[str, Any]) -> None:
+def _validate_review_clocks(summary: dict[str, Any], pick_ids: set[str] | None = None) -> None:
     duration = summary["episode"].get("duration_seconds")
     for pick in summary["recommendations"]:
+        if pick_ids is not None and pick["id"] not in pick_ids:
+            continue
         start, end = pick.get("start_seconds"), pick.get("end_seconds")
         if start is None:
             raise ValueError("Every reviewed pick requires a start timestamp.")
@@ -423,7 +432,14 @@ def persist_review(
             raise ValueError("Review payload is stale because a saved review changed. Reload the review page.")
     elif current:
         raise ValueError("A legacy payload cannot replace a saved review. Reload the updated review page.")
-    # Check the full effective result before replacing a durable override.
-    _validate_review_clocks(apply_review(summary, review))
+    effective = apply_review(summary, review)
+    # Whole-episode approval validates every clock. A limited correction cannot
+    # approve unrelated existing defects, but must validate every changed/new pick.
+    targets = None
+    if review["decision"] == "correct_without_approval":
+        original_ids = {p["id"] for p in summary["recommendations"]}
+        targets = {op["pick_id"] for op in review["operations"] if op["action"] == "update"}
+        targets.update(p["id"] for p in effective["recommendations"] if p["id"] not in original_ids)
+    _validate_review_clocks(effective, targets)
     atomic_write_json(path, review)
     return path

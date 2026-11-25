@@ -295,6 +295,51 @@
         "Other picks, uninspected clips, full-episode completeness and unlisted fields.",
         "Hold horizon is transcript-checked only; partial separate ASR is not human ground truth."
       ]
+    },
+    {
+      "id": "ff539-final-pick-source-check",
+      "episode_guid": "tag:soundcloud,2010:tracks/2436385896",
+      "summary_path": "episodes/0539-star-trek-previews/effective.json",
+      "basis": "independent_machine_asr_and_separate_short_clip_transcription_not_human_certification",
+      "scope": "Only final recommendation presence, unknown speaker attribution and approximate listening position; no whole-episode certification.",
+      "evidence": {
+        "inspection_date": "2026-11-24",
+        "source_run_id": "45541555316",
+        "windows_seconds": [
+          [
+            1360,
+            1585
+          ]
+        ],
+        "sha256": "4108a223336a7fc133a6649f8ff0e04cca6b5a750aba8dc2e96296dc351c586d"
+      },
+      "expected_picks": [
+        {
+          "cards": [
+            "SOLDIER Military Program",
+            "Soldier Military Program"
+          ],
+          "equals": {
+            "hosts": [],
+            "foil": true,
+            "recommendation": "buy"
+          },
+          "printing_contains": [
+            "surge foil"
+          ],
+          "start_window": [
+            1385,
+            1405
+          ],
+          "rationale": "Both independent machine ASR and separate Gemini clip transcription identify a positive final recommendation, with surge-foil discussion and disagreement; source labels do not establish speakers."
+        }
+      ],
+      "unscored": [
+        "Earlier picks and their identities",
+        "Exact audio alignment and ending",
+        "Market predictions",
+        "Whole-episode completeness"
+      ]
     }
   ]
 }

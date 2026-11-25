@@ -112,7 +112,7 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
                 compare(self.case, value)
 
     def test_inventory_has_both_shows_with_evidence_and_explicit_limits(self):
-        self.assertEqual(3, len(self.inventory["cases"]))
+        self.assertGreaterEqual(len(self.inventory["cases"]), 4)
         for case in self.inventory["cases"]:
             self.assertEqual(64, len(case["evidence"]["sha256"]))
             self.assertTrue(case["unscored"])
@@ -122,6 +122,8 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
                 self.assertEqual(64, len(check["source_sha256"]))
                 self.assertEqual(64, len(check["asr_sha256"]))
                 self.assertIn("separate from prior Gemini", check["method"])
+            elif case["basis"] == "independent_machine_asr_and_separate_short_clip_transcription_not_human_certification":
+                self.assertTrue(case["evidence"]["source_run_id"])
             else:
                 self.assertIn("not_independent_audio", case["basis"])
             for pick in case["expected_picks"]:

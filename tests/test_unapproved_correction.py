@@ -45,6 +45,45 @@ class UnapprovedCorrectionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "cannot replace a human"):
             normalize_review(self.summary, self.payload, actor="Codex")
 
+    def test_missing_pick_and_unknown_speakers_can_be_corrected_without_approval(self):
+        values = {k: deepcopy(self.pick.get(k)) for k in ("card", "printing", "foil", "hosts", "recommendation",
+                  "start_seconds", "end_seconds", "evidence_excerpt")}
+        values.update(card="Recovered Card", hosts=[], start_seconds=25, end_seconds=35)
+        payload = {**self.payload, "operations": [
+            {"action": "update", "pick_id": self.pick["id"], "changes": {"hosts": []}},
+            {"action": "add", "pick": values}]}
+        review = normalize_review(self.summary, payload, actor="Codex source check")
+        result = apply_review(self.summary, review)
+        self.assertEqual(self.pick["id"], result["recommendations"][0]["id"])
+        self.assertEqual([], result["recommendations"][0]["hosts"])
+        self.assertEqual("Recovered Card", result["recommendations"][-1]["card"])
+        self.assertEqual("needs_review", result["recommendations"][-1]["review_status"])
+        self.assertNotIn("human_review", result["processing"])
+        self.assertEqual("needs_review", result["processing"]["status"])
+
+    def test_listening_time_repair_keeps_identity_and_unresolved_reason(self):
+        self.pick["review_reason"] = "Card name remains uncertain."
+        payload = {**self.payload, "operations": [{"action": "update", "pick_id": self.pick["id"],
+                  "changes": {"start_seconds": 25, "end_seconds": None}}]}
+        review = normalize_review(self.summary, payload, actor="Codex source check")
+        result = apply_review(self.summary, review)["recommendations"][0]
+        self.assertEqual(self.pick["id"], result["id"])
+        self.assertEqual(self.pick["start_seconds"], result["identity_start_seconds"])
+        self.assertEqual(25, result["start_seconds"])
+        self.assertIn("Card name remains uncertain", result["review_reason"])
+        self.assertTrue(result["listen_url"].endswith("#t=25"))
+
+    def test_limited_clock_validation_cannot_approve_unmodified_bad_clocks(self):
+        from ffw.reviews import _validate_review_clocks
+        self.summary["recommendations"][1]["end_seconds"] = 99999
+        _validate_review_clocks(self.summary, {self.pick["id"]})
+        with self.assertRaisesRegex(ValueError, "duration"):
+            _validate_review_clocks(self.summary)
+        self.pick["start_seconds"] = 99999
+        self.pick["end_seconds"] = None
+        with self.assertRaisesRegex(ValueError, "duration"):
+            _validate_review_clocks(self.summary, {self.pick["id"]})
+
     def test_durable_correction_rebuild_preserves_extraction_and_never_claims_human_review(self):
         root = workspace_temp(self)
         archive, reviews = root / "archive", root / "data/reviews"

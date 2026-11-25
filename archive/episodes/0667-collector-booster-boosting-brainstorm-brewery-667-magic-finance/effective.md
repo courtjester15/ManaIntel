@@ -14,7 +14,7 @@
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 4.50
 - Hold: Not stated
@@ -38,7 +38,7 @@
 - Printing: Final Fantasy full art
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: Not stated
 - Hold: Not stated
@@ -62,7 +62,7 @@
 - Printing: New Phyrexia
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: null
 - Hold: Not stated

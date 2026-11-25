@@ -63,6 +63,7 @@ test('target object key order cannot manufacture an edit and unknown speakers re
 test('limited correction outcome keeps its narrow scope and requires an evidence note', () => {
   const h = harness();
   h.run('validateOutcome("correct_without_approval", [{action:"update",changes:{printing:"full art",entry_target:null}}], "Checked printing")');
+  h.run('validateOutcome("correct_without_approval", [{action:"update",changes:{hosts:[]}}, {action:"add",pick:{card:"Recovered",hosts:[]}}], "Checked source; attribution unknown")');
   for (const operation of [{ action: 'exclude' }, { action: 'add' },
     { action: 'update', changes: { hosts: ['Guessed'] } },
     { action: 'update', changes: { entry_target: { raw: 'five' } } }]) {

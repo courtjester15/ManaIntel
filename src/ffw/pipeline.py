@@ -23,6 +23,7 @@ from .state import JsonStateStore
 from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json, seconds_to_timestamp, stable_pick_id
 from .verification import GeminiPickVerifier
 from .review_issues import collect_review_issues, published_version_regression
+from .extraction_quality import assess_extraction_quality, classify_issue_severity
 from .validation import validate_archive
 from .recovery import renew_provider_outage
 
@@ -668,6 +669,9 @@ class Pipeline:
                                 if field in old:
                                     matches[0][field] = old[field]
                     journal.record("published_quotes_aligned", pick_count=len(aligned), method="unique_exact_audio_transcript_quote")
+            if not episode.synthetic:
+                assess_extraction_quality(episode, transcript, extraction)
+                warnings.append(extraction.get("review_reason"))
             if unresolved_timing_chunks(transcript, len(prepared_files)):
                 warnings.append("Some transcript timestamps needed corrections at audio boundaries; verify timing against the source audio.")
             from .transcript_timing import missing_recommendation_content
@@ -678,7 +682,7 @@ class Pipeline:
             if episode.source_id == "mtg-fast-finance" and 0 < len(extraction.get("recommendations", [])) < 4:
                 warnings.append("Fewer than four MTG Fast Finance recommendations; verify section completeness.")
             extraction["review_reason"] = " ".join(dict.fromkeys(reason for reason in warnings if reason)) or None
-            review_issues = collect_review_issues(extraction, episode.duration_seconds)
+            review_issues = classify_issue_severity(extraction, collect_review_issues(extraction, episode.duration_seconds))
             if review_issues:
                 extraction["review_reason"] = " ".join(dict.fromkeys(issue["reason"] for issue in review_issues))
             journal.record("review_issues", issues=review_issues)
@@ -689,7 +693,7 @@ class Pipeline:
                 review_reason=extraction.get("review_reason"), review_issues=review_issues,
             )
             final_status = episode.fixture.get("target_status", "complete") if episode.synthetic else (
-                "needs_review" if extraction.get("review_reason") or not extraction.get("recommendations")
+                "needs_review" if any(issue.get("state") != "diagnostic" for issue in review_issues) or not extraction.get("recommendations")
                 or any(pick.get("review_status") != "approved" for pick in extraction.get("recommendations", []))
                 else "complete"
             )
@@ -740,13 +744,17 @@ class Pipeline:
                 self.state.transition(episode.guid, "publishing")
                 preserved = deepcopy(baseline_summary)
                 preserved_pick_count = len(preserved["recommendations"])
+                preserved_reason = " ".join(dict.fromkeys(filter(None, [
+                    ZERO_PICK_REPROCESS_REVIEW, baseline_summary.get("processing", {}).get("review_reason"),
+                    extraction.get("review_reason"),
+                ])))
                 self.state.transition(
                     episode.guid,
                     "needs_review",
                     output_directory=relative_output,
                     pick_count=preserved_pick_count,
-                    review_reason=ZERO_PICK_REPROCESS_REVIEW,
-                    review_issues=collect_review_issues({**preserved, "review_reason": ZERO_PICK_REPROCESS_REVIEW}, episode.duration_seconds),
+                    review_reason=preserved_reason,
+                    review_issues=collect_review_issues({**preserved, "review_reason": preserved_reason}, episode.duration_seconds),
                     error=None,
                 )
                 preserved["processing"] = self._processing_metadata(episode, "needs_review")

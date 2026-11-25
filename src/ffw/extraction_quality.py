@@ -81,7 +81,8 @@ def assess_extraction_quality(episode, transcript, extraction):
             missing.append(int(anchor))
     if missing:
         reason = "Recommendation handoff has no corresponding extracted pick near " + ", ".join(map(str, missing)) + " seconds; verify section coverage."
-        extraction["review_reason"] = " ".join(filter(None, [extraction.get("review_reason"), reason]))
+        if reason not in str(extraction.get("review_reason") or ""):
+            extraction["review_reason"] = " ".join(filter(None, [extraction.get("review_reason"), reason]))
         extraction["coverage_check"] = {"method": "strong_handoff_inventory", "unrepresented_seconds": missing}
     return extraction
 

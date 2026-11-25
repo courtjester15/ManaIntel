@@ -4,7 +4,25 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.33. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.34. Next milestone: 0.6 — dependable processing.**
+
+November 24 quality batch (0.5.34): [evidence and limits](QUALITY_BATCH_2026-11-24.md).
+Independent machine ASR plus separate short-clip transcription corroborate FF539’s
+missing final SOLDIER Military Program recommendation and five bad listening
+starts in FF504/FF507/BB678. Durable unapproved corrections add the missing pick,
+clear unsupported FF539 host names and repair those starts without changing
+original extraction files or existing pick IDs. Actual archive: 149 episodes,
+562 picks, 75 complete, 69 needs_review and five failed; three old complete labels
+now honestly retain review after correction. No human approvals.
+Four short Lite audio clips were clean; alternative Flash timed out on its first.
+Ten retained-text comparisons show neither a prompt rewrite nor broad model swap
+is ready. Keep current model/prompt and transcription cache identity. Ship explicit
+FF handoff coverage and conservative speaker-evidence guards, plus a narrow
+nonblocking classification for trusted-start, exact missing-ending-only warnings.
+All other uncertainty remains blocking; no historical queue promotion. R2 remains
+open. Next: observe natural runs, source-check coverage alarms and expand bounded
+independent evidence before changing model/chunk defaults. Deployment verification
+is recorded in the session closeout below.
 
 November 24 three-month status audit: [historical comparison](COMPLETE_HISTORY_2026-11-24.md).
 258 retained catalog revisions show September's peak: 36 distinct newly complete

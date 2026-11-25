@@ -4,9 +4,9 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.33",
+    "pipeline_version": "0.5.34",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-25T03:33:15Z",
+    "generated_at": "2026-11-25T04:09:09Z",
     "latest_successful_run_at": "2026-11-24T14:55:33Z",
     "generated_from": "live-feed",
     "production_mode": true,
@@ -26,7 +26,7 @@
       }
     ],
     "real_episode_count": 149,
-    "real_pick_count": 561,
+    "real_pick_count": 562,
     "last_discovered_episode_date": "2026-11-23T22:08:12Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
@@ -34,15 +34,15 @@
   },
   "counts": {
     "episodes": 149,
-    "picks": 561,
-    "needs_review": 66,
+    "picks": 562,
+    "needs_review": 69,
     "failed": 5,
-    "completed": 78
+    "completed": 75
   },
   "status_counts": {
     "failed": 5,
-    "needs_review": 66,
-    "complete": 78
+    "needs_review": 69,
+    "complete": 75
   },
   "latest_episode": {
     "guid": "tag:soundcloud,2010:tracks/2443584204",
@@ -763,43 +763,147 @@
       "extraction_profile": "cards_to_watch",
       "processing_status": "needs_review",
       "review_state": "needs_review",
-      "review_reason": "Card name has no exact match in Scryfall.",
+      "review_reason": "Card name has no exact match in Scryfall. November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
       "review_triage": {
-        "priority": 2,
+        "priority": 1,
         "codes": [
-          "identity"
+          "intent",
+          "identity",
+          "printing"
         ],
         "issues": [
           {
-            "code": "identity",
+            "code": "printing",
             "path": "extraction",
-            "reason": "Card name has no exact match in Scryfall.",
+            "reason": "Card name has no exact match in Scryfall. November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved"
+          },
+          {
+            "code": "intent",
+            "path": "extraction",
+            "reason": "Card name has no exact match in Scryfall. November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
             "state": "unresolved"
           },
           {
             "code": "identity",
+            "path": "extraction",
+            "reason": "Card name has no exact match in Scryfall. November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-f9f0a5aca77f0e97",
+            "card": "Shang-Chi, Master of Kung Fu",
+            "start_seconds": 507
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-f9f0a5aca77f0e97",
+            "card": "Shang-Chi, Master of Kung Fu",
+            "start_seconds": 507
+          },
+          {
+            "code": "printing",
             "path": "recommendations/1",
-            "reason": "Card name has no exact match in Scryfall.",
+            "reason": "Card name has no exact match in Scryfall. November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
             "state": "unresolved",
             "pick_id": "pick-544b4dbcdcc5601b",
             "card": "Dawnsire, the Sunstar Dreadnought",
             "start_seconds": 686
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/1",
+            "reason": "Card name has no exact match in Scryfall. November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-544b4dbcdcc5601b",
+            "card": "Dawnsire, the Sunstar Dreadnought",
+            "start_seconds": 686
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/1",
+            "reason": "Card name has no exact match in Scryfall. November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-544b4dbcdcc5601b",
+            "card": "Dawnsire, the Sunstar Dreadnought",
+            "start_seconds": 686
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/2",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-80461c6bcf71815e",
+            "card": "Sensei's Divining Top",
+            "start_seconds": 904
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/2",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-80461c6bcf71815e",
+            "card": "Sensei's Divining Top",
+            "start_seconds": 904
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/3",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-23142a896ee8b7d2",
+            "card": "Esper Sentinel",
+            "start_seconds": 904
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/3",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-23142a896ee8b7d2",
+            "card": "Esper Sentinel",
+            "start_seconds": 904
+          },
+          {
+            "code": "printing",
+            "path": "recommendations/4",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-d3a869d23818ffd6",
+            "card": "SOLDIER Military Program",
+            "start_seconds": 1391
+          },
+          {
+            "code": "intent",
+            "path": "recommendations/4",
+            "reason": "November 24, 2026 source check: independent tiny.en ASR and a separate Flash Lite short-clip transcript corroborate the final positive SOLDIER Military Program discussion (1360–1585 seconds), surge foil, $1 entry/$5 resale thesis and disagreement. Intro participants do not establish pick speakers; unsupported names cleared. Machine source correction only, not human approval or full-episode certification. Original card-name uncertainty remains unresolved.",
+            "state": "unresolved",
+            "pick_id": "pick-d3a869d23818ffd6",
+            "card": "SOLDIER Military Program",
+            "start_seconds": 1391
           }
         ]
       },
-      "pick_count": 4,
+      "pick_count": 5,
       "directory": "episodes/0539-star-trek-previews",
       "outputs": {
         "metadata": "episodes/0539-star-trek-previews/metadata.json",
         "summary_json": "episodes/0539-star-trek-previews/summary.json",
         "summary_markdown": "episodes/0539-star-trek-previews/summary.md",
-        "effective_summary_json": null,
-        "effective_summary_markdown": null
+        "effective_summary_json": "episodes/0539-star-trek-previews/effective.json",
+        "effective_summary_markdown": "episodes/0539-star-trek-previews/effective.md"
       },
       "processed_at": "2026-11-19T03:21:22Z",
       "error": null,
       "human_reviewed": false,
-      "review_revision": null,
+      "review_revision": "0a9f9da8320fff5492f1ff49cd6fade9957a69067d294f67770778b3545b245d",
       "reviewed_at": null,
       "reviewed_by": null,
       "review_note": null,
@@ -4916,23 +5020,77 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "complete",
-      "review_state": "approved",
-      "review_reason": null,
-      "review_triage": null,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage",
+          "timing",
+          "identity"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "identity",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-302251b0098f5cd1",
+            "card": "Sol Ring",
+            "start_seconds": 789
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-302251b0098f5cd1",
+            "card": "Sol Ring",
+            "start_seconds": 789
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-302251b0098f5cd1",
+            "card": "Sol Ring",
+            "start_seconds": 789
+          }
+        ]
+      },
       "pick_count": 4,
       "directory": "episodes/0507-psa-buys-beckett",
       "outputs": {
         "metadata": "episodes/0507-psa-buys-beckett/metadata.json",
         "summary_json": "episodes/0507-psa-buys-beckett/summary.json",
         "summary_markdown": "episodes/0507-psa-buys-beckett/summary.md",
-        "effective_summary_json": null,
-        "effective_summary_markdown": null
+        "effective_summary_json": "episodes/0507-psa-buys-beckett/effective.json",
+        "effective_summary_markdown": "episodes/0507-psa-buys-beckett/effective.md"
       },
       "processed_at": "2026-09-04T14:31:09Z",
       "error": null,
       "human_reviewed": false,
-      "review_revision": null,
+      "review_revision": "5572875a19258d5cbb3d46d710e25b8f0c8a83a11e363a097cb54c89730ef7f0",
       "reviewed_at": null,
       "reviewed_by": null,
       "review_note": null,
@@ -5166,15 +5324,125 @@
       "source_name": "Brainstorm Brewery",
       "source_url": "https://brainstormbrewery.com/",
       "extraction_profile": "brainstorm_brewery",
-      "processing_status": "complete",
-      "review_state": "approved",
-      "review_reason": null,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
       "review_triage": {
         "priority": 0,
         "codes": [
-          "timing"
+          "coverage",
+          "timing",
+          "identity"
         ],
         "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "identity",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-29bca634154f7b71",
+            "card": "Witty Roastmaster",
+            "start_seconds": 1528
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-29bca634154f7b71",
+            "card": "Witty Roastmaster",
+            "start_seconds": 1528
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-29bca634154f7b71",
+            "card": "Witty Roastmaster",
+            "start_seconds": 1528
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/0",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-29bca634154f7b71",
+            "card": "Witty Roastmaster",
+            "start_seconds": 1528
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/0",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-29bca634154f7b71",
+            "card": "Witty Roastmaster",
+            "start_seconds": 1528
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/1",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-c6892021b651b8de",
+            "card": "Bringer of the Last Gift",
+            "start_seconds": 1762
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/1",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-c6892021b651b8de",
+            "card": "Bringer of the Last Gift",
+            "start_seconds": 1762
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/1",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-c6892021b651b8de",
+            "card": "Bringer of the Last Gift",
+            "start_seconds": 1762
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/1",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-c6892021b651b8de",
+            "card": "Bringer of the Last Gift",
+            "start_seconds": 1762
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/1",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-c6892021b651b8de",
+            "card": "Bringer of the Last Gift",
+            "start_seconds": 1762
+          },
           {
             "code": "timing",
             "path": "recommendations/4",
@@ -5192,13 +5460,13 @@
         "metadata": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/metadata.json",
         "summary_json": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/summary.json",
         "summary_markdown": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/summary.md",
-        "effective_summary_json": null,
-        "effective_summary_markdown": null
+        "effective_summary_json": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/effective.json",
+        "effective_summary_markdown": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/effective.md"
       },
       "processed_at": "2026-09-15T23:08:31Z",
       "error": null,
       "human_reviewed": false,
-      "review_revision": null,
+      "review_revision": "fbfffdbb7b02e08610216bbe67bd51920c7d89ad1393590704ffc033c13e07ca",
       "reviewed_at": null,
       "reviewed_by": null,
       "review_note": null,
@@ -5220,20 +5488,130 @@
       "source_name": "MTG Fast Finance",
       "source_url": "https://www.mtgfastfinance.com/",
       "extraction_profile": "cards_to_watch",
-      "processing_status": "complete",
-      "review_state": "approved",
-      "review_reason": null,
+      "processing_status": "needs_review",
+      "review_state": "needs_review",
+      "review_reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
       "review_triage": {
         "priority": 0,
         "codes": [
-          "coverage"
+          "coverage",
+          "timing",
+          "identity"
         ],
         "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "timing",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
+          {
+            "code": "identity",
+            "path": "extraction",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved"
+          },
           {
             "code": "coverage",
             "path": "section",
             "reason": "Recommendation block start found, but no explicit ending or advertised weekly-topic transition was detected.",
             "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-c6ff00f55479afe3",
+            "card": "Narset's Reversal",
+            "start_seconds": 1682
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-c6ff00f55479afe3",
+            "card": "Narset's Reversal",
+            "start_seconds": 1682
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/0",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-c6ff00f55479afe3",
+            "card": "Narset's Reversal",
+            "start_seconds": 1682
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/0",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-c6ff00f55479afe3",
+            "card": "Narset's Reversal",
+            "start_seconds": 1682
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/0",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-c6ff00f55479afe3",
+            "card": "Narset's Reversal",
+            "start_seconds": 1682
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/1",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-e01a013c9473bd49",
+            "card": "Avatar Kyoshi",
+            "start_seconds": 1768
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/1",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-e01a013c9473bd49",
+            "card": "Avatar Kyoshi",
+            "start_seconds": 1768
+          },
+          {
+            "code": "identity",
+            "path": "recommendations/1",
+            "reason": "November 24, 2026 limited source check: independent tiny.en ASR and separate Flash Lite short-clip transcription corroborate these listening starts. Unverified end clocks cleared. Other picks, original evidence and stable identities preserved. Machine source correction only; no human approval or whole-episode completeness certification.",
+            "state": "unresolved",
+            "pick_id": "pick-e01a013c9473bd49",
+            "card": "Avatar Kyoshi",
+            "start_seconds": 1768
+          },
+          {
+            "code": "coverage",
+            "path": "recommendations/1",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-e01a013c9473bd49",
+            "card": "Avatar Kyoshi",
+            "start_seconds": 1768
+          },
+          {
+            "code": "timing",
+            "path": "recommendations/1",
+            "reason": "Pick starts outside the selected recommendation section; verify coverage and alignment.",
+            "state": "unresolved",
+            "pick_id": "pick-e01a013c9473bd49",
+            "card": "Avatar Kyoshi",
+            "start_seconds": 1768
           }
         ]
       },
@@ -5243,13 +5621,13 @@
         "metadata": "episodes/0504-monster-hunter-secret-lair-breakdown/metadata.json",
         "summary_json": "episodes/0504-monster-hunter-secret-lair-breakdown/summary.json",
         "summary_markdown": "episodes/0504-monster-hunter-secret-lair-breakdown/summary.md",
-        "effective_summary_json": null,
-        "effective_summary_markdown": null
+        "effective_summary_json": "episodes/0504-monster-hunter-secret-lair-breakdown/effective.json",
+        "effective_summary_markdown": "episodes/0504-monster-hunter-secret-lair-breakdown/effective.md"
       },
       "processed_at": "2026-10-01T22:55:29Z",
       "error": null,
       "human_reviewed": false,
-      "review_revision": null,
+      "review_revision": "d83be1fdd94b54b9f38f0a6f5526db04ff7b3e3e068efc1c3b258ea6b52bb32b",
       "reviewed_at": null,
       "reviewed_by": null,
       "review_note": null,
