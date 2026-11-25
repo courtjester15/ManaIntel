@@ -1,0 +1,73 @@
+name: ManaIntel bounded quality comparison
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        type: choice
+        options: [source, extraction]
+        required: true
+      transcript_run_id:
+        type: string
+        default: "44450652703"
+        required: true
+concurrency:
+  group: ffw-production-writer
+  cancel-in-progress: false
+permissions:
+  actions: read
+  contents: write
+env:
+  FFW_CAPACITY_PATH: state/request-capacity.json
+  FFW_REQUEST_DAILY_BUDGET: "48"
+  FFW_PRIMARY_REQUEST_RESERVE: "16"
+  FFW_OPTIONAL_WORK: "true"
+  FFW_OPTIONAL_RUN_REQUEST_BUDGET: "16"
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh serialized production accounting
+        run: git pull --ff-only origin "${{ github.event.repository.default_branch }}"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e .
+      - if: inputs.phase == 'source'
+        run: python -m pip install faster-whisper
+      - if: inputs.phase == 'source'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - if: inputs.phase == 'extraction'
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.transcript_run_id }}
+          pattern: transcripts-*
+          merge-multiple: true
+          path: .ffw-work/quality-retained
+      - name: Run bounded comparison without publishing
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PHASE: ${{ inputs.phase }}
+        run: python tools/quality_comparison.py --phase "$PHASE"
+      - name: Retain private diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-${{ github.run_id }}
+          path: .ffw-work/quality/reports/*.json
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Persist request accounting and compact evaluation journal
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/request-capacity.json
+          if [[ -d state/quality-runs ]]; then git add state/quality-runs; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: retain bounded quality evaluation accounting"
+            python -m ffw.persistence --branch "${{ github.event.repository.default_branch }}"
+          fi

@@ -1,0 +1,172 @@
+"""Manual, bounded source/quality experiment. Never publishes episode output."""
+import argparse
+from contextlib import contextmanager
+from dataclasses import fields, replace
+import gzip
+import json
+import os
+from pathlib import Path
+import subprocess
+
+from ffw.models import EpisodeCandidate, utc_now
+from ffw.production import GeminiExtractor, GeminiTranscriber
+from ffw.utils import atomic_write_json, load_json
+from ffw.audit import safe_message
+from ffw.capacity import reserve
+
+
+@contextmanager
+def request_cap(limit):
+    """Include SDK/schema/split recovery calls in the aggregate experiment cap."""
+    from ffw import capacity
+    original = capacity.reserve
+    reserved = []
+    def bounded(model, *args, **kwargs):
+        if not kwargs.get("check_only"):
+            if len(reserved) >= limit:
+                raise capacity.CapacityStopped("Evaluation aggregate call cap reached")
+            ticket = original(model, *args, **kwargs)
+            reserved.append(model)
+            return ticket
+        return original(model, *args, **kwargs)
+    capacity.reserve = bounded
+    try:
+        yield reserved
+    finally:
+        capacity.reserve = original
+
+MODELS = ("gemini-3.5-flash-lite", "gemini-3.6-flash")
+SOURCE_CLIPS = ((539, 1360, 225), (504, 1350, 450), (678, 1350, 450), (507, 720, 225))
+CASES = (("mtg-fast-finance", 539), ("mtg-fast-finance", 537),
+         ("brainstorm-brewery", 667), ("mtg-fast-finance", 538))
+CANDIDATE_INSTRUCTIONS = (
+    " Before answering, walk through the recommendation discussion chronologically, including the final selection. "
+    "A positive recommendation by one host remains a recommendation when another host disagrees: preserve the "
+    "positive case and put the disagreement in caveats. Do not silently discard that recommendation. "
+    "Do not require consensus, a perfect card spelling, a quoted price, or a specific printing to include an "
+    "explicit pick. Preserve uncertain identity as needs_review. An explicit purchase or resale thesis is "
+    "recommendation evidence even when a cohost challenges it. "
+    "For every first/other/final-pick handoff, check that its following recommendation is represented. "
+    "Do not turn unrelated mentions or a rejected alternative into extra picks. "
+    "Speaker attribution is optional: use hosts=[] unless the pick's supplied speaker label or an explicit "
+    "named handoff establishes the name. Never copy the introduction's participant list into pick hosts."
+)
+
+
+def candidate(episode):
+    allowed = {f.name for f in fields(EpisodeCandidate)}
+    return EpisodeCandidate(**{k: v for k, v in episode.items() if k in allowed})
+
+
+class CandidateExtractor(GeminiExtractor):
+    def _generate(self, client, types, contents):
+        return super()._generate(client, types, [contents[0] + CANDIDATE_INSTRUCTIONS, *contents[1:]])
+
+
+def retained(root, source, number):
+    matches = []
+    for path in root.rglob("*.json.gz"):
+        with gzip.open(path, "rt", encoding="utf-8") as stream:
+            record = json.load(stream)
+        e = record.get("episode", {})
+        if e.get("source_id") == source and e.get("episode_number") == number:
+            matches.append(record)
+    if len(matches) != 1:
+        raise ValueError(f"Expected one retained transcript for {source}/{number}; found {len(matches)}")
+    return matches[0]
+
+
+def run(phase, root, output):
+    output.mkdir(parents=True, exist_ok=True)
+    journal = {"kind": "bounded_quality_evaluation", "phase": phase, "started_at": utc_now(),
+               "run_id": os.getenv("GITHUB_RUN_ID", "local"), "calls": [], "results": [],
+               "notice": "Machine source checks and scoped comparisons; not human approval or full-episode certification."}
+    cap = 8 if phase == "source" else 10
+    def observe(event, **details):
+        if event == "model_call":
+            journal["calls"].append({k: details.get(k) for k in
+                ("model", "outcome", "request_seconds", "finish_reason")})
+    def save():
+        journal["finished_at"] = utc_now()
+        atomic_write_json(output / "journal.json", journal)
+        atomic_write_json(Path("state/quality-runs") / f"{journal['run_id']}.json", journal)
+    try:
+        # Hard stop independent of model-specific daily capacity buckets.
+        def before(model):
+            if len(journal["calls"]) >= cap:
+                raise RuntimeError("Evaluation aggregate call cap reached")
+            reserve(model, check_only=True)
+        if phase == "source":
+            from faster_whisper import WhisperModel
+            asr = WhisperModel("tiny.en", device="cpu", compute_type="int8", download_root=".ffw-work/asr-models")
+            index = load_json(Path("archive/index.json"))
+            clips = []
+            for number, start, duration in SOURCE_CLIPS:
+                source = "brainstorm-brewery" if number == 678 else "mtg-fast-finance"
+                ep = next(e for e in index["episodes"] if e.get("episode_number") == number and e.get("source_id") == source)
+                audio = output.parent / f"clip-{number}.mp3"
+                subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(start),
+                    "-i", ep["audio_url"], "-t", str(duration), "-vn", "-ac", "1", "-ar", "16000",
+                    "-b:a", "32k", str(audio)], check=True, timeout=180)
+                segments, info = asr.transcribe(str(audio), beam_size=5, vad_filter=True)
+                text = [{"start": s.start, "end": s.end, "text": s.text} for s in segments]
+                atomic_write_json(output / f"source-{number}-independent.json", {
+                    "model": "faster-whisper/tiny.en", "episode": number, "clip_start": start,
+                    "clip_duration": duration, "segments": text, "language_probability": info.language_probability})
+                clips.append((number, start, duration, replace(candidate(ep), duration_seconds=duration), audio))
+            for model in MODELS:
+                for number, start, duration, ep, audio in clips:
+                    try:
+                        before(model)
+                        transcriber = GeminiTranscriber(model, duration, transient_retries=0,
+                                                        request_timeout_seconds=180)
+                        transcriber.audit_callback = observe
+                        result = transcriber.transcribe(ep, [audio])
+                        atomic_write_json(output / f"source-{number}-{model}.json", result)
+                        journal["results"].append({"episode": number, "model": model, "kind": "source_clip",
+                            "clip_start": start, "clip_duration": duration, "outcome": "response"})
+                    except Exception as exc:
+                        journal["results"].append({"episode": number, "model": model, "kind": "source_clip",
+                                                  "outcome": "stopped", "error": safe_message(exc)})
+                        break  # No repeated probe of an unavailable model in this run.
+        else:
+            for model in MODELS:
+                cases = CASES if model == MODELS[0] else CASES[:1]
+                stop = False
+                for source, number in cases:
+                    record = retained(root, source, number)
+                    ep = candidate(record["episode"])
+                    for policy, cls in (("baseline", GeminiExtractor), ("candidate", CandidateExtractor)):
+                        try:
+                            before(model)
+                            extractor = cls(model, transient_retries=0, request_timeout_seconds=180)
+                            extractor.audit_callback = observe
+                            result = extractor.extract(ep, record["transcript"])
+                            atomic_write_json(output / f"extract-{number}-{model}-{policy}.json", {
+                                "episode": record["episode"], "recommendations": result["recommendations"],
+                                "section": result["section"], "review_reason": result.get("review_reason")})
+                            journal["results"].append({"episode": number, "model": model, "policy": policy,
+                                "outcome": "response", "pick_count": len(result["recommendations"])})
+                        except Exception as exc:
+                            journal["results"].append({"episode": number, "model": model, "policy": policy,
+                                                      "outcome": "stopped", "error": safe_message(exc)})
+                            stop = True
+                            break
+                    if stop:
+                        break
+        journal["status"] = "finished"
+    except Exception as exc:
+        journal.update(status="failed", error=safe_message(exc))
+        raise
+    finally:
+        save()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--phase", choices=("source", "extraction"), required=True)
+    parser.add_argument("--retained", type=Path, default=Path(".ffw-work/quality-retained"))
+    parser.add_argument("--output", type=Path, default=Path(".ffw-work/quality/reports"))
+    args = parser.parse_args()
+    with request_cap(8 if args.phase == "source" else 10):
+        run(args.phase, args.retained, args.output)
