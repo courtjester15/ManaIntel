@@ -24,6 +24,17 @@ open. Next: observe natural runs, source-check coverage alarms and expand bounde
 independent evidence before changing model/chunk defaults. Deployment verification
 is recorded in the session closeout below.
 
+Quality batch closeout: implementation `1de7df4`;
+[production 45544833837](https://github.com/courtjester15/ManaIntel/actions/runs/45544833837)
+passed all 303 tests together, archive validation, staged fidelity and Pages.
+Served verification checked all three catalogs: 149 episodes/562 picks, zero
+findings. Original extraction JSON/metadata/Markdown and existing pick IDs are
+preserved; all four new overrides remain unapproved. Ten Node review journeys and
+51 scoped evaluation assertions pass. Scratch preview/apply reclaimed nothing;
+private diagnostic evidence remains protected. Current model/prompt and budgets
+are unchanged. Next: ordinary-run observation and focused source checks of new
+coverage alarms; R2 and sustained reliability remain open.
+
 November 24 three-month status audit: [historical comparison](COMPLETE_HISTORY_2026-11-24.md).
 258 retained catalog revisions show September's peak: 36 distinct newly complete
 episodes, versus October 13 and November 4 through the 24th; September 14–20 had
