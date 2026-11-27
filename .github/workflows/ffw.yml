@@ -167,6 +167,10 @@ jobs:
           FFW_TIMING_REPAIR_MAX_CHUNKS: "2"
         run: python -m unittest discover -s tests -v
 
+      - name: Check review workbench journeys
+        if: ${{ github.event_name == 'push' || inputs.mode == 'deploy_only' }}
+        run: node --test tests/test_review_ui.cjs
+
       - name: Verify AI provider credentials
         if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
         env:

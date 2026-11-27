@@ -68,6 +68,13 @@ function timestampToSeconds(value) {
   return Number(match[1]) * 3600 + Number(match[2]) * 60 + Number(match[3]);
 }
 
+function checkTimestampDuration(seconds, card) {
+  const duration = sourceSummary.episode.duration_seconds;
+  if (duration && seconds > duration) {
+    throw new Error(`${card}: timestamp exceeds the source audio duration.`);
+  }
+}
+
 function inputField(label, name, value, options = {}) {
   const required = options.required ? " required" : "";
   const wide = options.wide ? " review-field-wide" : "";
@@ -269,10 +276,8 @@ function validatePickValues(values) {
   if (!values.evidence_excerpt) throw new Error(`${values.card} needs a short evidence excerpt.`);
   if (!Number.isInteger(values.start_seconds) || values.start_seconds < 0) throw new Error(`${values.card} needs a valid start timestamp.`);
   if (values.end_seconds !== null && values.end_seconds < values.start_seconds) throw new Error(`${values.card}: end must not precede start.`);
-  const duration = sourceSummary.episode.duration_seconds;
-  if (duration && (values.start_seconds > duration || values.end_seconds !== null && values.end_seconds > duration)) {
-    throw new Error(`${values.card}: timestamp exceeds the source audio duration.`);
-  }
+  checkTimestampDuration(values.start_seconds, values.card);
+  if (values.end_seconds !== null) checkTimestampDuration(values.end_seconds, values.card);
 }
 
 function changedFields(original, values) {
@@ -441,13 +446,18 @@ function bindReviewEvents() {
     const editor = listen.closest(".review-pick");
     const value = editor.querySelector('[name="timestamp"]').value;
     const card = editor.querySelector('[name="card"]').value.trim() || "Review context";
-    const seconds = AudioPlayback.parseTime(value);
-    if (seconds === null) {
-      document.querySelector("#review-error").textContent = `Timestamp "${value}" must use HH:MM:SS.`;
-      document.querySelector("#review-error").hidden = false;
+    const error = document.querySelector("#review-error");
+    let seconds;
+    try {
+      seconds = timestampToSeconds(value);
+      checkTimestampDuration(seconds, card);
+    } catch (problem) {
+      error.textContent = problem.message;
+      error.hidden = false;
       return;
     }
-    AudioPlayback.seekTo(seconds, { label: card });
+    error.hidden = true;
+    if (!AudioPlayback.seekTo(seconds, { label: card })) return;
     const params = new URLSearchParams(window.location.search);
     params.set("t", seconds);
     if (editor.dataset.originalId) params.set("pick", editor.dataset.originalId);

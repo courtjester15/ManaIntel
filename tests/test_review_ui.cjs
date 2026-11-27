@@ -2,13 +2,23 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
+const { parseTime } = require('../web/audio-player.js');
 
 function harness() {
   const nodes = new Map();
   const editors = [];
   function node(selector) {
-    if (!nodes.has(selector)) nodes.set(selector, { value: '', hidden: false, innerHTML: '',
-      textContent: '', addEventListener() {}, scrollIntoView() {} });
+    if (!nodes.has(selector)) {
+      const events = new Map();
+      nodes.set(selector, { value: '', hidden: false, innerHTML: '', textContent: '',
+        addEventListener(type, listener) {
+          if (!events.has(type)) events.set(type, []);
+          events.get(type).push(listener);
+        },
+        emit(type, event) { for (const listener of events.get(type) || []) listener(event); },
+        scrollIntoView() {},
+      });
+    }
     return nodes.get(selector);
   }
   const c = vm.createContext({
@@ -37,6 +47,61 @@ test('review editor and added picks never fill unknown pick speakers from show h
   assert.match(html, /name="end_timestamp"/);
   assert.match(html, /name="reasoning"/);
   assert.match(html, /name="caveats"/);
+});
+
+test('an edited listening start can be auditioned and prepared without approving the episode', () => {
+  const h = harness();
+  const original = h.c.fixture.recommendations[0];
+  const fields = {
+    action: 'update', timestamp: '00:01:45', end_timestamp: '00:02:10',
+    card: original.card, printing: original.printing, foil: 'false', hosts: '',
+    recommendation: original.recommendation, evidence_excerpt: original.evidence_excerpt,
+    reasoning: 'Low supply', caveats: '', entry_target_raw: 'historical five',
+    entry_target_currency: 'USD', entry_target_minimum: '5', entry_target_maximum: '5',
+  };
+  const editor = { dataset: { originalId: original.id },
+    querySelector: (selector) => ({ value: fields[selector.match(/name="([^"]+)"/)[1]] || '' }) };
+  h.editors.push(editor);
+  h.node('[name="decision"]').value = 'correct_without_approval';
+  h.node('[name="review-note"]').value = 'Checked the start against the source.';
+  h.c.window.location.pathname = '/review.html';
+  const seeks = [];
+  const urls = [];
+  let audioAvailable = false;
+  h.c.AudioPlayback = {
+    parseTime,
+    seekTo(seconds, options) { seeks.push([seconds, options.label]); return audioAvailable; },
+  };
+  h.c.history = { replaceState(_state, _title, url) { urls.push(url); } };
+  h.run('bindReviewEvents()');
+  const button = { closest: (selector) => selector === '.review-pick' ? editor : null };
+  const clickListen = () => h.node('#review-app').emit('click', {
+    target: { closest: (selector) => selector === '[data-review-listen]' ? button : null },
+  });
+  clickListen();
+  assert.deepEqual(urls, []);
+  audioAvailable = true;
+  clickListen();
+  assert.deepEqual(seeks, [[105, original.card], [105, original.card]]);
+  assert.deepEqual(urls, ['/review.html?episode=fixture&t=105&pick=pick-fixture']);
+
+  for (const invalid of ['01:45', '01:00:01']) {
+    fields.timestamp = invalid;
+    clickListen();
+    assert.equal(h.node('#review-error').hidden, false);
+    assert.match(h.node('#review-error').textContent, /HH:MM:SS|source audio duration/);
+  }
+  assert.equal(seeks.length, 2);
+  assert.equal(urls.length, 1);
+
+  fields.timestamp = '00:01:45';
+  h.node('#prepare-review').emit('click');
+  assert.equal(h.node('#review-output').hidden, false);
+  const payload = JSON.parse(h.node('#review-payload').value);
+  assert.equal(payload.decision, 'correct_without_approval');
+  assert.deepEqual(payload.expected.pick_ids, [original.id]);
+  assert.deepEqual(payload.operations, [{ action: 'update', pick_id: original.id,
+    changes: { start_seconds: 105 } }]);
 });
 
 test('target fields preserve source text and unknown bounds without inferring a price', () => {

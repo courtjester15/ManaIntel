@@ -162,6 +162,15 @@ The report exposes no-op/gated runs with successful Pages jobs so deployment chu
 4. Verify `git status` remains clean after pulling the workflow result.
 5. Confirm the **Decide Pages publication** step reports `ready=false` and that Pages upload/deployment are skipped. A changed, validated failure record should instead report `ready=true` and deploy the current failure status even though the publish job ultimately reports the pipeline failure.
 
+## Verify the review workbench
+
+Run `node --test tests/test_review_ui.cjs` from the repository root. The synthetic
+journeys exercise editor behavior, listening requests, and review payloads
+without submitting a review. Push deployments and the saved-review workflow run
+this check. For a user-facing change, also exercise the controls in Codex's
+in-app browser where available. Record starting state, viewport, action and
+result. Layout and native playback need their own checks.
+
 ## Verify publication fidelity
 
 `manaintel validate` now compares catalog fields with a read-only reconstruction

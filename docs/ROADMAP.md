@@ -4,7 +4,19 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.35. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.36. Next milestone: 0.6 — dependable processing.**
+
+November 26 review listening and engineering workflow (0.5.36). The review
+workbench checks the edited listening start against the same format and source
+duration as the correction form. An unavailable player leaves the current URL
+alone. Push deployments and saved-review runs check the synthetic workbench
+journeys. Repository skills route source review, workbench QA and publication
+verification to their existing guides. Rechecking the retained independent
+BB678 ASR window found that Academy Manufactor (51:53) and Argothian
+Enchantress (53:21) both link after the Ulamog handoff, with neither card
+named around its published start. The window does not establish replacement
+starts. Next: observe an ordinary run and source-check BB678 before 50:40
+to find the two starts.
 
 November 26 source audit and review protection (0.5.35). Four source windows
 confirmed the FF538 Akroma's Will price/hold thesis and spelling, FF539's missing
