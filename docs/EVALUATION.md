@@ -108,3 +108,40 @@ printing, a printing/clock tradeoff, CLI exit status and wrong-episode rejection
 This provides the offline comparison mechanism for R4; R2's independent source
 verification and any model/prompt change remain outstanding. No runtime version
 bump is needed for this developer-tool change.
+
+
+## November 26 bounded source audit
+
+Four source windows were decoded and read separately with faster-whisper
+small.en. The inventory records clip bounds and decoded PCM and transcript
+hashes for scored windows. The source readings are machine evidence.
+
+- **Fast Finance 538, 1495-1590 seconds.** The source corroborates a sub-$100
+  entry, a $200 exit thesis, and a six-to-twelve-month horizon. The Japanese
+  Silver Scroll foil context and publisher checklist identify Akroma's Will.
+  The correction fixes the name and clears attribution on that pick.
+  Its prices were already correctly recorded. [Wizards card checklist](https://media.wizards.com/2026/downloads/card-sets/SOS_Cardlist_04172026.pdf)
+- **Fast Finance 539, 890-1380 seconds.** Sensei's Divining Top and Esper
+  Sentinel have separate price discussions at roughly 15:20 and 15:35. The
+  unopened Odds and Ends deck is explicitly endorsed around $170-$173 as an
+  alternative to acquiring those singles. The previous comparison treated that
+  sealed-product recommendation as unconfirmed. The correction adds the deck
+  and separates the single-card starts. [Wizards decklist](https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-odds-and-ends-decklist)
+- **Brainstorm Brewery 678, 3040 seconds to the enclosure end.** The Ulamog
+  handoff starts at about 50:45. The source decodes to 3252.192 seconds total,
+  consistent with the feed duration. The previous 3253-second start was
+  unplayable. Two other late picks still need source checks.
+- **Brainstorm Brewery 651, 1510-1750 seconds.** This window contains card
+  mechanics and artwork discussion. The limited sample leaves the zero-pick
+  episode in needs_review.
+
+The runner completed the four source readings before cancellation. Its artifact
+was copied to protected local scratch and deleted from the public GitHub
+repository. The temporary Actions entry was removed. The independent mode can
+run from a local checkout with ffmpeg and faster-whisper using
+python tools/quality_comparison.py --phase independent. Windows Application
+Control blocked a subsequent local ASR import for the extra BB678 window.
+No Gemini requests or episode-processing retries were made.
+
+All 63 scoped assertions pass. The source corrections preserve existing
+pick IDs and original extraction files. No full-episode approval was added.

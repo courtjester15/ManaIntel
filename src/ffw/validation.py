@@ -8,7 +8,7 @@ import re
 from .models import PROCESSING_STATES
 from .rendering import render_episode_markdown
 from .reviews import apply_review, load_episode_review
-from .utils import load_json, stable_pick_id
+from .utils import load_json, recommendation_key, stable_pick_id
 from .publication import catalog_findings, expected_publication
 
 
@@ -113,14 +113,18 @@ def validate_archive(
             missing_pick_fields = required_pick_fields - set(pick)
             if missing_pick_fields:
                 issues.append(ValidationIssue("error", "pick_schema", pick_path, f"Missing pick fields: {sorted(missing_pick_fields)}"))
-            expected_id = stable_pick_id(guid, pick.get("card", ""), pick.get("identity_start_seconds", pick.get("start_seconds")), pick.get("identity_printing", pick.get("printing")))
+            expected_id = stable_pick_id(
+                guid, pick.get("identity_card", pick.get("card", "")),
+                pick.get("identity_start_seconds", pick.get("start_seconds")),
+                pick.get("identity_printing", pick.get("printing")),
+            )
             if pick.get("id") != expected_id:
                 issues.append(ValidationIssue("error", "unstable_pick_id", pick_path, "Pick ID does not match its stable identity."))
             if pick.get("id") in seen_pick_ids:
                 issues.append(ValidationIssue("error", "duplicate_pick_id", pick_path, "Pick ID appears more than once."))
             seen_pick_ids.add(pick.get("id"))
             all_summary_ids.add(pick.get("id"))
-            duplicate_key = (pick.get("card", "").casefold(), pick.get("printing"), pick.get("start_seconds"))
+            duplicate_key = recommendation_key(pick)
             if duplicate_key in episode_pick_keys:
                 issues.append(ValidationIssue("error", "duplicate_recommendation", pick_path, "Duplicate recommendation within episode."))
             episode_pick_keys.add(duplicate_key)

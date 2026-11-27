@@ -195,6 +195,7 @@ def main(argv: list[str] | None = None) -> int:
             limit=args.limit,
             refresh=args.refresh,
             production=settings.mode == "live",
+            reviews_dir=settings.root / "data" / "reviews",
         )
         rerender_archive(
             settings.archive_dir,

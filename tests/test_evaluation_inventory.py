@@ -124,6 +124,11 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
                 self.assertIn("separate from prior Gemini", check["method"])
             elif case["basis"] == "independent_machine_asr_and_separate_short_clip_transcription_not_human_certification":
                 self.assertTrue(case["evidence"]["source_run_id"])
+            elif case["basis"] == "independent_machine_asr_from_source_audio_not_human_verified":
+                self.assertEqual(64, len(case["evidence"]["pcm_sha256"]))
+                self.assertGreater(case["evidence"]["decoded_duration_seconds"], 0)
+            elif case["basis"] == "retained_transcript_and_independent_machine_audio_checks_not_human_verified":
+                self.assertEqual(64, len(case["evidence"]["price_hold_audio_check"]["pcm_sha256"]))
             else:
                 self.assertIn("not_independent_audio", case["basis"])
             for pick in case["expected_picks"]:
@@ -133,16 +138,17 @@ class ExpectedPickEvaluationTests(unittest.TestCase):
     def test_ff538_detects_missing_hold_and_historical_price_substitution(self):
         case = next(case for case in self.inventory["cases"] if case["id"] == "ff538-prices-and-hold")
         summary = {"episode": {"guid": case["episode_guid"]}, "recommendations": [
-            dict(card=pick["cards"][0], printing=" ".join(pick["printing_contains"]),
-                 start_seconds=pick["start_window"][0], **deepcopy(pick["equals"]))
+            {**dict(card=pick["cards"][0], printing=" ".join(pick["printing_contains"]),
+                    start_seconds=pick["start_window"][0]), **deepcopy(pick["equals"])}
             for pick in case["expected_picks"]
         ]}
         self.assertFalse(compare(case, summary)["findings"])
         summary["recommendations"][0]["hold"] = None
         summary["recommendations"][0]["entry_target"]["minimum"] = 150
         self.assertEqual({"hold", "entry_target"}, {f["field"] for f in compare(case, summary)["findings"]})
-        self.assertIn("not_independent_audio", case["basis"])
-        self.assertIn("not the 1527-1538", case["evidence"]["partial_asr_check"]["limits"])
+        summary["recommendations"][0]["card"] = "Chroma's Will"
+        self.assertEqual({"card", "hold", "entry_target"}, {f["field"] for f in compare(case, summary)["findings"]})
+        self.assertEqual([[1495, 1590]], case["evidence"]["price_hold_audio_check"]["windows_seconds"])
 
 
 if __name__ == "__main__":

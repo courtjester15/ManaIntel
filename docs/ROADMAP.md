@@ -4,7 +4,17 @@ October 20 local housekeeping: added a preview-first, opt-in scratch cleanup too
 
 Updated October 15, 2026. This is the active roadmap, replacing the maintenance-only/five-hour final-pass plan. There are no release dates or obligation to finish every idea. The goal is a useful little archive that needs very little of Jason's attention.
 
-**Current release: 0.5.34. Next milestone: 0.6 — dependable processing.**
+**Current release: 0.5.35. Next milestone: 0.6 — dependable processing.**
+
+November 26 source audit and review protection (0.5.35). Four source windows
+confirmed the FF538 Akroma's Will price/hold thesis and spelling, FF539's missing
+Odds and Ends deck recommendation and two shared listening starts, and BB678's
+Ulamog start before an unplayable link. All three episodes use limited
+corrections, retaining existing pick IDs and original extraction files. The
+review editor now accepts source-backed name changes without episode approval,
+the catalog resolver uses effective names, and forced processing stops before
+downloads when a saved review binds the source extraction. The archive has 149
+episodes and 563 picks. [Source evidence and limits](EVALUATION.md#november-26-bounded-source-audit)
 
 November 26 production preflight repair: six scheduled runs stopped before episode
 processing because the 0.5.34 unknown-host label left 24 committed Markdown summaries
@@ -283,7 +293,7 @@ One improvement batch is active at a time. Production defects interrupt this ord
 | ID | Priority | State | Next concrete result |
 | --- | --- | --- | --- |
 | R1 | Shipped | Complete | Read-only health-report CLI, [baseline](HEALTH_REPORT.md), and reports in processing-workflow summaries/artifacts. Source/version/configuration cohorts, separate experiment/retry denominators, deployment evidence and backlog. |
-| R2 | First | In progress | [Evaluation inventory](EVALUATION.md) includes nine scoped expected picks across both shows, 45 assertions, and a read-only comparator. FF538 adds price/hold coverage with explicit partial-ASR limits. Independently check its uncovered price/hold sentence next; human/source-certified labels and broader accuracy checks remain outstanding. |
+| R2 | First | In progress | [Evaluation inventory](EVALUATION.md) now has 63 scoped assertions across both shows. FF538's previously uncovered price/hold claim has an independent machine reading. Next: check BB678's two remaining late clocks and expand the source sample. Human verification and whole-episode completeness remain open. |
 | R3 | Shipped | Recovery clarity follow-up | Status distinguishes temporary provider outage, observed provider capacity refusal and local budget stops; shows remaining attempts and eligible-after/since times. Exhausted retries cannot promise scheduled recovery. |
 | R4 | Next | Offline comparison ready | Baseline/candidate evaluator reports regressions, fixes and blocked checks across the same scoped assertions. Next: independently verified R2 evidence before a bounded model/prompt comparison. |
 | R5 | Active | Bounded rollout | Shared Pacific-day capacity ledger and nightly cleanup implemented in 0.5.15. FF 537 coverage recovered; inspect FF 495 and bounded BB 663 review continuation, then first older boundary cohort; preserve review uncertainty and primary reserve. No-op Pages churn remains separate. |

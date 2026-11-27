@@ -57,6 +57,10 @@ def stable_pick_id(guid: str, card_name: str, start_seconds: int | None, printin
     return "pick-" + hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16]
 
 
+def recommendation_key(pick: dict[str, Any]) -> tuple[str, Any, Any]:
+    return (str(pick.get("card", "")).casefold(), pick.get("printing"), pick.get("start_seconds"))
+
+
 def seconds_to_timestamp(seconds: int | None) -> str | None:
     if seconds is None:
         return None

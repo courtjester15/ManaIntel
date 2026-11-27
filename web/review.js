@@ -188,7 +188,7 @@ function renderReview() {
           <option value="approve">Approve the whole episode</option>
           <option value="correct_without_approval">Limited correction — keep needs review</option>
         </select></label>
-        <p class="muted">Whole-episode approval includes every kept, corrected and added pick. A limited correction can add a pick with unknown attribution, repair source-backed listening times or printing, or clear unsupported entry targets or speakers. It requires an evidence note and keeps the episode in review.</p>
+        <p class="muted">Whole-episode approval includes every kept, corrected and added pick. A limited correction can add an unattributed pick, correct a card name, printing or listening time, or clear unsupported entry targets or speakers. It requires an evidence note and keeps the episode in review.</p>
         ${inputField("Evidence / review note (required for a limited correction)", "review-note", "", { wide: true, multiline: true })}
         <div class="latest-actions">
           <button class="button" id="prepare-review" type="button">Prepare review payload</button>
@@ -321,8 +321,8 @@ function validateOutcome(decision, operations, note) {
   for (const operation of operations) {
     if (operation.action === "add" && operation.pick && !(operation.pick.hosts || []).length) continue;
     if (operation.action !== "update" || Object.entries(operation.changes).some(([key, value]) =>
-      !["printing", "entry_target", "hosts", "start_seconds", "end_seconds"].includes(key) || key === "entry_target" && value !== null || key === "hosts" && (!Array.isArray(value) || value.length))) {
-      throw new Error("Limited corrections can add unattributed picks, repair listening times/printing, or clear unsupported entry targets or speakers. Other edits require whole-episode approval after source verification.");
+      !["card", "printing", "entry_target", "hosts", "start_seconds", "end_seconds"].includes(key) || key === "entry_target" && value !== null || key === "hosts" && (!Array.isArray(value) || value.length))) {
+      throw new Error("Limited corrections can add unattributed picks, correct names, printing or listening times, or clear unsupported entry targets or speakers.");
     }
   }
 }

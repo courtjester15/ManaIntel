@@ -524,6 +524,28 @@ class ReliabilityTests(unittest.TestCase):
         output = self.settings.archive_dir / result.output_directory
         return pipeline, item, output
 
+    def test_exact_rerun_stops_before_download_when_a_saved_review_depends_on_the_extraction(self):
+        from ffw.reviews import persist_review, review_expectation
+
+        pipeline, item, output = self.published()
+        summary = load_json(output / "summary.json")
+        before = (output / "summary.json").read_bytes()
+        state_before = self.settings.state_file.read_bytes()
+        payload = {"schema_version": "1.1.0", "source_id": item.source_id, "episode_guid": item.guid,
+                   "expected": review_expectation(summary), "expected_review_revision": None,
+                   "decision": "correct_without_approval", "note": "Source-supported spelling correction.",
+                   "operations": [{"action": "update", "pick_id": summary["recommendations"][0]["id"],
+                                   "changes": {"card": "Corrected Card"}}]}
+        review = persist_review(self.settings.archive_dir, self.root / "data" / "reviews", payload, actor="Test")
+        review_before = review.read_bytes()
+        with patch.object(pipeline.downloader, "download") as download:
+            with self.assertRaisesRegex(ValueError, "saved review"):
+                pipeline.run(force_guid=item.guid)
+        download.assert_not_called()
+        self.assertEqual(before, (output / "summary.json").read_bytes())
+        self.assertEqual(state_before, self.settings.state_file.read_bytes())
+        self.assertEqual(review_before, review.read_bytes())
+
     def test_inspected_non_speech_tail_allows_extraction_but_never_approval(self):
         import hashlib
         pipeline, item, output = self.published()

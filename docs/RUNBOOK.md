@@ -196,7 +196,7 @@ The static site intentionally contains no repository credential. It prepares a c
 
 1. Open a published machine extraction and select **Review episode**. Machine-checked complete episodes can also be reviewed; already human-reviewed episodes retain their existing review.
 2. Leave valid picks on **Keep**, or choose **Exclude** or **Correct**. Add any omitted picks under **Missing picks**.
-3. Choose **Approve the whole episode** only after checking all included picks, or **Limited correction — keep needs review** for printing changes or clearing unsupported entry targets. Limited corrections require an evidence note and cannot add/remove picks or change other fields. Choose **Prepare review payload**, inspect the published-value/result preview, then **Copy payload**.
+3. Choose **Approve the whole episode** only after checking all included picks. To correct a card name, printing or listening time, add an unattributed pick, or clear an unsupported entry target or speaker, choose **Limited correction — keep needs review** and include an evidence note. Choose **Prepare review payload**, inspect the published-value/result preview, then **Copy payload**.
 4. Choose **Open review workflow**, select **Run workflow**, paste the payload into `review_payload`, and leave deployment enabled.
 5. The workflow records the GitHub actor, rejects stale or malformed payloads, runs the test and validation suites, writes the durable file under `data/reviews/<source-id>/`, rebuilds effective projections, commits both, and deploys Pages.
 6. Confirm the effective summary contains the intended picks. Whole-episode approval shows **human reviewed**; limited correction stays **needs review**, without human approval.
@@ -339,11 +339,8 @@ empty-transcript acceptance rule. It always leaves a source-coverage review warn
 No local VAD/Whisper dependency is added to production; compact inspected evidence
 is durable and raw audio/transcripts stay private.
 
-A durable review can use `decision=correct_without_approval` for an evidence-backed
-printing update or clearing an unsupported entry target. It cannot add/exclude
-picks, invent prices, change hosts or replace an existing human review. It retains
-original extraction, stable identities and uncertainty; effective output contains
-machine-correction provenance and is needs_review, with no human-review marker.
-Existing `approve` reviews and their UI are unchanged. Source-certified evaluation
-and full-episode approval remain separate. Manual `review` timing runs honor the
-optional-work primary reserve and existing per-run/shared request caps.
+A limited name correction retains the original pick ID. Catalog resolution
+uses the effective name, and the original name remains in the source extraction.
+An episode with a saved review must be updated through the review workflow.
+An exact rerun stops before audio download because a replacement extraction would
+invalidate the saved review's expectation.

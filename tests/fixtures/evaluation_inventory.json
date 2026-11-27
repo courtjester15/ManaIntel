@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "notice": "Sanitized paraphrases checked against private retained model transcripts independently of candidate summaries. No independent audio certification, statistical accuracy score, or review approval is implied.",
+  "notice": "Sanitized expectations from retained transcripts and separately identified source-audio machine checks. Each case lists its scope and limits.",
   "cases": [
     {
       "id": "ff537-cards-to-watch",
@@ -202,9 +202,9 @@
     {
       "id": "ff538-prices-and-hold",
       "episode_guid": "tag:soundcloud,2010:tracks/2430946797",
-      "summary_path": "episodes/0538-god-packs-enter-the-chat/summary.json",
-      "basis": "agent_checked_retained_transcript_not_independent_audio",
-      "scope": "Two recommendations: distinguish historical prices, current mentioned price, proposed entry, exit and explicit hold horizon. Retained local ASR corroborates only selected price/name clips; the hold horizon remains transcript-only.",
+      "summary_path": "episodes/0538-god-packs-enter-the-chat/effective.json",
+      "basis": "retained_transcript_and_independent_machine_audio_checks_not_human_verified",
+      "scope": "Two recommendations. Separate past prices, current price, proposed entry, exit and hold. Independent source clips cover the key pricing statements; catalog confirms the Akroma's Will spelling.",
       "evidence": {
         "private_snapshot": "ff538-review/0538-god-packs-enter-the-chat.json.gz",
         "inspection_date": "2026-11-06",
@@ -233,11 +233,26 @@
             ]
           ],
           "limits": "Existing separate local ASR corroborates current-price discussion and Darksteel entry, not the 1527-1538 entry/exit/hold statement or full episode. No human verification."
-        }
+        },
+        "price_hold_audio_check": {
+          "inspection_date": "2026-11-26",
+          "method": "faster-whisper small.en on a bounded source-audio clip",
+          "windows_seconds": [
+            [
+              1495,
+              1590
+            ]
+          ],
+          "decoded_duration_seconds": 95.0,
+          "sha256": "1d385f87240bf20b93fb7872ccae9afb06eac95e6c702ff5ebcc162326a6cfec",
+          "pcm_sha256": "8c5613cfbdd2483471f34f821a36ed6d28468a16402174041e0331c4da931055"
+        },
+        "catalog_reference": "https://media.wizards.com/2026/downloads/card-sets/SOS_Cardlist_04172026.pdf"
       },
       "expected_picks": [
         {
           "cards": [
+            "Akroma's Will",
             "Chroma's Will"
           ],
           "printing_contains": [
@@ -258,13 +273,14 @@
               "minimum": 200,
               "maximum": 200
             },
-            "hold": "6 to 12 months"
+            "hold": "6 to 12 months",
+            "card": "Akroma's Will"
           },
           "start_window": [
             1443,
             1450
           ],
-          "rationale": "Historical 150/100/120 prices are separate from current circa 95; later discussion proposes sub-100 entry, 200 exit and a six-to-twelve-month horizon. Raw name is a transcript alias, not certified catalog identity."
+          "rationale": "Historical 150/100/120 prices are separate from current circa 95. Separate source ASR corroborates an entry below 100, a 200 exit thesis and six to twelve months. The Japanese printing and publisher checklist support the canonical name; the transcription spelling is retained as a comparison alias."
         },
         {
           "cards": [
@@ -291,9 +307,8 @@
         }
       ],
       "unscored": [
-        "Exact card spelling/catalog identity, speaker attribution and exact audio alignment.",
-        "Other picks, uninspected clips, full-episode completeness and unlisted fields.",
-        "Hold horizon is transcript-checked only; partial separate ASR is not human ground truth."
+        "Speaker attribution, exact audio alignment, uninspected picks and full-episode completeness.",
+        "Exact edition identifiers, unlisted prices and market outcomes."
       ]
     },
     {
@@ -339,6 +354,105 @@
         "Exact audio alignment and ending",
         "Market predictions",
         "Whole-episode completeness"
+      ]
+    },
+    {
+      "id": "ff539-odds-and-ends-source-check",
+      "episode_guid": "tag:soundcloud,2010:tracks/2436385896",
+      "summary_path": "episodes/0539-star-trek-previews/effective.json",
+      "basis": "independent_machine_asr_from_source_audio_not_human_verified",
+      "scope": "The two named foil singles and the explicitly endorsed unopened deck on the inspected discussion window.",
+      "evidence": {
+        "inspection_date": "2026-11-26",
+        "method": "faster-whisper small.en on a bounded source-audio clip",
+        "windows_seconds": [
+          [
+            890,
+            1380
+          ]
+        ],
+        "decoded_duration_seconds": 490.0,
+        "sha256": "0937abfd95cb9e714d8e09d7b50e93ff44227f31861f3d9605379dece4c306c6",
+        "pcm_sha256": "39d9b80edc66490bbca4b2273cc596ad05e9b58db6598e76652b3c1569e14f17",
+        "catalog_reference": "https://magic.wizards.com/en/news/announcements/secret-lair-commander-deck-odds-and-ends-decklist"
+      },
+      "expected_picks": [
+        {
+          "cards": [
+            "Sensei's Divining Top"
+          ],
+          "start_window": [
+            916,
+            928
+          ],
+          "rationale": "The singles recommendation names Top here before its separate price discussion."
+        },
+        {
+          "cards": [
+            "Esper Sentinel"
+          ],
+          "start_window": [
+            932,
+            942
+          ],
+          "rationale": "The distinct Esper price discussion begins here after Top's price."
+        },
+        {
+          "cards": [
+            "Secret Lair Commander Deck: Odds and Ends",
+            "Odds and Ends Commander Deck"
+          ],
+          "equals": {
+            "recommendation": "buy",
+            "hosts": []
+          },
+          "start_window": [
+            1042,
+            1053
+          ],
+          "rationale": "The speakers explicitly endorse the unopened deck as a buy and compare it with buying the two singles."
+        }
+      ],
+      "unscored": [
+        "Other cards in the deck, exact prices, exact endpoints, speaker identities and full-episode completeness."
+      ]
+    },
+    {
+      "id": "bb678-ulamog-source-clock",
+      "episode_guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=15751",
+      "summary_path": "episodes/0678-npr-pick-of-the-week-brainstorm-brewery-678-magic-finance/effective.json",
+      "basis": "independent_machine_asr_from_source_audio_not_human_verified",
+      "scope": "The final explicit Ulamog recommendation and its approximate listening start.",
+      "evidence": {
+        "inspection_date": "2026-11-26",
+        "method": "faster-whisper small.en on a bounded source-audio clip",
+        "windows_seconds": [
+          [
+            3040,
+            3430
+          ]
+        ],
+        "decoded_duration_seconds": 212.192,
+        "sha256": "28bc8977d7bffcab528deae12806e6bb578e5b8a0fd97e77d5ee1e0ef7919e46",
+        "pcm_sha256": "dabe3d70d03b3cf06fc30de3e4f2b98a37848faf356d993fbd0dda1e7404ac67"
+      },
+      "expected_picks": [
+        {
+          "cards": [
+            "Ulamog, the Defiler"
+          ],
+          "equals": {
+            "recommendation": "buy"
+          },
+          "start_window": [
+            3043,
+            3056
+          ],
+          "rationale": "The handoff and explicit recommendation precede the outro; the old 3253-second timestamp is past the enclosure end."
+        }
+      ],
+      "unscored": [
+        "Other late recommendations, exact endpoint, attribution, pricing and whole-episode completeness."
       ]
     }
   ]

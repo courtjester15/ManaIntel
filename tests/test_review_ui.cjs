@@ -62,7 +62,7 @@ test('target object key order cannot manufacture an edit and unknown speakers re
 
 test('limited correction outcome keeps its narrow scope and requires an evidence note', () => {
   const h = harness();
-  h.run('validateOutcome("correct_without_approval", [{action:"update",changes:{printing:"full art",entry_target:null}}], "Checked printing")');
+  h.run('validateOutcome("correct_without_approval", [{action:"update",changes:{card:"Corrected Card",printing:"full art",entry_target:null}}], "Checked name and printing")');
   h.run('validateOutcome("correct_without_approval", [{action:"update",changes:{hosts:[]}}, {action:"add",pick:{card:"Recovered",hosts:[]}}], "Checked source; attribution unknown")');
   for (const operation of [{ action: 'exclude' }, { action: 'add' },
     { action: 'update', changes: { hosts: ['Guessed'] } },
@@ -76,12 +76,13 @@ test('limited correction outcome keeps its narrow scope and requires an evidence
 
 test('Keep preserves a saved correction in the cumulative payload and binds its revision', () => {
   const h = harness();
-  h.run('sourceSummary.recommendations[0].printing = "Full art"; sourceSummary.recommendations[0].entry_target = null; expectedReviewRevision = "a".repeat(64)');
+  h.run('sourceSummary.recommendations[0].card = "Corrected Card"; sourceSummary.recommendations[0].printing = "Full art"; sourceSummary.recommendations[0].entry_target = null; expectedReviewRevision = "a".repeat(64)');
   h.editors.push({ dataset: { originalId: 'pick-fixture' }, querySelector: () => ({ value: 'keep' }) });
-  h.node('[name="decision"]').value = 'approve';
+  h.node('[name="decision"]').value = 'correct_without_approval';
+  h.node('[name="review-note"]').value = 'Checked source audio';
   h.run('preparePayload()');
   const payload = JSON.parse(h.node('#review-payload').value);
-  assert.deepEqual(payload.operations, [{ action: 'update', pick_id: 'pick-fixture', changes: { printing: 'Full art', entry_target: null } }]);
+  assert.deepEqual(payload.operations, [{ action: 'update', pick_id: 'pick-fixture', changes: { card: 'Corrected Card', printing: 'Full art', entry_target: null } }]);
   assert.equal(payload.expected_review_revision, 'a'.repeat(64));
   assert.equal(payload.expected.processed_at, h.c.fixture.processing.processed_at);
   assert.equal(h.node('#review-output').hidden, false);

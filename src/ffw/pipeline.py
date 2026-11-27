@@ -19,8 +19,9 @@ from .mocks import MockAudioProcessor, MockDownloader, MockExtractor, MockFeedSo
 from .models import EpisodeCandidate, PipelineResult, SelectionReport, TERMINAL_STATES, utc_now
 from .production import production_adapters
 from .rendering import render_episode_markdown
+from .reviews import review_file_path
 from .state import JsonStateStore
-from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json, seconds_to_timestamp, stable_pick_id
+from .utils import atomic_write_json, atomic_write_text, episode_slug, load_json, recommendation_key, seconds_to_timestamp, stable_pick_id
 from .verification import GeminiPickVerifier
 from .review_issues import collect_review_issues, published_version_regression
 from .extraction_quality import assess_extraction_quality, classify_issue_severity
@@ -279,6 +280,7 @@ class Pipeline:
                     self.card_resolver,
                     limit=self.settings.card_resolution_batch_size,
                     production=self.settings.mode == "live",
+                    reviews_dir=self.settings.root / "data" / "reviews",
                 )
             rebuild_catalog(
                 self.settings.archive_dir,
@@ -447,6 +449,11 @@ class Pipeline:
                 pick_count=existing.get("pick_count", 0),
                 message="Already processed; idempotent skip.",
             )
+
+        review_path = review_file_path(self.settings.root / "data" / "reviews",
+                                       episode.source_id or "mtg-fast-finance", episode.guid)
+        if review_path.exists():
+            raise ValueError("Episode has a saved review. Use the review workflow to preserve its corrections.")
 
         slug = episode_slug(episode.episode_number, episode.title, episode.guid)
         # Output directories are durable public identities. Metadata repairs can
@@ -933,7 +940,7 @@ class Pipeline:
         identities = set()
         recommendations = set()
         for pick in summary.get("recommendations", []):
-            key = (str(pick.get("card", "")).casefold(), pick.get("printing"), pick.get("start_seconds"))
+            key = recommendation_key(pick)
             if pick.get("id") in identities or key in recommendations:
                 raise ValueError("Duplicate recommendation identity in extraction; manual review required. Rejected candidate retained privately.")
             identities.add(pick.get("id"))

@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .models import utc_now
-from .utils import atomic_write_json, load_json, seconds_to_timestamp, stable_pick_id
+from .utils import atomic_write_json, load_json, recommendation_key, seconds_to_timestamp, stable_pick_id
 
 REVIEW_SCHEMA_VERSION = "1.1.0"
 LEGACY_REVIEW_SCHEMA_VERSION = "1.0.0"
@@ -236,11 +236,11 @@ def normalize_review(
             changes = operation.get("changes")
             adding = action == "add" and isinstance(operation.get("pick"), dict) and not operation["pick"].get("hosts")
             updating = (action == "update" and isinstance(changes, dict) and bool(changes)
-                    and not set(changes) - {"printing", "entry_target", "hosts", "start_seconds", "end_seconds"}
+                    and not set(changes) - {"card", "printing", "entry_target", "hosts", "start_seconds", "end_seconds"}
                     and ("entry_target" not in changes or changes["entry_target"] is None)
                     and ("hosts" not in changes or changes["hosts"] == []))
             if not (adding or updating):
-                raise ValueError("Unapproved corrections may add an unattributed pick, repair listening times/printing, or clear unsupported entry targets/hosts; evidence is required.")
+                raise ValueError("Unapproved corrections may add an unattributed pick, correct a card name, printing or listening time, or clear unsupported entry targets or hosts. Evidence is required.")
         if action == "add":
             pick = _new_pick(summary, operation.get("pick"))
             operations.append({"action": "add", "pick": {
@@ -313,12 +313,15 @@ def apply_review(summary: dict[str, Any], review: dict[str, Any] | None) -> dict
         elif action == "update":
             original_id = operation["pick_id"]
             pick = picks.pop(original_id)
+            if correction_only and "card" in operation["changes"]:
+                pick.setdefault("identity_card", pick.get("card"))
             if correction_only and "printing" in operation["changes"]:
                 pick.setdefault("identity_printing", pick.get("printing"))
             if correction_only and "start_seconds" in operation["changes"]:
                 pick.setdefault("identity_start_seconds", pick.get("start_seconds"))
             pick.update(deepcopy(operation["changes"]))
             if not correction_only:
+                pick.pop("identity_card", None)
                 pick.pop("identity_start_seconds", None)
                 pick.pop("identity_printing", None)
                 pick["id"] = stable_pick_id(
@@ -433,13 +436,16 @@ def persist_review(
     elif current:
         raise ValueError("A legacy payload cannot replace a saved review. Reload the updated review page.")
     effective = apply_review(summary, review)
+    recommendations = effective["recommendations"]
+    if len({recommendation_key(pick) for pick in recommendations}) != len(recommendations):
+        raise ValueError("Review creates a duplicate recommendation.")
     # Whole-episode approval validates every clock. A limited correction cannot
     # approve unrelated existing defects, but must validate every changed/new pick.
     targets = None
     if review["decision"] == "correct_without_approval":
         original_ids = {p["id"] for p in summary["recommendations"]}
         targets = {op["pick_id"] for op in review["operations"] if op["action"] == "update"}
-        targets.update(p["id"] for p in effective["recommendations"] if p["id"] not in original_ids)
+        targets.update(p["id"] for p in recommendations if p["id"] not in original_ids)
     _validate_review_clocks(effective, targets)
     atomic_write_json(path, review)
     return path

@@ -125,8 +125,8 @@
 - Hold: Not stated
 - Exit: $30 or $40
 - Confidence: medium
-- Timestamp: 00:54:13
-- Review status: Approved
+- Timestamp: 00:50:45
+- Review status: Needs Review
 
 **Reasoning**
 

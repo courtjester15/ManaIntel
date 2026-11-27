@@ -74,7 +74,7 @@
 - Hold: 6 months
 - Exit: $80
 - Confidence: high
-- Timestamp: 00:15:04
+- Timestamp: 00:15:20
 - Review status: Needs Review
 
 **Reasoning**
@@ -100,7 +100,7 @@
 - Hold: 6 months
 - Exit: $100
 - Confidence: high
-- Timestamp: 00:15:04
+- Timestamp: 00:15:35
 - Review status: Needs Review
 
 **Reasoning**
@@ -137,6 +137,30 @@
 - The other speaker questions whether this is the strongest choice-synergy target. These are the speakers' predictions, not verified market outcomes.
 
 > Evidence: if you can get them for a dollar, I think you'll be able to resell them for five
+
+### Secret Lair Commander Deck: Odds and Ends
+
+- Printing: Unopened Secret Lair Commander Deck
+- Printing certainty: Not stated
+- Finish: Not stated
+- Host(s): Not identified
+- Recommendation: buy
+- Entry: worth buying at 173
+- Hold: Not stated
+- Exit: Not stated
+- Confidence: Not stated
+- Timestamp: 00:17:26
+- Review status: Needs Review
+
+**Reasoning**
+
+- The speakers compare the unopened deck with buying its two most expensive singles, emphasizing the other included cards.
+
+**Caveats**
+
+- The deck is an alternative to buying the singles separately. The episode discusses an additional print wave.
+
+> Evidence: this is still a deck I think worth buying at 173
 
 ---
 

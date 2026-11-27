@@ -93,6 +93,7 @@
         "reasoning": {"type": "array", "items": {"type": "string"}},
         "caveats": {"type": "array", "items": {"type": "string"}},
         "confidence": {"enum": ["low", "medium", "high", null]},
+        "identity_card": {"type": "string", "minLength": 1, "description": "Original card name used to derive the stable pick ID before a limited correction."},
         "identity_printing": {"type": ["string", "null"], "description": "Original printing for stable pick identity after an inspected metadata correction."},
         "identity_start_seconds": {"type": ["integer", "null"], "minimum": 0, "description": "Original timestamp for stable pick identity after audio alignment."},
         "start_seconds": {"type": ["integer", "null"], "minimum": 0},

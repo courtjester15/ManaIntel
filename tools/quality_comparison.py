@@ -195,10 +195,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--phase", choices=("source", "extraction", "independent"), required=True)
     parser.add_argument("--retained", type=Path, default=Path(".ffw-work/quality-retained"))
-    parser.add_argument("--output", type=Path, default=Path(".ffw-work/quality/reports"))
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     if args.phase == "independent":
-        independent(args.output)
+        independent(args.output or Path(".ffw-work/quality-independent/reports"))
     else:
         with request_cap(8 if args.phase == "source" else 10):
-            run(args.phase, args.retained, args.output)
+            run(args.phase, args.retained, args.output or Path(".ffw-work/quality/reports"))

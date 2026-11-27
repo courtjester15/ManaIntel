@@ -4,6 +4,7 @@ import unittest
 from ffw.reviews import normalize_review, apply_review, review_expectation
 from pathlib import Path
 from ffw.archive import rebuild_catalog
+from ffw.card_resolution import resolve_archive_card_names
 from ffw.reviews import persist_review
 from ffw.rendering import render_episode_markdown
 from ffw.utils import atomic_write_json, atomic_write_text, load_json
@@ -95,9 +96,37 @@ class UnapprovedCorrectionTests(unittest.TestCase):
                           "processing": self.summary["processing"], "outputs": {"summary_json": "episodes/fixture/summary.json",
                           "summary_markdown": "episodes/fixture/summary.md"}})
         atomic_write_json(root / "state/episodes.json", {"episodes": {self.summary["episode"]["guid"]: {"status": "complete"}}})
+        other_pick = self.summary["recommendations"][1]
+        duplicate = deepcopy(self.payload)
+        duplicate["operations"][0]["changes"].update(
+            card=other_pick["card"].upper(), printing=other_pick["printing"],
+            start_seconds=other_pick["start_seconds"], end_seconds=None,
+        )
+        with self.assertRaisesRegex(ValueError, "duplicate recommendation"):
+            persist_review(archive, reviews, duplicate, actor="Codex")
+        self.assertFalse(reviews.exists())
+        self.payload["operations"][0]["changes"]["card"] = "Corrected Card"
         persist_review(archive, reviews, self.payload, actor="Codex", reviewed_at="2026-11-01T20:00:00Z")
+        store_path = root / "state/card-resolutions.json"
+
+        class Resolver:
+            version = "test-v1"
+
+            def resolve(self, raw_name):
+                return {"raw_name": raw_name, "normalized_name": raw_name.casefold(),
+                        "canonical_name": raw_name, "status": "verified", "oracle_id": "oracle:" + raw_name,
+                        "resolver_version": self.version}
+
+        resolve_archive_card_names(archive, store_path, Resolver())
+        self.assertEqual(self.pick["card"], load_json(store_path)["resolutions"][self.pick["id"]]["raw_name"])
+        resolve_archive_card_names(archive, store_path, Resolver(), reviews_dir=reviews)
+        self.assertEqual("Corrected Card", load_json(store_path)["resolutions"][self.pick["id"]]["raw_name"])
         for _ in range(2):
-            index, _ = rebuild_catalog(archive, production=True, reviews_dir=reviews)
+            index, cards = rebuild_catalog(archive, production=True, reviews_dir=reviews,
+                                           resolutions_path=store_path)
+            corrected = next(pick for pick in cards if pick["id"] == self.pick["id"])
+            self.assertEqual("Corrected Card", corrected["resolved_card"])
+            self.assertEqual(self.pick["card"], corrected["identity_card"])
             self.assertFalse(index["episodes"][0]["human_reviewed"])
             self.assertEqual("needs_review", index["episodes"][0]["processing_status"])
             self.assertEqual(before, (directory / "summary.json").read_bytes())

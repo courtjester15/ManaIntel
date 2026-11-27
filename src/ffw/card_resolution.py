@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from .models import utc_now
+from .reviews import apply_review, load_episode_review
 from .utils import atomic_write_json, load_json
 
 
@@ -191,6 +192,7 @@ def resolve_archive_card_names(
     limit: int = 25,
     refresh: bool = False,
     production: bool = False,
+    reviews_dir: Path | None = None,
 ) -> ResolutionReport:
     if limit < 1:
         raise ValueError("Card resolution limit must be positive.")
@@ -209,6 +211,8 @@ def resolve_archive_card_names(
             if metadata.get("synthetic") is True:
                 continue
         summary = load_json(summary_path, {})
+        if summary and reviews_dir is not None:
+            summary = apply_review(summary, load_episode_review(reviews_dir, summary))
         for pick in summary.get("recommendations", []):
             pick_id = pick.get("id")
             raw_name = str(pick.get("card") or "").strip()
