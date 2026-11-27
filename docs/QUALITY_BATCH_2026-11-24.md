@@ -38,4 +38,10 @@ Next: monitor ordinary releases/recoveries under the existing bounded provider r
 
 ## Deployment closeout
 
+November 26 follow-up: a separate source-audio reading confirmed Odds and Ends
+as an explicit deck recommendation in FF539. The extra candidate recommendation
+in the original comparison is now source-supported. Both its timing and other
+candidate timing fields still require review.
+[Follow-up evidence](EVALUATION.md#november-26-bounded-source-audit)
+
 Implementation `1de7df4`; [production run 45544833837](https://github.com/courtjester15/ManaIntel/actions/runs/45544833837) passed all 303 tests together, archive validation, staged fidelity and Pages. Served verification at 2026-11-25 04:14 UTC checked all three public catalogs: 149 episodes, 562 picks, zero findings. Source extraction files and stable existing pick identities are preserved. Scratch preview/apply reclaimed 0 MiB; source diagnostic evidence remains protected locally. No human review was approved.

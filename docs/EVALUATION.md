@@ -145,3 +145,12 @@ No Gemini requests or episode-processing retries were made.
 
 All 63 scoped assertions pass. The source corrections preserve existing
 pick IDs and original extraction files. No full-episode approval was added.
+
+The new FF539 cases also rescore the four retained November 24 candidates without
+fresh inference. Across 14 assertions, Lite baseline was 1 passed, 4 failed and
+9 blocked; Lite candidate 2, 4 and 8; alternative Flash baseline 10, 1 and 3;
+alternative Flash candidate 11, 3 and 0. The latter recognizes both the deck and
+the final card, but misses the three scoped listening-start windows. On FF538,
+Lite retains the name error while alternative Flash has strict string and
+currency differences alongside matching numeric bounds. These raw-response
+comparisons support further investigation and leave production defaults in place.

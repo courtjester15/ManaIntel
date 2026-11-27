@@ -16,6 +16,15 @@ the catalog resolver uses effective names, and forced processing stops before
 downloads when a saved review binds the source extraction. The archive has 149
 episodes and 563 picks. [Source evidence and limits](EVALUATION.md#november-26-bounded-source-audit)
 
+0.5.35 shipped as `f3e141b`. [Production run 45938134090](https://github.com/courtjester15/ManaIntel/actions/runs/45938134090)
+passed all 304 tests, committed-archive preflight, post-render validation,
+staged fidelity and Pages deployment. Served verification checked all three
+catalogs with zero findings and matched all six changed effective files and the
+deployed review script. Ten Node review journeys passed. Codex's in-app browser
+timed out, so visual and native playback checks remain open. No episode ran
+during the deployment. Next: observe an ordinary run and source-check BB678's
+two remaining late links.
+
 November 26 production preflight repair: six scheduled runs stopped before episode
 processing because the 0.5.34 unknown-host label left 24 committed Markdown summaries
 stale. Regenerated those summaries from the existing JSON and made push deployments
