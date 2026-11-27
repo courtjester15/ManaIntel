@@ -188,4 +188,4 @@
 
 ---
 
-Schema 1.1.0 · Pipeline 0.4.4 · Prompt source-recommendations-v2-hybrid-boundaries
+Schema 1.1.0 · Pipeline 0.5.36 · Prompt source-recommendations-v5-evidence-guards
