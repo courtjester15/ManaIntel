@@ -360,3 +360,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-26T02:50:47Z — run 45745025119/1: preflight=failure; pipeline=skipped; exit=; validation=skipped; selected=see queue note; . [Details](runs/45745025119-1.json)
 - 2026-11-26T08:14:26Z — run 45781383566/1: preflight=failure; pipeline=skipped; exit=; validation=skipped; selected=see queue note; . [Details](runs/45781383566-1.json)
 - 2026-11-26T13:55:42Z — run 45833803470/1: preflight=failure; pipeline=skipped; exit=None; validation=skipped; selected=see queue note; Primary gate=true; queue=. [Details](runs/45833803470-1.json)
+- 2026-11-27T02:51:10Z — run 45930693913/1: preflight=failure; pipeline=skipped; exit=; validation=skipped; selected=see queue note; . [Details](runs/45930693913-1.json)
