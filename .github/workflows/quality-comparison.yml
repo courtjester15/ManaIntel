@@ -4,18 +4,17 @@ on:
     inputs:
       phase:
         type: choice
-        options: [source, extraction]
+        options: [source, extraction, independent]
         required: true
       transcript_run_id:
         type: string
         default: "44450652703"
         required: true
 concurrency:
-  group: ffw-production-writer
+  group: ${{ inputs.phase == 'independent' && 'ffw-independent-source-audit' || 'ffw-production-writer' }}
   cancel-in-progress: false
 permissions:
-  actions: read
-  contents: write
+  contents: read
 env:
   FFW_CAPACITY_PATH: state/request-capacity.json
   FFW_REQUEST_DAILY_BUDGET: "48"
@@ -23,7 +22,33 @@ env:
   FFW_OPTIONAL_WORK: "true"
   FFW_OPTIONAL_RUN_REQUEST_BUDGET: "16"
 jobs:
+  independent:
+    if: inputs.phase == 'independent'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e . faster-whisper
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Transcribe four bounded source windows on the runner
+        run: python tools/quality_comparison.py --phase independent
+      - name: Retain source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-${{ github.run_id }}
+          path: .ffw-work/quality/reports/source-*-independent.json
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: ignore
   compare:
+    if: inputs.phase != 'independent'
+    permissions:
+      actions: read
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
