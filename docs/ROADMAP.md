@@ -18,6 +18,14 @@ named around its published start. The window does not establish replacement
 starts. Next: observe an ordinary run and source-check BB678 before 50:40
 to find the two starts.
 
+Shipped as `dcb0f04`. [Production run 45939340920](https://github.com/courtjester15/ManaIntel/actions/runs/45939340920)
+passed the Python suite, 11 Node journeys, committed-archive preflight, staged
+fidelity and Pages deployment. Served verification matched all three catalogs
+(149 episodes, 563 picks, zero findings) and the deployed review JavaScript.
+All 63 scoped evaluation assertions passed locally. The in-app browser timed
+out, leaving rendered and native playback checks open. The deployment did
+not process an episode.
+
 November 26 source audit and review protection (0.5.35). Four source windows
 confirmed the FF538 Akroma's Will price/hold thesis and spelling, FF539's missing
 Odds and Ends deck recommendation and two shared listening starts, and BB678's
