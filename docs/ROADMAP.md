@@ -11,6 +11,10 @@ processing because the 0.5.34 unknown-host label left 24 committed Markdown summ
 stale. Regenerated those summaries from the existing JSON and made push deployments
 validate the committed archive before rendering. The push build previously repaired
 its own copy, which let the drift pass deployment checks while blocking schedules.
+Shipped in `7b95d4d`. [Production run 45935268570](https://github.com/courtjester15/ManaIntel/actions/runs/45935268570)
+passed all 303 tests, preflight, archive validation, staged fidelity and Pages.
+The live site matched all 24 repaired summaries and all three catalogs
+(149 episodes and 562 picks). The deployment did not process an episode.
 Next: confirm the first ordinary run clears preflight and inspect its episode outcome.
 R2 source checks remain open.
 
