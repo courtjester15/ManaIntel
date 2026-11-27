@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "pipeline_version": "0.5.33",
-  "updated_at": "2026-11-25T03:33:15Z",
+  "pipeline_version": "0.5.36",
+  "updated_at": "2026-11-27T08:30:10Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -40079,6 +40079,241 @@
       "status": "failed",
       "updated_at": "2026-11-25T03:33:15Z",
       "output_directory": "episodes/0541-star-trek-early-results"
+    },
+    "brainstorm-brewery:https://brainstormbrewery.com/?p=36664": {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+      "history": [
+        {
+          "status": "detected",
+          "timestamp": "2026-11-27T08:26:59Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-27T08:26:59Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-27T08:26:59Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-27T08:26:59Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-27T08:27:00Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-27T08:27:00Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-27T08:27:07Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-27T08:30:03Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-27T08:30:03Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-27T08:30:10Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-27T08:30:10Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-27T08:30:10Z"
+        },
+        {
+          "status": "complete",
+          "timestamp": "2026-11-27T08:30:10Z"
+        }
+      ],
+      "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+      "episode_number": 728,
+      "published_at": "2026-11-27T06:35:00Z",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "attempt_count": 1,
+      "pick_count": 6,
+      "error": null,
+      "status": "complete",
+      "updated_at": "2026-11-27T08:30:10Z",
+      "output_directory": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 3016,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 38.648,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 18739,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22728,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 229
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41467,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 36.981,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17003,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22729,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 229
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 39732,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 30.371,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 14019,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22729,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 229
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 36748,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 316,
+            "request_seconds": 12.593,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 5986,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 8116,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 229
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 7887
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 14102,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 3,
+        "audio_dispositions": []
+      },
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 2101,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 27920,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 27920
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 30021,
+        "traffic_type": null
+      },
+      "extraction_model": "gemini-3.5-flash-lite",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "diagnostic"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "diagnostic"
+        }
+      ]
     }
   }
 }

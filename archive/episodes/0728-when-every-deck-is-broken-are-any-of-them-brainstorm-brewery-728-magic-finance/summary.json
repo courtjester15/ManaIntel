@@ -1,0 +1,534 @@
+{
+  "schema_version": "1.1.0",
+  "synthetic": false,
+  "notice": "Automated transcription and extraction; verify against the linked source audio.",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+    "episode_number": 728,
+    "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+    "published_at": "2026-11-27T06:35:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+    "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+    "duration_seconds": 3016,
+    "hosts": [
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
+    ],
+    "description": "The full crew of&#160; DJ (@CardgardenMTG), Liz&#160; (@devotedDruid), and Corbin (@CHosler) are exploring what the world of Pioneer could be in 2026 following the results of the NRG tournament and how Star Trek chase cards are impacting the market. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery"
+  },
+  "processing": {
+    "status": "complete",
+    "review_state": "approved",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_issues": [
+      {
+        "code": "coverage",
+        "path": "extraction",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "diagnostic"
+      },
+      {
+        "code": "coverage",
+        "path": "section",
+        "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+        "state": "diagnostic"
+      }
+    ],
+    "pipeline_version": "0.5.36",
+    "schema_version": "1.1.0",
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "prompt_version": "source-recommendations-v5-evidence-guards",
+    "processed_at": "2026-11-27T08:30:10Z",
+    "history": [
+      {
+        "status": "detected",
+        "timestamp": "2026-11-27T08:26:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-27T08:26:59Z"
+      },
+      {
+        "status": "queued",
+        "timestamp": "2026-11-27T08:26:59Z"
+      },
+      {
+        "status": "downloading",
+        "timestamp": "2026-11-27T08:26:59Z"
+      },
+      {
+        "status": "downloaded",
+        "timestamp": "2026-11-27T08:27:00Z"
+      },
+      {
+        "status": "preparing",
+        "timestamp": "2026-11-27T08:27:00Z"
+      },
+      {
+        "status": "transcribing",
+        "timestamp": "2026-11-27T08:27:07Z"
+      },
+      {
+        "status": "transcribed",
+        "timestamp": "2026-11-27T08:30:03Z"
+      },
+      {
+        "status": "extracting",
+        "timestamp": "2026-11-27T08:30:03Z"
+      },
+      {
+        "status": "extracted",
+        "timestamp": "2026-11-27T08:30:10Z"
+      },
+      {
+        "status": "validating",
+        "timestamp": "2026-11-27T08:30:10Z"
+      },
+      {
+        "status": "publishing",
+        "timestamp": "2026-11-27T08:30:10Z"
+      },
+      {
+        "status": "complete",
+        "timestamp": "2026-11-27T08:30:10Z"
+      }
+    ],
+    "error": null,
+    "transcription": {
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite",
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "chunk_count": 4,
+      "duration_seconds": 3016,
+      "usage": [
+        {
+          "chunk": 1,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 38.648,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 18739,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22728,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 229
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22499
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 41467,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 2,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 36.981,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 17003,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22729,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 229
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 39732,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 3,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 900,
+          "request_seconds": 30.371,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 14019,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 22729,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 229
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 22500
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 36748,
+            "traffic_type": null
+          }
+        },
+        {
+          "chunk": 4,
+          "chunk_count": 4,
+          "model": "gemini-3.5-flash-lite",
+          "audio_seconds": 316,
+          "request_seconds": 12.593,
+          "checkpoint_reused": false,
+          "provider_usage": {
+            "cache_tokens_details": null,
+            "cached_content_token_count": null,
+            "candidates_token_count": 5986,
+            "candidates_tokens_details": null,
+            "prompt_token_count": 8116,
+            "prompt_tokens_details": [
+              {
+                "modality": "TEXT",
+                "token_count": 229
+              },
+              {
+                "modality": "AUDIO",
+                "token_count": 7887
+              }
+            ],
+            "thoughts_token_count": null,
+            "tool_use_prompt_token_count": null,
+            "tool_use_prompt_tokens_details": null,
+            "total_token_count": 14102,
+            "traffic_type": null
+          }
+        }
+      ],
+      "timing_adjustments": 3,
+      "audio_dispositions": []
+    },
+    "extraction_usage": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 2101,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 27920,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 27920
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 30021,
+      "traffic_type": null
+    }
+  },
+  "section": {
+    "located": true,
+    "start_seconds": 982,
+    "end_seconds": 3002,
+    "label": "Breaking Bulk / Pick of the Week",
+    "confidence": "medium",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "start_signal": "explicit_section_marker",
+    "end_signal": null
+  },
+  "recommendations": [
+    {
+      "card": "Chamber of Manipulation",
+      "printing": "Judgment",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy / list and hold",
+      "mentioned_price": "1.50",
+      "entry_target": {
+        "raw": "1.50",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": "wait, and just hold on to them, or put them in a commander deck",
+      "exit_target": {
+        "raw": "5 cents",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Never been reprinted, not even in the list or secret lair.",
+        "Generic enough name that it seems like it would have gotten a throwaway secret lair printing at some point.",
+        "Very weird, instant speed mind control effect for one mana as long as it doesn't have hexproof or ward.",
+        "Enables madness and can be untapped with Deserted Temple."
+      ],
+      "caveats": [
+        "Format is a little steep for the modern era.",
+        "Card Kingdom buy list is only 5 cents per copy."
+      ],
+      "confidence": null,
+      "start_seconds": 1119,
+      "end_seconds": 1205,
+      "evidence_excerpt": "My pick is chamber of manipulation. This is in blue format of uncommon... So, if you have them, list them, and wait, and just uh, hold on to them",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Corbin Hosler"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-7352fd8ddb8e4075",
+      "timestamp": "00:18:39",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=1119"
+    },
+    {
+      "card": "Skull Prophet",
+      "printing": "Ikoria",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy / pull",
+      "mentioned_price": "0.75",
+      "entry_target": {
+        "raw": "0.75",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50-cent buy list",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": null
+      },
+      "reasoning": [
+        "Only been reprinted once in Dragonstorm Commander.",
+        "Solid black-green mana dork that mills yourself."
+      ],
+      "caveats": [
+        "The buy list on that one is not there yet at the moment."
+      ],
+      "confidence": null,
+      "start_seconds": 1271,
+      "end_seconds": 1311,
+      "evidence_excerpt": "Skull Prophet. It's only been reprinted once in Dragon Storm, card here Dragon Storm Commander, uh which is also 75 cents.",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Corbin Hosler"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-9df6aeb44d6d3334",
+      "timestamp": "00:21:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=1271"
+    },
+    {
+      "card": "Whelming Wave",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "1",
+      "entry_target": {
+        "raw": "a dollar or so",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": null
+      },
+      "hold": "wait a few months",
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Several sea serpents and adjacent critters have spiked due to Noctis previews.",
+        "All printings were five to 15 years ago, resulting in a lower supply than most people realize.",
+        "Whelming wave has not jumped in price yet."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2548,
+      "end_seconds": 2625,
+      "evidence_excerpt": "I am talking about Whelming Wave... Whelming wave has not jumped in price yet. You can still buy copies for a dollar or so.",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "DJ"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-6c49f72fe7aa1dee",
+      "timestamp": "00:42:28",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2548"
+    },
+    {
+      "card": "Michelangelo",
+      "printing": "Ninja Turtles",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "3 to 4",
+      "entry_target": {
+        "raw": "3:00 to $4:00 each",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Did well at Worlds and started to climb just a little bit, and likely to continue to be good in standard.",
+        "Has convenient text: if one or more 11 counters would be put on a creature you control, that many plus 11 are put on it instead.",
+        "Line of text has a very good track record in commander."
+      ],
+      "caveats": [
+        "Has a low floor because it's just a rare from Ninja Turtles."
+      ],
+      "confidence": null,
+      "start_seconds": 2636,
+      "end_seconds": 2717,
+      "evidence_excerpt": "I have a card that did well at Worlds um and started to climb just a little bit... describing your set of Michelangelo weirdness to 11 at 3:00 to $4:00 each.",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "DJ"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-e6bf4e1c8e313b16",
+      "timestamp": "00:43:56",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2636"
+    },
+    {
+      "card": "Merciful Mandate",
+      "printing": "Star Trek Commander",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "0.13",
+      "entry_target": {
+        "raw": "13-cent",
+        "currency": "USD",
+        "minimum": 0.13,
+        "maximum": 0.13
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "One in a white instant, untap all creatures you control, then you may end the combat that's going on.",
+        "Acts as a fog, a combat blowout, or a political tool to save someone else's big alpha strike.",
+        "Too close to a Teferi's protection or time stop kind of effect to remain a bulk rare."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2728,
+      "end_seconds": 2763,
+      "evidence_excerpt": "And that penny stock is Merciful Mandate from Star Trek Commander... I think this card is too good, too close to like a Teferi's protection",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Liz"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-7970cf05b6dc0112",
+      "timestamp": "00:45:28",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2728"
+    },
+    {
+      "card": "Lumra, Bellow of the Woods",
+      "printing": "Bloomburrow",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Has the pressure of being a pioneer four-of in arguably the best deck, the Scapeshift, Lotus Field combo deck.",
+        "Remains one of the most popular modern green commanders of recent years."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2763,
+      "end_seconds": 2783,
+      "evidence_excerpt": "Lumra, Bellow of the Woods now has the pressure of being a pioneer four of in arguably the best deck, the Scapeshift, Lotus Field combo deck",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Liz"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-4c24b9b51f6f8f2f",
+      "timestamp": "00:46:03",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2763"
+    }
+  ]
+}

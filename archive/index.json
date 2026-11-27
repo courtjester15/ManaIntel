@@ -4,10 +4,10 @@
   "notice": "Automated transcription and extraction may contain errors. Verify against source audio.",
   "metadata": {
     "project": "ManaIntel",
-    "pipeline_version": "0.5.35",
+    "pipeline_version": "0.5.36",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-27T04:04:49Z",
-    "latest_successful_run_at": "2026-11-24T14:55:33Z",
+    "generated_at": "2026-11-27T08:30:13Z",
+    "latest_successful_run_at": "2026-11-27T08:30:10Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -25,67 +25,78 @@
         "url": "https://www.mtgfastfinance.com/"
       }
     ],
-    "real_episode_count": 149,
-    "real_pick_count": 563,
-    "last_discovered_episode_date": "2026-11-23T22:08:12Z",
+    "real_episode_count": 150,
+    "real_pick_count": 569,
+    "last_discovered_episode_date": "2026-11-27T06:35:00Z",
     "repository_url": "https://github.com/courtjester15/ManaIntel",
     "workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/ffw.yml",
     "review_workflow_url": "https://github.com/courtjester15/ManaIntel/actions/workflows/review.yml"
   },
   "counts": {
-    "episodes": 149,
-    "picks": 563,
+    "episodes": 150,
+    "picks": 569,
     "needs_review": 70,
     "failed": 5,
-    "completed": 74
+    "completed": 75
   },
   "status_counts": {
+    "complete": 75,
     "failed": 5,
-    "needs_review": 70,
-    "complete": 74
+    "needs_review": 70
   },
   "latest_episode": {
-    "guid": "tag:soundcloud,2010:tracks/2443584204",
-    "episode_number": 541,
-    "title": "MTG Fast Finance Ep 541: Star Trek Early Results",
-    "published_at": "2026-11-23T22:08:12Z",
-    "audio_url": "https://feeds.soundcloud.com/stream/2443584204-user-519789566-mtg-fast-finance-ep-541-star.mp3",
-    "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-541-star",
-    "duration_seconds": 3888,
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+    "episode_number": 728,
+    "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+    "published_at": "2026-11-27T06:35:00Z",
+    "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+    "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+    "duration_seconds": 3016,
     "hosts": [
-      "MTG Fast Finance"
+      "Ryan",
+      "Corbin",
+      "Jason",
+      "Marcel"
     ],
-    "description": "James and Cliff get busy with all the latest in Magic the Gathering card price action for the week, including meta updates, cards to watch and early results for Star Trek singles and Secret Lair drops.\n\nIntro/Outro Music by Skylarka",
-    "source_id": "mtg-fast-finance",
-    "source_name": "MTG Fast Finance",
-    "source_url": "https://www.mtgfastfinance.com/",
-    "extraction_profile": "cards_to_watch",
-    "processing_status": "failed",
-    "review_state": "not_applicable",
-    "review_reason": null,
-    "review_triage": null,
-    "pick_count": 0,
-    "directory": "episodes/0541-star-trek-early-results",
+    "description": "The full crew of&#160; DJ (@CardgardenMTG), Liz&#160; (@devotedDruid), and Corbin (@CHosler) are exploring what the world of Pioneer could be in 2026 following the results of the NRG tournament and how Star Trek chase cards are impacting the market. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+    "source_id": "brainstorm-brewery",
+    "source_name": "Brainstorm Brewery",
+    "source_url": "https://brainstormbrewery.com/",
+    "extraction_profile": "brainstorm_brewery",
+    "processing_status": "complete",
+    "review_state": "approved",
+    "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+    "review_triage": {
+      "priority": 0,
+      "codes": [
+        "coverage"
+      ],
+      "issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        }
+      ]
+    },
+    "pick_count": 6,
+    "directory": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance",
     "outputs": {
-      "metadata": "episodes/0541-star-trek-early-results/metadata.json",
-      "summary_json": null,
-      "summary_markdown": null,
+      "metadata": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/metadata.json",
+      "summary_json": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/summary.json",
+      "summary_markdown": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/summary.md",
       "effective_summary_json": null,
       "effective_summary_markdown": null
     },
-    "processed_at": "2026-11-25T03:33:15Z",
-    "error": {
-      "stage": "transcribing",
-      "message": "Timing/coverage repair of original chunk 3/5 failed: Gemini transcription chunk 1/1 failed after 62.3s: RuntimeError: Transcription split recovery call budget exhausted; retry resumes saved clips.",
-      "category": "repair_progress_saved",
-      "synthetic": false,
-      "retryable": true,
-      "provider_wide": false,
-      "attempt": 2,
-      "max_attempts": 3,
-      "next_retry_at": "2026-11-25T09:33:15Z",
-      "quarantined": false
-    },
+    "processed_at": "2026-11-27T08:30:10Z",
+    "error": null,
     "human_reviewed": false,
     "review_revision": null,
     "reviewed_at": null,
@@ -95,375 +106,80 @@
   },
   "recent_picks": [
     {
-      "card": "Deafening Silence",
-      "printing": "Secret Lair version numbered 1219",
+      "card": "Lumra, Bellow of the Woods",
+      "printing": "Bloomburrow",
       "printing_certainty": "confirmed",
       "foil": null,
-      "hosts": [
-        "James Chilcott",
-        "Cliff Dagel"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "20",
-      "entry_target": {
-        "raw": "around $20",
-        "currency": "USD",
-        "minimum": 20.0,
-        "maximum": 20.0
-      },
-      "hold": "long-term",
-      "exit_target": {
-        "raw": "higher",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "Secret Lair printings never catch a reprint and inventory is low.",
-        "High inclusion rate in competitive EDH stax decks.",
-        "Fantastic art and limited supply with around 39 listings."
-      ],
-      "caveats": [
-        "Alternative special guest retro frame version exists at half price.",
-        "Potential ban risk for dominant decks in CEDH."
-      ],
-      "confidence": "medium",
-      "start_seconds": 1271,
-      "end_seconds": 1406,
-      "evidence_excerpt": "I'm talking specifically about the secret layer version that is numbered 1219... down to about 39 listings in and around $20.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-b9d1badf0e208bbf",
-      "timestamp": "00:21:11",
-      "listen_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3#t=1271",
-      "card_resolution": {
-        "raw_name": "Deafening Silence",
-        "normalized_name": "deafening silence",
-        "status": "verified",
-        "canonical_name": "Deafening Silence",
-        "scryfall_id": "6072d9b0-d3c7-46f4-bd24-095bb13c4dea",
-        "oracle_id": "6284ef01-d17d-4584-aecb-1b841ae638e5",
-        "scryfall_uri": "https://scryfall.com/card/eld/10/deafening-silence?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/6/0/6072d9b0-d3c7-46f4-bd24-095bb13c4dea.jpg?1783932677",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-19T01:59:29Z"
-      },
-      "resolved_card": "Deafening Silence",
-      "oracle_id": "6284ef01-d17d-4584-aecb-1b841ae638e5",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2439646461",
-        "episode_number": 540,
-        "title": "MTG Fast Finance Ep 540: Star Trek Previews Part 2",
-        "published_at": "2026-11-16T22:57:04Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-540-star",
-        "audio_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Metalworker",
-      "printing": null,
-      "printing_certainty": "ambiguous",
-      "foil": null,
-      "hosts": [
-        "Cliff Dagel"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "150 to 175",
-      "entry_target": {
-        "raw": "150 to 175",
-        "currency": "USD",
-        "minimum": 150.0,
-        "maximum": 175.0
-      },
-      "hold": "3 years",
-      "exit_target": {
-        "raw": "250 to 300 range",
-        "currency": "USD",
-        "minimum": 250.0,
-        "maximum": 300.0
-      },
-      "reasoning": [
-        "It is a Reserve List card with no future printings.",
-        "Strong artifact synergy effects in recent sets are driving demand.",
-        "Very low available inventory on TCGplayer."
-      ],
-      "caveats": [
-        "Prices vary depending on condition (MP and LP copies)."
-      ],
-      "confidence": "high",
-      "start_seconds": 1106,
-      "end_seconds": 1247,
-      "evidence_excerpt": "if you want a copy or two of metal worker, you need to get your copy like now because we are getting a ton of great artifact synergy effects.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-6ebea44ffd9fa5d3",
-      "timestamp": "00:18:26",
-      "listen_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3#t=1106",
-      "card_resolution": {
-        "raw_name": "Metalworker",
-        "normalized_name": "metalworker",
-        "status": "verified",
-        "canonical_name": "Metalworker",
-        "scryfall_id": "2050d414-71c7-4c42-a1ff-4c04068ba7f2",
-        "oracle_id": "9ed9accb-9f0c-40fa-aeea-2d1e1c9d1bd1",
-        "scryfall_uri": "https://scryfall.com/card/uds/135/metalworker?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/2/0/2050d414-71c7-4c42-a1ff-4c04068ba7f2.jpg?1783946056",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-19T01:59:29Z"
-      },
-      "resolved_card": "Metalworker",
-      "oracle_id": "9ed9accb-9f0c-40fa-aeea-2d1e1c9d1bd1",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2439646461",
-        "episode_number": 540,
-        "title": "MTG Fast Finance Ep 540: Star Trek Previews Part 2",
-        "published_at": "2026-11-16T22:57:04Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-540-star",
-        "audio_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Nether Goyf",
-      "printing": "Modern Horizons 3 foil extended art",
-      "printing_certainty": "confirmed",
-      "foil": true,
-      "hosts": [
-        "James Chilcott",
-        "Cliff Dagel"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "15 or 16 bucks",
-      "entry_target": {
-        "raw": "15 or 16 bucks",
-        "currency": "USD",
-        "minimum": 15.0,
-        "maximum": 16.0
-      },
-      "hold": "medium-term",
-      "exit_target": {
-        "raw": "double up",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "Low inventory with only 21 listings on TCGplayer for MH3 foil extended arts.",
-        "Players want a matching playset of four for decks, which will dry up supply.",
-        "A reprint is likely a ways off."
-      ],
-      "caveats": [
-        "Original goyf printing exists so a reprint is not impossible."
-      ],
-      "confidence": "high",
-      "start_seconds": 1043,
-      "end_seconds": 1105,
-      "evidence_excerpt": "MH3 foil extended Arts are are down to 21 listings on TCG player. There's some copies around 15 or 16 bucks. They are going to dry up",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-ff2603b414f1127c",
-      "timestamp": "00:17:23",
-      "listen_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3#t=1043",
-      "card_resolution": {
-        "raw_name": "Nether Goyf",
-        "normalized_name": "nether goyf",
-        "status": "verified",
-        "canonical_name": "Nethergoyf",
-        "scryfall_id": "3ee3945e-5089-4751-b7b3-5961c39d2a33",
-        "oracle_id": "040cbd8a-a9e5-454b-a5ae-9b66bb66b8e9",
-        "scryfall_uri": "https://scryfall.com/card/mh3/103/nethergoyf?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/3/e/3ee3945e-5089-4751-b7b3-5961c39d2a33.jpg?1783911277",
-        "card_face_images": [],
-        "method": "normalized",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-19T01:59:29Z"
-      },
-      "resolved_card": "Nethergoyf",
-      "oracle_id": "040cbd8a-a9e5-454b-a5ae-9b66bb66b8e9",
-      "episode": {
-        "guid": "tag:soundcloud,2010:tracks/2439646461",
-        "episode_number": 540,
-        "title": "MTG Fast Finance Ep 540: Star Trek Previews Part 2",
-        "published_at": "2026-11-16T22:57:04Z",
-        "episode_url": "https://soundcloud.com/user-519789566/mtg-fast-finance-ep-540-star",
-        "audio_url": "https://feeds.soundcloud.com/stream/2439646461-user-519789566-mtg-fast-finance-ep-540-star.mp3",
-        "source_id": "mtg-fast-finance",
-        "source_name": "MTG Fast Finance"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Entreat the Dead",
-      "printing": "Warhammer 40k",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "DJ"
-      ],
-      "recommendation": "buy",
-      "mentioned_price": "3.50",
-      "entry_target": {
-        "raw": "350",
-        "currency": "USD",
-        "minimum": 3.5,
-        "maximum": 3.5
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "null",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "Warhammer 40k precons got a reprint from distribution, causing singles to drop in price."
-      ],
-      "caveats": [],
-      "confidence": "medium",
-      "start_seconds": 2662,
-      "end_seconds": 2747,
-      "evidence_excerpt": "Harold of Slanesh is the demon cost reducing creature... TCG low is 350. Market price is around four.",
-      "review_status": "approved",
-      "review_reason": null,
-      "automated_verification": {
-        "method": "focused_audio_scryfall",
-        "model": "gemini-3.5-flash-lite",
-        "original_card": "Herald of Slanesh",
-        "candidate_card": "Entreat the Dead",
-        "decision": "corrected",
-        "accepted": true,
-        "explanation": "The speakers discussed the card 'Entreat the Dead', which was misidentified by the initial extraction as 'Herald of Slanesh'."
-      },
-      "name_verification_resolution": {
-        "method": "focused_audio_scryfall",
-        "original_review_reason": "Card name has no exact match in Scryfall.",
-        "identity_resolved": true,
-        "other_review_required": false
-      },
-      "id": "pick-3b5b367eef520cf2",
-      "timestamp": "00:44:22",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2662",
-      "card_resolution": {
-        "raw_name": "Entreat the Dead",
-        "normalized_name": "entreat the dead",
-        "status": "verified",
-        "canonical_name": "Entreat the Dead",
-        "scryfall_id": "31a147bb-37ef-4a52-82e2-160a53323516",
-        "oracle_id": "2de6c3d9-1759-40a2-99c6-8cbe17b4bcdd",
-        "scryfall_uri": "https://scryfall.com/card/c18/15/entreat-the-dead?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/3/1/31a147bb-37ef-4a52-82e2-160a53323516.jpg?1783934339",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-14T00:55:58Z"
-      },
-      "resolved_card": "Entreat the Dead",
-      "oracle_id": "2de6c3d9-1759-40a2-99c6-8cbe17b4bcdd",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
-        "episode_number": 725,
-        "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
-        "published_at": "2026-11-13T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Molecule Man",
-      "printing": null,
-      "printing_certainty": "ambiguous",
-      "foil": null,
-      "hosts": [
-        "Corbin"
-      ],
-      "recommendation": "watch",
-      "mentioned_price": "$5",
-      "entry_target": {
-        "raw": "$5",
-        "currency": "USD",
-        "minimum": 5,
-        "maximum": 5
-      },
-      "hold": null,
-      "exit_target": {
-        "raw": "null",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
-      },
-      "reasoning": [
-        "Card price has climbed up a dollar in the past two weeks and it is hitting the bottom."
-      ],
-      "caveats": [],
-      "confidence": "medium",
-      "start_seconds": 2496,
-      "end_seconds": 2517,
-      "evidence_excerpt": "shocking to me that this card is now $5 instead of $25.",
-      "review_status": "approved",
-      "review_reason": null,
-      "id": "pick-718354a95e078708",
-      "timestamp": "00:41:36",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2496",
-      "card_resolution": {
-        "raw_name": "Molecule Man",
-        "normalized_name": "molecule man",
-        "status": "verified",
-        "canonical_name": "Molecule Man",
-        "scryfall_id": "ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1",
-        "oracle_id": "ba944437-0b55-47cb-92dc-2477ce6726c3",
-        "scryfall_uri": "https://scryfall.com/card/msc/9/molecule-man?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/e/e/ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1.jpg?1783903300",
-        "card_face_images": [],
-        "method": "exact",
-        "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-14T00:55:58Z"
-      },
-      "resolved_card": "Molecule Man",
-      "oracle_id": "ba944437-0b55-47cb-92dc-2477ce6726c3",
-      "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
-        "episode_number": 725,
-        "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
-        "published_at": "2026-11-13T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
-        "source_id": "brainstorm-brewery",
-        "source_name": "Brainstorm Brewery"
-      },
-      "processing_status": "needs_review",
-      "human_reviewed": false
-    },
-    {
-      "card": "Weapons Manufacturing",
-      "printing": "Edge of Eternities",
-      "printing_certainty": "confirmed",
-      "foil": null,
-      "hosts": [
-        "Liz"
-      ],
+      "hosts": [],
       "recommendation": "buy",
       "mentioned_price": null,
+      "entry_target": null,
+      "hold": null,
+      "exit_target": null,
+      "reasoning": [
+        "Has the pressure of being a pioneer four-of in arguably the best deck, the Scapeshift, Lotus Field combo deck.",
+        "Remains one of the most popular modern green commanders of recent years."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2763,
+      "end_seconds": 2783,
+      "evidence_excerpt": "Lumra, Bellow of the Woods now has the pressure of being a pioneer four of in arguably the best deck, the Scapeshift, Lotus Field combo deck",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Liz"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-4c24b9b51f6f8f2f",
+      "timestamp": "00:46:03",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2763",
+      "card_resolution": {
+        "raw_name": "Lumra, Bellow of the Woods",
+        "normalized_name": "lumra, bellow of the woods",
+        "status": "verified",
+        "canonical_name": "Lumra, Bellow of the Woods",
+        "scryfall_id": "ae4f3aaf-3960-48cd-b34b-32e4ae5ae088",
+        "oracle_id": "97a84e9d-bfc4-4ca2-b1e8-908dba56ccdb",
+        "scryfall_uri": "https://scryfall.com/card/blb/183/lumra-bellow-of-the-woods?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/a/e/ae4f3aaf-3960-48cd-b34b-32e4ae5ae088.jpg?1785161492",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-27T08:30:13Z"
+      },
+      "resolved_card": "Lumra, Bellow of the Woods",
+      "oracle_id": "97a84e9d-bfc4-4ca2-b1e8-908dba56ccdb",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+        "episode_number": 728,
+        "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+        "published_at": "2026-11-27T06:35:00Z",
+        "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Merciful Mandate",
+      "printing": "Star Trek Commander",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "0.13",
       "entry_target": {
-        "raw": "null",
-        "currency": null,
-        "minimum": null,
-        "maximum": null
+        "raw": "13-cent",
+        "currency": "USD",
+        "minimum": 0.13,
+        "maximum": 0.13
       },
       "hold": null,
       "exit_target": {
@@ -473,64 +189,418 @@
         "maximum": null
       },
       "reasoning": [
-        "Card is broken and was just put into standard with engineered explosives."
+        "One in a white instant, untap all creatures you control, then you may end the combat that's going on.",
+        "Acts as a fog, a combat blowout, or a political tool to save someone else's big alpha strike.",
+        "Too close to a Teferi's protection or time stop kind of effect to remain a bulk rare."
       ],
       "caveats": [],
-      "confidence": "high",
-      "start_seconds": 2393,
-      "end_seconds": 2397,
-      "evidence_excerpt": "My pick of the week is weapons manufacturing from Edge of eternities.",
+      "confidence": null,
+      "start_seconds": 2728,
+      "end_seconds": 2763,
+      "evidence_excerpt": "And that penny stock is Merciful Mandate from Star Trek Commander... I think this card is too good, too close to like a Teferi's protection",
       "review_status": "approved",
       "review_reason": null,
-      "automated_verification": {
-        "method": "focused_audio_scryfall",
-        "model": "gemini-3.5-flash-lite",
-        "original_card": "Weapons Manufacturer",
-        "candidate_card": "Weapons Manufacturing",
-        "decision": "corrected",
-        "accepted": true,
-        "explanation": "The speaker says 'Weapons Manufacturing' in the context of Magic finance. The initial extraction 'Weapons Manufacturer' is slightly off; the correct Scryfall name is 'Weapons Manufacturing'."
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Liz"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
       },
-      "name_verification_resolution": {
-        "method": "focused_audio_scryfall",
-        "original_review_reason": "Card name has no exact match in Scryfall.",
-        "identity_resolved": true,
-        "other_review_required": false
-      },
-      "id": "pick-ec4424e51234c78b",
-      "timestamp": "00:39:53",
-      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3#t=2393",
+      "id": "pick-7970cf05b6dc0112",
+      "timestamp": "00:45:28",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2728",
       "card_resolution": {
-        "raw_name": "Weapons Manufacturing",
-        "normalized_name": "weapons manufacturing",
+        "raw_name": "Merciful Mandate",
+        "normalized_name": "merciful mandate",
         "status": "verified",
-        "canonical_name": "Weapons Manufacturing",
-        "scryfall_id": "a058f1a6-318c-4bba-981e-ace079ada806",
-        "oracle_id": "e48a8160-cffe-4e00-a3e9-a59d7fc7b3a2",
-        "scryfall_uri": "https://scryfall.com/card/eoe/168/weapons-manufacturing?utm_source=api",
-        "image_uri": "https://cards.scryfall.io/normal/front/a/0/a058f1a6-318c-4bba-981e-ace079ada806.jpg?1783905943",
+        "canonical_name": "Merciful Mandate",
+        "scryfall_id": "30bfd653-fd11-415e-906d-b005edd3b811",
+        "oracle_id": "201269a1-8f11-485a-a9be-6447b189b4df",
+        "scryfall_uri": "https://scryfall.com/card/trc/25/merciful-mandate?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/3/0/30bfd653-fd11-415e-906d-b005edd3b811.jpg?1793196885",
         "card_face_images": [],
         "method": "exact",
         "resolver_version": "scryfall-named-v1",
-        "resolved_at": "2026-11-14T00:55:57Z"
+        "resolved_at": "2026-11-27T08:30:13Z"
       },
-      "resolved_card": "Weapons Manufacturing",
-      "oracle_id": "e48a8160-cffe-4e00-a3e9-a59d7fc7b3a2",
+      "resolved_card": "Merciful Mandate",
+      "oracle_id": "201269a1-8f11-485a-a9be-6447b189b4df",
       "episode": {
-        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
-        "episode_number": 725,
-        "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
-        "published_at": "2026-11-13T06:00:00Z",
-        "episode_url": "https://brainstormbrewery.com/corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance/",
-        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_726_Corbin_Could_Be_In_A_Pickle.mp3",
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+        "episode_number": 728,
+        "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+        "published_at": "2026-11-27T06:35:00Z",
+        "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
         "source_id": "brainstorm-brewery",
         "source_name": "Brainstorm Brewery"
       },
-      "processing_status": "needs_review",
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Michelangelo",
+      "printing": "Ninja Turtles",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "3 to 4",
+      "entry_target": {
+        "raw": "3:00 to $4:00 each",
+        "currency": "USD",
+        "minimum": 3.0,
+        "maximum": 4.0
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Did well at Worlds and started to climb just a little bit, and likely to continue to be good in standard.",
+        "Has convenient text: if one or more 11 counters would be put on a creature you control, that many plus 11 are put on it instead.",
+        "Line of text has a very good track record in commander."
+      ],
+      "caveats": [
+        "Has a low floor because it's just a rare from Ninja Turtles."
+      ],
+      "confidence": null,
+      "start_seconds": 2636,
+      "end_seconds": 2717,
+      "evidence_excerpt": "I have a card that did well at Worlds um and started to climb just a little bit... describing your set of Michelangelo weirdness to 11 at 3:00 to $4:00 each.",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "DJ"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-e6bf4e1c8e313b16",
+      "timestamp": "00:43:56",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2636",
+      "card_resolution": {
+        "raw_name": "Michelangelo",
+        "normalized_name": "michelangelo",
+        "status": "verified",
+        "canonical_name": "Michelangelo",
+        "scryfall_id": "7f630c58-253e-47b2-a845-5426bcc8b513",
+        "oracle_id": "632cd9dc-8acb-4986-94dc-3012b5871752",
+        "scryfall_uri": "https://scryfall.com/card/ftmc/4/michelangelo?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/7/f/7f630c58-253e-47b2-a845-5426bcc8b513.jpg?1783904183",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-27T08:30:13Z"
+      },
+      "resolved_card": "Michelangelo",
+      "oracle_id": "632cd9dc-8acb-4986-94dc-3012b5871752",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+        "episode_number": 728,
+        "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+        "published_at": "2026-11-27T06:35:00Z",
+        "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Whelming Wave",
+      "printing": null,
+      "printing_certainty": "ambiguous",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy",
+      "mentioned_price": "1",
+      "entry_target": {
+        "raw": "a dollar or so",
+        "currency": "USD",
+        "minimum": 1.0,
+        "maximum": null
+      },
+      "hold": "wait a few months",
+      "exit_target": {
+        "raw": "null",
+        "currency": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Several sea serpents and adjacent critters have spiked due to Noctis previews.",
+        "All printings were five to 15 years ago, resulting in a lower supply than most people realize.",
+        "Whelming wave has not jumped in price yet."
+      ],
+      "caveats": [],
+      "confidence": null,
+      "start_seconds": 2548,
+      "end_seconds": 2625,
+      "evidence_excerpt": "I am talking about Whelming Wave... Whelming wave has not jumped in price yet. You can still buy copies for a dollar or so.",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "DJ"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-6c49f72fe7aa1dee",
+      "timestamp": "00:42:28",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=2548",
+      "card_resolution": {
+        "raw_name": "Whelming Wave",
+        "normalized_name": "whelming wave",
+        "status": "verified",
+        "canonical_name": "Whelming Wave",
+        "scryfall_id": "ddb863a0-3ff8-42a3-a151-4ea9aa433336",
+        "oracle_id": "e510eaaf-6497-480f-baa8-f4796b5f1086",
+        "scryfall_uri": "https://scryfall.com/card/cmr/409/whelming-wave?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/d/d/ddb863a0-3ff8-42a3-a151-4ea9aa433336.jpg?1783928715",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-27T08:30:13Z"
+      },
+      "resolved_card": "Whelming Wave",
+      "oracle_id": "e510eaaf-6497-480f-baa8-f4796b5f1086",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+        "episode_number": 728,
+        "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+        "published_at": "2026-11-27T06:35:00Z",
+        "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Skull Prophet",
+      "printing": "Ikoria",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy / pull",
+      "mentioned_price": "0.75",
+      "entry_target": {
+        "raw": "0.75",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": null,
+      "exit_target": {
+        "raw": "50-cent buy list",
+        "currency": "USD",
+        "minimum": 0.5,
+        "maximum": null
+      },
+      "reasoning": [
+        "Only been reprinted once in Dragonstorm Commander.",
+        "Solid black-green mana dork that mills yourself."
+      ],
+      "caveats": [
+        "The buy list on that one is not there yet at the moment."
+      ],
+      "confidence": null,
+      "start_seconds": 1271,
+      "end_seconds": 1311,
+      "evidence_excerpt": "Skull Prophet. It's only been reprinted once in Dragon Storm, card here Dragon Storm Commander, uh which is also 75 cents.",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Corbin Hosler"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-9df6aeb44d6d3334",
+      "timestamp": "00:21:11",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=1271",
+      "card_resolution": {
+        "raw_name": "Skull Prophet",
+        "normalized_name": "skull prophet",
+        "status": "verified",
+        "canonical_name": "Skull Prophet",
+        "scryfall_id": "ea53e2c9-0a3f-4fda-a6ab-9a558bb8f126",
+        "oracle_id": "39b51f62-8421-42d1-86d3-74fd6e6f31a2",
+        "scryfall_uri": "https://scryfall.com/card/tdc/304/skull-prophet?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/e/a/ea53e2c9-0a3f-4fda-a6ab-9a558bb8f126.jpg?1783907020",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-27T08:30:12Z"
+      },
+      "resolved_card": "Skull Prophet",
+      "oracle_id": "39b51f62-8421-42d1-86d3-74fd6e6f31a2",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+        "episode_number": 728,
+        "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+        "published_at": "2026-11-27T06:35:00Z",
+        "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
+      "human_reviewed": false
+    },
+    {
+      "card": "Chamber of Manipulation",
+      "printing": "Judgment",
+      "printing_certainty": "confirmed",
+      "foil": null,
+      "hosts": [],
+      "recommendation": "buy / list and hold",
+      "mentioned_price": "1.50",
+      "entry_target": {
+        "raw": "1.50",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "hold": "wait, and just hold on to them, or put them in a commander deck",
+      "exit_target": {
+        "raw": "5 cents",
+        "currency": "USD",
+        "minimum": null,
+        "maximum": null
+      },
+      "reasoning": [
+        "Never been reprinted, not even in the list or secret lair.",
+        "Generic enough name that it seems like it would have gotten a throwaway secret lair printing at some point.",
+        "Very weird, instant speed mind control effect for one mana as long as it doesn't have hexproof or ward.",
+        "Enables madness and can be untapped with Deserted Temple."
+      ],
+      "caveats": [
+        "Format is a little steep for the modern era.",
+        "Card Kingdom buy list is only 5 cents per copy."
+      ],
+      "confidence": null,
+      "start_seconds": 1119,
+      "end_seconds": 1205,
+      "evidence_excerpt": "My pick is chamber of manipulation. This is in blue format of uncommon... So, if you have them, list them, and wait, and just uh, hold on to them",
+      "review_status": "approved",
+      "review_reason": null,
+      "attribution_check": {
+        "method": "named_source_evidence",
+        "proposed_hosts": [
+          "Corbin Hosler"
+        ],
+        "accepted_hosts": [],
+        "unresolved": true
+      },
+      "id": "pick-7352fd8ddb8e4075",
+      "timestamp": "00:18:39",
+      "listen_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3#t=1119",
+      "card_resolution": {
+        "raw_name": "Chamber of Manipulation",
+        "normalized_name": "chamber of manipulation",
+        "status": "verified",
+        "canonical_name": "Chamber of Manipulation",
+        "scryfall_id": "50496069-0f55-4dfe-8b1e-7fc4f649f2f1",
+        "oracle_id": "010e0d5c-e751-4f67-b305-8a598cc1f0de",
+        "scryfall_uri": "https://scryfall.com/card/ody/76/chamber-of-manipulation?utm_source=api",
+        "image_uri": "https://cards.scryfall.io/normal/front/5/0/50496069-0f55-4dfe-8b1e-7fc4f649f2f1.jpg?1783945263",
+        "card_face_images": [],
+        "method": "exact",
+        "resolver_version": "scryfall-named-v1",
+        "resolved_at": "2026-11-27T08:30:12Z"
+      },
+      "resolved_card": "Chamber of Manipulation",
+      "oracle_id": "010e0d5c-e751-4f67-b305-8a598cc1f0de",
+      "episode": {
+        "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+        "episode_number": 728,
+        "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+        "published_at": "2026-11-27T06:35:00Z",
+        "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+        "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+        "source_id": "brainstorm-brewery",
+        "source_name": "Brainstorm Brewery"
+      },
+      "processing_status": "complete",
       "human_reviewed": false
     }
   ],
   "episodes": [
+    {
+      "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36664",
+      "episode_number": 728,
+      "title": "When Every Deck Is Broken; Are Any of Them? | Brainstorm Brewery #728 | Magic Finance",
+      "published_at": "2026-11-27T06:35:00Z",
+      "audio_url": "https://traffic.libsyn.com/brainstormbrewery/Brainstorm_Brewery_728_When_Every_Deck_Is_Broken_Are_Any_of_Them.mp3",
+      "episode_url": "https://brainstormbrewery.com/when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/",
+      "duration_seconds": 3016,
+      "hosts": [
+        "Ryan",
+        "Corbin",
+        "Jason",
+        "Marcel"
+      ],
+      "description": "The full crew of&#160; DJ (@CardgardenMTG), Liz&#160; (@devotedDruid), and Corbin (@CHosler) are exploring what the world of Pioneer could be in 2026 following the results of the NRG tournament and how Star Trek chase cards are impacting the market. Check us out on YouTube because everything is better with video. https://www.youtube.com/BrainstormBrewery&#160;",
+      "source_id": "brainstorm-brewery",
+      "source_name": "Brainstorm Brewery",
+      "source_url": "https://brainstormbrewery.com/",
+      "extraction_profile": "brainstorm_brewery",
+      "processing_status": "complete",
+      "review_state": "approved",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_triage": {
+        "priority": 0,
+        "codes": [
+          "coverage"
+        ],
+        "issues": [
+          {
+            "code": "coverage",
+            "path": "extraction",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "coverage",
+            "path": "section",
+            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          }
+        ]
+      },
+      "pick_count": 6,
+      "directory": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance",
+      "outputs": {
+        "metadata": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/metadata.json",
+        "summary_json": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/summary.json",
+        "summary_markdown": "episodes/0728-when-every-deck-is-broken-are-any-of-them-brainstorm-brewery-728-magic-finance/summary.md",
+        "effective_summary_json": null,
+        "effective_summary_markdown": null
+      },
+      "processed_at": "2026-11-27T08:30:10Z",
+      "error": null,
+      "human_reviewed": false,
+      "review_revision": null,
+      "reviewed_at": null,
+      "reviewed_by": null,
+      "review_note": null,
+      "synthetic": false
+    },
     {
       "guid": "tag:soundcloud,2010:tracks/2443584204",
       "episode_number": 541,
