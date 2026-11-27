@@ -186,7 +186,8 @@ jobs:
 
       - name: Preflight existing production archive
         id: preflight
-        if: ${{ github.event_name != 'push' && inputs.mode != 'deploy_only' }}
+        # Check the committed archive before the push build can regenerate it.
+        if: ${{ inputs.mode != 'deploy_only' }}
         run: python -m ffw validate
 
       - name: Restore private transcription checkpoints

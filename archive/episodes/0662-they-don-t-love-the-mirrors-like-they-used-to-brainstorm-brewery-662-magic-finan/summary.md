@@ -14,7 +14,7 @@
 - Printing: Commander 2020
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $2 or $2.99
 - Hold: Not stated
@@ -39,7 +39,7 @@
 - Printing: The Lost Caverns of Ixalan
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: bulk
 - Hold: Not stated
@@ -64,7 +64,7 @@
 - Printing: Edge of Eternities
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: a quarter to 50 cents
 - Hold: Not stated
@@ -89,7 +89,7 @@
 - Printing: Tempest
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 20ish
 - Hold: Not stated

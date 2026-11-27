@@ -14,7 +14,7 @@
 - Printing: Pip Surge Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 150
 - Hold: 1-2 years
@@ -40,7 +40,7 @@
 - Printing: Pip Surge Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 215
 - Hold: 1-2 years
@@ -66,7 +66,7 @@
 - Printing: Pip Surge Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 200
 - Hold: 1-2 years

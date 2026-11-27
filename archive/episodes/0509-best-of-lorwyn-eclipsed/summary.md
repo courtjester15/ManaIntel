@@ -14,7 +14,7 @@
 - Printing: Commander Masters Borderless
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $10
 - Hold: 6 to 12 months
@@ -40,7 +40,7 @@
 - Printing: Secret Lair
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $10 copy
 - Hold: Not stated
@@ -67,7 +67,7 @@
 - Printing: Foundations Jumpstart
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 8 or 9
 - Hold: Not stated
@@ -93,7 +93,7 @@
 - Printing: Tales of Middle-earth Commander Showcase Scrolls
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: about $10
 - Hold: a couple weeks

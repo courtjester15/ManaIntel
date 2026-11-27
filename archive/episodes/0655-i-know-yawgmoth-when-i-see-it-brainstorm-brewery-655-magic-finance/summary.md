@@ -14,7 +14,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: breaking bulk
 - Entry: null
 - Hold: Not stated
@@ -38,7 +38,7 @@
 - Printing: Phyrexia: All Will Be One Commander
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: breaking bulk
 - Entry: null
 - Hold: Not stated
@@ -86,7 +86,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: pick of the week
 - Entry: null
 - Hold: Not stated
@@ -111,7 +111,7 @@
 - Printing: Commander Masters
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: reprint discussion
 - Entry: null
 - Hold: Not stated

@@ -14,7 +14,7 @@
 - Printing: borderless foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 10
 - Hold: 12 to 18 months
@@ -65,7 +65,7 @@
 - Printing: showcase foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 35 or 40
 - Hold: Not stated

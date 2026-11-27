@@ -64,7 +64,7 @@
 - Printing: Dragons of Tarkir
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: pull from bulk
 - Entry: Not stated
 - Hold: Not stated

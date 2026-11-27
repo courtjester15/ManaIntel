@@ -140,7 +140,7 @@
 - Printing: Final Fantasy
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: monitor
 - Entry: five dollars and fifteen cents
 - Hold: Not stated

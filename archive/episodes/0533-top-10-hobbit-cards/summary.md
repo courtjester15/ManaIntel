@@ -14,7 +14,7 @@
 - Printing: Silver Scroll Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $450 to $500
 - Hold: 6 months to a year
@@ -40,7 +40,7 @@
 - Printing: Cat Drop
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $14
 - Hold: 6 to 12 months
@@ -66,7 +66,7 @@
 - Printing: Foil Extended Art
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: Not stated
 - Hold: 2 years
@@ -92,7 +92,7 @@
 - Printing: Marvel Source Material
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 30
 - Hold: Not stated

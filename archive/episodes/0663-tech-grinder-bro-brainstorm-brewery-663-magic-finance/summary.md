@@ -14,7 +14,7 @@
 - Printing: Innistrad: Remastered
 - Printing certainty: likely
 - Finish: Nonfoil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $20 to $25
 - Hold: Not stated
@@ -39,7 +39,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: current price
 - Hold: Not stated
@@ -63,7 +63,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: under $5
 - Hold: Not stated

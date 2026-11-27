@@ -14,7 +14,7 @@
 - Printing: Elven text / non-serialized from Lord of the Rings
 - Printing certainty: confirmed
 - Finish: Nonfoil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: now is probably a good time to grab them
 - Hold: Not stated
@@ -39,7 +39,7 @@
 - Printing: Secret Lair version that has the enchantment frame
 - Printing certainty: confirmed
 - Finish: Nonfoil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: unprinted long enough
 - Hold: Not stated
@@ -64,7 +64,7 @@
 - Printing: Final Fantasy mythic
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: get four of them now
 - Hold: Not stated

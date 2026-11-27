@@ -14,7 +14,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: close to the all-time low
 - Hold: Not stated
@@ -39,7 +39,7 @@
 - Printing: Prophecy
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: bulk
 - Hold: Not stated
@@ -64,7 +64,7 @@
 - Printing: Lost Caverns of Ixlan
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $8
 - Hold: Not stated
@@ -89,7 +89,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: around a buck
 - Hold: Not stated
@@ -114,7 +114,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: around a buck
 - Hold: Not stated
@@ -139,7 +139,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 15 and 20
 - Hold: Not stated

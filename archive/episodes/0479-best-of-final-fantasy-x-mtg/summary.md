@@ -39,7 +39,7 @@
 - Printing: foil borderless
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: around six bucks
 - Hold: Not stated
@@ -64,7 +64,7 @@
 - Printing: Mana Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $85
 - Hold: Not stated
@@ -90,7 +90,7 @@
 - Printing: borderless rainbow foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $15
 - Hold: Not stated

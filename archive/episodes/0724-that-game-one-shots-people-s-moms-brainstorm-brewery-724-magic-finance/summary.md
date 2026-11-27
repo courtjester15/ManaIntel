@@ -14,7 +14,7 @@
 - Printing: Commander Legends: Battle for Baldur's Gate
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 40 cents
 - Hold: Not stated
@@ -38,7 +38,7 @@
 - Printing: Modern Horizons 3
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $7 or $8
 - Hold: Not stated
@@ -62,7 +62,7 @@
 - Printing: Ravnica: City of Guilds
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: a buck 50 or two bucks
 - Hold: Not stated
@@ -87,7 +87,7 @@
 - Printing: Not stated
 - Printing certainty: ambiguous
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $2
 - Hold: long-term

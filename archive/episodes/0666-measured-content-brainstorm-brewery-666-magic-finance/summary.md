@@ -14,7 +14,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: pull them out of your bulk, list them for a dollar, or pull them out of your bulk and just hold on to them
 - Entry: $1
 - Hold: Not stated
@@ -39,7 +39,7 @@
 - Printing: Innistrad: Crimson Vow
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: It'll be $2 for a long time. That's a $2 card forever.
 - Entry: $2
 - Hold: a long time
@@ -63,7 +63,7 @@
 - Printing: Phyrexia: All Will Be One
 - Printing certainty: ambiguous
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: would be a fan of picking up your attrxas sub $10 while you can
 - Entry: sub $10
 - Hold: Not stated

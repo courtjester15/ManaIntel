@@ -14,7 +14,7 @@
 - Printing: Final Fantasy Secret Lair drop - Raised Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: just over $40
 - Hold: 6 to 12 months
@@ -40,7 +40,7 @@
 - Printing: Final Fantasy - Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: under $10
 - Hold: Not stated

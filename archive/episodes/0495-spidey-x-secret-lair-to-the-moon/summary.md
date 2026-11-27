@@ -14,7 +14,7 @@
 - Printing: Secret Lair Rainbow Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $20
 - Hold: 6 to 12 months
@@ -39,7 +39,7 @@
 - Printing: Ripple Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: early to mid 20s
 - Hold: a few months
@@ -65,7 +65,7 @@
 - Printing: Secret Lair Dungeons and Dragons Rainbow Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 6
 - Hold: Not stated
@@ -90,7 +90,7 @@
 - Printing: Ripple Foil
 - Printing certainty: confirmed
 - Finish: Foil
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 12 to 13
 - Hold: Not stated

@@ -14,7 +14,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: top five pick of the week
 - Entry: 14000
 - Hold: Not stated
@@ -38,7 +38,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: top five pick of the week
 - Entry: Not stated
 - Hold: Not stated
@@ -62,7 +62,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: top five pick of the week
 - Entry: Not stated
 - Hold: Not stated
@@ -86,7 +86,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: top five pick of the week
 - Entry: Not stated
 - Hold: Not stated
@@ -111,7 +111,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: top five pick of the week
 - Entry: 10000
 - Hold: Not stated

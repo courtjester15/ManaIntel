@@ -14,7 +14,7 @@
 - Printing: Magic the Gathering X Final Fantasy
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: 25¢ to 50¢
 - Hold: Not stated
@@ -38,7 +38,7 @@
 - Printing: Eventide
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $2
 - Hold: Not stated
@@ -62,7 +62,7 @@
 - Printing: Urza's block
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $5 to $8
 - Hold: Not stated

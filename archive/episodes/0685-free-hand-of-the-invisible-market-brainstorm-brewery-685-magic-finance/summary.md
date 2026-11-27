@@ -91,7 +91,7 @@
 - Printing: Lorwyn Eclipse
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $2 TCG low
 - Hold: Not stated
@@ -143,7 +143,7 @@
 - Printing: Spider-Man
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $3
 - Hold: Not stated

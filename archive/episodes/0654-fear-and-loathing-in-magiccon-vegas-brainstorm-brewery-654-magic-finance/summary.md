@@ -14,7 +14,7 @@
 - Printing: Final Fantasy Secret Lair
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $25
 - Hold: Not stated
@@ -38,7 +38,7 @@
 - Printing: Wilds of Eldraine
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $3 to $6
 - Hold: Not stated

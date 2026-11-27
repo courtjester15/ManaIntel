@@ -14,7 +14,7 @@
 - Printing: Bloomburrow
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: break bulk / buylist
 - Entry: 50c buylist
 - Hold: Not stated
@@ -38,7 +38,7 @@
 - Printing: Core Set 2019
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: break bulk / buylist
 - Entry: 40 cents
 - Hold: Not stated
@@ -63,7 +63,7 @@
 - Printing: Commander 2015
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: pick of the week
 - Entry: $6
 - Hold: Not stated
@@ -88,7 +88,7 @@
 - Printing: Revised
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: pick of the week
 - Entry: underpriced
 - Hold: Not stated
@@ -112,7 +112,7 @@
 - Printing: Edge of Eternity
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: pick of the week
 - Entry: $2
 - Hold: Not stated
@@ -137,7 +137,7 @@
 - Printing: Edge of Eternities
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: pick of the week
 - Entry: $2, $3
 - Hold: Not stated

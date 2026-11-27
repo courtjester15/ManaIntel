@@ -6,6 +6,14 @@ Updated October 15, 2026. This is the active roadmap, replacing the maintenance-
 
 **Current release: 0.5.34. Next milestone: 0.6 — dependable processing.**
 
+November 26 production preflight repair: six scheduled runs stopped before episode
+processing because the 0.5.34 unknown-host label left 24 committed Markdown summaries
+stale. Regenerated those summaries from the existing JSON and made push deployments
+validate the committed archive before rendering. The push build previously repaired
+its own copy, which let the drift pass deployment checks while blocking schedules.
+Next: confirm the first ordinary run clears preflight and inspect its episode outcome.
+R2 source checks remain open.
+
 November 24 quality batch (0.5.34): [evidence and limits](QUALITY_BATCH_2026-11-24.md).
 Independent machine ASR plus separate short-clip transcription corroborate FF539’s
 missing final SOLDIER Military Program recommendation and five bad listening

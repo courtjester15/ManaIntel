@@ -39,7 +39,7 @@
 - Printing: Commander printing
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: Not stated
 - Hold: Not stated
@@ -64,7 +64,7 @@
 - Printing: Not stated
 - Printing certainty: Not stated
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: buy
 - Entry: $48 to $52
 - Hold: Not stated

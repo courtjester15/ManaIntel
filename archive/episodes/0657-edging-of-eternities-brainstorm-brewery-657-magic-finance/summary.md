@@ -14,7 +14,7 @@
 - Printing: Gold stamp signature art cards
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: Do not throw out Final Fantasy art cards, specifically the gold stamp signature ones.
 - Entry: bulk
 - Hold: Not stated
@@ -39,7 +39,7 @@
 - Printing: Not stated
 - Printing certainty: ambiguous
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: Pull out of bulk rares and list for more than market price.
 - Entry: bulk
 - Hold: Not stated
@@ -64,7 +64,7 @@
 - Printing: Not stated
 - Printing certainty: ambiguous
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: Pick up Ketramoss before it hits 20 bucks.
 - Entry: $9 to $11
 - Hold: Not stated
@@ -114,7 +114,7 @@
 - Printing: Secret Lair Commander Deck
 - Printing certainty: confirmed
 - Finish: Not stated
-- Host(s): 
+- Host(s): Not identified
 - Recommendation: Buy the Secret Lair Commander deck and crack it for value.
 - Entry: $200
 - Hold: Not stated
