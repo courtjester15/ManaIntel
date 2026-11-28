@@ -160,6 +160,7 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-27T08:26:59Z — brainstorm-brewery 728: **complete**; initial processing; 6 picks; 11 observed model calls; 0 checkpoints reused; archive validation=success. [Details](attempts/febb3d8714ed4faeb80e1b404d1fdbcd.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/45965654141)
 - 2026-11-27T13:54:03Z — mtg-fast-finance 531: **needs_review**; forced rerun; bounded chunk split; 7 picks; 11 observed model calls; 0 checkpoints reused; 1 failed model calls; 0 unavailable-model skips; previous published result retained; archive validation=success; Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.; note: Bounded nightly cleanup. [Details](attempts/544f1547f37d4e1ebee8d45a9a333cf4.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/46010999374)
 - 2026-11-28T02:40:31Z — mtg-fast-finance 541: **complete**; retry; automatically retained transcript; 4 picks; 2 observed model calls; 4 checkpoints reused; archive validation=success. [Details](attempts/4873c2424b01444b8a1f49e27bc1129a.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/46099181789)
+- 2026-11-28T07:45:47Z — brainstorm-brewery 727: **needs_review**; retry; automatically retained transcript; 5 picks; 6 observed model calls; 3 checkpoints reused; archive validation=success. [Details](attempts/cd8bcb91fe1c4af08b834b2c6a442f83.json) · [Run](https://github.com/courtjester15/ManaIntel/actions/runs/46122632179)
 
 ## Workflow outcomes
 
@@ -367,3 +368,4 @@ Generated from `attempts/*.json`. Outcomes describe local processing; workflow v
 - 2026-11-27T08:30:20Z — run 45965654141/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/45965654141-1.json)
 - 2026-11-27T13:59:43Z — run 46010999374/1: preflight=success; pipeline=success; exit=None; validation=success; selected=see queue note; Primary gate=true; queue=older than fourteen days; bounded repair cohort. [Details](runs/46010999374-1.json)
 - 2026-11-28T02:40:58Z — run 46099181789/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/46099181789-1.json)
+- 2026-11-28T07:46:36Z — run 46122632179/1: preflight=success; pipeline=success; exit=0; validation=success; selected=1; . [Details](runs/46122632179-1.json)
