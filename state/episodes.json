@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "0.5.36",
-  "updated_at": "2026-11-28T07:46:27Z",
+  "updated_at": "2026-11-28T13:02:03Z",
   "episodes": {
     "ffw-synthetic-episode-901": {
       "guid": "ffw-synthetic-episode-901",
@@ -38501,6 +38501,50 @@
         {
           "status": "needs_review",
           "timestamp": "2026-11-14T00:55:57Z"
+        },
+        {
+          "status": "queued",
+          "timestamp": "2026-11-28T13:01:46Z"
+        },
+        {
+          "status": "downloading",
+          "timestamp": "2026-11-28T13:01:46Z"
+        },
+        {
+          "status": "downloaded",
+          "timestamp": "2026-11-28T13:01:48Z"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-11-28T13:01:48Z"
+        },
+        {
+          "status": "transcribing",
+          "timestamp": "2026-11-28T13:01:57Z"
+        },
+        {
+          "status": "transcribed",
+          "timestamp": "2026-11-28T13:01:57Z"
+        },
+        {
+          "status": "extracting",
+          "timestamp": "2026-11-28T13:01:57Z"
+        },
+        {
+          "status": "extracted",
+          "timestamp": "2026-11-28T13:02:03Z"
+        },
+        {
+          "status": "validating",
+          "timestamp": "2026-11-28T13:02:03Z"
+        },
+        {
+          "status": "publishing",
+          "timestamp": "2026-11-28T13:02:03Z"
+        },
+        {
+          "status": "needs_review",
+          "timestamp": "2026-11-28T13:02:03Z"
         }
       ],
       "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
@@ -38508,11 +38552,11 @@
       "published_at": "2026-11-13T06:00:00Z",
       "source_id": "brainstorm-brewery",
       "source_name": "Brainstorm Brewery",
-      "attempt_count": 1,
+      "attempt_count": 2,
       "pick_count": 3,
       "error": null,
       "status": "needs_review",
-      "updated_at": "2026-11-14T00:55:57Z",
+      "updated_at": "2026-11-28T13:02:03Z",
       "output_directory": "episodes/0725-corbin-could-be-in-a-pickle-brainstorm-brewery-725-magic-finance",
       "transcription": {
         "provider": "Gemini",
@@ -38650,7 +38694,7 @@
       "extraction_usage": {
         "cache_tokens_details": null,
         "cached_content_token_count": null,
-        "candidates_token_count": 878,
+        "candidates_token_count": 1546,
         "candidates_tokens_details": null,
         "prompt_token_count": 25251,
         "prompt_tokens_details": [
@@ -38662,16 +38706,22 @@
         "thoughts_token_count": null,
         "tool_use_prompt_token_count": null,
         "tool_use_prompt_tokens_details": null,
-        "total_token_count": 26129,
+        "total_token_count": 26797,
         "traffic_type": null
       },
       "extraction_model": "gemini-3.5-flash-lite",
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review. Recommendation segment found without an explicit ending; review the bounded extraction.",
       "review_issues": [
         {
           "code": "coverage",
           "path": "extraction",
-          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review. Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "unresolved"
+        },
+        {
+          "code": "printing",
+          "path": "extraction",
+          "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review. Recommendation segment found without an explicit ending; review the bounded extraction.",
           "state": "unresolved"
         },
         {

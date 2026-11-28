@@ -83,4 +83,4 @@
 
 ---
 
-Schema 1.1.0 · Pipeline 0.5.25 · Prompt source-recommendations-v4-metadata-context
+Schema 1.1.0 · Pipeline 0.5.36 · Prompt source-recommendations-v5-evidence-guards

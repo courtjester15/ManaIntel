@@ -6,8 +6,8 @@
     "project": "ManaIntel",
     "pipeline_version": "0.5.36",
     "schema_version": "1.1.0",
-    "generated_at": "2026-11-28T07:46:29Z",
-    "latest_successful_run_at": "2026-11-28T07:46:27Z",
+    "generated_at": "2026-11-28T13:02:03Z",
+    "latest_successful_run_at": "2026-11-28T13:02:03Z",
     "generated_from": "live-feed",
     "production_mode": true,
     "source": {
@@ -793,17 +793,24 @@
       "extraction_profile": "brainstorm_brewery",
       "processing_status": "needs_review",
       "review_state": "needs_review",
-      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review. Recommendation segment found without an explicit ending; review the bounded extraction.",
       "review_triage": {
         "priority": 0,
         "codes": [
-          "coverage"
+          "coverage",
+          "printing"
         ],
         "issues": [
           {
             "code": "coverage",
             "path": "extraction",
-            "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review. Recommendation segment found without an explicit ending; review the bounded extraction.",
+            "state": "unresolved"
+          },
+          {
+            "code": "printing",
+            "path": "extraction",
+            "reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review. Recommendation segment found without an explicit ending; review the bounded extraction.",
             "state": "unresolved"
           },
           {
@@ -823,7 +830,7 @@
         "effective_summary_json": null,
         "effective_summary_markdown": null
       },
-      "processed_at": "2026-11-14T00:55:57Z",
+      "processed_at": "2026-11-28T13:02:03Z",
       "error": null,
       "human_reviewed": false,
       "review_revision": null,

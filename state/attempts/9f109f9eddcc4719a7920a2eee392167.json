@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "attempt_id": "9f109f9eddcc4719a7920a2eee392167",
+  "episode": {
+    "guid": "brainstorm-brewery:https://brainstormbrewery.com/?p=36656",
+    "number": 725,
+    "title": "Corbin Could Be In A Pickle | Brainstorm Brewery #725 | Magic Finance",
+    "source": "brainstorm-brewery"
+  },
+  "started_at": "2026-11-28T13:01:46Z",
+  "pipeline_version": "0.5.36",
+  "prompt_version": "source-recommendations-v5-evidence-guards",
+  "run_id": "46147484366",
+  "run_attempt": "1",
+  "git_sha": "9d9d1d37f631fdbe8e2eec12ee0404ad001e0fd2",
+  "intervention": "Bounded nightly cleanup",
+  "context": {
+    "force": true,
+    "retry_failed": false,
+    "reuse_transcript": false,
+    "recover_hosts": false,
+    "prior_status": "needs_review",
+    "prior_attempt_count": 1,
+    "transcription_model": "gemini-3.5-flash-lite",
+    "extraction_model": "gemini-3.5-flash-lite",
+    "chunk_seconds": 900,
+    "transcription_fallback": null,
+    "extraction_fallback": null,
+    "transient_retries": 1,
+    "request_timeout_seconds": 300.0
+  },
+  "events": [
+    {
+      "timestamp": "2026-11-28T13:01:46Z",
+      "event": "stage",
+      "stage": "queued",
+      "pick_count": 0
+    },
+    {
+      "timestamp": "2026-11-28T13:01:46Z",
+      "event": "stage",
+      "stage": "downloading"
+    },
+    {
+      "timestamp": "2026-11-28T13:01:48Z",
+      "event": "stage",
+      "stage": "downloaded"
+    },
+    {
+      "timestamp": "2026-11-28T13:01:48Z",
+      "event": "stage",
+      "stage": "preparing"
+    },
+    {
+      "timestamp": "2026-11-28T13:01:57Z",
+      "event": "stage",
+      "stage": "transcribing"
+    },
+    {
+      "timestamp": "2026-11-28T13:01:57Z",
+      "event": "transcript_reused",
+      "provider": "Gemini",
+      "model": "gemini-3.5-flash-lite"
+    },
+    {
+      "timestamp": "2026-11-28T13:01:57Z",
+      "event": "timing_repair_plan",
+      "suspect_chunks": [],
+      "repair_limit": 2
+    },
+    {
+      "timestamp": "2026-11-28T13:01:57Z",
+      "event": "stage",
+      "stage": "transcribed",
+      "transcription": {
+        "provider": "Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "models": [
+          "gemini-3.5-flash-lite"
+        ],
+        "chunk_count": 4,
+        "duration_seconds": 2918,
+        "usage": [
+          {
+            "chunk": 1,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 48.39,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 23379,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22703,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22499
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 46082,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 2,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 38.413,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 19265,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22704,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 41969,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 3,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 900,
+            "request_seconds": 34.62,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 16246,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 22704,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                },
+                {
+                  "modality": "AUDIO",
+                  "token_count": 22500
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 38950,
+              "traffic_type": null
+            }
+          },
+          {
+            "chunk": 4,
+            "chunk_count": 4,
+            "model": "gemini-3.5-flash-lite",
+            "audio_seconds": 218,
+            "request_seconds": 6.971,
+            "checkpoint_reused": false,
+            "provider_usage": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 2885,
+              "candidates_tokens_details": null,
+              "prompt_token_count": 5646,
+              "prompt_tokens_details": [
+                {
+                  "modality": "AUDIO",
+                  "token_count": 5442
+                },
+                {
+                  "modality": "TEXT",
+                  "token_count": 204
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 8531,
+              "traffic_type": null
+            }
+          }
+        ],
+        "timing_adjustments": 0,
+        "audio_dispositions": []
+      }
+    },
+    {
+      "timestamp": "2026-11-28T13:01:57Z",
+      "event": "stage",
+      "stage": "extracting"
+    },
+    {
+      "timestamp": "2026-11-28T13:02:02Z",
+      "event": "model_call",
+      "stage": "extracting",
+      "model": "gemini-3.5-flash-lite",
+      "outcome": "success",
+      "request_seconds": 3.872,
+      "finish_reason": "STOP",
+      "provider_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1546,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 25251,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 25251
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 26797,
+        "traffic_type": null
+      },
+      "response_characters": 5073
+    },
+    {
+      "timestamp": "2026-11-28T13:02:03Z",
+      "event": "review_issues",
+      "issues": [
+        {
+          "code": "coverage",
+          "path": "extraction",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "diagnostic"
+        },
+        {
+          "code": "coverage",
+          "path": "section",
+          "reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+          "state": "diagnostic"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-28T13:02:03Z",
+      "event": "stage",
+      "stage": "extracted",
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "extraction_model": "gemini-3.5-flash-lite",
+      "extraction_usage": {
+        "cache_tokens_details": null,
+        "cached_content_token_count": null,
+        "candidates_token_count": 1546,
+        "candidates_tokens_details": null,
+        "prompt_token_count": 25251,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 25251
+          }
+        ],
+        "thoughts_token_count": null,
+        "tool_use_prompt_token_count": null,
+        "tool_use_prompt_tokens_details": null,
+        "total_token_count": 26797,
+        "traffic_type": null
+      }
+    },
+    {
+      "timestamp": "2026-11-28T13:02:03Z",
+      "event": "extraction_summary",
+      "section": {
+        "located": true,
+        "label": "Breaking Bulk / Pick of the Week",
+        "start_seconds": 1247,
+        "end_seconds": 2902
+      },
+      "pick_count": 5,
+      "review_reason": "Recommendation segment found without an explicit ending; review the bounded extraction.",
+      "picks": [
+        {
+          "card": "Planequake",
+          "printing": "Mystery Booster",
+          "confidence": "high",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Return the Favor",
+          "printing": "Outlaws of Thunder Junction",
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Weapons Manufacturing",
+          "printing": "Edge of Eternities",
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Molecule Man",
+          "printing": null,
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        },
+        {
+          "card": "Herald of Slaanesh",
+          "printing": "Warhammer 40k",
+          "confidence": "medium",
+          "review_status": "approved",
+          "review_reason": null
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-28T13:02:03Z",
+      "event": "stage",
+      "stage": "validating"
+    },
+    {
+      "timestamp": "2026-11-28T13:02:03Z",
+      "event": "stage",
+      "stage": "publishing"
+    },
+    {
+      "timestamp": "2026-11-28T13:02:03Z",
+      "event": "stage",
+      "stage": "needs_review",
+      "pick_count": 3,
+      "review_reason": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review. Recommendation segment found without an explicit ending; review the bounded extraction."
+    }
+  ],
+  "outcome": "needs_review",
+  "run_url": "https://github.com/courtjester15/ManaIntel/actions/runs/46147484366",
+  "finished_at": "2026-11-28T13:02:03Z",
+  "pick_count": 3,
+  "preserved_previous": true,
+  "note": "Forced reprocessing omitted published recommendations or changed their known printing identities or host attribution; the previous recommendations were retained for review.",
+  "workflow_validation": "success",
+  "publication_eligible": true
+}
